@@ -23,7 +23,9 @@ import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.location.LocationManager;
@@ -52,7 +54,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Preferences extends PreferenceActivity implements
-    OnPreferenceChangeListener, OnPreferenceClickListener {
+    OnPreferenceChangeListener, OnPreferenceClickListener, OnSharedPreferenceChangeListener {
     private static final String TAG = "Preferences";
 
     private static final String KEY_USE_METRIC = "use_metric";
@@ -71,6 +73,7 @@ public class Preferences extends PreferenceActivity implements
     private static final String KEY_LOOKAHEAD = "calendar_lookahead";
     private static final String KEY_SHOW_LOCATION = "calendar_show_location";
     private static final String KEY_SHOW_DESCRIPTION = "calendar_show_description";
+    protected static final String PREF_NAME = "LockClock";
 
     private static final int LOC_WARNING = 101;
     private static final int WEATHER_CHECK = 0;
@@ -100,12 +103,13 @@ public class Preferences extends PreferenceActivity implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getPreferenceManager().setSharedPreferencesName(PREF_NAME);
         addPreferencesFromResource(R.xml.widget_prefs);
         mContext = this;
         mResolver = getContentResolver();
 
         // Load the required settings from preferences
-        SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+        SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
 
         // Clock items
         // TODO: this does not do anything yet, still to be implemented
@@ -180,11 +184,12 @@ public class Preferences extends PreferenceActivity implements
         mCalendarShowDescription.setValue(String.valueOf(calendarShowDescription));
         mCalendarShowDescription.setSummary(mapMetadataValue(calendarShowDescription));
         mCalendarShowDescription.setOnPreferenceChangeListener(this);
+        prefs.registerOnSharedPreferenceChangeListener(this);
     }
 
     private void updateLocationSummary() {
         if (mUseCustomLoc.isChecked()) {
-            SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+            SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
             String location = prefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, 
                     getResources().getString(R.string.unknown));
             mCustomWeatherLoc.setSummary(location);
@@ -195,7 +200,7 @@ public class Preferences extends PreferenceActivity implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+        SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
         if (preference == mClockFont) {
             prefs.edit().putInt(Constants.CLOCK_FONT,
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
@@ -252,7 +257,7 @@ public class Preferences extends PreferenceActivity implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+        SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
 
         if (preference == mWeatherSyncInterval) {
             int newVal = Integer.parseInt((String) newValue);
@@ -291,7 +296,7 @@ public class Preferences extends PreferenceActivity implements
     public boolean onPreferenceClick(Preference preference) {
 
         if (preference == mCustomWeatherLoc) {
-            SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+            SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
             String location = prefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, "");
             mCustomWeatherLoc.getEditText().setText(location);
             mCustomWeatherLoc.getEditText().setSelection(location.length());
@@ -341,7 +346,7 @@ public class Preferences extends PreferenceActivity implements
                 } else {
                     String cLoc = mCustomWeatherLoc.getEditText().getText().toString();
                     mCustomWeatherLoc.setText(cLoc);
-                    SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+                    SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
                     prefs.edit().putString(Constants.WEATHER_CUSTOM_LOCATION_STRING, cLoc).apply();
                     mCustomWeatherLoc.setSummary(cLoc);
                     mCustomWeatherLoc.getDialog().dismiss();
@@ -463,5 +468,12 @@ public class Preferences extends PreferenceActivity implements
         CharSequence[] getEntryValues() {
             return mEntryValues;
         }
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+            String key) {
+        Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
+        sendBroadcast(updateIntent);
     }
 }

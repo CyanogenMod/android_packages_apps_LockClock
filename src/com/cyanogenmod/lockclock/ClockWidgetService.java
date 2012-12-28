@@ -19,6 +19,7 @@ package com.cyanogenmod.lockclock;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -42,6 +43,7 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import com.cyanogenmod.lockclock.misc.Constants;
+import static com.cyanogenmod.lockclock.Preferences.PREF_NAME;
 import com.cyanogenmod.lockclock.weather.HttpRetriever;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherXmlParser;
@@ -55,26 +57,27 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class ClockWidgetService extends Service {
+
     private static final String TAG = "ClockWidgetService";
     private static final boolean DEBUG = true;
 
     private Context mContext;
     private int[] mWidgetIds;
     private AppWidgetManager mAppWidgetManager;
+    private SharedPreferences mSharedPrefs;
 
     @Override
     public void onCreate() {
         mContext = getApplicationContext();
         mAppWidgetManager = AppWidgetManager.getInstance(mContext);
+        ComponentName thisWidget = new ComponentName(mContext, ClockWidgetProvider.class);
+        mWidgetIds = mAppWidgetManager.getAppWidgetIds(thisWidget);
+        mSharedPrefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        // Iterate through all the widgets supported by this provider
-        mWidgetIds = intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
         if (mWidgetIds != null && mWidgetIds.length != 0) {
-            refreshAlarmStatus(); // might as well
-            refreshCalendar(); // might as well
             refreshWeather(); // This has the service stop
 
             // TODO: do we need to do the widget updates in the alarm and calendar updates above?
@@ -90,12 +93,10 @@ public class ClockWidgetService extends Service {
     /*
      * Alarm clock related functionality
      */
-    void refreshAlarmStatus() {
-        SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
-        boolean showAlarm = prefs.getInt(Constants.CLOCK_SHOW_ALARM, 1) == 1;
+    void refreshAlarmStatus(RemoteViews remoteViews) {
+        boolean showAlarm = mSharedPrefs.getInt(Constants.CLOCK_SHOW_ALARM, 1) == 1;
 
         // Update Alarm status
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
         if (showAlarm) {
             String nextAlarm = getNextAlarm();
             if (!TextUtils.isEmpty(nextAlarm)) {
@@ -106,11 +107,6 @@ public class ClockWidgetService extends Service {
             }
         } else {
             remoteViews.setViewVisibility(R.id.nextAlarm, View.GONE);
-        }
-
-        // Update all the widgets
-        for (int widgetId : mWidgetIds) {
-            mAppWidgetManager.updateAppWidget(widgetId, remoteViews);
         }
     }
 
@@ -147,9 +143,8 @@ public class ClockWidgetService extends Service {
                     @Override
                     public void run() {
                         // Load the preferences
-                        SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
-                        boolean useCustomLoc = prefs.getInt(Constants.WEATHER_USE_CUSTOM_LOCATION, 0) == 1;
-                        String customLoc = prefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);// TODO: Should I use the null here?
+                        boolean useCustomLoc = mSharedPrefs.getInt(Constants.WEATHER_USE_CUSTOM_LOCATION, 0) == 1;
+                        String customLoc = mSharedPrefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);// TODO: Should I use the null here?
 
                         // Get location related stuff ready
                         LocationManager locationManager =
@@ -234,8 +229,7 @@ public class ClockWidgetService extends Service {
      * Reload the weather forecast
      */
     private void refreshWeather() {
-        SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
-        boolean showWeather = prefs.getInt(Constants.SHOW_WEATHER, 1) == 1;
+        boolean showWeather = mSharedPrefs.getInt(Constants.SHOW_WEATHER, 1) == 1;
 
         if (showWeather) {
             // TODO: figure out when to show that we are refreshing to give the user a visual cue
@@ -243,7 +237,7 @@ public class ClockWidgetService extends Service {
             //showRefreshing();
     
             // Load the required settings from preferences
-            final long interval = prefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_DEFAULT);
+            final long interval = mSharedPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_DEFAULT);
             boolean manualSync = (interval == Constants.UPDATE_FREQ_MANUAL);
             if (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval)) {
                 if (!mWeatherRefreshing) {
@@ -258,10 +252,15 @@ public class ClockWidgetService extends Service {
             // Hide the weather panel
             RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
             remoteViews.setViewVisibility(R.id.weather_panel, View.GONE);
-            for (int widgetId : mWidgetIds) {
-                mAppWidgetManager.updateAppWidget(widgetId, remoteViews);
-            }
+            updateAndExit(remoteViews);
         }
+    }
+
+    private void updateAndExit(RemoteViews remoteViews) {
+        refreshAlarmStatus(remoteViews);
+        refreshCalendar(remoteViews);
+        mAppWidgetManager.updateAppWidget(mWidgetIds, remoteViews);
+        stopSelf();
     }
 
     /**
@@ -284,10 +283,9 @@ public class ClockWidgetService extends Service {
      */
     private void setWeatherData(WeatherInfo w) {
         // Load the preferences
-        SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
-        boolean showLocation = prefs.getInt(Constants.WEATHER_SHOW_LOCATION, 1) == 1;
-        boolean showTimestamp = prefs.getInt(Constants.WEATHER_SHOW_TIMESTAMP, 1) == 1;
-        boolean invertLowhigh = prefs.getInt(Constants.WEATHER_INVERT_LOWHIGH, 0) == 1;
+        boolean showLocation = mSharedPrefs.getInt(Constants.WEATHER_SHOW_LOCATION, 1) == 1;
+        boolean showTimestamp = mSharedPrefs.getInt(Constants.WEATHER_SHOW_TIMESTAMP, 1) == 1;
+        boolean invertLowhigh = mSharedPrefs.getInt(Constants.WEATHER_INVERT_LOWHIGH, 0) == 1;
 
         // Get the views ready
         RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
@@ -352,11 +350,7 @@ public class ClockWidgetService extends Service {
                 PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.digital_clock, pi);
 
-        // Update all the widgets and stop
-        for (int widgetId : mWidgetIds) {
-            mAppWidgetManager.updateAppWidget(widgetId, remoteViews);
-        }
-        stopSelf();
+        updateAndExit(remoteViews);
     }
 
     /**
@@ -378,11 +372,7 @@ public class ClockWidgetService extends Service {
         // Make sure the Weather panel is visible
         remoteViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
 
-        // Update all the widgets and stop
-        for (int widgetId : mWidgetIds) {
-            mAppWidgetManager.updateAppWidget(widgetId, remoteViews);
-        }
-        stopSelf();
+        updateAndExit(remoteViews);
     }
 
     /**
@@ -430,15 +420,12 @@ public class ClockWidgetService extends Service {
      * Calendar related functionality
      */
 
-    private void refreshCalendar() {
+    private void refreshCalendar(RemoteViews remoteViews) {
         // Load the settings
-        SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
-        boolean lockCalendar = prefs.getInt(Constants.SHOW_CALENDAR, 0) == 1;
-        String[] calendars = parseStoredValue(prefs.getString(Constants.CALENDAR_LIST, null));
-        boolean lockCalendarRemindersOnly = prefs.getInt(Constants.CALENDAR_REMINDERS_ONLY, 0) == 1;
-        long lockCalendarLookahead = prefs.getLong(Constants.CALENDAR_LOOKAHEAD, 10800000);
-
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        boolean lockCalendar = mSharedPrefs.getInt(Constants.SHOW_CALENDAR, 0) == 1;
+        String[] calendars = parseStoredValue(mSharedPrefs.getString(Constants.CALENDAR_LIST, null));
+        boolean lockCalendarRemindersOnly = mSharedPrefs.getInt(Constants.CALENDAR_REMINDERS_ONLY, 0) == 1;
+        long lockCalendarLookahead = mSharedPrefs.getLong(Constants.CALENDAR_LOOKAHEAD, 10800000);
 
         String[] nextCalendar = null;
         boolean visible = false; // Assume we are not showing the view
@@ -454,11 +441,6 @@ public class ClockWidgetService extends Service {
             }
         }
        remoteViews.setViewVisibility(R.id.calendar_panel, visible ? View.VISIBLE : View.GONE);
-
-       // Update all the widgets
-       for (int widgetId : mWidgetIds) {
-           mAppWidgetManager.updateAppWidget(widgetId, remoteViews);
-       }
     }
 
     /**
@@ -574,8 +556,7 @@ public class ClockWidgetService extends Service {
                 }
 
                 // Add the event location if it should be shown
-                SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
-                int showLocation = prefs.getInt(Constants.CALENDAR_SHOW_LOCATION, 0);
+                int showLocation = mSharedPrefs.getInt(Constants.CALENDAR_SHOW_LOCATION, 0);
                 if (showLocation != 0 && !TextUtils.isEmpty(location)) {
                     switch(showLocation) {
                         case 1:
@@ -595,7 +576,7 @@ public class ClockWidgetService extends Service {
                 }
 
                 // Add the event description if it should be shown
-                int showDescription = prefs.getInt(Constants.CALENDAR_SHOW_DESCRIPTION, 0);
+                int showDescription = mSharedPrefs.getInt(Constants.CALENDAR_SHOW_DESCRIPTION, 0);
                 if (showDescription != 0 && !TextUtils.isEmpty(description)) {
 
                     // Show the appropriate separator
