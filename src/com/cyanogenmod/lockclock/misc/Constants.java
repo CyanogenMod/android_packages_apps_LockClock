@@ -23,4 +23,14 @@ public class Constants {
     public static final int UPDATE_FREQ_DEFAULT = 15;   // Should be 60
     public static final int WIDGET_UPDATE_FREQ = 60000; // every 60 seconds
 
+    // Widget Settings
+    public static final String CLOCK_FONT = "clock_font";
+    public static final String SHOW_WEATHER = "show_weather";
+    public static final String WEATHER_USE_CUSTOM_LOCATION = "use_custom_location";
+    public static final String WEATHER_CUSTOM_LOCATION_STRING = "custom_location_string";
+    public static final String WEATHER_SHOW_LOCATION = "show_location";
+    public static final String WEATHER_SHOW_TIMESTAMP = "show_timestamp";
+    public static final String WEATHER_USE_METRIC = "use_metric";
+    public static final String WEATHER_INVERT_LOWHIGH = "invert_low_high";
+    public static final String WEATHER_UPDATE_INTERVAL = "update_interval";
 }

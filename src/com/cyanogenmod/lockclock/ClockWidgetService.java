@@ -91,14 +91,14 @@ public class ClockWidgetService extends Service {
                 Thread queryWeather = new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        // Load the preferences
+                        SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+                        boolean useCustomLoc = prefs.getInt(Constants.WEATHER_USE_CUSTOM_LOCATION, 0) == 1;
+                        String customLoc = prefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);// TODO: Should I use the null here?
+
+                        // Get location related stuff ready
                         LocationManager locationManager =
                                 (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
-
-                        final ContentResolver resolver = getBaseContext().getContentResolver();
-                        boolean useCustomLoc = false; //Settings.System.getInt(resolver,
-                                //Settings.System.WEATHER_USE_CUSTOM_LOCATION, 0) == 1;
-                        String customLoc = "Toronto, Canada"; //Settings.System.getString(resolver,
-                                    //Settings.System.WEATHER_CUSTOM_LOCATION);
                         String woeid = null;
 
                         // custom location
@@ -179,24 +179,33 @@ public class ClockWidgetService extends Service {
      * Reload the weather forecast
      */
     private void refreshWeather() {
-        final ContentResolver resolver = getBaseContext().getContentResolver();
         SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+        boolean showWeather = prefs.getInt(Constants.SHOW_WEATHER, 1) == 1;
 
-        // TODO: figure out when to show that we are refreshing to give the user a visual cue
-        // should only be on manual refresh
-        //showRefreshing();
-
-        // Load the required settings from preferences
-        final long interval = prefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_DEFAULT);
-        boolean manualSync = (interval == Constants.UPDATE_FREQ_MANUAL);
-        if (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval)) {
-            if (!mWeatherRefreshing) {
-                mHandler.sendEmptyMessage(QUERY_WEATHER);
+        if (showWeather) {
+            // TODO: figure out when to show that we are refreshing to give the user a visual cue
+            // should only be on manual refresh
+            //showRefreshing();
+    
+            // Load the required settings from preferences
+            final long interval = prefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_DEFAULT);
+            boolean manualSync = (interval == Constants.UPDATE_FREQ_MANUAL);
+            if (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval)) {
+                if (!mWeatherRefreshing) {
+                    mHandler.sendEmptyMessage(QUERY_WEATHER);
+                }
+            } else if (manualSync && mWeatherInfo.last_sync == 0) {
+                setNoWeatherData();
+            } else {
+                setWeatherData(mWeatherInfo);
             }
-        } else if (manualSync && mWeatherInfo.last_sync == 0) {
-            setNoWeatherData();
         } else {
-            setWeatherData(mWeatherInfo);
+            // Hide the weather panel
+            RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+            remoteViews.setViewVisibility(R.id.weather_panel, View.GONE);
+            for (int widgetId : mWidgetIds) {
+                mAppWidgetManager.updateAppWidget(widgetId, remoteViews);
+            }
         }
     }
 
@@ -219,17 +228,17 @@ public class ClockWidgetService extends Service {
      * @param w
      */
     private void setWeatherData(WeatherInfo w) {
-        final ContentResolver resolver = getBaseContext().getContentResolver();
-        final Resources res = getBaseContext().getResources();
-        boolean showLocation = true; //Settings.System.getInt(resolver,
-                //Settings.System.WEATHER_SHOW_LOCATION, 1) == 1;
-        boolean showTimestamp = true; //Settings.System.getInt(resolver,
-                //Settings.System.WEATHER_SHOW_TIMESTAMP, 1) == 1;
-        boolean invertLowhigh = false; //Settings.System.getInt(resolver,
-                //Settings.System.WEATHER_INVERT_LOWHIGH, 0) == 1;
+        // Load the preferences
+        SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+        boolean showLocation = prefs.getInt(Constants.WEATHER_SHOW_LOCATION, 1) == 1;
+        boolean showTimestamp = prefs.getInt(Constants.WEATHER_SHOW_TIMESTAMP, 1) == 1;
+        boolean invertLowhigh = prefs.getInt(Constants.WEATHER_INVERT_LOWHIGH, 0) == 1;
+
+        // Get the views ready
         RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
 
         // Weather Image
+        final Resources res = getBaseContext().getResources();
         String conditionCode = w.condition_code;
         String condition_filename = "weather_" + conditionCode;
         int resID = res.getIdentifier(condition_filename, "drawable",
@@ -267,8 +276,11 @@ public class ClockWidgetService extends Service {
         remoteViews.setTextViewText(R.id.weather_low_high, invertLowhigh ? w.high + " | " + w.low : w.low + " | " + w.high);
         remoteViews.setViewVisibility(R.id.weather_temps_panel, View.VISIBLE);
 
-        // TODO: Make these listeners do something useful
+        // Make sure the Weather panel is visible
+        remoteViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
+
         // Register an onClickListener on Weather
+        // TODO: Make this listener actually update the weather, not just the widget? or?
         Intent weatherClickIntent = new Intent(mContext, ClockWidgetProvider.class);
         weatherClickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
         weatherClickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, mWidgetIds);
@@ -277,6 +289,7 @@ public class ClockWidgetService extends Service {
         remoteViews.setOnClickPendingIntent(R.id.weather_panel, pendingIntent);
 
         // Register an onClickListener on Clock
+        // TODO: Should launch the clock or should we let it not do anything? 
         Intent clockClickIntent = new Intent(mContext, ClockWidgetProvider.class);
         clockClickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
         clockClickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, mWidgetIds);
@@ -298,14 +311,17 @@ public class ClockWidgetService extends Service {
     private void setNoWeatherData() {
         final Resources res = getBaseContext().getResources();
         RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
-        if (remoteViews != null) {
-            remoteViews.setImageViewResource(R.id.weather_image, R.drawable.weather_na);
-            remoteViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
-            remoteViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
-            remoteViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
-            remoteViews.setViewVisibility(R.id.update_time, View.GONE);
-            remoteViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
-        }
+
+        // Update the appropriate views
+        remoteViews.setImageViewResource(R.id.weather_image, R.drawable.weather_na);
+        remoteViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
+        remoteViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
+        remoteViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
+        remoteViews.setViewVisibility(R.id.update_time, View.GONE);
+        remoteViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
+
+        // Make sure the Weather panel is visible
+        remoteViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
 
         // Update all the widgets and stop
         for (int widgetId : mWidgetIds) {
