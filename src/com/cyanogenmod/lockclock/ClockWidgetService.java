@@ -44,7 +44,6 @@ import com.cyanogenmod.lockclock.weather.YahooPlaceFinder;
 import org.w3c.dom.Document;
 
 import java.io.IOException;
-import java.util.Date;
 
 public class ClockWidgetService extends Service {
     private static final String TAG = "ClockWidgetService";
@@ -67,7 +66,6 @@ public class ClockWidgetService extends Service {
         if (mWidgetIds != null && mWidgetIds.length != 0) {
             refreshWeather();
         }
-
         return START_STICKY;
     }
 
@@ -77,7 +75,7 @@ public class ClockWidgetService extends Service {
     }
 
     /*
-     * CyanogenMod Lock screen Weather related functionality
+     * CyanogenMod Weather related functionality
      */
     private static final String URL_YAHOO_API_WEATHER = "http://weather.yahooapis.com/forecastrss?w=%s&u=";
     private static WeatherInfo mWeatherInfo = new WeatherInfo();
@@ -120,22 +118,18 @@ public class ClockWidgetService extends Service {
                             String bestProvider = locationManager.getBestProvider(crit, true);
                             Location loc = null;
                             if (bestProvider != null) {
-                                if (DEBUG)
-                                    Log.d(TAG, "getLastKnownLocation - bestProvider");
                                 loc = locationManager.getLastKnownLocation(bestProvider);
                             } else {
-                                if (DEBUG)
-                                    Log.d(TAG, "getLastKnownLocation - Passive provider");
                                 loc = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
                             }
                             try {
-                                if (DEBUG)
-                                    Log.d(TAG, "Looking for Yahoo location code for current geolocation. Loc = " + loc);
                                 if (loc != null) {
                                     woeid = YahooPlaceFinder.reverseGeoCode(mContext, loc.getLatitude(),
                                             loc.getLongitude());
                                     if (DEBUG)
                                         Log.d(TAG, "Yahoo location code for current geolocation is " + woeid);
+                                } else {
+                                    Log.e(TAG, "ERROR: Location returned null");
                                 }
                             } catch (Exception e) {
                                 Log.e(TAG, "ERROR: Could not get Location code");
@@ -165,12 +159,6 @@ public class ClockWidgetService extends Service {
             case UPDATE_WEATHER:
                 WeatherInfo w = (WeatherInfo) msg.obj;
                 if (w != null) {
-                    // Store the last update check time
-                    Date d = new Date();
-                    SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
-                    prefs.edit().putLong(Constants.LAST_UPDATE_CHECK_PREF, d.getTime()).apply();
-
-                    // Update the weather info
                     mWeatherRefreshing = false;
                     setWeatherData(w);
                     mWeatherInfo = w;
@@ -193,28 +181,22 @@ public class ClockWidgetService extends Service {
     private void refreshWeather() {
         final ContentResolver resolver = getBaseContext().getContentResolver();
         SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
-        boolean showWeather = true; //Settings.System.getInt(resolver,Settings.System.LOCKSCREEN_WEATHER, 0) == 1;
 
-        if (showWeather) {
-            //showRefreshing();
+        // TODO: figure out when to show that we are refreshing to give the user a visual cue
+        // should only be on manual refresh
+        //showRefreshing();
 
-            // Load the required settings from preferences
-            final long interval = prefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_DEFAULT);
-            boolean manualSync = (interval == Constants.UPDATE_FREQ_MANUAL);
-            if (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval)) {
-                if (!mWeatherRefreshing) {
-                    mHandler.sendEmptyMessage(QUERY_WEATHER);
-                }
-            } else if (manualSync && mWeatherInfo.last_sync == 0) {
-                setNoWeatherData();
-            } else {
-                setWeatherData(mWeatherInfo);
+        // Load the required settings from preferences
+        final long interval = prefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_DEFAULT);
+        boolean manualSync = (interval == Constants.UPDATE_FREQ_MANUAL);
+        if (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval)) {
+            if (!mWeatherRefreshing) {
+                mHandler.sendEmptyMessage(QUERY_WEATHER);
             }
+        } else if (manualSync && mWeatherInfo.last_sync == 0) {
+            setNoWeatherData();
         } else {
-            /* Hide the Weather panel view
-            if (mRemoteViews != null) {
-                mRemoteViews.setViewVisibility(R.id.weather_panel, View.GONE);
-            }*/
+            setWeatherData(mWeatherInfo);
         }
     }
 
@@ -285,9 +267,7 @@ public class ClockWidgetService extends Service {
         remoteViews.setTextViewText(R.id.weather_low_high, invertLowhigh ? w.high + " | " + w.low : w.low + " | " + w.high);
         remoteViews.setViewVisibility(R.id.weather_temps_panel, View.VISIBLE);
 
-        // Show the Weather panel view
-        remoteViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
-
+        // TODO: Make these listeners do something useful
         // Register an onClickListener on Weather
         Intent weatherClickIntent = new Intent(mContext, ClockWidgetProvider.class);
         weatherClickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
@@ -325,9 +305,6 @@ public class ClockWidgetService extends Service {
             remoteViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
             remoteViews.setViewVisibility(R.id.update_time, View.GONE);
             remoteViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
-
-            // Show the Weather panel view
-            remoteViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
         }
 
         // Update all the widgets and stop

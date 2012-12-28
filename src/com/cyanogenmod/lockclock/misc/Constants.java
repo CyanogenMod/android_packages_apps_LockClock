@@ -20,6 +20,7 @@ public class Constants {
 
     // Update Check items
     public static final int UPDATE_FREQ_MANUAL  = 0;
-    public static final int UPDATE_FREQ_DEFAULT = 10; // Should be 60
+    public static final int UPDATE_FREQ_DEFAULT = 15;   // Should be 60
+    public static final int WIDGET_UPDATE_FREQ = 60000; // every 60 seconds
 
 }
