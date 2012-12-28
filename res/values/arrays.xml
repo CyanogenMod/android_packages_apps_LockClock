@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-/*
-**
-** Copyright 2012 The CyanogenMod Project (DvTonder)
-**
-** Licensed under the Apache License, Version 2.0 (the "License");
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**     http://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
-** limitations under the License.
-*/
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string-array name="weather_interval_entries" translatable="false">
@@ -37,6 +34,36 @@
         <item>240</item>
         <item>360</item>
         <item>480</item>
+    </string-array>
+
+    <string-array name="calendar_lookahead_entries" translatable="false">
+        <item>@string/calendar_lookahead_3hrs</item>
+        <item>@string/calendar_lookahead_6hrs</item>
+        <item>@string/calendar_lookahead_12hrs</item>
+        <item>@string/calendar_lookahead_1day</item>
+        <item>@string/calendar_lookahead_3days</item>
+        <item>@string/calendar_lookahead_1wk</item>
+    </string-array>
+
+    <string-array name="calendar_lookahead_values" translatable="false">
+        <item>10800000</item>
+        <item>21600000</item>
+        <item>43200000</item>
+        <item>86400000</item>
+        <item>259200000</item>
+        <item>604800000</item>
+    </string-array>
+
+    <string-array name="calendar_show_event_metadata_entries" translatable="false">
+        <item>@string/calendar_metadata_none</item>
+        <item>@string/calendar_metadata_first_line</item>
+        <item>@string/calendar_metadata_all</item>
+    </string-array>
+
+    <string-array name="calendar_show_event_metadata_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
 </resources>

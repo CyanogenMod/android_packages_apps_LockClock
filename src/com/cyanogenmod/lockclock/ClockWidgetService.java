@@ -23,15 +23,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.provider.CalendarContract;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.text.format.DateUtils;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -45,6 +50,9 @@ import com.cyanogenmod.lockclock.weather.YahooPlaceFinder;
 import org.w3c.dom.Document;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class ClockWidgetService extends Service {
     private static final String TAG = "ClockWidgetService";
@@ -66,7 +74,10 @@ public class ClockWidgetService extends Service {
         mWidgetIds = intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
         if (mWidgetIds != null && mWidgetIds.length != 0) {
             refreshAlarmStatus(); // might as well
-            refreshWeather();
+            refreshCalendar(); // might as well
+            refreshWeather(); // This has the service stop
+
+            // TODO: do we need to do the widget updates in the alarm and calendar updates above?
         }
         return START_STICKY;
     }
@@ -81,7 +92,7 @@ public class ClockWidgetService extends Service {
      */
     void refreshAlarmStatus() {
         SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
-        boolean showAlarm = prefs.getInt(Constants.SHOW_ALARM, 1) == 1;
+        boolean showAlarm = prefs.getInt(Constants.CLOCK_SHOW_ALARM, 1) == 1;
 
         // Update Alarm status
         RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
@@ -413,4 +424,216 @@ public class ClockWidgetService extends Service {
         }
         return null;
     }
+    
+
+    /*
+     * Calendar related functionality
+     */
+
+    private void refreshCalendar() {
+        // Load the settings
+        SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+        boolean lockCalendar = prefs.getInt(Constants.SHOW_CALENDAR, 0) == 1;
+        String[] calendars = parseStoredValue(prefs.getString(Constants.CALENDAR_LIST, ""));
+        boolean lockCalendarRemindersOnly = prefs.getInt(Constants.CALENDAR_REMINDERS_ONLY, 0) == 1;
+        long lockCalendarLookahead = prefs.getLong(Constants.CALENDAR_LOOKAHEAD, 10800000);
+
+        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+
+        String[] nextCalendar = null;
+        boolean visible = false; // Assume we are not showing the view
+
+        if (lockCalendar) {
+            nextCalendar = getNextCalendarAlarm(lockCalendarLookahead, calendars, lockCalendarRemindersOnly);
+            if (nextCalendar[0] != null) {
+                remoteViews.setTextViewText(R.id.calendar_event_title, nextCalendar[0].toString());
+                if (nextCalendar[1] != null) {
+                    remoteViews.setTextViewText(R.id.calendar_event_details, nextCalendar[1]);
+                }
+                visible = true;
+            }
+        }
+       remoteViews.setViewVisibility(R.id.calendar_panel, visible ? View.VISIBLE : View.GONE);
+
+       // Update all the widgets
+       for (int widgetId : mWidgetIds) {
+           mAppWidgetManager.updateAppWidget(widgetId, remoteViews);
+       }
+    }
+
+    /**
+     * Split the MultiSelectListPreference string based on a separator of ',' and
+     * stripping off the start [ and the end ]
+     * @param val
+     * @return
+     */
+    private static String[] parseStoredValue(String val) {
+        if (val == null || val.isEmpty())
+            return null;
+        else {
+            // Strip off the start [ and the end ] before splitting
+            val = val.substring(1, val.length() -1);
+            return (val.split(","));
+        }
+    }
+
+    /**
+     * @return A formatted string of the next calendar event with a reminder
+     * (for showing on the lock screen), or null if there is no next event
+     * within a certain look-ahead time.
+     */
+    public String[] getNextCalendarAlarm(long lookahead, String[] calendars,
+            boolean remindersOnly) {
+        long now = System.currentTimeMillis();
+        long later = now + lookahead;
+
+        StringBuilder where = new StringBuilder();
+        if (remindersOnly) {
+            where.append(CalendarContract.Events.HAS_ALARM + "=1");
+        }
+        if (calendars != null && calendars.length > 0) {
+            if (remindersOnly) {
+                where.append(" AND ");
+            }
+            where.append(CalendarContract.Events.CALENDAR_ID + " in (");
+            for (int i = 0; i < calendars.length; i++) {
+                where.append(calendars[i]);
+                if (i != calendars.length - 1) {
+                    where.append(",");
+                }
+            }
+            where.append(") ");
+        }
+
+        // Projection array
+        String[] projection = new String[] {
+            CalendarContract.Events.TITLE,
+            CalendarContract.Instances.BEGIN,
+            CalendarContract.Events.DESCRIPTION,
+            CalendarContract.Events.EVENT_LOCATION,
+            CalendarContract.Events.ALL_DAY
+        };
+
+        // The indices for the projection array
+        int TITLE_INDEX = 0;
+        int BEGIN_TIME_INDEX = 1;
+        int DESCRIPTION_INDEX = 2;
+        int LOCATION_INDEX = 3;
+        int ALL_DAY_INDEX = 4;
+
+        Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
+                String.format("%d/%d", now, later));
+        String[] nextCalendarAlarm = new String[2];
+        Cursor cursor = null;
+
+        try {
+            cursor = mContext.getContentResolver().query(uri, projection,
+                    where.toString(), null, "begin ASC");
+
+            if (cursor != null && cursor.moveToFirst()) {
+
+                String title = cursor.getString(TITLE_INDEX);
+                long begin = cursor.getLong(BEGIN_TIME_INDEX);
+                String description = cursor.getString(DESCRIPTION_INDEX);
+                String location = cursor.getString(LOCATION_INDEX);
+                boolean allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
+
+                // Check the next event in the case of all day event. As UTC is used for all day
+                // events, the next event may be the one that actually starts sooner
+                if (allDay && !cursor.isLast()) {
+                    cursor.moveToNext();
+                    long nextBegin = cursor.getLong(BEGIN_TIME_INDEX);
+                    if (nextBegin < begin + TimeZone.getDefault().getOffset(begin)) {
+                        title = cursor.getString(TITLE_INDEX);
+                        begin = nextBegin;
+                        description = cursor.getString(DESCRIPTION_INDEX);
+                        location = cursor.getString(LOCATION_INDEX);
+                        allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
+                    }
+                }
+
+                // Set the event title as the first array item
+                nextCalendarAlarm[0] = title.toString();
+
+                // Start building the event details string
+                // Starting with the date
+                Date start = new Date(begin);
+                StringBuilder sb = new StringBuilder();
+
+                if (allDay) {
+                    SimpleDateFormat sdf = new SimpleDateFormat(
+                            mContext.getString(R.string.abbrev_wday_month_day_no_year));
+                    // Calendar stores all-day events in UTC -- setting the time zone ensures
+                    // the correct date is shown.
+                    sdf.setTimeZone(TimeZone.getTimeZone(Time.TIMEZONE_UTC));
+                    sb.append(sdf.format(start));
+                } else {
+                    sb.append(DateFormat.format("E", start));
+                    sb.append(" ");
+                    sb.append(DateFormat.getTimeFormat(mContext).format(start));
+                }
+
+                // Add the event location if it should be shown
+                SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+                int showLocation = prefs.getInt(Constants.CALENDAR_SHOW_LOCATION, 0);
+                if (showLocation != 0 && !TextUtils.isEmpty(location)) {
+                    switch(showLocation) {
+                        case 1:
+                            // Show first line
+                            int end = location.indexOf('\n');
+                            if(end == -1) {
+                                sb.append(": " + location);
+                            } else {
+                                sb.append(": " + location.substring(0, end));
+                            }
+                            break;
+                        case 2:
+                            // Show all
+                            sb.append(": " + location);
+                            break;
+                    }
+                }
+
+                // Add the event description if it should be shown
+                int showDescription = prefs.getInt(Constants.CALENDAR_SHOW_DESCRIPTION, 0);
+                if (showDescription != 0 && !TextUtils.isEmpty(description)) {
+
+                    // Show the appropriate separator
+                    if (showLocation == 0) {
+                        sb.append(": ");
+                    } else {
+                        sb.append(" - ");
+                    }
+
+                    switch(showDescription) {
+                        case 1:
+                            // Show first line
+                            int end = description.indexOf('\n');
+                            if(end == -1) {
+                                sb.append(description);
+                            } else {
+                                sb.append(description.substring(0, end));
+                            }
+                            break;
+                        case 2:
+                            // Show all
+                            sb.append(description);
+                            break;
+                    }
+                }
+
+                // Set the time, location and description as the second array item
+                nextCalendarAlarm[1] = sb.toString();
+            }
+        } catch (Exception e) {
+            // Do nothing
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+        return nextCalendarAlarm;
+    }
+
 }

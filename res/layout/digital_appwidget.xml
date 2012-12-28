@@ -31,6 +31,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
-        android:layout_below="@id/digital_clock" />
+        android:layout_below="@id/digital_clock"
+        android:visibility="gone" />
+
+    <include layout="@layout/calendar_panel"
+        android:id="@+id/calendar_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_below="@id/weather_panel"
+        android:visibility="gone" />
 
 </RelativeLayout>

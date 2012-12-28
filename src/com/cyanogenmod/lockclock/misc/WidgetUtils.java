@@ -20,13 +20,10 @@ import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.widget.RemoteViews;
 
 import com.cyanogenmod.lockclock.R;
-import com.cyanogenmod.lockclock.R.dimen;
-import com.cyanogenmod.lockclock.R.id;
 
 public class WidgetUtils {
     static final String TAG = "WidgetUtils";
