@@ -38,7 +38,16 @@
             style="@style/widget_big_bold"
             android:textColor="@color/clock_white"
             android:layout_gravity="center_horizontal|top" />
-
+        <TextClock
+            android:id="@+id/the_clock1_regular"
+            android:format12Hour="@string/widget_12_hours_format_h"
+            android:format24Hour="@string/widget_24_hours_format_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/widget_big_thin"
+            android:visibility="gone"
+            android:textColor="@color/clock_white"
+            android:layout_gravity="center_horizontal|top" />
         <TextClock
             android:id="@+id/the_clock2"
             android:format12Hour="@string/widget_12_hours_format_no_ampm_m"

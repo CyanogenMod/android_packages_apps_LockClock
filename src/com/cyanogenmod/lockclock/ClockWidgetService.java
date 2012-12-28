@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -41,6 +42,7 @@ import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
+import android.widget.TextView;
 
 import com.cyanogenmod.lockclock.misc.Constants;
 import static com.cyanogenmod.lockclock.Preferences.PREF_NAME;
@@ -259,6 +261,10 @@ public class ClockWidgetService extends Service {
     private void updateAndExit(RemoteViews remoteViews) {
         refreshAlarmStatus(remoteViews);
         refreshCalendar(remoteViews);
+        if (mSharedPrefs.getInt(Constants.CLOCK_FONT, 1) == 0) {
+            remoteViews.setViewVisibility(R.id.the_clock1_regular, View.VISIBLE);
+            remoteViews.setViewVisibility(R.id.the_clock1, View.GONE);
+        }
         mAppWidgetManager.updateAppWidget(mWidgetIds, remoteViews);
         stopSelf();
     }
