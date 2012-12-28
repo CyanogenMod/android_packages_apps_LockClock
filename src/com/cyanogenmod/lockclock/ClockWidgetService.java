@@ -434,7 +434,7 @@ public class ClockWidgetService extends Service {
         // Load the settings
         SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
         boolean lockCalendar = prefs.getInt(Constants.SHOW_CALENDAR, 0) == 1;
-        String[] calendars = parseStoredValue(prefs.getString(Constants.CALENDAR_LIST, ""));
+        String[] calendars = parseStoredValue(prefs.getString(Constants.CALENDAR_LIST, null));
         boolean lockCalendarRemindersOnly = prefs.getInt(Constants.CALENDAR_REMINDERS_ONLY, 0) == 1;
         long lockCalendarLookahead = prefs.getLong(Constants.CALENDAR_LOOKAHEAD, 10800000);
 

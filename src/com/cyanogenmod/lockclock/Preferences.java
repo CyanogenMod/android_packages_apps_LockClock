@@ -85,12 +85,12 @@ public class Preferences extends PreferenceActivity implements
     private CheckBoxPreference mInvertLowHigh;
     private ListPreference mWeatherSyncInterval;
     private EditTextPreference mCustomWeatherLoc;
-    private CheckBoxPreference mCalendarPref;
-    private CheckBoxPreference mCalendarRemindersOnlyPref;
-    private MultiSelectListPreference mCalendarsPref;
-    private ListPreference mCalendarLookaheadPref;
-    private ListPreference mCalendarShowLocationPref;
-    private ListPreference mCalendarShowDescriptionPref;
+    private CheckBoxPreference mShowCalendar;
+    private CheckBoxPreference mCalendarRemindersOnly;
+    private MultiSelectListPreference mCalendarList;
+    private ListPreference mCalendarLookahead;
+    private ListPreference mCalendarShowLocation;
+    private ListPreference mCalendarShowDescription;
 
     private Context mContext;
     private ContentResolver mResolver;
@@ -150,36 +150,36 @@ public class Preferences extends PreferenceActivity implements
         }
 
         // Calendar items
-        mCalendarPref = (CheckBoxPreference) findPreference(KEY_SHOW_CALENDAR);
-        mCalendarPref.setChecked(prefs.getInt(Constants.SHOW_CALENDAR, 0) == 1);
+        mShowCalendar = (CheckBoxPreference) findPreference(KEY_SHOW_CALENDAR);
+        mShowCalendar.setChecked(prefs.getInt(Constants.SHOW_CALENDAR, 0) == 1);
 
-        mCalendarsPref = (MultiSelectListPreference) findPreference(KEY_CALENDARS);
-        mCalendarsPref.setDefaultValue(prefs.getString(Constants.CALENDAR_LIST, ""));
-        mCalendarsPref.setOnPreferenceChangeListener(this);
+        mCalendarList = (MultiSelectListPreference) findPreference(KEY_CALENDARS);
+        mCalendarList.setDefaultValue(prefs.getString(Constants.CALENDAR_LIST, null));
+        mCalendarList.setOnPreferenceChangeListener(this);
         CalendarEntries calEntries = CalendarEntries.findCalendars(this);
-        mCalendarsPref.setEntries(calEntries.getEntries());
-        mCalendarsPref.setEntryValues(calEntries.getEntryValues());
+        mCalendarList.setEntries(calEntries.getEntries());
+        mCalendarList.setEntryValues(calEntries.getEntryValues());
 
-        mCalendarRemindersOnlyPref = (CheckBoxPreference) findPreference(KEY_REMINDERS_ONLY);
-        mCalendarRemindersOnlyPref.setChecked(prefs.getInt(Constants.CALENDAR_REMINDERS_ONLY, 0) == 1);
+        mCalendarRemindersOnly = (CheckBoxPreference) findPreference(KEY_REMINDERS_ONLY);
+        mCalendarRemindersOnly.setChecked(prefs.getInt(Constants.CALENDAR_REMINDERS_ONLY, 0) == 1);
 
-        mCalendarLookaheadPref = (ListPreference) findPreference(KEY_LOOKAHEAD);
+        mCalendarLookahead = (ListPreference) findPreference(KEY_LOOKAHEAD);
         long calendarLookahead = prefs.getLong(Constants.CALENDAR_LOOKAHEAD, 10800000);
-        mCalendarLookaheadPref.setValue(String.valueOf(calendarLookahead));
-        mCalendarLookaheadPref.setSummary(mapLookaheadValue(calendarLookahead));
-        mCalendarLookaheadPref.setOnPreferenceChangeListener(this);
+        mCalendarLookahead.setValue(String.valueOf(calendarLookahead));
+        mCalendarLookahead.setSummary(mapLookaheadValue(calendarLookahead));
+        mCalendarLookahead.setOnPreferenceChangeListener(this);
 
-        mCalendarShowLocationPref = (ListPreference) findPreference(KEY_SHOW_LOCATION);
+        mCalendarShowLocation = (ListPreference) findPreference(KEY_SHOW_LOCATION);
         int calendarShowLocation = prefs.getInt(Constants.CALENDAR_SHOW_LOCATION, 0);
-        mCalendarShowLocationPref.setValue(String.valueOf(calendarShowLocation));
-        mCalendarShowLocationPref.setSummary(mapMetadataValue(calendarShowLocation));
-        mCalendarShowLocationPref.setOnPreferenceChangeListener(this);
+        mCalendarShowLocation.setValue(String.valueOf(calendarShowLocation));
+        mCalendarShowLocation.setSummary(mapMetadataValue(calendarShowLocation));
+        mCalendarShowLocation.setOnPreferenceChangeListener(this);
 
-        mCalendarShowDescriptionPref = (ListPreference) findPreference(KEY_SHOW_DESCRIPTION);
+        mCalendarShowDescription = (ListPreference) findPreference(KEY_SHOW_DESCRIPTION);
         int calendarShowDescription = prefs.getInt(Constants.CALENDAR_SHOW_DESCRIPTION, 0);
-        mCalendarShowDescriptionPref.setValue(String.valueOf(calendarShowDescription));
-        mCalendarShowDescriptionPref.setSummary(mapMetadataValue(calendarShowDescription));
-        mCalendarShowDescriptionPref.setOnPreferenceChangeListener(this);
+        mCalendarShowDescription.setValue(String.valueOf(calendarShowDescription));
+        mCalendarShowDescription.setSummary(mapMetadataValue(calendarShowDescription));
+        mCalendarShowDescription.setOnPreferenceChangeListener(this);
     }
 
     private void updateLocationSummary() {
@@ -237,12 +237,12 @@ public class Preferences extends PreferenceActivity implements
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
             return true;
 
-        } else if (preference == mCalendarPref) {
+        } else if (preference == mShowCalendar) {
             prefs.edit().putInt(Constants.SHOW_CALENDAR,
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
             return true;
 
-        } else if (preference == mCalendarRemindersOnlyPref) {
+        } else if (preference == mCalendarRemindersOnly) {
             prefs.edit().putInt(Constants.CALENDAR_REMINDERS_ONLY,
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
             return true;
@@ -261,25 +261,25 @@ public class Preferences extends PreferenceActivity implements
             mWeatherSyncInterval.setSummary(mapUpdateValue(newVal));
             preference.setSummary(mapUpdateValue(newVal));
 
-        } else if (preference == mCalendarShowLocationPref) {
+        } else if (preference == mCalendarShowLocation) {
             int calendarShowLocation = Integer.valueOf((String) newValue);
             prefs.edit().putInt(Constants.CALENDAR_SHOW_LOCATION, calendarShowLocation).apply();
-            mCalendarShowLocationPref.setSummary(mapMetadataValue(calendarShowLocation));
+            mCalendarShowLocation.setSummary(mapMetadataValue(calendarShowLocation));
             return true;
 
-        } else if (preference == mCalendarShowDescriptionPref) {
+        } else if (preference == mCalendarShowDescription) {
             int calendarShowDescription = Integer.valueOf((String) newValue);
             prefs.edit().putInt(Constants.CALENDAR_SHOW_DESCRIPTION, calendarShowDescription).apply();
-            mCalendarShowDescriptionPref.setSummary(mapMetadataValue(calendarShowDescription));
+            mCalendarShowDescription.setSummary(mapMetadataValue(calendarShowDescription));
             return true;
 
-        } else if (preference == mCalendarLookaheadPref) {
+        } else if (preference == mCalendarLookahead) {
             long calendarLookahead = Long.valueOf((String) newValue);
             prefs.edit().putLong(Constants.CALENDAR_LOOKAHEAD, calendarLookahead).apply();
-            mCalendarLookaheadPref.setSummary(mapLookaheadValue(calendarLookahead));
+            mCalendarLookahead.setSummary(mapLookaheadValue(calendarLookahead));
             return true;
 
-        } else if (preference == mCalendarsPref) {
+        } else if (preference == mCalendarList) {
             String calendars = newValue.toString();
             prefs.edit().putString(Constants.CALENDAR_LIST, calendars).apply();
             return true;
