@@ -53,26 +53,27 @@ import java.util.List;
 
 public class Preferences extends PreferenceActivity implements
     OnPreferenceChangeListener, OnPreferenceClickListener {
+    private static final String TAG = "Preferences";
 
-    public static final String TAG = "Weather";
-    public static final String KEY_USE_METRIC = "use_metric";
-    public static final String KEY_USE_CUSTOM_LOCATION = "use_custom_location";
-    public static final String KEY_CUSTOM_LOCATION = "custom_location";
-    public static final String KEY_WEATHER_SHOW_LOCATION = "show_location";
-    public static final String KEY_SHOW_TIMESTAMP = "show_timestamp";
-    public static final String KEY_ENABLE_WEATHER = "enable_weather";
-    public static final String KEY_REFRESH_INTERVAL = "refresh_interval";
-    public static final String KEY_INVERT_LOWHIGH = "invert_lowhigh";
-    public static final String KEY_CLOCK_FONT = "clock_font";
-    public static final String KEY_SHOW_ALARM = "show_alarm";
-    private static final int WEATHER_CHECK = 0;
-
+    private static final String KEY_USE_METRIC = "use_metric";
+    private static final String KEY_USE_CUSTOM_LOCATION = "use_custom_location";
+    private static final String KEY_CUSTOM_LOCATION = "custom_location";
+    private static final String KEY_WEATHER_SHOW_LOCATION = "show_location";
+    private static final String KEY_SHOW_TIMESTAMP = "show_timestamp";
+    private static final String KEY_ENABLE_WEATHER = "enable_weather";
+    private static final String KEY_REFRESH_INTERVAL = "refresh_interval";
+    private static final String KEY_INVERT_LOWHIGH = "invert_lowhigh";
+    private static final String KEY_CLOCK_FONT = "clock_font";
+    private static final String KEY_SHOW_ALARM = "show_alarm";
     private static final String KEY_SHOW_CALENDAR = "enable_calendar";
     private static final String KEY_CALENDARS = "calendar_list";
     private static final String KEY_REMINDERS_ONLY = "calendar_reminders_only";
     private static final String KEY_LOOKAHEAD = "calendar_lookahead";
     private static final String KEY_SHOW_LOCATION = "calendar_show_location";
     private static final String KEY_SHOW_DESCRIPTION = "calendar_show_description";
+
+    private static final int LOC_WARNING = 101;
+    private static final int WEATHER_CHECK = 0;
 
     private CheckBoxPreference mClockFont;
     private CheckBoxPreference mShowAlarm;
@@ -84,9 +85,6 @@ public class Preferences extends PreferenceActivity implements
     private CheckBoxPreference mInvertLowHigh;
     private ListPreference mWeatherSyncInterval;
     private EditTextPreference mCustomWeatherLoc;
-    private Context mContext;
-    private ContentResolver mResolver;
-    private ProgressDialog mProgressDialog;
     private CheckBoxPreference mCalendarPref;
     private CheckBoxPreference mCalendarRemindersOnlyPref;
     private MultiSelectListPreference mCalendarsPref;
@@ -94,7 +92,9 @@ public class Preferences extends PreferenceActivity implements
     private ListPreference mCalendarShowLocationPref;
     private ListPreference mCalendarShowDescriptionPref;
 
-    private static final int LOC_WARNING = 101;
+    private Context mContext;
+    private ContentResolver mResolver;
+    private ProgressDialog mProgressDialog;
 
     @SuppressWarnings("deprecation")
     @Override
@@ -107,15 +107,15 @@ public class Preferences extends PreferenceActivity implements
         // Load the required settings from preferences
         SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
 
-        // Setup the preferences
+        // Clock items
         // TODO: this does not do anything yet, still to be implemented
-        // Also, add ability to show/hide the alarm?
         mClockFont = (CheckBoxPreference) findPreference(KEY_CLOCK_FONT);
         mClockFont.setChecked(prefs.getInt(Constants.CLOCK_FONT, 1) == 1);
 
         mShowAlarm = (CheckBoxPreference) findPreference(KEY_SHOW_ALARM);
         mShowAlarm.setChecked(prefs.getInt(Constants.CLOCK_SHOW_ALARM, 1) == 1);
 
+        // Weather items
         mShowWeather = (CheckBoxPreference) findPreference(KEY_ENABLE_WEATHER);
         mShowWeather.setChecked(prefs.getInt(Constants.SHOW_WEATHER, 1) == 1);
 
@@ -149,7 +149,7 @@ public class Preferences extends PreferenceActivity implements
             showDialog(LOC_WARNING);
         }
 
-        // Calendar event on lock screen
+        // Calendar items
         mCalendarPref = (CheckBoxPreference) findPreference(KEY_SHOW_CALENDAR);
         mCalendarPref.setChecked(prefs.getInt(Constants.SHOW_CALENDAR, 0) == 1);
 
@@ -287,28 +287,6 @@ public class Preferences extends PreferenceActivity implements
         return false;
     }
 
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case WEATHER_CHECK:
-                if (msg.obj == null) {
-                    Toast.makeText(mContext, mContext.getString(R.string.weather_retrieve_location_dialog_title),
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    String cLoc = mCustomWeatherLoc.getEditText().getText().toString();
-                    mCustomWeatherLoc.setText(cLoc);
-                    SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
-                    prefs.edit().putString(Constants.WEATHER_CUSTOM_LOCATION_STRING, cLoc).apply();
-                    mCustomWeatherLoc.setSummary(cLoc);
-                    mCustomWeatherLoc.getDialog().dismiss();
-                }
-                mProgressDialog.dismiss();
-                break;
-            }
-        }
-    };
-
     @Override
     public boolean onPreferenceClick(Preference preference) {
 
@@ -351,6 +329,28 @@ public class Preferences extends PreferenceActivity implements
     /**
      * Utility classes and supporting methods
      */
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+            case WEATHER_CHECK:
+                if (msg.obj == null) {
+                    Toast.makeText(mContext, mContext.getString(R.string.weather_retrieve_location_dialog_title),
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    String cLoc = mCustomWeatherLoc.getEditText().getText().toString();
+                    mCustomWeatherLoc.setText(cLoc);
+                    SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+                    prefs.edit().putString(Constants.WEATHER_CUSTOM_LOCATION_STRING, cLoc).apply();
+                    mCustomWeatherLoc.setSummary(cLoc);
+                    mCustomWeatherLoc.getDialog().dismiss();
+                }
+                mProgressDialog.dismiss();
+                break;
+            }
+        }
+    };
 
     private String mapUpdateValue(Integer time) {
         Resources resources = mContext.getResources();
