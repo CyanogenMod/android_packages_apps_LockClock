@@ -25,6 +25,7 @@ public class Constants {
 
     // Widget Settings
     public static final String CLOCK_FONT = "clock_font";
+    public static final String SHOW_ALARM = "show_alarm";
     public static final String SHOW_WEATHER = "show_weather";
     public static final String WEATHER_USE_CUSTOM_LOCATION = "use_custom_location";
     public static final String WEATHER_CUSTOM_LOCATION_STRING = "custom_location_string";

@@ -9,6 +9,11 @@
             android:persistent="true"
             android:title="@string/clock_font_title"
             android:summary="@string/clock_font_summary" />
+
+        <CheckBoxPreference
+            android:key="show_alarm"
+            android:persistent="true"
+            android:title="@string/show_alarm_title" />
     </PreferenceCategory>
 
     <PreferenceCategory

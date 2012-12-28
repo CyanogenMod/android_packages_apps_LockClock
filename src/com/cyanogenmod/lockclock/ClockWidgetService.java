@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (C) 2012 The CyanogenMod Project (DvTonder)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ package com.cyanogenmod.lockclock;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -30,6 +29,8 @@ import android.location.LocationManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
@@ -64,6 +65,7 @@ public class ClockWidgetService extends Service {
         // Iterate through all the widgets supported by this provider
         mWidgetIds = intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
         if (mWidgetIds != null && mWidgetIds.length != 0) {
+            refreshAlarmStatus(); // might as well
             refreshWeather();
         }
         return START_STICKY;
@@ -75,7 +77,49 @@ public class ClockWidgetService extends Service {
     }
 
     /*
-     * CyanogenMod Weather related functionality
+     * Alarm clock related functionality
+     */
+    void refreshAlarmStatus() {
+        SharedPreferences prefs = mContext.getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
+        boolean showAlarm = prefs.getInt(Constants.SHOW_ALARM, 1) == 1;
+
+        // Update Alarm status
+        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        if (showAlarm) {
+            String nextAlarm = getNextAlarm();
+            if (!TextUtils.isEmpty(nextAlarm)) {
+                remoteViews.setTextViewText(R.id.nextAlarm, nextAlarm.toString().toUpperCase());
+                remoteViews.setViewVisibility(R.id.nextAlarm, View.VISIBLE);
+            } else {
+                remoteViews.setViewVisibility(R.id.nextAlarm, View.GONE);
+            }
+        } else {
+            remoteViews.setViewVisibility(R.id.nextAlarm, View.GONE);
+        }
+
+        // Update all the widgets
+        for (int widgetId : mWidgetIds) {
+            mAppWidgetManager.updateAppWidget(widgetId, remoteViews);
+        }
+    }
+
+    /**
+     * @return A formatted string of the next alarm or null if there is no next alarm.
+     */
+    public String getNextAlarm() {
+        // TODO: figure out how to do this with the UserHandle, for now just read in the normal way
+        //String nextAlarm = Settings.System.getStringForUser(mContext.getContentResolver(),
+        //        Settings.System.NEXT_ALARM_FORMATTED, UserHandle.USER_CURRENT);
+        String nextAlarm = Settings.System.getString(mContext.getContentResolver(),
+                Settings.System.NEXT_ALARM_FORMATTED);
+        if (nextAlarm == null || TextUtils.isEmpty(nextAlarm)) {
+            return null;
+        }
+        return nextAlarm;
+    }
+
+    /*
+     * Weather related functionality
      */
     private static final String URL_YAHOO_API_WEATHER = "http://weather.yahooapis.com/forecastrss?w=%s&u=";
     private static WeatherInfo mWeatherInfo = new WeatherInfo();

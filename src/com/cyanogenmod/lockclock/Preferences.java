@@ -41,9 +41,11 @@ public class Preferences extends PreferenceActivity implements
     public static final String KEY_REFRESH_INTERVAL = "refresh_interval";
     public static final String KEY_INVERT_LOWHIGH = "invert_lowhigh";
     public static final String KEY_CLOCK_FONT = "clock_font";
+    public static final String KEY_SHOW_ALARM = "show_alarm";
     private static final int WEATHER_CHECK = 0;
 
     private CheckBoxPreference mClockFont;
+    private CheckBoxPreference mShowAlarm;
     private CheckBoxPreference mShowWeather;
     private CheckBoxPreference mUseCustomLoc;
     private CheckBoxPreference mShowLocation;
@@ -74,6 +76,9 @@ public class Preferences extends PreferenceActivity implements
         // Also, add ability to show/hide the alarm?
         mClockFont = (CheckBoxPreference) findPreference(KEY_CLOCK_FONT);
         mClockFont.setChecked(prefs.getInt(Constants.CLOCK_FONT, 1) == 1);
+
+        mShowAlarm = (CheckBoxPreference) findPreference(KEY_SHOW_ALARM);
+        mShowAlarm.setChecked(prefs.getInt(Constants.SHOW_ALARM, 1) == 1);
 
         mShowWeather = (CheckBoxPreference) findPreference(KEY_ENABLE_WEATHER);
         mShowWeather.setChecked(prefs.getInt(Constants.SHOW_WEATHER, 1) == 1);
@@ -125,6 +130,11 @@ public class Preferences extends PreferenceActivity implements
         SharedPreferences prefs = getSharedPreferences("LockClock", Context.MODE_MULTI_PROCESS);
         if (preference == mClockFont) {
             prefs.edit().putInt(Constants.CLOCK_FONT,
+                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
+            return true;
+
+        } else if (preference == mShowAlarm) {
+            prefs.edit().putInt(Constants.SHOW_ALARM,
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
             return true;
 
