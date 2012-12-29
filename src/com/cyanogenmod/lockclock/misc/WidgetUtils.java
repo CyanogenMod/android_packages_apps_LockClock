@@ -18,55 +18,36 @@ package com.cyanogenmod.lockclock.misc;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.TypedValue;
-import android.widget.RemoteViews;
 
 import com.cyanogenmod.lockclock.R;
 
 public class WidgetUtils {
     static final String TAG = "WidgetUtils";
 
-    public static void setClockSize(Context context, RemoteViews clock, float scale) {
-        float fontSize = context.getResources().getDimension(R.dimen.widget_big_font_size);
-        clock.setTextViewTextSize(
-                R.id.the_clock1, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
-        clock.setTextViewTextSize(
-                R.id.the_clock2, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
-    }
-
-    // Calculate the scale factor of the fonts in the widget
-    public static float getScaleRatio(Context context, Bundle options, int id) {
-        AppWidgetManager widgetManager = AppWidgetManager.getInstance(context);
-        if (options == null) {
-            options = widgetManager.getAppWidgetOptions(id);
-        }
-        if (options != null) {
-            int minWidth = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH);
-            if (minWidth == 0) {
-                // No data , do no scaling
-                return 1f;
-            }
-            Resources res = context.getResources();
-            float ratio = minWidth / res.getDimension(R.dimen.def_digital_widget_width);
-            return (ratio > 1) ? 1 : ratio;
-        }
-        return 1;
-    }
-
-    // Decide if to show the list of world clock.
+    // Decide if to show the Weather
     // Check to see if the widget size is big enough, if it is return true.
-    public static boolean showList(Context context, int id, float scale) {
+    public static boolean canFitWeather(Context context, int id) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
         if (options == null) {
             // no data to make the calculation, show the list anyway
             return true;
         }
         int minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
-        int neededSize = (int) context.getResources().
-            getDimension(R.dimen.def_digital_widget_height);
+        int neededSize = (int) context.getResources().getDimension(R.dimen.min_weather_widget_height);
+        return (minHeight > neededSize);
+    }
+
+    // Decide if to show the Calendar
+    // Check to see if the widget size is big enough, if it is return true.
+    public static boolean canFitCalendar(Context context, int id) {
+        Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
+        if (options == null) {
+            // no data to make the calculation, show the list anyway
+            return true;
+        }
+        int minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
+        int neededSize = (int) context.getResources().getDimension(R.dimen.min_calendar_widget_height);
         return (minHeight > neededSize);
     }
 }
-
