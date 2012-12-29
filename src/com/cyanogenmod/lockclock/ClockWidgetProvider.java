@@ -23,24 +23,32 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 
+import com.cyanogenmod.lockclock.misc.Constants;
+
 public class ClockWidgetProvider extends AppWidgetProvider {
     private static final String TAG = "ClockWidgetProvider";
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        updateWidgets(context);
+        updateWidgets(context, null);
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        updateWidgets(context);
+        updateWidgets(context, intent);
     }
 
-    private void updateWidgets(Context context) {
+    private void updateWidgets(Context context, Intent intent) {
         // Update the widget via the service. Build the intent to call the service on a timer
-        Intent intent = new Intent(context.getApplicationContext(), ClockWidgetService.class);
-        PendingIntent pi = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent i = new Intent(context.getApplicationContext(), ClockWidgetService.class);
+        PendingIntent pi = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // See if we are forcing a full refresh and trigger a single update
+        if (intent != null && intent.getBooleanExtra(Constants.FORCE_REFRESH, false)) {
+            i.putExtra(Constants.FORCE_REFRESH, true);
+            context.startService(i);
+        }
 
         // Clear any old alarms and schedule the new alarm that only triggers if the device is ON (RTC)
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);

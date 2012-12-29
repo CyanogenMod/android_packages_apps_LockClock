@@ -121,6 +121,7 @@ public class Preferences extends PreferenceActivity implements
             pref.setSummary(listPref.getEntry());
         }
         Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
+        updateIntent.putExtra(Constants.FORCE_REFRESH, true);
         sendBroadcast(updateIntent);
     }
 

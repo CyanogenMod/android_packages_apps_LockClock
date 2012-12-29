@@ -68,6 +68,7 @@ public class ClockWidgetService extends Service {
     private int[] mWidgetIds;
     private AppWidgetManager mAppWidgetManager;
     private SharedPreferences mSharedPrefs;
+    private boolean mForceRefresh;
 
     @Override
     public void onCreate() {
@@ -76,10 +77,18 @@ public class ClockWidgetService extends Service {
         ComponentName thisWidget = new ComponentName(mContext, ClockWidgetProvider.class);
         mWidgetIds = mAppWidgetManager.getAppWidgetIds(thisWidget);
         mSharedPrefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        mForceRefresh = false;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        // See if we are forcing a full weather refresh
+        if (intent != null && intent.getBooleanExtra(Constants.FORCE_REFRESH, false)) {
+            if (DEBUG) Log.d(TAG, "Forcing a weather refresh");
+            mForceRefresh = true;
+        }
+
+        // Refresh the widgets
         if (mWidgetIds != null && mWidgetIds.length != 0) {
             refreshWidget();
         }
@@ -101,9 +110,10 @@ public class ClockWidgetService extends Service {
             // Load the required settings from preferences
             final long interval = Long.parseLong(mSharedPrefs.getString(Constants.WEATHER_REFRESH_INTERVAL, "60"));
             boolean manualSync = (interval == 0);
-            if (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval)) {
+            if (mForceRefresh || (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval))) {
                 if (!mWeatherRefreshing) {
                     mHandler.sendEmptyMessage(QUERY_WEATHER);
+                    mForceRefresh = false;
                 }
             } else if (manualSync && mWeatherInfo.last_sync == 0) {
                 setNoWeatherData();
@@ -348,10 +358,8 @@ public class ClockWidgetService extends Service {
         remoteViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
 
         // Register an onClickListener on Weather
-        // TODO: Make this listener actually update the weather, not just the widget? or?
         Intent weatherClickIntent = new Intent(mContext, ClockWidgetProvider.class);
-        weatherClickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-        weatherClickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, mWidgetIds);
+        weatherClickIntent.putExtra(Constants.FORCE_REFRESH, true);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(mContext, 0, weatherClickIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.weather_panel, pendingIntent);

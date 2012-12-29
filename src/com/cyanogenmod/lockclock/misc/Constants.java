@@ -19,6 +19,9 @@ package com.cyanogenmod.lockclock.misc;
 public class Constants {
     public static final String PREF_NAME = "LockClock";
 
+    // Activity start commands
+    public static final String FORCE_REFRESH = "force_refresh";
+
     // Widget Settings
     public static final String CLOCK_FONT = "clock_font";
     public static final String CLOCK_SHOW_ALARM = "clock_show_alarm";
