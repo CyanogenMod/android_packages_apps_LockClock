@@ -18,7 +18,9 @@ package com.cyanogenmod.lockclock.misc;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.TypedValue;
 
 import com.cyanogenmod.lockclock.R;
 
@@ -46,8 +48,10 @@ public class WidgetUtils {
             // no data to make the calculation, show the list anyway
             return true;
         }
+        Resources resources = context.getResources();
         int minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
-        int neededSize = (int) context.getResources().getDimension(R.dimen.min_calendar_widget_height);
-        return (minHeight > neededSize);
+        int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight, resources.getDisplayMetrics());
+        int neededSize = (int) resources.getDimension(R.dimen.min_calendar_widget_height);
+        return (minHeightPx > neededSize);
     }
 }

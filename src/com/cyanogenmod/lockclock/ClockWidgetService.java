@@ -43,6 +43,8 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.WidgetUtils;
+
 import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
 import static com.cyanogenmod.lockclock.misc.Constants.MAX_CALENDAR_ITEMS;
 import com.cyanogenmod.lockclock.weather.HttpRetriever;
@@ -123,7 +125,12 @@ public class ClockWidgetService extends Service {
         refreshAlarmStatus(remoteViews);
         refreshCalendar(remoteViews);
         refreshClockFont(remoteViews);
-        mAppWidgetManager.updateAppWidget(mWidgetIds, remoteViews);
+        boolean lockCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
+        for (int id : mWidgetIds) {
+            boolean canFitCalendar = WidgetUtils.canFitCalendar(mContext, id);
+            remoteViews.setViewVisibility(R.id.calendar_panel, canFitCalendar && lockCalendar ? View.VISIBLE : View.GONE);
+            mAppWidgetManager.updateAppWidget(id, remoteViews);
+        }
         stopSelf();
     }
 
