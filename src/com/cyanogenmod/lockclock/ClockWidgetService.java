@@ -160,13 +160,10 @@ public class ClockWidgetService extends Service {
             remoteViews.setViewVisibility(R.id.the_clock1, View.VISIBLE);
         }
 
-        // Register an onClickListener on Clock
-        // TODO: Should launch the clock or should we let it not do anything?
-        Intent clockClickIntent = new Intent(mContext, ClockWidgetProvider.class);
-        clockClickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-        clockClickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, mWidgetIds);
-        PendingIntent pi = PendingIntent.getBroadcast(mContext, 0, clockClickIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+        // Register an onClickListener on Clock, starting DeskClock
+        ComponentName clock = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
+        Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(clock);
+        PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.digital_clock, pi);
     }
 
@@ -479,18 +476,15 @@ public class ClockWidgetService extends Service {
             remoteViews.setViewVisibility(R.id.calendar_event2, event2_visible ? View.VISIBLE : View.GONE);
             remoteViews.setViewVisibility(R.id.calendar_event3, event3_visible ? View.VISIBLE : View.GONE);
         }
+
         // Deal with overall panel visibility
         remoteViews.setViewVisibility(R.id.calendar_panel, event1_visible ? View.VISIBLE : View.GONE);
         if (event1_visible) {
-            // Register an onClickListener on Calendar
-            // TODO: Make this listener actually do something
-
-            Intent calendarClickIntent = new Intent(mContext, ClockWidgetProvider.class);
-            calendarClickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-            calendarClickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, mWidgetIds);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(mContext, 0, calendarClickIntent,
-                    PendingIntent.FLAG_UPDATE_CURRENT);
-            remoteViews.setOnClickPendingIntent(R.id.calendar_panel, pendingIntent);
+            // Register an onClickListener on Calendar, starting the Calendar app
+            ComponentName cal = new ComponentName("com.android.calendar", "com.android.calendar.AllInOneActivity");
+            Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(cal);
+            PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+            remoteViews.setOnClickPendingIntent(R.id.calendar_panel, pi);
         }
     }
 
