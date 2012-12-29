@@ -44,6 +44,7 @@ import android.widget.RemoteViews;
 
 import com.cyanogenmod.lockclock.misc.Constants;
 import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
+import static com.cyanogenmod.lockclock.misc.Constants.MAX_CALENDAR_ITEMS;
 import com.cyanogenmod.lockclock.weather.HttpRetriever;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherXmlParser;
@@ -425,20 +426,45 @@ public class ClockWidgetService extends Service {
         boolean lockCalendarRemindersOnly = mSharedPrefs.getBoolean(Constants.CALENDAR_REMINDERS_ONLY, false);
         long lockCalendarLookahead = Long.parseLong(mSharedPrefs.getString(Constants.CALENDAR_LOOKAHEAD, "10800000"));
 
-        String[] nextCalendar = null;
-        boolean visible = false; // Assume we are not showing the view
+        // Assume we are not showing the view
+        boolean event1_visible = false;
+        boolean event2_visible = false;
+        boolean event3_visible = false;
 
         if (lockCalendar) {
+            String[][] nextCalendar = null;
             nextCalendar = getNextCalendarAlarm(lockCalendarLookahead, calendars, lockCalendarRemindersOnly);
-            if (nextCalendar[0] != null) {
-                remoteViews.setTextViewText(R.id.calendar_event_title, nextCalendar[0].toString());
-                if (nextCalendar[1] != null) {
-                    remoteViews.setTextViewText(R.id.calendar_event_details, nextCalendar[1]);
+            // Iterate through the calendars, up to the maximum
+            for (int i = 0; i < MAX_CALENDAR_ITEMS; i++) {
+                if (nextCalendar[i][0] != null) {
+                    // TODO: change this to dynamically add views to the widget
+                    // Hard code this to 3 for now
+                    if (i == 0) {
+                        remoteViews.setTextViewText(R.id.calendar_event_title, nextCalendar[i][0].toString());
+                        if (nextCalendar[0][1] != null) {
+                            remoteViews.setTextViewText(R.id.calendar_event_details, nextCalendar[i][1]);
+                        }
+                        event1_visible = true;
+                    } else if (i == 1) {
+                        remoteViews.setTextViewText(R.id.calendar_event2_title, nextCalendar[i][0].toString());
+                        if (nextCalendar[0][1] != null) {
+                            remoteViews.setTextViewText(R.id.calendar_event2_details, nextCalendar[i][1]);
+                        }
+                        event2_visible = true;
+                    } else if (i == 2) {
+                        remoteViews.setTextViewText(R.id.calendar_event3_title, nextCalendar[i][0].toString());
+                        if (nextCalendar[0][1] != null) {
+                            remoteViews.setTextViewText(R.id.calendar_event3_details, nextCalendar[i][1]);
+                        }
+                        event3_visible = true;
+                    }
                 }
-                visible = true;
             }
+            // Deal with the visibility of the event items
+            remoteViews.setViewVisibility(R.id.calendar_event2, event2_visible ? View.VISIBLE : View.GONE);
+            remoteViews.setViewVisibility(R.id.calendar_event3, event3_visible ? View.VISIBLE : View.GONE);
         }
-       remoteViews.setViewVisibility(R.id.calendar_panel, visible ? View.VISIBLE : View.GONE);
+       remoteViews.setViewVisibility(R.id.calendar_panel, event1_visible ? View.VISIBLE : View.GONE);
     }
 
     /**
@@ -446,7 +472,7 @@ public class ClockWidgetService extends Service {
      * (for showing on the lock screen), or null if there is no next event
      * within a certain look-ahead time.
      */
-    public String[] getNextCalendarAlarm(long lookahead, Set<String> calendars,
+    public String[][] getNextCalendarAlarm(long lookahead, Set<String> calendars,
             boolean remindersOnly) {
         long now = System.currentTimeMillis();
         long later = now + lookahead;
@@ -489,106 +515,113 @@ public class ClockWidgetService extends Service {
 
         Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
                 String.format("%d/%d", now, later));
-        String[] nextCalendarAlarm = new String[2];
+        String[][] nextCalendarAlarm = new String[MAX_CALENDAR_ITEMS][2];
         Cursor cursor = null;
 
         try {
             cursor = mContext.getContentResolver().query(uri, projection,
                     where.toString(), null, "begin ASC");
 
-            if (cursor != null && cursor.moveToFirst()) {
+            if (cursor != null) {
+                cursor.moveToFirst();
 
-                String title = cursor.getString(TITLE_INDEX);
-                long begin = cursor.getLong(BEGIN_TIME_INDEX);
-                String description = cursor.getString(DESCRIPTION_INDEX);
-                String location = cursor.getString(LOCATION_INDEX);
-                boolean allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
+                // Iterate through rows to a maximum number of calendar entries
+                for (int i = 0; i < cursor.getCount() && i < MAX_CALENDAR_ITEMS; i++) {
+                    String title = cursor.getString(TITLE_INDEX);
+                    long begin = cursor.getLong(BEGIN_TIME_INDEX);
+                    String description = cursor.getString(DESCRIPTION_INDEX);
+                    String location = cursor.getString(LOCATION_INDEX);
+                    boolean allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
 
-                // Check the next event in the case of all day event. As UTC is used for all day
-                // events, the next event may be the one that actually starts sooner
-                if (allDay && !cursor.isLast()) {
-                    cursor.moveToNext();
-                    long nextBegin = cursor.getLong(BEGIN_TIME_INDEX);
-                    if (nextBegin < begin + TimeZone.getDefault().getOffset(begin)) {
-                        title = cursor.getString(TITLE_INDEX);
-                        begin = nextBegin;
-                        description = cursor.getString(DESCRIPTION_INDEX);
-                        location = cursor.getString(LOCATION_INDEX);
-                        allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
+                    // Check the next event in the case of all day event. As UTC is used for all day
+                    // events, the next event may be the one that actually starts sooner
+                    if (allDay && !cursor.isLast()) {
+                        cursor.moveToNext();
+                        long nextBegin = cursor.getLong(BEGIN_TIME_INDEX);
+                        if (nextBegin < begin + TimeZone.getDefault().getOffset(begin)) {
+                            title = cursor.getString(TITLE_INDEX);
+                            begin = nextBegin;
+                            description = cursor.getString(DESCRIPTION_INDEX);
+                            location = cursor.getString(LOCATION_INDEX);
+                            allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
+                        }
+                        // Go back since we are still iterating
+                        cursor.moveToPrevious();
                     }
-                }
 
-                // Set the event title as the first array item
-                nextCalendarAlarm[0] = title.toString();
+                    // Set the event title as the first array item
+                    nextCalendarAlarm[i][0] = title.toString();
 
-                // Start building the event details string
-                // Starting with the date
-                Date start = new Date(begin);
-                StringBuilder sb = new StringBuilder();
+                    // Start building the event details string
+                    // Starting with the date
+                    Date start = new Date(begin);
+                    StringBuilder sb = new StringBuilder();
 
-                if (allDay) {
-                    SimpleDateFormat sdf = new SimpleDateFormat(
-                            mContext.getString(R.string.abbrev_wday_month_day_no_year));
-                    // Calendar stores all-day events in UTC -- setting the time zone ensures
-                    // the correct date is shown.
-                    sdf.setTimeZone(TimeZone.getTimeZone(Time.TIMEZONE_UTC));
-                    sb.append(sdf.format(start));
-                } else {
-                    sb.append(DateFormat.format("E", start));
-                    sb.append(" ");
-                    sb.append(DateFormat.getTimeFormat(mContext).format(start));
-                }
-
-                // Add the event location if it should be shown
-                int showLocation = Integer.parseInt(mSharedPrefs.getString(Constants.CALENDAR_SHOW_LOCATION, "0"));
-                if (showLocation != 0 && !TextUtils.isEmpty(location)) {
-                    switch(showLocation) {
-                        case 1:
-                            // Show first line
-                            int end = location.indexOf('\n');
-                            if(end == -1) {
-                                sb.append(": " + location);
-                            } else {
-                                sb.append(": " + location.substring(0, end));
-                            }
-                            break;
-                        case 2:
-                            // Show all
-                            sb.append(": " + location);
-                            break;
-                    }
-                }
-
-                // Add the event description if it should be shown
-                int showDescription = Integer.parseInt(mSharedPrefs.getString(Constants.CALENDAR_SHOW_DESCRIPTION, "0"));
-                if (showDescription != 0 && !TextUtils.isEmpty(description)) {
-
-                    // Show the appropriate separator
-                    if (showLocation == 0) {
-                        sb.append(": ");
+                    if (allDay) {
+                        SimpleDateFormat sdf = new SimpleDateFormat(
+                                mContext.getString(R.string.abbrev_wday_month_day_no_year));
+                        // Calendar stores all-day events in UTC -- setting the time zone ensures
+                        // the correct date is shown.
+                        sdf.setTimeZone(TimeZone.getTimeZone(Time.TIMEZONE_UTC));
+                        sb.append(sdf.format(start));
                     } else {
-                        sb.append(" - ");
+                        sb.append(DateFormat.format("E", start));
+                        sb.append(" ");
+                        sb.append(DateFormat.getTimeFormat(mContext).format(start));
                     }
 
-                    switch(showDescription) {
-                        case 1:
-                            // Show first line
-                            int end = description.indexOf('\n');
-                            if(end == -1) {
+                    // Add the event location if it should be shown
+                    int showLocation = Integer.parseInt(mSharedPrefs.getString(Constants.CALENDAR_SHOW_LOCATION, "0"));
+                    if (showLocation != 0 && !TextUtils.isEmpty(location)) {
+                        switch(showLocation) {
+                            case 1:
+                                // Show first line
+                                int end = location.indexOf('\n');
+                                if(end == -1) {
+                                    sb.append(": " + location);
+                                } else {
+                                    sb.append(": " + location.substring(0, end));
+                                }
+                                break;
+                            case 2:
+                                // Show all
+                                sb.append(": " + location);
+                                break;
+                        }
+                    }
+
+                    // Add the event description if it should be shown
+                    int showDescription = Integer.parseInt(mSharedPrefs.getString(Constants.CALENDAR_SHOW_DESCRIPTION, "0"));
+                    if (showDescription != 0 && !TextUtils.isEmpty(description)) {
+
+                        // Show the appropriate separator
+                        if (showLocation == 0) {
+                            sb.append(": ");
+                        } else {
+                            sb.append(" - ");
+                        }
+
+                        switch(showDescription) {
+                            case 1:
+                                // Show first line
+                                int end = description.indexOf('\n');
+                                if(end == -1) {
+                                    sb.append(description);
+                                } else {
+                                    sb.append(description.substring(0, end));
+                                }
+                                break;
+                            case 2:
+                                // Show all
                                 sb.append(description);
-                            } else {
-                                sb.append(description.substring(0, end));
-                            }
-                            break;
-                        case 2:
-                            // Show all
-                            sb.append(description);
-                            break;
+                                break;
+                        }
                     }
-                }
 
-                // Set the time, location and description as the second array item
-                nextCalendarAlarm[1] = sb.toString();
+                    // Set the time, location and description as the second array item
+                    nextCalendarAlarm[i][1] = sb.toString();
+                    cursor.moveToNext();
+                }
             }
         } catch (Exception e) {
             // Do nothing

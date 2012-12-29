@@ -38,4 +38,6 @@ public class Constants {
     public static final String CALENDAR_LOOKAHEAD = "calendar_lookahead";
     public static final String CALENDAR_SHOW_LOCATION = "calendar_show_location";
     public static final String CALENDAR_SHOW_DESCRIPTION = "calendar_show_description";
+
+    public static final int MAX_CALENDAR_ITEMS = 3;
 }
