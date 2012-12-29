@@ -23,10 +23,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 
-import com.cyanogenmod.lockclock.misc.Constants;
-
 public class ClockWidgetProvider extends AppWidgetProvider {
-
     private static final String TAG = "ClockWidgetProvider";
 
     @Override
