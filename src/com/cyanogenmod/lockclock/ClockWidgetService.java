@@ -96,7 +96,7 @@ public class ClockWidgetService extends Service {
      * Alarm clock related functionality
      */
     void refreshAlarmStatus(RemoteViews remoteViews) {
-        boolean showAlarm = mSharedPrefs.getInt(Constants.CLOCK_SHOW_ALARM, 1) == 1;
+        boolean showAlarm = mSharedPrefs.getBoolean(Constants.CLOCK_SHOW_ALARM, true);
 
         // Update Alarm status
         if (showAlarm) {
@@ -145,7 +145,7 @@ public class ClockWidgetService extends Service {
                     @Override
                     public void run() {
                         // Load the preferences
-                        boolean useCustomLoc = mSharedPrefs.getInt(Constants.WEATHER_USE_CUSTOM_LOCATION, 0) == 1;
+                        boolean useCustomLoc = mSharedPrefs.getBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, false);
                         String customLoc = mSharedPrefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);// TODO: Should I use the null here?
 
                         // Get location related stuff ready
@@ -231,7 +231,7 @@ public class ClockWidgetService extends Service {
      * Reload the weather forecast
      */
     private void refreshWeather() {
-        boolean showWeather = mSharedPrefs.getInt(Constants.SHOW_WEATHER, 1) == 1;
+        boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, true);
 
         if (showWeather) {
             // TODO: figure out when to show that we are refreshing to give the user a visual cue
@@ -261,7 +261,7 @@ public class ClockWidgetService extends Service {
     private void updateAndExit(RemoteViews remoteViews) {
         refreshAlarmStatus(remoteViews);
         refreshCalendar(remoteViews);
-        if (mSharedPrefs.getInt(Constants.CLOCK_FONT, 1) == 0) {
+        if (mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
             remoteViews.setViewVisibility(R.id.the_clock1_regular, View.VISIBLE);
             remoteViews.setViewVisibility(R.id.the_clock1, View.GONE);
         }
@@ -289,9 +289,9 @@ public class ClockWidgetService extends Service {
      */
     private void setWeatherData(WeatherInfo w) {
         // Load the preferences
-        boolean showLocation = mSharedPrefs.getInt(Constants.WEATHER_SHOW_LOCATION, 1) == 1;
-        boolean showTimestamp = mSharedPrefs.getInt(Constants.WEATHER_SHOW_TIMESTAMP, 1) == 1;
-        boolean invertLowhigh = mSharedPrefs.getInt(Constants.WEATHER_INVERT_LOWHIGH, 0) == 1;
+        boolean showLocation = mSharedPrefs.getBoolean(Constants.WEATHER_SHOW_LOCATION, true);
+        boolean showTimestamp = mSharedPrefs.getBoolean(Constants.WEATHER_SHOW_TIMESTAMP, true);
+        boolean invertLowhigh = mSharedPrefs.getBoolean(Constants.WEATHER_INVERT_LOWHIGH, false);
 
         // Get the views ready
         RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
@@ -428,9 +428,9 @@ public class ClockWidgetService extends Service {
 
     private void refreshCalendar(RemoteViews remoteViews) {
         // Load the settings
-        boolean lockCalendar = mSharedPrefs.getInt(Constants.SHOW_CALENDAR, 0) == 1;
+        boolean lockCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
         String[] calendars = parseStoredValue(mSharedPrefs.getString(Constants.CALENDAR_LIST, null));
-        boolean lockCalendarRemindersOnly = mSharedPrefs.getInt(Constants.CALENDAR_REMINDERS_ONLY, 0) == 1;
+        boolean lockCalendarRemindersOnly = mSharedPrefs.getBoolean(Constants.CALENDAR_REMINDERS_ONLY, false);
         long lockCalendarLookahead = mSharedPrefs.getLong(Constants.CALENDAR_LOOKAHEAD, 10800000);
 
         String[] nextCalendar = null;

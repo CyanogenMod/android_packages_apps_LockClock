@@ -41,7 +41,7 @@ public class Constants {
     public static final String WEATHER_SHOW_TIMESTAMP = "weather_show_timestamp";
     public static final String WEATHER_USE_METRIC = "weather_use_metric";
     public static final String WEATHER_INVERT_LOWHIGH = "weather_invert_low_high";
-    public static final String WEATHER_UPDATE_INTERVAL = "weather_update_interval";
+    public static final String WEATHER_REFRESH_INTERVAL = "weather_refresh_interval";
 
     public static final String SHOW_CALENDAR = "show_calendar";
     public static final String CALENDAR_LIST = "calendar_list";

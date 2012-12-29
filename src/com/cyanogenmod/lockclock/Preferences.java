@@ -57,39 +57,14 @@ public class Preferences extends PreferenceActivity implements
     OnPreferenceChangeListener, OnPreferenceClickListener, OnSharedPreferenceChangeListener {
     private static final String TAG = "Preferences";
 
-    private static final String KEY_USE_METRIC = "use_metric";
-    private static final String KEY_USE_CUSTOM_LOCATION = "use_custom_location";
-    private static final String KEY_CUSTOM_LOCATION = "custom_location";
-    private static final String KEY_WEATHER_SHOW_LOCATION = "show_location";
-    private static final String KEY_SHOW_TIMESTAMP = "show_timestamp";
-    private static final String KEY_ENABLE_WEATHER = "enable_weather";
-    private static final String KEY_REFRESH_INTERVAL = "refresh_interval";
-    private static final String KEY_INVERT_LOWHIGH = "invert_lowhigh";
-    private static final String KEY_CLOCK_FONT = "clock_font";
-    private static final String KEY_SHOW_ALARM = "show_alarm";
-    private static final String KEY_SHOW_CALENDAR = "enable_calendar";
-    private static final String KEY_CALENDARS = "calendar_list";
-    private static final String KEY_REMINDERS_ONLY = "calendar_reminders_only";
-    private static final String KEY_LOOKAHEAD = "calendar_lookahead";
-    private static final String KEY_SHOW_LOCATION = "calendar_show_location";
-    private static final String KEY_SHOW_DESCRIPTION = "calendar_show_description";
     protected static final String PREF_NAME = "LockClock";
 
     private static final int LOC_WARNING = 101;
     private static final int WEATHER_CHECK = 0;
 
-    private CheckBoxPreference mClockFont;
-    private CheckBoxPreference mShowAlarm;
-    private CheckBoxPreference mShowWeather;
     private CheckBoxPreference mUseCustomLoc;
-    private CheckBoxPreference mShowLocation;
-    private CheckBoxPreference mShowTimestamp;
-    private CheckBoxPreference mUseMetric;
-    private CheckBoxPreference mInvertLowHigh;
     private ListPreference mWeatherSyncInterval;
     private EditTextPreference mCustomWeatherLoc;
-    private CheckBoxPreference mShowCalendar;
-    private CheckBoxPreference mCalendarRemindersOnly;
     private MultiSelectListPreference mCalendarList;
     private ListPreference mCalendarLookahead;
     private ListPreference mCalendarShowLocation;
@@ -111,38 +86,14 @@ public class Preferences extends PreferenceActivity implements
         // Load the required settings from preferences
         SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
 
-        // Clock items
-        // TODO: this does not do anything yet, still to be implemented
-        mClockFont = (CheckBoxPreference) findPreference(KEY_CLOCK_FONT);
-        mClockFont.setChecked(prefs.getInt(Constants.CLOCK_FONT, 1) == 1);
-
-        mShowAlarm = (CheckBoxPreference) findPreference(KEY_SHOW_ALARM);
-        mShowAlarm.setChecked(prefs.getInt(Constants.CLOCK_SHOW_ALARM, 1) == 1);
-
-        // Weather items
-        mShowWeather = (CheckBoxPreference) findPreference(KEY_ENABLE_WEATHER);
-        mShowWeather.setChecked(prefs.getInt(Constants.SHOW_WEATHER, 1) == 1);
-
-        mUseCustomLoc = (CheckBoxPreference) findPreference(KEY_USE_CUSTOM_LOCATION);
-        mUseCustomLoc.setChecked(prefs.getInt(Constants.WEATHER_USE_CUSTOM_LOCATION, 0) == 1);
-        mCustomWeatherLoc = (EditTextPreference) findPreference(KEY_CUSTOM_LOCATION);
+        mUseCustomLoc = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
+        //mUseCustomLoc.setChecked(prefs.getInt(Constants.WEATHER_USE_CUSTOM_LOCATION, 0) == 1);
+        mCustomWeatherLoc = (EditTextPreference) findPreference(Constants.WEATHER_CUSTOM_LOCATION_STRING);
         updateLocationSummary();
         mCustomWeatherLoc.setOnPreferenceClickListener(this);
 
-        mShowLocation = (CheckBoxPreference) findPreference(KEY_WEATHER_SHOW_LOCATION);
-        mShowLocation.setChecked(prefs.getInt(Constants.WEATHER_SHOW_LOCATION, 1) == 1);
-
-        mShowTimestamp = (CheckBoxPreference) findPreference(KEY_SHOW_TIMESTAMP);
-        mShowTimestamp.setChecked(prefs.getInt(Constants.WEATHER_SHOW_TIMESTAMP, 1) == 1);
-
-        mUseMetric = (CheckBoxPreference) findPreference(KEY_USE_METRIC);
-        mUseMetric.setChecked(prefs.getInt(Constants.WEATHER_USE_METRIC, 1) == 1);
-
-        mInvertLowHigh = (CheckBoxPreference) findPreference(KEY_INVERT_LOWHIGH);
-        mInvertLowHigh.setChecked(prefs.getInt(Constants.WEATHER_INVERT_LOWHIGH, 0) == 1);
-
-        mWeatherSyncInterval = (ListPreference) findPreference(KEY_REFRESH_INTERVAL);
-        int weatherInterval = prefs.getInt(Constants.WEATHER_UPDATE_INTERVAL, 60);
+        mWeatherSyncInterval = (ListPreference) findPreference(Constants.WEATHER_REFRESH_INTERVAL);
+        int weatherInterval = prefs.getInt(Constants.WEATHER_REFRESH_INTERVAL, 60);
         mWeatherSyncInterval.setValue(String.valueOf(weatherInterval));
         mWeatherSyncInterval.setSummary(mapUpdateValue(weatherInterval));
         mWeatherSyncInterval.setOnPreferenceChangeListener(this);
@@ -154,32 +105,26 @@ public class Preferences extends PreferenceActivity implements
         }
 
         // Calendar items
-        mShowCalendar = (CheckBoxPreference) findPreference(KEY_SHOW_CALENDAR);
-        mShowCalendar.setChecked(prefs.getInt(Constants.SHOW_CALENDAR, 0) == 1);
-
-        mCalendarList = (MultiSelectListPreference) findPreference(KEY_CALENDARS);
+        mCalendarList = (MultiSelectListPreference) findPreference(Constants.CALENDAR_LIST);
         mCalendarList.setDefaultValue(prefs.getString(Constants.CALENDAR_LIST, null));
         mCalendarList.setOnPreferenceChangeListener(this);
         CalendarEntries calEntries = CalendarEntries.findCalendars(this);
         mCalendarList.setEntries(calEntries.getEntries());
         mCalendarList.setEntryValues(calEntries.getEntryValues());
 
-        mCalendarRemindersOnly = (CheckBoxPreference) findPreference(KEY_REMINDERS_ONLY);
-        mCalendarRemindersOnly.setChecked(prefs.getInt(Constants.CALENDAR_REMINDERS_ONLY, 0) == 1);
-
-        mCalendarLookahead = (ListPreference) findPreference(KEY_LOOKAHEAD);
+        mCalendarLookahead = (ListPreference) findPreference(Constants.CALENDAR_LOOKAHEAD);
         long calendarLookahead = prefs.getLong(Constants.CALENDAR_LOOKAHEAD, 10800000);
         mCalendarLookahead.setValue(String.valueOf(calendarLookahead));
         mCalendarLookahead.setSummary(mapLookaheadValue(calendarLookahead));
         mCalendarLookahead.setOnPreferenceChangeListener(this);
 
-        mCalendarShowLocation = (ListPreference) findPreference(KEY_SHOW_LOCATION);
+        mCalendarShowLocation = (ListPreference) findPreference(Constants.CALENDAR_SHOW_LOCATION);
         int calendarShowLocation = prefs.getInt(Constants.CALENDAR_SHOW_LOCATION, 0);
         mCalendarShowLocation.setValue(String.valueOf(calendarShowLocation));
         mCalendarShowLocation.setSummary(mapMetadataValue(calendarShowLocation));
         mCalendarShowLocation.setOnPreferenceChangeListener(this);
 
-        mCalendarShowDescription = (ListPreference) findPreference(KEY_SHOW_DESCRIPTION);
+        mCalendarShowDescription = (ListPreference) findPreference(Constants.CALENDAR_SHOW_DESCRIPTION);
         int calendarShowDescription = prefs.getInt(Constants.CALENDAR_SHOW_DESCRIPTION, 0);
         mCalendarShowDescription.setValue(String.valueOf(calendarShowDescription));
         mCalendarShowDescription.setSummary(mapMetadataValue(calendarShowDescription));
@@ -200,59 +145,7 @@ public class Preferences extends PreferenceActivity implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
-        if (preference == mClockFont) {
-            prefs.edit().putInt(Constants.CLOCK_FONT,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
-            return true;
-
-        } else if (preference == mShowAlarm) {
-            prefs.edit().putInt(Constants.CLOCK_SHOW_ALARM,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
-            return true;
-
-        } else if (preference == mShowWeather) {
-            prefs.edit().putInt(Constants.SHOW_WEATHER,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
-            return true;
-
-        } else if (preference == mUseCustomLoc) {
-            prefs.edit().putInt(Constants.WEATHER_USE_CUSTOM_LOCATION,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
-            updateLocationSummary();
-            return true;
-
-        } else if (preference == mShowLocation) {
-            prefs.edit().putInt(Constants.WEATHER_SHOW_LOCATION,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
-            return true;
-
-        } else if (preference == mUseMetric) {
-            prefs.edit().putInt(Constants.WEATHER_USE_METRIC,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
-            return true;
-
-        } else if (preference == mShowTimestamp) {
-            prefs.edit().putInt(Constants.WEATHER_SHOW_TIMESTAMP,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
-            return true;
-
-        } else if (preference == mInvertLowHigh) {
-            prefs.edit().putInt(Constants.WEATHER_INVERT_LOWHIGH,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
-            return true;
-
-        } else if (preference == mShowCalendar) {
-            prefs.edit().putInt(Constants.SHOW_CALENDAR,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
-            return true;
-
-        } else if (preference == mCalendarRemindersOnly) {
-            prefs.edit().putInt(Constants.CALENDAR_REMINDERS_ONLY,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0).apply();
-            return true;
-        }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     @Override
@@ -261,7 +154,7 @@ public class Preferences extends PreferenceActivity implements
 
         if (preference == mWeatherSyncInterval) {
             int newVal = Integer.parseInt((String) newValue);
-            prefs.edit().putInt(Constants.WEATHER_UPDATE_INTERVAL, newVal).apply();
+            prefs.edit().putInt(Constants.WEATHER_REFRESH_INTERVAL, newVal).apply();
             mWeatherSyncInterval.setValue((String) newValue);
             mWeatherSyncInterval.setSummary(mapUpdateValue(newVal));
             preference.setSummary(mapUpdateValue(newVal));
