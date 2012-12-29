@@ -48,7 +48,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         // Clear any old alarms and schedule the new alarm that only triggers if the device is ON (RTC)
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(pi);
-        am.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), Constants.WIDGET_UPDATE_FREQ, pi);
+        am.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 60000, pi);
     }
 
     @Override

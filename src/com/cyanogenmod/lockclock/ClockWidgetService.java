@@ -25,7 +25,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.graphics.Typeface;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -42,10 +41,9 @@ import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
-import android.widget.TextView;
 
 import com.cyanogenmod.lockclock.misc.Constants;
-import static com.cyanogenmod.lockclock.Preferences.PREF_NAME;
+import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
 import com.cyanogenmod.lockclock.weather.HttpRetriever;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherXmlParser;
@@ -56,6 +54,7 @@ import org.w3c.dom.Document;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 import java.util.TimeZone;
 
 public class ClockWidgetService extends Service {
@@ -239,8 +238,8 @@ public class ClockWidgetService extends Service {
             //showRefreshing();
     
             // Load the required settings from preferences
-            final long interval = mSharedPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_DEFAULT);
-            boolean manualSync = (interval == Constants.UPDATE_FREQ_MANUAL);
+            final long interval = Long.parseLong(mSharedPrefs.getString(Constants.UPDATE_CHECK_PREF, "60"));
+            boolean manualSync = (interval == 0);
             if (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval)) {
                 if (!mWeatherRefreshing) {
                     mHandler.sendEmptyMessage(QUERY_WEATHER);
@@ -261,7 +260,7 @@ public class ClockWidgetService extends Service {
     private void updateAndExit(RemoteViews remoteViews) {
         refreshAlarmStatus(remoteViews);
         refreshCalendar(remoteViews);
-        if (mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
+        if (!mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
             remoteViews.setViewVisibility(R.id.the_clock1_regular, View.VISIBLE);
             remoteViews.setViewVisibility(R.id.the_clock1, View.GONE);
         }
@@ -429,9 +428,9 @@ public class ClockWidgetService extends Service {
     private void refreshCalendar(RemoteViews remoteViews) {
         // Load the settings
         boolean lockCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
-        String[] calendars = parseStoredValue(mSharedPrefs.getString(Constants.CALENDAR_LIST, null));
+        Set<String> calendars = mSharedPrefs.getStringSet(Constants.CALENDAR_LIST, null);
         boolean lockCalendarRemindersOnly = mSharedPrefs.getBoolean(Constants.CALENDAR_REMINDERS_ONLY, false);
-        long lockCalendarLookahead = mSharedPrefs.getLong(Constants.CALENDAR_LOOKAHEAD, 10800000);
+        long lockCalendarLookahead = Long.parseLong(mSharedPrefs.getString(Constants.CALENDAR_LOOKAHEAD, "10800000"));
 
         String[] nextCalendar = null;
         boolean visible = false; // Assume we are not showing the view
@@ -450,27 +449,11 @@ public class ClockWidgetService extends Service {
     }
 
     /**
-     * Split the MultiSelectListPreference string based on a separator of ',' and
-     * stripping off the start [ and the end ]
-     * @param val
-     * @return
-     */
-    private static String[] parseStoredValue(String val) {
-        if (val == null || val.isEmpty())
-            return null;
-        else {
-            // Strip off the start [ and the end ] before splitting
-            val = val.substring(1, val.length() -1);
-            return (val.split(","));
-        }
-    }
-
-    /**
      * @return A formatted string of the next calendar event with a reminder
      * (for showing on the lock screen), or null if there is no next event
      * within a certain look-ahead time.
      */
-    public String[] getNextCalendarAlarm(long lookahead, String[] calendars,
+    public String[] getNextCalendarAlarm(long lookahead, Set<String> calendars,
             boolean remindersOnly) {
         long now = System.currentTimeMillis();
         long later = now + lookahead;
@@ -479,16 +462,18 @@ public class ClockWidgetService extends Service {
         if (remindersOnly) {
             where.append(CalendarContract.Events.HAS_ALARM + "=1");
         }
-        if (calendars != null && calendars.length > 0) {
+        if (calendars != null && calendars.size() > 0) {
             if (remindersOnly) {
                 where.append(" AND ");
             }
             where.append(CalendarContract.Events.CALENDAR_ID + " in (");
-            for (int i = 0; i < calendars.length; i++) {
-                where.append(calendars[i]);
-                if (i != calendars.length - 1) {
+            int i = 0;
+            for (String s : calendars) {
+                where.append(s);
+                if (i != calendars.size() - 1) {
                     where.append(",");
                 }
+                i++;
             }
             where.append(") ");
         }
@@ -562,7 +547,7 @@ public class ClockWidgetService extends Service {
                 }
 
                 // Add the event location if it should be shown
-                int showLocation = mSharedPrefs.getInt(Constants.CALENDAR_SHOW_LOCATION, 0);
+                int showLocation = Integer.parseInt(mSharedPrefs.getString(Constants.CALENDAR_SHOW_LOCATION, "0"));
                 if (showLocation != 0 && !TextUtils.isEmpty(location)) {
                     switch(showLocation) {
                         case 1:
@@ -582,7 +567,7 @@ public class ClockWidgetService extends Service {
                 }
 
                 // Add the event description if it should be shown
-                int showDescription = mSharedPrefs.getInt(Constants.CALENDAR_SHOW_DESCRIPTION, 0);
+                int showDescription = Integer.parseInt(mSharedPrefs.getString(Constants.CALENDAR_SHOW_DESCRIPTION, "0"));
                 if (showDescription != 0 && !TextUtils.isEmpty(description)) {
 
                     // Show the appropriate separator

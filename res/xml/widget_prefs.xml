@@ -22,6 +22,7 @@
         <CheckBoxPreference
             android:key="clock_font"
             android:title="@string/clock_font_title"
+            android:defaultValue="true"
             android:summary="@string/clock_font_summary" />
 
         <CheckBoxPreference
@@ -34,12 +35,15 @@
 
         <CheckBoxPreference
             android:key="show_weather"
+            android:defaultValue="true"
             android:title="@string/weather_enable"
             android:summary="@string/weather_source" />
 
         <ListPreference
             android:key="weather_refresh_interval"
             android:dependency="show_weather"
+            android:defaultValue="60"
+            android:summary="%s"
             android:entries="@array/weather_interval_entries"
             android:entryValues="@array/weather_interval_values"
             android:title="@string/weather_refresh_interval" />
@@ -94,8 +98,10 @@
         <ListPreference
             android:key="calendar_lookahead"
             android:dependency="show_calendar"
+            android:summary="%s"
             android:dialogTitle="@string/calendar_lookahead_title"
             android:title="@string/calendar_lookahead_title"
+            android:defaultValue="10800000"
             android:entries="@array/calendar_lookahead_entries"
             android:entryValues="@array/calendar_lookahead_values" />
 
@@ -108,6 +114,8 @@
         <ListPreference
             android:key="calendar_show_location"
             android:dependency="show_calendar"
+            android:summary="%s"
+            android:defaultValue="0"
             android:dialogTitle="@string/calendar_show_location_title"
             android:title="@string/calendar_show_location_title"
             android:entries="@array/calendar_show_event_metadata_entries"
@@ -116,6 +124,8 @@
         <ListPreference
             android:key="calendar_show_description"
             android:dependency="show_calendar"
+            android:summary="%s"
+            android:defaultValue="0"
             android:dialogTitle="@string/calendar_show_description_title"
             android:title="@string/calendar_show_description_title"
             android:entries="@array/calendar_show_event_metadata_entries"

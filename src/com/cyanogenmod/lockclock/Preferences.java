@@ -41,34 +41,28 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceScreen;
 import android.provider.CalendarContract;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
 
 import com.cyanogenmod.lockclock.misc.Constants;
+import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
 import com.cyanogenmod.lockclock.weather.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Preferences extends PreferenceActivity implements
-    OnPreferenceChangeListener, OnPreferenceClickListener, OnSharedPreferenceChangeListener {
+    OnPreferenceClickListener, OnSharedPreferenceChangeListener {
     private static final String TAG = "Preferences";
-
-    protected static final String PREF_NAME = "LockClock";
 
     private static final int LOC_WARNING = 101;
     private static final int WEATHER_CHECK = 0;
 
     private CheckBoxPreference mUseCustomLoc;
-    private ListPreference mWeatherSyncInterval;
     private EditTextPreference mCustomWeatherLoc;
     private MultiSelectListPreference mCalendarList;
-    private ListPreference mCalendarLookahead;
-    private ListPreference mCalendarShowLocation;
-    private ListPreference mCalendarShowDescription;
 
     private Context mContext;
     private ContentResolver mResolver;
@@ -87,16 +81,9 @@ public class Preferences extends PreferenceActivity implements
         SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
 
         mUseCustomLoc = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
-        //mUseCustomLoc.setChecked(prefs.getInt(Constants.WEATHER_USE_CUSTOM_LOCATION, 0) == 1);
         mCustomWeatherLoc = (EditTextPreference) findPreference(Constants.WEATHER_CUSTOM_LOCATION_STRING);
         updateLocationSummary();
         mCustomWeatherLoc.setOnPreferenceClickListener(this);
-
-        mWeatherSyncInterval = (ListPreference) findPreference(Constants.WEATHER_REFRESH_INTERVAL);
-        int weatherInterval = prefs.getInt(Constants.WEATHER_REFRESH_INTERVAL, 60);
-        mWeatherSyncInterval.setValue(String.valueOf(weatherInterval));
-        mWeatherSyncInterval.setSummary(mapUpdateValue(weatherInterval));
-        mWeatherSyncInterval.setOnPreferenceChangeListener(this);
 
         if (!Settings.Secure.isLocationProviderEnabled(mResolver,
                 LocationManager.NETWORK_PROVIDER)
@@ -106,29 +93,10 @@ public class Preferences extends PreferenceActivity implements
 
         // Calendar items
         mCalendarList = (MultiSelectListPreference) findPreference(Constants.CALENDAR_LIST);
-        mCalendarList.setDefaultValue(prefs.getString(Constants.CALENDAR_LIST, null));
-        mCalendarList.setOnPreferenceChangeListener(this);
         CalendarEntries calEntries = CalendarEntries.findCalendars(this);
         mCalendarList.setEntries(calEntries.getEntries());
         mCalendarList.setEntryValues(calEntries.getEntryValues());
 
-        mCalendarLookahead = (ListPreference) findPreference(Constants.CALENDAR_LOOKAHEAD);
-        long calendarLookahead = prefs.getLong(Constants.CALENDAR_LOOKAHEAD, 10800000);
-        mCalendarLookahead.setValue(String.valueOf(calendarLookahead));
-        mCalendarLookahead.setSummary(mapLookaheadValue(calendarLookahead));
-        mCalendarLookahead.setOnPreferenceChangeListener(this);
-
-        mCalendarShowLocation = (ListPreference) findPreference(Constants.CALENDAR_SHOW_LOCATION);
-        int calendarShowLocation = prefs.getInt(Constants.CALENDAR_SHOW_LOCATION, 0);
-        mCalendarShowLocation.setValue(String.valueOf(calendarShowLocation));
-        mCalendarShowLocation.setSummary(mapMetadataValue(calendarShowLocation));
-        mCalendarShowLocation.setOnPreferenceChangeListener(this);
-
-        mCalendarShowDescription = (ListPreference) findPreference(Constants.CALENDAR_SHOW_DESCRIPTION);
-        int calendarShowDescription = prefs.getInt(Constants.CALENDAR_SHOW_DESCRIPTION, 0);
-        mCalendarShowDescription.setValue(String.valueOf(calendarShowDescription));
-        mCalendarShowDescription.setSummary(mapMetadataValue(calendarShowDescription));
-        mCalendarShowDescription.setOnPreferenceChangeListener(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
     }
 
@@ -141,48 +109,6 @@ public class Preferences extends PreferenceActivity implements
         } else {
             mCustomWeatherLoc.setSummary(R.string.weather_geolocated);
         }
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
-
-        if (preference == mWeatherSyncInterval) {
-            int newVal = Integer.parseInt((String) newValue);
-            prefs.edit().putInt(Constants.WEATHER_REFRESH_INTERVAL, newVal).apply();
-            mWeatherSyncInterval.setValue((String) newValue);
-            mWeatherSyncInterval.setSummary(mapUpdateValue(newVal));
-            preference.setSummary(mapUpdateValue(newVal));
-
-        } else if (preference == mCalendarShowLocation) {
-            int calendarShowLocation = Integer.valueOf((String) newValue);
-            prefs.edit().putInt(Constants.CALENDAR_SHOW_LOCATION, calendarShowLocation).apply();
-            mCalendarShowLocation.setSummary(mapMetadataValue(calendarShowLocation));
-            return true;
-
-        } else if (preference == mCalendarShowDescription) {
-            int calendarShowDescription = Integer.valueOf((String) newValue);
-            prefs.edit().putInt(Constants.CALENDAR_SHOW_DESCRIPTION, calendarShowDescription).apply();
-            mCalendarShowDescription.setSummary(mapMetadataValue(calendarShowDescription));
-            return true;
-
-        } else if (preference == mCalendarLookahead) {
-            long calendarLookahead = Long.valueOf((String) newValue);
-            prefs.edit().putLong(Constants.CALENDAR_LOOKAHEAD, calendarLookahead).apply();
-            mCalendarLookahead.setSummary(mapLookaheadValue(calendarLookahead));
-            return true;
-
-        } else if (preference == mCalendarList) {
-            String calendars = newValue.toString();
-            prefs.edit().putString(Constants.CALENDAR_LIST, calendars).apply();
-            return true;
-        }
-        return false;
     }
 
     @Override
@@ -250,20 +176,6 @@ public class Preferences extends PreferenceActivity implements
         }
     };
 
-    private String mapUpdateValue(Integer time) {
-        Resources resources = mContext.getResources();
-
-        String[] timeNames = resources.getStringArray(R.array.weather_interval_entries);
-        String[] timeValues = resources.getStringArray(R.array.weather_interval_values);
-
-        for (int i = 0; i < timeValues.length; i++) {
-            if (Integer.decode(timeValues[i]).equals(time)) {
-                return timeNames[i];
-            }
-        }
-        return mContext.getString(R.string.unknown);
-    }
-
     @Override
     public Dialog onCreateDialog(int dialogId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
@@ -288,20 +200,6 @@ public class Preferences extends PreferenceActivity implements
                 dialog = null;
         }
         return dialog;
-    }
-
-    private String mapMetadataValue(Integer value) {
-        Resources resources = mContext.getResources();
-
-        String[] names = resources.getStringArray(R.array.calendar_show_event_metadata_entries);
-        String[] values = resources.getStringArray(R.array.calendar_show_event_metadata_values);
-
-        for (int i = 0; i < values.length; i++) {
-            if (Integer.decode(values[i]).equals(value)) {
-                return names[i];
-            }
-        }
-        return mContext.getString(R.string.unknown);
     }
 
     private String mapLookaheadValue(Long value) {
@@ -366,6 +264,12 @@ public class Preferences extends PreferenceActivity implements
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
             String key) {
+        System.out.println("Hey");
+        Preference pref = findPreference(key);
+        if (pref instanceof ListPreference) {
+            ListPreference listPref = (ListPreference) pref;
+            pref.setSummary(listPref.getEntry());
+        }
         Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
         sendBroadcast(updateIntent);
     }
