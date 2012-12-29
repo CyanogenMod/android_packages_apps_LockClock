@@ -125,10 +125,14 @@ public class ClockWidgetService extends Service {
         refreshAlarmStatus(remoteViews);
         refreshCalendar(remoteViews);
         refreshClockFont(remoteViews);
-        boolean lockCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
+
+        boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, false);
+        boolean showCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
         for (int id : mWidgetIds) {
+            boolean canFitWeather = WidgetUtils.canFitWeather(mContext, id);
             boolean canFitCalendar = WidgetUtils.canFitCalendar(mContext, id);
-            remoteViews.setViewVisibility(R.id.calendar_panel, canFitCalendar && lockCalendar ? View.VISIBLE : View.GONE);
+            remoteViews.setViewVisibility(R.id.weather_panel, canFitWeather && showWeather ? View.VISIBLE : View.GONE);
+            remoteViews.setViewVisibility(R.id.calendar_panel, canFitCalendar && showCalendar ? View.VISIBLE : View.GONE);
             mAppWidgetManager.updateAppWidget(id, remoteViews);
         }
         stopSelf();

@@ -35,9 +35,11 @@ public class WidgetUtils {
             // no data to make the calculation, show the list anyway
             return true;
         }
+        Resources resources = context.getResources();
         int minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
-        int neededSize = (int) context.getResources().getDimension(R.dimen.min_weather_widget_height);
-        return (minHeight > neededSize);
+        int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight, resources.getDisplayMetrics());
+        int neededSize = (int) resources.getDimension(R.dimen.min_weather_widget_height);
+        return (minHeightPx > neededSize);
     }
 
     // Decide if to show the Calendar
