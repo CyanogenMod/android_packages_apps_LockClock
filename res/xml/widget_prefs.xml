@@ -27,7 +27,8 @@
 
         <CheckBoxPreference
             android:key="clock_show_alarm"
-            android:title="@string/show_alarm_title" />
+            android:title="@string/show_alarm_title"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -35,7 +36,6 @@
 
         <CheckBoxPreference
             android:key="show_weather"
-            android:defaultValue="true"
             android:title="@string/weather_enable"
             android:summary="@string/weather_source" />
 

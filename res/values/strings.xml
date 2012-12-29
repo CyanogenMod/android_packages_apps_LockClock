@@ -16,16 +16,19 @@
 
 <resources>
 
+    <!-- General strings -->
     <string name="app_name">Lock Clock</string>
+    <string name="unknown">Unknown</string>
+    <string name="cancel">Cancel</string>
 
-    <!-- format strings for widget clock -->
+    <!-- Formating strings for widget clock -->
     <string name="widget_12_hours_format_h" translatable="false">h</string>
     <string name="widget_12_hours_format_no_ampm_m" translatable="false">:mm</string>
     <string name="widget_12_hours_format_m" translatable="false">:mm<font size="15">aa</font></string>
     <string name="widget_24_hours_format_h" translatable="false">kk</string>
     <string name="widget_24_hours_format_m" translatable="false">:mm</string>
 
-    <!-- Lock clock Weather - Weather codes -->
+    <!-- Weather - Weather codes -->
     <string name="weather_0">Tornado</string>
     <string name="weather_1">Tropical Storm</string>
     <string name="weather_2">Hurricane</string>
@@ -77,7 +80,7 @@
     <!-- Forecast unavailable -->
     <string name="weather_3200"></string>
 
-    <!-- Lock clock Weather - Wind directions -->
+    <!-- Weather - Wind directions -->
     <string name="weather_N">N</string>
     <string name="weather_NE">NE</string>
     <string name="weather_E">E</string>
@@ -87,17 +90,27 @@
     <string name="weather_W">W</string>
     <string name="weather_NW">NW</string>
 
-    <!-- Lock clock Weather - error messages -->
+    <!-- Weather - error messages -->
     <string name="weather_no_data">No data</string>
     <string name="weather_tap_to_refresh">Tap to refresh</string>
     <string name="weather_refreshing">Refreshing</string>
     <string name="weather_last_sync_just_now">Just now</string>
 
-    <!-- Preferences -->
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">Manual</string>
+    <string name="weather_refresh_30min">30 minutes</string>
+    <string name="weather_refresh_60min">60 minutes</string>
+    <string name="weather_refresh_2hrs">2 hours</string>
+    <string name="weather_refresh_4hrs">4 hours</string>
+    <string name="weather_refresh_6hrs">6 hours</string>
+    <string name="weather_refresh_8hrs">8 hours</string>
+
+    <!-- Preferences - Categories -->
     <string name="clock_category">Clock</string>
     <string name="weather_category">Weather</string>
     <string name="calendar_category">Calendar</string>
 
+    <!-- Preferences - Weather -->
     <string name="clock_font_title">Bold hours</string>
     <string name="clock_font_summary">Show the hours on the clock in a bold font</string>
     <string name="show_alarm_title">Show next alarm</string>
@@ -119,16 +132,7 @@
     <string name="weather_invert_lowhigh">Invert low/high temperatures</string>
     <string name="weather_progress_title">Verifying location</string>
 
-    <!-- Weather - Update frequency -->
-    <string name="weather_refresh_manual">Manual</string>
-    <string name="weather_refresh_30min">30 minutes</string>
-    <string name="weather_refresh_60min">60 minutes</string>
-    <string name="weather_refresh_2hrs">2 hours</string>
-    <string name="weather_refresh_4hrs">4 hours</string>
-    <string name="weather_refresh_6hrs">6 hours</string>
-    <string name="weather_refresh_8hrs">8 hours</string>
-
-    <!-- Calendar -->
+    <!-- Preferences - Calendar -->
     <string name="calendar_title">Display next event</string>
     <string name="calendars_title">Event calendars</string>
     <string name="calendars_summary">Find events from these calendars</string>
@@ -146,12 +150,9 @@
     <string name="calendar_lookahead_3days">3 days</string>
     <string name="calendar_lookahead_1wk">1 week</string>
 
-    <!-- Calendar - event metadata -->
+    <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">Do not show</string>
     <string name="calendar_metadata_first_line">Show first line</string>
     <string name="calendar_metadata_all">Show all</string>
-
-    <string name="unknown">Unknown</string>
-    <string name="cancel">Cancel</string>
 
 </resources>

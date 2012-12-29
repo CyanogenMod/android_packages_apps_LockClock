@@ -58,9 +58,8 @@ import java.util.Set;
 import java.util.TimeZone;
 
 public class ClockWidgetService extends Service {
-
     private static final String TAG = "ClockWidgetService";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     private Context mContext;
     private int[] mWidgetIds;
@@ -79,9 +78,7 @@ public class ClockWidgetService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (mWidgetIds != null && mWidgetIds.length != 0) {
-            refreshWeather(); // This has the service stop
-
-            // TODO: do we need to do the widget updates in the alarm and calendar updates above?
+            refreshWidget();
         }
         return START_STICKY;
     }
@@ -91,9 +88,60 @@ public class ClockWidgetService extends Service {
       return null;
     }
 
-    /*
-     * Alarm clock related functionality
+    /**
+     * Reload the widget including the Weather forecast, Alarm, Clock font and Calendar
      */
+    private void refreshWidget() {
+        // If we need to show the weather, do so
+        boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, false);
+        if (showWeather) {
+            // Load the required settings from preferences
+            final long interval = Long.parseLong(mSharedPrefs.getString(Constants.WEATHER_REFRESH_INTERVAL, "60"));
+            boolean manualSync = (interval == 0);
+            if (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval)) {
+                if (!mWeatherRefreshing) {
+                    mHandler.sendEmptyMessage(QUERY_WEATHER);
+                }
+            } else if (manualSync && mWeatherInfo.last_sync == 0) {
+                setNoWeatherData();
+            } else {
+                setWeatherData(mWeatherInfo);
+            }
+        } else {
+            // Hide the weather panel and update the rest of the widget
+            RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+            remoteViews.setViewVisibility(R.id.weather_panel, View.GONE);
+            updateAndExit(remoteViews);
+        }
+    }
+
+    /**
+     * Refresh Alarm and Calendar (if visible) and update the widget views 
+     */
+    private void updateAndExit(RemoteViews remoteViews) {
+        refreshAlarmStatus(remoteViews);
+        refreshCalendar(remoteViews);
+        refreshClockFont(remoteViews);
+        mAppWidgetManager.updateAppWidget(mWidgetIds, remoteViews);
+        stopSelf();
+    }
+
+    //===============================================================================================
+    // Clock related functionality
+    //===============================================================================================
+    void refreshClockFont(RemoteViews remoteViews) {
+        if (!mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
+            remoteViews.setViewVisibility(R.id.the_clock1_regular, View.VISIBLE);
+            remoteViews.setViewVisibility(R.id.the_clock1, View.GONE);
+        } else {
+            remoteViews.setViewVisibility(R.id.the_clock1_regular, View.GONE);
+            remoteViews.setViewVisibility(R.id.the_clock1, View.VISIBLE);
+        }
+    }
+
+    //===============================================================================================
+    // Alarm related functionality
+    //===============================================================================================
     void refreshAlarmStatus(RemoteViews remoteViews) {
         boolean showAlarm = mSharedPrefs.getBoolean(Constants.CLOCK_SHOW_ALARM, true);
 
@@ -126,9 +174,9 @@ public class ClockWidgetService extends Service {
         return nextAlarm;
     }
 
-    /*
-     * Weather related functionality
-     */
+    //===============================================================================================
+    // Weather related functionality
+    //===============================================================================================
     private static final String URL_YAHOO_API_WEATHER = "http://weather.yahooapis.com/forecastrss?w=%s&u=";
     private static WeatherInfo mWeatherInfo = new WeatherInfo();
     private static final int QUERY_WEATHER = 0;
@@ -227,62 +275,6 @@ public class ClockWidgetService extends Service {
     };
 
     /**
-     * Reload the weather forecast
-     */
-    private void refreshWeather() {
-        boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, true);
-
-        if (showWeather) {
-            // TODO: figure out when to show that we are refreshing to give the user a visual cue
-            // should only be on manual refresh
-            //showRefreshing();
-    
-            // Load the required settings from preferences
-            final long interval = Long.parseLong(mSharedPrefs.getString(Constants.UPDATE_CHECK_PREF, "60"));
-            boolean manualSync = (interval == 0);
-            if (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval)) {
-                if (!mWeatherRefreshing) {
-                    mHandler.sendEmptyMessage(QUERY_WEATHER);
-                }
-            } else if (manualSync && mWeatherInfo.last_sync == 0) {
-                setNoWeatherData();
-            } else {
-                setWeatherData(mWeatherInfo);
-            }
-        } else {
-            // Hide the weather panel
-            RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
-            remoteViews.setViewVisibility(R.id.weather_panel, View.GONE);
-            updateAndExit(remoteViews);
-        }
-    }
-
-    private void updateAndExit(RemoteViews remoteViews) {
-        refreshAlarmStatus(remoteViews);
-        refreshCalendar(remoteViews);
-        if (!mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
-            remoteViews.setViewVisibility(R.id.the_clock1_regular, View.VISIBLE);
-            remoteViews.setViewVisibility(R.id.the_clock1, View.GONE);
-        }
-        mAppWidgetManager.updateAppWidget(mWidgetIds, remoteViews);
-        stopSelf();
-    }
-
-    /**
-     * Indicate that the widget is refreshing
-     */
-    private void showRefreshing() {
-        final Resources res = getBaseContext().getResources();
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
-        remoteViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_refreshing));
-        for (int widgetId : mWidgetIds) {
-            if (DEBUG)
-                Log.d(TAG, "Showing refreshing status for Widget ID:" + widgetId);
-            mAppWidgetManager.updateAppWidget(widgetId, remoteViews);
-        }
-    }
-
-    /**
      * Display the weather information
      * @param w
      */
@@ -355,6 +347,7 @@ public class ClockWidgetService extends Service {
                 PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.digital_clock, pi);
 
+        // Update the rest of the widget and stop
         updateAndExit(remoteViews);
     }
 
@@ -377,6 +370,7 @@ public class ClockWidgetService extends Service {
         // Make sure the Weather panel is visible
         remoteViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
 
+        // Update the rest of the widget and stop
         updateAndExit(remoteViews);
     }
 
@@ -421,10 +415,9 @@ public class ClockWidgetService extends Service {
     }
     
 
-    /*
-     * Calendar related functionality
-     */
-
+    //===============================================================================================
+    // Calendar related functionality
+    //===============================================================================================
     private void refreshCalendar(RemoteViews remoteViews) {
         // Load the settings
         boolean lockCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);

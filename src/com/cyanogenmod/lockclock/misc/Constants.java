@@ -17,13 +17,7 @@
 package com.cyanogenmod.lockclock.misc;
 
 public class Constants {
-    public static final String UPDATE_CHECK_PREF = "pref_update_check";
-    public static final String LAST_UPDATE_CHECK_PREF = "pref_last_update_check";
     public static final String PREF_NAME = "LockClock";
-
-    // Activity start parameters
-    public static final String CHECK_FOR_UPDATE = "check_for_update";
-    public static final String MANUAL_UPDATE = "manual_update";
 
     // Widget Settings
     public static final String CLOCK_FONT = "clock_font";
