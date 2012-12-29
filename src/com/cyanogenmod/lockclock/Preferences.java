@@ -61,6 +61,8 @@ public class Preferences extends PreferenceActivity implements
 
     private CheckBoxPreference mUseCustomLoc;
     private CheckBoxPreference mUseMetric;
+    private CheckBoxPreference mShowLocation;
+    private CheckBoxPreference mShowTimestamp;
     private EditTextPreference mCustomWeatherLoc;
     private MultiSelectListPreference mCalendarList;
 
@@ -80,21 +82,28 @@ public class Preferences extends PreferenceActivity implements
         // Load the required settings from preferences
         SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
 
+        // Some preferences need to be set to a default value in code since we cannot do them in XML
         mUseMetric = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_METRIC);
         mUseMetric.setChecked(prefs.getBoolean(Constants.WEATHER_USE_METRIC, true));
+        mShowLocation = (CheckBoxPreference) findPreference(Constants.WEATHER_SHOW_LOCATION);
+        mShowLocation.setChecked(prefs.getBoolean(Constants.WEATHER_SHOW_LOCATION, true));
+        mShowTimestamp = (CheckBoxPreference) findPreference(Constants.WEATHER_SHOW_TIMESTAMP);
+        mShowTimestamp.setChecked(prefs.getBoolean(Constants.WEATHER_SHOW_TIMESTAMP, true));
 
+        // Load items that need custom summaries etc.
         mUseCustomLoc = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
         mCustomWeatherLoc = (EditTextPreference) findPreference(Constants.WEATHER_CUSTOM_LOCATION_STRING);
         updateLocationSummary();
         mCustomWeatherLoc.setOnPreferenceClickListener(this);
 
+        // Show a warning if location manager is disabled and there is no custom location set
         if (!Settings.Secure.isLocationProviderEnabled(mResolver,
                 LocationManager.NETWORK_PROVIDER)
                 && !mUseCustomLoc.isChecked()) {
             showDialog(LOC_WARNING);
         }
 
-        // Calendar items
+        // The calendar list entries and values are determined at run time, not in XML
         mCalendarList = (MultiSelectListPreference) findPreference(Constants.CALENDAR_LIST);
         CalendarEntries calEntries = CalendarEntries.findCalendars(this);
         mCalendarList.setEntries(calEntries.getEntries());
