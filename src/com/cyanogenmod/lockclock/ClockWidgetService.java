@@ -149,6 +149,15 @@ public class ClockWidgetService extends Service {
             remoteViews.setViewVisibility(R.id.the_clock1_regular, View.GONE);
             remoteViews.setViewVisibility(R.id.the_clock1, View.VISIBLE);
         }
+
+        // Register an onClickListener on Clock
+        // TODO: Should launch the clock or should we let it not do anything?
+        Intent clockClickIntent = new Intent(mContext, ClockWidgetProvider.class);
+        clockClickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        clockClickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, mWidgetIds);
+        PendingIntent pi = PendingIntent.getBroadcast(mContext, 0, clockClickIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        remoteViews.setOnClickPendingIntent(R.id.digital_clock, pi);
     }
 
     //===============================================================================================
@@ -175,9 +184,6 @@ public class ClockWidgetService extends Service {
      * @return A formatted string of the next alarm or null if there is no next alarm.
      */
     public String getNextAlarm() {
-        // TODO: figure out how to do this with the UserHandle, for now just read in the normal way
-        //String nextAlarm = Settings.System.getStringForUser(mContext.getContentResolver(),
-        //        Settings.System.NEXT_ALARM_FORMATTED, UserHandle.USER_CURRENT);
         String nextAlarm = Settings.System.getString(mContext.getContentResolver(),
                 Settings.System.NEXT_ALARM_FORMATTED);
         if (nextAlarm == null || TextUtils.isEmpty(nextAlarm)) {
@@ -205,7 +211,7 @@ public class ClockWidgetService extends Service {
                     public void run() {
                         // Load the preferences
                         boolean useCustomLoc = mSharedPrefs.getBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, false);
-                        String customLoc = mSharedPrefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);// TODO: Should I use the null here?
+                        String customLoc = mSharedPrefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);
 
                         // Get location related stuff ready
                         LocationManager locationManager =
@@ -350,15 +356,6 @@ public class ClockWidgetService extends Service {
                 PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.weather_panel, pendingIntent);
 
-        // Register an onClickListener on Clock
-        // TODO: Should launch the clock or should we let it not do anything? 
-        Intent clockClickIntent = new Intent(mContext, ClockWidgetProvider.class);
-        clockClickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-        clockClickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, mWidgetIds);
-        PendingIntent pi = PendingIntent.getBroadcast(mContext, 0, clockClickIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-        remoteViews.setOnClickPendingIntent(R.id.digital_clock, pi);
-
         // Update the rest of the widget and stop
         updateAndExit(remoteViews);
     }
@@ -474,7 +471,19 @@ public class ClockWidgetService extends Service {
             remoteViews.setViewVisibility(R.id.calendar_event2, event2_visible ? View.VISIBLE : View.GONE);
             remoteViews.setViewVisibility(R.id.calendar_event3, event3_visible ? View.VISIBLE : View.GONE);
         }
-       remoteViews.setViewVisibility(R.id.calendar_panel, event1_visible ? View.VISIBLE : View.GONE);
+        // Deal with overall panel visibility
+        remoteViews.setViewVisibility(R.id.calendar_panel, event1_visible ? View.VISIBLE : View.GONE);
+        if (event1_visible) {
+            // Register an onClickListener on Calendar
+            // TODO: Make this listener actually do something
+
+            Intent calendarClickIntent = new Intent(mContext, ClockWidgetProvider.class);
+            calendarClickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+            calendarClickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, mWidgetIds);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(mContext, 0, calendarClickIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
+            remoteViews.setOnClickPendingIntent(R.id.calendar_panel, pendingIntent);
+        }
     }
 
     /**
@@ -640,8 +649,6 @@ public class ClockWidgetService extends Service {
                 cursor.close();
             }
         }
-
         return nextCalendarAlarm;
     }
-
 }

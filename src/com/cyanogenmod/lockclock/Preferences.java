@@ -26,7 +26,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -112,15 +111,17 @@ public class Preferences extends PreferenceActivity implements
         prefs.registerOnSharedPreferenceChangeListener(this);
     }
 
-    private void updateLocationSummary() {
-        if (mUseCustomLoc.isChecked()) {
-            SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
-            String location = prefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, 
-                    getResources().getString(R.string.unknown));
-            mCustomWeatherLoc.setSummary(location);
-        } else {
-            mCustomWeatherLoc.setSummary(R.string.weather_geolocated);
+    @SuppressWarnings("deprecation")
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+            String key) {
+        Preference pref = findPreference(key);
+        if (pref instanceof ListPreference) {
+            ListPreference listPref = (ListPreference) pref;
+            pref.setSummary(listPref.getEntry());
         }
+        Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
+        sendBroadcast(updateIntent);
     }
 
     @Override
@@ -162,9 +163,20 @@ public class Preferences extends PreferenceActivity implements
         return false;
     }
 
-    /**
-     * Utility classes and supporting methods
-     */
+    //===============================================================================================
+    // Utility classes and supporting methods
+    //===============================================================================================
+
+    private void updateLocationSummary() {
+        if (mUseCustomLoc.isChecked()) {
+            SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
+            String location = prefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, 
+                    getResources().getString(R.string.unknown));
+            mCustomWeatherLoc.setSummary(location);
+        } else {
+            mCustomWeatherLoc.setSummary(R.string.weather_geolocated);
+        }
+    }
 
     private Handler mHandler = new Handler() {
         @Override
@@ -214,21 +226,7 @@ public class Preferences extends PreferenceActivity implements
         return dialog;
     }
 
-    private String mapLookaheadValue(Long value) {
-        Resources resources = mContext.getResources();
-
-        String[] names = resources.getStringArray(R.array.calendar_lookahead_entries);
-        String[] values = resources.getStringArray(R.array.calendar_lookahead_values);
-
-        for (int i = 0; i < values.length; i++) {
-            if (Long.decode(values[i]).equals(value)) {
-                return names[i];
-            }
-        }
-
-        return mContext.getString(R.string.unknown);
-    }
-
+    @SuppressWarnings("deprecation")
     private static class CalendarEntries {
         private final CharSequence[] mEntries;
         private final CharSequence[] mEntryValues;
@@ -271,17 +269,5 @@ public class Preferences extends PreferenceActivity implements
         CharSequence[] getEntryValues() {
             return mEntryValues;
         }
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-            String key) {
-        Preference pref = findPreference(key);
-        if (pref instanceof ListPreference) {
-            ListPreference listPref = (ListPreference) pref;
-            pref.setSummary(listPref.getEntry());
-        }
-        Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
-        sendBroadcast(updateIntent);
     }
 }

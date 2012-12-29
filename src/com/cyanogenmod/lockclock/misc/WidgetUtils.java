@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (C) 2012 The CyanogenMod Project (DaneshM)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,8 @@ public class WidgetUtils {
         }
         Resources resources = context.getResources();
         int minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
-        int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight, resources.getDisplayMetrics());
+        int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight,
+                resources.getDisplayMetrics());
         int neededSize = (int) resources.getDimension(R.dimen.min_weather_widget_height);
         return (minHeightPx > neededSize);
     }
@@ -52,7 +53,8 @@ public class WidgetUtils {
         }
         Resources resources = context.getResources();
         int minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
-        int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight, resources.getDisplayMetrics());
+        int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight,
+                resources.getDisplayMetrics());
         int neededSize = (int) resources.getDimension(R.dimen.min_calendar_widget_height);
         return (minHeightPx > neededSize);
     }
