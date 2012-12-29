@@ -38,7 +38,6 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.provider.CalendarContract;
@@ -61,6 +60,7 @@ public class Preferences extends PreferenceActivity implements
     private static final int WEATHER_CHECK = 0;
 
     private CheckBoxPreference mUseCustomLoc;
+    private CheckBoxPreference mUseMetric;
     private EditTextPreference mCustomWeatherLoc;
     private MultiSelectListPreference mCalendarList;
 
@@ -79,6 +79,9 @@ public class Preferences extends PreferenceActivity implements
 
         // Load the required settings from preferences
         SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
+
+        mUseMetric = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_METRIC);
+        mUseMetric.setChecked(prefs.getBoolean(Constants.WEATHER_USE_METRIC, true));
 
         mUseCustomLoc = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
         mCustomWeatherLoc = (EditTextPreference) findPreference(Constants.WEATHER_CUSTOM_LOCATION_STRING);
@@ -264,7 +267,6 @@ public class Preferences extends PreferenceActivity implements
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
             String key) {
-        System.out.println("Hey");
         Preference pref = findPreference(key);
         if (pref instanceof ListPreference) {
             ListPreference listPref = (ListPreference) pref;

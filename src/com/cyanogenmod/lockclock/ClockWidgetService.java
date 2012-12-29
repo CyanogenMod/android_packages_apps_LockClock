@@ -382,8 +382,7 @@ public class ClockWidgetService extends Service {
      */
     private Document getDocument(String woeid) {
         try {
-            boolean celcius = true; //Settings.System.getInt(getBaseContext().getContentResolver(),
-                    //Settings.System.WEATHER_USE_METRIC, 1) == 1;
+            boolean celcius = mSharedPrefs.getBoolean(Constants.WEATHER_USE_METRIC, true);
             String urlWithDegreeUnit;
 
             if (celcius) {
