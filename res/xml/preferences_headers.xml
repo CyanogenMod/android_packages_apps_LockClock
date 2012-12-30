@@ -17,15 +17,21 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
 
     <header android:id="@+id/preferences_clock_section"
-            android:fragment="com.cyanogenmod.lockclock.preference.Preferences$ClockFragment"
-            android:title="@string/clock_category" />
+            android:fragment="com.cyanogenmod.lockclock.preference.ClockPreferences"
+            android:icon="@drawable/clock_preferences"
+            android:title="@string/clock_category"
+            android:summary="@string/clock_category_summary" />
 
     <header android:id="@+id/preferences_weather_section"
-            android:fragment="com.cyanogenmod.lockclock.preference.Preferences$WeatherFragment"
-            android:title="@string/weather_category"/>
+            android:fragment="com.cyanogenmod.lockclock.preference.WeatherPreferences"
+            android:icon="@drawable/weather_preferences"
+            android:title="@string/weather_category"
+            android:summary="@string/weather_category_summary" />
 
     <header android:id="@+id/preferences_calendar_section"
-            android:fragment="com.cyanogenmod.lockclock.preference.Preferences$CalendarFragment"
-            android:title="@string/calendar_category" />
+            android:fragment="com.cyanogenmod.lockclock.preference.CalendarPreferences"
+            android:icon="@drawable/calendar_preferences"
+            android:title="@string/calendar_category"
+            android:summary="@string/calendar_category_summary" />
 
 </preference-headers>
