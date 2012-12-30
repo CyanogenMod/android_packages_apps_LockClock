@@ -121,10 +121,14 @@
     <string name="clock_category">Relógio e alarme</string>
     <string name="weather_category">Painel do tempo</string>
     <string name="calendar_category">Eventos do calendário</string>
-
     <string name="clock_font_title">Horas em negrito</string>
     <string name="show_alarm_title">Exibir próximo alarme</string>
-
     <string name="weather_enabled">Ativado</string>
     <string name="calendar_hide_allday_title">Ocultar eventos de dia inteiro</string>
+    <string name="general_category">Geral</string>
+    <string name="display_category">Exibir</string>
+    <string name="clock_font_minutes_title">Minutos em negrito</string>
+    <string name="clock_font_date_title">Data e minutos em negrito</string>
+    <string name="weather_alternate_icons_title">Usar ícones alternados</string>
+    <string name="weather_alternate_icons_summary">Selecione para alternar entre o padrão (Branco) e os ícones (Cor) alternativo</string>
 </resources>
