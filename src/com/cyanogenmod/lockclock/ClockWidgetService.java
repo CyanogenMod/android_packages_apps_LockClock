@@ -39,6 +39,7 @@ import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -132,17 +133,24 @@ public class ClockWidgetService extends Service {
      * Refresh Alarm and Calendar (if visible) and update the widget views 
      */
     private void updateAndExit(RemoteViews remoteViews) {
+        refreshClockFont(remoteViews);
         refreshAlarmStatus(remoteViews);
         refreshCalendar(remoteViews);
-        refreshClockFont(remoteViews);
 
         boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, false);
         boolean showCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
         for (int id : mWidgetIds) {
+            // Resize the clock font if needed
+            float ratio = WidgetUtils.getScaleRatio(mContext, id);
+            setClockSize(remoteViews, ratio);
+
+            // Hide the panels if there is no space for them
             boolean canFitWeather = WidgetUtils.canFitWeather(mContext, id);
             boolean canFitCalendar = WidgetUtils.canFitCalendar(mContext, id);
             remoteViews.setViewVisibility(R.id.weather_panel, canFitWeather && showWeather ? View.VISIBLE : View.GONE);
             remoteViews.setViewVisibility(R.id.calendar_panel, canFitCalendar && showCalendar ? View.VISIBLE : View.GONE);
+
+            // Do the update
             mAppWidgetManager.updateAppWidget(id, remoteViews);
         }
         stopSelf();
@@ -151,39 +159,46 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     // Clock related functionality
     //===============================================================================================
-    void refreshClockFont(RemoteViews remoteViews) {
+    private void refreshClockFont(RemoteViews clock) {
         if (!mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
-            remoteViews.setViewVisibility(R.id.the_clock1_regular, View.VISIBLE);
-            remoteViews.setViewVisibility(R.id.the_clock1, View.GONE);
+            clock.setViewVisibility(R.id.the_clock1_regular, View.VISIBLE);
+            clock.setViewVisibility(R.id.the_clock1, View.GONE);
         } else {
-            remoteViews.setViewVisibility(R.id.the_clock1_regular, View.GONE);
-            remoteViews.setViewVisibility(R.id.the_clock1, View.VISIBLE);
+            clock.setViewVisibility(R.id.the_clock1_regular, View.GONE);
+            clock.setViewVisibility(R.id.the_clock1, View.VISIBLE);
         }
 
         // Register an onClickListener on Clock, starting DeskClock
-        ComponentName clock = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
-        Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(clock);
+        ComponentName clk = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
+        Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(clk);
         PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-        remoteViews.setOnClickPendingIntent(R.id.digital_clock, pi);
+        clock.setOnClickPendingIntent(R.id.digital_clock, pi);
+    }
+
+    private void setClockSize(RemoteViews clock, float scale) {
+        float fontSize = mContext.getResources().getDimension(R.dimen.widget_big_font_size);
+        clock.setTextViewTextSize(R.id.the_clock1, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
+        clock.setTextViewTextSize(R.id.the_clock1_regular, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
+        clock.setTextViewTextSize(R.id.the_clock2, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
     }
 
     //===============================================================================================
     // Alarm related functionality
     //===============================================================================================
-    void refreshAlarmStatus(RemoteViews remoteViews) {
+    private void refreshAlarmStatus(RemoteViews alarm) {
         boolean showAlarm = mSharedPrefs.getBoolean(Constants.CLOCK_SHOW_ALARM, true);
 
         // Update Alarm status
         if (showAlarm) {
             String nextAlarm = getNextAlarm();
             if (!TextUtils.isEmpty(nextAlarm)) {
-                remoteViews.setTextViewText(R.id.nextAlarm, nextAlarm.toString().toUpperCase());
-                remoteViews.setViewVisibility(R.id.nextAlarm, View.VISIBLE);
+                alarm.setTextViewText(R.id.nextAlarm, nextAlarm.toString().toUpperCase());
+                alarm.setViewVisibility(R.id.nextAlarm, View.VISIBLE);
             } else {
-                remoteViews.setViewVisibility(R.id.nextAlarm, View.GONE);
+                alarm.setViewVisibility(R.id.nextAlarm, View.GONE);
             }
         } else {
-            remoteViews.setViewVisibility(R.id.nextAlarm, View.GONE);
+            alarm.setViewVisibility(R.id.nextAlarm, View.GONE);
         }
     }
 
@@ -431,7 +446,7 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     // Calendar related functionality
     //===============================================================================================
-    private void refreshCalendar(RemoteViews remoteViews) {
+    private void refreshCalendar(RemoteViews calendar) {
         // Load the settings
         boolean lockCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
         Set<String> calendars = mSharedPrefs.getStringSet(Constants.CALENDAR_LIST, null);
@@ -452,39 +467,39 @@ public class ClockWidgetService extends Service {
                     // TODO: change this to dynamically add views to the widget
                     // Hard code this to 3 for now
                     if (i == 0) {
-                        remoteViews.setTextViewText(R.id.calendar_event_title, nextCalendar[i][0].toString());
+                        calendar.setTextViewText(R.id.calendar_event_title, nextCalendar[i][0].toString());
                         if (nextCalendar[0][1] != null) {
-                            remoteViews.setTextViewText(R.id.calendar_event_details, nextCalendar[i][1]);
+                            calendar.setTextViewText(R.id.calendar_event_details, nextCalendar[i][1]);
                         }
                         event1_visible = true;
                     } else if (i == 1) {
-                        remoteViews.setTextViewText(R.id.calendar_event2_title, nextCalendar[i][0].toString());
+                        calendar.setTextViewText(R.id.calendar_event2_title, nextCalendar[i][0].toString());
                         if (nextCalendar[0][1] != null) {
-                            remoteViews.setTextViewText(R.id.calendar_event2_details, nextCalendar[i][1]);
+                            calendar.setTextViewText(R.id.calendar_event2_details, nextCalendar[i][1]);
                         }
                         event2_visible = true;
                     } else if (i == 2) {
-                        remoteViews.setTextViewText(R.id.calendar_event3_title, nextCalendar[i][0].toString());
+                        calendar.setTextViewText(R.id.calendar_event3_title, nextCalendar[i][0].toString());
                         if (nextCalendar[0][1] != null) {
-                            remoteViews.setTextViewText(R.id.calendar_event3_details, nextCalendar[i][1]);
+                            calendar.setTextViewText(R.id.calendar_event3_details, nextCalendar[i][1]);
                         }
                         event3_visible = true;
                     }
                 }
             }
             // Deal with the visibility of the event items
-            remoteViews.setViewVisibility(R.id.calendar_event2, event2_visible ? View.VISIBLE : View.GONE);
-            remoteViews.setViewVisibility(R.id.calendar_event3, event3_visible ? View.VISIBLE : View.GONE);
+            calendar.setViewVisibility(R.id.calendar_event2, event2_visible ? View.VISIBLE : View.GONE);
+            calendar.setViewVisibility(R.id.calendar_event3, event3_visible ? View.VISIBLE : View.GONE);
         }
 
         // Deal with overall panel visibility
-        remoteViews.setViewVisibility(R.id.calendar_panel, event1_visible ? View.VISIBLE : View.GONE);
+        calendar.setViewVisibility(R.id.calendar_panel, event1_visible ? View.VISIBLE : View.GONE);
         if (event1_visible) {
             // Register an onClickListener on Calendar, starting the Calendar app
             ComponentName cal = new ComponentName("com.android.calendar", "com.android.calendar.AllInOneActivity");
             Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(cal);
             PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-            remoteViews.setOnClickPendingIntent(R.id.calendar_panel, pi);
+            calendar.setOnClickPendingIntent(R.id.calendar_panel, pi);
         }
     }
 
@@ -493,7 +508,7 @@ public class ClockWidgetService extends Service {
      * (for showing on the lock screen), or null if there is no next event
      * within a certain look-ahead time.
      */
-    public String[][] getNextCalendarAlarm(long lookahead, Set<String> calendars,
+    private String[][] getNextCalendarAlarm(long lookahead, Set<String> calendars,
             boolean remindersOnly) {
         long now = System.currentTimeMillis();
         long later = now + lookahead;

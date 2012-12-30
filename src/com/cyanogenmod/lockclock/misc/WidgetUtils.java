@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2012 The CyanogenMod Project (DaneshM)
+ * Copyright (C) 2012 The Android Open Source Project
+ * Portions Copyright (C) 2012 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,8 +28,7 @@ import com.cyanogenmod.lockclock.R;
 public class WidgetUtils {
     static final String TAG = "WidgetUtils";
 
-    // Decide if to show the Weather
-    // Check to see if the widget size is big enough, if it is return true.
+    // Decide whether to show the Weather panel
     public static boolean canFitWeather(Context context, int id) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
         if (options == null) {
@@ -40,11 +40,12 @@ public class WidgetUtils {
         int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight,
                 resources.getDisplayMetrics());
         int neededSize = (int) resources.getDimension(R.dimen.min_weather_widget_height);
+
+        // Check to see if the widget size is big enough, if it is return true.
         return (minHeightPx > neededSize);
     }
 
-    // Decide if to show the Calendar
-    // Check to see if the widget size is big enough, if it is return true.
+    // Decide whether to show the Calendar panel
     public static boolean canFitCalendar(Context context, int id) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
         if (options == null) {
@@ -56,6 +57,24 @@ public class WidgetUtils {
         int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight,
                 resources.getDisplayMetrics());
         int neededSize = (int) resources.getDimension(R.dimen.min_calendar_widget_height);
+
+        // Check to see if the widget size is big enough, if it is return true.
         return (minHeightPx > neededSize);
+    }
+
+    // Calculate the scale factor of the fonts in the widget
+    public static float getScaleRatio(Context context, int id) {
+        Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
+        if (options != null) {
+            int minWidth = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH);
+            if (minWidth == 0) {
+                // No data , do no scaling
+                return 1f;
+            }
+            Resources res = context.getResources();
+            float ratio = minWidth / res.getDimension(R.dimen.min_digital_widget_width);
+            return (ratio > 1) ? 1f : ratio;
+        }
+        return 1f;
     }
 }
