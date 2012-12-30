@@ -106,12 +106,9 @@
     <string name="weather_refresh_8hrs">8 hours</string>
 
     <!-- Preferences - Categories -->
-    <string name="clock_category">Clock</string>
-    <string name="weather_category">Weather</string>
-    <string name="calendar_category">Calendar</string>
-    <string name="clock_category_summary">View or change how the clock and upcoming alarm is displayed</string>
-    <string name="weather_category_summary">View or change how weather is displayed</string>
-    <string name="calendar_category_summary">View or change how calendars are displayed</string>
+    <string name="clock_category">Clock and alarm</string>
+    <string name="weather_category">Weather panel</string>
+    <string name="calendar_category">Calendar events</string>
 
     <!-- Preferences - Weather -->
     <string name="clock_font_title">Bold hours</string>
