@@ -55,14 +55,4 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         am.cancel(pi);
         am.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 60000, pi);
     }
-
-    @Override
-    public void onDeleted (Context context, int[] appWidgetIds) { }
-
-    @Override
-    public void onEnabled (Context context) { }
-
-    @Override
-    public void onDisabled (Context context) { }
-
 }

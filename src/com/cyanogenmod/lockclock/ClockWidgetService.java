@@ -159,46 +159,46 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     // Clock related functionality
     //===============================================================================================
-    private void refreshClockFont(RemoteViews clock) {
+    private void refreshClockFont(RemoteViews clockViews) {
         if (!mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
-            clock.setViewVisibility(R.id.the_clock1_regular, View.VISIBLE);
-            clock.setViewVisibility(R.id.the_clock1, View.GONE);
+            clockViews.setViewVisibility(R.id.the_clock1_regular, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.the_clock1, View.GONE);
         } else {
-            clock.setViewVisibility(R.id.the_clock1_regular, View.GONE);
-            clock.setViewVisibility(R.id.the_clock1, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.the_clock1_regular, View.GONE);
+            clockViews.setViewVisibility(R.id.the_clock1, View.VISIBLE);
         }
 
         // Register an onClickListener on Clock, starting DeskClock
         ComponentName clk = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
         Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(clk);
         PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-        clock.setOnClickPendingIntent(R.id.digital_clock, pi);
+        clockViews.setOnClickPendingIntent(R.id.digital_clock, pi);
     }
 
-    private void setClockSize(RemoteViews clock, float scale) {
+    private void setClockSize(RemoteViews clockViews, float scale) {
         float fontSize = mContext.getResources().getDimension(R.dimen.widget_big_font_size);
-        clock.setTextViewTextSize(R.id.the_clock1, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
-        clock.setTextViewTextSize(R.id.the_clock1_regular, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
-        clock.setTextViewTextSize(R.id.the_clock2, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
+        clockViews.setTextViewTextSize(R.id.the_clock1, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
+        clockViews.setTextViewTextSize(R.id.the_clock1_regular, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
+        clockViews.setTextViewTextSize(R.id.the_clock2, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
     }
 
     //===============================================================================================
     // Alarm related functionality
     //===============================================================================================
-    private void refreshAlarmStatus(RemoteViews alarm) {
+    private void refreshAlarmStatus(RemoteViews alarmViews) {
         boolean showAlarm = mSharedPrefs.getBoolean(Constants.CLOCK_SHOW_ALARM, true);
 
         // Update Alarm status
         if (showAlarm) {
             String nextAlarm = getNextAlarm();
             if (!TextUtils.isEmpty(nextAlarm)) {
-                alarm.setTextViewText(R.id.nextAlarm, nextAlarm.toString().toUpperCase());
-                alarm.setViewVisibility(R.id.nextAlarm, View.VISIBLE);
+                alarmViews.setTextViewText(R.id.nextAlarm, nextAlarm.toString().toUpperCase());
+                alarmViews.setViewVisibility(R.id.nextAlarm, View.VISIBLE);
             } else {
-                alarm.setViewVisibility(R.id.nextAlarm, View.GONE);
+                alarmViews.setViewVisibility(R.id.nextAlarm, View.GONE);
             }
         } else {
-            alarm.setViewVisibility(R.id.nextAlarm, View.GONE);
+            alarmViews.setViewVisibility(R.id.nextAlarm, View.GONE);
         }
     }
 
@@ -325,7 +325,7 @@ public class ClockWidgetService extends Service {
         boolean invertLowhigh = mSharedPrefs.getBoolean(Constants.WEATHER_INVERT_LOWHIGH, false);
 
         // Get the views ready
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
 
         // Weather Image
         final Resources res = getBaseContext().getResources();
@@ -338,46 +338,46 @@ public class ClockWidgetService extends Service {
             Log.d("Weather", "Condition:" + conditionCode + " ID:" + resID);
 
         if (resID != 0) {
-            remoteViews.setImageViewResource(R.id.weather_image, resID);
+            weatherViews.setImageViewResource(R.id.weather_image, resID);
         } else {
-            remoteViews.setImageViewResource(R.id.weather_image, R.drawable.weather_na);
+            weatherViews.setImageViewResource(R.id.weather_image, R.drawable.weather_na);
         }
 
         // City
-        remoteViews.setTextViewText(R.id.weather_city, w.city);
-        remoteViews.setViewVisibility(R.id.weather_city, showLocation ? View.VISIBLE : View.GONE);
+        weatherViews.setTextViewText(R.id.weather_city, w.city);
+        weatherViews.setViewVisibility(R.id.weather_city, showLocation ? View.VISIBLE : View.GONE);
 
         // Weather Condition
-        remoteViews.setTextViewText(R.id.weather_condition, w.condition);
-        remoteViews.setViewVisibility(R.id.weather_condition, View.VISIBLE);
+        weatherViews.setTextViewText(R.id.weather_condition, w.condition);
+        weatherViews.setViewVisibility(R.id.weather_condition, View.VISIBLE);
 
         // Weather Update Time
         long now = System.currentTimeMillis();
         if (now - w.last_sync < 60000) {
-            remoteViews.setTextViewText(R.id.update_time, res.getString(R.string.weather_last_sync_just_now));
+            weatherViews.setTextViewText(R.id.update_time, res.getString(R.string.weather_last_sync_just_now));
         } else {
-            remoteViews.setTextViewText(R.id.update_time, DateUtils.getRelativeTimeSpanString(
+            weatherViews.setTextViewText(R.id.update_time, DateUtils.getRelativeTimeSpanString(
                     w.last_sync, now, DateUtils.MINUTE_IN_MILLIS));
         }
-        remoteViews.setViewVisibility(R.id.update_time, showTimestamp ? View.VISIBLE : View.GONE);
+        weatherViews.setViewVisibility(R.id.update_time, showTimestamp ? View.VISIBLE : View.GONE);
 
         // Weather Temps Panel
-        remoteViews.setTextViewText(R.id.weather_temp, w.temp);
-        remoteViews.setTextViewText(R.id.weather_low_high, invertLowhigh ? w.high + " | " + w.low : w.low + " | " + w.high);
-        remoteViews.setViewVisibility(R.id.weather_temps_panel, View.VISIBLE);
+        weatherViews.setTextViewText(R.id.weather_temp, w.temp);
+        weatherViews.setTextViewText(R.id.weather_low_high, invertLowhigh ? w.high + " | " + w.low : w.low + " | " + w.high);
+        weatherViews.setViewVisibility(R.id.weather_temps_panel, View.VISIBLE);
 
         // Make sure the Weather panel is visible
-        remoteViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
+        weatherViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
 
         // Register an onClickListener on Weather
         Intent weatherClickIntent = new Intent(mContext, ClockWidgetProvider.class);
         weatherClickIntent.putExtra(Constants.FORCE_REFRESH, true);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(mContext, 0, weatherClickIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
-        remoteViews.setOnClickPendingIntent(R.id.weather_panel, pendingIntent);
+        weatherViews.setOnClickPendingIntent(R.id.weather_panel, pendingIntent);
 
         // Update the rest of the widget and stop
-        updateAndExit(remoteViews);
+        updateAndExit(weatherViews);
     }
 
     /**
@@ -386,21 +386,21 @@ public class ClockWidgetService extends Service {
      */
     private void setNoWeatherData() {
         final Resources res = getBaseContext().getResources();
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
 
         // Update the appropriate views
-        remoteViews.setImageViewResource(R.id.weather_image, R.drawable.weather_na);
-        remoteViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
-        remoteViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
-        remoteViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
-        remoteViews.setViewVisibility(R.id.update_time, View.GONE);
-        remoteViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
+        weatherViews.setImageViewResource(R.id.weather_image, R.drawable.weather_na);
+        weatherViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
+        weatherViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
+        weatherViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
+        weatherViews.setViewVisibility(R.id.update_time, View.GONE);
+        weatherViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
 
         // Make sure the Weather panel is visible
-        remoteViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
+        weatherViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
 
         // Update the rest of the widget and stop
-        updateAndExit(remoteViews);
+        updateAndExit(weatherViews);
     }
 
     /**
@@ -446,7 +446,7 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     // Calendar related functionality
     //===============================================================================================
-    private void refreshCalendar(RemoteViews calendar) {
+    private void refreshCalendar(RemoteViews calendarViews) {
         // Load the settings
         boolean lockCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
         Set<String> calendars = mSharedPrefs.getStringSet(Constants.CALENDAR_LIST, null);
@@ -467,39 +467,39 @@ public class ClockWidgetService extends Service {
                     // TODO: change this to dynamically add views to the widget
                     // Hard code this to 3 for now
                     if (i == 0) {
-                        calendar.setTextViewText(R.id.calendar_event_title, nextCalendar[i][0].toString());
+                        calendarViews.setTextViewText(R.id.calendar_event_title, nextCalendar[i][0].toString());
                         if (nextCalendar[0][1] != null) {
-                            calendar.setTextViewText(R.id.calendar_event_details, nextCalendar[i][1]);
+                            calendarViews.setTextViewText(R.id.calendar_event_details, nextCalendar[i][1]);
                         }
                         event1_visible = true;
                     } else if (i == 1) {
-                        calendar.setTextViewText(R.id.calendar_event2_title, nextCalendar[i][0].toString());
+                        calendarViews.setTextViewText(R.id.calendar_event2_title, nextCalendar[i][0].toString());
                         if (nextCalendar[0][1] != null) {
-                            calendar.setTextViewText(R.id.calendar_event2_details, nextCalendar[i][1]);
+                            calendarViews.setTextViewText(R.id.calendar_event2_details, nextCalendar[i][1]);
                         }
                         event2_visible = true;
                     } else if (i == 2) {
-                        calendar.setTextViewText(R.id.calendar_event3_title, nextCalendar[i][0].toString());
+                        calendarViews.setTextViewText(R.id.calendar_event3_title, nextCalendar[i][0].toString());
                         if (nextCalendar[0][1] != null) {
-                            calendar.setTextViewText(R.id.calendar_event3_details, nextCalendar[i][1]);
+                            calendarViews.setTextViewText(R.id.calendar_event3_details, nextCalendar[i][1]);
                         }
                         event3_visible = true;
                     }
                 }
             }
             // Deal with the visibility of the event items
-            calendar.setViewVisibility(R.id.calendar_event2, event2_visible ? View.VISIBLE : View.GONE);
-            calendar.setViewVisibility(R.id.calendar_event3, event3_visible ? View.VISIBLE : View.GONE);
+            calendarViews.setViewVisibility(R.id.calendar_event2, event2_visible ? View.VISIBLE : View.GONE);
+            calendarViews.setViewVisibility(R.id.calendar_event3, event3_visible ? View.VISIBLE : View.GONE);
         }
 
         // Deal with overall panel visibility
-        calendar.setViewVisibility(R.id.calendar_panel, event1_visible ? View.VISIBLE : View.GONE);
+        calendarViews.setViewVisibility(R.id.calendar_panel, event1_visible ? View.VISIBLE : View.GONE);
         if (event1_visible) {
             // Register an onClickListener on Calendar, starting the Calendar app
             ComponentName cal = new ComponentName("com.android.calendar", "com.android.calendar.AllInOneActivity");
             Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(cal);
             PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-            calendar.setOnClickPendingIntent(R.id.calendar_panel, pi);
+            calendarViews.setOnClickPendingIntent(R.id.calendar_panel, pi);
         }
     }
 
