@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="calendar_settings"
+    android:title="@string/calendar_category">
+
+        <CheckBoxPreference
+            android:key="show_calendar"
+            android:title="@string/calendar_title" />
+
+        <MultiSelectListPreference
+            android:key="calendar_list"
+            android:dependency="show_calendar"
+            android:dialogTitle="@string/calendars_title"
+            android:title="@string/calendars_title"
+            android:summary="@string/calendars_summary" />
+
+        <ListPreference
+            android:key="calendar_lookahead"
+            android:dependency="show_calendar"
+            android:summary="%s"
+            android:dialogTitle="@string/calendar_lookahead_title"
+            android:title="@string/calendar_lookahead_title"
+            android:defaultValue="10800000"
+            android:entries="@array/calendar_lookahead_entries"
+            android:entryValues="@array/calendar_lookahead_values" />
+
+        <CheckBoxPreference
+            android:key="calendar_reminders_only"
+            android:dependency="show_calendar"
+            android:title="@string/calendar_reminders_only_title"
+            android:summary="@string/calendar_reminders_only_summary" />
+
+        <ListPreference
+            android:key="calendar_show_location"
+            android:dependency="show_calendar"
+            android:summary="%s"
+            android:defaultValue="0"
+            android:dialogTitle="@string/calendar_show_location_title"
+            android:title="@string/calendar_show_location_title"
+            android:entries="@array/calendar_show_event_metadata_entries"
+            android:entryValues="@array/calendar_show_event_metadata_values" />
+
+        <ListPreference
+            android:key="calendar_show_description"
+            android:dependency="show_calendar"
+            android:summary="%s"
+            android:defaultValue="0"
+            android:dialogTitle="@string/calendar_show_description_title"
+            android:title="@string/calendar_show_description_title"
+            android:entries="@array/calendar_show_event_metadata_entries"
+            android:entryValues="@array/calendar_show_event_metadata_values" />
+</PreferenceScreen>
