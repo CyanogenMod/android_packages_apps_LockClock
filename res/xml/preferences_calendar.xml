@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+<!-- Copyright (C) 2009 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,75 +14,9 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-
-    <PreferenceCategory
-        android:title="@string/clock_category" >
-
-        <CheckBoxPreference
-            android:key="clock_font"
-            android:title="@string/clock_font_title"
-            android:defaultValue="true"
-            android:summary="@string/clock_font_summary" />
-
-        <CheckBoxPreference
-            android:key="clock_show_alarm"
-            android:title="@string/show_alarm_title"
-            android:defaultValue="true" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/weather_category" >
-
-        <CheckBoxPreference
-            android:key="show_weather"
-            android:title="@string/weather_enable"
-            android:summary="@string/weather_source" />
-
-        <ListPreference
-            android:key="weather_refresh_interval"
-            android:dependency="show_weather"
-            android:defaultValue="60"
-            android:summary="%s"
-            android:entries="@array/weather_interval_entries"
-            android:entryValues="@array/weather_interval_values"
-            android:title="@string/weather_refresh_interval" />
-
-        <CheckBoxPreference
-            android:key="weather_use_custom_location"
-            android:dependency="show_weather"
-            android:title="@string/weather_use_custom_location" />
-
-        <EditTextPreference
-            android:key="weather_custom_location_string"
-            android:dependency="weather_use_custom_location"
-            android:dialogTitle="@string/weather_custom_location_dialog_title"
-            android:hint="@string/weather_custom_location_hint"
-            android:title="@string/weather_custom_location_title" />
-
-        <CheckBoxPreference
-            android:key="weather_use_metric"
-            android:dependency="show_weather"
-            android:title="@string/weather_use_metric" />
-
-        <CheckBoxPreference
-            android:key="weather_show_location"
-            android:dependency="show_weather"
-            android:title="@string/weather_show_location_title" />
-
-        <CheckBoxPreference
-            android:key="weather_show_timestamp"
-            android:dependency="show_weather"
-            android:title="@string/weather_show_timestamp_title" />
-
-        <CheckBoxPreference
-            android:key="weather_invert_lowhigh"
-            android:dependency="show_weather"
-            android:title="@string/weather_invert_lowhigh" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/calendar_category" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="calendar_settings"
+    android:title="@string/calendar_category">
 
         <CheckBoxPreference
             android:key="show_calendar"
@@ -130,6 +64,4 @@
             android:title="@string/calendar_show_description_title"
             android:entries="@array/calendar_show_event_metadata_entries"
             android:entryValues="@array/calendar_show_event_metadata_values" />
-    </PreferenceCategory>
-
 </PreferenceScreen>

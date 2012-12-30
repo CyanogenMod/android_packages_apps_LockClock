@@ -18,6 +18,7 @@ package com.cyanogenmod.lockclock.misc;
 
 public class Constants {
     public static final String PREF_NAME = "LockClock";
+    public static final String PREFERENCES_CHANGED = "preferences_changed";
 
     // Activity start commands
     public static final String FORCE_REFRESH = "force_refresh";

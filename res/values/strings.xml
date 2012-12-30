@@ -109,7 +109,10 @@
     <string name="clock_category">Clock</string>
     <string name="weather_category">Weather</string>
     <string name="calendar_category">Calendar</string>
-
+    <string name="clock_category_summary">Change how the clock and upcoming alarm is displayed</string>
+    <string name="weather_category_summary">View or change how and what weather is displayed</string>
+    <string name="calendar_category_summary">View or change how and what calendars are displayed</string>
+    
     <!-- Preferences - Weather -->
     <string name="clock_font_title">Bold hours</string>
     <string name="clock_font_summary">Show the hours on the clock in a bold font</string>
