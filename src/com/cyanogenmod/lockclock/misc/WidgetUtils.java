@@ -72,7 +72,7 @@ public class WidgetUtils {
                 return 1f;
             }
             Resources res = context.getResources();
-            float ratio = minWidth / res.getDimension(R.dimen.min_digital_widget_width);
+            float ratio = minWidth / res.getDimension(R.dimen.def_digital_widget_width);
             return (ratio > 1) ? 1f : ratio;
         }
         return 1f;
