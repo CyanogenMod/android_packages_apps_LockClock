@@ -92,6 +92,8 @@ public class ClockWidgetService extends Service {
         // Refresh the widgets
         if (mWidgetIds != null && mWidgetIds.length != 0) {
             refreshWidget();
+        } else {
+            stopSelf();
         }
         return START_STICKY;
     }
