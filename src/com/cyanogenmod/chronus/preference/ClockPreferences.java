@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.lockclock.preference;
+package com.cyanogenmod.chronus.preference;
 
-import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
+import static com.cyanogenmod.chronus.misc.Constants.PREF_NAME;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,9 +27,9 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 
-import com.cyanogenmod.lockclock.ClockWidgetProvider;
-import com.cyanogenmod.lockclock.R;
-import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.chronus.ClockWidgetProvider;
+import com.cyanogenmod.chronus.misc.Constants;
+import com.cyanogenmod.chronus.R;
 
 public class ClockPreferences extends PreferenceFragment implements
     OnSharedPreferenceChangeListener {

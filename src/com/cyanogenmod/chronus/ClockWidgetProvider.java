@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.lockclock;
+package com.cyanogenmod.chronus;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -23,7 +23,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 
-import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.chronus.misc.Constants;
 
 public class ClockWidgetProvider extends AppWidgetProvider {
     private static final String TAG = "ClockWidgetProvider";

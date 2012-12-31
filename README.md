@@ -1,4 +1,4 @@
-Lock Clock
-==========
+Chronus
+=======
 
-A Lock Clock with weather And Calendar 
+A Home and Lock screen Clock widget with Weather And Calendar

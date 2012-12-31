@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.lockclock.weather;
+package com.cyanogenmod.chronus.weather;
 
 import android.content.Context;
 

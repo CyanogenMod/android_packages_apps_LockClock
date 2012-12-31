@@ -17,7 +17,6 @@
 <resources>
 
     <!-- General strings -->
-    <string name="app_name">Chronus</string>
     <string name="unknown">Ismeretlen</string>
     <string name="cancel">Elvet</string>
 

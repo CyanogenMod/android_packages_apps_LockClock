@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.lockclock.preference;
+package com.cyanogenmod.chronus.preference;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -30,9 +30,10 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.cyanogenmod.lockclock.R;
-import com.cyanogenmod.lockclock.misc.Constants;
-import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
+import com.cyanogenmod.chronus.misc.Constants;
+import com.cyanogenmod.chronus.R;
+
+import static com.cyanogenmod.chronus.misc.Constants.PREF_NAME;
 
 import java.util.List;
 
@@ -64,7 +65,6 @@ public class Preferences extends PreferenceActivity
     @Override
     public void onBuildHeaders(List<Header> target) {
         loadHeadersFromResource(R.xml.preferences_headers, target);
-
         updateHeaders(target);
     }
 
@@ -96,9 +96,7 @@ public class Preferences extends PreferenceActivity
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
             addPreferencesFromResource(R.xml.preferences_clock);
-
         }
     }
 
@@ -106,7 +104,6 @@ public class Preferences extends PreferenceActivity
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
             addPreferencesFromResource(R.xml.preferences_weather);
         }
     }
@@ -115,7 +112,6 @@ public class Preferences extends PreferenceActivity
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
             addPreferencesFromResource(R.xml.preferences_calendar);
         }
     }
@@ -166,7 +162,6 @@ public class Preferences extends PreferenceActivity
 
         public HeaderAdapter(Context context, List<Header> objects) {
             super(context, 0, objects);
-
             mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
 
