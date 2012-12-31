@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Chronus</string>
+    <string name="unknown">Onbekend</string>
+    <string name="cancel">Annuleren</string>
+    <string name="weather_0">Tornado</string>
+    <string name="weather_1">Tropische storm</string>
+    <string name="weather_2">Tropische cycloon</string>
+    <string name="weather_3">Zwaar onweer</string>
+    <string name="weather_4">Onweer</string>
+    <string name="weather_5">Regen en sneeuw</string>
+    <string name="weather_6">Regen en natte sneeuw</string>
+    <string name="weather_7">Sneeuw en natte sneeuw</string>
+    <string name="weather_8">IJzel</string>
+    <string name="weather_9">Motregen</string>
+    <string name="weather_10">Aanvriezende regen</string>
+    <string name="weather_11">Buien</string>
+    <string name="weather_12">Buien</string>
+    <string name="weather_13">Sneeuwjacht</string>
+    <string name="weather_14">Lichte sneeuwbuien</string>
+    <string name="weather_15">Sneeuwstorm</string>
+    <string name="weather_16">Sneeuw</string>
+    <string name="weather_17">Hagel</string>
+    <string name="weather_18">Natte sneeuw</string>
+    <string name="weather_19">Stof</string>
+    <string name="weather_20">Mistig</string>
+    <string name="weather_21">Heiig</string>
+    <string name="weather_22">Walmend</string>
+    <string name="weather_23">Stormachtig</string>
+    <string name="weather_24">Waaierig</string>
+    <string name="weather_25">Koud</string>
+    <string name="weather_26">Bewolkt</string>
+    <string name="weather_27">Overwegend bewolkt</string>
+    <string name="weather_28">Overwegend bewolkt</string>
+    <string name="weather_29">Deels bewolkt</string>
+    <string name="weather_30">Deels bewolkt</string>
+    <string name="weather_31">Helder</string>
+    <string name="weather_32">Zonnig</string>
+    <string name="weather_33">Mooi</string>
+    <string name="weather_34">Mooi</string>
+    <string name="weather_35">Regen en hagel</string>
+    <string name="weather_36">Heet</string>
+    <string name="weather_37">Geïsoleerde onweersbuien</string>
+    <string name="weather_38">Verspreide onweersbuien</string>
+    <string name="weather_39">Verspreide onweersbuien</string>
+    <string name="weather_40">Verspreide buien</string>
+    <string name="weather_41">Hevige sneeuwbuien</string>
+    <string name="weather_42">Verspreide sneeuwbuien</string>
+    <string name="weather_43">Hevige sneeuwbuien</string>
+    <string name="weather_44">Deels bewolkt</string>
+    <string name="weather_45">Onweersbuien</string>
+    <string name="weather_46">Sneeuwstormen</string>
+    <string name="weather_47">Geïsoleerde onweersbuien</string>
+    <string name="weather_3200"></string>
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NO</string>
+    <string name="weather_E">O</string>
+    <string name="weather_SE">ZO</string>
+    <string name="weather_S">Z</string>
+    <string name="weather_SW">ZW</string>
+    <string name="weather_W">W</string>
+    <string name="weather_NW">NW</string>
+    <string name="weather_no_data">Geen gegevens</string>
+    <string name="weather_tap_to_refresh">Tik om te vernieuwen</string>
+    <string name="weather_refreshing">Vernieuwen\u2026</string>
+    <string name="weather_last_sync_just_now">Zojuist</string>
+    <string name="weather_refresh_manual">Handmatig</string>
+    <string name="weather_refresh_30min">0,5 uur</string>
+    <string name="weather_refresh_60min">1 uur</string>
+    <string name="weather_refresh_2hrs">2 uur</string>
+    <string name="weather_refresh_4hrs">4 uur</string>
+    <string name="weather_refresh_6hrs">6 uur</string>
+    <string name="weather_refresh_8hrs">8 uur</string>
+    <string name="clock_category">Klok &amp; alarm</string>
+    <string name="weather_category">Weerpaneel</string>
+    <string name="calendar_category">Agenda-afspraken</string>
+    <string name="clock_font_title">Vetgedrukte uren</string>
+    <string name="clock_font_summary">Uren vetgedrukt tonen</string>
+    <string name="show_alarm_title">Volgend alarm tonen</string>
+    <string name="weather_enabled">Ingeschakeld</string>
+    <string name="weather_enable">Weer tonen</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Aangepaste locatie</string>
+    <string name="weather_geolocated">Locatie bepalen door netwerk</string>
+    <string name="weather_custom_location_dialog_title">Locatie invoeren</string>
+    <string name="weather_custom_location_hint">Stad, staat/land</string>
+    <string name="weather_custom_location_title">Locatie</string>
+    <string name="weather_show_location_title">Locatie tonen</string>
+    <string name="weather_show_timestamp_title">Tijdsaanduiding tonen</string>
+    <string name="weather_refresh_interval">Vernieuwingsinterval</string>
+    <string name="weather_use_metric">Metrische eenheden</string>
+    <string name="weather_retrieve_location_dialog_title">Kan locatie niet bepalen</string>
+    <string name="weather_retrieve_location_dialog_message">Netwerklocatiebepaling is uitgeschakeld. Stel een aangepaste locatie in of schakel netwerklocatiebepaling in</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Inschakelen</string>
+    <string name="weather_invert_lowhigh">Lage/hoge temperaturen omdraaien</string>
+    <string name="weather_progress_title">Locatie controleren\u2026</string>
+    <string name="calendar_title">Volgende afspraak tonen</string>
+    <string name="calendars_title">Afspraakagenda\'s</string>
+    <string name="calendars_summary">Afspraken gebruiken uit deze agenda\'s</string>
+    <string name="calendar_reminders_only_title">Alleen met herinneringen</string>
+    <string name="calendar_reminders_only_summary">Alleen afspraken tonen met herinneringen</string>
+    <string name="calendar_lookahead_title">Vooruitkijken op afspraak</string>
+    <string name="calendar_show_location_title">Afspraaklocatie</string>
+    <string name="calendar_show_description_title">Afspraakbeschrijving</string>
+    <string name="calendar_lookahead_3hrs">3 uur</string>
+    <string name="calendar_lookahead_6hrs">6 uur</string>
+    <string name="calendar_lookahead_12hrs">12 uur</string>
+    <string name="calendar_lookahead_1day">1 dag</string>
+    <string name="calendar_lookahead_3days">3 dagen</string>
+    <string name="calendar_lookahead_1wk">1 week</string>
+    <string name="calendar_metadata_none">Niet tonen</string>
+    <string name="calendar_metadata_first_line">Eerste regel tonen</string>
+    <string name="calendar_metadata_all">Alles tonen</string>
+</resources>
