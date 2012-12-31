@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">未知</string>
+    <string name="cancel">取消</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">龙卷风</string>
+    <string name="weather_1">热带风暴</string>
+    <string name="weather_2">飓风</string>
+    <string name="weather_3">强雷暴</string>
+    <string name="weather_4">雷暴</string>
+    <string name="weather_5">雨夹雪</string>
+    <string name="weather_6">混合雨和冻雨</string>
+    <string name="weather_7">混合雪和冻雨</string>
+    <string name="weather_8">冻毛毛雨</string>
+    <string name="weather_9">毛毛雨</string>
+    <string name="weather_10">冰雨</string>
+    <string name="weather_11">阵雨</string>
+    <string name="weather_12">阵雨</string>
+    <string name="weather_13">飘雪</string>
+    <string name="weather_14">小雪</string>
+    <string name="weather_15">吹雪</string>
+    <string name="weather_16">雪</string>
+    <string name="weather_17">冰雹</string>
+    <string name="weather_18">冻雨</string>
+    <string name="weather_19">沙尘</string>
+    <string name="weather_20">多雾</string>
+    <string name="weather_21">阴霾</string>
+    <string name="weather_22">烟雾</string>
+    <string name="weather_23">强风</string>
+    <string name="weather_24">大风</string>
+    <string name="weather_25">冷</string>
+    <string name="weather_26">多云</string>
+    <string name="weather_27">大部多云</string> <!-- Night -->
+    <string name="weather_28">大部多云</string> <!-- Day -->
+    <string name="weather_29">部分多云</string> <!-- Night -->
+    <string name="weather_30">部分多云</string> <!-- Day -->
+    <string name="weather_31">晴天</string> <!-- Night -->
+    <string name="weather_32">晴天</string>
+    <string name="weather_33">晴天积云</string> <!-- Night -->
+    <string name="weather_34">晴天积云</string> <!-- Day -->
+    <string name="weather_35">雨夹冰雹</string>
+    <string name="weather_36">热</string>
+    <string name="weather_37">局部雷暴雨</string>
+    <string name="weather_38">局部雷雨</string>
+    <string name="weather_39">局部雷雨</string>
+    <string name="weather_40">零星阵雨</string>
+    <string name="weather_41">大雪</string>
+    <string name="weather_42">零星阵雪</string>
+    <string name="weather_43">大雪</string>
+    <string name="weather_44">晴间多云</string>
+    <string name="weather_45">雷阵雨</string>
+    <string name="weather_46">阵雪</string>
+    <string name="weather_47">局部雷阵雨</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">北</string>
+    <string name="weather_NE">东北</string>
+    <string name="weather_E">东</string>
+    <string name="weather_SE">东南</string>
+    <string name="weather_S">南</string>
+    <string name="weather_SW">西南</string>
+    <string name="weather_W">西</string>
+    <string name="weather_NW">西北</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">无数据</string>
+    <string name="weather_tap_to_refresh">请点击刷新</string>
+    <string name="weather_refreshing">正在刷新</string>
+    <string name="weather_last_sync_just_now">刚刚</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">手动</string>
+    <string name="weather_refresh_30min">30 分钟</string>
+    <string name="weather_refresh_60min">60 分钟</string>
+    <string name="weather_refresh_2hrs">2 小时</string>
+    <string name="weather_refresh_4hrs">4 小时</string>
+    <string name="weather_refresh_6hrs">6 小时</string>
+    <string name="weather_refresh_8hrs">8 小时</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">时钟与闹钟</string>
+    <string name="weather_category">天气面板</string>
+    <string name="calendar_category">日历活动</string>
+
+    <!-- Preferences - Weather -->
+    <string name="clock_font_title">加粗小时</string>
+    <string name="clock_font_summary">时钟上的小时将用一个加粗的字体显示</string>
+    <string name="show_alarm_title">显示下一个闹钟</string>
+    <string name="weather_enabled">已启用</string>
+    <string name="weather_enable">显示天气</string>
+    <string name="weather_source">雅虎天气</string>
+    <string name="weather_use_custom_location">使用自定义的位置</string>
+    <string name="weather_geolocated">使用网络定位</string>
+    <string name="weather_custom_location_dialog_title">输入位置</string>
+    <string name="weather_custom_location_hint">城市, 省份/国家</string>
+    <string name="weather_custom_location_title">位置</string>
+    <string name="weather_show_location_title">显示位置</string>
+    <string name="weather_show_timestamp_title">显示更新时间</string>
+    <string name="weather_refresh_interval">更新间隔</string>
+    <string name="weather_use_metric">使用公制</string>
+    <string name="weather_retrieve_location_dialog_title">无法查询位置!</string>
+    <string name="weather_retrieve_location_dialog_message">网络定位已被禁用.\n\n请设置一个自定义的位置或启用网络定位服务</string>
+    <string name="weather_retrieve_location_dialog_enable_button">启用</string>
+    <string name="weather_invert_lowhigh">交换高低温度显示的位置</string>
+    <string name="weather_progress_title">正在验证位置</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">显示下一个活动</string>
+    <string name="calendars_title">活动日历</string>
+    <string name="calendars_summary">从这些日历里寻找活动</string>
+    <string name="calendar_reminders_only_title">仅显示提醒</string>
+    <string name="calendar_reminders_only_summary">仅显示带提醒的活动</string>
+    <string name="calendar_lookahead_title">活动查找范围</string>
+    <string name="calendar_show_location_title">活动位置</string>
+    <string name="calendar_show_description_title">活动描述</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 小时</string>
+    <string name="calendar_lookahead_6hrs">6 小时</string>
+    <string name="calendar_lookahead_12hrs">12 小时</string>
+    <string name="calendar_lookahead_1day">1 天</string>
+    <string name="calendar_lookahead_3days">3 天</string>
+    <string name="calendar_lookahead_1wk">1 周</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">不显示</string>
+    <string name="calendar_metadata_first_line">显示第一行</string>
+    <string name="calendar_metadata_all">完全显示</string>
+
+</resources>
