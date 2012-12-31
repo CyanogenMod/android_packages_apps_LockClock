@@ -22,7 +22,7 @@
  * Copyright (C) 2012 The AOKP Project
  */
 
-package com.cyanogenmod.lockclock.weather;
+package com.cyanogenmod.chronus.weather;
 
 import java.io.StringReader;
 

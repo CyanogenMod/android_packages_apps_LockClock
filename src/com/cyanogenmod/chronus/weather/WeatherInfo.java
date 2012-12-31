@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.lockclock.weather;
+package com.cyanogenmod.chronus.weather;
 
 import android.content.Context;
-import com.cyanogenmod.lockclock.R;
+import com.cyanogenmod.chronus.R;
 
 public class WeatherInfo {
 

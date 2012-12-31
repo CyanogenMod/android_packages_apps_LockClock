@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.lockclock.misc;
+package com.cyanogenmod.chronus.misc;
 
 public class Constants {
-    public static final String PREF_NAME = "LockClock";
+    public static final String PREF_NAME = "Chronus";
     public static final String PREFERENCES_CHANGED = "preferences_changed";
 
     // Activity start commands

@@ -25,7 +25,7 @@
  */
 
 
-package com.cyanogenmod.lockclock.weather;
+package com.cyanogenmod.chronus.weather;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
