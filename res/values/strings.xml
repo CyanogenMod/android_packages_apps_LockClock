@@ -17,7 +17,7 @@
 <resources>
 
     <!-- General strings -->
-    <string name="app_name">Lock Clock</string>
+    <string name="app_name">Chronus</string>
     <string name="unknown">Unknown</string>
     <string name="cancel">Cancel</string>
 
