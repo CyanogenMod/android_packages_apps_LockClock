@@ -372,11 +372,7 @@ public class ClockWidgetService extends Service {
         weatherViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
 
         // Register an onClickListener on Weather
-        Intent weatherClickIntent = new Intent(mContext, ClockWidgetProvider.class);
-        weatherClickIntent.putExtra(Constants.FORCE_REFRESH, true);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(mContext, 0, weatherClickIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-        weatherViews.setOnClickPendingIntent(R.id.weather_panel, pendingIntent);
+        setWeatherClickListener(weatherViews);
 
         // Update the rest of the widget and stop
         updateAndExit(weatherViews);
@@ -401,8 +397,17 @@ public class ClockWidgetService extends Service {
         // Make sure the Weather panel is visible
         weatherViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
 
+
         // Update the rest of the widget and stop
         updateAndExit(weatherViews);
+    }
+
+    private void setWeatherClickListener(RemoteViews weatherViews) {
+        Intent weatherClickIntent = new Intent(mContext, ClockWidgetProvider.class);
+        weatherClickIntent.putExtra(Constants.FORCE_REFRESH, true);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(mContext, 0, weatherClickIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        weatherViews.setOnClickPendingIntent(R.id.weather_panel, pendingIntent);
     }
 
     /**
