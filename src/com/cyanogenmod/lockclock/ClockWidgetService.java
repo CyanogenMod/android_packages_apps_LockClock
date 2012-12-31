@@ -70,6 +70,7 @@ public class ClockWidgetService extends Service {
     private AppWidgetManager mAppWidgetManager;
     private SharedPreferences mSharedPrefs;
     private boolean mForceRefresh;
+    private boolean mEvent1Visible = false;
 
     @Override
     public void onCreate() {
@@ -140,7 +141,7 @@ public class ClockWidgetService extends Service {
         refreshCalendar(remoteViews);
 
         boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, false);
-        boolean showCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
+        boolean showCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false) && mEvent1Visible;
         for (int id : mWidgetIds) {
             // Resize the clock font if needed
             float ratio = WidgetUtils.getScaleRatio(mContext, id);
@@ -462,10 +463,10 @@ public class ClockWidgetService extends Service {
         boolean lockCalendarRemindersOnly = mSharedPrefs.getBoolean(Constants.CALENDAR_REMINDERS_ONLY, false);
         long lockCalendarLookahead = Long.parseLong(mSharedPrefs.getString(Constants.CALENDAR_LOOKAHEAD, "10800000"));
 
-        // Assume we are not showing the view
-        boolean event1_visible = false;
-        boolean event2_visible = false;
-        boolean event3_visible = false;
+        // Assume we are not showing the views
+        mEvent1Visible = false;
+        boolean event2Visible = false;
+        boolean event3Visible = false;
 
         if (lockCalendar) {
             String[][] nextCalendar = null;
@@ -480,30 +481,30 @@ public class ClockWidgetService extends Service {
                         if (nextCalendar[0][1] != null) {
                             calendarViews.setTextViewText(R.id.calendar_event_details, nextCalendar[i][1]);
                         }
-                        event1_visible = true;
+                        mEvent1Visible = true;
                     } else if (i == 1) {
                         calendarViews.setTextViewText(R.id.calendar_event2_title, nextCalendar[i][0].toString());
                         if (nextCalendar[0][1] != null) {
                             calendarViews.setTextViewText(R.id.calendar_event2_details, nextCalendar[i][1]);
                         }
-                        event2_visible = true;
+                        event2Visible = true;
                     } else if (i == 2) {
                         calendarViews.setTextViewText(R.id.calendar_event3_title, nextCalendar[i][0].toString());
                         if (nextCalendar[0][1] != null) {
                             calendarViews.setTextViewText(R.id.calendar_event3_details, nextCalendar[i][1]);
                         }
-                        event3_visible = true;
+                        event3Visible = true;
                     }
                 }
             }
             // Deal with the visibility of the event items
-            calendarViews.setViewVisibility(R.id.calendar_event2, event2_visible ? View.VISIBLE : View.GONE);
-            calendarViews.setViewVisibility(R.id.calendar_event3, event3_visible ? View.VISIBLE : View.GONE);
+            calendarViews.setViewVisibility(R.id.calendar_event2, event2Visible ? View.VISIBLE : View.GONE);
+            calendarViews.setViewVisibility(R.id.calendar_event3, event3Visible ? View.VISIBLE : View.GONE);
         }
 
         // Deal with overall panel visibility
-        calendarViews.setViewVisibility(R.id.calendar_panel, event1_visible ? View.VISIBLE : View.GONE);
-        if (event1_visible) {
+        calendarViews.setViewVisibility(R.id.calendar_panel, mEvent1Visible ? View.VISIBLE : View.GONE);
+        if (mEvent1Visible) {
             // Register an onClickListener on Calendar, starting the Calendar app
             ComponentName cal = new ComponentName("com.android.calendar", "com.android.calendar.AllInOneActivity");
             Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(cal);
