@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="app_name">Chronus</string>
+    <string name="unknown">Ismeretlen</string>
+    <string name="cancel">Elvet</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">Tornádó</string>
+    <string name="weather_1">Trópusi vihar</string>
+    <string name="weather_2">Hurrikán</string>
+    <string name="weather_3">Komoly viharok</string>
+    <string name="weather_4">Viharok</string>
+    <string name="weather_5">Havas eső</string>
+    <string name="weather_6">Eső és ónos eső</string>
+    <string name="weather_7">Hó és ónos eső</string>
+    <string name="weather_8">Fagyos permet</string>
+    <string name="weather_9">Permet</string>
+    <string name="weather_10">Fagyos eső</string>
+    <string name="weather_11">Záporok</string>
+    <string name="weather_12">Záporok</string>
+    <string name="weather_13">Hófúvás</string>
+    <string name="weather_14">Könnyű hózáporok</string>
+    <string name="weather_15">Hóátfúvás</string>
+    <string name="weather_16">Hó</string>
+    <string name="weather_17">Jégeső</string>
+    <string name="weather_18">Ónos eső</string>
+    <string name="weather_19">Por</string>
+    <string name="weather_20">Köd</string>
+    <string name="weather_21">Pára</string>
+    <string name="weather_22">Füst</string>
+    <string name="weather_23">Viharos erejű szél</string>
+    <string name="weather_24">Szeles</string>
+    <string name="weather_25">Hideg</string>
+    <string name="weather_26">Felhős</string>
+    <string name="weather_27">Túlnyomóan felhős</string> <!-- Night -->
+    <string name="weather_28">Túlnyomóan felhős</string> <!-- Day -->
+    <string name="weather_29">Nyomokban felhős</string> <!-- Night -->
+    <string name="weather_30">Nyomokban felhős</string> <!-- Day -->
+    <string name="weather_31">Tiszta</string> <!-- Night -->
+    <string name="weather_32">Napos</string>
+    <string name="weather_33">Derűs</string> <!-- Night -->
+    <string name="weather_34">Derűs</string> <!-- Day -->
+    <string name="weather_35">Eső és jégeső</string>
+    <string name="weather_36">Forróság</string>
+    <string name="weather_37">Elszigetelt vihar</string>
+    <string name="weather_38">Elszórt viharok</string>
+    <string name="weather_39">Elszórt viharok</string>
+    <string name="weather_40">Elszórt záporok</string>
+    <string name="weather_41">Kemény havazás</string>
+    <string name="weather_42">Elszórt hózápor</string>
+    <string name="weather_43">Kemény havazás</string>
+    <string name="weather_44">Foltokban felhős</string>
+    <string name="weather_45">Viharos</string>
+    <string name="weather_46">Hózáporok</string>
+    <string name="weather_47">Elszigetelt vihar</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">É</string>
+    <string name="weather_NE">ÉK</string>
+    <string name="weather_E">K</string>
+    <string name="weather_SE">DK</string>
+    <string name="weather_S">D</string>
+    <string name="weather_SW">DNy</string>
+    <string name="weather_W">Ny</string>
+    <string name="weather_NW">ÉNy</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">Nincs adat</string>
+    <string name="weather_tap_to_refresh">Érintse meg a frissítéshez</string>
+    <string name="weather_refreshing">Frissítés…</string>
+    <string name="weather_last_sync_just_now">Épp most</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">Kézi</string>
+    <string name="weather_refresh_30min">30 perc</string>
+    <string name="weather_refresh_60min">60 perc</string>
+    <string name="weather_refresh_2hrs">2 óra</string>
+    <string name="weather_refresh_4hrs">4 óra</string>
+    <string name="weather_refresh_6hrs">6 óra</string>
+    <string name="weather_refresh_8hrs">8 óra</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Óra és ébresztő</string>
+    <string name="weather_category">Időjárás panel</string>
+    <string name="calendar_category">Naptárbejegyzések</string>
+
+    <!-- Preferences - Weather -->
+    <string name="clock_font_title">Kövér órák</string>
+    <string name="clock_font_summary">Az órát kövér betűkkel mutatja</string>
+    <string name="show_alarm_title">Következő ébresztés megjelenítése</string>
+    <string name="weather_enabled">Engedélyezve</string>
+    <string name="weather_enable">Időjárás megjelenítése</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Egyéni hely használata</string>
+    <string name="weather_geolocated">Helyzetmeghatározás</string>
+    <string name="weather_custom_location_dialog_title">Hely megadása</string>
+    <string name="weather_custom_location_hint">Város, Ország</string>
+    <string name="weather_custom_location_title">Hely neve</string>
+    <string name="weather_show_location_title">Hely mutatása</string>
+    <string name="weather_show_timestamp_title">Frissítés idejének mutatása</string>
+    <string name="weather_refresh_interval">Frissítések gyakorisága</string>
+    <string name="weather_use_metric">Metrikus mértékegységek</string>
+    <string name="weather_retrieve_location_dialog_title">Nem található hely információ!</string>
+    <string name="weather_retrieve_location_dialog_message">Helyzetmeghatározás letiltva.\n\nÁllítsa be a helyet vagy használja az automatikus helyzetmeghatározást</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Engedélyez</string>
+    <string name="weather_invert_lowhigh">Minimum/maximum hőmérséklet megfordítása</string>
+    <string name="weather_progress_title">Hely ellenőrzése</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Megjeleníti a következő naptárbejegyzést</string>
+    <string name="calendars_title">Naptárak</string>
+    <string name="calendars_summary">Csak a megadott naptárakban keresse az eseményeket</string>
+    <string name="calendar_reminders_only_title">Csak emlékeztetők</string>
+    <string name="calendar_reminders_only_summary">Csak az emlékeztetővel ellátott eseményeket mutassa</string>
+    <string name="calendar_lookahead_title">Keresési időszak</string>
+    <string name="calendar_show_location_title">Esemény helye</string>
+    <string name="calendar_show_description_title">Esemény leírása</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 óra</string>
+    <string name="calendar_lookahead_6hrs">6 óra</string>
+    <string name="calendar_lookahead_12hrs">12 óra</string>
+    <string name="calendar_lookahead_1day">1 nap</string>
+    <string name="calendar_lookahead_3days">3 nap</string>
+    <string name="calendar_lookahead_1wk">1 hét</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">Ne mutassa</string>
+    <string name="calendar_metadata_first_line">Csak az első sorát mutassa</string>
+    <string name="calendar_metadata_all">A teljeset mutassa</string>
+
+</resources>
