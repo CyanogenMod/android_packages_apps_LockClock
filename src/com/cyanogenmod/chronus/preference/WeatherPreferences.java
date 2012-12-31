@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.lockclock.preference;
+package com.cyanogenmod.chronus.preference;
 
-import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
+import static com.cyanogenmod.chronus.misc.Constants.PREF_NAME;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -42,10 +42,10 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
 
-import com.cyanogenmod.lockclock.ClockWidgetProvider;
-import com.cyanogenmod.lockclock.R;
-import com.cyanogenmod.lockclock.misc.Constants;
-import com.cyanogenmod.lockclock.weather.YahooPlaceFinder;
+import com.cyanogenmod.chronus.ClockWidgetProvider;
+import com.cyanogenmod.chronus.misc.Constants;
+import com.cyanogenmod.chronus.weather.YahooPlaceFinder;
+import com.cyanogenmod.chronus.R;
 
 public class WeatherPreferences extends PreferenceFragment implements
     OnPreferenceClickListener, OnSharedPreferenceChangeListener {

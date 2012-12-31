@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.lockclock.misc;
+package com.cyanogenmod.chronus.misc;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -23,7 +23,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.TypedValue;
 
-import com.cyanogenmod.lockclock.R;
+import com.cyanogenmod.chronus.R;
 
 public class WidgetUtils {
     static final String TAG = "WidgetUtils";

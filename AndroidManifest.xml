@@ -15,7 +15,7 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cyanogenmod.lockclock"
+    package="com.cyanogenmod.chronus"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -33,7 +33,7 @@
         android:label="@string/app_name" >
 
         <activity
-            android:name="com.cyanogenmod.lockclock.preference.Preferences"
+            android:name="com.cyanogenmod.chronus.preference.Preferences"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,14 +46,14 @@
         <activity android:name=".preference.WeatherPreferences" />
 
         <!-- The Widget receiver -->
-        <receiver android:name="com.cyanogenmod.lockclock.ClockWidgetProvider" >
+        <receiver android:name="com.cyanogenmod.chronus.ClockWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/lock_clock" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/chronus" />
         </receiver>
 
-        <service android:name="com.cyanogenmod.lockclock.ClockWidgetService"></service>
+        <service android:name="com.cyanogenmod.chronus.ClockWidgetService"></service>
 
     </application>
 

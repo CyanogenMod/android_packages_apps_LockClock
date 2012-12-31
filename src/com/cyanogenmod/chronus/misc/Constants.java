@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.lockclock.misc;
+package com.cyanogenmod.chronus.misc;
 
 public class Constants {
     public static final String PREF_NAME = "LockClock";

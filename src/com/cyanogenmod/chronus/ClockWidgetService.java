@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.lockclock;
+package com.cyanogenmod.chronus;
 
 import android.app.PendingIntent;
 import android.app.Service;
@@ -43,15 +43,16 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
 
-import com.cyanogenmod.lockclock.misc.Constants;
-import com.cyanogenmod.lockclock.misc.WidgetUtils;
+import com.cyanogenmod.chronus.misc.Constants;
+import com.cyanogenmod.chronus.misc.WidgetUtils;
+import com.cyanogenmod.chronus.weather.HttpRetriever;
+import com.cyanogenmod.chronus.weather.WeatherInfo;
+import com.cyanogenmod.chronus.weather.WeatherXmlParser;
+import com.cyanogenmod.chronus.weather.YahooPlaceFinder;
+import com.cyanogenmod.chronus.R;
 
-import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
-import static com.cyanogenmod.lockclock.misc.Constants.MAX_CALENDAR_ITEMS;
-import com.cyanogenmod.lockclock.weather.HttpRetriever;
-import com.cyanogenmod.lockclock.weather.WeatherInfo;
-import com.cyanogenmod.lockclock.weather.WeatherXmlParser;
-import com.cyanogenmod.lockclock.weather.YahooPlaceFinder;
+import static com.cyanogenmod.chronus.misc.Constants.MAX_CALENDAR_ITEMS;
+import static com.cyanogenmod.chronus.misc.Constants.PREF_NAME;
 
 import org.w3c.dom.Document;
 
