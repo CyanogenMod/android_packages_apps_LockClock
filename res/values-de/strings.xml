@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="app_name">Chronus</string>
+    <string name="unknown">Unbekannt</string>
+    <string name="cancel">Abbrechen</string>
+
+    <!-- Lock screen Weather - Weather codes -->
+    <string name="weather_0">Tornado</string>
+    <string name="weather_1">Tropensturm</string>
+    <string name="weather_2">Hurrikan</string>
+    <string name="weather_3">Heftige Gewitter</string>
+    <string name="weather_4">Gewitter</string>
+    <string name="weather_5">Wechselnd Regen und Schnee</string>
+    <string name="weather_6">Wechselnd Regen und Schneeregen</string>
+    <string name="weather_7">Wechselnd Schnee und Schneeregen</string>
+    <string name="weather_8">Gefrierender Niesel</string>
+    <string name="weather_9">Niesel</string>
+    <string name="weather_10">Gefrierender Regen</string>
+    <string name="weather_11">Schauer</string>
+    <string name="weather_12">Schauer</string>
+    <string name="weather_13">Scheegestöber</string>
+    <string name="weather_14">Leichte Schneeschauer</string>
+    <string name="weather_15">Schneesturm</string>
+    <string name="weather_16">Schnee</string>
+    <string name="weather_17">Hagel</string>
+    <string name="weather_18">Schneeregen</string>
+    <string name="weather_19">Staubig</string>
+    <string name="weather_20">Neblig</string>
+    <string name="weather_21">Dunst</string>
+    <string name="weather_22">Rauch</string>
+    <string name="weather_23">Stürmisch</string>
+    <string name="weather_24">Windig</string>
+    <string name="weather_25">Kalt</string>
+    <string name="weather_26">Bedeckt</string>
+    <string name="weather_27">Stark bewölkt</string> <!-- Night -->
+    <string name="weather_28">Stark bewölkt</string> <!-- Day -->
+    <string name="weather_29">Teilweise bewölkt</string> <!-- Night -->
+    <string name="weather_30">Teilweise bewölkt</string> <!-- Day -->
+    <string name="weather_31">Klar</string> <!-- Night -->
+    <string name="weather_32">Sonnig</string>
+    <string name="weather_33">Heiter</string> <!-- Night -->
+    <string name="weather_34">Heiter</string> <!-- Day -->
+    <string name="weather_35">Wechselnd Regen und Hagel</string>
+    <string name="weather_36">Heiß</string>
+    <string name="weather_37">Örtliche Gewitter</string>
+    <string name="weather_38">Einzelne Gewitter</string>
+    <string name="weather_39">Einzelne Gewitter</string>
+    <string name="weather_40">Einzelne Schauer</string>
+    <string name="weather_41">Heftiger Schneefall</string>
+    <string name="weather_42">Einzelne Schneeschauer</string>
+    <string name="weather_43">Heftiger Schneefall</string>
+    <string name="weather_44">Teilweise bewölkt</string>
+    <string name="weather_45">Gewitterschauer</string>
+    <string name="weather_46">Schneeschauer</string>
+    <string name="weather_47">Örtliche Gewitterschauer</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Lock screen Weather - Wind directions -->
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NO</string>
+    <string name="weather_E">O</string>
+    <string name="weather_SE">SO</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SW</string>
+    <string name="weather_W">W</string>
+    <string name="weather_NW">NW</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">Keine Daten</string>
+    <string name="weather_tap_to_refresh">Zum Aktualisieren berühren</string>
+    <string name="weather_refreshing">Aktualisiere\u2026</string>
+    <string name="weather_last_sync_just_now">Gerade jetzt</string>
+
+    <!-- Lock screen Weather - Update frequency -->
+    <string name="weather_refresh_manual">Manuell</string>
+    <string name="weather_refresh_30min">30 Minuten</string>
+    <string name="weather_refresh_60min">60 Minuten</string>
+    <string name="weather_refresh_2hrs">2 Stunden</string>
+    <string name="weather_refresh_4hrs">4 Stunden</string>
+    <string name="weather_refresh_6hrs">6 Stunden</string>
+    <string name="weather_refresh_8hrs">8 Stunden</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Uhrzeit und Alarme</string>
+    <string name="weather_category">Wetter</string>
+    <string name="calendar_category">Kalender</string>
+
+    <!-- Preferences - Weather -->
+    <string name="clock_font_title">Fettschrift</string>
+    <string name="clock_font_summary">Die Stundenziffern der Uhr in Fettschrift anzeigen.</string>
+    <string name="show_alarm_title">Nächsten Alarm anzeigen</string>
+    <string name="lockscreen_weather_enabled">Aktiviert</string>
+    <string name="weather_enable">Wetter anzeigen</string>
+    <string name="weather_source">Yahoo! Wetter</string>
+    <string name="weather_use_custom_location">Benutzerdefinierter Standort</string>
+    <string name="weather_geolocated">Über Standortdienste bestimmt</string>
+    <string name="weather_custom_location_dialog_title">Standort eingeben</string>
+    <string name="weather_custom_location_hint">Stadt, Staat/Land</string>
+    <string name="weather_custom_location_title">Standort</string>
+    <string name="weather_show_location_title">Standort anzeigen</string>
+    <string name="weather_show_timestamp_title">Aktualisierungszeit anzeigen</string>
+    <string name="weather_refresh_interval">Aktualisierungsintervall</string>
+    <string name="weather_use_metric">Metrische Einheiten verwenden</string>
+    <string name="weather_retrieve_location_dialog_title">Standort kann nicht bestimmt werden!</string>
+    <string name="weather_retrieve_location_dialog_message">Standortdienste sind deaktiviert.\n\nAktivieren oder benutzerdefinierten Standort festlegen.</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Aktivieren</string>
+    <string name="weather_invert_lowhigh">Anzeigereihenfolge Min/Max-Temperatur tauschen</string>
+    <string name="weather_progress_title">Standort wird überprüft</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Nächsten Termin anzeigen</string>
+    <string name="calendars_title">Kalender</string>
+    <string name="calendars_summary">Termine aus diesen Kalendern anzeigen</string>
+    <string name="calendar_reminders_only_title">Nur Erinnerungen</string>
+    <string name="calendar_reminders_only_summary">Nur Termine mit Erinnerungen anzeigen</string>
+    <string name="calendar_lookahead_title">Zeitraum</string>
+    <string name="calendar_show_location_title">Ort anzeigen</string>
+    <string name="calendar_show_description_title">Beschreibung anzeigen</string>
+
+     <!-- Lock screen calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 Stunden</string>
+    <string name="calendar_lookahead_6hrs">6 Stunden</string>
+    <string name="calendar_lookahead_12hrs">12 Stunden</string>
+    <string name="calendar_lookahead_1day">1 Tag</string>
+    <string name="calendar_lookahead_3days">3 Tage</string>
+    <string name="calendar_lookahead_1wk">1 Woche</string>
+
+    <!-- Lock screen calendar - event metadata -->
+    <string name="calendar_metadata_none">Nicht anzeigen</string>
+    <string name="calendar_metadata_first_line">Nur die erste Zeile anzeigen</string>
+    <string name="calendar_metadata_all">Alles anzeigen</string>
+
+</resources>
