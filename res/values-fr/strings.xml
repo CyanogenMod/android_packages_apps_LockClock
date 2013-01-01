@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">Inconnu</string>
+    <string name="cancel">Annuler</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">Tornade</string>
+    <string name="weather_1">Tempête tropicale</string>
+    <string name="weather_2">Ouragan</string>
+    <string name="weather_3">Orage violent</string>
+    <string name="weather_4">Orage</string>
+    <string name="weather_5">Pluie et neige</string>
+    <string name="weather_6">Pluie et neige fondu</string>
+    <string name="weather_7">Neige et neige fondu</string>
+    <string name="weather_8">Bruine verglaçante</string>
+    <string name="weather_9">Bruine</string>
+    <string name="weather_10">Pluie verglaçante</string>
+    <string name="weather_11">Averses</string>
+    <string name="weather_12">Averses</string>
+    <string name="weather_13">Averses de neige</string>
+    <string name="weather_14">Légére averse de neige</string>
+    <string name="weather_15">Neige poudreuse</string>
+    <string name="weather_16">Neige</string>
+    <string name="weather_17">Grêle</string>
+    <string name="weather_18">Neige fondue</string>
+    <string name="weather_19">Poussière</string>
+    <string name="weather_20">Brumeux</string>
+    <string name="weather_21">Brume</string>
+    <string name="weather_22">Fumeux</string>
+    <string name="weather_23">Tempétueux</string>
+    <string name="weather_24">Venteux</string>
+    <string name="weather_25">Froid</string>
+    <string name="weather_26">Nuageux</string>
+    <string name="weather_27">Plus nuageux</string> <!-- Night -->
+    <string name="weather_28">Plus nuageux</string> <!-- Day -->
+    <string name="weather_29">Partiellement nuageux</string> <!-- Night -->
+    <string name="weather_30">Partiellement nuageux</string> <!-- Day -->
+    <string name="weather_31">Claire</string> <!-- Night -->
+    <string name="weather_32">Ensoleillé</string>
+    <string name="weather_33">Beau</string> <!-- Night -->
+    <string name="weather_34">Beau</string> <!-- Day -->
+    <string name="weather_35">Pluie et grêle</string>
+    <string name="weather_36">Chaud</string>
+    <string name="weather_37">Orages isolés</string>
+    <string name="weather_38">Orages épars</string>
+    <string name="weather_39">Orages épars</string>
+    <string name="weather_40">Averses intermittentes</string>
+    <string name="weather_41">Fortes chutes de neige</string>
+    <string name="weather_42">Averses de neige épars</string>
+    <string name="weather_43">Fortes chutes de neige</string>
+    <string name="weather_44">Partiellement nuageux</string>
+    <string name="weather_45">Orages</string>
+    <string name="weather_46">Averses de neige</string>
+    <string name="weather_47">Orages isolés</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NE</string>
+    <string name="weather_E">E</string>
+    <string name="weather_SE">SE</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SO</string>
+    <string name="weather_W">O</string>
+    <string name="weather_NW">NO</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">Pas de données</string>
+    <string name="weather_tap_to_refresh">Appuyez pour actualiser</string>
+    <string name="weather_refreshing">Actualisation…</string>
+    <string name="weather_last_sync_just_now">A l\'instant</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">Manuellement</string>
+    <string name="weather_refresh_30min">30 minutes</string>
+    <string name="weather_refresh_60min">60 minutes</string>
+    <string name="weather_refresh_2hrs">2 heures</string>
+    <string name="weather_refresh_4hrs">4 heures</string>
+    <string name="weather_refresh_6hrs">6 heures</string>
+    <string name="weather_refresh_8hrs">8 heures</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Horloge et alarme</string>
+    <string name="weather_category">Météo</string>
+    <string name="calendar_category">Evénement de l\'agenda</string>
+
+    <!-- Preferences - Weather -->
+    <string name="clock_font_title">Heure en gras</string>
+    <string name="clock_font_summary">Afficher l\'heure de l\'horloge en gras</string>
+    <string name="show_alarm_title">Afficher la prochaine alarme</string>
+    <string name="weather_enabled">Activer</string>
+    <string name="weather_enable">Afficher la météo</string>
+    <string name="weather_source">Météo Yahoo!</string>
+    <string name="weather_use_custom_location">Définir un lieu</string>
+    <string name="weather_geolocated">Utiliser la géolocalisation</string>
+    <string name="weather_custom_location_dialog_title">Définir un lieu</string>
+    <string name="weather_custom_location_hint">Ville, Etat/Pays</string>
+    <string name="weather_custom_location_title">Lieu</string>
+    <string name="weather_show_location_title">Afficher le lieu</string>
+    <string name="weather_show_timestamp_title">Afficher le temps depuis la dernière actualisation</string>
+    <string name="weather_refresh_interval">Intervalle d\'actualisation</string>
+    <string name="weather_use_metric">Utiliser le système métrique</string>
+    <string name="weather_retrieve_location_dialog_title">Impossible de trouver la localisation\u00A0!</string>
+    <string name="weather_retrieve_location_dialog_message">La géolocalisation est désactivée.\n\nDéfinissez un lieu ou activez la géolocalisation.</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Activer</string>
+    <string name="weather_invert_lowhigh">Inverser les températures minimum et maximum</string>
+    <string name="weather_progress_title">Vérification du lieu</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Afficher le prochain événement</string>
+    <string name="calendars_title">Evénement des agendas</string>
+    <string name="calendars_summary">Afficher les événements de ces agendas</string>
+    <string name="calendar_reminders_only_title">Seulement avec des rappels</string>
+    <string name="calendar_reminders_only_summary">Afficher seulement les événements avec des rappels</string>
+    <string name="calendar_lookahead_title">Anticipation des événements</string>
+    <string name="calendar_show_location_title">Lieu des événements</string>
+    <string name="calendar_show_description_title">Description des événements</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 heures</string>
+    <string name="calendar_lookahead_6hrs">6 heures</string>
+    <string name="calendar_lookahead_12hrs">12 heures</string>
+    <string name="calendar_lookahead_1day">1 jour</string>
+    <string name="calendar_lookahead_3days">3 jours</string>
+    <string name="calendar_lookahead_1wk">1 semaine</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">Ne pas afficher</string>
+    <string name="calendar_metadata_first_line">Afficher la première ligne</string>
+    <string name="calendar_metadata_all">Tout afficher</string>
+
+</resources>
