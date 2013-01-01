@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">Неизвестно</string>
+    <string name="cancel">Отмена</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">Торнадо</string>
+    <string name="weather_1">Шторм</string>
+    <string name="weather_2">Ураган</string>
+    <string name="weather_3">Сильные грозы</string>
+    <string name="weather_4">Грозы</string>
+    <string name="weather_5">Дождь со снегом</string>
+    <string name="weather_6">Дождь с мокрым снегом</string>
+    <string name="weather_7">Мокрый снег</string>
+    <string name="weather_8">Изморозь</string>
+    <string name="weather_9">Мелкий дождь</string>
+    <string name="weather_10">Град</string>
+    <string name="weather_11">Ливень</string>
+    <string name="weather_12">Ливень</string>
+    <string name="weather_13">Снег с дождём</string>
+    <string name="weather_14">Небольшой дождь со снегом</string>
+    <string name="weather_15">Позёмка</string>
+    <string name="weather_16">Снег</string>
+    <string name="weather_17">Град</string>
+    <string name="weather_18">Мокрый снег</string>
+    <string name="weather_19">Пыль</string>
+    <string name="weather_20">Туманно</string>
+    <string name="weather_21">Туман</string>
+    <string name="weather_22">Дым</string>
+    <string name="weather_23">Ветренно</string>
+    <string name="weather_24">Ветренно</string>
+    <string name="weather_25">Холодно</string>
+    <string name="weather_26">Облачно</string>
+    <string name="weather_27">Малооблачно</string> <!-- Night -->
+    <string name="weather_28">Малооблачно</string> <!-- Day -->
+    <string name="weather_29">Малооблачно</string> <!-- Night -->
+    <string name="weather_30">Малооблачно</string> <!-- Day -->
+    <string name="weather_31">Ясно</string> <!-- Night -->
+    <string name="weather_32">Солнечно</string>
+    <string name="weather_33">Ясно</string> <!-- Night -->
+    <string name="weather_34">Ясно</string> <!-- Day -->
+    <string name="weather_35">Дождь с градом</string>
+    <string name="weather_36">Жарко</string>
+    <string name="weather_37">Местами грозы</string>
+    <string name="weather_38">Возможны грозы</string>
+    <string name="weather_39">Возможны грозы</string>
+    <string name="weather_40">Возможны грозы</string>
+    <string name="weather_41">Сильный снег</string>
+    <string name="weather_42">Возможен снег</string>
+    <string name="weather_43">Сильный снег</string>
+    <string name="weather_44">Малооблачно</string>
+    <string name="weather_45">Дождь с грозой</string>
+    <string name="weather_46">Дождь со снегом</string>
+    <string name="weather_47">Местами грозы</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">С</string>
+    <string name="weather_NE">СВ</string>
+    <string name="weather_E">В</string>
+    <string name="weather_SE">ЮВ</string>
+    <string name="weather_S">Ю</string>
+    <string name="weather_SW">ЮЗ</string>
+    <string name="weather_W">З</string>
+    <string name="weather_NW">СЗ</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">Нет данных</string>
+    <string name="weather_tap_to_refresh">Нажмите для обновления</string>
+    <string name="weather_refreshing">Обновление...</string>
+    <string name="weather_last_sync_just_now">Только что</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">Вручную</string>
+    <string name="weather_refresh_30min">30 минут</string>
+    <string name="weather_refresh_60min">60 минут</string>
+    <string name="weather_refresh_2hrs">2 часа</string>
+    <string name="weather_refresh_4hrs">4 часа</string>
+    <string name="weather_refresh_6hrs">6 часов</string>
+    <string name="weather_refresh_8hrs">8 часов</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Часы и будильник</string>
+    <string name="weather_category">Погода</string>
+    <string name="calendar_category">События календаря</string>
+
+    <!-- Preferences - Weather -->
+    <string name="clock_font_title">Полужирный шрифт</string>
+    <string name="clock_font_summary">Отображать часы полужирным, а минуты обычным шрифтом</string>
+    <string name="show_alarm_title">Показывать следующий будильник</string>
+    <string name="lockscreen_weather_enabled">Включено</string>
+    <string name="weather_enable">Погода отображается</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Не определять автоматически</string>
+    <string name="weather_geolocated">Местоположение по сети</string>
+    <string name="weather_custom_location_dialog_title">Введите местоположение</string>
+    <string name="weather_custom_location_hint">Город, штат/страна</string>
+    <string name="weather_custom_location_title">Местоположение</string>
+    <string name="weather_show_location_title">Показывать местоположение</string>
+    <string name="weather_show_timestamp_title">Показывать время</string>
+    <string name="weather_refresh_interval">Частота обновления</string>
+    <string name="weather_use_metric">Метрическая система</string>
+    <string name="weather_retrieve_location_dialog_title">Не удаётся получить местоположение!</string>
+    <string name="weather_retrieve_location_dialog_message">Определение местоположения по сети выключено.\n\nВключите определение местоположения по сети или введите местоположение вручную.</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Включить</string>
+    <string name="weather_invert_lowhigh">Изменить порядок температур</string>
+    <string name="weather_progress_title">Проверка местоположения</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Показывать следующие события</string>
+    <string name="calendars_title">События календарей</string>
+    <string name="calendars_summary">Найти события из этих календарей</string>
+    <string name="calendar_reminders_only_title">Только с напоминаниями</string>
+    <string name="calendar_reminders_only_summary">Отображать только события с напоминаниями</string>
+    <string name="calendar_lookahead_title">Предпросмотр события</string>
+    <string name="calendar_show_location_title">Место проведения</string>
+    <string name="calendar_show_description_title">Описание события</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 часа</string>
+    <string name="calendar_lookahead_6hrs">6 часов</string>
+    <string name="calendar_lookahead_12hrs">12 часов</string>
+    <string name="calendar_lookahead_1day">1 день</string>
+    <string name="calendar_lookahead_3days">3 дня</string>
+    <string name="calendar_lookahead_1wk">1 неделя</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">Не показывать</string>
+    <string name="calendar_metadata_first_line">Показывать первую строку</string>
+    <string name="calendar_metadata_all">Показывать всё</string>
+
+</resources>
