@@ -105,7 +105,7 @@
     <!-- Preferences - Weather -->
     <string name="clock_font_title">Полужирный шрифт</string>
     <string name="clock_font_summary">Отображать часы полужирным, а минуты обычным шрифтом</string>
-    <string name="show_alarm_title">Показывать следующий будильник</string>
+    <string name="show_alarm_title">Показывать будильник</string>
     <string name="weather_enabled">Включено</string>
     <string name="weather_enable">Погода отображается</string>
     <string name="weather_source">Yahoo! Weather</string>
