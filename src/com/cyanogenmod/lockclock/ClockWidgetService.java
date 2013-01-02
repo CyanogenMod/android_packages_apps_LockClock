@@ -125,11 +125,13 @@ public class ClockWidgetService extends Service {
                 setWeatherData(mWeatherInfo);
             }
         } else {
-            // Hide the weather panel and update the rest of the widget
-            RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
-            remoteViews.setViewVisibility(R.id.weather_panel, View.GONE);
-            updateAndExit(remoteViews);
+            updateAndExit();
         }
+    }
+
+    private void updateAndExit() {
+        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        updateAndExit(remoteViews);
     }
 
     /**
@@ -369,9 +371,6 @@ public class ClockWidgetService extends Service {
         weatherViews.setTextViewText(R.id.weather_low_high, invertLowhigh ? w.high + " | " + w.low : w.low + " | " + w.high);
         weatherViews.setViewVisibility(R.id.weather_temps_panel, View.VISIBLE);
 
-        // Make sure the Weather panel is visible
-        weatherViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
-
         // Register an onClickListener on Weather
         setWeatherClickListener(weatherViews);
 
@@ -394,9 +393,6 @@ public class ClockWidgetService extends Service {
         weatherViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
         weatherViews.setViewVisibility(R.id.update_time, View.GONE);
         weatherViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
-
-        // Make sure the Weather panel is visible
-        weatherViews.setViewVisibility(R.id.weather_panel, View.VISIBLE);
 
         // Register an onClickListener on Weather
         setWeatherClickListener(weatherViews);
@@ -502,10 +498,8 @@ public class ClockWidgetService extends Service {
             calendarViews.setViewVisibility(R.id.calendar_event3, event3Visible ? View.VISIBLE : View.GONE);
         }
 
-        // Deal with overall panel visibility
-        calendarViews.setViewVisibility(R.id.calendar_panel, mEvent1Visible ? View.VISIBLE : View.GONE);
+        // Register an onClickListener on Calendar if it contains any events, starting the Calendar app
         if (mEvent1Visible) {
-            // Register an onClickListener on Calendar, starting the Calendar app
             ComponentName cal = new ComponentName("com.android.calendar", "com.android.calendar.AllInOneActivity");
             Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(cal);
             PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -549,7 +543,8 @@ public class ClockWidgetService extends Service {
             CalendarContract.Instances.BEGIN,
             CalendarContract.Events.DESCRIPTION,
             CalendarContract.Events.EVENT_LOCATION,
-            CalendarContract.Events.ALL_DAY
+            CalendarContract.Events.ALL_DAY,
+            CalendarContract.Events.CALENDAR_ID
         };
 
         // The indices for the projection array
@@ -558,6 +553,7 @@ public class ClockWidgetService extends Service {
         int DESCRIPTION_INDEX = 2;
         int LOCATION_INDEX = 3;
         int ALL_DAY_INDEX = 4;
+        int CALENDAR_ID_INDEX = 5;
 
         Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
                 String.format("%d/%d", now, later));
@@ -578,6 +574,11 @@ public class ClockWidgetService extends Service {
                     String description = cursor.getString(DESCRIPTION_INDEX);
                     String location = cursor.getString(LOCATION_INDEX);
                     boolean allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
+                    int calendarId = cursor.getInt(CALENDAR_ID_INDEX);
+
+                    if (DEBUG) {
+                        Log.d(TAG, "Event: " + title + " from calendar with id " + calendarId);
+                    }
 
                     // Check the next event in the case of all day event. As UTC is used for all day
                     // events, the next event may be the one that actually starts sooner
