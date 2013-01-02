@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">Άγνωστο</string>
+    <string name="cancel">Ακύρωση</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">Ανεμοστρόβιλος</string>
+    <string name="weather_1">Τροπική καταιγίδα</string>
+    <string name="weather_2">Τυφώνας</string>
+    <string name="weather_3">Έντονες καταιγίδες</string>
+    <string name="weather_4">Καταιγίδες</string>
+    <string name="weather_5">Βροχή και χιόνι</string>
+    <string name="weather_6">Βροχή και χιονόνερο</string>
+    <string name="weather_7">Χιόνι και χιονόνερο</string>
+    <string name="weather_8">Παγωμένο ψιλόβροχο</string>
+    <string name="weather_9">Ψιχάλες</string>
+    <string name="weather_10">Παγωμένη βροχή</string>
+    <string name="weather_11">Βροχοπτώσεις</string>
+    <string name="weather_12">Βροχοπτώσεις</string>
+    <string name="weather_13">Χιονόπτωση</string>
+    <string name="weather_14">Ασθενής χιονόπτωση</string>
+    <string name="weather_15">Ισχυρή χιονόπτωση</string>
+    <string name="weather_16">Χιόνι</string>
+    <string name="weather_17">Χαλάζι</string>
+    <string name="weather_18">Χιονόνερο</string>
+    <string name="weather_19">Σκόνη</string>
+    <string name="weather_20">Ομιχλώδης</string>
+    <string name="weather_21">Ομίχλη</string>
+    <string name="weather_22">Καπνώδης</string>
+    <string name="weather_23">Blustery</string>
+    <string name="weather_24">Ανεμώδης</string>
+    <string name="weather_25">Κρύος</string>
+    <string name="weather_26">Συννεφιασμένος</string>
+    <string name="weather_27">Νεφελώδης</string> <!-- Night -->
+    <string name="weather_28">Νεφελώδης</string> <!-- Day -->
+    <string name="weather_29">Αίθριος</string> <!-- Night -->
+    <string name="weather_30">Αίθριος</string> <!-- Day -->
+    <string name="weather_31">Καθαρός</string> <!-- Night -->
+    <string name="weather_32">Ηλιόλουστος</string>
+    <string name="weather_33">Ξαστεριά</string> <!-- Night -->
+    <string name="weather_34">Καλοκαιρία</string> <!-- Day -->
+    <string name="weather_35">Βροχή και χαλάζι</string>
+    <string name="weather_36">Ζεστός</string>
+    <string name="weather_37">Μεμονωμένες καταιγίδες</string>
+    <string name="weather_38">Σποραδικές καταιγίδες</string>
+    <string name="weather_39">Σποραδικές καταιγίδες</string>
+    <string name="weather_40">Σποραδικές βροχοπτώσεις</string>
+    <string name="weather_41">Ισχυρή χιονόπτωση</string>
+    <string name="weather_42">Σποραδικές χιονοπτώσεις</string>
+    <string name="weather_43">Ισχυρή χιονόπτωση</string>
+    <string name="weather_44">Αίθριος</string>
+    <string name="weather_45">Καταιγίδες</string>
+    <string name="weather_46">Χιονοπτώσεις</string>
+    <string name="weather_47">Μεμονωμένες χιονοπτώσεις</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">Β</string>
+    <string name="weather_NE">ΒΑ</string>
+    <string name="weather_E">Α</string>
+    <string name="weather_SE">ΝΑ</string>
+    <string name="weather_S">Ν</string>
+    <string name="weather_SW">ΝΔ</string>
+    <string name="weather_W">Δ</string>
+    <string name="weather_NW">ΒΔ</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">Χωρίς δεδομένα</string>
+    <string name="weather_tap_to_refresh">Πιέστε για ανανέωση</string>
+    <string name="weather_refreshing">Γίνεται ανανέωση</string>
+    <string name="weather_last_sync_just_now">Μόλις τώρα</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">Χειροκίνητα</string>
+    <string name="weather_refresh_30min">30 λεπτά</string>
+    <string name="weather_refresh_60min">60 λεπτά</string>
+    <string name="weather_refresh_2hrs">2 ώρες</string>
+    <string name="weather_refresh_4hrs">4 ώρες</string>
+    <string name="weather_refresh_6hrs">6 ώρες</string>
+    <string name="weather_refresh_8hrs">8 ώρες</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Ρολόι και ξυπνητήρι</string>
+    <string name="weather_category">Καιρός</string>
+    <string name="calendar_category">Ημερολόγιο</string>
+
+    <!-- Preferences - Weather -->
+    <string name="clock_font_title">Έντονη ώρα</string>
+    <string name="clock_font_summary">Χρήση έντονης γραμματοσειράς στο ρολόι</string>
+    <string name="show_alarm_title">Εμφάνιση επόμενου ξυπνητηριού</string>
+    <string name="weather_enabled">Ενεργό</string>
+    <string name="weather_enable">Εμφάνιση καιρού</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Χρήση προσαρμοσμένης τοποθεσίας</string>
+    <string name="weather_geolocated">Εντοπισμός τοποθεσίας μέσω δικτύου</string>
+    <string name="weather_custom_location_dialog_title">Εισάγετε τοποθεσία</string>
+    <string name="weather_custom_location_hint">Πόλη, Χώρα</string>
+    <string name="weather_custom_location_title">Τοποθεσία</string>
+    <string name="weather_show_location_title">Εμφάνιση τοποθεσίας</string>
+    <string name="weather_show_timestamp_title">Εμφάνιση ημερομηνίας</string>
+    <string name="weather_refresh_interval">Διάστημα μεταξύ ενημερώσεων</string>
+    <string name="weather_use_metric">Χρήση μετρικού συστήματος</string>
+    <string name="weather_retrieve_location_dialog_title">Δεν είναι δυνατός ο εντοπισμός της τοποθεσίας!</string>
+    <string name="weather_retrieve_location_dialog_message">Ο εντοπισμός τοποθεσίας μέσω δικτύου είναι απενεργοποιημένος. /n/nΧρησιμοποιήστε μία προσαρμοσμένη τοποθεσία ή ενεργοποιήστε την τοποθεσία δικτύου</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Ενεργοποίηση</string>
+    <string name="weather_invert_lowhigh">Αντιστροφή χαμηλής/υψηλής θερμοκρασίας</string>
+    <string name="weather_progress_title">Επαλήθευση τοποθεσίας</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Εμφάνιση επόμενου συμβάντος</string>
+    <string name="calendars_title">Ημερολόγια</string>
+    <string name="calendars_summary">Εμφάνιση συμβάντων απο αυτά τα ημερολόγια</string>
+    <string name="calendar_reminders_only_title">Υπενθύμιση μόνο</string>
+    <string name="calendar_reminders_only_summary">Εμφάνιση μόνο των συμβάντων με υπενθύμιση</string>
+    <string name="calendar_lookahead_title">Εμφάνιση συμβάντων εως\u2026</string>
+    <string name="calendar_show_location_title">Τοποθεσία συμβάντος</string>
+    <string name="calendar_show_description_title">Περιγραφή συμβάντος</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 ώρες</string>
+    <string name="calendar_lookahead_6hrs">6 ώρες</string>
+    <string name="calendar_lookahead_12hrs">12 ώρες</string>
+    <string name="calendar_lookahead_1day">1 ημέρα</string>
+    <string name="calendar_lookahead_3days">3 ημέρες</string>
+    <string name="calendar_lookahead_1wk">1 εβδομάδα</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">Απόκρυψη</string>
+    <string name="calendar_metadata_first_line">Εμφάνιση της πρώτης γραμμής</string>
+    <string name="calendar_metadata_all">Εμφάνιση όλων</string>
+
+</resources>
