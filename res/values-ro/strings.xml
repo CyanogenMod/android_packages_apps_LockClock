@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <string name="unknown">"Necunoscut"</string>
+    <string name="cancel">"Revocaţi"</string>
+
+    <string name="weather_0">"Tornadă"</string>
+    <string name="weather_1">"Furtună Tropicală"</string>
+    <string name="weather_2">"Uragan"</string>
+    <string name="weather_3">"Furtuni Severe"</string>
+    <string name="weather_4">"Furtuni"</string>
+    <string name="weather_5">"Precipitaţii Mixte"</string>
+    <string name="weather_6">"Lapoviţă"</string>
+    <string name="weather_7">"Precipitaţii Mixte"</string>
+    <string name="weather_8">"Chiciură"</string>
+    <string name="weather_9">"Burniţă"</string>
+    <string name="weather_10">"Polei"</string>
+    <string name="weather_11">"Averse"</string>
+    <string name="weather_12">"Averse"</string>
+    <string name="weather_13">"Fulgi"</string>
+    <string name="weather_14">"Averse de Ninsoare Slabă"</string>
+    <string name="weather_15">"Viscol"</string>
+    <string name="weather_16">"Ninsoare"</string>
+    <string name="weather_17">"Grindină"</string>
+    <string name="weather_18">"Lapoviţă"</string>
+    <string name="weather_19">"Praf"</string>
+    <string name="weather_20">"Ceaţă"</string>
+    <string name="weather_21">"Ceaţă"</string>
+    <string name="weather_22">"Fum"</string>
+    <string name="weather_23">"Furtună"</string>
+    <string name="weather_24">"Vânt"</string>
+    <string name="weather_25">"Rece"</string>
+    <string name="weather_26">"Înnorat"</string>
+    <string name="weather_27">"În General Noros"</string>
+    <string name="weather_28">"În General Noros"</string>
+    <string name="weather_29">"Parţial Noros"</string>
+    <string name="weather_30">"Parţial Noros"</string>
+    <string name="weather_31">"Senin"</string>
+    <string name="weather_32">"Însorit"</string>
+    <string name="weather_33">"Frumoasă"</string>
+    <string name="weather_34">"Frumoasă"</string>
+    <string name="weather_35">"Ploaie cu Grindină"</string>
+    <string name="weather_36">"Cald"</string>
+    <string name="weather_37">"Furtuni Izolate"</string>
+    <string name="weather_38">"Furtuni Dispersate cu Tunete"</string>
+    <string name="weather_39">"Furtuni Dispersate cu Tunete"</string>
+    <string name="weather_40">"Averse Dispersate"</string>
+    <string name="weather_41">"Ninsoare Puternică"</string>
+    <string name="weather_42">"Averse de Ninsoare Dispersate"</string>
+    <string name="weather_43">"Ninsoare Puternică"</string>
+    <string name="weather_44">"Parţial Noros"</string>
+    <string name="weather_45">"Averse cu Descărcări Electrice"</string>
+    <string name="weather_46">"Averse de Ninsoare"</string>
+    <string name="weather_47">"Averse cu Descărcări Electrice Izolate"</string>
+
+    <string name="weather_no_data">"Nu există date"</string>
+    <string name="weather_tap_to_refresh">"Apăsaţi pentru actualizare"</string>
+    <string name="weather_refreshing">"Actualizare"</string>
+    <string name="weather_last_sync_just_now">"Acum"</string>
+
+    <string name="weather_refresh_manual">"Manual"</string>
+    <string name="weather_refresh_30min">"30 minute"</string>
+    <string name="weather_refresh_60min">"60 minute"</string>
+    <string name="weather_refresh_2hrs">"2 ore"</string>
+    <string name="weather_refresh_4hrs">"4 ore"</string>
+    <string name="weather_refresh_6hrs">"6 ore"</string>
+    <string name="weather_refresh_8hrs">"8 ore"</string>
+
+    <string name="clock_category">"Ceas şi alarmă"</string>
+    <string name="weather_category">"Panou meteo"</string>
+    <string name="calendar_category">"Evenimente din calendar"</string>
+
+    <string name="clock_font_title">"Ore aldin"</string>
+    <string name="clock_font_summary">"Arătaţi orele într-un font aldin"</string>
+    <string name="show_alarm_title">"Arătaţi următoarea alarmă"</string>
+    <string name="weather_enabled">"Activat"</string>
+    <string name="weather_enable">"Afişare inf. meteo"</string>
+    <string name="weather_source">"Yahoo! Meteo"</string>
+    <string name="weather_use_custom_location">"Utilizaţi locaţia personalizată"</string>
+    <string name="weather_geolocated">"Localizată utilizând reţeaua"</string>
+    <string name="weather_custom_location_dialog_title">"Introduceţi locaţia"</string>
+    <string name="weather_custom_location_hint">"Oraş, Stat/Ţară"</string>
+    <string name="weather_custom_location_title">"Locaţie"</string>
+    <string name="weather_show_location_title">"Afişaţi locaţia"</string>
+    <string name="weather_show_timestamp_title">"Afişaţi marcajul de timp"</string>
+    <string name="weather_refresh_interval">"Interval actualizare"</string>
+    <string name="weather_use_metric">"Utilizaţi sistemul metric"</string>
+    <string name="weather_retrieve_location_dialog_title">"Nu pot prelua locaţia!"</string>
+    <string name="weather_retrieve_location_dialog_message">"Geolocalizare reţea este dezactivată.\n\nSetaţi o locaţie personalizată sau activaţi localizarea în reţea"</string>
+    <string name="weather_retrieve_location_dialog_enable_button">"Activată"</string>
+    <string name="weather_invert_lowhigh">"Inversaţi temperaturile scăzute/ridicate"</string>
+    <string name="weather_progress_title">"Verificare locaţie"</string>
+
+    <string name="calendar_title">"Afişaţi următorul eveniment"</string>
+    <string name="calendars_title">"Calendare"</string>
+    <string name="calendars_summary">"Găsiţi evenimente din aceste calendare"</string>
+    <string name="calendar_reminders_only_title">"Numai cu memento-uri"</string>
+    <string name="calendar_reminders_only_summary">"Arată doar evenimentele cu memento-uri"</string>
+    <string name="calendar_lookahead_title">"Perioadă eveniment"</string>
+    <string name="calendar_show_location_title">"Locaţie eveniment"</string>
+    <string name="calendar_show_description_title">"Descriere eveniment"</string>
+
+    <string name="calendar_lookahead_3hrs">"3 ore"</string>
+    <string name="calendar_lookahead_6hrs">"6 ore"</string>
+    <string name="calendar_lookahead_12hrs">"12 ore"</string>
+    <string name="calendar_lookahead_1day">"1 zi"</string>
+    <string name="calendar_lookahead_3days">"3 zile"</string>
+    <string name="calendar_lookahead_1wk">"1 săptămână"</string>
+    <string name="calendar_metadata_none">"Nu se afişează"</string>
+    <string name="calendar_metadata_first_line">"Afişare primul rând"</string>
+    <string name="calendar_metadata_all">"Afişare tot"</string>
+</resources>
