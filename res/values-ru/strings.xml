@@ -106,7 +106,7 @@
     <string name="clock_font_title">Полужирный шрифт</string>
     <string name="clock_font_summary">Отображать часы полужирным, а минуты обычным шрифтом</string>
     <string name="show_alarm_title">Показывать следующий будильник</string>
-    <string name="lockscreen_weather_enabled">Включено</string>
+    <string name="weather_enabled">Включено</string>
     <string name="weather_enable">Погода отображается</string>
     <string name="weather_source">Yahoo! Weather</string>
     <string name="weather_use_custom_location">Не определять автоматически</string>
