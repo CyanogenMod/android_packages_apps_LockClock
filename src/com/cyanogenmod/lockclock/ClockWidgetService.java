@@ -353,14 +353,18 @@ public class ClockWidgetService extends Service {
         boolean showLocation = mSharedPrefs.getBoolean(Constants.WEATHER_SHOW_LOCATION, true);
         boolean showTimestamp = mSharedPrefs.getBoolean(Constants.WEATHER_SHOW_TIMESTAMP, true);
         boolean invertLowhigh = mSharedPrefs.getBoolean(Constants.WEATHER_INVERT_LOWHIGH, false);
+        boolean defaultIcons = !mSharedPrefs.getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, false);
 
         // Get the views ready
         RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
 
-        // Weather Image
-        final Resources res = getBaseContext().getResources();
+        // Weather Image - Either the default or alternate set
+        String prefix = defaultIcons ? "weather_" : "weather2_";
         String conditionCode = w.condition_code;
-        String condition_filename = "weather_" + conditionCode;
+        String condition_filename = prefix + conditionCode;
+
+        // Get the resource id based on the constructed name
+        final Resources res = getBaseContext().getResources();
         int resID = res.getIdentifier(condition_filename, "drawable",
                 getBaseContext().getPackageName());
 
@@ -370,7 +374,8 @@ public class ClockWidgetService extends Service {
         if (resID != 0) {
             weatherViews.setImageViewResource(R.id.weather_image, resID);
         } else {
-            weatherViews.setImageViewResource(R.id.weather_image, R.drawable.weather_na);
+            weatherViews.setImageViewResource(R.id.weather_image,
+                    defaultIcons ? R.drawable.weather_na : R.drawable.weather2_na);
         }
 
         // City
@@ -408,11 +413,16 @@ public class ClockWidgetService extends Service {
      * 'Tap to reload' message
      */
     private void setNoWeatherData() {
+        boolean defaultIcons = !mSharedPrefs.getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, false);
+
         final Resources res = getBaseContext().getResources();
         RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
 
-        // Update the appropriate views
-        weatherViews.setImageViewResource(R.id.weather_image, R.drawable.weather_na);
+        // Weather Image - Either the default or alternate set
+        weatherViews.setImageViewResource(R.id.weather_image,
+                defaultIcons ? R.drawable.weather_na : R.drawable.weather2_na);
+
+        // Rest of the data
         weatherViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
         weatherViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
         weatherViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
