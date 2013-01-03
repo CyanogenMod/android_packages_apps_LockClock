@@ -45,6 +45,11 @@
             android:title="@string/calendar_reminders_only_title"
             android:summary="@string/calendar_reminders_only_summary" />
 
+        <CheckBoxPreference
+            android:key="calendar_hide_allday"
+            android:dependency="show_calendar"
+            android:title="@string/calendar_hide_allday_title" />
+
         <ListPreference
             android:key="calendar_show_location"
             android:dependency="show_calendar"
