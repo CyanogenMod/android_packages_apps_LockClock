@@ -130,6 +130,7 @@
     <string name="calendars_summary">Afficher les événements de ces agendas</string>
     <string name="calendar_reminders_only_title">Seulement avec des rappels</string>
     <string name="calendar_reminders_only_summary">Afficher seulement les événements avec des rappels</string>
+    <string name="calendar_hide_allday_title">Masquer les événements qui durent toute une journée</string>
     <string name="calendar_lookahead_title">Anticipation des événements</string>
     <string name="calendar_show_location_title">Lieu des événements</string>
     <string name="calendar_show_description_title">Description des événements</string>
