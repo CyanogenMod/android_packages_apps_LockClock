@@ -111,7 +111,6 @@
     <string name="calendar_category">Calendar events</string>
 
     <!-- Preferences - Categories -->
-    <string name="fonts_category">Fonts</string>
     <string name="general_category">General</string>
     <string name="display_category">Display</string>
 

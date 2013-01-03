@@ -18,6 +18,9 @@
     android:key="calendar_settings"
     android:title="@string/calendar_category">
 
+    <PreferenceCategory
+        android:title="@string/general_category" >
+
         <CheckBoxPreference
             android:key="show_calendar"
             android:title="@string/calendar_title" />
@@ -49,6 +52,10 @@
             android:key="calendar_hide_allday"
             android:dependency="show_calendar"
             android:title="@string/calendar_hide_allday_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/display_category" >
 
         <ListPreference
             android:key="calendar_show_location"
@@ -69,4 +76,5 @@
             android:title="@string/calendar_show_description_title"
             android:entries="@array/calendar_show_event_metadata_entries"
             android:entryValues="@array/calendar_show_event_metadata_values" />
+    </PreferenceCategory>
 </PreferenceScreen>

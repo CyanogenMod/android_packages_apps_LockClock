@@ -19,7 +19,16 @@
     android:title="@string/clock_category">
 
     <PreferenceCategory
-        android:title="@string/fonts_category" >
+        android:title="@string/general_category" >
+
+        <CheckBoxPreference
+            android:key="clock_show_alarm"
+            android:title="@string/show_alarm_title"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/display_category" >
 
         <CheckBoxPreference
             android:key="clock_font"
@@ -34,15 +43,6 @@
         <CheckBoxPreference
             android:key="clock_font_date"
             android:title="@string/clock_font_date_title"
-            android:defaultValue="true" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/general_category" >
-
-        <CheckBoxPreference
-            android:key="clock_show_alarm"
-            android:title="@string/show_alarm_title"
             android:defaultValue="true" />
     </PreferenceCategory>
 </PreferenceScreen>
