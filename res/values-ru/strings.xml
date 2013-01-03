@@ -130,6 +130,7 @@
     <string name="calendars_summary">Найти события из этих календарей</string>
     <string name="calendar_reminders_only_title">Только с напоминаниями</string>
     <string name="calendar_reminders_only_summary">Отображать только события с напоминаниями</string>
+    <string name="calendar_hide_allday_title">Скрыть все события дня</string>
     <string name="calendar_lookahead_title">Предпросмотр события</string>
     <string name="calendar_show_location_title">Место проведения</string>
     <string name="calendar_show_description_title">Описание события</string>
