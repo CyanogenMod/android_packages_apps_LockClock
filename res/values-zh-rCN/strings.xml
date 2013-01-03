@@ -102,8 +102,14 @@
     <string name="weather_category">天气面板</string>
     <string name="calendar_category">日历活动</string>
 
+    <!-- Preferences - Categories -->
+    <string name="general_category">常规</string>
+    <string name="display_category">显示</string>
+
     <!-- Preferences - Clock -->
     <string name="clock_font_title">加粗小时</string>
+    <string name="clock_font_minutes_title">加粗分钟</string>
+    <string name="clock_font_date_title">加粗日期与闹钟</string>
     <string name="show_alarm_title">显示下一个闹钟</string>
 
     <!-- Preferences - Weather -->
@@ -124,6 +130,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">启用</string>
     <string name="weather_invert_lowhigh">交换高低温度显示的位置</string>
     <string name="weather_progress_title">正在验证位置</string>
+    <string name="weather_alternate_icons_title">使用彩色图标</string>
+    <string name="weather_alternate_icons_summary">将默认白色的图标替换为另一套彩色的图标</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">显示下一个活动</string>
@@ -131,6 +139,7 @@
     <string name="calendars_summary">从这些日历里寻找活动</string>
     <string name="calendar_reminders_only_title">仅显示提醒</string>
     <string name="calendar_reminders_only_summary">仅显示带提醒的活动</string>
+    <string name="calendar_hide_allday_title">隐藏全天活动</string>
     <string name="calendar_lookahead_title">活动查找范围</string>
     <string name="calendar_show_location_title">活动位置</string>
     <string name="calendar_show_description_title">活动描述</string>
