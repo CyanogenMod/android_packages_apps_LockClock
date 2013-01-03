@@ -102,10 +102,11 @@
     <string name="weather_category">Wetter</string>
     <string name="calendar_category">Kalender</string>
 
-    <!-- Preferences - Weather -->
+    <!-- Preferences - Clock -->
     <string name="clock_font_title">Fettschrift</string>
-    <string name="clock_font_summary">Die Stundenziffern der Uhr in Fettschrift anzeigen.</string>
     <string name="show_alarm_title">Nächsten Alarm anzeigen</string>
+
+    <!-- Preferences - Weather -->
     <string name="weather_enabled">Aktiviert</string>
     <string name="weather_enable">Wetter anzeigen</string>
     <string name="weather_source">Yahoo! Wetter</string>

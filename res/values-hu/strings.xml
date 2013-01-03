@@ -103,10 +103,11 @@
     <string name="weather_category">Időjárás panel</string>
     <string name="calendar_category">Naptárbejegyzések</string>
 
-    <!-- Preferences - Weather -->
+    <!-- Preferences - Clock -->
     <string name="clock_font_title">Kövér órák</string>
-    <string name="clock_font_summary">Az órát kövér betűkkel mutatja</string>
     <string name="show_alarm_title">Következő ébresztés megjelenítése</string>
+
+    <!-- Preferences - Weather -->
     <string name="weather_enabled">Engedélyezve</string>
     <string name="weather_enable">Időjárás megjelenítése</string>
     <string name="weather_source">Yahoo! Weather</string>

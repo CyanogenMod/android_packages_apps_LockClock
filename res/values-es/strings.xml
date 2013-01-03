@@ -101,10 +101,11 @@
     <string name="weather_category">Clima</string>
     <string name="calendar_category">Calendario</string>
 
-    <!-- Preferences - Weather -->
+    <!-- Preferences - Clock -->
     <string name="clock_font_title">Resaltar hora</string>
-    <string name="clock_font_summary">Muestra las horas con números destacados</string>
     <string name="show_alarm_title">Mostrar alarma siguiente</string>
+
+    <!-- Preferences - Weather -->
     <string name="weather_enabled">Activado</string>
     <string name="weather_enable">Mostrar clima</string>
     <string name="weather_source">Yahoo! Weather</string>

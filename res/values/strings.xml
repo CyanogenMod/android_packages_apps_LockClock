@@ -110,10 +110,15 @@
     <string name="weather_category">Weather panel</string>
     <string name="calendar_category">Calendar events</string>
 
-    <!-- Preferences - Weather -->
+    <!-- Preferences - Clock -->
+    <string name="fonts_category">Fonts</string>
+    <string name="general_category">General</string>
     <string name="clock_font_title">Bold hours</string>
-    <string name="clock_font_summary">Show the hours on the clock in a bold font</string>
+    <string name="clock_font_minutes_title">Bold minutes</string>
+    <string name="clock_font_date_title">Bold date and alarm</string>
     <string name="show_alarm_title">Show next alarm</string>
+
+    <!-- Preferences - Weather -->
     <string name="weather_enabled">Enabled</string>
     <string name="weather_enable">Display weather</string>
     <string name="weather_source">Yahoo! Weather</string>

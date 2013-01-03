@@ -102,10 +102,11 @@
     <string name="weather_category">Καιρός</string>
     <string name="calendar_category">Ημερολόγιο</string>
 
-    <!-- Preferences - Weather -->
+    <!-- Preferences - Clock -->
     <string name="clock_font_title">Έντονη ώρα</string>
-    <string name="clock_font_summary">Χρήση έντονης γραμματοσειράς στο ρολόι</string>
     <string name="show_alarm_title">Εμφάνιση επόμενου ξυπνητηριού</string>
+
+    <!-- Preferences - Weather -->
     <string name="weather_enabled">Ενεργό</string>
     <string name="weather_enable">Εμφάνιση καιρού</string>
     <string name="weather_source">Yahoo! Weather</string>

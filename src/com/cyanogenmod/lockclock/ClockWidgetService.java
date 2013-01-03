@@ -165,12 +165,31 @@ public class ClockWidgetService extends Service {
     // Clock related functionality
     //===============================================================================================
     private void refreshClockFont(RemoteViews clockViews) {
-        if (!mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
-            clockViews.setViewVisibility(R.id.the_clock1_regular, View.VISIBLE);
-            clockViews.setViewVisibility(R.id.the_clock1, View.GONE);
+        // Hours
+        if (mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
+            clockViews.setViewVisibility(R.id.clock1_bold, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.clock1_regular, View.GONE);
         } else {
-            clockViews.setViewVisibility(R.id.the_clock1_regular, View.GONE);
-            clockViews.setViewVisibility(R.id.the_clock1, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.clock1_regular, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.clock1_bold, View.GONE);
+        }
+
+        // Minutes
+        if (mSharedPrefs.getBoolean(Constants.CLOCK_FONT_MINUTES, false)) {
+            clockViews.setViewVisibility(R.id.clock2_bold, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.clock2_regular, View.GONE);
+        } else {
+            clockViews.setViewVisibility(R.id.clock2_regular, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.clock2_bold, View.GONE);
+        }
+
+        // Date
+        if (mSharedPrefs.getBoolean(Constants.CLOCK_FONT_DATE, true)) {
+            clockViews.setViewVisibility(R.id.date_bold, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.date_regular, View.GONE);
+        } else {
+            clockViews.setViewVisibility(R.id.date_regular, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.date_bold, View.GONE);
         }
 
         // Register an onClickListener on Clock, starting DeskClock
@@ -182,9 +201,10 @@ public class ClockWidgetService extends Service {
 
     private void setClockSize(RemoteViews clockViews, float scale) {
         float fontSize = mContext.getResources().getDimension(R.dimen.widget_big_font_size);
-        clockViews.setTextViewTextSize(R.id.the_clock1, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
-        clockViews.setTextViewTextSize(R.id.the_clock1_regular, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
-        clockViews.setTextViewTextSize(R.id.the_clock2, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
+        clockViews.setTextViewTextSize(R.id.clock1_bold, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
+        clockViews.setTextViewTextSize(R.id.clock1_regular, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
+        clockViews.setTextViewTextSize(R.id.clock2_bold, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
+        clockViews.setTextViewTextSize(R.id.clock2_regular, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
     }
 
     //===============================================================================================
@@ -192,25 +212,30 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     private void refreshAlarmStatus(RemoteViews alarmViews) {
         boolean showAlarm = mSharedPrefs.getBoolean(Constants.CLOCK_SHOW_ALARM, true);
+        boolean isBold = mSharedPrefs.getBoolean(Constants.CLOCK_FONT_DATE, true);
 
         // Update Alarm status
         if (showAlarm) {
             String nextAlarm = getNextAlarm();
             if (!TextUtils.isEmpty(nextAlarm)) {
-                alarmViews.setTextViewText(R.id.nextAlarm, nextAlarm.toString().toUpperCase());
-                alarmViews.setViewVisibility(R.id.nextAlarm, View.VISIBLE);
-            } else {
-                alarmViews.setViewVisibility(R.id.nextAlarm, View.GONE);
+                // An alarm is set, deal with displaying it
+                alarmViews.setTextViewText(isBold ? R.id.nextAlarm_bold : R.id.nextAlarm_regular,
+                        nextAlarm.toString().toUpperCase());
+                alarmViews.setViewVisibility(R.id.nextAlarm_bold, isBold ? View.VISIBLE : View.GONE);
+                alarmViews.setViewVisibility(R.id.nextAlarm_regular, isBold ? View.GONE : View.VISIBLE);
+                return;
             }
-        } else {
-            alarmViews.setViewVisibility(R.id.nextAlarm, View.GONE);
         }
+
+        // No alarm set or Alarm display is hidden, hide the views
+        alarmViews.setViewVisibility(R.id.nextAlarm_bold, View.GONE);
+        alarmViews.setViewVisibility(R.id.nextAlarm_regular, View.GONE);
     }
 
     /**
      * @return A formatted string of the next alarm or null if there is no next alarm.
      */
-    public String getNextAlarm() {
+    private String getNextAlarm() {
         String nextAlarm = Settings.System.getString(mContext.getContentResolver(),
                 Settings.System.NEXT_ALARM_FORMATTED);
         if (nextAlarm == null || TextUtils.isEmpty(nextAlarm)) {
@@ -418,18 +443,15 @@ public class ClockWidgetService extends Service {
         try {
             boolean celcius = mSharedPrefs.getBoolean(Constants.WEATHER_USE_METRIC, true);
             String urlWithDegreeUnit;
-
             if (celcius) {
                 urlWithDegreeUnit = URL_YAHOO_API_WEATHER + "c";
             } else {
                 urlWithDegreeUnit = URL_YAHOO_API_WEATHER + "f";
             }
-
             return new HttpRetriever().getDocumentFromURL(String.format(urlWithDegreeUnit, woeid));
         } catch (IOException e) {
             Log.e(TAG, "Error querying Yahoo weather");
         }
-
         return null;
     }
 
@@ -447,7 +469,6 @@ public class ClockWidgetService extends Service {
         }
         return null;
     }
-    
 
     //===============================================================================================
     // Calendar related functionality

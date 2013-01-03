@@ -18,14 +18,31 @@
     android:key="clock_settings"
     android:title="@string/clock_category">
 
-    <CheckBoxPreference
+    <PreferenceCategory
+        android:title="@string/fonts_category" >
+
+        <CheckBoxPreference
             android:key="clock_font"
             android:title="@string/clock_font_title"
-            android:defaultValue="true"
-            android:summary="@string/clock_font_summary" />
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="clock_font_minutes"
+            android:title="@string/clock_font_minutes_title"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="clock_font_date"
+            android:title="@string/clock_font_date_title"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/general_category" >
 
         <CheckBoxPreference
             android:key="clock_show_alarm"
             android:title="@string/show_alarm_title"
             android:defaultValue="true" />
+    </PreferenceCategory>
 </PreferenceScreen>

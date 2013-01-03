@@ -102,10 +102,11 @@
     <string name="weather_category">天气面板</string>
     <string name="calendar_category">日历活动</string>
 
-    <!-- Preferences - Weather -->
+    <!-- Preferences - Clock -->
     <string name="clock_font_title">加粗小时</string>
-    <string name="clock_font_summary">时钟上的小时将用一个加粗的字体显示</string>
     <string name="show_alarm_title">显示下一个闹钟</string>
+
+    <!-- Preferences - Weather -->
     <string name="weather_enabled">已启用</string>
     <string name="weather_enable">显示天气</string>
     <string name="weather_source">雅虎天气</string>

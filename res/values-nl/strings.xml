@@ -88,9 +88,10 @@
     <string name="clock_category">Klok &amp; alarm</string>
     <string name="weather_category">Weerpaneel</string>
     <string name="calendar_category">Agenda-afspraken</string>
+
     <string name="clock_font_title">Vetgedrukte uren</string>
-    <string name="clock_font_summary">Uren vetgedrukt tonen</string>
     <string name="show_alarm_title">Volgend alarm tonen</string>
+
     <string name="weather_enabled">Ingeschakeld</string>
     <string name="weather_enable">Weer tonen</string>
     <string name="weather_source">Yahoo! Weather</string>

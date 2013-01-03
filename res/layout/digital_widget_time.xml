@@ -29,8 +29,9 @@
         android:baselineAligned="true"
         android:layout_gravity="center_horizontal|top">
 
+        <!-- Hours -->
         <TextClock
-            android:id="@+id/the_clock1"
+            android:id="@+id/clock1_bold"
             android:format12Hour="@string/widget_12_hours_format_h"
             android:format24Hour="@string/widget_24_hours_format_h"
             android:layout_width="wrap_content"
@@ -39,7 +40,7 @@
             android:textColor="@color/clock_white"
             android:layout_gravity="center_horizontal|top" />
         <TextClock
-            android:id="@+id/the_clock1_regular"
+            android:id="@+id/clock1_regular"
             android:format12Hour="@string/widget_12_hours_format_h"
             android:format24Hour="@string/widget_24_hours_format_h"
             android:layout_width="wrap_content"
@@ -48,8 +49,10 @@
             android:visibility="gone"
             android:textColor="@color/clock_white"
             android:layout_gravity="center_horizontal|top" />
+
+        <!-- Minutes -->
         <TextClock
-            android:id="@+id/the_clock2"
+            android:id="@+id/clock2_regular"
             android:format12Hour="@string/widget_12_hours_format_no_ampm_m"
             android:format24Hour="@string/widget_24_hours_format_m"
             android:layout_width="wrap_content"
@@ -57,31 +60,62 @@
             style="@style/widget_big_thin"
             android:textColor="@color/clock_white"
             android:layout_gravity="center_horizontal|top" />
-    </LinearLayout>
+        <TextClock
+            android:id="@+id/clock2_bold"
+            android:format12Hour="@string/widget_12_hours_format_no_ampm_m"
+            android:format24Hour="@string/widget_24_hours_format_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/widget_big_bold"
+            android:visibility="gone"
+            android:textColor="@color/clock_white"
+            android:layout_gravity="center_horizontal|top" />
+        </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
 
-        <TextClock android:id="@+id/date"
+        <!-- Date -->
+        <TextClock android:id="@+id/date_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/clock_white"
             android:format12Hour="@string/abbrev_wday_month_day_no_year"
             android:format24Hour="@string/abbrev_wday_month_day_no_year"
-            style="@style/label"
+            style="@style/label_bold"
+            android:gravity="center" />
+        <TextClock android:id="@+id/date_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/clock_white"
+            android:format12Hour="@string/abbrev_wday_month_day_no_year"
+            android:format24Hour="@string/abbrev_wday_month_day_no_year"
+            style="@style/label_thin"
+            android:visibility="gone"
             android:gravity="center" />
 
-        <TextView android:id="@+id/nextAlarm"
+        <!-- Alarm -->
+        <TextView android:id="@+id/nextAlarm_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="2dip"
             android:drawableLeft="@drawable/ic_alarm_small"
             android:textColor="@color/clock_gray"
-            style="@style/label"
+            style="@style/label_bold"
             android:layout_marginLeft="8dip"
             android:gravity="center"
             android:visibility="gone" />
-    </LinearLayout>
+        <TextView android:id="@+id/nextAlarm_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="2dip"
+            android:drawableLeft="@drawable/ic_alarm_small"
+            android:textColor="@color/clock_gray"
+            style="@style/label_thin"
+            android:layout_marginLeft="8dip"
+            android:gravity="center"
+            android:visibility="gone" />
+        </LinearLayout>
 </LinearLayout>

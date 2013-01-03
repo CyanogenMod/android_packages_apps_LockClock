@@ -86,8 +86,8 @@
     <string name="calendar_category">"Evenimente din calendar"</string>
 
     <string name="clock_font_title">"Ore aldin"</string>
-    <string name="clock_font_summary">"Arătaţi orele într-un font aldin"</string>
     <string name="show_alarm_title">"Arătaţi următoarea alarmă"</string>
+
     <string name="weather_enabled">"Activat"</string>
     <string name="weather_enable">"Afişare inf. meteo"</string>
     <string name="weather_source">"Yahoo! Meteo"</string>
