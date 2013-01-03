@@ -85,8 +85,8 @@
     <!-- Weather - error messages -->
     <string name="weather_no_data">Pas de données</string>
     <string name="weather_tap_to_refresh">Appuyez pour actualiser</string>
-    <string name="weather_refreshing">Actualisation…</string>
-    <string name="weather_last_sync_just_now">A l\'instant</string>
+    <string name="weather_refreshing">Actualisation\u2026</string>
+    <string name="weather_last_sync_just_now">À l\'instant</string>
 
     <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">Manuellement</string>
@@ -100,10 +100,16 @@
     <!-- Preferences - Categories -->
     <string name="clock_category">Horloge et alarme</string>
     <string name="weather_category">Météo</string>
-    <string name="calendar_category">Evénement de l\'agenda</string>
+    <string name="calendar_category">Événement de l\'agenda</string>
+
+    <!-- Preferences - Categories -->
+    <string name="general_category">Général</string>
+    <string name="display_category">Affichage</string>
 
     <!-- Preferences - Clock -->
     <string name="clock_font_title">Heure en gras</string>
+    <string name="clock_font_minutes_title">Minutes en gras</string>
+    <string name="clock_font_date_title">Date et alarme en gras</string>
     <string name="show_alarm_title">Afficher la prochaine alarme</string>
 
     <!-- Preferences - Weather -->
@@ -113,7 +119,7 @@
     <string name="weather_use_custom_location">Définir un lieu</string>
     <string name="weather_geolocated">Utiliser la géolocalisation</string>
     <string name="weather_custom_location_dialog_title">Définir un lieu</string>
-    <string name="weather_custom_location_hint">Ville, Etat/Pays</string>
+    <string name="weather_custom_location_hint">Ville, État/Pays</string>
     <string name="weather_custom_location_title">Lieu</string>
     <string name="weather_show_location_title">Afficher le lieu</string>
     <string name="weather_show_timestamp_title">Afficher le temps depuis la dernière actualisation</string>
@@ -124,13 +130,16 @@
     <string name="weather_retrieve_location_dialog_enable_button">Activer</string>
     <string name="weather_invert_lowhigh">Inverser les températures minimum et maximum</string>
     <string name="weather_progress_title">Vérification du lieu</string>
+    <string name="weather_alternate_icons_title">Utiliser des icônes alternatives</string>
+    <string name="weather_alternate_icons_summary">Sélectionner cette option pour remplacer l\'icône par défaut (blanche) par une icône alternative (couleur)</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Afficher le prochain événement</string>
-    <string name="calendars_title">Evénement des agendas</string>
+    <string name="calendars_title">Événement des agendas</string>
     <string name="calendars_summary">Afficher les événements de ces agendas</string>
     <string name="calendar_reminders_only_title">Seulement avec des rappels</string>
     <string name="calendar_reminders_only_summary">Afficher seulement les événements avec des rappels</string>
+    <string name="calendar_hide_allday_title">Masquer les événements qui durent toute une journée</string>
     <string name="calendar_lookahead_title">Anticipation des événements</string>
     <string name="calendar_show_location_title">Lieu des événements</string>
     <string name="calendar_show_description_title">Description des événements</string>
