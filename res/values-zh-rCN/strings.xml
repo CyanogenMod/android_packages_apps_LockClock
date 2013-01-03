@@ -130,6 +130,7 @@
     <string name="calendars_summary">从这些日历里寻找活动</string>
     <string name="calendar_reminders_only_title">仅显示提醒</string>
     <string name="calendar_reminders_only_summary">仅显示带提醒的活动</string>
+    <string name="calendar_hide_allday_title">隐藏全天活动</string>
     <string name="calendar_lookahead_title">活动查找范围</string>
     <string name="calendar_show_location_title">活动位置</string>
     <string name="calendar_show_description_title">活动描述</string>
