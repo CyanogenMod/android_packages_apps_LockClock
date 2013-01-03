@@ -110,9 +110,12 @@
     <string name="weather_category">Weather panel</string>
     <string name="calendar_category">Calendar events</string>
 
-    <!-- Preferences - Clock -->
+    <!-- Preferences - Categories -->
     <string name="fonts_category">Fonts</string>
     <string name="general_category">General</string>
+    <string name="display_category">Display</string>
+
+    <!-- Preferences - Clock -->
     <string name="clock_font_title">Bold hours</string>
     <string name="clock_font_minutes_title">Bold minutes</string>
     <string name="clock_font_date_title">Bold date and alarm</string>
@@ -136,6 +139,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">Enable</string>
     <string name="weather_invert_lowhigh">Invert low/high temperatures</string>
     <string name="weather_progress_title">Verifying location</string>
+    <string name="weather_alternate_icons_title">Use alternate icons</string>
+    <string name="weather_alternate_icons_summary">Select to toggle between the default (White) and the alternate (Color) icons</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Display next event</string>

@@ -18,6 +18,9 @@
     android:key="weather_settings"
     android:title="@string/weather_category">
 
+    <PreferenceCategory
+        android:title="@string/general_category" >
+
         <CheckBoxPreference
             android:key="show_weather"
             android:title="@string/weather_enable"
@@ -43,6 +46,16 @@
             android:dialogTitle="@string/weather_custom_location_dialog_title"
             android:hint="@string/weather_custom_location_hint"
             android:title="@string/weather_custom_location_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/display_category" >
+
+        <CheckBoxPreference
+            android:key="weather_use_alternate_icons"
+            android:dependency="show_weather"
+            android:title="@string/weather_alternate_icons_title"
+            android:summary="@string/weather_alternate_icons_summary" />
 
         <CheckBoxPreference
             android:key="weather_use_metric"
@@ -63,4 +76,5 @@
             android:key="weather_invert_lowhigh"
             android:dependency="show_weather"
             android:title="@string/weather_invert_lowhigh" />
+    </PreferenceCategory>
 </PreferenceScreen>
