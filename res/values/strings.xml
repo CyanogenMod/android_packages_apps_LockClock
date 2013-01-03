@@ -138,6 +138,7 @@
     <string name="calendars_summary">Find events from these calendars</string>
     <string name="calendar_reminders_only_title">Reminders only</string>
     <string name="calendar_reminders_only_summary">Show only events with reminders</string>
+    <string name="calendar_hide_allday_title">Hide all day events</string>
     <string name="calendar_lookahead_title">Event lookahead</string>
     <string name="calendar_show_location_title">Event location</string>
     <string name="calendar_show_description_title">Event description</string>

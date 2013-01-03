@@ -454,19 +454,20 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     private void refreshCalendar(RemoteViews calendarViews) {
         // Load the settings
-        boolean lockCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
-        Set<String> calendars = mSharedPrefs.getStringSet(Constants.CALENDAR_LIST, null);
-        boolean lockCalendarRemindersOnly = mSharedPrefs.getBoolean(Constants.CALENDAR_REMINDERS_ONLY, false);
-        long lockCalendarLookahead = Long.parseLong(mSharedPrefs.getString(Constants.CALENDAR_LOOKAHEAD, "10800000"));
+        boolean showCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
+        Set<String> calendarList = mSharedPrefs.getStringSet(Constants.CALENDAR_LIST, null);
+        boolean remindersOnly = mSharedPrefs.getBoolean(Constants.CALENDAR_REMINDERS_ONLY, false);
+        boolean hideAllDay = mSharedPrefs.getBoolean(Constants.CALENDAR_HIDE_ALLDAY, false);
+        long lookAhead = Long.parseLong(mSharedPrefs.getString(Constants.CALENDAR_LOOKAHEAD, "10800000"));
 
         // Assume we are not showing the views
         mEvent1Visible = false;
         boolean event2Visible = false;
         boolean event3Visible = false;
 
-        if (lockCalendar) {
+        if (showCalendar) {
             String[][] nextCalendar = null;
-            nextCalendar = getNextCalendarAlarm(lockCalendarLookahead, calendars, lockCalendarRemindersOnly);
+            nextCalendar = getNextCalendarAlarm(lookAhead, calendarList, remindersOnly, hideAllDay);
             // Iterate through the calendars, up to the maximum
             for (int i = 0; i < MAX_CALENDAR_ITEMS; i++) {
                 if (nextCalendar[i][0] != null) {
@@ -513,10 +514,11 @@ public class ClockWidgetService extends Service {
      * within a certain look-ahead time.
      */
     private String[][] getNextCalendarAlarm(long lookahead, Set<String> calendars,
-            boolean remindersOnly) {
+            boolean remindersOnly, boolean hideAllDay) {
         long now = System.currentTimeMillis();
         long later = now + lookahead;
 
+        // Build the 'where' clause
         StringBuilder where = new StringBuilder();
         if (remindersOnly) {
             where.append(CalendarContract.Events.HAS_ALARM + "=1");
@@ -566,18 +568,22 @@ public class ClockWidgetService extends Service {
 
             if (cursor != null) {
                 cursor.moveToFirst();
-
-                // Iterate through rows to a maximum number of calendar entries
-                for (int i = 0; i < cursor.getCount() && i < MAX_CALENDAR_ITEMS; i++) {
+                // Iterate through returned rows to a maximum number of calendar events
+                for (int i = 0, eventCount = 0; i < cursor.getCount() && eventCount < MAX_CALENDAR_ITEMS; i++) {
                     String title = cursor.getString(TITLE_INDEX);
                     long begin = cursor.getLong(BEGIN_TIME_INDEX);
                     String description = cursor.getString(DESCRIPTION_INDEX);
                     String location = cursor.getString(LOCATION_INDEX);
                     boolean allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
                     int calendarId = cursor.getInt(CALENDAR_ID_INDEX);
-
                     if (DEBUG) {
-                        Log.d(TAG, "Event: " + title + " from calendar with id " + calendarId);
+                        Log.d(TAG, "Event: " + title + " from calendar with id: " + calendarId);
+                    }
+
+                    // If skipping all day events, continue the loop without incementing eventCount
+                    if (allDay && hideAllDay) {
+                        cursor.moveToNext();
+                        continue;
                     }
 
                     // Check the next event in the case of all day event. As UTC is used for all day
@@ -597,7 +603,7 @@ public class ClockWidgetService extends Service {
                     }
 
                     // Set the event title as the first array item
-                    nextCalendarAlarm[i][0] = title.toString();
+                    nextCalendarAlarm[eventCount][0] = title.toString();
 
                     // Start building the event details string
                     // Starting with the date
@@ -666,8 +672,11 @@ public class ClockWidgetService extends Service {
                     }
 
                     // Set the time, location and description as the second array item
-                    nextCalendarAlarm[i][1] = sb.toString();
+                    nextCalendarAlarm[eventCount][1] = sb.toString();
                     cursor.moveToNext();
+
+                    // Increment the event counter
+                    eventCount++;
                 }
             }
         } catch (Exception e) {
