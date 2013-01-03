@@ -125,4 +125,5 @@
     <string name="clock_font_summary">Exibir as horas do relógio em negrito</string>
     <string name="show_alarm_title">Exibir próximo alarme</string>
     <string name="weather_enabled">Ativado</string>
+    <string name="calendar_hide_allday_title">Ocultar eventos de dia inteiro</string>
 </resources>
