@@ -51,7 +51,7 @@
     <string name="weather_29">"Parţial Noros"</string>
     <string name="weather_30">"Parţial Noros"</string>
     <string name="weather_31">"Senin"</string>
-    <string name="weather_32">"Însorit"</string>
+    <string name="weather_32">"Senin"</string>
     <string name="weather_33">"Frumoasă"</string>
     <string name="weather_34">"Frumoasă"</string>
     <string name="weather_35">"Ploaie cu Grindină"</string>
@@ -111,6 +111,7 @@
     <string name="calendars_summary">"Găsiţi evenimente din aceste calendare"</string>
     <string name="calendar_reminders_only_title">"Numai cu memento-uri"</string>
     <string name="calendar_reminders_only_summary">"Arată doar evenimentele cu memento-uri"</string>
+    <string name="calendar_hide_allday_title">Ascundeți evenim. pt. toată ziua</string>
     <string name="calendar_lookahead_title">"Perioadă eveniment"</string>
     <string name="calendar_show_location_title">"Locaţie eveniment"</string>
     <string name="calendar_show_description_title">"Descriere eveniment"</string>
