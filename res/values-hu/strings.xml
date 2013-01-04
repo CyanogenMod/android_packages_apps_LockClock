@@ -103,8 +103,14 @@
     <string name="weather_category">Időjárás panel</string>
     <string name="calendar_category">Naptárbejegyzések</string>
 
+    <!-- Preferences - Categories -->
+    <string name="general_category">Általános</string>
+    <string name="display_category">Megjelenítés</string>
+
     <!-- Preferences - Clock -->
-    <string name="clock_font_title">Kövér órák</string>
+    <string name="clock_font_title">Órák félkövérrel</string>
+    <string name="clock_font_minutes_title">Percek félkövérrel</string>
+    <string name="clock_font_date_title">Dátum és ébresztés félkövérrel</string>
     <string name="show_alarm_title">Következő ébresztés megjelenítése</string>
 
     <!-- Preferences - Weather -->
@@ -125,6 +131,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">Engedélyez</string>
     <string name="weather_invert_lowhigh">Minimum/maximum hőmérséklet megfordítása</string>
     <string name="weather_progress_title">Hely ellenőrzése</string>
+    <string name="weather_alternate_icons_title">Alternatív ikonok használata</string>
+    <string name="weather_alternate_icons_summary">Válasszon az alapértelmezett (fehér), illetve az alternatív (színes) ikonok közül</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Megjeleníti a következő naptárbejegyzést</string>
@@ -132,6 +140,7 @@
     <string name="calendars_summary">Csak a megadott naptárakban keresse az eseményeket</string>
     <string name="calendar_reminders_only_title">Csak emlékeztetők</string>
     <string name="calendar_reminders_only_summary">Csak az emlékeztetővel ellátott eseményeket mutassa</string>
+    <string name="calendar_hide_allday_title">Egész napos események elrejtése</string>
     <string name="calendar_lookahead_title">Keresési időszak</string>
     <string name="calendar_show_location_title">Esemény helye</string>
     <string name="calendar_show_description_title">Esemény leírása</string>
