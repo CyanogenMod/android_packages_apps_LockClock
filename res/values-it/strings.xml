@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">Sconosciuto</string>
+    <string name="cancel">Annulla</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">Tornado</string>
+    <string name="weather_1">Tempesta tropicale</string>
+    <string name="weather_2">Uragano</string>
+    <string name="weather_3">Forti temporali</string>
+    <string name="weather_4">Temporali</string>
+    <string name="weather_5">Pioggia mista a neve</string>
+    <string name="weather_6">Pioggia mista a nevischio</string>
+    <string name="weather_7">Neve mista a nevischio</string>
+    <string name="weather_8">Pioviggine congelantesi</string>
+    <string name="weather_9">Pioviggine</string>
+    <string name="weather_10">Pioggia congelantesi</string>
+    <string name="weather_11">Rovesci</string>
+    <string name="weather_12">Rovesci</string>
+    <string name="weather_13">Raffiche di neve</string>
+    <string name="weather_14">Leggere nevicate</string>
+    <string name="weather_15">Bufera di neve</string>
+    <string name="weather_16">Neve</string>
+    <string name="weather_17">Grandine</string>
+    <string name="weather_18">Nevischio</string>
+    <string name="weather_19">Tempesta di sabbia</string>
+    <string name="weather_20">Nebbioso</string>
+    <string name="weather_21">Foschia</string>
+    <string name="weather_22">Fumo</string>
+    <string name="weather_23">Forte vento</string>
+    <string name="weather_24">Ventoso</string>
+    <string name="weather_25">Freddo</string>
+    <string name="weather_26">Nuvoloso</string>
+    <string name="weather_27">Coperto</string> <!-- Night -->
+    <string name="weather_28">Coperto</string> <!-- Day -->
+    <string name="weather_29">Parzialmente nuvoloso</string> <!-- Night -->
+    <string name="weather_30">Parzialmente nuvoloso</string> <!-- Day -->
+    <string name="weather_31">Sereno</string> <!-- Night -->
+    <string name="weather_32">Soleggiato</string>
+    <string name="weather_33">Bel tempo</string> <!-- Night -->
+    <string name="weather_34">Bel tempo</string> <!-- Day -->
+    <string name="weather_35">Pioggia mista a grandine</string>
+    <string name="weather_36">Caldo</string>
+    <string name="weather_37">Temporali isolati</string>
+    <string name="weather_38">Temporali sparsi</string>
+    <string name="weather_39">Temporali sparsi</string>
+    <string name="weather_40">Rovesci sparsi</string>
+    <string name="weather_41">Forti nevicate</string>
+    <string name="weather_42">Rovesci di neve sparsi</string>
+    <string name="weather_43">Forti nevicate</string>
+    <string name="weather_44">Parzialmente nuvoloso</string>
+    <string name="weather_45">Rovesci temporaleschi</string>
+    <string name="weather_46">Rovesci di neve</string>
+    <string name="weather_47">Rovesci temporaleschi isolati</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NE</string>
+    <string name="weather_E">E</string>
+    <string name="weather_SE">SE</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SO</string>
+    <string name="weather_W">O</string>
+    <string name="weather_NW">NO</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">Dati non disponibili</string>
+    <string name="weather_tap_to_refresh">Tocca per aggiornare</string>
+    <string name="weather_refreshing">Aggiornamento\u2026</string>
+    <string name="weather_last_sync_just_now">Adesso</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">Manuale</string>
+    <string name="weather_refresh_30min">30 minuti</string>
+    <string name="weather_refresh_60min">60 minuti</string>
+    <string name="weather_refresh_2hrs">2 ore</string>
+    <string name="weather_refresh_4hrs">4 ore</string>
+    <string name="weather_refresh_6hrs">6 ore</string>
+    <string name="weather_refresh_8hrs">8 ore</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Orologio e sveglia</string>
+    <string name="weather_category">Meteo</string>
+    <string name="calendar_category">Eventi del calendario</string>
+
+    <!-- Preferences - Categories -->
+    <string name="general_category">Generale</string>
+    <string name="display_category">Visualizzazione</string>
+
+    <!-- Preferences - Clock -->
+    <string name="clock_font_title">Ore in grassetto</string>
+    <string name="clock_font_minutes_title">Minuti in grassetto</string>
+    <string name="clock_font_date_title">Data e sveglia in grassetto</string>
+    <string name="show_alarm_title">Visualizza la prossima sveglia</string>
+
+    <!-- Preferences - Weather -->
+    <string name="weather_enabled">Attivo</string>
+    <string name="weather_enable">Visualizza meteo</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Posizione personalizzata</string>
+    <string name="weather_geolocated">Localizzazione tramite la rete</string>
+    <string name="weather_custom_location_dialog_title">Inserisci la posizione</string>
+    <string name="weather_custom_location_hint">Città, Regione/Stato</string>
+    <string name="weather_custom_location_title">Posizione</string>
+    <string name="weather_show_location_title">Mostra posizione</string>
+    <string name="weather_show_timestamp_title">Mostra tempo trascorso dall\'ultimo aggiornamento</string>
+    <string name="weather_refresh_interval">Intervallo d\'aggiornamento</string>
+    <string name="weather_use_metric">Usa unità metriche</string>
+    <string name="weather_retrieve_location_dialog_title">Impossibile rilevare la posizione</string>
+    <string name="weather_retrieve_location_dialog_message">La localizzazione tramite la rete è disabilitata.\n\nImposta una posizione personalizzata o abilita la localizzazione tramite la rete</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Abilita</string>
+    <string name="weather_invert_lowhigh">Inverti temperature minime/massime</string>
+    <string name="weather_progress_title">Verifica della posizione\u2026</string>
+    <string name="weather_alternate_icons_title">Usa icone alternative</string>
+    <string name="weather_alternate_icons_summary">Seleziona per sostituire le icone predefinite (bianche) con quelle alternative (colorate)</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Visualizza il prossimo evento</string>
+    <string name="calendars_title">Calendari eventi</string>
+    <string name="calendars_summary">Mostra gli eventi da questi calendari</string>
+    <string name="calendar_reminders_only_title">Solo avvisi</string>
+    <string name="calendar_reminders_only_summary">Visualizza solo eventi con avvisi</string>
+    <string name="calendar_hide_allday_title">Nascondi eventi per tutto il giorno</string>
+    <string name="calendar_lookahead_title">Anticipo dell\'evento</string>
+    <string name="calendar_show_location_title">Posizione dell\'evento</string>
+    <string name="calendar_show_description_title">Descrizione dell\'evento</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 ore</string>
+    <string name="calendar_lookahead_6hrs">6 ore</string>
+    <string name="calendar_lookahead_12hrs">12 ore</string>
+    <string name="calendar_lookahead_1day">1 giorno</string>
+    <string name="calendar_lookahead_3days">3 giorni</string>
+    <string name="calendar_lookahead_1wk">1 settimana</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">Non visualizzare</string>
+    <string name="calendar_metadata_first_line">Visualizza la prima linea</string>
+    <string name="calendar_metadata_all">Visualizza tutto</string>
+
+</resources>
