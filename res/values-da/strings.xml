@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">Ukendt</string>
+    <string name="cancel">Annuller</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">Tornado</string>
+    <string name="weather_1">Tropisk Storm</string>
+    <string name="weather_2">Orkan</string>
+    <string name="weather_3">Alvorlig tordenstorm</string>
+    <string name="weather_4">Tordenstorm</string>
+    <string name="weather_5">Blandet regn og sne</string>
+    <string name="weather_6">Blandet regn og slud</string>
+    <string name="weather_7">Blandet sne og slud</string>
+    <string name="weather_8">Isslag</string>
+    <string name="weather_9">Støvregn</string>
+    <string name="weather_10">Isslag</string>
+    <string name="weather_11">Regn</string>
+    <string name="weather_12">Regn</string>
+    <string name="weather_13">Sne eftermiddag og aften</string>
+    <string name="weather_14">Lette snebyger</string>
+    <string name="weather_15">Snestorm</string>
+    <string name="weather_16">Sne</string>
+    <string name="weather_17">Hagl</string>
+    <string name="weather_18">Slud</string>
+    <string name="weather_19">Dust</string>
+    <string name="weather_20">Tåget</string>
+    <string name="weather_21">Tåge</string>
+    <string name="weather_22">Gråt</string>
+    <string name="weather_23">Kuling</string>
+    <string name="weather_24">Blæst</string>
+    <string name="weather_25">Koldt</string>
+    <string name="weather_26">Skyet</string>
+    <string name="weather_27">Mest skyet</string> <!-- Night -->
+    <string name="weather_28">Mest skyet</string> <!-- Day -->
+    <string name="weather_29">Delvist skyet</string> <!-- Night -->
+    <string name="weather_30">Delvist skyet</string> <!-- Day -->
+    <string name="weather_31">Klart</string> <!-- Night -->
+    <string name="weather_32">Sol</string>
+    <string name="weather_33">Fint</string> <!-- Night -->
+    <string name="weather_34">Fint</string> <!-- Day -->
+    <string name="weather_35">Blandet regn og hagl</string>
+    <string name="weather_36">Varmt</string>
+    <string name="weather_37">Isolerede tordenstorme</string>
+    <string name="weather_38">Spredte tordenstorme</string>
+    <string name="weather_39">Spredte tordenstorme</string>
+    <string name="weather_40">Spredte byger</string>
+    <string name="weather_41">Kraftig sne</string>
+    <string name="weather_42">Spredte snebyger</string>
+    <string name="weather_43">Kraftig sne</string>
+    <string name="weather_44">Delvist skyet</string>
+    <string name="weather_45">Tordenbyger</string>
+    <string name="weather_46">Snebyger</string>
+    <string name="weather_47">Isolerede tordenbyger</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NØ</string>
+    <string name="weather_E">Ø</string>
+    <string name="weather_SE">SØ</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SV</string>
+    <string name="weather_W">V</string>
+    <string name="weather_NW">NV</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">Ingen data</string>
+    <string name="weather_tap_to_refresh">Tryk for at opdatere</string>
+    <string name="weather_refreshing">Opdaterer</string>
+    <string name="weather_last_sync_just_now">Lige nu</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">Manuel</string>
+    <string name="weather_refresh_30min">30 minutter</string>
+    <string name="weather_refresh_60min">60 minutter</string>
+    <string name="weather_refresh_2hrs">2 timer</string>
+    <string name="weather_refresh_4hrs">4 timer</string>
+    <string name="weather_refresh_6hrs">6 timer</string>
+    <string name="weather_refresh_8hrs">8 timer</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Ur og alarm</string>
+    <string name="weather_category">Vejr panel</string>
+    <string name="calendar_category">Kalender begivenheder</string>
+
+    <!-- Preferences - Categories -->
+    <string name="general_category">Generelt</string>
+    <string name="display_category">Display</string>
+
+    <!-- Preferences - Clock -->
+    <string name="clock_font_title">Timer med fed</string>
+    <string name="clock_font_minutes_title">Minutter med fed</string>
+    <string name="clock_font_date_title">Dato og alarm med fed</string>
+    <string name="show_alarm_title">Vis næste alarm</string>
+
+    <!-- Preferences - Weather -->
+    <string name="weather_enabled">Aktiveret</string>
+    <string name="weather_enable">Vis vejr</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Brug alternativ lokation</string>
+    <string name="weather_geolocated">Geolokation med netværk</string>
+    <string name="weather_custom_location_dialog_title">Indtast lokation</string>
+    <string name="weather_custom_location_hint">By, Stat/Land</string>
+    <string name="weather_custom_location_title">Lokation</string>
+    <string name="weather_show_location_title">Vis lokation</string>
+    <string name="weather_show_timestamp_title">Vis tid</string>
+    <string name="weather_refresh_interval">Opdateringsinterval</string>
+    <string name="weather_use_metric">Brug metrisk</string>
+    <string name="weather_retrieve_location_dialog_title">Kan ikke få lokation!</string>
+    <string name="weather_retrieve_location_dialog_message">Netværk geolokation er slået fra.\n\nIndtast en alternativ lokation, eller aktiver netværk geolokation.</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Aktiver</string>
+    <string name="weather_invert_lowhigh">Byt lav/høj temperatur</string>
+    <string name="weather_progress_title">Bekræfter lokation</string>
+    <string name="weather_alternate_icons_title">Brug alternative ikoner</string>
+    <string name="weather_alternate_icons_summary">Til at vælge mellem standard (Hvide) og de alternative (Farvede) ikoner</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Vis næste begivenhed</string>
+    <string name="calendars_title">Kalendere</string>
+    <string name="calendars_summary">Find begivenheder fra disse kalendere</string>
+    <string name="calendar_reminders_only_title">Kun påmindelser</string>
+    <string name="calendar_reminders_only_summary">Vis kun begivenheder med påmindelser</string>
+    <string name="calendar_hide_allday_title">Skjul heldags begivenheder</string>
+    <string name="calendar_lookahead_title">Begivenheder tidsramme</string>
+    <string name="calendar_show_location_title">Begivenheder lokation</string>
+    <string name="calendar_show_description_title">Begivenheder beskrivelse</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 timer</string>
+    <string name="calendar_lookahead_6hrs">6 timer</string>
+    <string name="calendar_lookahead_12hrs">12 timer</string>
+    <string name="calendar_lookahead_1day">1 dag</string>
+    <string name="calendar_lookahead_3days">3 dage</string>
+    <string name="calendar_lookahead_1wk">1 uge</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">Vis ikke</string>
+    <string name="calendar_metadata_first_line">Vis første linie</string>
+    <string name="calendar_metadata_all">Vis alt</string>
+
+</resources>
