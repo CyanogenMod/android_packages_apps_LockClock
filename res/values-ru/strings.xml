@@ -102,8 +102,14 @@
     <string name="weather_category">Погода</string>
     <string name="calendar_category">События календаря</string>
 
+    <!-- Preferences - Categories -->
+    <string name="general_category">Основные</string>
+    <string name="display_category">Отображение</string>
+
     <!-- Preferences - Clock -->
-    <string name="clock_font_title">Полужирный шрифт</string>
+    <string name="clock_font_title">Часы полужирным</string>
+    <string name="clock_font_minutes_title">Минуты полужирным</string>
+    <string name="clock_font_date_title">Дата и будильник полужирным</string>
     <string name="show_alarm_title">Показывать будильник</string>
 
     <!-- Preferences - Weather -->
@@ -124,6 +130,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">Включить</string>
     <string name="weather_invert_lowhigh">Изменить порядок температур</string>
     <string name="weather_progress_title">Проверка местоположения</string>
+    <string name="weather_alternate_icons_title">Альтернативные иконки</string>
+    <string name="weather_alternate_icons_summary">Выбор между иконками по умолчанию (белые) или альтернативными (цветные)</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Показывать следующие события</string>
@@ -131,6 +139,7 @@
     <string name="calendars_summary">Найти события из этих календарей</string>
     <string name="calendar_reminders_only_title">Только с напоминаниями</string>
     <string name="calendar_reminders_only_summary">Отображать только события с напоминаниями</string>
+    <string name="calendar_hide_allday_title">Скрыть все события дня</string>
     <string name="calendar_lookahead_title">Предпросмотр события</string>
     <string name="calendar_show_location_title">Место проведения</string>
     <string name="calendar_show_description_title">Описание события</string>
