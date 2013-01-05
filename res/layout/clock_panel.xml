@@ -23,11 +23,37 @@
     android:baselineAligned="false"
     android:background="?android:attr/selectableItemBackground" >
 
+    <!-- 'Loading widget ...' indicator -->
+    <!-- This is so that something shows on the screen when the phone is booted
+         until all the views are populated and the widget is ready to display -->
+    <TextView
+        android:id="@+id/loading_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/clock_white"
+        style="@style/label_thin"
+        android:padding="8dip"
+        android:gravity="center"
+        android:text="@string/loading_indicator" />
+
+    <!-- Analog clock -->
+    <AnalogClock
+        android:id="@+id/analog_clock"
+        android:dial="@drawable/appwidget_clock_dial"
+        android:hand_hour="@drawable/appwidget_clock_hour"
+        android:hand_minute="@drawable/appwidget_clock_minute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <!-- Digital clock -->
     <LinearLayout
+        android:id="@+id/digital_clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:baselineAligned="true"
-        android:layout_gravity="center_horizontal|top">
+        android:layout_gravity="center_horizontal|top"
+        android:visibility="gone" >
 
         <!-- Hours -->
         <TextClock
@@ -73,9 +99,11 @@
         </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/date_alarm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:gravity="center"
+        android:visibility="gone" >
 
         <!-- Date -->
         <TextClock android:id="@+id/date_bold"
