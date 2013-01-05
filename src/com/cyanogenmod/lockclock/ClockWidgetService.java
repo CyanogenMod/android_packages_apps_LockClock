@@ -130,7 +130,7 @@ public class ClockWidgetService extends Service {
     }
 
     private void updateAndExit() {
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
         updateAndExit(remoteViews);
     }
 
@@ -138,7 +138,7 @@ public class ClockWidgetService extends Service {
      * Refresh Alarm and Calendar (if visible) and update the widget views 
      */
     private void updateAndExit(RemoteViews remoteViews) {
-        refreshClockFont(remoteViews);
+        refreshClock(remoteViews);
         refreshAlarmStatus(remoteViews);
         refreshCalendar(remoteViews);
 
@@ -164,6 +164,24 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     // Clock related functionality
     //===============================================================================================
+    private void refreshClock(RemoteViews clockViews) {
+        // Analog or Digital clock
+        if (mSharedPrefs.getBoolean(Constants.CLOCK_DIGITAL, true)) {
+            refreshClockFont(clockViews);
+            clockViews.setViewVisibility(R.id.digital_clock, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.analog_clock, View.GONE);
+        } else {
+            clockViews.setViewVisibility(R.id.analog_clock, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.digital_clock, View.GONE);
+        }
+
+        // Register an onClickListener on Clock, starting DeskClock
+        ComponentName clk = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
+        Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(clk);
+        PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        clockViews.setOnClickPendingIntent(R.id.clock_panel, pi);
+    }
+
     private void refreshClockFont(RemoteViews clockViews) {
         // Hours
         if (mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
@@ -191,12 +209,6 @@ public class ClockWidgetService extends Service {
             clockViews.setViewVisibility(R.id.date_regular, View.VISIBLE);
             clockViews.setViewVisibility(R.id.date_bold, View.GONE);
         }
-
-        // Register an onClickListener on Clock, starting DeskClock
-        ComponentName clk = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
-        Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(clk);
-        PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-        clockViews.setOnClickPendingIntent(R.id.digital_clock, pi);
     }
 
     private void setClockSize(RemoteViews clockViews, float scale) {
@@ -356,7 +368,7 @@ public class ClockWidgetService extends Service {
         boolean defaultIcons = !mSharedPrefs.getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, false);
 
         // Get the views ready
-        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
 
         // Weather Image - Either the default or alternate set
         String prefix = defaultIcons ? "weather_" : "weather2_";
@@ -416,7 +428,7 @@ public class ClockWidgetService extends Service {
         boolean defaultIcons = !mSharedPrefs.getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, false);
 
         final Resources res = getBaseContext().getResources();
-        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
 
         // Weather Image - Either the default or alternate set
         weatherViews.setImageViewResource(R.id.weather_image,
