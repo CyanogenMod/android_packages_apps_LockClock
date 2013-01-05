@@ -19,6 +19,7 @@
     <!-- General strings -->
     <string name="unknown">Unbekannt</string>
     <string name="cancel">Abbrechen</string>
+    <string name="loading_indicator">Widget wird geladen\u2026</string>
 
     <!-- Lock screen Weather - Weather codes -->
     <string name="weather_0">Tornado</string>
@@ -102,8 +103,16 @@
     <string name="weather_category">Wetter</string>
     <string name="calendar_category">Kalender</string>
 
+    <!-- Preferences - Categories -->
+    <string name="general_category">Allgemein</string>
+    <string name="display_category">Anzeige</string>
+
     <!-- Preferences - Clock -->
-    <string name="clock_font_title">Fettschrift</string>
+    <string name="use_digital_clock_title">Digitaluhr verwenden</string>
+    <string name="use_digital_clock_summary">Digitaluhr an Stelle der Analoguhr verwenden.</string>
+    <string name="clock_font_title">Stunden in Fettschrift</string>
+    <string name="clock_font_minutes_title">Minuten in Fettschrift</string>
+    <string name="clock_font_date_title">Datum und Alarm in Fettschrift</string>
     <string name="show_alarm_title">Nächsten Alarm anzeigen</string>
 
     <!-- Preferences - Weather -->
@@ -124,6 +133,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">Aktivieren</string>
     <string name="weather_invert_lowhigh">Anzeigereihenfolge Min/Max-Temperatur tauschen</string>
     <string name="weather_progress_title">Standort wird überprüft</string>
+    <string name="weather_alternate_icons_title">Alternative Icons</string>
+    <string name="weather_alternate_icons_summary">Aktivieren, um statt der weißen Standardicons die alternativen, farbigen Icons zu nutzen.</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Nächsten Termin anzeigen</string>
@@ -131,6 +142,7 @@
     <string name="calendars_summary">Termine aus diesen Kalendern anzeigen</string>
     <string name="calendar_reminders_only_title">Nur Erinnerungen</string>
     <string name="calendar_reminders_only_summary">Nur Termine mit Erinnerungen anzeigen</string>
+    <string name="calendar_hide_allday_title">Ganztägige Termine ausblenden</string>
     <string name="calendar_lookahead_title">Zeitraum</string>
     <string name="calendar_show_location_title">Ort anzeigen</string>
     <string name="calendar_show_description_title">Beschreibung anzeigen</string>
