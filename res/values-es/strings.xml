@@ -101,8 +101,14 @@
     <string name="weather_category">Clima</string>
     <string name="calendar_category">Calendario</string>
 
+    <!-- Preferences - Categories -->
+    <string name="general_category">General</string>
+    <string name="display_category">Aspecto</string>
+
     <!-- Preferences - Clock -->
     <string name="clock_font_title">Resaltar hora</string>
+    <string name="clock_font_minutes_title">Resaltar minutos</string>
+    <string name="clock_font_date_title">Resaltar fecha y alarma</string>
     <string name="show_alarm_title">Mostrar alarma siguiente</string>
 
     <!-- Preferences - Weather -->
@@ -123,6 +129,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">Activar</string>
     <string name="weather_invert_lowhigh">Invertir temperaturas</string>
     <string name="weather_progress_title">Verificando ubicación</string>
+    <string name="weather_alternate_icons_title">Iconos alternativos</string>
+    <string name="weather_alternate_icons_summary">Marcar para utilizar los iconos alternativos a color, en vez de los predeterminados en blanco</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Mostrar próximo evento</string>
@@ -130,6 +138,7 @@
     <string name="calendars_summary">Buscar eventos en los calendarios</string>
     <string name="calendar_reminders_only_title">Sólo recordatorios</string>
     <string name="calendar_reminders_only_summary">Mostrar sólo eventos con recordatorios</string>
+    <string name="calendar_hide_allday_title">Ocultar eventos \'todo el día\'</string>
     <string name="calendar_lookahead_title">Eventos futuros</string>
     <string name="calendar_show_location_title">Lugar del evento</string>
     <string name="calendar_show_description_title">Descripción del evento</string>
