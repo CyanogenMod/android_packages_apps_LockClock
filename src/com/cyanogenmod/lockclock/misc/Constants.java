@@ -24,6 +24,7 @@ public class Constants {
     public static final String FORCE_REFRESH = "force_refresh";
 
     // Widget Settings
+    public static final String CLOCK_DIGITAL = "clock_digital";
     public static final String CLOCK_FONT = "clock_font";
     public static final String CLOCK_FONT_MINUTES = "clock_font_minutes";
     public static final String CLOCK_FONT_DATE = "clock_font_date";
