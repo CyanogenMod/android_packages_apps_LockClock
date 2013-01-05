@@ -19,7 +19,7 @@
     android:minHeight="@dimen/min_digital_widget_height"
     android:updatePeriodMillis="0"
     android:previewImage="@drawable/lock_clock_preview"
-    android:initialLayout="@layout/digital_appwidget"
+    android:initialLayout="@layout/appwidget"
     android:resizeMode="vertical|horizontal"
     android:minResizeWidth="@dimen/min_digital_widget_resize_width"
     android:minResizeHeight="@dimen/min_digital_widget_resize_height"

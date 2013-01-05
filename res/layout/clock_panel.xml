@@ -23,11 +23,24 @@
     android:baselineAligned="false"
     android:background="?android:attr/selectableItemBackground" >
 
+    <!-- Analog clock -->
+    <AnalogClock
+        android:id="@+id/analog_clock"
+        android:dial="@drawable/appwidget_clock_dial"
+        android:hand_hour="@drawable/appwidget_clock_hour"
+        android:hand_minute="@drawable/appwidget_clock_minute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <!-- Digital clock -->
     <LinearLayout
+        android:id="@+id/digital_clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:baselineAligned="true"
-        android:layout_gravity="center_horizontal|top">
+        android:layout_gravity="center_horizontal|top"
+        android:visibility="gone" >
 
         <!-- Hours -->
         <TextClock
