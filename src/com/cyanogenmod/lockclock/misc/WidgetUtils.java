@@ -29,7 +29,7 @@ public class WidgetUtils {
     static final String TAG = "WidgetUtils";
 
     // Decide whether to show the Weather panel
-    public static boolean canFitWeather(Context context, int id) {
+    public static boolean canFitWeather(Context context, int id, boolean digitalClock) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
         if (options == null) {
             // no data to make the calculation, show the list anyway
@@ -39,14 +39,15 @@ public class WidgetUtils {
         int minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
         int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight,
                 resources.getDisplayMetrics());
-        int neededSize = (int) resources.getDimension(R.dimen.min_weather_widget_height);
+        int neededSize = (int) resources.getDimension(
+                digitalClock ? R.dimen.min_digital_weather_height : R.dimen.min_analog_weather_height);
 
         // Check to see if the widget size is big enough, if it is return true.
         return (minHeightPx > neededSize);
     }
 
     // Decide whether to show the Calendar panel
-    public static boolean canFitCalendar(Context context, int id) {
+    public static boolean canFitCalendar(Context context, int id, boolean digitalClock) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
         if (options == null) {
             // no data to make the calculation, show the list anyway
@@ -56,7 +57,8 @@ public class WidgetUtils {
         int minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
         int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight,
                 resources.getDisplayMetrics());
-        int neededSize = (int) resources.getDimension(R.dimen.min_calendar_widget_height);
+        int neededSize = (int) resources.getDimension(
+                digitalClock ? R.dimen.min_digital_calendar_height : R.dimen.min_analog_calendar_height);
 
         // Check to see if the widget size is big enough, if it is return true.
         return (minHeightPx > neededSize);
