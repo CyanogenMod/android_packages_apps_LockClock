@@ -130,7 +130,7 @@ public class ClockWidgetService extends Service {
     }
 
     private void updateAndExit() {
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
         updateAndExit(remoteViews);
     }
 
@@ -138,16 +138,19 @@ public class ClockWidgetService extends Service {
      * Refresh Alarm and Calendar (if visible) and update the widget views 
      */
     private void updateAndExit(RemoteViews remoteViews) {
-        refreshClockFont(remoteViews);
+        refreshClock(remoteViews);
         refreshAlarmStatus(remoteViews);
         refreshCalendar(remoteViews);
 
         boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, false);
         boolean showCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false) && mEvent1Visible;
+        boolean digitalClock = mSharedPrefs.getBoolean(Constants.CLOCK_DIGITAL, true);
         for (int id : mWidgetIds) {
             // Resize the clock font if needed
-            float ratio = WidgetUtils.getScaleRatio(mContext, id);
-            setClockSize(remoteViews, ratio);
+            if (digitalClock) {
+                float ratio = WidgetUtils.getScaleRatio(mContext, id);
+                setClockSize(remoteViews, ratio);
+            }
 
             // Hide the panels if there is no space for them
             boolean canFitWeather = WidgetUtils.canFitWeather(mContext, id);
@@ -164,6 +167,28 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     // Clock related functionality
     //===============================================================================================
+    private void refreshClock(RemoteViews clockViews) {
+        // Analog or Digital clock
+        if (mSharedPrefs.getBoolean(Constants.CLOCK_DIGITAL, true)) {
+            // Hours/Minutes is specific to Didital, set it's size
+            refreshClockFont(clockViews);
+            clockViews.setViewVisibility(R.id.digital_clock, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.analog_clock, View.GONE);
+        } else {
+            clockViews.setViewVisibility(R.id.analog_clock, View.VISIBLE);
+            clockViews.setViewVisibility(R.id.digital_clock, View.GONE);
+        }
+
+        // Date/Alarm is to both clocks common, set it's size
+        refreshDateAlarmFont(clockViews);
+
+        // Register an onClickListener on Clock, starting DeskClock
+        ComponentName clk = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
+        Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(clk);
+        PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        clockViews.setOnClickPendingIntent(R.id.clock_panel, pi);
+    }
+
     private void refreshClockFont(RemoteViews clockViews) {
         // Hours
         if (mSharedPrefs.getBoolean(Constants.CLOCK_FONT, true)) {
@@ -182,7 +207,9 @@ public class ClockWidgetService extends Service {
             clockViews.setViewVisibility(R.id.clock2_regular, View.VISIBLE);
             clockViews.setViewVisibility(R.id.clock2_bold, View.GONE);
         }
+    }
 
+    private void refreshDateAlarmFont(RemoteViews clockViews) {
         // Date
         if (mSharedPrefs.getBoolean(Constants.CLOCK_FONT_DATE, true)) {
             clockViews.setViewVisibility(R.id.date_bold, View.VISIBLE);
@@ -191,12 +218,6 @@ public class ClockWidgetService extends Service {
             clockViews.setViewVisibility(R.id.date_regular, View.VISIBLE);
             clockViews.setViewVisibility(R.id.date_bold, View.GONE);
         }
-
-        // Register an onClickListener on Clock, starting DeskClock
-        ComponentName clk = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
-        Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(clk);
-        PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-        clockViews.setOnClickPendingIntent(R.id.digital_clock, pi);
     }
 
     private void setClockSize(RemoteViews clockViews, float scale) {
@@ -356,7 +377,7 @@ public class ClockWidgetService extends Service {
         boolean defaultIcons = !mSharedPrefs.getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, false);
 
         // Get the views ready
-        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
 
         // Weather Image - Either the default or alternate set
         String prefix = defaultIcons ? "weather_" : "weather2_";
@@ -416,7 +437,7 @@ public class ClockWidgetService extends Service {
         boolean defaultIcons = !mSharedPrefs.getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, false);
 
         final Resources res = getBaseContext().getResources();
-        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.digital_appwidget);
+        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
 
         // Weather Image - Either the default or alternate set
         weatherViews.setImageViewResource(R.id.weather_image,
