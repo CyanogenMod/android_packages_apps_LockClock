@@ -69,7 +69,7 @@ public class ClockWidgetService extends Service {
     private AppWidgetManager mAppWidgetManager;
     private SharedPreferences mSharedPrefs;
     private boolean mForceRefresh;
-    private boolean mEvent1Visible = false;
+    private boolean mHasAnyEvents = false;
 
     @Override
     public void onCreate() {
@@ -143,7 +143,7 @@ public class ClockWidgetService extends Service {
         refreshCalendar(remoteViews);
 
         boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, false);
-        boolean showCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false) && mEvent1Visible;
+        boolean showCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false) && mHasAnyEvents;
         for (int id : mWidgetIds) {
             // Resize the clock font if needed
             float ratio = WidgetUtils.getScaleRatio(mContext, id);
@@ -471,48 +471,41 @@ public class ClockWidgetService extends Service {
         boolean remindersOnly = mSharedPrefs.getBoolean(Constants.CALENDAR_REMINDERS_ONLY, false);
         boolean hideAllDay = mSharedPrefs.getBoolean(Constants.CALENDAR_HIDE_ALLDAY, false);
         long lookAhead = Long.parseLong(mSharedPrefs.getString(Constants.CALENDAR_LOOKAHEAD, "10800000"));
-
-        // Assume we are not showing the views
-        mEvent1Visible = false;
-        boolean event2Visible = false;
-        boolean event3Visible = false;
+        mHasAnyEvents = false;
 
         if (showCalendar) {
             String[][] nextCalendar = null;
             nextCalendar = getNextCalendarAlarm(lookAhead, calendarList, remindersOnly, hideAllDay);
+
+            // Remove all the views to start
+            calendarViews.removeAllViews(R.id.calendar_panel);
+
             // Iterate through the calendars, up to the maximum
             for (int i = 0; i < MAX_CALENDAR_ITEMS; i++) {
                 if (nextCalendar[i][0] != null) {
-                    // TODO: change this to dynamically add views to the widget
-                    // Hard code this to 3 for now
+                    final RemoteViews itemViews = new RemoteViews(mContext.getPackageName(),
+                            R.layout.calendar_item);
+
+                    // Only set the icon on the first event
                     if (i == 0) {
-                        calendarViews.setTextViewText(R.id.calendar_event_title, nextCalendar[i][0].toString());
-                        if (nextCalendar[0][1] != null) {
-                            calendarViews.setTextViewText(R.id.calendar_event_details, nextCalendar[i][1]);
-                        }
-                        mEvent1Visible = true;
-                    } else if (i == 1) {
-                        calendarViews.setTextViewText(R.id.calendar_event2_title, nextCalendar[i][0].toString());
-                        if (nextCalendar[0][1] != null) {
-                            calendarViews.setTextViewText(R.id.calendar_event2_details, nextCalendar[i][1]);
-                        }
-                        event2Visible = true;
-                    } else if (i == 2) {
-                        calendarViews.setTextViewText(R.id.calendar_event3_title, nextCalendar[i][0].toString());
-                        if (nextCalendar[0][1] != null) {
-                            calendarViews.setTextViewText(R.id.calendar_event3_details, nextCalendar[i][1]);
-                        }
-                        event3Visible = true;
+                        itemViews.setImageViewResource(R.id.calendar_icon, R.drawable.ic_lock_idle_calendar);
                     }
+
+                    // Add the event text fields
+                    itemViews.setTextViewText(R.id.calendar_event_title, nextCalendar[i][0]);
+                    if (nextCalendar[i][1] != null) {
+                        itemViews.setTextViewText(R.id.calendar_event_details, nextCalendar[i][1]);
+                    }
+
+                    // Add the view to the panel
+                    calendarViews.addView(R.id.calendar_panel, itemViews);
+                    mHasAnyEvents = true;
                 }
             }
-            // Deal with the visibility of the event items
-            calendarViews.setViewVisibility(R.id.calendar_event2, event2Visible ? View.VISIBLE : View.GONE);
-            calendarViews.setViewVisibility(R.id.calendar_event3, event3Visible ? View.VISIBLE : View.GONE);
         }
 
         // Register an onClickListener on Calendar if it contains any events, starting the Calendar app
-        if (mEvent1Visible) {
+        if (mHasAnyEvents) {
             ComponentName cal = new ComponentName("com.android.calendar", "com.android.calendar.AllInOneActivity");
             Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(cal);
             PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
