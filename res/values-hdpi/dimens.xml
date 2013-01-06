@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2012 The Android Open Source Project
+     Copyright (C) 2012 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,15 +15,14 @@
      limitations under the License.
 -->
 
-<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:minWidth="@dimen/min_digital_widget_width"
-    android:minHeight="@dimen/min_digital_widget_height"
-    android:updatePeriodMillis="0"
-    android:previewImage="@drawable/lock_clock_preview"
-    android:initialLayout="@layout/appwidget"
-    android:resizeMode="vertical|horizontal"
-    android:minResizeWidth="@dimen/min_digital_widget_resize_width"
-    android:minResizeHeight="@dimen/min_digital_widget_resize_height"
-    android:widgetCategory="keyguard|home_screen"
-    >
-</appwidget-provider>
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds. -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <dimen name="min_digital_widget_height">120dip</dimen>
+
+    <dimen name="min_digital_weather_height">120dip</dimen>
+    <dimen name="min_digital_calendar_height">170dip</dimen>
+    <dimen name="min_analog_weather_height">130dip</dimen>
+    <dimen name="min_analog_calendar_height">170dip</dimen>
+
+</resources>

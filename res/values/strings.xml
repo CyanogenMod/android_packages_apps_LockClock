@@ -17,9 +17,10 @@
 <resources>
 
     <!-- General strings -->
-    <string name="app_name">Chronus</string>
+    <string name="app_name" translatable="false">Chronus</string>
     <string name="unknown">Unknown</string>
     <string name="cancel">Cancel</string>
+    <string name="loading_indicator">Loading widget\u2026</string>
 
     <!-- Formating strings for widget clock -->
     <string name="widget_12_hours_format_h" translatable="false">h</string>
@@ -115,6 +116,8 @@
     <string name="display_category">Display</string>
 
     <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">Use Digital clock</string>
+    <string name="use_digital_clock_summary">Select to toggle between the Digital and the Analog clock</string>
     <string name="clock_font_title">Bold hours</string>
     <string name="clock_font_minutes_title">Bold minutes</string>
     <string name="clock_font_date_title">Bold date and alarm</string>

@@ -24,14 +24,16 @@
     <dimen name="label_font_size">14sp</dimen>
 
     <dimen name="min_digital_widget_width">160dip</dimen>
-    <dimen name="min_digital_widget_height">70dip</dimen>
+    <dimen name="min_digital_widget_height">140dip</dimen>
     <dimen name="min_digital_widget_resize_width">160dip</dimen>
     <dimen name="min_digital_widget_resize_height">35dip</dimen>
     <dimen name="digital_widget_list_margin_top">12dip</dimen>
+
     <dimen name="def_digital_widget_width">160dip</dimen>
     <dimen name="def_digital_widget_height">70dip</dimen>
 
-    <dimen name="min_weather_widget_height">140dip</dimen>
-    <dimen name="min_calendar_widget_height">210dip</dimen>
-
+    <dimen name="min_digital_weather_height">160dip</dimen>
+    <dimen name="min_digital_calendar_height">210dip</dimen>
+    <dimen name="min_analog_weather_height">160dip</dimen>
+    <dimen name="min_analog_calendar_height">210dip</dimen>
 </resources>

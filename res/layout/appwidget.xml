@@ -20,8 +20,8 @@
     android:layout_gravity="center_horizontal|top"
     android:orientation="vertical">
 
-    <include layout="@layout/digital_widget_time"
-        android:id="@+id/digital_clock"
+    <include layout="@layout/clock_panel"
+        android:id="@+id/clock_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top" />
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
-        android:layout_below="@id/digital_clock"
+        android:layout_below="@id/clock_panel"
         android:visibility="gone" />
 
     <include layout="@layout/calendar_panel"
