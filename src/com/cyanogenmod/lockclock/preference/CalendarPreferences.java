@@ -19,6 +19,7 @@ package com.cyanogenmod.lockclock.preference;
 import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -82,7 +83,6 @@ public class CalendarPreferences extends PreferenceFragment implements
     // Utility classes and supporting methods
     //===============================================================================================
 
-    @SuppressWarnings("deprecation")
     private static class CalendarEntries {
         private final CharSequence[] mEntries;
         private final CharSequence[] mEntryValues;
@@ -98,16 +98,20 @@ public class CalendarPreferences extends PreferenceFragment implements
         private static final int CALENDAR_ID_INDEX = 0;
         private static final int DISPLAY_NAME_INDEX = 1;
 
-        static CalendarEntries findCalendars(Activity activity) {
+        static CalendarEntries findCalendars(Context context) {
             List<CharSequence> entries = new ArrayList<CharSequence>();
             List<CharSequence> entryValues = new ArrayList<CharSequence>();
+            ContentResolver cr = context.getContentResolver();
 
-            Cursor calendarCursor = activity.managedQuery(uri, projection, null, null, null);
-            if (calendarCursor.moveToFirst()) {
-                do {
+            Cursor calendarCursor = cr.query(uri, projection, null, null, null);
+            if (calendarCursor != null) {
+                calendarCursor.moveToFirst();
+                while (!calendarCursor.isAfterLast()) {
                     entryValues.add(calendarCursor.getString(CALENDAR_ID_INDEX));
                     entries.add(calendarCursor.getString(DISPLAY_NAME_INDEX));
-                } while (calendarCursor.moveToNext());
+                    calendarCursor.moveToNext();
+                }
+                calendarCursor.close();
             }
 
             return new CalendarEntries(entries, entryValues);
