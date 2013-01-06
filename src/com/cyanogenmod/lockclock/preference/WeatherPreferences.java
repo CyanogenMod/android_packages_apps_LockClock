@@ -29,8 +29,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+import android.os.AsyncTask;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
@@ -38,6 +37,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -50,8 +50,6 @@ public class WeatherPreferences extends PreferenceFragment implements
     OnPreferenceClickListener, OnSharedPreferenceChangeListener {
     private static final String TAG = "Weather Preferences";
 
-    private static final int WEATHER_CHECK = 0;
-
     private CheckBoxPreference mUseCustomLoc;
     private CheckBoxPreference mUseMetric;
     private CheckBoxPreference mShowLocation;
@@ -61,7 +59,6 @@ public class WeatherPreferences extends PreferenceFragment implements
 
     private Context mContext;
     private ContentResolver mResolver;
-    private ProgressDialog mProgressDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,25 +123,33 @@ public class WeatherPreferences extends PreferenceFragment implements
             .setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mProgressDialog = new ProgressDialog(mContext);
-                    mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                    mProgressDialog.setMessage(mContext.getString(R.string.weather_progress_title));
-                    mProgressDialog.show();
-                    new Thread(new Runnable(){
+                    final ProgressDialog d = new ProgressDialog(mContext);
+                    d.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    d.setMessage(mContext.getString(R.string.weather_progress_title));
+                    d.show();
+
+                    final String location = mCustomWeatherLoc.getEditText().getText().toString();
+                    final WeatherLocationTask task = new WeatherLocationTask() {
                         @Override
-                        public void run() {
-                            String woeid = null;
-                            try {
-                                woeid = YahooPlaceFinder.GeoCode(mContext,
-                                        mCustomWeatherLoc.getEditText().getText().toString());
-                            } catch (Exception e) {
+                        protected void onPostExecute(String woeid) {
+                            if (woeid == null) {
+                                Toast.makeText(mContext,
+                                        mContext.getString(R.string.weather_retrieve_location_dialog_title),
+                                        Toast.LENGTH_SHORT)
+                                    .show();
+                            } else {
+                                mCustomWeatherLoc.setText(location);
+                                mCustomWeatherLoc.setSummary(location);
+                                mCustomWeatherLoc.getDialog().dismiss();
+
+                                SharedPreferences prefs = mContext.getSharedPreferences(
+                                        PREF_NAME, Context.MODE_MULTI_PROCESS);
+                                prefs.edit().putString(Constants.WEATHER_CUSTOM_LOCATION_STRING, location).apply();
                             }
-                            Message msg = Message.obtain();
-                            msg.what = WEATHER_CHECK;
-                            msg.obj = woeid;
-                            mHandler.sendMessage(msg);
+                            d.dismiss();
                         }
-                    }).start();
+                    };
+                    task.execute(location);
                 }
             });
             return true;
@@ -156,6 +161,21 @@ public class WeatherPreferences extends PreferenceFragment implements
     // Utility classes and supporting methods
     //===============================================================================================
 
+    private class WeatherLocationTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... input) {
+            String woeid = null;
+
+            try {
+                woeid = YahooPlaceFinder.GeoCode(mContext, input[0]);
+            } catch (Exception e) {
+                Log.e(TAG, "Could not resolve location", e);
+            }
+
+            return woeid;
+        }
+    }
+
     private void updateLocationSummary() {
         if (mUseCustomLoc.isChecked()) {
             SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
@@ -166,28 +186,6 @@ public class WeatherPreferences extends PreferenceFragment implements
             mCustomWeatherLoc.setSummary(R.string.weather_geolocated);
         }
     }
-
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case WEATHER_CHECK:
-                if (msg.obj == null) {
-                    Toast.makeText(mContext, mContext.getString(R.string.weather_retrieve_location_dialog_title),
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    String cLoc = mCustomWeatherLoc.getEditText().getText().toString();
-                    mCustomWeatherLoc.setText(cLoc);
-                    SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
-                    prefs.edit().putString(Constants.WEATHER_CUSTOM_LOCATION_STRING, cLoc).apply();
-                    mCustomWeatherLoc.setSummary(cLoc);
-                    mCustomWeatherLoc.getDialog().dismiss();
-                }
-                mProgressDialog.dismiss();
-                break;
-            }
-        }
-    };
 
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
