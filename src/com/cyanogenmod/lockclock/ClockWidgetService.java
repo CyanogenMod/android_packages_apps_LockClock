@@ -29,9 +29,8 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
-import android.os.Handler;
+import android.os.AsyncTask;
 import android.os.IBinder;
-import android.os.Message;
 import android.provider.CalendarContract;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -115,8 +114,9 @@ public class ClockWidgetService extends Service {
             final long interval = Long.parseLong(mSharedPrefs.getString(Constants.WEATHER_REFRESH_INTERVAL, "60"));
             boolean manualSync = (interval == 0);
             if (mForceRefresh || (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval))) {
-                if (!mWeatherRefreshing) {
-                    mHandler.sendEmptyMessage(QUERY_WEATHER);
+                if (mWeatherQueryTask == null || mWeatherQueryTask.getStatus() == AsyncTask.Status.FINISHED) {
+                    mWeatherQueryTask = new WeatherQueryTask();
+                    mWeatherQueryTask.execute();
                     mForceRefresh = false;
                 }
             } else if (manualSync && mWeatherInfo.last_sync == 0) {
@@ -249,100 +249,82 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     private static final String URL_YAHOO_API_WEATHER = "http://weather.yahooapis.com/forecastrss?w=%s&u=";
     private static WeatherInfo mWeatherInfo = new WeatherInfo();
-    private static final int QUERY_WEATHER = 0;
-    private static final int UPDATE_WEATHER = 1;
-    private boolean mWeatherRefreshing;
+    private WeatherQueryTask mWeatherQueryTask;
 
-    private Handler mHandler = new Handler() {
+    private class WeatherQueryTask extends AsyncTask<Void, Void, WeatherInfo> {
         @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case QUERY_WEATHER:
-                Thread queryWeather = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Load the preferences
-                        boolean useCustomLoc = mSharedPrefs.getBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, false);
-                        String customLoc = mSharedPrefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);
+        protected WeatherInfo doInBackground(Void... params) {
+            // Load the preferences
+            boolean useCustomLoc = mSharedPrefs.getBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, false);
+            String customLoc = mSharedPrefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);
 
-                        // Get location related stuff ready
-                        LocationManager locationManager =
-                                (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
-                        String woeid = null;
+            // Get location related stuff ready
+            LocationManager locationManager =
+                    (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
+            String woeid = null;
 
-                        // custom location
-                        if (customLoc != null && useCustomLoc) {
-                            try {
-                                woeid = YahooPlaceFinder.GeoCode(mContext, customLoc);
-                                if (DEBUG)
-                                    Log.d(TAG, "Yahoo location code for " + customLoc + " is " + woeid);
-                            } catch (Exception e) {
-                                Log.e(TAG, "ERROR: Could not get Location code");
-                                e.printStackTrace();
-                            }
-                        // network location
-                        } else {
-                            Criteria crit = new Criteria();
-                            crit.setAccuracy(Criteria.ACCURACY_COARSE);
-                            String bestProvider = locationManager.getBestProvider(crit, true);
-                            Location loc = null;
-                            if (bestProvider != null) {
-                                loc = locationManager.getLastKnownLocation(bestProvider);
-                            } else {
-                                loc = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-                            }
-                            try {
-                                if (loc != null) {
-                                    woeid = YahooPlaceFinder.reverseGeoCode(mContext, loc.getLatitude(),
-                                            loc.getLongitude());
-                                    if (DEBUG)
-                                        Log.d(TAG, "Yahoo location code for current geolocation is " + woeid);
-                                } else {
-                                    Log.e(TAG, "ERROR: Location returned null");
-                                }
-                            } catch (Exception e) {
-                                Log.e(TAG, "ERROR: Could not get Location code");
-                                e.printStackTrace();
-                            }
-                        }
-                        if (DEBUG) {
-                            Log.d(TAG, "Location code is " + woeid);
-                        }
-                        WeatherInfo w = null;
-                        if (woeid != null) {
-                            try {
-                                w = parseXml(getDocument(woeid));
-                            } catch (Exception e) {
-                            }
-                        }
-                        Message msg = Message.obtain();
-                        msg.what = UPDATE_WEATHER;
-                        msg.obj = w;
-                        mHandler.sendMessage(msg);
-                    }
-                });
-                mWeatherRefreshing = true;
-                queryWeather.setPriority(Thread.MIN_PRIORITY);
-                queryWeather.start();
-                break;
-            case UPDATE_WEATHER:
-                WeatherInfo w = (WeatherInfo) msg.obj;
-                if (w != null) {
-                    mWeatherRefreshing = false;
-                    setWeatherData(w);
-                    mWeatherInfo = w;
-                } else {
-                    mWeatherRefreshing = false;
-                    if (mWeatherInfo.temp.equals(WeatherInfo.NODATA)) {
-                        setNoWeatherData();
-                    } else {
-                        setWeatherData(mWeatherInfo);
-                    }
+            if (customLoc != null && useCustomLoc) {
+                // custom location
+                try {
+                    woeid = YahooPlaceFinder.GeoCode(mContext, customLoc);
+                    if (DEBUG)
+                        Log.d(TAG, "Yahoo location code for " + customLoc + " is " + woeid);
+                } catch (Exception e) {
+                    Log.e(TAG, "ERROR: Could not get Location code", e);
                 }
-                break;
+            } else {
+                // network location
+                Criteria crit = new Criteria();
+                crit.setAccuracy(Criteria.ACCURACY_COARSE);
+                String bestProvider = locationManager.getBestProvider(crit, true);
+                Location loc = null;
+
+                if (bestProvider != null) {
+                    loc = locationManager.getLastKnownLocation(bestProvider);
+                } else {
+                    loc = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+                }
+
+                if (loc != null) {
+                    try {
+                        woeid = YahooPlaceFinder.reverseGeoCode(mContext,
+                                loc.getLatitude(), loc.getLongitude());
+                        if (DEBUG)
+                            Log.d(TAG, "Yahoo location code for current geolocation is " + woeid);
+                    } catch (Exception e) {
+                        Log.e(TAG, "ERROR: Could not get Location code", e);
+                    }
+                } else {
+                    Log.e(TAG, "ERROR: Location returned null");
+                }
+                if (DEBUG) {
+                    Log.d(TAG, "Location code is " + woeid);
+                }
+            }
+
+            if (woeid != null) {
+                try {
+                    return parseXml(getDocument(woeid));
+                } catch (Exception e) {
+                    Log.e(TAG, "ERROR: Could not parse weather return info", e);
+                }
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(WeatherInfo info) {
+            if (info != null) {
+                setWeatherData(info);
+                mWeatherInfo = info;
+            } else if (mWeatherInfo.temp.equals(WeatherInfo.NODATA)) {
+                setNoWeatherData();
+            } else {
+                setWeatherData(mWeatherInfo);
             }
         }
-    };
+    }
 
     /**
      * Display the weather information
@@ -474,8 +456,7 @@ public class ClockWidgetService extends Service {
         try {
             return new WeatherXmlParser(getBaseContext()).parseWeatherResponse(wDoc);
         } catch (Exception e) {
-            Log.e(TAG, "Error parsing Yahoo weather XML document");
-            e.printStackTrace();
+            Log.e(TAG, "Error parsing Yahoo weather XML document", e);
         }
         return null;
     }
