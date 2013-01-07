@@ -19,15 +19,19 @@ package com.cyanogenmod.lockclock;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.IBinder;
@@ -64,20 +68,37 @@ public class ClockWidgetService extends Service {
     private static final String TAG = "ClockWidgetService";
     private static final boolean DEBUG = false;
 
-    private Context mContext;
-    private int[] mWidgetIds;
+    private static final String ACTION_LOC_UPDATE = "com.cyanogenmod.lockclock.action.LOCATION_UPDATE";
+
+    private static final long MIN_LOC_UPDATE_INTERVAL = 15 * 60 * 1000; /* 15 minutes */
+    private static final float MIN_LOC_UPDATE_DISTANCE = 5000f; /* 5 km */
+
     private AppWidgetManager mAppWidgetManager;
+    private ConnectivityManager mConnManager;
+    private LocationManager mLocManager;
+
+    private int[] mWidgetIds;
     private SharedPreferences mSharedPrefs;
     private boolean mForceRefresh;
+    private PendingIntent mLocUpdateIntent;
+    private boolean mNeedsRefresh;
+    private boolean mReceiversRegistered;
 
     @Override
     public void onCreate() {
-        mContext = getApplicationContext();
-        mAppWidgetManager = AppWidgetManager.getInstance(mContext);
-        ComponentName thisWidget = new ComponentName(mContext, ClockWidgetProvider.class);
+        mAppWidgetManager = AppWidgetManager.getInstance(this);
+        mLocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        mConnManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        ComponentName thisWidget = new ComponentName(this, ClockWidgetProvider.class);
         mWidgetIds = mAppWidgetManager.getAppWidgetIds(thisWidget);
-        mSharedPrefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+
+        mSharedPrefs = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        mSharedPrefs.registerOnSharedPreferenceChangeListener(mLocationSettingListener);
+
+        mLocUpdateIntent = PendingIntent.getService(this, 0, new Intent(ACTION_LOC_UPDATE), 0);
         mForceRefresh = false;
+        mNeedsRefresh = false;
     }
 
     @Override
@@ -88,8 +109,10 @@ public class ClockWidgetService extends Service {
             mForceRefresh = true;
         }
 
-        // Refresh the widgets
-        if (mWidgetIds != null && mWidgetIds.length != 0) {
+        if (intent != null && ACTION_LOC_UPDATE.equals(intent.getAction())) {
+            Location location = (Location) intent.getParcelableExtra(LocationManager.KEY_LOCATION_CHANGED);
+            triggerLocationQueryWithLocation(location);
+        } else if (mWidgetIds != null && mWidgetIds.length != 0) {
             refreshWidget();
         } else {
             stopSelf();
@@ -102,6 +125,16 @@ public class ClockWidgetService extends Service {
       return null;
     }
 
+    @Override
+    public void onDestroy() {
+        mSharedPrefs.unregisterOnSharedPreferenceChangeListener(mLocationSettingListener);
+        if (mReceiversRegistered) {
+            mLocManager.removeUpdates(mLocUpdateIntent);
+            unregisterReceiver(mConnectionChangeReceiver);
+        }
+        super.onDestroy();
+    }
+
     /**
      * Reload the widget including the Weather forecast, Alarm, Clock font and Calendar
      */
@@ -110,13 +143,18 @@ public class ClockWidgetService extends Service {
         boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, false);
 
         if (showWeather) {
+            if (!mReceiversRegistered) {
+                registerReceiver(mConnectionChangeReceiver,
+                        new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+                updateLocationListenerState();
+                mReceiversRegistered = true;
+            }
+
             // Load the required settings from preferences
             final long interval = Long.parseLong(mSharedPrefs.getString(Constants.WEATHER_REFRESH_INTERVAL, "60"));
             boolean manualSync = (interval == 0);
             if (mForceRefresh || (!manualSync && (((System.currentTimeMillis() - mWeatherInfo.last_sync) / 60000) >= interval))) {
-                if (mWeatherQueryTask == null || mWeatherQueryTask.getStatus() == AsyncTask.Status.FINISHED) {
-                    mWeatherQueryTask = new WeatherQueryTask();
-                    mWeatherQueryTask.execute();
+                if (triggerWeatherQuery(false)) {
                     mForceRefresh = false;
                 }
             } else if (manualSync && mWeatherInfo.last_sync == 0) {
@@ -129,8 +167,14 @@ public class ClockWidgetService extends Service {
         }
     }
 
+    private boolean shouldRemainLoaded() {
+        // We need to be kept loaded if weather is shown with a non-custom location
+        // as we rely on the location listener in that case
+        return mReceiversRegistered && mLocationInfo.customLocation == null;
+    }
+
     private void updateAndExit() {
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
+        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.appwidget);
         updateAndExit(remoteViews);
     }
 
@@ -154,20 +198,22 @@ public class ClockWidgetService extends Service {
         for (int id : mWidgetIds) {
             // Resize the clock font if needed
             if (digitalClock) {
-                float ratio = WidgetUtils.getScaleRatio(mContext, id);
+                float ratio = WidgetUtils.getScaleRatio(this, id);
                 setClockSize(remoteViews, ratio);
             }
 
             // Hide the panels if there is no space for them
-            boolean canFitWeather = WidgetUtils.canFitWeather(mContext, id, digitalClock);
-            boolean canFitCalendar = WidgetUtils.canFitCalendar(mContext, id, digitalClock);
+            boolean canFitWeather = WidgetUtils.canFitWeather(this, id, digitalClock);
+            boolean canFitCalendar = WidgetUtils.canFitCalendar(this, id, digitalClock);
             remoteViews.setViewVisibility(R.id.weather_panel, canFitWeather && showWeather ? View.VISIBLE : View.GONE);
             remoteViews.setViewVisibility(R.id.calendar_panel, canFitCalendar && showCalendar ? View.VISIBLE : View.GONE);
 
             // Do the update
             mAppWidgetManager.updateAppWidget(id, remoteViews);
         }
-        stopSelf();
+        if (!shouldRemainLoaded()) {
+            stopSelf();
+        }
     }
 
     //===============================================================================================
@@ -191,7 +237,7 @@ public class ClockWidgetService extends Service {
         // Register an onClickListener on Clock, starting DeskClock
         ComponentName clk = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
         Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(clk);
-        PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pi = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
         clockViews.setOnClickPendingIntent(R.id.clock_panel, pi);
     }
 
@@ -230,7 +276,7 @@ public class ClockWidgetService extends Service {
     }
 
     private void setClockSize(RemoteViews clockViews, float scale) {
-        float fontSize = mContext.getResources().getDimension(R.dimen.widget_big_font_size);
+        float fontSize = getResources().getDimension(R.dimen.widget_big_font_size);
         clockViews.setTextViewTextSize(R.id.clock1_bold, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
         clockViews.setTextViewTextSize(R.id.clock1_regular, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
         clockViews.setTextViewTextSize(R.id.clock2_bold, TypedValue.COMPLEX_UNIT_PX, fontSize * scale);
@@ -266,8 +312,8 @@ public class ClockWidgetService extends Service {
      * @return A formatted string of the next alarm or null if there is no next alarm.
      */
     private String getNextAlarm() {
-        String nextAlarm = Settings.System.getString(mContext.getContentResolver(),
-                Settings.System.NEXT_ALARM_FORMATTED);
+        String nextAlarm = Settings.System.getString(
+                getContentResolver(), Settings.System.NEXT_ALARM_FORMATTED);
         if (nextAlarm == null || TextUtils.isEmpty(nextAlarm)) {
             return null;
         }
@@ -280,54 +326,146 @@ public class ClockWidgetService extends Service {
     private static final String URL_YAHOO_API_WEATHER = "http://weather.yahooapis.com/forecastrss?w=%s&u=";
     private static WeatherInfo mWeatherInfo = new WeatherInfo();
     private WeatherQueryTask mWeatherQueryTask;
+    private LocationQueryTask mLocationQueryTask;
+    private LocationInfo mLocationInfo = new LocationInfo();
+    private String mLastKnownWoeid;
+    private boolean mNeedsWeatherRefresh;
 
-    private class WeatherQueryTask extends AsyncTask<Void, Void, WeatherInfo> {
+    private BroadcastReceiver mConnectionChangeReceiver = new BroadcastReceiver() {
         @Override
-        protected WeatherInfo doInBackground(Void... params) {
-            // Load the preferences
-            boolean useCustomLoc = mSharedPrefs.getBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, false);
-            String customLoc = mSharedPrefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);
-
-            // Get location related stuff ready
-            LocationManager locationManager =
-                    (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
-            String woeid = null;
-
-            if (customLoc != null && useCustomLoc) {
-                // custom location
-                try {
-                    woeid = YahooPlaceFinder.GeoCode(mContext, customLoc);
-                    if (DEBUG)
-                        Log.d(TAG, "Yahoo location code for " + customLoc + " is " + woeid);
-                } catch (Exception e) {
-                    Log.e(TAG, "ERROR: Could not get Location code", e);
-                }
-            } else {
-                // network location
-                Location loc = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-
-                if (loc != null) {
-                    try {
-                        woeid = YahooPlaceFinder.reverseGeoCode(mContext,
-                                loc.getLatitude(), loc.getLongitude());
-                        if (DEBUG)
-                            Log.d(TAG, "Yahoo location code for current geolocation is " + woeid);
-                    } catch (Exception e) {
-                        Log.e(TAG, "ERROR: Could not get Location code", e);
-                    }
-                } else {
-                    Log.e(TAG, "ERROR: Location returned null");
-                }
-                if (DEBUG) {
-                    Log.d(TAG, "Location code is " + woeid);
-                }
+        public void onReceive(Context context, Intent intent) {
+            if (mNeedsRefresh && !intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false)) {
+                mNeedsRefresh = false;
+                triggerLocationQueryWithLocation(null);
             }
+        }
+    };
+
+    private OnSharedPreferenceChangeListener mLocationSettingListener = new OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+            if (Constants.SHOW_WEATHER.equals(key)
+                    || Constants.WEATHER_USE_CUSTOM_LOCATION.equals(key)
+                    || Constants.WEATHER_CUSTOM_LOCATION_STRING.equals(key)) {
+                refreshWidget();
+            }
+        }
+    };
+
+    private void updateLocationListenerState() {
+        boolean useCustomLoc = mSharedPrefs.getBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, false);
+        String customLoc = mSharedPrefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);
+
+        if (useCustomLoc && customLoc != null) {
+            mLocManager.removeUpdates(mLocUpdateIntent);
+            mLocationInfo.customLocation = customLoc;
+            triggerLocationQueryWithLocation(null);
+        } else {
+            mLocManager.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER,
+                    MIN_LOC_UPDATE_INTERVAL, MIN_LOC_UPDATE_DISTANCE, mLocUpdateIntent);
+            mLocationInfo.customLocation = null;
+            triggerLocationQueryWithLocation(
+                    mLocManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER));
+        }
+    }
+
+    private void triggerLocationQueryWithLocation(Location location) {
+        if (DEBUG)
+            Log.d(TAG, "Triggering location query with location " + location);
+
+        if (location != null) {
+            mLocationInfo.location = location;
+        }
+        if (mLocationQueryTask != null) {
+            mLocationQueryTask.cancel(true);
+        }
+        mLocationQueryTask = new LocationQueryTask();
+        mLocationQueryTask.execute(mLocationInfo);
+    }
+
+    private boolean triggerWeatherQuery(boolean force) {
+        if (!force) {
+            if (mLocationQueryTask != null && mLocationQueryTask.getStatus() != AsyncTask.Status.FINISHED) {
+                /* the location query task will trigger the weather query */
+                return true;
+            }
+        }
+        if (mWeatherQueryTask != null) {
+            if (force) {
+                mWeatherQueryTask.cancel(true);
+            } else if (mWeatherQueryTask.getStatus() != AsyncTask.Status.FINISHED) {
+                return false;
+            }
+        }
+        mWeatherQueryTask = new WeatherQueryTask();
+        mWeatherQueryTask.execute(mLastKnownWoeid);
+        return true;
+    }
+
+    private static class LocationInfo {
+        Location location;
+        String customLocation;
+    }
+
+    private class LocationQueryTask extends AsyncTask<LocationInfo, Void, String> {
+        @Override
+        protected String doInBackground(LocationInfo... params) {
+            LocationInfo info = params[0];
+
+            try {
+                if (info.customLocation != null) {
+                    String woeid = YahooPlaceFinder.GeoCode(
+                            ClockWidgetService.this, info.customLocation);
+                    if (DEBUG)
+                        Log.d(TAG, "Yahoo location code for " + info.customLocation + " is " + woeid);
+                    return woeid;
+                } else if (info.location != null) {
+                    String woeid = YahooPlaceFinder.reverseGeoCode(ClockWidgetService.this,
+                            info.location.getLatitude(), info.location.getLongitude());
+                    if (DEBUG)
+                        Log.d(TAG, "Yahoo location code for geolocation " + info.location + " is " + woeid);
+                    return woeid;
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "ERROR: Could not get Location code", e);
+                mNeedsWeatherRefresh = true;
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String woeid) {
+            mLastKnownWoeid = woeid;
+            triggerWeatherQuery(true);
+        }
+    }
+
+    private class WeatherQueryTask extends AsyncTask<String, Void, WeatherInfo> {
+        private Document getDocument(String woeid) throws IOException {
+            final boolean celsius = mSharedPrefs.getBoolean(Constants.WEATHER_USE_METRIC, true);
+            final String urlWithUnit = URL_YAHOO_API_WEATHER + (celsius ? "c" : "f");
+            return new HttpRetriever().getDocumentFromURL(String.format(urlWithUnit, woeid));
+        }
+
+        private WeatherInfo parseXml(Document doc) {
+            WeatherXmlParser parser = new WeatherXmlParser(ClockWidgetService.this);
+            return parser.parseWeatherResponse(doc);
+        }
+
+        @Override
+        protected WeatherInfo doInBackground(String... params) {
+            String woeid = params[0];
+
+            if (DEBUG)
+                Log.d(TAG, "Querying weather for woeid " + woeid);
 
             if (woeid != null) {
                 try {
                     return parseXml(getDocument(woeid));
                 } catch (Exception e) {
                     Log.e(TAG, "ERROR: Could not parse weather return info", e);
+                    mNeedsWeatherRefresh = true;
                 }
             }
 
@@ -359,7 +497,7 @@ public class ClockWidgetService extends Service {
         boolean defaultIcons = !mSharedPrefs.getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, false);
 
         // Get the views ready
-        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
+        RemoteViews weatherViews = new RemoteViews(getPackageName(), R.layout.appwidget);
 
         // Weather Image - Either the default or alternate set
         String prefix = defaultIcons ? "weather_" : "weather2_";
@@ -419,7 +557,7 @@ public class ClockWidgetService extends Service {
         boolean defaultIcons = !mSharedPrefs.getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, false);
 
         final Resources res = getBaseContext().getResources();
-        RemoteViews weatherViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
+        RemoteViews weatherViews = new RemoteViews(getPackageName(), R.layout.appwidget);
 
         // Weather Image - Either the default or alternate set
         weatherViews.setImageViewResource(R.id.weather_image,
@@ -440,46 +578,11 @@ public class ClockWidgetService extends Service {
     }
 
     private void setWeatherClickListener(RemoteViews weatherViews) {
-        Intent weatherClickIntent = new Intent(mContext, ClockWidgetProvider.class);
+        Intent weatherClickIntent = new Intent(this, ClockWidgetProvider.class);
         weatherClickIntent.putExtra(Constants.FORCE_REFRESH, true);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(mContext, 0, weatherClickIntent,
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, weatherClickIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         weatherViews.setOnClickPendingIntent(R.id.weather_panel, pendingIntent);
-    }
-
-    /**
-     * Get the weather forecast XML document for a specific location
-     * @param woeid
-     * @return
-     */
-    private Document getDocument(String woeid) {
-        try {
-            boolean celcius = mSharedPrefs.getBoolean(Constants.WEATHER_USE_METRIC, true);
-            String urlWithDegreeUnit;
-            if (celcius) {
-                urlWithDegreeUnit = URL_YAHOO_API_WEATHER + "c";
-            } else {
-                urlWithDegreeUnit = URL_YAHOO_API_WEATHER + "f";
-            }
-            return new HttpRetriever().getDocumentFromURL(String.format(urlWithDegreeUnit, woeid));
-        } catch (IOException e) {
-            Log.e(TAG, "Error querying Yahoo weather");
-        }
-        return null;
-    }
-
-    /**
-     * Parse the weather XML document
-     * @param wDoc
-     * @return
-     */
-    private WeatherInfo parseXml(Document wDoc) {
-        try {
-            return new WeatherXmlParser(getBaseContext()).parseWeatherResponse(wDoc);
-        } catch (Exception e) {
-            Log.e(TAG, "Error parsing Yahoo weather XML document", e);
-        }
-        return null;
     }
 
     //===============================================================================================
@@ -504,8 +607,7 @@ public class ClockWidgetService extends Service {
             // Iterate through the calendars, up to the maximum
             for (int i = 0; i < MAX_CALENDAR_ITEMS; i++) {
                 if (nextCalendar[i][0] != null) {
-                    final RemoteViews itemViews = new RemoteViews(mContext.getPackageName(),
-                            R.layout.calendar_item);
+                    final RemoteViews itemViews = new RemoteViews(getPackageName(), R.layout.calendar_item);
 
                     // Only set the icon on the first event
                     if (!hasEvents) {
@@ -529,7 +631,7 @@ public class ClockWidgetService extends Service {
         if (hasEvents) {
             ComponentName cal = new ComponentName("com.android.calendar", "com.android.calendar.AllInOneActivity");
             Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(cal);
-            PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pi = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
             calendarViews.setOnClickPendingIntent(R.id.calendar_panel, pi);
         }
 
@@ -591,8 +693,7 @@ public class ClockWidgetService extends Service {
         Cursor cursor = null;
 
         try {
-            cursor = mContext.getContentResolver().query(uri, projection,
-                    where.toString(), null, "begin ASC");
+            cursor = getContentResolver().query(uri, projection, where.toString(), null, "begin ASC");
 
             if (cursor != null) {
                 cursor.moveToFirst();
@@ -640,7 +741,7 @@ public class ClockWidgetService extends Service {
 
                     if (allDay) {
                         SimpleDateFormat sdf = new SimpleDateFormat(
-                                mContext.getString(R.string.abbrev_wday_month_day_no_year));
+                                getString(R.string.abbrev_wday_month_day_no_year));
                         // Calendar stores all-day events in UTC -- setting the time zone ensures
                         // the correct date is shown.
                         sdf.setTimeZone(TimeZone.getTimeZone(Time.TIMEZONE_UTC));
@@ -648,7 +749,7 @@ public class ClockWidgetService extends Service {
                     } else {
                         sb.append(DateFormat.format("E", start));
                         sb.append(" ");
-                        sb.append(DateFormat.getTimeFormat(mContext).format(start));
+                        sb.append(DateFormat.getTimeFormat(this).format(start));
                     }
 
                     // Add the event location if it should be shown
