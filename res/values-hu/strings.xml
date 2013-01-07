@@ -19,6 +19,7 @@
     <!-- General strings -->
     <string name="unknown">Ismeretlen</string>
     <string name="cancel">Elvet</string>
+    <string name="loading_indicator">Modul betöltése\u2026</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">Tornádó</string>
@@ -107,6 +108,8 @@
     <string name="display_category">Megjelenítés</string>
 
     <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">Digitális óra</string>
+    <string name="use_digital_clock_summary">Válasszon az analóg illetve a digitális óra közt</string>
     <string name="clock_font_title">Órák félkövérrel</string>
     <string name="clock_font_minutes_title">Percek félkövérrel</string>
     <string name="clock_font_date_title">Dátum és ébresztés félkövérrel</string>
