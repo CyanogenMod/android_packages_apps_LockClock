@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">不明</string>
+    <string name="cancel">キャンセル</string>
+    <string name="loading_indicator">ウィジェットをロード中\u2026</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">竜巻</string>
+    <string name="weather_1">熱帯暴風雨</string>
+    <string name="weather_2">ハリケーン</string>
+    <string name="weather_3">激しい雷雨</string>
+    <string name="weather_4">雷雨</string>
+    <string name="weather_5">雨や雪</string>
+    <string name="weather_6">雨とみぞれ</string>
+    <string name="weather_7">雪とみぞれ</string>
+    <string name="weather_8">着氷性の霧雨</string>
+    <string name="weather_9">霧雨</string>
+    <string name="weather_10">着氷性の雨</string>
+    <string name="weather_11">小雨</string>
+    <string name="weather_12">小雨</string>
+    <string name="weather_13">小雪</string>
+    <string name="weather_14">明るい雪</string>
+    <string name="weather_15">吹雪</string>
+    <string name="weather_16">雪</string>
+    <string name="weather_17">雹</string>
+    <string name="weather_18">みぞれ</string>
+    <string name="weather_19">靄</string>
+    <string name="weather_20">霧</string>
+    <string name="weather_21">霞</string>
+    <string name="weather_22">煙たい</string>
+    <string name="weather_23">Blustery</string>
+    <string name="weather_24">強風</string>
+    <string name="weather_25">寒い</string>
+    <string name="weather_26">曇り</string>
+    <string name="weather_27">ほとんど曇り</string> <!-- Night -->
+    <string name="weather_28">ほとんど曇り</string> <!-- Day -->
+    <string name="weather_29">一部曇り</string> <!-- Night -->
+    <string name="weather_30">一部曇り</string> <!-- Day -->
+    <string name="weather_31">晴れ</string> <!-- Night -->
+    <string name="weather_32">晴れ</string>
+    <string name="weather_33">快晴</string> <!-- Night -->
+    <string name="weather_34">快晴</string> <!-- Day -->
+    <string name="weather_35">雨と雹</string>
+    <string name="weather_36">暑い</string>
+    <string name="weather_37">一部雷雨</string>
+    <string name="weather_38">所々雷雨</string>
+    <string name="weather_39">所々雷雨</string>
+    <string name="weather_40">所々小雨</string>
+    <string name="weather_41">大雪</string>
+    <string name="weather_42">所々小雪</string>
+    <string name="weather_43">大雪</string>
+    <string name="weather_44">一部曇り</string>
+    <string name="weather_45">雷雨</string>
+    <string name="weather_46">小雪</string>
+    <string name="weather_47">一部雷雨</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">北</string>
+    <string name="weather_NE">北東</string>
+    <string name="weather_E">東</string>
+    <string name="weather_SE">南東</string>
+    <string name="weather_S">南</string>
+    <string name="weather_SW">南西</string>
+    <string name="weather_W">西</string>
+    <string name="weather_NW">北西</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">データなし</string>
+    <string name="weather_tap_to_refresh">タップして更新</string>
+    <string name="weather_refreshing">更新中</string>
+    <string name="weather_last_sync_just_now">たった今</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">手動</string>
+    <string name="weather_refresh_30min">30分</string>
+    <string name="weather_refresh_60min">60分</string>
+    <string name="weather_refresh_2hrs">2時間</string>
+    <string name="weather_refresh_4hrs">4時間</string>
+    <string name="weather_refresh_6hrs">6時間</string>
+    <string name="weather_refresh_8hrs">8時間</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">時計とアラーム</string>
+    <string name="weather_category">お天気パネル</string>
+    <string name="calendar_category">カレンダーの予定</string>
+
+    <!-- Preferences - Categories -->
+    <string name="general_category">一般</string>
+    <string name="display_category">表示</string>
+
+    <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">デジタル時計を使用</string>
+    <string name="use_digital_clock_summary">デジタル時計かアナログ時計を切り替える。</string>
+    <string name="clock_font_title">時を太字にする</string>
+    <string name="clock_font_minutes_title">分を太字にする</string>
+    <string name="clock_font_date_title">日付とアラームを太字にする</string>
+    <string name="show_alarm_title">次のアラームを表示する</string>
+
+    <!-- Preferences - Weather -->
+    <string name="weather_enabled">有効</string>
+    <string name="weather_enable">天気を表示する</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">カスタムの場所</string>
+    <string name="weather_geolocated">ネットーワークを使った位置情報</string>
+    <string name="weather_custom_location_dialog_title">場所を入力</string>
+    <string name="weather_custom_location_hint">市 県/国</string>
+    <string name="weather_custom_location_title">場所</string>
+    <string name="weather_show_location_title">場所を表示</string>
+    <string name="weather_show_timestamp_title">更新時刻を表示</string>
+    <string name="weather_refresh_interval">更新間隔</string>
+    <string name="weather_use_metric">メトリック表示を使用</string>
+    <string name="weather_retrieve_location_dialog_title">場所を取得できません!</string>
+    <string name="weather_retrieve_location_dialog_message">ネットワークを使った現在地の取得は利用できません.\n\nネットワークロケーションを有効にするか、カスタムの場所を設定してください。</string>
+    <string name="weather_retrieve_location_dialog_enable_button">有効</string>
+    <string name="weather_invert_lowhigh">最低/最高気温を逆にする</string>
+    <string name="weather_progress_title">場所を確認中</string>
+    <string name="weather_alternate_icons_title">別のアイコンを使う</string>
+    <string name="weather_alternate_icons_summary">デフォルトの白いアイコンを使うか別のカラーアイコンを使うか選択する。</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">次の予定を表示する</string>
+    <string name="calendars_title">表示するカレンダー</string>
+    <string name="calendars_summary">これらのカレンダーから予定を探す</string>
+    <string name="calendar_reminders_only_title">リマインダーのみ</string>
+    <string name="calendar_reminders_only_summary">リマインダーのイベントのみ表示する</string>
+    <string name="calendar_hide_allday_title">終日の予定を表示しない</string>
+    <string name="calendar_lookahead_title">予定の探索期間</string>
+    <string name="calendar_show_location_title">予定の場所</string>
+    <string name="calendar_show_description_title">予定の詳細</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3時間</string>
+    <string name="calendar_lookahead_6hrs">6時間</string>
+    <string name="calendar_lookahead_12hrs">12時間</string>
+    <string name="calendar_lookahead_1day">1日</string>
+    <string name="calendar_lookahead_3days">3日</string>
+    <string name="calendar_lookahead_1wk">1週間</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">表示しない</string>
+    <string name="calendar_metadata_first_line">最初の1行を表示</string>
+    <string name="calendar_metadata_all">すべて表示</string>
+
+</resources>
