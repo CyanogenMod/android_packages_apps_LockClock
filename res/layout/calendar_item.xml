@@ -51,6 +51,7 @@
             android:singleLine="true"
             android:textSize="14sp"
             android:textColor="?android:attr/textColorPrimary"
+            style="@style/label_shadow"
             android:ellipsize="marquee"
             android:fadingEdge="horizontal" />
 
@@ -68,6 +69,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:fadingEdge="horizontal"
-            android:textColor="?android:attr/textColorSecondary" />
+            android:textColor="?android:attr/textColorSecondary"
+            style="@style/label_shadow" />
     </RelativeLayout>
 </LinearLayout>

@@ -16,37 +16,42 @@
 
 <resources>
 
-    <style name="label_bold">
+    <style name="label_shadow">
+        <item name="android:shadowColor">@color/text_shadow</item>
+        <item name="android:shadowRadius">2.0</item>
+    </style>
+
+    <style name="label_bold" parent="@style/label_shadow">
         <item name="android:textSize">@dimen/label_font_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
-    <style name="label_thin">
+    <style name="label_thin" parent="@style/label_shadow">
         <item name="android:textSize">@dimen/label_font_size</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
-    <style name="widget_medium_light">
+    <style name="widget_medium_light" parent="@style/label_shadow">
         <item name="android:textSize">@dimen/widget_medium_font_size</item>
         <item name="android:fontFamily">sans-serif-light</item>
         </style>
 
-    <style name="widget_medium_bold">
+    <style name="widget_medium_bold" parent="@style/label_shadow">
         <item name="android:textSize">@dimen/widget_medium_font_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif</item>
         </style>
 
-    <style name="widget_big_bold">
+    <style name="widget_big_bold" parent="@style/label_shadow">
         <item name="android:textSize">@dimen/widget_big_font_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
-    <style name="widget_big_thin">
+    <style name="widget_big_thin" parent="@style/label_shadow">
         <item name="android:textSize">@dimen/widget_big_font_size</item>
         <item name="android:fontFamily">sans-serif-thin</item>
     </style>
