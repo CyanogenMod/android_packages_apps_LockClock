@@ -69,7 +69,6 @@ public class ClockWidgetService extends Service {
     private AppWidgetManager mAppWidgetManager;
     private SharedPreferences mSharedPrefs;
     private boolean mForceRefresh;
-    private boolean mHasAnyEvents = false;
 
     @Override
     public void onCreate() {
@@ -143,14 +142,14 @@ public class ClockWidgetService extends Service {
         //NOTE: Weather is updated prior to this method being called
         refreshClock(remoteViews);
         refreshAlarmStatus(remoteViews);
-        refreshCalendar(remoteViews);
+        boolean hasCalEvents = refreshCalendar(remoteViews);
 
         // Hide the Loading indicator
         remoteViews.setViewVisibility(R.id.loading_indicator, View.GONE);
 
         // Update the widgets
         boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, false);
-        boolean showCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false) && mHasAnyEvents;
+        boolean showCalendar = hasCalEvents && mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
         boolean digitalClock = mSharedPrefs.getBoolean(Constants.CLOCK_DIGITAL, true);
         for (int id : mWidgetIds) {
             // Resize the clock font if needed
@@ -495,14 +494,14 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     // Calendar related functionality
     //===============================================================================================
-    private void refreshCalendar(RemoteViews calendarViews) {
+    private boolean refreshCalendar(RemoteViews calendarViews) {
         // Load the settings
         boolean showCalendar = mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
         Set<String> calendarList = mSharedPrefs.getStringSet(Constants.CALENDAR_LIST, null);
         boolean remindersOnly = mSharedPrefs.getBoolean(Constants.CALENDAR_REMINDERS_ONLY, false);
         boolean hideAllDay = mSharedPrefs.getBoolean(Constants.CALENDAR_HIDE_ALLDAY, false);
         long lookAhead = Long.parseLong(mSharedPrefs.getString(Constants.CALENDAR_LOOKAHEAD, "10800000"));
-        mHasAnyEvents = false;
+        boolean hasEvents = false;
 
         if (showCalendar) {
             String[][] nextCalendar = null;
@@ -518,7 +517,7 @@ public class ClockWidgetService extends Service {
                             R.layout.calendar_item);
 
                     // Only set the icon on the first event
-                    if (i == 0) {
+                    if (!hasEvents) {
                         itemViews.setImageViewResource(R.id.calendar_icon, R.drawable.ic_lock_idle_calendar);
                     }
 
@@ -530,18 +529,20 @@ public class ClockWidgetService extends Service {
 
                     // Add the view to the panel
                     calendarViews.addView(R.id.calendar_panel, itemViews);
-                    mHasAnyEvents = true;
+                    hasEvents = true;
                 }
             }
         }
 
         // Register an onClickListener on Calendar if it contains any events, starting the Calendar app
-        if (mHasAnyEvents) {
+        if (hasEvents) {
             ComponentName cal = new ComponentName("com.android.calendar", "com.android.calendar.AllInOneActivity");
             Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(cal);
             PendingIntent pi = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
             calendarViews.setOnClickPendingIntent(R.id.calendar_panel, pi);
         }
+
+        return hasEvents;
     }
 
     /**
