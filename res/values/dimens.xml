@@ -34,4 +34,6 @@
     <dimen name="min_weather_widget_height">140dip</dimen>
     <dimen name="min_calendar_widget_height">210dip</dimen>
 
+    <dimen name="shadow_radius">4dp</dimen>
+
 </resources>
