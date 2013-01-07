@@ -34,6 +34,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
@@ -69,7 +70,7 @@ public class WeatherPreferences extends PreferenceFragment implements
         mResolver = mContext.getContentResolver();
 
         // Load the required settings from preferences
-        SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
+        SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
 
         // Some preferences need to be set to a default value in code since we cannot do them in XML
         mUseMetric = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_METRIC);
@@ -83,9 +84,11 @@ public class WeatherPreferences extends PreferenceFragment implements
 
         // Load items that need custom summaries etc.
         mUseCustomLoc = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
+        mUseCustomLoc.setChecked(prefs.getBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, false));
+        mUseCustomLoc.setOnPreferenceClickListener(this);
         mCustomWeatherLoc = (EditTextPreference) findPreference(Constants.WEATHER_CUSTOM_LOCATION_STRING);
-        updateLocationSummary();
         mCustomWeatherLoc.setOnPreferenceClickListener(this);
+        updateLocationSummary();
 
         // Show a warning if location manager is disabled and there is no custom location set
         if (!Settings.Secure.isLocationProviderEnabled(mResolver,
@@ -98,8 +101,7 @@ public class WeatherPreferences extends PreferenceFragment implements
     }
 
     @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-            String key) {
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         Preference pref = findPreference(key);
         if (pref instanceof ListPreference) {
             ListPreference listPref = (ListPreference) pref;
@@ -111,13 +113,25 @@ public class WeatherPreferences extends PreferenceFragment implements
     }
 
     @Override
-    public boolean onPreferenceClick(Preference preference) {
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mUseCustomLoc) {
+            SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+            prefs.edit().putBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, mUseCustomLoc.isChecked()).apply();
+            updateLocationSummary();
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
 
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
         if (preference == mCustomWeatherLoc) {
-            SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
-            String location = prefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, "");
-            mCustomWeatherLoc.getEditText().setText(location);
-            mCustomWeatherLoc.getEditText().setSelection(location.length());
+            SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+            String location = prefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);
+            if (location != null) {
+                mCustomWeatherLoc.getEditText().setText(location);
+                mCustomWeatherLoc.getEditText().setSelection(location.length());
+            }
 
             mCustomWeatherLoc.getDialog().findViewById(android.R.id.button1)
             .setOnClickListener(new View.OnClickListener() {
@@ -142,8 +156,7 @@ public class WeatherPreferences extends PreferenceFragment implements
                                 mCustomWeatherLoc.setSummary(location);
                                 mCustomWeatherLoc.getDialog().dismiss();
 
-                                SharedPreferences prefs = mContext.getSharedPreferences(
-                                        PREF_NAME, Context.MODE_MULTI_PROCESS);
+                                SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
                                 prefs.edit().putString(Constants.WEATHER_CUSTOM_LOCATION_STRING, location).apply();
                             }
                             d.dismiss();
@@ -178,8 +191,8 @@ public class WeatherPreferences extends PreferenceFragment implements
 
     private void updateLocationSummary() {
         if (mUseCustomLoc.isChecked()) {
-            SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
-            String location = prefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, 
+            SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+            String location = prefs.getString(Constants.WEATHER_CUSTOM_LOCATION_STRING,
                     getResources().getString(R.string.unknown));
             mCustomWeatherLoc.setSummary(location);
         } else {

@@ -45,7 +45,7 @@ public class ClockPreferences extends PreferenceFragment implements
         mContext = getActivity();
 
         // Load the required settings from preferences
-        SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
+        SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         prefs.registerOnSharedPreferenceChangeListener(this);
     }
 
