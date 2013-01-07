@@ -304,16 +304,7 @@ public class ClockWidgetService extends Service {
                 }
             } else {
                 // network location
-                Criteria crit = new Criteria();
-                crit.setAccuracy(Criteria.ACCURACY_COARSE);
-                String bestProvider = locationManager.getBestProvider(crit, true);
-                Location loc = null;
-
-                if (bestProvider != null) {
-                    loc = locationManager.getLastKnownLocation(bestProvider);
-                } else {
-                    loc = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-                }
+                Location loc = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
 
                 if (loc != null) {
                     try {

@@ -55,7 +55,7 @@ public class CalendarPreferences extends PreferenceFragment implements
         mContext = getActivity();
 
         // Load the required settings from preferences
-        SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
+        SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
 
         // The calendar list entries and values are determined at run time, not in XML
         mCalendarList = (MultiSelectListPreference) findPreference(Constants.CALENDAR_LIST);
