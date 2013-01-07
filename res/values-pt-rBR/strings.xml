@@ -131,4 +131,7 @@
     <string name="clock_font_date_title">Data e minutos em negrito</string>
     <string name="weather_alternate_icons_title">Usar ícones alternados</string>
     <string name="weather_alternate_icons_summary">Selecione para alternar entre o padrão (Branco) e os ícones (Cor) alternativo</string>
+    <string name="loading_indicator">Carregando widget\u2026</string>
+    <string name="use_digital_clock_title">Usar relógio Digital</string>
+    <string name="use_digital_clock_summary">Selecione para alternar entre relógio Digital e o Analógico</string>
 </resources>
