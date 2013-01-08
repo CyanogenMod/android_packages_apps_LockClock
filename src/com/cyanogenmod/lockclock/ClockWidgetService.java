@@ -106,9 +106,19 @@ public class ClockWidgetService extends Service {
      * Reload the widget including the Weather forecast, Alarm, Clock font and Calendar
      */
     private void refreshWidget() {
-        // If we need to show the weather, do so
+        // Get things ready
+        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
+        boolean digitalClock = mSharedPrefs.getBoolean(Constants.CLOCK_DIGITAL, true);
         boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, false);
 
+        // Refresh the non-weather widget panels
+        refreshClock(remoteViews, digitalClock);
+        refreshAlarmStatus(remoteViews);
+        boolean hasCalEvents = refreshCalendar(remoteViews);
+        setNoWeatherData(false); // placeholder weather
+        update(remoteViews, digitalClock, showWeather, hasCalEvents);
+
+        // If we need to show the weather, do so
         if (showWeather) {
             // Load the required settings from preferences
             final long interval = Long.parseLong(mSharedPrefs.getString(Constants.WEATHER_REFRESH_INTERVAL, "60"));
@@ -120,37 +130,23 @@ public class ClockWidgetService extends Service {
                     mForceRefresh = false;
                 }
             } else if (manualSync && mWeatherInfo.last_sync == 0) {
-                setNoWeatherData();
+                setNoWeatherData(true);
             } else {
                 setWeatherData(mWeatherInfo);
             }
         } else {
-            updateAndExit();
+            stopSelf();
         }
     }
 
-    private void updateAndExit() {
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.appwidget);
-        updateAndExit(remoteViews);
-    }
-
     /**
-     * Refresh Alarm and Calendar (if visible) and update the widget views 
+     * Update Clock, Alarm and Calendar widget views without exiting
      */
-    private void updateAndExit(RemoteViews remoteViews) {
-        // Refresh the remaining widget panels.
-        //NOTE: Weather is updated prior to this method being called
-        refreshClock(remoteViews);
-        refreshAlarmStatus(remoteViews);
-        boolean hasCalEvents = refreshCalendar(remoteViews);
-
+    private void update(RemoteViews remoteViews, boolean digitalClock, boolean showWeather, boolean showCalendar) {
         // Hide the Loading indicator
         remoteViews.setViewVisibility(R.id.loading_indicator, View.GONE);
 
         // Update the widgets
-        boolean showWeather = mSharedPrefs.getBoolean(Constants.SHOW_WEATHER, false);
-        boolean showCalendar = hasCalEvents && mSharedPrefs.getBoolean(Constants.SHOW_CALENDAR, false);
-        boolean digitalClock = mSharedPrefs.getBoolean(Constants.CLOCK_DIGITAL, true);
         for (int id : mWidgetIds) {
             // Resize the clock font if needed
             if (digitalClock) {
@@ -158,11 +154,34 @@ public class ClockWidgetService extends Service {
                 setClockSize(remoteViews, ratio);
             }
 
-            // Hide the panels if there is no space for them
+            if (showWeather) {
+                boolean canFitWeather = WidgetUtils.canFitWeather(mContext, id, digitalClock);
+                remoteViews.setViewVisibility(R.id.weather_panel, canFitWeather ? View.VISIBLE : View.GONE);
+            }
+
+            // Hide the calendar panel if there is no space for it
+            if (showCalendar) {
+                boolean canFitCalendar = WidgetUtils.canFitCalendar(mContext, id, digitalClock);
+                remoteViews.setViewVisibility(R.id.calendar_panel, canFitCalendar ? View.VISIBLE : View.GONE);
+            }
+
+            // Do the update
+            mAppWidgetManager.updateAppWidget(id, remoteViews);
+        }
+    }
+
+    /**
+     * This is called from the weather service to refresh the widget and exit
+     * when done
+     */
+    private void updateAndExit(RemoteViews remoteViews) {
+        boolean digitalClock = mSharedPrefs.getBoolean(Constants.CLOCK_DIGITAL, true);
+
+        // Update the widgets
+        for (int id : mWidgetIds) {
+            // Hide the weather panel if there is no space for them
             boolean canFitWeather = WidgetUtils.canFitWeather(mContext, id, digitalClock);
-            boolean canFitCalendar = WidgetUtils.canFitCalendar(mContext, id, digitalClock);
-            remoteViews.setViewVisibility(R.id.weather_panel, canFitWeather && showWeather ? View.VISIBLE : View.GONE);
-            remoteViews.setViewVisibility(R.id.calendar_panel, canFitCalendar && showCalendar ? View.VISIBLE : View.GONE);
+            remoteViews.setViewVisibility(R.id.weather_panel, canFitWeather ? View.VISIBLE : View.GONE);
 
             // Do the update
             mAppWidgetManager.updateAppWidget(id, remoteViews);
@@ -173,9 +192,9 @@ public class ClockWidgetService extends Service {
     //===============================================================================================
     // Clock related functionality
     //===============================================================================================
-    private void refreshClock(RemoteViews clockViews) {
+    private void refreshClock(RemoteViews clockViews, boolean digitalClock) {
         // Analog or Digital clock
-        if (mSharedPrefs.getBoolean(Constants.CLOCK_DIGITAL, true)) {
+        if (digitalClock) {
             // Hours/Minutes is specific to Didital, set it's size
             refreshClockFont(clockViews);
             clockViews.setViewVisibility(R.id.digital_clock, View.VISIBLE);
@@ -340,7 +359,7 @@ public class ClockWidgetService extends Service {
                 setWeatherData(info);
                 mWeatherInfo = info;
             } else if (mWeatherInfo.temp.equals(WeatherInfo.NODATA)) {
-                setNoWeatherData();
+                setNoWeatherData(true);
             } else {
                 setWeatherData(mWeatherInfo);
             }
@@ -415,7 +434,7 @@ public class ClockWidgetService extends Service {
      * There is no data to display, display 'empty' fields and the
      * 'Tap to reload' message
      */
-    private void setNoWeatherData() {
+    private void setNoWeatherData(boolean exit) {
         boolean defaultIcons = !mSharedPrefs.getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, false);
 
         final Resources res = getBaseContext().getResources();
@@ -428,15 +447,19 @@ public class ClockWidgetService extends Service {
         // Rest of the data
         weatherViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
         weatherViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
-        weatherViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
         weatherViews.setViewVisibility(R.id.update_time, View.GONE);
         weatherViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
 
-        // Register an onClickListener on Weather
-        setWeatherClickListener(weatherViews);
+        if (exit) {
+            // final state
+            weatherViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
 
-        // Update the rest of the widget and stop
-        updateAndExit(weatherViews);
+            // Register an onClickListener on Weather
+            setWeatherClickListener(weatherViews);
+
+            // Update the rest of the widget and stop
+            updateAndExit(weatherViews);
+        }
     }
 
     private void setWeatherClickListener(RemoteViews weatherViews) {
