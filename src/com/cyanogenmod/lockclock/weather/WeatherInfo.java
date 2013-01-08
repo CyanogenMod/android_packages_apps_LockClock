@@ -17,99 +17,208 @@
 package com.cyanogenmod.lockclock.weather;
 
 import android.content.Context;
+import android.content.res.Resources;
+
 import com.cyanogenmod.lockclock.R;
+import com.cyanogenmod.lockclock.misc.Preferences;
+
+import java.text.DecimalFormat;
+import java.util.Date;
 
 public class WeatherInfo {
+    private static final long serialVersionUID = 1L;
 
-    public static final String NODATA = "-";
+    private static final DecimalFormat sNoDigitsFormat = new DecimalFormat("0");
 
-    public String city, forecast_date, condition, condition_code, temp, temp_unit,
-        humidity, wind, wind_dir, speed_unit, low, high;
-    public long last_sync;
+    private Context mContext;
 
-    public WeatherInfo() {
-        this.city = NODATA;
-        this.forecast_date = NODATA;
-        this.condition = NODATA;
-        this.condition_code = NODATA;
-        this.temp = NODATA;
-        this.temp_unit = NODATA;
-        this.humidity = NODATA;
-        this.wind = NODATA;
-        this.wind_dir = NODATA;
-        this.speed_unit = NODATA;
-        this.low = NODATA;
-        this.high = NODATA;
-        this.last_sync = 0;
-    }
+    private String city;
+    private String forecastDate;
+    private String condition;
+    private int conditionCode;
+    private float temperature;
+    private float lowTemperature;
+    private float highTemperature;
+    private String tempUnit;
+    private float humidity;
+    private float wind;
+    private int windDirection;
+    private String speedUnit;
+    private long timestamp;
 
-    public WeatherInfo(Context context, String city, String fdate, String condition, String condition_code,
-            String temp, String temp_unit, String humidity,
-            String wind, String wind_dir, String speed_unit,
-            String low, String high, long last_sync) {
+    public WeatherInfo(Context context,
+            String city, String fdate, String condition, int conditionCode,
+            float temp, float low, float high, String tempUnit, float humidity,
+            float wind, int windDir, String speedUnit, long timestamp) {
+        this.mContext = context;
         this.city = city;
-        this.forecast_date = fdate;
+        this.forecastDate = fdate;
         this.condition = condition;
-        this.condition_code = condition_code;
-        this.humidity = humidity + "%";
-        this.wind = calcDirection(context, wind_dir) + " " + trimSpeed(wind) + speed_unit;
-        this.speed_unit = speed_unit;
-        this.last_sync = last_sync;
-        // Only the current temperature gets the temp_unit added.
-        this.temp_unit = temp_unit;
-        this.temp = temp + "°" + temp_unit;
-        this.low = low + "°";
-        this.high = high + "°";
+        this.conditionCode = conditionCode;
+        this.humidity = humidity;
+        this.wind = wind;
+        this.windDirection = windDir;
+        this.speedUnit = speedUnit;
+        this.timestamp = timestamp;
+        this.temperature = temp;
+        this.lowTemperature = low;
+        this.highTemperature = high;
+        this.tempUnit = tempUnit;
     }
 
-    /**
-     * find the optimal weather string (helper function for translation)
-     *
-     * @param conditionCode condition code from Yahoo (this is the main
-     *            identifier which will be used to find a matching translation
-     *            in the project's resources
-     * @param providedString
-     * @return either the defaultString (which should be Yahoo's weather
-     *         condition text), or the translated version from resources
-     */
-    public static String getTranslatedConditionString(Context context, int conditionCode,
-            String providedString) {
-        int resID = context.getResources().getIdentifier("weather_" + conditionCode, "string",
-                context.getPackageName());
-        return (resID != 0) ? context.getResources().getString(resID) : providedString;
+    public int getConditionResource() {
+        boolean alternativeIcons = Preferences.useAlternateWeatherIcons(mContext);
+        final String prefix = alternativeIcons ? "weather2_" : "weather_";
+        final Resources res = mContext.getResources();
+        final int resId = res.getIdentifier(prefix + conditionCode, "drawable", mContext.getPackageName());
+
+        if (resId != 0) {
+            return resId;
+        }
+
+        return alternativeIcons ? R.drawable.weather2_na : R.drawable.weather_na;
     }
 
-    private String calcDirection(Context context, String degrees) {
-        try {
-            int deg = Integer.parseInt(degrees);
-            if (deg >= 338 || deg <= 22)
-                return context.getResources().getString(R.string.weather_N);
-            else if (deg < 68)
-                return context.getResources().getString(R.string.weather_NE);
-            else if (deg < 113)
-                return context.getResources().getString(R.string.weather_E);
-            else if (deg < 158)
-                return context.getResources().getString(R.string.weather_SE);
-            else if (deg < 203)
-                return context.getResources().getString(R.string.weather_S);
-            else if (deg < 248)
-                return context.getResources().getString(R.string.weather_SW);
-            else if (deg < 293)
-                return context.getResources().getString(R.string.weather_W);
-            else if (deg < 338)
-                return context.getResources().getString(R.string.weather_NW);
-            else
-                return "";
-        } catch (NumberFormatException e) {
+    public String getCity() {
+        return city;
+    }
+
+    public String getCondition() {
+        final Resources res = mContext.getResources();
+        final int resId = res.getIdentifier("weather_" + conditionCode, "string", mContext.getPackageName());
+
+        if (resId != 0) {
+            return res.getString(resId);
+        }
+
+        return condition;
+    }
+
+    public Date getTimestamp() {
+        return new Date(timestamp);
+    }
+
+    private String getFormattedValue(float value, String unit) {
+        if (Float.isNaN(highTemperature)) {
+            return "-";
+        }
+        return sNoDigitsFormat.format(value) + unit;
+    }
+
+    public String getFormattedTemperature() {
+        return getFormattedValue(temperature, "°" + tempUnit);
+    }
+
+    public String getFormattedLow() {
+        return getFormattedValue(lowTemperature, "°");
+    }
+
+    public String getFormattedHigh() {
+        return getFormattedValue(highTemperature, "°");
+    }
+
+    public String getFormattedHumidity() {
+        return getFormattedValue(humidity, "%");
+    }
+
+    public String getFormattedWindSpeed() {
+        return getFormattedValue(wind, speedUnit);
+    }
+
+    public String getWindDirection() {
+        int resId;
+
+        if (windDirection < 0) {
             return "";
         }
+
+        if (windDirection < 23) resId = R.string.weather_N;
+        else if (windDirection < 68) resId = R.string.weather_NE;
+        else if (windDirection < 113) resId = R.string.weather_E;
+        else if (windDirection < 158) resId = R.string.weather_SE;
+        else if (windDirection < 203) resId = R.string.weather_S;
+        else if (windDirection < 248) resId = R.string.weather_SW;
+        else if (windDirection < 293) resId = R.string.weather_W;
+        else if (windDirection < 338) resId = R.string.weather_NW;
+        else resId = R.string.weather_N;
+
+        return mContext.getString(resId);
     }
 
-    private String trimSpeed(String speed) {
-        try {
-            return String.valueOf(Math.round(Float.parseFloat(speed)));
-        } catch (NumberFormatException e) {
-            return "";
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("WeatherInfo for ");
+        builder.append(city);
+        builder.append("@ ");
+        builder.append(getTimestamp());
+        builder.append(": ");
+        builder.append(getCondition());
+        builder.append("(");
+        builder.append(conditionCode);
+        builder.append("), temperature ");
+        builder.append(getFormattedTemperature());
+        builder.append(", low ");
+        builder.append(getFormattedLow());
+        builder.append(", high ");
+        builder.append(getFormattedHigh());
+        builder.append(", humidity ");
+        builder.append(getFormattedHumidity());
+        builder.append(", wind ");
+        builder.append(getFormattedWindSpeed());
+        builder.append(" at ");
+        builder.append(getWindDirection());
+        return builder.toString();
+    }
+
+    public String toSerializedString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(city).append('|');
+        builder.append(forecastDate).append('|');
+        builder.append(condition).append('|');
+        builder.append(conditionCode).append('|');
+        builder.append(temperature).append('|');
+        builder.append(lowTemperature).append('|');
+        builder.append(highTemperature).append('|');
+        builder.append(tempUnit).append('|');
+        builder.append(humidity).append('|');
+        builder.append(wind).append('|');
+        builder.append(windDirection).append('|');
+        builder.append(speedUnit).append('|');
+        builder.append(timestamp);
+        return builder.toString();
+    }
+
+    public static WeatherInfo fromSerializedString(Context context, String input) {
+        if (input == null) {
+            return null;
         }
+
+        String[] parts = input.split("\\|");
+        if (parts == null || parts.length != 13) {
+            return null;
+        }
+
+        int conditionCode, windDirection;
+        long timestamp;
+        float temperature, low, high, humidity, wind;
+
+        try {
+            conditionCode = Integer.parseInt(parts[3]);
+            temperature = Float.parseFloat(parts[4]);
+            low = Float.parseFloat(parts[5]);
+            high = Float.parseFloat(parts[6]);
+            humidity = Float.parseFloat(parts[8]);
+            wind = Float.parseFloat(parts[9]);
+            windDirection = Integer.parseInt(parts[10]);
+            timestamp = Long.parseLong(parts[12]);
+        } catch (NumberFormatException e) {
+            return null;
+        }
+
+        return new WeatherInfo(context,
+                /* city */ parts[0], /* date */ parts[1], /* condition */ parts[2],
+                conditionCode, temperature, low, high, /* tempUnit */ parts[7],
+                humidity, wind, windDirection, /* speedUnit */ parts[11], timestamp);
     }
 }
