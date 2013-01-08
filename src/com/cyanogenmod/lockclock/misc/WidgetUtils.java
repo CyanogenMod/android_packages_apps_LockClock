@@ -79,4 +79,79 @@ public class WidgetUtils {
         }
         return 1f;
     }
+
+    /**
+     * {@link EventInfo} is a class that represents an event in the widget. It
+     * contains all of the data necessary to display that event, including the
+     * properly localized strings and visibility settings.
+     */
+    public static class EventInfo {
+        public String description;
+        public String title;
+
+        public long id;
+        public long start;
+        public long end;
+        public boolean allDay;
+
+        public EventInfo() {
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder builder = new StringBuilder();
+            builder.append("EventInfo [Title=");
+            builder.append(title);
+            builder.append(", id=");
+            builder.append(id);
+            builder.append(", description=");
+            builder.append(description);
+            builder.append("]");
+            return builder.toString();
+        }
+
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result + (allDay ? 1231 : 1237);
+            result = prime * result + (int) (id ^ (id >>> 32));
+            result = prime * result + (int) (end ^ (end >>> 32));
+            result = prime * result + (int) (start ^ (start >>> 32));
+            result = prime * result + ((title == null) ? 0 : title.hashCode());
+            result = prime * result + ((description == null) ? 0 : description.hashCode());
+            return result;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            EventInfo other = (EventInfo) obj;
+            if (id != other.id)
+                return false;
+            if (allDay != other.allDay)
+                return false;
+            if (end != other.end)
+                return false;
+            if (start != other.start)
+                return false;
+            if (title == null) {
+                if (other.title != null)
+                    return false;
+            } else if (!title.equals(other.title))
+                return false;
+            if (description == null) {
+                if (other.description != null)
+                    return false;
+            } else if (!description.equals(other.description)) {
+                return false;
+            }
+            return true;
+        }
+    }
 }
