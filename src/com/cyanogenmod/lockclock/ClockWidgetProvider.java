@@ -22,37 +22,73 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.cyanogenmod.lockclock.misc.Constants;
 
 public class ClockWidgetProvider extends AppWidgetProvider {
     private static final String TAG = "ClockWidgetProvider";
+    private static boolean DEBUG = true;
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        updateWidgets(context, null);
+        updateWidgets(context, false, false);
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        super.onReceive(context, intent);
-        updateWidgets(context, intent);
+
+        if (DEBUG)
+            Log.d(TAG, "AppWidgetProvider got the intent: " + intent.toString());
+
+        // Deal with received broadcasts that force a refresh
+        final String action = intent.getAction();
+        if (action.equals(Intent.ACTION_PROVIDER_CHANGED)
+                || action.equals(Intent.ACTION_TIME_CHANGED)
+                || action.equals(Intent.ACTION_TIMEZONE_CHANGED)
+                || action.equals(Intent.ACTION_DATE_CHANGED)
+                || intent.getBooleanExtra(Constants.FORCE_REFRESH, false)) {
+            // Calendar, Time or a settings change (excluding weather)
+            updateWidgets(context, true, false);
+        } else if (action.equals(Intent.ACTION_LOCALE_CHANGED)
+                || intent.getBooleanExtra(Constants.REFRESH_WEATHER, false)) {
+            // Location or weather settings change
+            updateWidgets(context, true, true);
+        } else {
+            // We are not forcing a refresh
+            super.onReceive(context, intent);
+            updateWidgets(context, false, false);
+        }
     }
 
-    private void updateWidgets(Context context, Intent intent) {
+    private void updateWidgets(Context context, boolean forceRefresh, boolean refreshWeather) {
         // Update the widget via the service. Build the intent to call the service on a timer
         Intent i = new Intent(context.getApplicationContext(), ClockWidgetService.class);
         PendingIntent pi = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        // See if we are forcing a full refresh and trigger a single update
-        if (intent != null && intent.getBooleanExtra(Constants.FORCE_REFRESH, false)) {
-            i.putExtra(Constants.FORCE_REFRESH, true);
+        // See if we are forcing a refresh and trigger a single update, include weather if specified
+        if (forceRefresh) {
+            if (refreshWeather) {
+                i.putExtra(Constants.REFRESH_WEATHER, true);
+            }
             context.startService(i);
         }
 
         // Clear any old alarms and schedule the new alarm that only triggers if the device is ON (RTC)
+        // TODO: for now force the repeating to be at least every hour but this will need to be changed
+        //       once the weather updating becomes a broadcast receiver and the repeating alarm is no
+        //       longer needed
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(pi);
-        am.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 60000, pi);
+        am.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 60000 * 60, pi);
+    }
+
+    @Override
+    public void onDisabled(Context context) {
+        // Unsubscribe from all AlarmManager updates
+        Intent i = new Intent(context.getApplicationContext(), ClockWidgetService.class);
+        PendingIntent pi = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pi);
     }
 }
