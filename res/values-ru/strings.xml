@@ -101,7 +101,7 @@
     <!-- Preferences - Categories -->
     <string name="clock_category">Часы и будильник</string>
     <string name="weather_category">Погода</string>
-    <string name="calendar_category">События календаря</string>
+    <string name="calendar_category">Календарь</string>
 
     <!-- Preferences - Categories -->
     <string name="general_category">Основные</string>
@@ -137,9 +137,9 @@
     <string name="weather_alternate_icons_summary">Выбор между иконками по умолчанию (белые) или альтернативными (цветные)</string>
 
     <!-- Preferences - Calendar -->
-    <string name="calendar_title">Показывать следующие события</string>
+    <string name="calendar_title">Показывать события</string>
     <string name="calendars_title">События календарей</string>
-    <string name="calendars_summary">Найти события из этих календарей</string>
+    <string name="calendars_summary">Показывать события из этих календарей</string>
     <string name="calendar_reminders_only_title">Только с напоминаниями</string>
     <string name="calendar_reminders_only_summary">Отображать только события с напоминаниями</string>
     <string name="calendar_hide_allday_title">Скрыть все события дня</string>
