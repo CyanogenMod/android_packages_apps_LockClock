@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">Ukjent</string>
+    <string name="cancel">Avbryt</string>
+    <string name="loading_indicator">Laster inn widget\u2026</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">Tornado</string>
+    <string name="weather_1">Tropisk Storm</string>
+    <string name="weather_2">Orkan</string>
+    <string name="weather_3">Voldsomt Tordenvær</string>
+    <string name="weather_4">Tordenvær</string>
+    <string name="weather_5">Blandet Regn og Snø</string>
+    <string name="weather_6">Blandet Regn og Sludd</string>
+    <string name="weather_7">Blandet Snø og Sludd</string>
+    <string name="weather_8">Underkjølt Duskregn</string>
+    <string name="weather_9">Duskregn</string>
+    <string name="weather_10">Underkjølt Nedbør</string>
+    <string name="weather_11">Nedbør</string>
+    <string name="weather_12">Nedbør</string>
+    <string name="weather_13">Snøbyger</string>
+    <string name="weather_14">Lette Snøbyger</string>
+    <string name="weather_15">Snøfokk</string>
+    <string name="weather_16">Snø</string>
+    <string name="weather_17">Hagl</string>
+    <string name="weather_18">Sludd</string>
+    <string name="weather_19">Støv</string>
+    <string name="weather_20">Tåke</string>
+    <string name="weather_21">Disig</string>
+    <string name="weather_22">Røykfylt</string>
+    <string name="weather_23">Sterk Kuling</string>
+    <string name="weather_24">Kuling</string>
+    <string name="weather_25">Kaldt</string>
+    <string name="weather_26">Opphold</string>
+    <string name="weather_27">For det meste skyet</string> <!-- Night -->
+    <string name="weather_28">For det meste skyet</string> <!-- Day -->
+    <string name="weather_29">Delvis Skyet</string> <!-- Night -->
+    <string name="weather_30">Delvis Skyet</string> <!-- Day -->
+    <string name="weather_31">Klarvær</string> <!-- Night -->
+    <string name="weather_32">Solfylt Vær</string>
+    <string name="weather_33">Pent Vær</string> <!-- Night -->
+    <string name="weather_34">Pent Vær</string> <!-- Day -->
+    <string name="weather_35">Blandet Regn og Hagl</string>
+    <string name="weather_36">Varmt</string>
+    <string name="weather_37">Isolerte Tordenbyger</string>
+    <string name="weather_38">Spredte Tordenbyger</string>
+    <string name="weather_39">Spredte Tordenbyger</string>
+    <string name="weather_40">Spredte Regnbyger</string>
+    <string name="weather_41">Tunge Snøbyger</string>
+    <string name="weather_42">Spredte Snøbyger</string>
+    <string name="weather_43">Tunge Snøbyger</string>
+    <string name="weather_44">Delvis Skyet</string>
+    <string name="weather_45">Tordenvær</string>
+    <string name="weather_46">Snøbyger</string>
+    <string name="weather_47">Isolerte Tordenbyger</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NE</string>
+    <string name="weather_E">E</string>
+    <string name="weather_SE">SE</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SW</string>
+    <string name="weather_W">W</string>
+    <string name="weather_NW">NW</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">Ingen data</string>
+    <string name="weather_tap_to_refresh">Trykk for å oppdatere</string>
+    <string name="weather_refreshing">Oppdaterer</string>
+    <string name="weather_last_sync_just_now">Nå</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">Manuelt</string>
+    <string name="weather_refresh_30min">30 minutter</string>
+    <string name="weather_refresh_60min">60 minutter</string>
+    <string name="weather_refresh_2hrs">2 timer</string>
+    <string name="weather_refresh_4hrs">4 timer</string>
+    <string name="weather_refresh_6hrs">6 timer</string>
+    <string name="weather_refresh_8hrs">8 timer</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Klokke og alarm</string>
+    <string name="weather_category">Værpanel</string>
+    <string name="calendar_category">Kalenderoppføringer</string>
+
+    <!-- Preferences - Categories -->
+    <string name="general_category">Generelt</string>
+    <string name="display_category">Skjerm</string>
+
+    <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">Bruk Digital Klokke</string>
+    <string name="use_digital_clock_summary">Velg for å veksle mellom digital og analog klokke</string>
+    <string name="clock_font_title">Timer uthevet</string>
+    <string name="clock_font_minutes_title">Minutter uthevet</string>
+    <string name="clock_font_date_title">Uthevet dato og alarm</string>
+    <string name="show_alarm_title">Vis neste alarm</string>
+
+    <!-- Preferences - Weather -->
+    <string name="weather_enabled">Aktivert</string>
+    <string name="weather_enable">Vis vær</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Bruk egen posisjon</string>
+    <string name="weather_geolocated">Geolokalisert via nettverk</string>
+    <string name="weather_custom_location_dialog_title">Oppgi posisjon</string>
+    <string name="weather_custom_location_hint">By, Område/Land</string>
+    <string name="weather_custom_location_title">Posisjon</string>
+    <string name="weather_show_location_title">Vis posisjon</string>
+    <string name="weather_show_timestamp_title">Vis tidsstempel</string>
+    <string name="weather_refresh_interval">Oppdateringsintervall</string>
+    <string name="weather_use_metric">Bruk metrisk</string>
+    <string name="weather_retrieve_location_dialog_title">Kunne ikke fastslå posisjon!</string>
+    <string name="weather_retrieve_location_dialog_message">Geolokalisering fra nettverk er deaktivert.\n\nOppgi egen posisjon eller aktiver geolokalisering fra nettverk</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Aktiver</string>
+    <string name="weather_invert_lowhigh">Inverter lav/høy temperatur</string>
+    <string name="weather_progress_title">Verifiserer posisjon</string>
+    <string name="weather_alternate_icons_title">Bruk alternative ikoner</string>
+    <string name="weather_alternate_icons_summary">Velg for å veksle mellom standard (hvite) eller alternative (farger) ikoner</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Vis neste oppføring</string>
+    <string name="calendars_title">Kalendere</string>
+    <string name="calendars_summary">Finn oppføringer fra disse kalenderne</string>
+    <string name="calendar_reminders_only_title">Bare påminnelser</string>
+    <string name="calendar_reminders_only_summary">Bare vis oppføringer med påminnelser</string>
+    <string name="calendar_hide_allday_title">Skjul heldagsoppføringer</string>
+    <string name="calendar_lookahead_title">Fremtidige oppføringer</string>
+    <string name="calendar_show_location_title">Oppføringssted</string>
+    <string name="calendar_show_description_title">Oppføringsbeskrivelse</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 timer</string>
+    <string name="calendar_lookahead_6hrs">6 timer</string>
+    <string name="calendar_lookahead_12hrs">12 timer</string>
+    <string name="calendar_lookahead_1day">1 dag</string>
+    <string name="calendar_lookahead_3days">3 dager</string>
+    <string name="calendar_lookahead_1wk">1 uke</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">Ikke vis</string>
+    <string name="calendar_metadata_first_line">Vis første linje</string>
+    <string name="calendar_metadata_all">Vis alle</string>
+
+</resources>
