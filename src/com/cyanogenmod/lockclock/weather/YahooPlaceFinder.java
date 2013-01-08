@@ -20,8 +20,8 @@ import android.content.Context;
 
 public class YahooPlaceFinder {
 
-    private static final String YAHOO_API_BASE_REV_URL = "http://where.yahooapis.com/geocode?appid=jYkTZp64&q=%1$s,+%2$s&gflags=R";
-    private static final String YAHOO_API_BASE_URL = "http://where.yahooapis.com/geocode?appid=jYkTZp64&q=%1$s";
+    private static final String YAHOO_API_BASE_REV_URL = "http://where.yahooapis.com/geocode?appid=EKvCnl4k&q=%1$s,+%2$s&gflags=R";
+    private static final String YAHOO_API_BASE_URL = "http://where.yahooapis.com/geocode?appid=EKvCnl4k&q=%1$s";
 
     public static String reverseGeoCode(Context c, double latitude, double longitude) {
 
