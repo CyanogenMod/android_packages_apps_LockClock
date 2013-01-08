@@ -152,7 +152,6 @@ public class WeatherXmlParser {
 
     public String parsePlaceFinderResponse(String response) {
         try {
-
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(new InputSource(new StringReader(response)));

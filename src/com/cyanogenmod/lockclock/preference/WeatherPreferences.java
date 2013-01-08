@@ -108,7 +108,7 @@ public class WeatherPreferences extends PreferenceFragment implements
             pref.setSummary(listPref.getEntry());
         }
         Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
-        updateIntent.putExtra(Constants.FORCE_REFRESH, true);
+        updateIntent.putExtra(Constants.REFRESH_WEATHER, true);
         mContext.sendBroadcast(updateIntent);
     }
 
@@ -180,7 +180,8 @@ public class WeatherPreferences extends PreferenceFragment implements
             String woeid = null;
 
             try {
-                woeid = YahooPlaceFinder.GeoCode(mContext, input[0]);
+                // We want the real result, not a cached woeid, set cachedOk to false
+                woeid = YahooPlaceFinder.GeoCode(mContext, input[0], false);
             } catch (Exception e) {
                 Log.e(TAG, "Could not resolve location", e);
             }

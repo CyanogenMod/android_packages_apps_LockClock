@@ -18,7 +18,6 @@ package com.cyanogenmod.lockclock.preference;
 
 import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
 
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -75,7 +74,7 @@ public class CalendarPreferences extends PreferenceFragment implements
             pref.setSummary(listPref.getEntry());
         }
         Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
-        updateIntent.putExtra(Constants.FORCE_REFRESH, true);
+        updateIntent.putExtra(Constants.REFRESH_CALENDAR, true);
         mContext.sendBroadcast(updateIntent);
     }
 

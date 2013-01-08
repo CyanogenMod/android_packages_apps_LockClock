@@ -57,7 +57,7 @@ public class ClockPreferences extends PreferenceFragment implements
             pref.setSummary(listPref.getEntry());
         }
         Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
-        updateIntent.putExtra(Constants.FORCE_REFRESH, true);
+        updateIntent.putExtra(Constants.REFRESH_CLOCK, true);
         mContext.sendBroadcast(updateIntent);
     }
 }
