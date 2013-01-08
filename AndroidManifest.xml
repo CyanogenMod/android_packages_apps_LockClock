@@ -25,8 +25,11 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
 
     <application
@@ -49,13 +52,26 @@
 
         <!-- The Widget receiver -->
         <receiver android:name="com.cyanogenmod.lockclock.ClockWidgetProvider" >
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/lock_clock" />
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/lock_clock" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.android.deskclock.NEXT_ALARM_TIME_SET"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PROVIDER_CHANGED"/>
+                <data android:scheme="content"/>
+                <data android:host="com.android.calendar"/>
+            </intent-filter>
         </receiver>
 
-        <service android:name="com.cyanogenmod.lockclock.ClockWidgetService"></service>
+        <service android:name=".ClockWidgetService"></service>
+        <service android:name=".weather.WeatherUpdateService"></service>
 
     </application>
 
