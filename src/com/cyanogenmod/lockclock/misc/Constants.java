@@ -21,7 +21,9 @@ public class Constants {
     public static final String PREFERENCES_CHANGED = "preferences_changed";
 
     // Activity start commands
-    public static final String FORCE_REFRESH = "force_refresh";
+    public static final String REFRESH_WEATHER = "refresh_weather";
+    public static final String REFRESH_CLOCK = "refresh_clock";
+    public static final String REFRESH_CALENDAR = "refresh_calendar";
 
     // Widget Settings
     public static final String CLOCK_DIGITAL = "clock_digital";
