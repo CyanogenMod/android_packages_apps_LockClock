@@ -16,43 +16,76 @@
 
 package com.cyanogenmod.lockclock;
 
+import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.cyanogenmod.lockclock.misc.Constants;
 
 public class ClockWidgetProvider extends AppWidgetProvider {
     private static final String TAG = "ClockWidgetProvider";
+    private static boolean DEBUG = true;
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        updateWidgets(context, null);
+        updateWidgets(context, false);
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        super.onReceive(context, intent);
-        updateWidgets(context, intent);
+
+        if (DEBUG)
+            Log.d(TAG, "AppWidgetProvider got the intent: " + intent.toString());
+
+        // Deal with received broadcasts that force a refresh
+        String action = intent.getAction();
+        if (action == null) {
+            // Temporary fix for NPE
+            action = "";
+        }
+        if (action.equals(Intent.ACTION_PROVIDER_CHANGED)
+                || action.equals(Intent.ACTION_TIME_CHANGED)
+                || action.equals(Intent.ACTION_TIMEZONE_CHANGED)
+                || action.equals(Intent.ACTION_DATE_CHANGED)
+                || intent.getBooleanExtra(Constants.FORCE_REFRESH, false)) {
+            // Calendar, Time or a settings change (excluding weather)
+            updateWidgets(context, false);
+        } else if (action.equals(Intent.ACTION_LOCALE_CHANGED)
+                || intent.getBooleanExtra(Constants.REFRESH_WEATHER, false)) {
+            // Location or weather settings change
+            updateWidgets(context, true);
+        } else {
+            // We are not forcing a refresh
+            super.onReceive(context, intent);
+            updateWidgets(context, false);
+        }
     }
 
-    private void updateWidgets(Context context, Intent intent) {
+    private void updateWidgets(Context context, boolean refreshWeather) {
         // Update the widget via the service. Build the intent to call the service on a timer
         Intent i = new Intent(context.getApplicationContext(), ClockWidgetService.class);
-        PendingIntent pi = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        // See if we are forcing a full refresh and trigger a single update
-        if (intent != null && intent.getBooleanExtra(Constants.FORCE_REFRESH, false)) {
-            i.putExtra(Constants.FORCE_REFRESH, true);
-            context.startService(i);
+        if (refreshWeather) {
+            // See if we are forcing a refresh of weather - its done via settings and user click
+            i.putExtra(Constants.REFRESH_WEATHER, true);
         }
 
-        // Clear any old alarms and schedule the new alarm that only triggers if the device is ON (RTC)
+        // Start the service once, the service itself will take care of scheduling refreshes if needed
+        context.startService(i);
+    }
+
+    @Override
+    public void onDisabled(Context context) {
+        // Unsubscribe from all AlarmManager updates if any exist
+        Intent i = new Intent(context.getApplicationContext(), ClockWidgetService.class);
+        PendingIntent pi = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(pi);
-        am.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 60000, pi);
     }
 }
