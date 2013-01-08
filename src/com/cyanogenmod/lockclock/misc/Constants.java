@@ -21,7 +21,9 @@ public class Constants {
     public static final String PREFERENCES_CHANGED = "preferences_changed";
 
     // Activity start commands
-    public static final String FORCE_REFRESH = "force_refresh";
+    public static final String REFRESH_WEATHER = "refresh_weather";
+    public static final String REFRESH_CLOCK = "refresh_clock";
+    public static final String REFRESH_CALENDAR = "refresh_calendar";
 
     // Widget Settings
     public static final String CLOCK_DIGITAL = "clock_digital";
@@ -39,6 +41,7 @@ public class Constants {
     public static final String WEATHER_INVERT_LOWHIGH = "weather_invert_lowhigh";
     public static final String WEATHER_REFRESH_INTERVAL = "weather_refresh_interval";
     public static final String WEATHER_USE_ALTERNATE_ICONS = "weather_use_alternate_icons";
+    public static final String WEATHER_WOEID = "weather_woeid";
 
     public static final String SHOW_CALENDAR = "show_calendar";
     public static final String CALENDAR_LIST = "calendar_list";
