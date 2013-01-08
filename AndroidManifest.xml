@@ -49,10 +49,21 @@
 
         <!-- The Widget receiver -->
         <receiver android:name="com.cyanogenmod.lockclock.ClockWidgetProvider" >
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/lock_clock" />
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/lock_clock" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PROVIDER_CHANGED"/>
+                <data android:scheme="content"/>
+                <data android:host="com.android.calendar"/>
+            </intent-filter>
         </receiver>
 
         <service android:name="com.cyanogenmod.lockclock.ClockWidgetService"></service>

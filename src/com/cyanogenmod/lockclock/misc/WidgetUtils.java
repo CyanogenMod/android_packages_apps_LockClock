@@ -28,7 +28,16 @@ import com.cyanogenmod.lockclock.R;
 public class WidgetUtils {
     static final String TAG = "WidgetUtils";
 
-    // Decide whether to show the Weather panel
+    //===============================================================================================
+    // Widget display and resizing related functionality
+    //===============================================================================================
+    /**
+     *  Decide whether to show the Weather panel
+     * @param context
+     * @param id
+     * @param digitalClock
+     * @return
+     */
     public static boolean canFitWeather(Context context, int id, boolean digitalClock) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
         if (options == null) {
@@ -46,7 +55,13 @@ public class WidgetUtils {
         return (minHeightPx > neededSize);
     }
 
-    // Decide whether to show the Calendar panel
+    /**
+     *  Decide whether to show the Calendar panel
+     * @param context
+     * @param id
+     * @param digitalClock
+     * @return
+     */
     public static boolean canFitCalendar(Context context, int id, boolean digitalClock) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
         if (options == null) {
@@ -64,7 +79,12 @@ public class WidgetUtils {
         return (minHeightPx > neededSize);
     }
 
-    // Calculate the scale factor of the fonts in the widget
+    /**
+     *  Calculate the scale factor of the fonts in the widget
+     * @param context
+     * @param id
+     * @return
+     */
     public static float getScaleRatio(Context context, int id) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
         if (options != null) {
@@ -78,5 +98,82 @@ public class WidgetUtils {
             return (ratio > 1) ? 1f : ratio;
         }
         return 1f;
+    }
+
+    //===============================================================================================
+    // Calendar event information class
+    //===============================================================================================
+    /**
+     * {@link EventInfo} is a class that represents an event in the widget. It
+     * contains all of the data necessary to display that event.
+     */
+    public static class EventInfo {
+        public String description;
+        public String title;
+
+        public long id;
+        public long start;
+        public long end;
+        public boolean allDay;
+
+        public EventInfo() {
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder builder = new StringBuilder();
+            builder.append("EventInfo [Title=");
+            builder.append(title);
+            builder.append(", id=");
+            builder.append(id);
+            builder.append(", description=");
+            builder.append(description);
+            builder.append("]");
+            return builder.toString();
+        }
+
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result + (allDay ? 1231 : 1237);
+            result = prime * result + (int) (id ^ (id >>> 32));
+            result = prime * result + (int) (end ^ (end >>> 32));
+            result = prime * result + (int) (start ^ (start >>> 32));
+            result = prime * result + ((title == null) ? 0 : title.hashCode());
+            result = prime * result + ((description == null) ? 0 : description.hashCode());
+            return result;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            EventInfo other = (EventInfo) obj;
+            if (id != other.id)
+                return false;
+            if (allDay != other.allDay)
+                return false;
+            if (end != other.end)
+                return false;
+            if (start != other.start)
+                return false;
+            if (title == null) {
+                if (other.title != null)
+                    return false;
+            } else if (!title.equals(other.title))
+                return false;
+            if (description == null) {
+                if (other.description != null)
+                    return false;
+            } else if (!description.equals(other.description)) {
+                return false;
+            }
+            return true;
+        }
     }
 }
