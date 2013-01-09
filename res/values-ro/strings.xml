@@ -18,6 +18,7 @@
 
     <string name="unknown">"Necunoscut"</string>
     <string name="cancel">"Revocaţi"</string>
+    <string name="loading_indicator">"Încărcare widget\u2026"</string>
 
     <string name="weather_0">"Tornadă"</string>
     <string name="weather_1">"Furtună Tropicală"</string>
@@ -85,7 +86,14 @@
     <string name="weather_category">"Panou meteo"</string>
     <string name="calendar_category">"Evenimente din calendar"</string>
 
+    <string name="general_category">"General"</string>
+    <string name="display_category">"Afișare"</string>
+
+    <string name="use_digital_clock_title">"Utilizați ceasul digital"</string>
+    <string name="use_digital_clock_summary">"Selectați pentru a comuta între ceasul digital și cel analogic"</string>
     <string name="clock_font_title">"Ore aldin"</string>
+    <string name="clock_font_minutes_title">"Minute aldin"</string>
+    <string name="clock_font_date_title">"Dată și alarmă aldin"</string>
     <string name="show_alarm_title">"Arătaţi următoarea alarmă"</string>
 
     <string name="weather_enabled">"Activat"</string>
@@ -105,6 +113,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">"Activată"</string>
     <string name="weather_invert_lowhigh">"Inversaţi temperaturile scăzute/ridicate"</string>
     <string name="weather_progress_title">"Verificare locaţie"</string>
+    <string name="weather_alternate_icons_title">"Utilizați pictograme alternative"</string>
+    <string name="weather_alternate_icons_summary">"Selectați pentru a comuta între pictogramele prestabilite (Albe) și cele alternative (Colorate)"</string>
 
     <string name="calendar_title">"Afişaţi următorul eveniment"</string>
     <string name="calendars_title">"Calendare"</string>
