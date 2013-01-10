@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">Tuntematon</string>
+    <string name="cancel">Peruuta</string>
+    <string name="loading_indicator">Ladataan widgetiä\u2026</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">Pyörremyrsky</string>
+    <string name="weather_1">Trooppinen myrsky</string>
+    <string name="weather_2">Hurrikaani</string>
+    <string name="weather_3">Kovia ukkosmyrskyjä</string>
+    <string name="weather_4">Ukkosmyrskyjä</string>
+    <string name="weather_5">Räntäsadetta</string>
+    <string name="weather_6">Räntäsadetta</string>
+    <string name="weather_7">Räntäsadetta</string>
+    <string name="weather_8">Jäätävää tihkua</string>
+    <string name="weather_9">Tihkusadetta</string>
+    <string name="weather_10">Jäätävää sadetta</string>
+    <string name="weather_11">Sadekuuroja</string>
+    <string name="weather_12">Sadekuuroja</string>
+    <string name="weather_13">Lumikuuroja</string>
+    <string name="weather_14">Kevyitä lumikuuroja</string>
+    <string name="weather_15">Lumituiskuja</string>
+    <string name="weather_16">Lumisadetta</string>
+    <string name="weather_17">Raekuuroja</string>
+    <string name="weather_18">Räntäsadetta</string>
+    <string name="weather_19">Pölyistä</string>
+    <string name="weather_20">Sumua</string>
+    <string name="weather_21">Usvaa</string>
+    <string name="weather_22">Savua</string>
+    <string name="weather_23">Tuulenpuuskia</string>
+    <string name="weather_24">Tuulista</string>
+    <string name="weather_25">Kylmää</string>
+    <string name="weather_26">Pilvistä</string>
+    <string name="weather_27">Enimmäkseen pilvistä</string> <!-- Night -->
+    <string name="weather_28">Enimmäkseen pilvistä</string> <!-- Day -->
+    <string name="weather_29">Puolipilvistä</string> <!-- Night -->
+    <string name="weather_30">Puolipilvistä</string> <!-- Day -->
+    <string name="weather_31">Kirkasta</string> <!-- Night -->
+    <string name="weather_32">Aurinkoista</string>
+    <string name="weather_33">Selkeää</string> <!-- Night -->
+    <string name="weather_34">Poutaa</string> <!-- Day -->
+    <string name="weather_35">Raekuuroja</string>
+    <string name="weather_36">Hellettä</string>
+    <string name="weather_37">Paikallisia ukkosia</string>
+    <string name="weather_38">Satunnaisia ukkosia</string>
+    <string name="weather_39">Satunnaisia ukkosia</string>
+    <string name="weather_40">Satunnaisia sateita</string>
+    <string name="weather_41">Sankkaa lumisadetta</string>
+    <string name="weather_42">Satunnaisia lumisateita</string>
+    <string name="weather_43">Sankkaa lumisadetta</string>
+    <string name="weather_44">Puolipilvistä</string>
+    <string name="weather_45">Ukkoskuuroja</string>
+    <string name="weather_46">Lumikuuroja</string>
+    <string name="weather_47">Paikallisia ukkoskuuroja</string>
+    <string name="weather_3200"></string>
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NE</string>
+    <string name="weather_E">E</string>
+    <string name="weather_SE">SE</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SW</string>
+    <string name="weather_W">W</string>
+    <string name="weather_NW">NW</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">Ei tietoja</string>
+    <string name="weather_tap_to_refresh">Kosketa päivittääksesi</string>
+    <string name="weather_refreshing">Päivittää</string>
+    <string name="weather_last_sync_just_now">Juuri nyt</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">Manuaalinen</string>
+    <string name="weather_refresh_30min">30 minuuttia</string>
+    <string name="weather_refresh_60min">60 minuuttia</string>
+    <string name="weather_refresh_2hrs">2 tuntia</string>
+    <string name="weather_refresh_4hrs">4 tuntia</string>
+    <string name="weather_refresh_6hrs">6 tuntia</string>
+    <string name="weather_refresh_8hrs">8 tuntia</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Kello ja hälytys</string>
+    <string name="weather_category">Sääpaneeli</string>
+    <string name="calendar_category">Kalenteri</string>
+
+    <!-- Preferences - Categories -->
+    <string name="general_category">Yleiset</string>
+    <string name="display_category">Näyttö</string>
+
+    <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">Käytä digitaalista kelloa</string>
+    <string name="use_digital_clock_summary">Valitse digitaalinen tai analoginen kello</string>
+    <string name="clock_font_title">Lihavoi tunnit</string>
+    <string name="clock_font_minutes_title">Lihavoi minuutit</string>
+    <string name="clock_font_date_title">Lihavoi päivä ja hälytys</string>
+    <string name="show_alarm_title">Näytä seuraava hälytys</string>
+
+    <!-- Preferences - Weather -->
+    <string name="weather_enabled">Käytössä</string>
+    <string name="weather_enable">Näytä sää</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Käytä itse valittua sijaintia</string>
+    <string name="weather_geolocated">Paikannettu verkon avulla</string>
+    <string name="weather_custom_location_dialog_title">Syötä sijainti</string>
+    <string name="weather_custom_location_hint">Kaupunki, Osavaltio/Valtio</string>
+    <string name="weather_custom_location_title">Sijainti</string>
+    <string name="weather_show_location_title">Näytä sijainti</string>
+    <string name="weather_show_timestamp_title">Näytä aika</string>
+    <string name="weather_refresh_interval">Päivityksen aikaväli</string>
+    <string name="weather_use_metric">Käytä metrejä</string>
+    <string name="weather_retrieve_location_dialog_title">Paikantaminen epäonnistui!</string>
+    <string name="weather_retrieve_location_dialog_message">Verkon kautta paikantaminen poistettu käytöstä. Aseta itse valittu sijainti tai ota verkon kautta paikantaminen käyttöön</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Ota käyttöön</string>
+    <string name="weather_invert_lowhigh">Käännä pienin/isoin lämpötila</string>
+    <string name="weather_progress_title">Tarkastetaan sijaintia</string>
+    <string name="weather_alternate_icons_title">Käytä vaihtoehtoisia kuvakkeita</string>
+    <string name="weather_alternate_icons_summary">Valitse oletukset (valkoinen) tai vaihtoehtoiset (värikkäät) kuvakkeet</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Näytä seuraava tapahtuma</string>
+    <string name="calendars_title">Tapahtumakalenterit</string>
+    <string name="calendars_summary">Etsi tapahtuma näistä kalentereista</string>
+    <string name="calendar_reminders_only_title">Vain muistutukset</string>
+    <string name="calendar_reminders_only_summary">Näytä vain tapahtumat joissa muistutus</string>
+    <string name="calendar_hide_allday_title">Piilota koko päivän tapahtumat</string>
+    <string name="calendar_lookahead_title">Tapahtumaan aikaa</string>
+    <string name="calendar_show_location_title">Tapahtuman paikka</string>
+    <string name="calendar_show_description_title">Tapahtuman selitys</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 tuntia</string>
+    <string name="calendar_lookahead_6hrs">6 tuntia</string>
+    <string name="calendar_lookahead_12hrs">12 tuntia</string>
+    <string name="calendar_lookahead_1day">1 päivä</string>
+    <string name="calendar_lookahead_3days">3 päivää</string>
+    <string name="calendar_lookahead_1wk">1 viikko</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">Älä näytä</string>
+    <string name="calendar_metadata_first_line">Näytä ensimmäinen rivi</string>
+    <string name="calendar_metadata_all">Näytä kaikki</string>
+
+</resources>
