@@ -19,6 +19,7 @@
     <!-- General strings -->
     <string name="unknown">Inconnu</string>
     <string name="cancel">Annuler</string>
+    <string name="loading_indicator">Chargement du widget\u2026</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">Tornade</string>
@@ -27,8 +28,8 @@
     <string name="weather_3">Orage violent</string>
     <string name="weather_4">Orage</string>
     <string name="weather_5">Pluie et neige</string>
-    <string name="weather_6">Pluie et neige fondu</string>
-    <string name="weather_7">Neige et neige fondu</string>
+    <string name="weather_6">Pluie et neige fondue</string>
+    <string name="weather_7">Neige et neige fondue</string>
     <string name="weather_8">Bruine verglaçante</string>
     <string name="weather_9">Bruine</string>
     <string name="weather_10">Pluie verglaçante</string>
@@ -107,6 +108,8 @@
     <string name="display_category">Affichage</string>
 
     <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">Utiliser l\'horloge digitale</string>
+    <string name="use_digital_clock_summary">Sélectionner pour basculer de l\'horloge digitale à analogique</string>
     <string name="clock_font_title">Heure en gras</string>
     <string name="clock_font_minutes_title">Minutes en gras</string>
     <string name="clock_font_date_title">Date et alarme en gras</string>
