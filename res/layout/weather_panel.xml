@@ -46,7 +46,7 @@
             android:id="@+id/weather_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:layout_alignParentRight="true"
             android:gravity="right"
@@ -64,7 +64,7 @@
             android:gravity="right"
             android:singleLine="true"
             android:ellipsize="marquee"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textColor="?android:attr/textColorPrimary"
             style="@style/label_shadow" />
 
