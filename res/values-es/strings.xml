@@ -19,6 +19,7 @@
     <!-- General strings -->
     <string name="unknown">Desconocido</string>
     <string name="cancel">Cancelar</string>
+    <string name="loading_indicator">Cargando widget\u2026</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">Tornado</string>
@@ -106,6 +107,8 @@
     <string name="display_category">Aspecto</string>
 
     <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">Usar reloj digital</string>
+    <string name="use_digital_clock_summary">Seleccionar para alternar entre el reloj digital y el analógico</string>
     <string name="clock_font_title">Resaltar hora</string>
     <string name="clock_font_minutes_title">Resaltar minutos</string>
     <string name="clock_font_date_title">Resaltar fecha y alarma</string>
