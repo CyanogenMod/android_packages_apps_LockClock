@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+  <!-- General strings -->
+  <string name="unknown">Neznámé</string>
+  <string name="cancel">Zrušit</string>
+  <string name="loading_indicator">Načítání widgetu\u2026</string>
+  <!-- Weather - Weather codes -->
+  <string name="weather_0">Tornádo</string>
+  <string name="weather_1">Tropická bouře</string>
+  <string name="weather_2">Hurikán</string>
+  <string name="weather_3">Silné bouřky</string>
+  <string name="weather_4">Bouřky</string>
+  <string name="weather_5">Déšť se sněhem</string>
+  <string name="weather_6">Dešťové přeháňky se sněhem</string>
+  <string name="weather_7">Sněhové přeháňky s deštěm</string>
+  <string name="weather_8">Mrznoucí mrholení</string>
+  <string name="weather_9">Mrholení</string>
+  <string name="weather_10">Mrznoucí déšť</string>
+  <string name="weather_11">Silný déšť</string>
+  <string name="weather_12">Přeháňky</string>
+  <string name="weather_13">Sněhové přeháňky</string>
+  <string name="weather_14">Lehké přeháňky se sněhem</string>
+  <string name="weather_15">Zvířený sníh</string>
+  <string name="weather_16">Sněžení</string>
+  <string name="weather_17">Krupobití</string>
+  <string name="weather_18">Plískanice</string>
+  <string name="weather_19">Prašno</string>
+  <string name="weather_20">Mlhavo</string>
+  <string name="weather_21">Opar</string>
+  <string name="weather_22">Smog</string>
+  <string name="weather_23">Bouřlivo</string>
+  <string name="weather_24">Větrno</string>
+  <string name="weather_25">Chladno</string>
+  <string name="weather_26">Zataženo</string>
+  <string name="weather_27">Převážně zataženo</string>
+  <string name="weather_28">Převážně zataženo</string>
+  <string name="weather_29">Částečně zataženo</string>
+  <string name="weather_30">Částečně zataženo</string>
+  <string name="weather_31">Jasno</string>
+  <string name="weather_32">Slunečno</string>
+  <string name="weather_33">Hezky</string>
+  <string name="weather_34">Hezky</string>
+  <string name="weather_35">Déšť s kroupami</string>
+  <string name="weather_36">Horko</string>
+  <string name="weather_37">Místy bouřky</string>
+  <string name="weather_38">Občasné bouřky</string>
+  <string name="weather_39">Občasné bouřky</string>
+  <string name="weather_40">Ojediněle přeháňky</string>
+  <string name="weather_41">Silné sněžení</string>
+  <string name="weather_42">Ojediněle sněhové přeháňky</string>
+  <string name="weather_43">Silné sněžení</string>
+  <string name="weather_44">Polojasno</string>
+  <string name="weather_45">Bouřkové přeháňky</string>
+  <string name="weather_46">Sněhové přeháňky</string>
+  <string name="weather_47">Ojedinělé bouřky</string>
+  <!-- Forecast unavailable -->
+  <string name="weather_3200"></string>
+  <!-- Weather - Wind directions -->
+  <string name="weather_N">S</string>
+  <string name="weather_NE">SV</string>
+  <string name="weather_E">V</string>
+  <string name="weather_SE">JV</string>
+  <string name="weather_S">J</string>
+  <string name="weather_SW">JZ</string>
+  <string name="weather_W">Z</string>
+  <string name="weather_NW">SZ</string>
+  <!-- Weather - error messages -->
+  <string name="weather_no_data">Žádná data</string>
+  <string name="weather_tap_to_refresh">Kliknutím obnovit</string>
+  <string name="weather_refreshing">Obnovování</string>
+  <string name="weather_last_sync_just_now">Právě teď</string>
+  <!-- Weather - Update frequency -->
+  <string name="weather_refresh_manual">Ručně</string>
+  <string name="weather_refresh_30min">30 minut</string>
+  <string name="weather_refresh_60min">60 minut</string>
+  <string name="weather_refresh_2hrs">2 hodiny</string>
+  <string name="weather_refresh_4hrs">4 hodiny</string>
+  <string name="weather_refresh_6hrs">6 hodin</string>
+  <string name="weather_refresh_8hrs">8 hodin</string>
+  <!-- Preferences - Categories -->
+  <string name="clock_category">Hodiny a budík</string>
+  <string name="weather_category">Panel počasí</string>
+  <string name="calendar_category">Události kalendáře</string>
+  <!-- Preferences - Categories -->
+  <string name="general_category">Obecné</string>
+  <string name="display_category">Zobrazení</string>
+  <!-- Preferences - Clock -->
+  <string name="use_digital_clock_title">Použít digitální hodiny</string>
+  <string name="use_digital_clock_summary">Vybrat pro přepnutí mezi digitálními a analogovými hodinami</string>
+  <string name="clock_font_title">Zvýraznit hodiny</string>
+  <string name="clock_font_minutes_title">Zvýraznit minuty</string>
+  <string name="clock_font_date_title">Zvýraznit datum a budík</string>
+  <string name="show_alarm_title">Zobrazit příští budík</string>
+  <!-- Preferences - Weather -->
+  <string name="weather_enabled">Použít</string>
+  <string name="weather_enable">Zobrazit počasí</string>
+  <string name="weather_source">Yahoo! Počasí</string>
+  <string name="weather_use_custom_location">Použít vlastní polohu</string>
+  <string name="weather_geolocated">Zjistit polohu ze sítě</string>
+  <string name="weather_custom_location_dialog_title">Zadat polohu</string>
+  <string name="weather_custom_location_hint">Město, stát</string>
+  <string name="weather_custom_location_title">Poloha</string>
+  <string name="weather_show_location_title">Zobrazit polohu</string>
+  <string name="weather_show_timestamp_title">Zobrazit časový údaj</string>
+  <string name="weather_refresh_interval">Interval aktualizace</string>
+  <string name="weather_use_metric">Použít metrické jednotky</string>
+  <string name="weather_retrieve_location_dialog_title">Není možné určit polohu!</string>
+  <string name="weather_retrieve_location_dialog_message">Zjištění polohy sítí je vypnuto.\n\nJe nutné nastavit vlastní polohu, nebo zapnout zjišťování sítí.</string>
+  <string name="weather_retrieve_location_dialog_enable_button">Zapnout</string>
+  <string name="weather_invert_lowhigh">Přehodit nízké/vysoké teploty</string>
+  <string name="weather_progress_title">Ověřování polohy</string>
+  <string name="weather_alternate_icons_title">Použít alternativní ikony</string>
+  <string name="weather_alternate_icons_summary">Vybrat mezi výchozími (bílými) či alternativními (barevnými) ikonami</string>
+  <!-- Preferences - Calendar -->
+  <string name="calendar_title">Zobrazit další událost</string>
+  <string name="calendars_title">Událost kalendářů</string>
+  <string name="calendars_summary">Hledat události v těchto kalendářích</string>
+  <string name="calendar_reminders_only_title">Pouze s připomínkou</string>
+  <string name="calendar_reminders_only_summary">Zobrazit pouze události s připomínkou</string>
+  <string name="calendar_hide_allday_title">Skrýt celodenní události</string>
+  <string name="calendar_lookahead_title">Časový rozsah událostí</string>
+  <string name="calendar_show_location_title">Místo konání události</string>
+  <string name="calendar_show_description_title">Popis události</string>
+  <!-- Calendar - lookahead -->
+  <string name="calendar_lookahead_3hrs">3 hodiny</string>
+  <string name="calendar_lookahead_6hrs">6 hodin</string>
+  <string name="calendar_lookahead_12hrs">12 hodin</string>
+  <string name="calendar_lookahead_1day">1 den</string>
+  <string name="calendar_lookahead_3days">3 dny</string>
+  <string name="calendar_lookahead_1wk">1 týden</string>
+  <!-- Calendar - Event metadata -->
+  <string name="calendar_metadata_none">Nezobrazovat</string>
+  <string name="calendar_metadata_first_line">Zobrazit první řádek</string>
+  <string name="calendar_metadata_all">Zobrazit vše</string>
+</resources>
