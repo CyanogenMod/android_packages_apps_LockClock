@@ -115,7 +115,7 @@
     <!-- Preferences - Weather -->
     <string name="weather_enabled">Käytössä</string>
     <string name="weather_enable">Näytä sää</string>
-    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_source">Yahoo! Sää</string>
     <string name="weather_use_custom_location">Käytä itse valittua sijaintia</string>
     <string name="weather_geolocated">Paikannettu verkon avulla</string>
     <string name="weather_custom_location_dialog_title">Syötä sijainti</string>
