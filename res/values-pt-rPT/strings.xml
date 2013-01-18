@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string name="unknown">Desconhecido</string>
+    <string name="cancel">Cancelar</string>
+    <string name="weather_0">Tornado</string>
+    <string name="weather_1">Tempestade Tropical</string>
+    <string name="weather_2">Furacão</string>
+    <string name="weather_3">Tempestades Fortes</string>
+    <string name="weather_4">Tempestades</string>
+    <string name="weather_5">Chuva e Neve Misturados</string>
+    <string name="weather_6">Chuva e Geada Misturados</string>
+    <string name="weather_7">Neve e Geada Misturados</string>
+    <string name="weather_8">Chuviscos Congelantes</string>
+    <string name="weather_9">Chuviscos</string>
+    <string name="weather_10">Chuva Congelante</string>
+    <string name="weather_11">Chuva</string>
+    <string name="weather_12">Chuva</string>
+    <string name="weather_13">Flocos de Neve</string>
+    <string name="weather_14">Chuva de Neve Fraca</string>
+    <string name="weather_15">Tempestade de Neve</string>
+    <string name="weather_16">Neve</string>
+    <string name="weather_17">Granizo</string>
+    <string name="weather_18">Geada</string>
+    <string name="weather_19">Poeira</string>
+    <string name="weather_20">Nebuloso</string>
+    <string name="weather_21">Neblina</string>
+    <string name="weather_22">Nevoeiro</string>
+    <string name="weather_23">Ventos Fortes</string>
+    <string name="weather_24">Ventania</string>
+    <string name="weather_25">Frio</string>
+    <string name="weather_26">Nublado</string>
+    <string name="weather_27">Maior Parte Nublado</string>
+    <string name="weather_28">Maior Parte Nublado</string>
+    <string name="weather_29">Parcialmente Nublado</string>
+    <string name="weather_30">Parcialmente Nublado</string>
+    <string name="weather_31">Limpo</string>
+    <string name="weather_32">Ensolarado</string>
+    <string name="weather_33">Razoável</string>
+    <string name="weather_34">Razoável</string>
+    <string name="weather_35">Chuva e Granizo Misturados</string>
+    <string name="weather_36">Quente</string>
+    <string name="weather_37">Tempestades Isoladas</string>
+    <string name="weather_38">Tempestades Dispersas</string>
+    <string name="weather_39">Tempestades Dispersas</string>
+    <string name="weather_40">Chuvas Dispersas</string>
+    <string name="weather_41">Nevão Forte</string>
+    <string name="weather_42">Neve Dispersa</string>
+    <string name="weather_43">Nevão Forte</string>
+    <string name="weather_44">Parcialmente Nublado</string>
+    <string name="weather_45">Chuvas com Trovoadas</string>
+    <string name="weather_46">Chuva de Neve</string>
+    <string name="weather_47">Chuvas com Trovoadas Isoladas</string>
+    <string name="weather_3200"></string>
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NE</string>
+    <string name="weather_E">L</string>
+    <string name="weather_SE">SE</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SO</string>
+    <string name="weather_W">O</string>
+    <string name="weather_NW">NO</string>
+    <string name="weather_no_data">Sem dados</string>
+    <string name="weather_tap_to_refresh">Pressione para atualizar</string>
+    <string name="weather_refreshing">A actualizar</string>
+    <string name="weather_last_sync_just_now">Agora mesmo</string>
+    <string name="weather_refresh_manual">Manual</string>
+    <string name="weather_refresh_30min">30 minutos</string>
+    <string name="weather_refresh_60min">60 minutos</string>
+    <string name="weather_refresh_2hrs">2 horas</string>
+    <string name="weather_refresh_4hrs">4 horas</string>
+    <string name="weather_refresh_6hrs">6 horas</string>
+    <string name="weather_refresh_8hrs">8 horas</string>
+    <string name="weather_enable">Mostrar meteorolia</string>
+    <string name="weather_source">Yahoo! Tempo</string>
+    <string name="weather_use_custom_location">Usar local personalizado</string>
+    <string name="weather_geolocated">Geolocalização usando a rede</string>
+    <string name="weather_custom_location_dialog_title">Inserir localização</string>
+    <string name="weather_custom_location_hint">Cidade, Distrito/País</string>
+    <string name="weather_custom_location_title">Local</string>
+    <string name="weather_show_location_title">Mostrar local</string>
+    <string name="weather_show_timestamp_title">Mostrar horário</string>
+    <string name="weather_refresh_interval">Intervalo de atualização</string>
+    <string name="weather_use_metric">Usar sistema métrico</string>
+    <string name="weather_retrieve_location_dialog_title">Não é possível definir a sua localização!</string>
+    <string name="weather_retrieve_location_dialog_message">Geolocalização por rede está desativada.\n\nDefinir uma localização personalizada ou ativar localização por rede</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Ativar</string>
+    <string name="weather_invert_lowhigh">Inverte temperaturas alta/baixa</string>
+    <string name="weather_progress_title">A verificar a localização</string>
+    <string name="calendar_title">Mostrar próximo evento</string>
+    <string name="calendars_title">Eventos das agendas</string>
+    <string name="calendars_summary">Procurar por eventos nestas agendas</string>
+    <string name="calendar_reminders_only_title">Apenas lembretes</string>
+    <string name="calendar_reminders_only_summary">Mostrar apenas eventos com lembretes</string>
+    <string name="calendar_lookahead_title">Eventos futuros</string>
+    <string name="calendar_show_location_title">Localização do evento</string>
+    <string name="calendar_show_description_title">Descrição do evento</string>
+    <string name="calendar_lookahead_3hrs">3 horas</string>
+    <string name="calendar_lookahead_6hrs">6 horas</string>
+    <string name="calendar_lookahead_12hrs">12 horas</string>
+    <string name="calendar_lookahead_1day">1 dia</string>
+    <string name="calendar_lookahead_3days">3 dias</string>
+    <string name="calendar_lookahead_1wk">1 semana</string>
+    <string name="calendar_metadata_none">Não mostrar</string>
+    <string name="calendar_metadata_first_line">Mostrar primeira linha</string>
+    <string name="calendar_metadata_all">Mostrar tudo</string>
+    <string name="clock_category">Relógio e alarme</string>
+    <string name="weather_category">Painel do tempo</string>
+    <string name="calendar_category">Eventos do calendário</string>
+    <string name="clock_font_title">Horas em negrito</string>
+    <string name="show_alarm_title">Mostrar próximo alarme</string>
+    <string name="weather_enabled">Ativado</string>
+    <string name="calendar_hide_allday_title">Ocultar eventos de dia inteiro</string>
+    <string name="general_category">Geral</string>
+    <string name="display_category">Mostrar</string>
+    <string name="clock_font_minutes_title">Minutos em negrito</string>
+    <string name="clock_font_date_title">Data e minutos em negrito</string>
+    <string name="weather_alternate_icons_title">Usar ícones alternados</string>
+    <string name="weather_alternate_icons_summary">Selecionar para alternar entre o padrão (Branco) e os ícones (Cor) alternativo</string>
+    <string name="loading_indicator">A carregar widget\u2026</string>
+    <string name="use_digital_clock_title">Usar relógio Digital</string>
+    <string name="use_digital_clock_summary">Selecionar para alternar entre o relógio Digital e o Analógico</string>
+</resources>
