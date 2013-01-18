@@ -88,7 +88,6 @@
     <string name="clock_category">Klok &amp; alarm</string>
     <string name="weather_category">Weerpaneel</string>
     <string name="calendar_category">Agenda-afspraken</string>
-
     <string name="general_category">Algemeen</string>
     <string name="display_category">Weergave</string>
     <string name="use_digital_clock_title">Digitale klok gebruiken</string>
@@ -97,10 +96,9 @@
     <string name="clock_font_minutes_title">Minuten vetgedrukt</string>
     <string name="clock_font_date_title">Alarm/datum vetgedrukt</string>
     <string name="show_alarm_title">Volgend alarm tonen</string>
-
     <string name="weather_enabled">Ingeschakeld</string>
     <string name="weather_enable">Weer tonen</string>
-    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_source">Yahoo! Weer</string>
     <string name="weather_use_custom_location">Aangepaste locatie</string>
     <string name="weather_geolocated">Locatie bepalen door netwerk</string>
     <string name="weather_custom_location_dialog_title">Locatie invoeren</string>
