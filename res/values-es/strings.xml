@@ -117,7 +117,7 @@
     <!-- Preferences - Weather -->
     <string name="weather_enabled">Activado</string>
     <string name="weather_enable">Mostrar clima</string>
-    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_source">Yahoo! Tiempo</string>
     <string name="weather_use_custom_location">Usar ubicación personalizada</string>
     <string name="weather_geolocated">Geolocalización por red</string>
     <string name="weather_custom_location_dialog_title">Introducir ubicación</string>
