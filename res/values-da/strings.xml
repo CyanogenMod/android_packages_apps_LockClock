@@ -19,6 +19,7 @@
     <!-- General strings -->
     <string name="unknown">Ukendt</string>
     <string name="cancel">Annuller</string>
+    <string name="loading_indicator">Indlæser widget\u2026</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">Tornado</string>
@@ -99,14 +100,16 @@
 
     <!-- Preferences - Categories -->
     <string name="clock_category">Ur og alarm</string>
-    <string name="weather_category">Vejr panel</string>
-    <string name="calendar_category">Kalender begivenheder</string>
+    <string name="weather_category">Vejrpanel</string>
+    <string name="calendar_category">Kalender-begivenheder</string>
 
     <!-- Preferences - Categories -->
     <string name="general_category">Generelt</string>
-    <string name="display_category">Display</string>
+    <string name="display_category">Visning</string>
 
     <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">Brug digitalt ur</string>
+    <string name="use_digital_clock_summary">Vælg for at skifte mellem digitalt og analogt ur</string>
     <string name="clock_font_title">Timer med fed</string>
     <string name="clock_font_minutes_title">Minutter med fed</string>
     <string name="clock_font_date_title">Dato og alarm med fed</string>
@@ -126,8 +129,8 @@
     <string name="weather_refresh_interval">Opdateringsinterval</string>
     <string name="weather_use_metric">Brug metrisk</string>
     <string name="weather_retrieve_location_dialog_title">Kan ikke få lokation!</string>
-    <string name="weather_retrieve_location_dialog_message">Netværk geolokation er slået fra.\n\nIndtast en alternativ lokation, eller aktiver netværk geolokation.</string>
-    <string name="weather_retrieve_location_dialog_enable_button">Aktiver</string>
+    <string name="weather_retrieve_location_dialog_message">Netværk geolokation er slået fra.\n\nIndtast en alternativ lokation, eller aktivér netværk geolokation.</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Aktivér</string>
     <string name="weather_invert_lowhigh">Byt lav/høj temperatur</string>
     <string name="weather_progress_title">Bekræfter lokation</string>
     <string name="weather_alternate_icons_title">Brug alternative ikoner</string>
@@ -140,9 +143,9 @@
     <string name="calendar_reminders_only_title">Kun påmindelser</string>
     <string name="calendar_reminders_only_summary">Vis kun begivenheder med påmindelser</string>
     <string name="calendar_hide_allday_title">Skjul heldags begivenheder</string>
-    <string name="calendar_lookahead_title">Begivenheder tidsramme</string>
-    <string name="calendar_show_location_title">Begivenheder lokation</string>
-    <string name="calendar_show_description_title">Begivenheder beskrivelse</string>
+    <string name="calendar_lookahead_title">Tidsramme for begivenheder</string>
+    <string name="calendar_show_location_title">Lokation for begivenhed</string>
+    <string name="calendar_show_description_title">Beskrivelse af begivenhed</string>
 
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 timer</string>
