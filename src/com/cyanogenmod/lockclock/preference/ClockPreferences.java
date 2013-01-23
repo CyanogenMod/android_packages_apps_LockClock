@@ -16,8 +16,6 @@
 
 package com.cyanogenmod.lockclock.preference;
 
-import static com.cyanogenmod.lockclock.misc.Constants.PREF_NAME;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,31 +31,37 @@ import com.cyanogenmod.lockclock.misc.Constants;
 
 public class ClockPreferences extends PreferenceFragment implements
     OnSharedPreferenceChangeListener {
-    private static final String TAG = "Clock Preferences";
 
     private Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getPreferenceManager().setSharedPreferencesName(PREF_NAME);
+        getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
         addPreferencesFromResource(R.xml.preferences_clock);
         mContext = getActivity();
-
-        // Load the required settings from preferences
-        SharedPreferences prefs = mContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        prefs.registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+    public void onResume() {
+        super.onResume();
+        getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         Preference pref = findPreference(key);
         if (pref instanceof ListPreference) {
             ListPreference listPref = (ListPreference) pref;
             pref.setSummary(listPref.getEntry());
         }
         Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
-        updateIntent.putExtra(Constants.FORCE_REFRESH, true);
         mContext.sendBroadcast(updateIntent);
     }
 }
