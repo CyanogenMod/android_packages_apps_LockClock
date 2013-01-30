@@ -153,6 +153,10 @@ public class WeatherUpdateService extends Service {
         }
 
         private String getWoeidForCurrentLocation(Location location) {
+            if (location == null) {
+                return null;
+            }
+
             String woeid = YahooPlaceFinder.reverseGeoCode(mContext,
                     location.getLatitude(), location.getLongitude());
             if (woeid == null) {
