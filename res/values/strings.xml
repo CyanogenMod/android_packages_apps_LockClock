@@ -17,7 +17,7 @@
 <resources>
 
     <!-- General strings -->
-    <string name="app_name" translatable="false">Chronus</string>
+    <string name="app_name" translatable="false">cLock</string>
     <string name="unknown">Unknown</string>
     <string name="cancel">Cancel</string>
     <string name="loading_indicator">Loading widget\u2026</string>
