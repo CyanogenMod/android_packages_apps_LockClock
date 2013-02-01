@@ -18,6 +18,7 @@
 package com.cyanogenmod.lockclock.misc;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CalendarInfo {
@@ -46,6 +47,7 @@ public class CalendarInfo {
 
     public void addEvent(EventInfo event) {
         mEventsList.add(event);
+        Collections.sort(mEventsList);
     }
 
     public void setFollowingEventStart(long start) {
@@ -62,7 +64,7 @@ public class CalendarInfo {
     /**
      * EventInfo is a class that represents an event in the widget
      */
-    public static class EventInfo {
+    public static class EventInfo implements Comparable<EventInfo> {
         public String description;
         public String title;
 
@@ -129,6 +131,23 @@ public class CalendarInfo {
                 return false;
             }
             return true;
+        }
+
+        @Override
+        public int compareTo(EventInfo other) {
+            if (start < other.start) {
+                return -1;
+            } else if (start > other.start) {
+                return 1;
+            }
+
+            if (allDay && !other.allDay) {
+                return -1;
+            } else if (!allDay && other.allDay) {
+                return 1;
+            }
+
+            return 0;
         }
     }
 }

@@ -44,12 +44,9 @@ import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
-import org.w3c.dom.Document;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
-import java.util.TimeZone;
 
 public class ClockWidgetService extends IntentService {
     private static final String TAG = "ClockWidgetService";
@@ -57,6 +54,8 @@ public class ClockWidgetService extends IntentService {
 
     public static final String ACTION_REFRESH = "com.cyanogenmod.lockclock.action.REFRESH_WIDGET";
     public static final String ACTION_REFRESH_CALENDAR = "com.cyanogenmod.lockclock.action.REFRESH_CALENDAR";
+
+    private static final long DAY_IN_MILLIS = 24L * 60L * 60L * 1000L;
 
     private int[] mWidgetIds;
     private AppWidgetManager mAppWidgetManager;
@@ -437,7 +436,7 @@ public class ClockWidgetService extends IntentService {
         int ALL_DAY_INDEX = 6;
 
         Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
-                String.format("%d/%d", now, later));
+                String.format("%d/%d", now - DAY_IN_MILLIS, later + DAY_IN_MILLIS));
         Cursor cursor = null;
         mCalendarInfo.clearEvents();
 
@@ -446,9 +445,17 @@ public class ClockWidgetService extends IntentService {
                     where.toString(), null, CalendarContract.Instances.BEGIN + " ASC");
 
             if (cursor != null) {
-                cursor.moveToFirst();
+                final SimpleDateFormat allDayFormat = new SimpleDateFormat(
+                        getString(R.string.abbrev_wday_month_day_no_year));
+                final java.text.DateFormat eventFormat = DateFormat.getTimeFormat(this);
+                final int showLocation = Preferences.calendarLocationMode(this);
+                final int showDescription = Preferences.calendarDescriptionMode(this);
+                final Time time = new Time();
+                int eventCount = 0;
+
+                cursor.moveToPosition(-1);
                 // Iterate through returned rows to a maximum number of calendar events
-                for (int i = 0, eventCount = 0; i < cursor.getCount() && eventCount < Constants.MAX_CALENDAR_ITEMS; i++) {
+                while (cursor.moveToNext() && eventCount < Constants.MAX_CALENDAR_ITEMS) {
                     long eventId = cursor.getLong(EVENT_ID_INDEX);
                     String title = cursor.getString(TITLE_INDEX);
                     long begin = cursor.getLong(BEGIN_TIME_INDEX);
@@ -456,25 +463,17 @@ public class ClockWidgetService extends IntentService {
                     String description = cursor.getString(DESCRIPTION_INDEX);
                     String location = cursor.getString(LOCATION_INDEX);
                     boolean allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
-                    if (D) Log.v(TAG, "Adding event: " + title + " with id: " + eventId);
 
-                    // Check the next event in the case of all day event. As UTC is used for all day
-                    // events, the next event may be the one that actually starts sooner
-                    if (allDay && !cursor.isLast()) {
-                        cursor.moveToNext();
-                        long nextBegin = cursor.getLong(BEGIN_TIME_INDEX);
-                        if (nextBegin < begin + TimeZone.getDefault().getOffset(begin)) {
-                            eventId = cursor.getLong(EVENT_ID_INDEX);
-                            title = cursor.getString(TITLE_INDEX);
-                            begin = nextBegin;
-                            end = cursor.getLong(END_TIME_INDEX);
-                            description = cursor.getString(DESCRIPTION_INDEX);
-                            location = cursor.getString(LOCATION_INDEX);
-                            allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
-                        }
-                        // Go back since we are still iterating
-                        cursor.moveToPrevious();
+                    if (allDay) {
+                        begin = convertUtcToLocal(time, begin);
+                        end = convertUtcToLocal(time, end);
                     }
+
+                    if (end < now) {
+                        continue;
+                    }
+
+                    if (D) Log.v(TAG, "Adding event: " + title + " with id: " + eventId);
 
                     // Start building the event details string
                     // Starting with the date
@@ -483,22 +482,16 @@ public class ClockWidgetService extends IntentService {
                     StringBuilder sb = new StringBuilder();
 
                     if (allDay) {
-                        SimpleDateFormat sdf = new SimpleDateFormat(
-                                getString(R.string.abbrev_wday_month_day_no_year));
-                        // Calendar stores all-day events in UTC -- setting the time zone ensures
-                        // the correct date is shown.
-                        sdf.setTimeZone(TimeZone.getTimeZone(Time.TIMEZONE_UTC));
-                        sb.append(sdf.format(startDate));
+                        sb.append(allDayFormat.format(startDate));
                     } else {
                         sb.append(DateFormat.format("E", startDate));
                         sb.append(" ");
-                        sb.append(DateFormat.getTimeFormat(this).format(startDate));
+                        sb.append(eventFormat.format(startDate));
                         sb.append(" - ");
-                        sb.append(DateFormat.getTimeFormat(this).format(endDate));
+                        sb.append(eventFormat.format(endDate));
                     }
 
                     // Add the event location if it should be shown
-                    int showLocation = Preferences.calendarLocationMode(this);
                     if (showLocation != Preferences.SHOW_NEVER && !TextUtils.isEmpty(location)) {
                         switch (showLocation) {
                             case Preferences.SHOW_FIRST_LINE:
@@ -516,9 +509,7 @@ public class ClockWidgetService extends IntentService {
                     }
 
                     // Add the event description if it should be shown
-                    int showDescription = Preferences.calendarDescriptionMode(this);
                     if (showDescription != Preferences.SHOW_NEVER && !TextUtils.isEmpty(description)) {
-
                         // Show the appropriate separator
                         if (showLocation == Preferences.SHOW_NEVER) {
                             sb.append(": ");
@@ -544,7 +535,6 @@ public class ClockWidgetService extends IntentService {
                     // Add the event details to the CalendarInfo object and move to next record
                     mCalendarInfo.addEvent(populateEventInfo(eventId, title, sb.toString(), begin, end, allDay));
                     eventCount++;
-                    cursor.moveToNext();
                 }
             }
         } catch (Exception e) {
@@ -582,6 +572,13 @@ public class ClockWidgetService extends IntentService {
                 cursor.close();
             }
         }
+    }
+
+    private long convertUtcToLocal(Time time, long utcTime) {
+        time.timezone = Time.TIMEZONE_UTC;
+        time.set(utcTime);
+        time.timezone = Time.getCurrentTimezone();
+        return time.normalize(true);
     }
 
     /**
@@ -644,8 +641,7 @@ public class ClockWidgetService extends IntentService {
 
     private long getMinUpdateFromNow(long now) {
         /* we update at least once a day */
-        final long millisPerDay = 24L * 60L * 60L * 1000L;
-        return now + millisPerDay;
+        return now + DAY_IN_MILLIS;
     }
 
     private static PendingIntent getRefreshIntent(Context context) {
