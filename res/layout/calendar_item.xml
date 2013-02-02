@@ -30,6 +30,7 @@
         android:gravity="center" />
 
     <ImageView
+        android:id="@+id/calendar_icon_line"
         android:layout_width="1dip"
         android:layout_height="match_parent"
         android:paddingTop="6dip"

@@ -356,8 +356,13 @@ public class ClockWidgetService extends IntentService {
 
             // Only set the icon on the first event
             if (!hasEvents) {
-                itemViews.setImageViewResource(R.id.calendar_icon, R.drawable.ic_lock_idle_calendar);
+            	// Only if "without icon" preference is disabled
+            	if (!withoutIcon) itemViews.setImageViewResource(R.id.calendar_icon, R.drawable.ic_lock_idle_calendar);
             }
+
+            // Without icon
+            itemViews.setViewVisibility(R.id.calendar_icon, withoutIcon ? View.GONE : View.VISIBLE);
+            itemViews.setViewVisibility(R.id.calendar_icon_line, withoutIcon ? View.GONE : View.VISIBLE);
 
             // Add the event text fields
             itemViews.setTextViewText(R.id.calendar_event_title, event.title);

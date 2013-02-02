@@ -57,6 +57,11 @@
     <PreferenceCategory
         android:title="@string/display_category" >
 
+        <CheckBoxPreference	
+			android:key="calendar_without_icon"	
+			android:dependency="show_calendar"	
+			android:title="@string/calendar_without_icon_title" />
+        
         <ListPreference
             android:key="calendar_show_location"
             android:dependency="show_calendar"

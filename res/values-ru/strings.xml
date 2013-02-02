@@ -146,6 +146,7 @@
     <string name="calendar_lookahead_title">Предпросмотр события</string>
     <string name="calendar_show_location_title">Место проведения</string>
     <string name="calendar_show_description_title">Описание события</string>
+    <string name="calendar_without_icon_title">Без иконки</string>
 
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 часа</string>

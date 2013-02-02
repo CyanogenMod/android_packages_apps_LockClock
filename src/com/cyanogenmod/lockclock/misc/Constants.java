@@ -46,6 +46,7 @@ public class Constants {
     public static final String CALENDAR_HIDE_ALLDAY = "calendar_hide_allday";
     public static final String CALENDAR_SHOW_LOCATION = "calendar_show_location";
     public static final String CALENDAR_SHOW_DESCRIPTION = "calendar_show_description";
+    public static final String CALENDAR_WITHOUT_ICON = "calendar_without_icon";
 
     // other shared pref entries
     public static final String WEATHER_LAST_UPDATE = "last_weather_update";
