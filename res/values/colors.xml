@@ -19,4 +19,6 @@
     <color name="clock_white">#ffffff</color>
     <color name="clock_gray">#80ffffff</color>
     <color name="text_shadow">#dd000000</color>
+    <color name="text_shadow_opaque">#3f000000</color>
+
 </resources>
