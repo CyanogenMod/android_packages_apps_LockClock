@@ -111,8 +111,7 @@ public class Preferences {
         return Long.parseLong(getPrefs(context).getString(Constants.CALENDAR_LOOKAHEAD, "10800000"));
     }
     public static boolean showEventsWithoutIcon(Context context) {
-
-    	return getPrefs(context).getBoolean(Constants.CALENDAR_WITHOUT_ICON, false);
+        return getPrefs(context).getBoolean(Constants.CALENDAR_WITHOUT_ICON, false);
     }
 
     public static final int SHOW_NEVER = 0;

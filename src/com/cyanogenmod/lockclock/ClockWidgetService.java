@@ -339,6 +339,7 @@ public class ClockWidgetService extends IntentService {
         boolean hideAllDay = !Preferences.showAllDayEvents(this);
         long lookAhead = Preferences.lookAheadTimeInMs(this);
         boolean hasEvents = false;
+        boolean withoutIcon = Preferences.showEventsWithoutIcon(this);
 
         // Remove all the views to start
         calendarViews.removeAllViews(R.id.calendar_panel);
@@ -356,8 +357,7 @@ public class ClockWidgetService extends IntentService {
 
             // Only set the icon on the first event
             if (!hasEvents) {
-            	// Only if "without icon" preference is disabled
-            	if (!withoutIcon) itemViews.setImageViewResource(R.id.calendar_icon, R.drawable.ic_lock_idle_calendar);
+            	itemViews.setImageViewResource(R.id.calendar_icon, R.drawable.ic_lock_idle_calendar);
             }
 
             // Without icon
