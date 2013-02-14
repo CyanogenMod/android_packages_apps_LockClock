@@ -371,8 +371,7 @@ public class ClockWidgetService extends IntentService {
 
         // Register an onClickListener on Calendar if it contains any events, starting the Calendar app
         if (hasEvents) {
-            ComponentName cal = new ComponentName("com.android.calendar", "com.android.calendar.AllInOneActivity");
-            Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(cal);
+            Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALENDAR);
             PendingIntent pi = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
             calendarViews.setOnClickPendingIntent(R.id.calendar_panel, pi);
         }
