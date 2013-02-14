@@ -93,7 +93,7 @@
     <string name="weather_custom_location_hint">Cidade, Estado/País</string>
     <string name="weather_custom_location_title">Local</string>
     <string name="weather_show_location_title">Exibir local</string>
-    <string name="weather_show_timestamp_title">Exbir horário</string>
+    <string name="weather_show_timestamp_title">Exibir horário</string>
     <string name="weather_refresh_interval">Intervalo de atualização</string>
     <string name="weather_use_metric">Usar sistema métrico</string>
     <string name="weather_retrieve_location_dialog_title">Não é possível definir sua localização!</string>
