@@ -30,6 +30,7 @@ import android.provider.CalendarContract;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.util.Log;
 import android.util.TypedValue;
@@ -44,7 +45,6 @@ import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
@@ -481,9 +481,6 @@ public class ClockWidgetService extends IntentService {
                     where.toString(), null, CalendarContract.Instances.BEGIN + " ASC");
 
             if (cursor != null) {
-                final SimpleDateFormat allDayFormat = new SimpleDateFormat(
-                        getString(R.string.abbrev_wday_month_day_no_year));
-                final java.text.DateFormat eventFormat = DateFormat.getTimeFormat(this);
                 final int showLocation = Preferences.calendarLocationMode(this);
                 final int showDescription = Preferences.calendarDescriptionMode(this);
                 final Time time = new Time();
@@ -499,6 +496,7 @@ public class ClockWidgetService extends IntentService {
                     String description = cursor.getString(DESCRIPTION_INDEX);
                     String location = cursor.getString(LOCATION_INDEX);
                     boolean allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
+                    int format = 0;
 
                     if (allDay) {
                         begin = convertUtcToLocal(time, begin);
@@ -513,18 +511,19 @@ public class ClockWidgetService extends IntentService {
 
                     // Start building the event details string
                     // Starting with the date
-                    Date startDate = new Date(begin);
-                    Date endDate = new Date(end);
                     StringBuilder sb = new StringBuilder();
 
                     if (allDay) {
-                        sb.append(allDayFormat.format(startDate));
+                        format = Constants.CALENDAR_FORMAT_ALLDAY;
+                    } else if (DateUtils.isToday(begin)) {
+                        format = Constants.CALENDAR_FORMAT_TODAY;
                     } else {
-                        sb.append(DateFormat.format("E", startDate));
-                        sb.append(" ");
-                        sb.append(eventFormat.format(startDate));
-                        sb.append(" - ");
-                        sb.append(eventFormat.format(endDate));
+                        format = Constants.CALENDAR_FORMAT_FUTURE;
+                    }
+                    if (allDay || begin == end) {
+                        sb.append(DateUtils.formatDateTime(this, begin, format));
+                    } else {
+                        sb.append(DateUtils.formatDateRange(this, begin, end, format));
                     }
 
                     // Add the event location if it should be shown
