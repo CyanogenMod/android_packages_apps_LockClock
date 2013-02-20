@@ -30,6 +30,7 @@ import android.provider.CalendarContract;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.util.Log;
 import android.util.TypedValue;
@@ -44,7 +45,6 @@ import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
@@ -445,9 +445,6 @@ public class ClockWidgetService extends IntentService {
                     where.toString(), null, CalendarContract.Instances.BEGIN + " ASC");
 
             if (cursor != null) {
-                final SimpleDateFormat allDayFormat = new SimpleDateFormat(
-                        getString(R.string.abbrev_wday_month_day_no_year));
-                final java.text.DateFormat eventFormat = DateFormat.getTimeFormat(this);
                 final int showLocation = Preferences.calendarLocationMode(this);
                 final int showDescription = Preferences.calendarDescriptionMode(this);
                 final Time time = new Time();
@@ -477,18 +474,14 @@ public class ClockWidgetService extends IntentService {
 
                     // Start building the event details string
                     // Starting with the date
-                    Date startDate = new Date(begin);
-                    Date endDate = new Date(end);
                     StringBuilder sb = new StringBuilder();
 
                     if (allDay) {
-                        sb.append(allDayFormat.format(startDate));
+                        sb.append(DateUtils.formatDateTime(this, begin, Constants.CALENDAR_FORMAT_ALLDAY ));
+                    } else if (DateUtils.isToday(begin)) {
+                    	sb.append(DateUtils.formatDateRange(this, begin, end, Constants.CALENDAR_FORMAT_TODAY));
                     } else {
-                        sb.append(DateFormat.format("E", startDate));
-                        sb.append(" ");
-                        sb.append(eventFormat.format(startDate));
-                        sb.append(" - ");
-                        sb.append(eventFormat.format(endDate));
+                    	sb.append(DateUtils.formatDateRange(this, begin, end, Constants.CALENDAR_FORMAT_FUTURE));
                     }
 
                     // Add the event location if it should be shown
