@@ -16,6 +16,8 @@
 
 package com.cyanogenmod.lockclock.misc;
 
+import android.text.format.DateUtils;
+
 public class Constants {
     public static final boolean DEBUG = false;
 
@@ -52,4 +54,19 @@ public class Constants {
     public static final String WEATHER_DATA = "weather_data";
 
     public static final int MAX_CALENDAR_ITEMS = 3;
+    public static final int WEEK_TIME_IN_MS = 604800000;
+    public static final int CALENDAR_FORMAT_TIME =
+            DateUtils.FORMAT_SHOW_TIME
+            | DateUtils.FORMAT_NO_NOON
+            | DateUtils.FORMAT_NO_MIDNIGHT;
+    public static final int CALENDAR_FORMAT_ABBREV_DATE =
+            DateUtils.FORMAT_SHOW_WEEKDAY
+            | DateUtils.FORMAT_ABBREV_ALL
+            | DateUtils.FORMAT_SHOW_DATE;
+    public static final int CALENDAR_FORMAT_ABBREV_DATETIME =
+            CALENDAR_FORMAT_ABBREV_DATE
+            | CALENDAR_FORMAT_TIME;
+    public static final int CALENDAR_FORMAT_ALLDAY = CALENDAR_FORMAT_ABBREV_DATE;
+    public static final int CALENDAR_FORMAT_TODAY = CALENDAR_FORMAT_TIME;
+    public static final int CALENDAR_FORMAT_FUTURE = CALENDAR_FORMAT_ABBREV_DATETIME;
 }
