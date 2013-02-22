@@ -447,6 +447,7 @@ public class ClockWidgetService extends IntentService {
             if (cursor != null) {
                 final int showLocation = Preferences.calendarLocationMode(this);
                 final int showDescription = Preferences.calendarDescriptionMode(this);
+                final boolean showShortPeriod = (Constants.WEEK_TIME_IN_MS > lookahead);
                 final Time time = new Time();
                 int eventCount = 0;
 
@@ -460,6 +461,7 @@ public class ClockWidgetService extends IntentService {
                     String description = cursor.getString(DESCRIPTION_INDEX);
                     String location = cursor.getString(LOCATION_INDEX);
                     boolean allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
+                    int format = 0;
 
                     if (allDay) {
                         begin = convertUtcToLocal(time, begin);
@@ -477,11 +479,22 @@ public class ClockWidgetService extends IntentService {
                     StringBuilder sb = new StringBuilder();
 
                     if (allDay) {
-                        sb.append(DateUtils.formatDateTime(this, begin, Constants.CALENDAR_FORMAT_ALLDAY ));
+                        format = Constants.CALENDAR_FORMAT_ALLDAY;
+                        if (!showShortPeriod) {
+                            format |= DateUtils.FORMAT_SHOW_DATE;
+                        }
                     } else if (DateUtils.isToday(begin)) {
-                    	sb.append(DateUtils.formatDateRange(this, begin, end, Constants.CALENDAR_FORMAT_TODAY));
+                        format = Constants.CALENDAR_FORMAT_TODAY;
                     } else {
-                    	sb.append(DateUtils.formatDateRange(this, begin, end, Constants.CALENDAR_FORMAT_FUTURE));
+                        format = Constants.CALENDAR_FORMAT_FUTURE;
+                        if (!showShortPeriod) {
+                            format |= DateUtils.FORMAT_SHOW_DATE;
+                        }
+                    }
+                    if (allDay || begin == end) {
+                        sb.append(DateUtils.formatDateTime(this, begin, format));
+                    } else {
+                        sb.append(DateUtils.formatDateRange(this, begin, end, format));
                     }
 
                     // Add the event location if it should be shown
