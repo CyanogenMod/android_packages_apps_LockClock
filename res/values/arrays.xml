@@ -43,6 +43,8 @@
         <item>@string/calendar_lookahead_1day</item>
         <item>@string/calendar_lookahead_3days</item>
         <item>@string/calendar_lookahead_1wk</item>
+        <item>@string/calendar_lookahead_2wks</item>
+        <item>@string/calendar_lookahead_4wks</item>
     </string-array>
 
     <string-array name="calendar_lookahead_values" translatable="false">
@@ -52,6 +54,8 @@
         <item>86400000</item>
         <item>259200000</item>
         <item>604800000</item>
+        <item>1209600000</item>
+        <item>2419200000</item>
     </string-array>
 
     <string-array name="calendar_show_event_metadata_entries" translatable="false">
