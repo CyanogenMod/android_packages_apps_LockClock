@@ -162,6 +162,8 @@
     <string name="calendar_lookahead_1day">1 day</string>
     <string name="calendar_lookahead_3days">3 days</string>
     <string name="calendar_lookahead_1wk">1 week</string>
+    <string name="calendar_lookahead_2wks">2 weeks</string>
+    <string name="calendar_lookahead_4wks">4 weeks</string>
 
     <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">Do not show</string>

@@ -154,6 +154,8 @@
     <string name="calendar_lookahead_1day">1 Tag</string>
     <string name="calendar_lookahead_3days">3 Tage</string>
     <string name="calendar_lookahead_1wk">1 Woche</string>
+    <string name="calendar_lookahead_2wks">2 Wochen</string>
+    <string name="calendar_lookahead_4wks">4 Wochen</string>
 
     <!-- Lock screen calendar - event metadata -->
     <string name="calendar_metadata_none">Nicht anzeigen</string>
