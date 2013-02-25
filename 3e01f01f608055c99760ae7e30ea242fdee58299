@@ -1,0 +1,9 @@
+Change-Id: I3e01f01f608055c99760ae7e30ea242fdee58299
+Code-Review+2: Marco Brohet <therbom@gmail.com>
+Code-Review+1: Delphin PETER <delphinpeter@gmail.com>
+Verified+1: Cid
+Submitted-by: Marco Brohet <therbom@gmail.com>
+Submitted-at: Mon, 25 Feb 2013 13:51:52 -0800
+Reviewed-on: http://review.cyanogenmod.org/32525
+Project: CyanogenMod/android_packages_apps_LockClock
+Branch: refs/heads/cm-10.1
