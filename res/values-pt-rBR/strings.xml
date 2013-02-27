@@ -115,6 +115,8 @@
     <string name="calendar_lookahead_1day">1 dia</string>
     <string name="calendar_lookahead_3days">3 dias</string>
     <string name="calendar_lookahead_1wk">1 semana</string>
+    <string name="calendar_lookahead_2wks">2 semanas</string>
+    <string name="calendar_lookahead_4wks">4 semanas</string>
     <string name="calendar_metadata_none">Não exibir</string>
     <string name="calendar_metadata_first_line">Exibir primeira linha</string>
     <string name="calendar_metadata_all">Exibir tudo</string>
