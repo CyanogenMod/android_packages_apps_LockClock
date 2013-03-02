@@ -434,6 +434,7 @@ public class ClockWidgetService extends IntentService {
         int LOCATION_INDEX = 5;
         int ALL_DAY_INDEX = 6;
 
+        // all day events are stored in UTC, that is why we need to fetch events after 'later'
         Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
                 String.format("%d/%d", now - DAY_IN_MILLIS, later + DAY_IN_MILLIS));
         Cursor cursor = null;
@@ -468,7 +469,7 @@ public class ClockWidgetService extends IntentService {
                         end = convertUtcToLocal(time, end);
                     }
 
-                    if (end < now) {
+                    if (end < now || begin > later) {
                         continue;
                     }
 
