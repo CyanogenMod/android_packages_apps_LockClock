@@ -94,36 +94,47 @@ public class ClockWidgetService extends IntentService {
      */
     private void refreshWidget() {
         // Get things ready
-        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.appwidget);
+        RemoteViews remoteViews;
         boolean digitalClock = Preferences.showDigitalClock(this);
         boolean showWeather = Preferences.showWeather(this);
-        boolean showCalendar = Preferences.showCalendar(this);
-
-        // Always Refresh the Clock widget
-        refreshClock(remoteViews, digitalClock);
-        refreshAlarmStatus(remoteViews);
-
-        // Don't bother with Calendar if its not enabled
-        if (showCalendar) {
-            showCalendar &= refreshCalendar(remoteViews);
-        }
-
-        // Hide the Loading indicator
-        remoteViews.setViewVisibility(R.id.loading_indicator, View.GONE);
-
-        // Now, if we need to show the actual weather, do so
-        if (showWeather) {
-            WeatherInfo weatherInfo = Preferences.getCachedWeatherInfo(this);
-
-            if (weatherInfo != null) {
-                setWeatherData(remoteViews, weatherInfo);
-            } else {
-                setNoWeatherData(remoteViews);
-            }
-        }
+        boolean showCalendar = false;
 
         // Update the widgets
         for (int id : mWidgetIds) {
+
+            // Determine which layout to use
+            boolean smallWidget = WidgetUtils.showSmallWidget(this, id, digitalClock);
+            if (smallWidget) {
+                remoteViews = new RemoteViews(getPackageName(), R.layout.appwidget_small);
+                showCalendar = false;
+            } else {
+                remoteViews = new RemoteViews(getPackageName(), R.layout.appwidget);
+                showCalendar = Preferences.showCalendar(this);
+            }
+
+            // Always Refresh the Clock widget
+            refreshClock(remoteViews, digitalClock);
+            refreshAlarmStatus(remoteViews);
+
+            // Don't bother with Calendar if its not enabled
+            if (showCalendar) {
+                showCalendar &= refreshCalendar(remoteViews);
+            }
+
+            // Hide the Loading indicator
+            remoteViews.setViewVisibility(R.id.loading_indicator, View.GONE);
+
+            // Now, if we need to show the actual weather, do so
+            if (showWeather) {
+                WeatherInfo weatherInfo = Preferences.getCachedWeatherInfo(this);
+
+                if (weatherInfo != null) {
+                    setWeatherData(remoteViews, smallWidget, weatherInfo);
+                } else {
+                    setNoWeatherData(remoteViews, smallWidget);
+                }
+            }
+
             // Resize the clock font if needed
             if (digitalClock) {
                 float ratio = WidgetUtils.getScaleRatio(this, id);
@@ -131,12 +142,12 @@ public class ClockWidgetService extends IntentService {
             }
 
             if (showWeather) {
-                boolean canFitWeather = WidgetUtils.canFitWeather(this, id, digitalClock);
+                boolean canFitWeather = smallWidget || WidgetUtils.canFitWeather(this, id, digitalClock);
                 remoteViews.setViewVisibility(R.id.weather_panel, canFitWeather ? View.VISIBLE : View.GONE);
             }
 
             // Hide the calendar panel if there is no space for it
-            if (showCalendar) {
+            if (!smallWidget && showCalendar) {
                 boolean canFitCalendar = WidgetUtils.canFitCalendar(this, id, digitalClock);
                 remoteViews.setViewVisibility(R.id.calendar_panel, canFitCalendar ? View.VISIBLE : View.GONE);
             }
@@ -165,7 +176,7 @@ public class ClockWidgetService extends IntentService {
             clockViews.setViewVisibility(R.id.digital_clock, View.GONE);
         }
 
-        // Date/Alarm is to both clocks common, set it's size
+        // Date/Alarm is common to both clocks, set it's size
         refreshDateAlarmFont(clockViews);
 
         // Register an onClickListener on Clock, starting DeskClock
@@ -257,43 +268,48 @@ public class ClockWidgetService extends IntentService {
     /**
      * Display the weather information
      */
-    private void setWeatherData(RemoteViews weatherViews, WeatherInfo w) {
-        // Load the preferences
-        boolean showLocation = Preferences.showWeatherLocation(this);
-        boolean showTimestamp = Preferences.showWeatherTimestamp(this);
-        boolean invertLowhigh = Preferences.invertLowHighTemperature(this);
+    private void setWeatherData(RemoteViews weatherViews, boolean smallWidget, WeatherInfo w) {
 
         // Weather Image
         weatherViews.setImageViewResource(R.id.weather_image, w.getConditionResource());
-
-        // City
-        weatherViews.setTextViewText(R.id.weather_city, w.getCity());
-        weatherViews.setViewVisibility(R.id.weather_city, showLocation ? View.VISIBLE : View.GONE);
 
         // Weather Condition
         weatherViews.setTextViewText(R.id.weather_condition, w.getCondition());
         weatherViews.setViewVisibility(R.id.weather_condition, View.VISIBLE);
 
-        // Weather Update Time
-        if (showTimestamp) {
-            Date updateTime = w.getTimestamp();
-            StringBuilder sb = new StringBuilder();
-            sb.append(DateFormat.format("E", updateTime));
-            sb.append(" ");
-            sb.append(DateFormat.getTimeFormat(this).format(updateTime));
-            weatherViews.setTextViewText(R.id.update_time, sb.toString());
-            weatherViews.setViewVisibility(R.id.update_time, View.VISIBLE);
-        } else {
-            weatherViews.setViewVisibility(R.id.update_time, View.GONE);
-        }
-
         // Weather Temps Panel
-        final String low = w.getFormattedLow();
-        final String high = w.getFormattedHigh();
-
         weatherViews.setTextViewText(R.id.weather_temp, w.getFormattedTemperature());
-        weatherViews.setTextViewText(R.id.weather_low_high, invertLowhigh ? high + " | " + low : low + " | " + high);
         weatherViews.setViewVisibility(R.id.weather_temps_panel, View.VISIBLE);
+
+        if (!smallWidget) {
+            // Display the full weather information panel items
+            // Load the preferences
+            boolean showLocation = Preferences.showWeatherLocation(this);
+            boolean showTimestamp = Preferences.showWeatherTimestamp(this);
+
+            // City
+            weatherViews.setTextViewText(R.id.weather_city, w.getCity());
+            weatherViews.setViewVisibility(R.id.weather_city, showLocation ? View.VISIBLE : View.GONE);
+
+            // Weather Update Time
+            if (showTimestamp) {
+                Date updateTime = w.getTimestamp();
+                StringBuilder sb = new StringBuilder();
+                sb.append(DateFormat.format("E", updateTime));
+                sb.append(" ");
+                sb.append(DateFormat.getTimeFormat(this).format(updateTime));
+                weatherViews.setTextViewText(R.id.update_time, sb.toString());
+                weatherViews.setViewVisibility(R.id.update_time, View.VISIBLE);
+            } else {
+                weatherViews.setViewVisibility(R.id.update_time, View.GONE);
+            }
+
+            // Weather Temps Panel additional items
+            boolean invertLowhigh = Preferences.invertLowHighTemperature(this);
+            final String low = w.getFormattedLow();
+            final String high = w.getFormattedHigh();
+            weatherViews.setTextViewText(R.id.weather_low_high, invertLowhigh ? high + " | " + low : low + " | " + high);
+        }
 
         // Register an onClickListener on Weather
         setWeatherClickListener(weatherViews);
@@ -302,7 +318,7 @@ public class ClockWidgetService extends IntentService {
     /**
      * There is no data to display, display 'empty' fields and the 'Tap to reload' message
      */
-    private void setNoWeatherData(RemoteViews weatherViews) {
+    private void setNoWeatherData(RemoteViews weatherViews, boolean smallWidget) {
         boolean defaultIcons = !Preferences.useAlternateWeatherIcons(this);
         final Resources res = getBaseContext().getResources();
 
@@ -310,10 +326,12 @@ public class ClockWidgetService extends IntentService {
         weatherViews.setImageViewResource(R.id.weather_image,
                 defaultIcons ? R.drawable.weather_na : R.drawable.weather2_na);
 
-        // Rest of the data
-        weatherViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
-        weatherViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
-        weatherViews.setViewVisibility(R.id.update_time, View.GONE);
+        if (!smallWidget) {
+            weatherViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
+            weatherViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
+            weatherViews.setViewVisibility(R.id.update_time, View.GONE);
+        }
+
         weatherViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
         weatherViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
 
