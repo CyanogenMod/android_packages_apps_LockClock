@@ -34,11 +34,21 @@
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
+    <style name="label_small" parent="@style/label_shadow">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
     <style name="alarm_label_thin" parent="@style/label_thin">
         <item name="android:shadowColor">@color/text_shadow_opaque</item>
     </style>
 
     <style name="alarm_label_bold" parent="@style/label_bold">
+        <item name="android:shadowColor">@color/text_shadow_opaque</item>
+    </style>
+
+    <style name="alarm_label_small" parent="@style/label_small">
         <item name="android:shadowColor">@color/text_shadow_opaque</item>
     </style>
 

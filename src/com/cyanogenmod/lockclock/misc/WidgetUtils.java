@@ -21,6 +21,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 
 import com.cyanogenmod.lockclock.R;
@@ -30,7 +31,30 @@ public class WidgetUtils {
     // Widget display and resizing related functionality
     //===============================================================================================
     /**
-     *  Decide whether to show the Weather panel
+     *  Decide whether to show the small Weather panel
+     */
+    public static boolean showSmallWidget(Context context, int id, boolean digitalClock) {
+        Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
+        if (options == null) {
+            // no data to make the calculation, show the list anyway
+            return false;
+        }
+        Resources resources = context.getResources();
+        int minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
+        int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight,
+                resources.getDisplayMetrics());
+        int neededFullSize = (int) resources.getDimension(
+                digitalClock ? R.dimen.min_digital_weather_height : R.dimen.min_analog_weather_height);
+        int neededSmallSize = (int) resources.getDimension(R.dimen.min_digital_widget_height);
+
+        // Check to see if the widget size is big enough, if it is return true.
+        Log.d("LockClock","MinHeightPx = " + minHeightPx);
+
+        return (minHeightPx < neededFullSize && minHeightPx > neededSmallSize);
+    }
+
+    /**
+     *  Decide whether to show the full Weather panel
      */
     public static boolean canFitWeather(Context context, int id, boolean digitalClock) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
