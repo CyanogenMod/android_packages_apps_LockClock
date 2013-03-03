@@ -34,6 +34,12 @@
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
+    <style name="label_small" parent="@style/label_shadow">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
     <style name="alarm_label_thin" parent="@style/label_thin">
         <item name="android:shadowColor">@color/text_shadow_opaque</item>
     </style>
@@ -41,6 +47,21 @@
     <style name="alarm_label_bold" parent="@style/label_bold">
         <item name="android:shadowColor">@color/text_shadow_opaque</item>
     </style>
+
+    <style name="alarm_label_small" parent="@style/label_small">
+        <item name="android:shadowColor">@color/text_shadow_opaque</item>
+    </style>
+
+    <style name="widget_small_bold" parent="@style/label_shadow">
+        <item name="android:textSize">@dimen/widget_small_font_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        </style>
+
+    <style name="widget_small_thin" parent="@style/label_shadow">
+        <item name="android:textSize">@dimen/widget_small_font_size</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+        </style>
 
     <style name="widget_medium_light" parent="@style/label_shadow">
         <item name="android:textSize">@dimen/widget_medium_font_size</item>
