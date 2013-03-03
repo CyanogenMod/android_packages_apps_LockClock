@@ -19,7 +19,7 @@
      for different hardware and product builds. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <dimen name="widget_big_font_size">80dp</dimen>
+    <dimen name="widget_big_font_size">76dp</dimen>
     <dimen name="widget_medium_font_size">48dp</dimen>
     <dimen name="label_font_size">14sp</dimen>
 
