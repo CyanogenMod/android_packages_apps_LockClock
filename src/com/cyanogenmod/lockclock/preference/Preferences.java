@@ -16,10 +16,10 @@
 
 package com.cyanogenmod.lockclock.preference;
 
+import android.appwidget.AppWidgetManager;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.Intent;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceFragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,17 +30,43 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.cyanogenmod.lockclock.R;
-import com.cyanogenmod.lockclock.misc.Constants;
 
 import java.util.List;
 
 public class Preferences extends PreferenceActivity {
 
+    // only used when adding a new widget
+    private int mNewWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
+
     @Override
     public void onBuildHeaders(List<Header> target) {
         loadHeadersFromResource(R.xml.preferences_headers, target);
 
+        // Load the beaders
         updateHeaders(target);
+
+        // Check if triggered from adding a new widget
+        Intent intent = getIntent();
+        if (intent != null
+                && AppWidgetManager.ACTION_APPWIDGET_CONFIGURE.equals(intent.getAction())) {
+            mNewWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId);
+            // See http://code.google.com/p/android/issues/detail?id=2539
+            myResult(RESULT_CANCELED);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // If launched from the configure intent, signal RESULT_OK
+        if (mNewWidgetId != AppWidgetManager.INVALID_APPWIDGET_ID) {
+            myResult(RESULT_OK);
+        }
+
+        super.onBackPressed();
+    }
+
+    private void myResult(int result) {
+        setResult(result, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
     }
 
     private void updateHeaders(List<Header> headers) {
@@ -60,38 +86,9 @@ public class Preferences extends PreferenceActivity {
         }
     }
 
-    public static class ClockFragment extends PreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-            addPreferencesFromResource(R.xml.preferences_clock);
-
-        }
-    }
-
-    public static class WeatherFragment extends PreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-            addPreferencesFromResource(R.xml.preferences_weather);
-        }
-    }
-
-    public static class CalendarFragment extends PreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-            addPreferencesFromResource(R.xml.preferences_calendar);
-        }
-    }
-
     private static class HeaderAdapter extends ArrayAdapter<Header> {
         private static final int HEADER_TYPE_NORMAL = 0;
         private static final int HEADER_TYPE_CATEGORY = 1;
-
         private static final int HEADER_TYPE_COUNT = HEADER_TYPE_CATEGORY + 1;
 
         private static class HeaderViewHolder {
