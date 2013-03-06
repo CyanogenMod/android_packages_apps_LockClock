@@ -1,0 +1,12 @@
+Change-Id: I1406e5b0c806485a188191a9633f94adf8d82954
+Code-Review+1: Pavel Volkov <marshmollow@gmail.com>
+Code-Review+2: Marco Brohet <therbom@gmail.com>
+Code-Review+1: Dmitriy Chermenev <chdiman86@gmail.com>
+Code-Review+1: Pavel Kirpichyov <pavel.kirpichyov@gmail.com>
+Verified+1: Cid
+Code-Review+1: Vladislav Koldobskiy <nevergone.ru@gmail.com>
+Submitted-by: Marco Brohet <therbom@gmail.com>
+Submitted-at: Wed, 06 Mar 2013 02:08:49 -0800
+Reviewed-on: http://review.cyanogenmod.org/33291
+Project: CyanogenMod/android_packages_apps_LockClock
+Branch: refs/heads/cm-10.1
