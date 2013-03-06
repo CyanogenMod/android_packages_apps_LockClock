@@ -22,6 +22,9 @@ import android.content.Intent;
 import android.preference.PreferenceActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -41,8 +44,6 @@ public class Preferences extends PreferenceActivity {
     @Override
     public void onBuildHeaders(List<Header> target) {
         loadHeadersFromResource(R.xml.preferences_headers, target);
-
-        // Load the beaders
         updateHeaders(target);
 
         // Check if triggered from adding a new widget
@@ -56,17 +57,36 @@ public class Preferences extends PreferenceActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.menu_done:
+                myResult(RESULT_OK);
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     public void onBackPressed() {
         // If launched from the configure intent, signal RESULT_OK
-        if (mNewWidgetId != AppWidgetManager.INVALID_APPWIDGET_ID) {
-            myResult(RESULT_OK);
-        }
-
+        myResult(RESULT_OK);
         super.onBackPressed();
     }
 
     private void myResult(int result) {
-        setResult(result, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
+        if (mNewWidgetId != AppWidgetManager.INVALID_APPWIDGET_ID) {
+            setResult(result, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
+        }
     }
 
     private void updateHeaders(List<Header> headers) {

@@ -21,6 +21,7 @@
     <string name="unknown">Unknown</string>
     <string name="cancel">Cancel</string>
     <string name="loading_indicator">Loading widget\u2026</string>
+    <string name="menu_done">Done</string>
 
     <!-- Formating strings for widget clock -->
     <string name="widget_12_hours_format_h" translatable="false">h</string>
