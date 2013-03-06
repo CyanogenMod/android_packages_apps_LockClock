@@ -23,7 +23,8 @@
 
         <CheckBoxPreference
             android:key="show_calendar"
-            android:title="@string/calendar_title" />
+            android:title="@string/calendar_title"
+            android:defaultValue="false" />
 
         <MultiSelectListPreference
             android:key="calendar_list"
@@ -46,12 +47,14 @@
             android:key="calendar_reminders_only"
             android:dependency="show_calendar"
             android:title="@string/calendar_reminders_only_title"
-            android:summary="@string/calendar_reminders_only_summary" />
+            android:summary="@string/calendar_reminders_only_summary"
+            android:defaultValue="false" />
 
         <CheckBoxPreference
             android:key="calendar_hide_allday"
             android:dependency="show_calendar"
-            android:title="@string/calendar_hide_allday_title" />
+            android:title="@string/calendar_hide_allday_title"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory

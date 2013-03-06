@@ -97,16 +97,19 @@ public class ClockWidgetService extends IntentService {
         RemoteViews remoteViews;
         boolean digitalClock = Preferences.showDigitalClock(this);
         boolean showWeather = Preferences.showWeather(this);
+        boolean showWeatherWhenMinimized = Preferences.showWeatherWhenMinimized(this);
         boolean showCalendar = false;
 
         // Update the widgets
         for (int id : mWidgetIds) {
 
             // Determine which layout to use
-            boolean smallWidget = showWeather && WidgetUtils.showSmallWidget(this, id, digitalClock);
+            boolean smallWidget = showWeather && showWeatherWhenMinimized
+                    && WidgetUtils.showSmallWidget(this, id, digitalClock);
             if (smallWidget) {
                 // The small widget is only shown if weather needs to be shown
-                // and there is not enough space for the full weather widget
+                // and there is not enough space for the full weather widget and
+                // the user had selected to show the weather when minimized (default ON)
                 remoteViews = new RemoteViews(getPackageName(), R.layout.appwidget_small);
                 showCalendar = false;
             } else {
@@ -138,7 +141,7 @@ public class ClockWidgetService extends IntentService {
             }
 
             // Resize the clock font if needed
-            if (digitalClock && !smallWidget) {
+            if (digitalClock) {
                 float ratio = WidgetUtils.getScaleRatio(this, id);
                 setClockSize(remoteViews, ratio);
             }
