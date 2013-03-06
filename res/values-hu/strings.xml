@@ -20,6 +20,7 @@
     <string name="unknown">Ismeretlen</string>
     <string name="cancel">Elvet</string>
     <string name="loading_indicator">Modul betöltése\u2026</string>
+    <string name="menu_done">Kész</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">Tornádó</string>
