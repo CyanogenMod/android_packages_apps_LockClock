@@ -72,7 +72,7 @@ public class Preferences {
     }
 
     public static boolean useAlternateWeatherIcons(Context context) {
-        return getPrefs(context).getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, false);
+        return getPrefs(context).getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, true);
     }
 
     public static boolean useMetricUnits(Context context) {

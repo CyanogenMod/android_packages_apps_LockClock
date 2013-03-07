@@ -142,8 +142,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">Enable</string>
     <string name="weather_invert_lowhigh">Invert low/high temperatures</string>
     <string name="weather_progress_title">Verifying location</string>
-    <string name="weather_alternate_icons_title">Use alternate icons</string>
-    <string name="weather_alternate_icons_summary">Select to toggle between the default (White) and the alternate (Color) icons</string>
+    <string name="weather_alternate_icons_title">Use color icons</string>
+    <string name="weather_alternate_icons_summary">Select to toggle between the default (Color) and the alternate (White) icons</string>
     <string name="weather_show_when_minimized_title">Show when minimized</string>
     <string name="weather_show_when_minimized_summary">Display summary weather information when the widget is minimized</string>
 
