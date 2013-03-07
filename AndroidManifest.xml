@@ -16,8 +16,8 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cyanogenmod.lockclock"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="17"
@@ -38,7 +38,7 @@
         android:label="@string/app_name" >
 
         <activity
-            android:name="com.cyanogenmod.lockclock.preference.Preferences"
+            android:name=".preference.Preferences"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
@@ -52,7 +52,7 @@
         <activity android:name=".preference.WeatherPreferences" />
 
         <!-- The Widget receiver -->
-        <receiver android:name="com.cyanogenmod.lockclock.ClockWidgetProvider" >
+        <receiver android:name=".ClockWidgetProvider" >
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/lock_clock" />
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
