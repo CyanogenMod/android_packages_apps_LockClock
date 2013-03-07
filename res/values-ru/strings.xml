@@ -134,8 +134,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">Включить</string>
     <string name="weather_invert_lowhigh">Изменить порядок температур</string>
     <string name="weather_progress_title">Проверка местоположения</string>
-    <string name="weather_alternate_icons_title">Альтернативные иконки</string>
-    <string name="weather_alternate_icons_summary">Выбор между иконками по умолчанию (белые) или альтернативными (цветные)</string>
+    <string name="weather_alternate_icons_title">Цветные иконки</string>
+    <string name="weather_alternate_icons_summary">Выбор между иконками по умолчанию (цветные) или альтернативными (белые)</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Показывать события</string>
