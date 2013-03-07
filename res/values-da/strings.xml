@@ -133,8 +133,10 @@
     <string name="weather_retrieve_location_dialog_enable_button">Aktivér</string>
     <string name="weather_invert_lowhigh">Byt lav/høj temperatur</string>
     <string name="weather_progress_title">Bekræfter lokation</string>
-    <string name="weather_alternate_icons_title">Brug alternative ikoner</string>
-    <string name="weather_alternate_icons_summary">Til at vælge mellem standard (Hvide) og de alternative (Farvede) ikoner</string>
+    <string name="weather_alternate_icons_title">Brug farvede ikoner</string>
+    <string name="weather_alternate_icons_summary">Til at vælge mellem standard (Farvede) og de alternative (Hvide) ikoner</string>
+    <string name="weather_show_when_minimized_title">Vis når minimeret</string>
+    <string name="weather_show_when_minimized_summary">Viser en kort vejrinformation når widget vises minimeret</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Vis næste begivenhed</string>
