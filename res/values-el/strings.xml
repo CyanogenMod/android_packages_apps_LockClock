@@ -20,6 +20,7 @@
     <string name="unknown">Άγνωστο</string>
     <string name="cancel">Ακύρωση</string>
     <string name="loading_indicator">Φόρτωση widget\u2026</string>
+    <string name="menu_done">ΟΚ</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">Ανεμοστρόβιλος</string>
@@ -133,8 +134,10 @@
     <string name="weather_retrieve_location_dialog_enable_button">Ενεργοποίηση</string>
     <string name="weather_invert_lowhigh">Αντιστροφή χαμηλής/υψηλής θερμοκρασίας</string>
     <string name="weather_progress_title">Επαλήθευση τοποθεσίας</string>
-    <string name="weather_alternate_icons_title">Χρήση εναλλακτικών εικονιδίων</string>
-    <string name="weather_alternate_icons_summary">Επιλέξτε για εναλλαγή μεταξύ των προεπιλεγμένων (άσπρων) και των εναλλακτικών (χρωματιστών) εικονιδίων</string>
+    <string name="weather_alternate_icons_title">Χρήση χρωματιστών εικονιδίων</string>
+    <string name="weather_alternate_icons_summary">Επιλέξτε για εναλλαγή μεταξύ των προεπιλεγμένων (χρωματιστών) και των εναλλακτικών (άσπρων) εικονιδίων</string>
+    <string name="weather_show_when_minimized_title">Εμφάνιση κατά την ελαχιστοποίηση</string>
+    <string name="weather_show_when_minimized_summary">Εμφάνιση συνοπτικών πληροφοριών για τον καιρό, όταν το widget είναι ελαχιστοποιημένο</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Εμφάνιση επόμενου συμβάντος</string>
@@ -154,6 +157,8 @@
     <string name="calendar_lookahead_1day">1 ημέρα</string>
     <string name="calendar_lookahead_3days">3 ημέρες</string>
     <string name="calendar_lookahead_1wk">1 εβδομάδα</string>
+    <string name="calendar_lookahead_2wks">2 εβδομάδες</string>
+    <string name="calendar_lookahead_4wks">4 εβδομάδες</string>
 
     <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">Απόκρυψη</string>
