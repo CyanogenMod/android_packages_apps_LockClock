@@ -19,6 +19,8 @@
     <!-- General strings -->
     <string name="unknown">未知</string>
     <string name="cancel">取消</string>
+    <string name="loading_indicator">小部件加载中\u2026</string>
+    <string name="menu_done">完成</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">龙卷风</string>
@@ -107,6 +109,8 @@
     <string name="display_category">显示</string>
 
     <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">使用数字时钟</string>
+    <string name="use_digital_clock_summary">在模拟与数字时钟之间进行切换</string>
     <string name="clock_font_title">加粗小时</string>
     <string name="clock_font_minutes_title">加粗分钟</string>
     <string name="clock_font_date_title">加粗日期与闹钟</string>
@@ -131,7 +135,10 @@
     <string name="weather_invert_lowhigh">交换高低温度显示的位置</string>
     <string name="weather_progress_title">正在验证位置</string>
     <string name="weather_alternate_icons_title">使用彩色图标</string>
-    <string name="weather_alternate_icons_summary">将默认白色的图标替换为另一套彩色的图标</string>
+    <string name="weather_alternate_icons_summary">在彩色与白色的图标之间进行切换</string>
+    <string name="weather_show_when_minimized_title">最小化时显示</string>
+    <string name="weather_show_when_minimized_summary">小部件最小化时将依然显示天气信息</string>
+
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">显示下一个活动</string>
@@ -151,6 +158,8 @@
     <string name="calendar_lookahead_1day">1 天</string>
     <string name="calendar_lookahead_3days">3 天</string>
     <string name="calendar_lookahead_1wk">1 周</string>
+    <string name="calendar_lookahead_2wks">2 周</string>
+    <string name="calendar_lookahead_4wks">4 周</string>
 
     <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">不显示</string>
