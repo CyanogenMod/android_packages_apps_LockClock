@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <string name="unknown">Onbekend</string>
+    <string name="cancel">Kanselleer</string>
+    <string name="loading_indicator">Legstuk laai tans\u2026</string>
+    <string name="menu_done">Stoor</string>
+
+    <string name="weather_0">Tornado</string>
+    <string name="weather_1">Tropiese storm</string>
+    <string name="weather_2">Orkaan</string>
+    <string name="weather_3">Ernstige donderstorms</string>
+    <string name="weather_4">Donderstorms</string>
+    <string name="weather_5">Gemengde reën en sneeu</string>
+    <string name="weather_6">Gemengde reën en ysreën</string>
+    <string name="weather_7">Gemengde sneeu en ysreën</string>
+    <string name="weather_8">Vriesende motreën</string>
+    <string name="weather_9">Motreën</string>
+    <string name="weather_10">Vriesende reën</string>
+    <string name="weather_11">Reënbuie</string>
+    <string name="weather_12">Reënbuie</string>
+    <string name="weather_13">Sneeuvloeie</string>
+    <string name="weather_14">Ligte sneeu</string>
+    <string name="weather_15">Rondgewaaide sneeu</string>
+    <string name="weather_16">Sneeu</string>
+    <string name="weather_17">Haal</string>
+    <string name="weather_18">Ysreën</string>
+    <string name="weather_19">Stowwerig</string>
+    <string name="weather_20">Mistig</string>
+    <string name="weather_21">Dynserig</string>
+    <string name="weather_22">Rokerig</string>
+    <string name="weather_23">Stormagtig</string>
+    <string name="weather_24">Winderig</string>
+    <string name="weather_25">Koud</string>
+    <string name="weather_26">Bewolk</string>
+    <string name="weather_27">Meestal bewolk</string> <!-- Night -->
+    <string name="weather_28">Meestal bewolk</string> <!-- Day -->
+    <string name="weather_29">Gedeeltelik bewolk</string> <!-- Night -->
+    <string name="weather_30">Gedeeltelik bewolk</string> <!-- Day -->
+    <string name="weather_31">Helder</string> <!-- Night -->
+    <string name="weather_32">Sonnig</string>
+    <string name="weather_33">Mooiweer</string> <!-- Night -->
+    <string name="weather_34">Mooiweer</string> <!-- Day -->
+    <string name="weather_35">Gemengde reën en hael</string>
+    <string name="weather_36">Warm</string>
+    <string name="weather_37">Geïsoleerde donderstorms</string>
+    <string name="weather_38">Verspreide donderstorms</string>
+    <string name="weather_39">Verspreide donderstorms</string>
+    <string name="weather_40">Verspreide buie</string>
+    <string name="weather_41">Swaar sneeu</string>
+    <string name="weather_42">Verspreide sneeu</string>
+    <string name="weather_43">Swaar sneeu</string>
+    <string name="weather_44">Gedeeltelik bewolk</string>
+    <string name="weather_45">Donderstorms</string>
+    <string name="weather_46">Sneeubuie</string>
+    <string name="weather_47">Geïsoleerde donderstorms</string>
+    <string name="weather_3200"></string>
+
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NO</string>
+    <string name="weather_E">O</string>
+    <string name="weather_SE">SO</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SW</string>
+    <string name="weather_W">W</string>
+    <string name="weather_NW">NW</string>
+
+    <string name="weather_no_data">Geen data</string>
+    <string name="weather_tap_to_refresh">Raak om te verfris</string>
+    <string name="weather_refreshing">Verfris tans\u2026</string>
+    <string name="weather_last_sync_just_now">Sopas</string>
+
+    <string name="weather_refresh_manual">Handmatig</string>
+    <string name="weather_refresh_30min">30 minute</string>
+    <string name="weather_refresh_60min">60 minute</string>
+    <string name="weather_refresh_2hrs">2 ure</string>
+    <string name="weather_refresh_4hrs">4 ure</string>
+    <string name="weather_refresh_6hrs">6 ure</string>
+    <string name="weather_refresh_8hrs">8 ure</string>
+
+    <string name="clock_category">Klok en alarm</string>
+    <string name="weather_category">Weerpaneel</string>
+    <string name="calendar_category">Kalender afsprake</string>
+
+    <string name="general_category">Algemeen</string>
+    <string name="display_category">vertooneienskappe</string>
+
+    <string name="use_digital_clock_title">Gebruik digitale klok</string>
+    <string name="use_digital_clock_summary">Kies om te wissel tussen die digitale en die analoog klok weergawe</string>
+    <string name="clock_font_title">Ure vergedruk</string>
+    <string name="clock_font_minutes_title">Minute vetgedruk</string>
+    <string name="clock_font_date_title">Datum en alarm vetgedruk</string>
+    <string name="show_alarm_title">Wys opkomende alarm</string>
+
+    <string name="weather_enabled">Geaktiveer</string>
+    <string name="weather_enable">Weerpaneel sigbaar</string>
+    <string name="weather_source">Yahoo! weer</string>
+    <string name="weather_use_custom_location">Gebruik persoonlike ligging</string>
+    <string name="weather_geolocated">Geoligging bepaal deur die netwerk</string>
+    <string name="weather_custom_location_dialog_title">Voer ligging in</string>
+    <string name="weather_custom_location_hint">Stad, Provinsie/Land</string>
+    <string name="weather_custom_location_title">Ligging</string>
+    <string name="weather_show_location_title">Wys ligging</string>
+    <string name="weather_show_timestamp_title">Wys tydstempel</string>
+    <string name="weather_refresh_interval">Opdateringsinterval</string>
+    <string name="weather_use_metric">Gebruik metries</string>
+    <string name="weather_retrieve_location_dialog_title">Kon nie die ligging bepaal nie!</string>
+    <string name="weather_retrieve_location_dialog_message">Netwerk geoligging is afgeskakel.\n\nVerskaf \'n persoonlike ligging of aktiveer netwerk ligging</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Aktiveer</string>
+    <string name="weather_invert_lowhigh">Omgekeerde lae/hoë temperature</string>
+    <string name="weather_progress_title">Bevestig ligging</string>
+    <string name="weather_alternate_icons_title">Gebruik kleur ikone</string>
+    <string name="weather_alternate_icons_summary">Kies om te wissel tussen die standaard (kleur) en die alternatiewe (wit) ikone</string>
+    <string name="weather_show_when_minimized_title">Wys wanneer geminimaliseer</string>
+    <string name="weather_show_when_minimized_summary">Wys opgesomde weerbesonderhede wanneer die legstuk geminimaliseer word</string>
+
+    <string name="calendar_title">Wys volgende item</string>
+    <string name="calendars_title">Afsprake kalenders</string>
+    <string name="calendars_summary">Vind afsprake in bepaalde kalenders</string>
+    <string name="calendar_reminders_only_title">Slegs herinnerings</string>
+    <string name="calendar_reminders_only_summary">Wys net afsprake met gestelde herinnerings</string>
+    <string name="calendar_hide_allday_title">Steek heeldag-afsprake weg</string>
+    <string name="calendar_lookahead_title">Afspraak vooruitkyktyd</string>
+    <string name="calendar_show_location_title">Afspraak ligging</string>
+    <string name="calendar_show_description_title">Afspraak beskrywing</string>
+
+    <string name="calendar_lookahead_3hrs">3 ure</string>
+    <string name="calendar_lookahead_6hrs">6 ure</string>
+    <string name="calendar_lookahead_12hrs">12 ure</string>
+    <string name="calendar_lookahead_1day">1 dag</string>
+    <string name="calendar_lookahead_3days">3 dae</string>
+    <string name="calendar_lookahead_1wk">1 week</string>
+    <string name="calendar_lookahead_2wks">2 weke</string>
+    <string name="calendar_lookahead_4wks">4 weke</string>
+
+    <string name="calendar_metadata_none">Wys niks</string>
+    <string name="calendar_metadata_first_line">Wys eerste lyn</string>
+    <string name="calendar_metadata_all">Wys alles</string>
+
+</resources>
