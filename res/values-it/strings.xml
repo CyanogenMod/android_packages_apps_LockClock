@@ -106,7 +106,7 @@
     <string name="weather_custom_location_hint">Città, Regione/Stato</string>
     <string name="weather_custom_location_title">Posizione</string>
     <string name="weather_show_location_title">Mostra posizione</string>
-    <string name="weather_show_timestamp_title">Mostra tempo trascorso dall\'ultimo aggiornamento</string>
+    <string name="weather_show_timestamp_title">Tempo trascorso dall\'aggiornamento</string>
     <string name="weather_refresh_interval">Intervallo aggiornamento</string>
     <string name="weather_use_metric">Usa unità metriche</string>
     <string name="weather_retrieve_location_dialog_title">Impossibile rilevare la posizione</string>
@@ -114,14 +114,14 @@
     <string name="weather_retrieve_location_dialog_enable_button">Abilita</string>
     <string name="weather_invert_lowhigh">Inverti temperature minime/massime</string>
     <string name="weather_progress_title">Verifica della posizione\u2026</string>
-    <string name="weather_alternate_icons_title">Usa icone alternative</string>
-    <string name="weather_alternate_icons_summary">Seleziona per sostituire le icone predefinite (bianche) con quelle alternative (colorate)</string>
+    <string name="weather_alternate_icons_title">Usa icone colorate</string>
+    <string name="weather_alternate_icons_summary">Seleziona per sostituire le icone predefinite (colorate) con quelle alternative (bianche)</string>
     <string name="calendar_title">Visualizza il prossimo evento</string>
     <string name="calendars_title">Calendari eventi</string>
     <string name="calendars_summary">Mostra gli eventi da questi calendari</string>
     <string name="calendar_reminders_only_title">Solo avvisi</string>
     <string name="calendar_reminders_only_summary">Visualizza solo eventi con avvisi</string>
-    <string name="calendar_hide_allday_title">Nascondi eventi per tutto il giorno</string>
+    <string name="calendar_hide_allday_title">Nascondi eventi del giorno</string>
     <string name="calendar_lookahead_title">Anticipo dell\'evento</string>
     <string name="calendar_show_location_title">Posizione dell\'evento</string>
     <string name="calendar_show_description_title">Descrizione dell\'evento</string>
