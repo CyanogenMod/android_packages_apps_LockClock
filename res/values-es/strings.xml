@@ -20,6 +20,7 @@
     <string name="unknown">Desconocido</string>
     <string name="cancel">Cancelar</string>
     <string name="loading_indicator">Cargando widget\u2026</string>
+    <string name="menu_done">Hecho</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">Tornado</string>
@@ -132,8 +133,10 @@
     <string name="weather_retrieve_location_dialog_enable_button">Activar</string>
     <string name="weather_invert_lowhigh">Invertir temperaturas</string>
     <string name="weather_progress_title">Verificando ubicación</string>
-    <string name="weather_alternate_icons_title">Iconos alternativos</string>
-    <string name="weather_alternate_icons_summary">Marcar para utilizar los iconos alternativos a color, en vez de los predeterminados en blanco</string>
+    <string name="weather_alternate_icons_title">Iconos en color</string>
+    <string name="weather_alternate_icons_summary">Usar iconos en color en vez de los predeterminados en blanco</string>
+    <string name="weather_show_when_minimized_title">Mostrar al minimizar</string>
+    <string name="weather_show_when_minimized_summary">Mostrar la información climática cuando el widget esté minimizado</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Mostrar próximo evento</string>
@@ -153,6 +156,8 @@
     <string name="calendar_lookahead_1day">1 día</string>
     <string name="calendar_lookahead_3days">3 días</string>
     <string name="calendar_lookahead_1wk">1 semana</string>
+    <string name="calendar_lookahead_2wks">2 semanas</string>
+    <string name="calendar_lookahead_4wks">4 semanas</string>
 
     <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">No mostrar</string>
