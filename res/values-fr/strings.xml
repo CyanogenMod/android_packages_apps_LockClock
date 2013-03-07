@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+<!-- Copyright (C) 2013 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@
     <string name="unknown">Inconnu</string>
     <string name="cancel">Annuler</string>
     <string name="loading_indicator">Chargement du widget\u2026</string>
+    <string name="menu_done">OK</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">Tornade</string>
@@ -133,8 +134,10 @@
     <string name="weather_retrieve_location_dialog_enable_button">Activer</string>
     <string name="weather_invert_lowhigh">Inverser les températures minimum et maximum</string>
     <string name="weather_progress_title">Vérification du lieu</string>
-    <string name="weather_alternate_icons_title">Utiliser des icônes alternatives</string>
-    <string name="weather_alternate_icons_summary">Sélectionner cette option pour remplacer l\'icône par défaut (blanche) par une icône alternative (couleur)</string>
+    <string name="weather_alternate_icons_title">Utiliser les icônes de couleur</string>
+    <string name="weather_alternate_icons_summary">Sélectionner cette option pour remplacer l\'icône par défaut (couleur) par une icône alternative (blanche)</string>
+    <string name="weather_show_when_minimized_title">Afficher lorsque minimisé</string>
+    <string name="weather_show_when_minimized_summary">Afficher le résumé des informations météo lorsque le widget est réduit</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Afficher le prochain événement</string>
