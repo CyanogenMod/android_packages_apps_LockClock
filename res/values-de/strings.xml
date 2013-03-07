@@ -20,6 +20,7 @@
     <string name="unknown">Unbekannt</string>
     <string name="cancel">Abbrechen</string>
     <string name="loading_indicator">Widget wird geladen\u2026</string>
+    <string name="menu_done">Fertig</string>
 
     <!-- Lock screen Weather - Weather codes -->
     <string name="weather_0">Tornado</string>
@@ -133,8 +134,10 @@
     <string name="weather_retrieve_location_dialog_enable_button">Aktivieren</string>
     <string name="weather_invert_lowhigh">Anzeigereihenfolge Min/Max-Temperatur tauschen</string>
     <string name="weather_progress_title">Standort wird überprüft</string>
-    <string name="weather_alternate_icons_title">Alternative Icons</string>
-    <string name="weather_alternate_icons_summary">Aktivieren, um statt der weißen Standardicons die alternativen, farbigen Icons zu nutzen.</string>
+    <string name="weather_alternate_icons_title">Farbige Icons</string>
+    <string name="weather_alternate_icons_summary">Die farbigen Standardicons anstelle der alternativen, weißen Icons verwenden</string>
+    <string name="weather_show_when_minimized_title">Minimierte Anzeige</string>
+    <string name="weather_show_when_minimized_summary">Wetterinformationen anzeigen, wenn das Widget minimiert ist</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Nächsten Termin anzeigen</string>
