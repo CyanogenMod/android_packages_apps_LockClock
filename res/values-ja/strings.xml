@@ -133,8 +133,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">有効</string>
     <string name="weather_invert_lowhigh">最低/最高気温を逆にする</string>
     <string name="weather_progress_title">場所を確認中</string>
-    <string name="weather_alternate_icons_title">別のアイコンを使う</string>
-    <string name="weather_alternate_icons_summary">デフォルトの白いアイコンを使うか別のカラーアイコンを使うか選択する。</string>
+    <string name="weather_alternate_icons_title">カラーアイコンを使う</string>
+    <string name="weather_alternate_icons_summary">デフォルトのカラーアイコンか別の白アイコンを使うか選択する。</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">次の予定を表示する</string>
