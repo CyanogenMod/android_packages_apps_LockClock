@@ -113,8 +113,8 @@
     <string name="weather_retrieve_location_dialog_enable_button">Inschakelen</string>
     <string name="weather_invert_lowhigh">Lage/hoge temperaturen omdraaien</string>
     <string name="weather_progress_title">Locatie controleren\u2026</string>
-    <string name="weather_alternate_icons_title">Alternatieve pictogrammen</string>
-    <string name="weather_alternate_icons_summary">Door deze optie te kiezen, schakelt u tussen de standaard- (witte) en alternatieve (gekleurde) pictogrammen</string>
+    <string name="weather_alternate_icons_title">Gekleurde pictogrammen</string>
+    <string name="weather_alternate_icons_summary">Door deze optie te kiezen, schakelt u tussen de standaard- (gekleurde) en alternatieve (witte) pictogrammen</string>
     <string name="calendar_title">Volgende afspraak tonen</string>
     <string name="calendars_title">Afspraakagenda\'s</string>
     <string name="calendars_summary">Afspraken gebruiken uit deze agenda\'s</string>
