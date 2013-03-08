@@ -16,15 +16,12 @@
 
 package com.cyanogenmod.lockclock;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.util.Log;
-
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
@@ -60,16 +57,16 @@ public class ClockWidgetProvider extends AppWidgetProvider {
                 context.stopService(i);
             }
 
-        // Boot completed, schedule next weather update
+            // Boot completed, schedule next weather update
         } else if (Intent.ACTION_BOOT_COMPLETED.equals(action)) {
             WeatherUpdateService.scheduleNextUpdate(context);
 
-        // A widget has been deleted, prevent our handling and ask the super class handle it
+            // A widget has been deleted, prevent our handling and ask the super class handle it
         } else if (AppWidgetManager.ACTION_APPWIDGET_DELETED.equals(action)
                 || AppWidgetManager.ACTION_APPWIDGET_DISABLED.equals(action)) {
             super.onReceive(context, intent);
 
-        // Calendar, Time or a settings change, force a calendar refresh
+            // Calendar, Time or a settings change, force a calendar refresh
         } else if (Intent.ACTION_PROVIDER_CHANGED.equals(action)
                 || Intent.ACTION_TIME_CHANGED.equals(action)
                 || Intent.ACTION_TIMEZONE_CHANGED.equals(action)
@@ -78,8 +75,8 @@ public class ClockWidgetProvider extends AppWidgetProvider {
                 || ClockWidgetService.ACTION_REFRESH_CALENDAR.equals(action)) {
             updateWidgets(context, true);
 
-        // Something we did not handle, let the super class deal with it.
-        // This includes the REFRESH_CLOCK intent from Clock settings
+            // Something we did not handle, let the super class deal with it.
+            // This includes the REFRESH_CLOCK intent from Clock settings
         } else {
             if (D) Log.v(TAG, "We did not handle the intent, trigger normal handling");
             super.onReceive(context, intent);
@@ -95,7 +92,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         Intent i = new Intent(context.getApplicationContext(), ClockWidgetService.class);
         i.setAction(refreshCalendar
                 ? ClockWidgetService.ACTION_REFRESH_CALENDAR
-                : ClockWidgetService.ACTION_REFRESH);
+                        : ClockWidgetService.ACTION_REFRESH);
 
         // Start the service. The service itself will take care of scheduling refreshes if needed
         if (D) Log.d(TAG, "Starting the service to update the widgets...");
