@@ -19,7 +19,7 @@ package com.cyanogenmod.lockclock.misc;
 import android.text.format.DateUtils;
 
 public class Constants {
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
 
     public static final String PREF_NAME = "LockClock";
 
@@ -54,7 +54,7 @@ public class Constants {
     public static final String WEATHER_LAST_UPDATE = "last_weather_update";
     public static final String WEATHER_DATA = "weather_data";
 
-    public static final int MAX_CALENDAR_ITEMS = 3;
+    public static final int MAX_CALENDAR_ITEMS = 10;
     public static final int CALENDAR_FORMAT_TIME =
             DateUtils.FORMAT_SHOW_TIME
             | DateUtils.FORMAT_NO_NOON
@@ -69,4 +69,5 @@ public class Constants {
     public static final int CALENDAR_FORMAT_ALLDAY = CALENDAR_FORMAT_ABBREV_DATE;
     public static final int CALENDAR_FORMAT_TODAY = CALENDAR_FORMAT_TIME;
     public static final int CALENDAR_FORMAT_FUTURE = CALENDAR_FORMAT_ABBREV_DATETIME;
+
 }
