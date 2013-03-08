@@ -15,19 +15,12 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calendar_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="28dip"
     android:gravity="center_vertical"
-    android:paddingLeft="12dip"
-    android:paddingRight="12dip" >
-
-    <ImageView
-        android:id="@+id/calendar_icon"
-        android:layout_width="36dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center" />
+    android:paddingLeft="6dip" >
 
     <ImageView
         android:layout_width="1dip"
@@ -66,8 +59,6 @@
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:fadingEdge="horizontal"
             android:textColor="?android:attr/textColorSecondary"
             style="@style/label_shadow" />
