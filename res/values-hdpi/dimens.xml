@@ -18,9 +18,11 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <dimen name="min_digital_widget_height">120dip</dimen>
 
-    <dimen name="min_digital_weather_height">120dip</dimen>
+    <dimen name="widget_big_font_size">70dp</dimen>
+
+    <dimen name="min_digital_widget_height">120dip</dimen>
+    <dimen name="min_digital_weather_height">125dip</dimen>
     <dimen name="min_digital_calendar_height">170dip</dimen>
     <dimen name="min_analog_weather_height">130dip</dimen>
     <dimen name="min_analog_calendar_height">170dip</dimen>
