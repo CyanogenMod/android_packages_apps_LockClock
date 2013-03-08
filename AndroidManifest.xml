@@ -73,6 +73,9 @@
 
         <service android:name=".ClockWidgetService"></service>
         <service android:name=".weather.WeatherUpdateService"></service>
+        <service android:name=".calendar.CalendarWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS">
+        </service>
 
     </application>
 
