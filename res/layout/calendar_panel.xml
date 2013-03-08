@@ -15,14 +15,37 @@
 -->
 
 <!-- CyanogenMod Calendar Panel -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/calendar_panel"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="28dip"
+    android:layout_weight="1"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:background="?android:attr/selectableItemBackground" >
+    android:background="?android:attr/selectableItemBackground">
 
-    <!-- items included dynamically -->
-</LinearLayout>
+    <ImageView
+        android:id="@+id/calendar_icon"
+        android:src="@drawable/ic_lock_idle_calendar"
+        android:padding="4dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:gravity="center" />
+
+    <ListView
+        android:id="@+id/calendar_list"
+        android:layout_toRightOf="@id/calendar_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#00000000" />
+        <!-- items included dynamically -->
+
+    <TextView
+        android:id="@+id/calendar_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
+

@@ -22,13 +22,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class CalendarInfo {
-    private static List<EventInfo> mEventsList;
-    private static long mFollowingEventStart;
+    private List<EventInfo> mEventsList;
+    private long mFollowingEventStart;
 
     public CalendarInfo() {
-        if (mEventsList == null) {
-            mEventsList = new ArrayList<EventInfo>(Constants.MAX_CALENDAR_ITEMS);
-        }
+        mEventsList = new ArrayList<EventInfo>(Constants.MAX_CALENDAR_ITEMS);
         mFollowingEventStart = 0;
     }
 
