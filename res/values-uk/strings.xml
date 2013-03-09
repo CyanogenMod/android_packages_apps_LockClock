@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">Невідомо</string>
+    <string name="cancel">Сказувати</string>
+    <string name="loading_indicator">Завантаження віджету\u2026</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">Торнадо</string>
+    <string name="weather_1">Шторм</string>
+    <string name="weather_2">Ураган</string>
+    <string name="weather_3">Сильні грози</string>
+    <string name="weather_4">Грози</string>
+    <string name="weather_5">Дощ зі снігом</string>
+    <string name="weather_6">Дощ з мокрим снігом</string>
+    <string name="weather_7">Мокрий сніг</string>
+    <string name="weather_8">Паморозь</string>
+    <string name="weather_9">Дрібний дощ</string>
+    <string name="weather_10">Град</string>
+    <string name="weather_11">Ливень</string>
+    <string name="weather_12">Ливень</string>
+    <string name="weather_13">Сніг з дощем</string>
+    <string name="weather_14">Невеличкий сніг</string>
+    <string name="weather_15">Поземка</string>
+    <string name="weather_16">Сніг</string>
+    <string name="weather_17">Град</string>
+    <string name="weather_18">Мокрий сніг</string>
+    <string name="weather_19">Пилюка</string>
+    <string name="weather_20">Туманно</string>
+    <string name="weather_21">Туман</string>
+    <string name="weather_22">Дим</string>
+    <string name="weather_23">Вітряно</string>
+    <string name="weather_24">Вітряно</string>
+    <string name="weather_25">Холодно</string>
+    <string name="weather_26">Хмарно</string>
+    <string name="weather_27">Малохмарно</string> <!-- Night -->
+    <string name="weather_28">Малохмарно</string> <!-- Day -->
+    <string name="weather_29">Малохмарно</string> <!-- Night -->
+    <string name="weather_30">Малохмарно</string> <!-- Day -->
+    <string name="weather_31">Ясно</string> <!-- Night -->
+    <string name="weather_32">Сонячно</string>
+    <string name="weather_33">Зоряно</string> <!-- Night -->
+    <string name="weather_34">Ясно</string> <!-- Day -->
+    <string name="weather_35">Дощ з градом</string>
+    <string name="weather_36">Жарко</string>
+    <string name="weather_37">Місцями грози</string>
+    <string name="weather_38">Можливі грози</string>
+    <string name="weather_39">Можливі грози</string>
+    <string name="weather_40">Можливі грози</string>
+    <string name="weather_41">Сильний сніг</string>
+    <string name="weather_42">Можливий сніг</string>
+    <string name="weather_43">Сильний сніг</string>
+    <string name="weather_44">Малохмарно</string>
+    <string name="weather_45">Дощ з грозою</string>
+    <string name="weather_46">Дощ зі снігом</string>
+    <string name="weather_47">Місцями грози</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">Пн</string>
+    <string name="weather_NE">ПнСх</string>
+    <string name="weather_E">Сх</string>
+    <string name="weather_SE">ПдСх</string>
+    <string name="weather_S">Пд</string>
+    <string name="weather_SW">ПдЗх</string>
+    <string name="weather_W">Зх</string>
+    <string name="weather_NW">ПнЗх</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">Немає даних</string>
+    <string name="weather_tap_to_refresh">Натисніть для оновлення</string>
+    <string name="weather_refreshing">Оновлення\u2026</string>
+    <string name="weather_last_sync_just_now">Тільки-що</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">Вручну</string>
+    <string name="weather_refresh_30min">30 хвилин</string>
+    <string name="weather_refresh_60min">60 хвилин</string>
+    <string name="weather_refresh_2hrs">2 години</string>
+    <string name="weather_refresh_4hrs">4 години</string>
+    <string name="weather_refresh_6hrs">6 годин</string>
+    <string name="weather_refresh_8hrs">8 годин</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Годинник та будильник</string>
+    <string name="weather_category">Погода</string>
+    <string name="calendar_category">Календар</string>
+
+    <!-- Preferences - Categories -->
+    <string name="general_category">Головні</string>
+    <string name="display_category">Вигляд</string>
+
+    <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">Цифровий годинник</string>
+    <string name="use_digital_clock_summary">Вибір між цифровим та аналоговим годинником</string>
+    <string name="clock_font_title">Години напівжирними</string>
+    <string name="clock_font_minutes_title">Хвилини напівжирними</string>
+    <string name="clock_font_date_title">Дата та будильник напівжирними</string>
+    <string name="show_alarm_title">Показувати будильник</string>
+
+    <!-- Preferences - Weather -->
+    <string name="weather_enabled">Увімкнено</string>
+    <string name="weather_enable">Погода показується</string>
+    <string name="weather_source">Yahoo! Погода</string>
+    <string name="weather_use_custom_location">Не визначати автоматично</string>
+    <string name="weather_geolocated">Місцезнаходження по мережі</string>
+    <string name="weather_custom_location_dialog_title">Введіть місцезнаходження</string>
+    <string name="weather_custom_location_hint">Місто, область/країна</string>
+    <string name="weather_custom_location_title">Місцезнаходження</string>
+    <string name="weather_show_location_title">Показувати місцезнаходження</string>
+    <string name="weather_show_timestamp_title">Показувати час</string>
+    <string name="weather_refresh_interval">Частота оновлення</string>
+    <string name="weather_use_metric">Метрична система</string>
+    <string name="weather_retrieve_location_dialog_title">Не вдається визначити місцезнаходження!</string>
+    <string name="weather_retrieve_location_dialog_message">Визначення місцезнаходження по мережі вимкнено.\n\nУвімкніть визначення місцезнаходження по мережі або введіть місцезнаходження вручну.</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Увімкнути</string>
+    <string name="weather_invert_lowhigh">Змінити порядок температур</string>
+    <string name="weather_progress_title">Перевірка місцезнаходження</string>
+    <string name="weather_alternate_icons_title">Кольорові значки</string>
+    <string name="weather_alternate_icons_summary">Вибір між типовими значками (кольорові) та альтернативними (білі)</string>
+    <string name="weather_show_when_minimized_title">Показувати завжди</string>
+    <string name="weather_show_when_minimized_summary">Показувати погоду, коли віджет у згорнутому стані</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Показувати події</string>
+    <string name="calendars_title">Події календарів</string>
+    <string name="calendars_summary">Показувати події із цих календарів</string>
+    <string name="calendar_reminders_only_title">Тільки з нагадуваннями</string>
+    <string name="calendar_reminders_only_summary">Показувати тільки події з нагадуваннями</string>
+    <string name="calendar_hide_allday_title">Приховати всі сьогоднішні події</string>
+    <string name="calendar_lookahead_title">Перегляд події</string>
+    <string name="calendar_show_location_title">Місце події</string>
+    <string name="calendar_show_description_title">опис події</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 години</string>
+    <string name="calendar_lookahead_6hrs">6 годин</string>
+    <string name="calendar_lookahead_12hrs">12 годин</string>
+    <string name="calendar_lookahead_1day">1 день</string>
+    <string name="calendar_lookahead_3days">3 дня</string>
+    <string name="calendar_lookahead_1wk">1 тиждень</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">Не показувати</string>
+    <string name="calendar_metadata_first_line">Показувати перший рядок</string>
+    <string name="calendar_metadata_all">Показувати все</string>
+
+</resources>
