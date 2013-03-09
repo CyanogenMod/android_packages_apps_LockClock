@@ -16,13 +16,10 @@
 
 <resources>
 
-    <!-- General strings -->
     <string name="unknown">Desconocido</string>
     <string name="cancel">Cancelar</string>
     <string name="loading_indicator">Cargando widget\u2026</string>
     <string name="menu_done">Hecho</string>
-
-    <!-- Weather - Weather codes -->
     <string name="weather_0">Tornado</string>
     <string name="weather_1">Torm. tropical</string>
     <string name="weather_2">Huracán</string>
@@ -72,8 +69,6 @@
     <string name="weather_46">Nieve</string>
     <string name="weather_47">Chap. aislados</string>
     <string name="weather_3200">No disponible</string>
-
-    <!-- Lock screen Weather - Wind directions -->
     <string name="weather_N">N</string>
     <string name="weather_NE">NE</string>
     <string name="weather_E">E</string>
@@ -82,14 +77,10 @@
     <string name="weather_SW">SO</string>
     <string name="weather_W">O</string>
     <string name="weather_NW">NO</string>
-
-    <!-- Lock screen Weather - error messages -->
     <string name="weather_no_data">Sin datos</string>
     <string name="weather_tap_to_refresh">Tocar para refrescar</string>
     <string name="weather_refreshing">Actualizando\u2026</string>
     <string name="weather_last_sync_just_now">Ahora</string>
-
-    <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">Manual</string>
     <string name="weather_refresh_30min">30 minutos</string>
     <string name="weather_refresh_60min">60 minutos</string>
@@ -97,25 +88,17 @@
     <string name="weather_refresh_4hrs">4 horas</string>
     <string name="weather_refresh_6hrs">6 horas</string>
     <string name="weather_refresh_8hrs">8 horas</string>
-
-    <!-- Preferences - Categories -->
     <string name="clock_category">Reloj y alarma</string>
     <string name="weather_category">Clima</string>
     <string name="calendar_category">Calendario</string>
-
-    <!-- Preferences - Categories -->
     <string name="general_category">General</string>
     <string name="display_category">Aspecto</string>
-
-    <!-- Preferences - Clock -->
     <string name="use_digital_clock_title">Usar reloj digital</string>
     <string name="use_digital_clock_summary">Seleccionar para alternar entre el reloj digital y el analógico</string>
     <string name="clock_font_title">Resaltar hora</string>
     <string name="clock_font_minutes_title">Resaltar minutos</string>
     <string name="clock_font_date_title">Resaltar fecha y alarma</string>
     <string name="show_alarm_title">Mostrar alarma siguiente</string>
-
-    <!-- Preferences - Weather -->
     <string name="weather_enabled">Activado</string>
     <string name="weather_enable">Mostrar clima</string>
     <string name="weather_source">Yahoo! Tiempo</string>
@@ -137,19 +120,19 @@
     <string name="weather_alternate_icons_summary">Usar iconos en color en vez de los predeterminados en blanco</string>
     <string name="weather_show_when_minimized_title">Mostrar al minimizar</string>
     <string name="weather_show_when_minimized_summary">Mostrar la información climática cuando el widget esté minimizado</string>
-
-    <!-- Preferences - Calendar -->
     <string name="calendar_title">Mostrar próximo evento</string>
     <string name="calendars_title">Calendario de eventos</string>
     <string name="calendars_summary">Buscar eventos en los calendarios</string>
     <string name="calendar_reminders_only_title">Sólo recordatorios</string>
     <string name="calendar_reminders_only_summary">Mostrar sólo eventos con recordatorios</string>
-    <string name="calendar_hide_allday_title">Ocultar eventos \'todo el día\'</string>
+    <string name="calendar_hide_allday_title">Ocultar eventos \u00ABtodo el día\u00BB</string>
     <string name="calendar_lookahead_title">Eventos futuros</string>
     <string name="calendar_show_location_title">Lugar del evento</string>
     <string name="calendar_show_description_title">Descripción del evento</string>
-
-    <!-- Calendar - lookahead -->
+    <string name="font_color">Color del texto</string>
+    <string name="font_color_alarm">Color de la alarma</string>
+    <string name="font_color_timestamp">Color de la fecha</string>
+    <string name="font_color_calendar_details">Color del detalle</string>
     <string name="calendar_lookahead_3hrs">3 horas</string>
     <string name="calendar_lookahead_6hrs">6 horas</string>
     <string name="calendar_lookahead_12hrs">12 horas</string>
@@ -158,10 +141,21 @@
     <string name="calendar_lookahead_1wk">1 semana</string>
     <string name="calendar_lookahead_2wks">2 semanas</string>
     <string name="calendar_lookahead_4wks">4 semanas</string>
-
-    <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">No mostrar</string>
     <string name="calendar_metadata_first_line">Mostrar primera línea</string>
     <string name="calendar_metadata_all">Mostrar todo</string>
+    <string name="white">Blanco</string>
+    <string name="grey">Gris</string>
+    <string name="black">Negro</string>
+    <string name="holo_blue_light">Azul claro</string>
+    <string name="holo_green_light">Verde claro</string>
+    <string name="holo_red_light">Rojo claro</string>
+    <string name="holo_blue_dark">Azul oscuro</string>
+    <string name="holo_green_dark">Verde oscuro</string>
+    <string name="holo_red_dark">Rojo oscuro</string>
+    <string name="holo_purple">Morado</string>
+    <string name="holo_orange_light">Naranja claro</string>
+    <string name="holo_orange_dark">Naranja oscuro</string>
+    <string name="holo_blue_bright">Azul brillante</string>
 
 </resources>
