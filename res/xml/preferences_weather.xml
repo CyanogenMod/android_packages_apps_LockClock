@@ -90,5 +90,21 @@
             android:dependency="show_weather"
             android:title="@string/weather_invert_lowhigh"
             android:defaultValue="false" />
+
+        <ListPreference
+            android:key="weather_font_color"
+            android:title="@string/font_color"
+            android:dependency="show_weather"
+            android:defaultValue="#ffffffff"
+            android:entries="@array/font_color_entries"
+            android:entryValues="@array/font_color_values" />
+
+        <ListPreference
+            android:key="weather_timestamp_font_color"
+            android:title="@string/font_color_timestamp"
+            android:dependency="show_weather"
+            android:defaultValue="#80ffffff"
+            android:entries="@array/font_color_entries"
+            android:entryValues="@array/font_color_values" />
     </PreferenceCategory>
 </PreferenceScreen>
