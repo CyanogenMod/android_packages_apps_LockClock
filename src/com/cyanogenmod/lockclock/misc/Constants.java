@@ -29,6 +29,8 @@ public class Constants {
     public static final String CLOCK_FONT_MINUTES = "clock_font_minutes";
     public static final String CLOCK_FONT_DATE = "clock_font_date";
     public static final String CLOCK_SHOW_ALARM = "clock_show_alarm";
+    public static final String CLOCK_FONT_COLOR = "clock_font_color";
+    public static final String CLOCK_ALARM_FONT_COLOR = "clock_alarm_font_color";
 
     public static final String SHOW_WEATHER = "show_weather";
     public static final String WEATHER_USE_CUSTOM_LOCATION = "weather_use_custom_location";
@@ -41,6 +43,8 @@ public class Constants {
     public static final String WEATHER_USE_ALTERNATE_ICONS = "weather_use_alternate_icons";
     public static final String WEATHER_WOEID = "weather_woeid";
     public static final String WEATHER_SHOW_WHEN_MINIMIZED = "weather_show_when_minimized";
+    public static final String WEATHER_FONT_COLOR = "weather_font_color";
+    public static final String WEATHER_TIMESTAMP_FONT_COLOR = "weather_timestamp_font_color";
 
     public static final String SHOW_CALENDAR = "show_calendar";
     public static final String CALENDAR_LIST = "calendar_list";
@@ -49,6 +53,8 @@ public class Constants {
     public static final String CALENDAR_HIDE_ALLDAY = "calendar_hide_allday";
     public static final String CALENDAR_SHOW_LOCATION = "calendar_show_location";
     public static final String CALENDAR_SHOW_DESCRIPTION = "calendar_show_description";
+    public static final String CALENDAR_FONT_COLOR = "calendar_font_color";
+    public static final String CALENDAR_DETAILS_FONT_COLOR = "calendar_details_font_color";
 
     // other shared pref entries
     public static final String WEATHER_LAST_UPDATE = "last_weather_update";
@@ -69,4 +75,8 @@ public class Constants {
     public static final int CALENDAR_FORMAT_ALLDAY = CALENDAR_FORMAT_ABBREV_DATE;
     public static final int CALENDAR_FORMAT_TODAY = CALENDAR_FORMAT_TIME;
     public static final int CALENDAR_FORMAT_FUTURE = CALENDAR_FORMAT_ABBREV_DATETIME;
+
+    public static final String DEFAULT_LIGHT_COLOR = "#ffffffff";
+    public static final String DEFAULT_DARK_COLOR = "#80ffffff";
+
 }
