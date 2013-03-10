@@ -158,6 +158,12 @@
     <string name="calendar_show_location_title">Event location</string>
     <string name="calendar_show_description_title">Event description</string>
 
+    <!-- Preferences - Font colors -->
+    <string name="font_color">Font color</string>
+    <string name="font_color_alarm">Alarm font color</string>
+    <string name="font_color_timestamp">Timestamp font color</string>
+    <string name="font_color_calendar_details">Details font color</string>
+
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 hours</string>
     <string name="calendar_lookahead_6hrs">6 hours</string>
@@ -172,5 +178,20 @@
     <string name="calendar_metadata_none">Do not show</string>
     <string name="calendar_metadata_first_line">Show first line</string>
     <string name="calendar_metadata_all">Show all</string>
+
+    <!-- Font colors -->
+    <string name="white">White</string>
+    <string name="grey">Grey</string>
+    <string name="black">Black</string>
+    <string name="holo_blue_light">Light blue</string>
+    <string name="holo_green_light">Light green</string>
+    <string name="holo_red_light">Light red</string>
+    <string name="holo_blue_dark">Dark blue</string>
+    <string name="holo_green_dark">Dark green</string>
+    <string name="holo_red_dark">Dark red</string>
+    <string name="holo_purple">Purple</string>
+    <string name="holo_orange_light">Light orange</string>
+    <string name="holo_orange_dark">Dark orange</string>
+    <string name="holo_blue_bright">Bright blue</string>
 
 </resources>

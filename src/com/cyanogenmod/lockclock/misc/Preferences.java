@@ -18,6 +18,8 @@ package com.cyanogenmod.lockclock.misc;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.util.Log;
 
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 
@@ -53,6 +55,68 @@ public class Preferences {
 
     public static boolean useBoldFontForDateAndAlarms(Context context) {
         return getPrefs(context).getBoolean(Constants.CLOCK_FONT_DATE, true);
+    }
+
+    public static int clockFontColor(Context context) {
+        int color = parseColorString(getPrefs(context).getString(Constants.CLOCK_FONT_COLOR, Constants.DEFAULT_LIGHT_COLOR));
+        return color;
+    }
+
+    public static int clockAlarmFontColor(Context context) {
+        int color = parseColorString(getPrefs(context).getString(Constants.CLOCK_ALARM_FONT_COLOR, Constants.DEFAULT_DARK_COLOR));
+        return color;
+    }
+
+    public static int weatherFontColor(Context context) {
+        int color = parseColorString(getPrefs(context).getString(Constants.WEATHER_FONT_COLOR, Constants.DEFAULT_LIGHT_COLOR));
+        return color;
+    }
+
+    public static int weatherTimestampFontColor(Context context) {
+        int color = parseColorString(getPrefs(context).getString(Constants.WEATHER_TIMESTAMP_FONT_COLOR, Constants.DEFAULT_DARK_COLOR));
+        return color;
+    }
+
+    public static int calendarFontColor(Context context) {
+        int color = parseColorString(getPrefs(context).getString(Constants.CALENDAR_FONT_COLOR, Constants.DEFAULT_LIGHT_COLOR));
+        return color;
+    }
+
+    public static int calendarDetailsFontColor(Context context) {
+        int color = parseColorString(getPrefs(context).getString(Constants.CALENDAR_DETAILS_FONT_COLOR, Constants.DEFAULT_DARK_COLOR));
+        return color;
+    }
+
+    private static int parseColorString(String colorString) {
+        int color = -1;
+        if (colorString.equals("ffffffff")) {
+            color = 0xffffffff;
+        } else if (colorString.equals("80ffffff")) {
+            color = 0x80ffffff;
+        } else if (colorString.equals("ff000000")) {
+            color = 0xff000000;
+        } else if (colorString.equals("ff33b5e5")) {
+            color = 0xff33b5e5;
+        } else if (colorString.equals("ff99cc00")) {
+            color = 0xff99cc00;
+        } else if (colorString.equals("ffff4444")) {
+            color = 0xffff4444;
+        } else if (colorString.equals("ff0099cc")) {
+            color = 0xff0099cc;
+        } else if (colorString.equals("ff669900")) {
+            color = 0xff669900;
+        } else if (colorString.equals("ffcc0000")) {
+            color = 0xffcc0000;
+        } else if (colorString.equals("ffaa66cc")) {
+            color = 0xffaa66cc;
+        } else if (colorString.equals("ffffbb33")) {
+            color = 0xffffbb33;
+        } else if (colorString.equals("ffff8800")) {
+            color = 0xffff8800;
+        } else if (colorString.equals("ff00ddff")) {
+            color = 0xff00ddff;
+        }
+        return color;
     }
 
     public static boolean showWeatherWhenMinimized(Context context) {
