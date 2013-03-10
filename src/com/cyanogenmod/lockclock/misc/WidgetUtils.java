@@ -20,6 +20,13 @@ package com.cyanogenmod.lockclock.misc;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.Bitmap.Config;
 import android.os.Bundle;
 import android.util.TypedValue;
 
@@ -29,6 +36,22 @@ public class WidgetUtils {
     //===============================================================================================
     // Widget display and resizing related functionality
     //===============================================================================================
+    /**
+     *  Load a resource by Id and overlay with a specified color
+     */
+    public static Bitmap getOverlaidBitmap(Context context, int resId, int overlayColor) {
+        final Resources res = context.getResources();
+        final Bitmap src = BitmapFactory.decodeResource(res, resId);
+        final Bitmap dest = Bitmap.createBitmap(src.getWidth(), src.getHeight(), Config.ARGB_8888);
+        Canvas c = new Canvas(dest);
+        final Paint paint = new Paint();
+
+        // Overlay the selected color and set the imageview
+        paint.setColorFilter(new PorterDuffColorFilter(overlayColor, PorterDuff.Mode.SRC_ATOP));
+        c.drawBitmap(src, 0, 0, paint);
+        return dest;
+    }
+
     /**
      *  Decide whether to show the small Weather panel
      */

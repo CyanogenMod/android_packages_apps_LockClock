@@ -18,6 +18,7 @@ package com.cyanogenmod.lockclock.misc;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 
@@ -53,6 +54,42 @@ public class Preferences {
 
     public static boolean useBoldFontForDateAndAlarms(Context context) {
         return getPrefs(context).getBoolean(Constants.CLOCK_FONT_DATE, true);
+    }
+
+    public static int clockFontColor(Context context) {
+        int color = Color.parseColor(getPrefs(context).getString(Constants.CLOCK_FONT_COLOR,
+                Constants.DEFAULT_LIGHT_COLOR));
+        return color;
+    }
+
+    public static int clockAlarmFontColor(Context context) {
+        int color = Color.parseColor(getPrefs(context).getString(Constants.CLOCK_ALARM_FONT_COLOR,
+                Constants.DEFAULT_DARK_COLOR));
+        return color;
+    }
+
+    public static int weatherFontColor(Context context) {
+        int color = Color.parseColor(getPrefs(context).getString(Constants.WEATHER_FONT_COLOR,
+                Constants.DEFAULT_LIGHT_COLOR));
+        return color;
+    }
+
+    public static int weatherTimestampFontColor(Context context) {
+        int color = Color.parseColor(getPrefs(context).getString(Constants.WEATHER_TIMESTAMP_FONT_COLOR,
+                Constants.DEFAULT_DARK_COLOR));
+        return color;
+    }
+
+    public static int calendarFontColor(Context context) {
+        int color = Color.parseColor(getPrefs(context).getString(Constants.CALENDAR_FONT_COLOR,
+                Constants.DEFAULT_LIGHT_COLOR));
+        return color;
+    }
+
+    public static int calendarDetailsFontColor(Context context) {
+        int color = Color.parseColor(getPrefs(context).getString(Constants.CALENDAR_DETAILS_FONT_COLOR,
+                Constants.DEFAULT_DARK_COLOR));
+        return color;
     }
 
     public static boolean showWeatherWhenMinimized(Context context) {

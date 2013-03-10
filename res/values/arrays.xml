@@ -70,4 +70,36 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="font_color_entries" translatable="false">
+        <item>@string/white</item>
+        <item>@string/grey</item>
+        <item>@string/black</item>
+        <item>@string/holo_blue_bright</item>
+        <item>@string/holo_blue_light</item>
+        <item>@string/holo_blue_dark</item>
+        <item>@string/holo_green_light</item>
+        <item>@string/holo_green_dark</item>
+        <item>@string/holo_red_light</item>
+        <item>@string/holo_red_dark</item>
+        <item>@string/holo_orange_light</item>
+        <item>@string/holo_orange_dark</item>
+        <item>@string/holo_purple</item>
+    </string-array>
+
+    <string-array name="font_color_values" translatable="false">
+        <item>#ffffffff</item>
+        <item>#80ffffff</item>
+        <item>#ff000000</item>
+        <item>#ff00ddff</item>
+        <item>#ff33b5e5</item>
+        <item>#ff0099cc</item>
+        <item>#ff99cc00</item>
+        <item>#ff669900</item>
+        <item>#ffff4444</item>
+        <item>#ffcc0000</item>
+        <item>#ffffbb33</item>
+        <item>#ffff8800</item>
+        <item>#ffaa66cc</item>
+    </string-array>
+
 </resources>
