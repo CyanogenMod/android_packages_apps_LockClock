@@ -139,4 +139,21 @@
     <string name="menu_done">Feito</string>
     <string name="weather_show_when_minimized_title">Exibir quando minimizado</string>
     <string name="weather_show_when_minimized_summary">Exibir um resumo de informações sobre o tempo quando o widget estiver minimizado</string>
+    <string name="font_color">Cor da fonte</string>
+    <string name="font_color_alarm">Cor da fonte do alarme</string>
+    <string name="font_color_timestamp">Cor da fonte do horário</string>
+    <string name="font_color_calendar_details">Detalhes da cor da fonte</string>
+    <string name="white">Branco</string>
+    <string name="grey">Cinza</string>
+    <string name="black">Preto</string>
+    <string name="holo_blue_light">Azul claro</string>
+    <string name="holo_green_light">Verde claro</string>
+    <string name="holo_red_light">Vermelho claro</string>
+    <string name="holo_blue_dark">Azul escuro</string>
+    <string name="holo_green_dark">Verde escuro</string>
+    <string name="holo_red_dark">Vermelho escuro</string>
+    <string name="holo_purple">Roxo</string>
+    <string name="holo_orange_light">Laranja claro</string>
+    <string name="holo_orange_dark">Laranja escuro</string>
+    <string name="holo_blue_bright">Azul brilhoso</string>
 </resources>
