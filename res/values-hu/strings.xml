@@ -136,6 +136,8 @@
     <string name="weather_progress_title">Hely ellenőrzése</string>
     <string name="weather_alternate_icons_title">Alternatív ikonok használata</string>
     <string name="weather_alternate_icons_summary">Válasszon az alapértelmezett (fehér), illetve az alternatív (színes) ikonok közül</string>
+    <string name="weather_show_when_minimized_title">Minimalizált megjelenítés</string>
+    <string name="weather_show_when_minimized_summary">Időjárási adatok megjelenítése minimális modul méretnél is</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Megjeleníti a következő naptárbejegyzést</string>
