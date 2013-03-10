@@ -79,5 +79,21 @@
             android:title="@string/calendar_show_description_title"
             android:entries="@array/calendar_show_event_metadata_entries"
             android:entryValues="@array/calendar_show_event_metadata_values" />
+
+        <ListPreference
+            android:key="calendar_font_color"
+            android:title="@string/font_color"
+            android:dependency="show_calendar"
+            android:defaultValue="#ffffffff"
+            android:entries="@array/font_color_entries"
+            android:entryValues="@array/font_color_values" />
+
+        <ListPreference
+            android:key="calendar_details_font_color"
+            android:title="@string/font_color_calendar_details"
+            android:dependency="show_calendar"
+            android:defaultValue="#80ffffff"
+            android:entries="@array/font_color_entries"
+            android:entryValues="@array/font_color_values" />
     </PreferenceCategory>
 </PreferenceScreen>

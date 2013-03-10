@@ -42,6 +42,8 @@ public class CalendarPreferences extends PreferenceFragment implements
     OnSharedPreferenceChangeListener {
 
     private Context mContext;
+    private ListPreference mFontColor;
+    private ListPreference mEventDetailsFontColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,10 @@ public class CalendarPreferences extends PreferenceFragment implements
         CalendarEntries calEntries = CalendarEntries.findCalendars(getActivity());
         calendarList.setEntries(calEntries.getEntries());
         calendarList.setEntryValues(calEntries.getEntryValues());
+
+        mFontColor = (ListPreference) findPreference(Constants.CALENDAR_FONT_COLOR);
+        mEventDetailsFontColor = (ListPreference) findPreference(Constants.CALENDAR_DETAILS_FONT_COLOR);
+        updateFontColorsSummary();
     }
 
     @Override
@@ -131,6 +137,15 @@ public class CalendarPreferences extends PreferenceFragment implements
 
         CharSequence[] getEntryValues() {
             return mEntryValues;
+        }
+    }
+
+    private void updateFontColorsSummary() {
+        if (mFontColor != null) {
+            mFontColor.setSummary(mFontColor.getEntry());
+        }
+        if (mEventDetailsFontColor != null) {
+            mEventDetailsFontColor.setSummary(mEventDetailsFontColor.getEntry());
         }
     }
 }

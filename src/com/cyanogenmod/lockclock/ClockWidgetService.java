@@ -192,37 +192,48 @@ public class ClockWidgetService extends IntentService {
     }
 
     private void refreshClockFont(RemoteViews clockViews) {
+        int color = Preferences.clockFontColor(this);
+
         // Hours
         if (Preferences.useBoldFontForHours(this)) {
             clockViews.setViewVisibility(R.id.clock1_bold, View.VISIBLE);
             clockViews.setViewVisibility(R.id.clock1_regular, View.GONE);
+            clockViews.setTextColor(R.id.clock1_bold, color);
         } else {
             clockViews.setViewVisibility(R.id.clock1_regular, View.VISIBLE);
             clockViews.setViewVisibility(R.id.clock1_bold, View.GONE);
+            clockViews.setTextColor(R.id.clock1_regular, color);
         }
 
         // Minutes
         if (Preferences.useBoldFontForMinutes(this)) {
             clockViews.setViewVisibility(R.id.clock2_bold, View.VISIBLE);
             clockViews.setViewVisibility(R.id.clock2_regular, View.GONE);
+            clockViews.setTextColor(R.id.clock2_bold, color);
         } else {
             clockViews.setViewVisibility(R.id.clock2_regular, View.VISIBLE);
             clockViews.setViewVisibility(R.id.clock2_bold, View.GONE);
+            clockViews.setTextColor(R.id.clock2_regular, color);
         }
     }
 
     private void refreshDateAlarmFont(RemoteViews clockViews, boolean smallWidget) {
+        int color = Preferences.clockFontColor(this);
+
         // Date and Alarm font
         if (!smallWidget) {
             if (Preferences.useBoldFontForDateAndAlarms(this)) {
                 clockViews.setViewVisibility(R.id.date_bold, View.VISIBLE);
                 clockViews.setViewVisibility(R.id.date_regular, View.GONE);
+                clockViews.setTextColor(R.id.date_bold, color);
             } else {
                 clockViews.setViewVisibility(R.id.date_regular, View.VISIBLE);
                 clockViews.setViewVisibility(R.id.date_bold, View.GONE);
+                clockViews.setTextColor(R.id.date_regular, color);
             }
         } else {
             clockViews.setViewVisibility(R.id.date, View.VISIBLE);
+            clockViews.setTextColor(R.id.date, color);
         }
 
         // Show the panel
@@ -245,21 +256,36 @@ public class ClockWidgetService extends IntentService {
             String nextAlarm = getNextAlarm();
             if (!TextUtils.isEmpty(nextAlarm)) {
                 // An alarm is set, deal with displaying it
+                int color = Preferences.clockAlarmFontColor(this);
+
+                // Overlay the selected color on the alarm icon and set the imageview
+                alarmViews.setImageViewBitmap(R.id.alarm_icon,
+                        WidgetUtils.getOverlaidBitmap(this, R.drawable.ic_alarm_small, color));
+                alarmViews.setViewVisibility(R.id.alarm_icon, View.VISIBLE);
+
                 if (!smallWidget) {
-                    boolean isBold = Preferences.useBoldFontForDateAndAlarms(this);
-                    alarmViews.setTextViewText(isBold ? R.id.nextAlarm_bold : R.id.nextAlarm_regular,
-                            nextAlarm.toString().toUpperCase());
-                    alarmViews.setViewVisibility(R.id.nextAlarm_bold, isBold ? View.VISIBLE : View.GONE);
-                    alarmViews.setViewVisibility(R.id.nextAlarm_regular, isBold ? View.GONE : View.VISIBLE);
+                    if (Preferences.useBoldFontForDateAndAlarms(this)) {
+                        alarmViews.setTextViewText(R.id.nextAlarm_bold, nextAlarm.toString().toUpperCase());
+                        alarmViews.setViewVisibility(R.id.nextAlarm_bold, View.VISIBLE);
+                        alarmViews.setViewVisibility(R.id.nextAlarm_regular, View.GONE);
+                        alarmViews.setTextColor(R.id.nextAlarm_bold, color);
+                    } else {
+                        alarmViews.setTextViewText(R.id.nextAlarm_regular, nextAlarm.toString().toUpperCase());
+                        alarmViews.setViewVisibility(R.id.nextAlarm_regular, View.VISIBLE);
+                        alarmViews.setViewVisibility(R.id.nextAlarm_bold, View.GONE);
+                        alarmViews.setTextColor(R.id.nextAlarm_regular, color);
+                    }
                 } else {
                     alarmViews.setTextViewText(R.id.nextAlarm, nextAlarm.toString().toUpperCase());
                     alarmViews.setViewVisibility(R.id.nextAlarm, View.VISIBLE);
+                    alarmViews.setTextColor(R.id.nextAlarm, color);
                 }
                 return;
             }
         }
 
         // No alarm set or Alarm display is hidden, hide the views
+        alarmViews.setViewVisibility(R.id.alarm_icon, View.GONE);
         if (!smallWidget) {
             alarmViews.setViewVisibility(R.id.nextAlarm_bold, View.GONE);
             alarmViews.setViewVisibility(R.id.nextAlarm_regular, View.GONE);
@@ -287,17 +313,28 @@ public class ClockWidgetService extends IntentService {
      * Display the weather information
      */
     private void setWeatherData(RemoteViews weatherViews, boolean smallWidget, WeatherInfo w) {
+        int color = Preferences.weatherFontColor(this);
+        int timestampColor = Preferences.weatherTimestampFontColor(this);
+        boolean colorIcons = Preferences.useAlternateWeatherIcons(this);
 
         // Weather Image
-        weatherViews.setImageViewResource(R.id.weather_image, w.getConditionResource());
+        if (colorIcons) {
+            // No additional color overlays needed
+            weatherViews.setImageViewResource(R.id.weather_image, w.getConditionResource());
+        } else {
+            // Overlay the condition image with the appropriate color
+            weatherViews.setImageViewBitmap(R.id.weather_image, w.getConditionBitmap(color));
+        }
 
         // Weather Condition
         weatherViews.setTextViewText(R.id.weather_condition, w.getCondition());
         weatherViews.setViewVisibility(R.id.weather_condition, View.VISIBLE);
+        weatherViews.setTextColor(R.id.weather_condition, color);
 
         // Weather Temps Panel
         weatherViews.setTextViewText(R.id.weather_temp, w.getFormattedTemperature());
         weatherViews.setViewVisibility(R.id.weather_temps_panel, View.VISIBLE);
+        weatherViews.setTextColor(R.id.weather_temp, color);
 
         if (!smallWidget) {
             // Display the full weather information panel items
@@ -308,6 +345,7 @@ public class ClockWidgetService extends IntentService {
             // City
             weatherViews.setTextViewText(R.id.weather_city, w.getCity());
             weatherViews.setViewVisibility(R.id.weather_city, showLocation ? View.VISIBLE : View.GONE);
+            weatherViews.setTextColor(R.id.weather_city, color);
 
             // Weather Update Time
             if (showTimestamp) {
@@ -318,6 +356,7 @@ public class ClockWidgetService extends IntentService {
                 sb.append(DateFormat.getTimeFormat(this).format(updateTime));
                 weatherViews.setTextViewText(R.id.update_time, sb.toString());
                 weatherViews.setViewVisibility(R.id.update_time, View.VISIBLE);
+                weatherViews.setTextColor(R.id.update_time, timestampColor);
             } else {
                 weatherViews.setViewVisibility(R.id.update_time, View.GONE);
             }
@@ -327,6 +366,7 @@ public class ClockWidgetService extends IntentService {
             final String low = w.getFormattedLow();
             final String high = w.getFormattedHigh();
             weatherViews.setTextViewText(R.id.weather_low_high, invertLowhigh ? high + " | " + low : low + " | " + high);
+            weatherViews.setTextColor(R.id.weather_low_high, color);
         }
 
         // Register an onClickListener on Weather
@@ -339,6 +379,7 @@ public class ClockWidgetService extends IntentService {
     private void setNoWeatherData(RemoteViews weatherViews, boolean smallWidget) {
         boolean defaultIcons = !Preferences.useAlternateWeatherIcons(this);
         final Resources res = getBaseContext().getResources();
+        int color = Preferences.weatherFontColor(this);
 
         // Weather Image - Either the default or alternate set
         weatherViews.setImageViewResource(R.id.weather_image,
@@ -348,10 +389,12 @@ public class ClockWidgetService extends IntentService {
             weatherViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
             weatherViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
             weatherViews.setViewVisibility(R.id.update_time, View.GONE);
+            weatherViews.setTextColor(R.id.weather_city, color);
         }
 
         weatherViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
         weatherViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
+        weatherViews.setTextColor(R.id.weather_condition, color);
 
         // Register an onClickListener on Weather
         setWeatherClickListener(weatherViews);
@@ -374,6 +417,8 @@ public class ClockWidgetService extends IntentService {
         boolean hideAllDay = !Preferences.showAllDayEvents(this);
         long lookAhead = Preferences.lookAheadTimeInMs(this);
         boolean hasEvents = false;
+        int color = Preferences.calendarFontColor(this);
+        int detailsColor = Preferences.calendarDetailsFontColor(this);
 
         // Remove all the views to start
         calendarViews.removeAllViews(R.id.calendar_panel);
@@ -391,12 +436,16 @@ public class ClockWidgetService extends IntentService {
 
             // Only set the icon on the first event
             if (!hasEvents) {
-                itemViews.setImageViewResource(R.id.calendar_icon, R.drawable.ic_lock_idle_calendar);
+                // Overlay the selected color and set the imageview
+                itemViews.setImageViewBitmap(R.id.calendar_icon,
+                        WidgetUtils.getOverlaidBitmap(this, R.drawable.ic_lock_idle_calendar, color));
             }
 
             // Add the event text fields
             itemViews.setTextViewText(R.id.calendar_event_title, event.title);
             itemViews.setTextViewText(R.id.calendar_event_details, event.description);
+            itemViews.setTextColor(R.id.calendar_event_title, color);
+            itemViews.setTextColor(R.id.calendar_event_details, detailsColor);
 
             if (D) Log.v(TAG, "Showing event: " + event.title);
 

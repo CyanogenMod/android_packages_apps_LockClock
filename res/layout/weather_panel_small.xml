@@ -53,19 +53,32 @@
             android:textColor="?android:attr/textColorPrimary"
             style="@style/label_small" />
 
-        <TextView android:id="@+id/nextAlarm"
+        <!-- Alarm -->
+        <LinearLayout
             android:layout_below="@id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:gravity="right"
-            android:drawablePadding="2dip"
-            android:drawableLeft="@drawable/ic_alarm_small"
-            android:textColor="@color/clock_gray"
-            style="@style/alarm_label_small"
-            android:visibility="gone" />
+            android:orientation="horizontal" >
 
-        </RelativeLayout>
+            <ImageView android:id="@+id/alarm_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="2dip"
+                android:drawableLeft="@drawable/ic_alarm_small"
+                android:gravity="center"
+                android:visibility="gone" />
+
+            <TextView android:id="@+id/nextAlarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dip"
+                android:gravity="right"
+                android:textColor="@color/clock_gray"
+                style="@style/alarm_label_small"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/weather_temps_panel"
