@@ -125,6 +125,10 @@
     <string name="calendar_lookahead_title">Anticipo dell\'evento</string>
     <string name="calendar_show_location_title">Posizione dell\'evento</string>
     <string name="calendar_show_description_title">Descrizione dell\'evento</string>
+    <string name="font_color">Colore carattere</string>
+    <string name="font_color_alarm">Colore carattere sveglia</string>
+    <string name="font_color_timestamp">Colore carattere timestamp</string>
+    <string name="font_color_calendar_details">Colore carattere dettagli</string>
     <string name="calendar_lookahead_3hrs">3 ore</string>
     <string name="calendar_lookahead_6hrs">6 ore</string>
     <string name="calendar_lookahead_12hrs">12 ore</string>
@@ -134,4 +138,17 @@
     <string name="calendar_metadata_none">Non visualizzare</string>
     <string name="calendar_metadata_first_line">Visualizza la prima linea</string>
     <string name="calendar_metadata_all">Visualizza tutto</string>
+    <string name="white">Bianco</string>
+    <string name="grey">Grigio</string>
+    <string name="black">Nero</string>
+    <string name="holo_blue_light">Blu chiaro</string>
+    <string name="holo_green_light">Verde chiaro</string>
+    <string name="holo_red_light">Rosso chiaro</string>
+    <string name="holo_blue_dark">Blu scuro</string>
+    <string name="holo_green_dark">Grigio scuro</string>
+    <string name="holo_red_dark">Rosso scuro</string>
+    <string name="holo_purple">Viola</string>
+    <string name="holo_orange_light">Arancione chiaro</string>
+    <string name="holo_orange_dark">Arancione scuro</string>
+    <string name="holo_blue_bright">Blu luminoso</string>
 </resources>
