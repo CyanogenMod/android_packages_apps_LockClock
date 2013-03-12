@@ -240,8 +240,9 @@ public class WeatherPreferences extends PreferenceFragment implements
         builder.setPositiveButton(R.string.weather_retrieve_location_dialog_enable_button,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        Settings.Secure.setLocationProviderEnabled(mResolver,
-                                LocationManager.NETWORK_PROVIDER, true);
+                        Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        mContext.startActivity(intent);
                     }
                 });
         builder.setNegativeButton(R.string.cancel, null);
