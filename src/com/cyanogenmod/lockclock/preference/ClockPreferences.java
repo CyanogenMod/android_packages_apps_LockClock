@@ -33,13 +33,19 @@ public class ClockPreferences extends PreferenceFragment implements
     OnSharedPreferenceChangeListener {
 
     private Context mContext;
+    private ListPreference mClockFontColor;
+    private ListPreference mAlarmFontColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
         addPreferencesFromResource(R.xml.preferences_clock);
+
         mContext = getActivity();
+        mClockFontColor = (ListPreference) findPreference(Constants.CLOCK_FONT_COLOR);
+        mAlarmFontColor = (ListPreference) findPreference(Constants.CLOCK_ALARM_FONT_COLOR);
+        updateFontColorsSummary();
     }
 
     @Override
@@ -63,5 +69,14 @@ public class ClockPreferences extends PreferenceFragment implements
         }
         Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
         mContext.sendBroadcast(updateIntent);
+    }
+
+    private void updateFontColorsSummary() {
+        if (mClockFontColor != null) {
+            mClockFontColor.setSummary(mClockFontColor.getEntry());
+        }
+        if (mAlarmFontColor != null) {
+            mAlarmFontColor.setSummary(mAlarmFontColor.getEntry());
+        }
     }
 }
