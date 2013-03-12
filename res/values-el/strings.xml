@@ -150,6 +150,12 @@
     <string name="calendar_show_location_title">Τοποθεσία συμβάντος</string>
     <string name="calendar_show_description_title">Περιγραφή συμβάντος</string>
 
+    <!-- Preferences - Font colors -->
+    <string name="font_color">Χρώμα γραμματοσειράς</string>
+    <string name="font_color_alarm">Χρώμα ξυπνητηριού</string>
+    <string name="font_color_timestamp">Χρώμα ώρας</string>
+    <string name="font_color_calendar_details">Χρώμα λεπτομερειών</string>
+
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 ώρες</string>
     <string name="calendar_lookahead_6hrs">6 ώρες</string>
@@ -164,5 +170,20 @@
     <string name="calendar_metadata_none">Απόκρυψη</string>
     <string name="calendar_metadata_first_line">Εμφάνιση της πρώτης γραμμής</string>
     <string name="calendar_metadata_all">Εμφάνιση όλων</string>
+
+    <!-- Font colors -->
+    <string name="white">Λευκό</string>
+    <string name="grey">Γκρι</string>
+    <string name="black">Μαύρο</string>
+    <string name="holo_blue_light">Ανοιχτό μπλε</string>
+    <string name="holo_green_light">Ανοιχτό πράσινο</string>
+    <string name="holo_red_light">Ανοιχτό κόκκινο</string>
+    <string name="holo_blue_dark">Σκούρο μπλε</string>
+    <string name="holo_green_dark">Σκούρο πράσινο</string>
+    <string name="holo_red_dark">Σκούρο κόκκινο</string>
+    <string name="holo_purple">Μωβ</string>
+    <string name="holo_orange_light">Ανοιχτό πορτοκαλί</string>
+    <string name="holo_orange_dark">Σκούρο πορτοκαλί</string>
+    <string name="holo_blue_bright">Έντονο μπλε</string>
 
 </resources>
