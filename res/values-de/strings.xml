@@ -150,6 +150,12 @@
     <string name="calendar_show_location_title">Ort anzeigen</string>
     <string name="calendar_show_description_title">Beschreibung anzeigen</string>
 
+    <!-- Preferences - Font colors -->
+    <string name="font_color">Textfarbe</string>
+    <string name="font_color_alarm">Farbe des Alarms</string>
+    <string name="font_color_timestamp">Farbe der Aktualisierungszeit</string>
+    <string name="font_color_calendar_details">Farbe der Details</string>
+
      <!-- Lock screen calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 Stunden</string>
     <string name="calendar_lookahead_6hrs">6 Stunden</string>
@@ -164,5 +170,20 @@
     <string name="calendar_metadata_none">Nicht anzeigen</string>
     <string name="calendar_metadata_first_line">Nur die erste Zeile anzeigen</string>
     <string name="calendar_metadata_all">Alles anzeigen</string>
+
+    <!-- Font colors -->
+    <string name="white">Weiß</string>
+    <string name="grey">Grau</string>
+    <string name="black">Schwarz</string>
+    <string name="holo_blue_light">Helles Blau</string>
+    <string name="holo_green_light">Helles Grün</string>
+    <string name="holo_red_light">Helles Rot</string>
+    <string name="holo_blue_dark">Dunkles Blau</string>
+    <string name="holo_green_dark">Dunkles Grün</string>
+    <string name="holo_red_dark">Dunkles Rot</string>
+    <string name="holo_purple">Violett</string>
+    <string name="holo_orange_light">Helles Orange</string>
+    <string name="holo_orange_dark">Dunkles Orange</string>
+    <string name="holo_blue_bright">Leuchtendes Blau</string>
 
 </resources>
