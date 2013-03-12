@@ -150,6 +150,12 @@
     <string name="calendar_show_location_title">Место проведения</string>
     <string name="calendar_show_description_title">Описание события</string>
 
+    <!-- Preferences - Font colors -->
+    <string name="font_color">Цвет шрифта</string>
+    <string name="font_color_alarm">Часы</string>
+    <string name="font_color_timestamp">Дата</string>
+    <string name="font_color_calendar_details">Календарь</string>
+
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 часа</string>
     <string name="calendar_lookahead_6hrs">6 часов</string>
@@ -162,5 +168,20 @@
     <string name="calendar_metadata_none">Не показывать</string>
     <string name="calendar_metadata_first_line">Показывать первую строку</string>
     <string name="calendar_metadata_all">Показывать всё</string>
+
+    <!-- Font colors -->
+    <string name="white">Белый</string>
+    <string name="grey">Серый</string>
+    <string name="black">Чёрный</string>
+    <string name="holo_blue_light">Голубой</string>
+    <string name="holo_green_light">Светло-зелёный</string>
+    <string name="holo_red_light">Светло-красный</string>
+    <string name="holo_blue_dark">Синий</string>
+    <string name="holo_green_dark">Тёмно-зелёный</string>
+    <string name="holo_red_dark">Тёмно-красный</string>
+    <string name="holo_purple">Фиолетовый</string>
+    <string name="holo_orange_light">Светло-оранжевый</string>
+    <string name="holo_orange_dark">Тёмно-оранжевый</string>
+    <string name="holo_blue_bright">Ярко-синий</string>
 
 </resources>
