@@ -152,7 +152,7 @@
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Цвет шрифта</string>
-    <string name="font_color_alarm">Часы</string>
+    <string name="font_color_alarm">Будильник</string>
     <string name="font_color_timestamp">Дата</string>
     <string name="font_color_calendar_details">Календарь</string>
 
