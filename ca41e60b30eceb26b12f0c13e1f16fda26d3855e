@@ -1,0 +1,8 @@
+Change-Id: Ica41e60b30eceb26b12f0c13e1f16fda26d3855e
+Code-Review+2: David van Tonder <david.vantonder@gmail.com>
+Verified+1: Cid
+Submitted-by: David van Tonder <david.vantonder@gmail.com>
+Submitted-at: Tue, 12 Mar 2013 14:05:24 -0700
+Reviewed-on: http://review.cyanogenmod.org/33762
+Project: CyanogenMod/android_packages_apps_LockClock
+Branch: refs/heads/cm-10.1
