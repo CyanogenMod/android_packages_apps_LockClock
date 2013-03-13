@@ -20,6 +20,7 @@
     <string name="unknown">不明</string>
     <string name="cancel">キャンセル</string>
     <string name="loading_indicator">ウィジェットをロード中\u2026</string>
+    <string name="menu_done">完了</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">竜巻</string>
@@ -133,8 +134,10 @@
     <string name="weather_retrieve_location_dialog_enable_button">有効</string>
     <string name="weather_invert_lowhigh">最低/最高気温を逆にする</string>
     <string name="weather_progress_title">場所を確認中</string>
-    <string name="weather_alternate_icons_title">別のアイコンを使う</string>
-    <string name="weather_alternate_icons_summary">デフォルトの白いアイコンを使うか別のカラーアイコンを使うか選択する。</string>
+    <string name="weather_alternate_icons_title">カラーアイコンを使う</string>
+    <string name="weather_alternate_icons_summary">デフォルトのカラーアイコンか別の白アイコンを使うか選択する。</string>
+    <string name="weather_show_when_minimized_title">最小化時に表示</string>
+    <string name="weather_show_when_minimized_summary">ウィジェットを最小化した際に天気情報のサマリを表示する</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">次の予定を表示する</string>
@@ -154,10 +157,32 @@
     <string name="calendar_lookahead_1day">1日</string>
     <string name="calendar_lookahead_3days">3日</string>
     <string name="calendar_lookahead_1wk">1週間</string>
+    <string name="calendar_lookahead_2wks">2週間</string>
+    <string name="calendar_lookahead_4wks">4週間</string>
+
+    <!-- Preferences - Font colors -->
+    <string name="font_color">フォントカラー</string>
+    <string name="font_color_alarm">アラームの色</string>
+    <string name="font_color_timestamp">タイムスタンプの色</string>
+    <string name="font_color_calendar_details">詳細の色</string>
 
     <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">表示しない</string>
     <string name="calendar_metadata_first_line">最初の1行を表示</string>
     <string name="calendar_metadata_all">すべて表示</string>
 
+    <!-- Font colors -->
+    <string name="white">ホワイト</string>
+    <string name="grey">グレー</string>
+    <string name="black">ブラック</string>
+    <string name="holo_blue_light">ライトブルー</string>
+    <string name="holo_green_light">ライトグリーン</string>
+    <string name="holo_red_light">ライトレッド</string>
+    <string name="holo_blue_dark">ダークブルー</string>
+    <string name="holo_green_dark">ダークグレー</string>
+    <string name="holo_red_dark">ダークレッド</string>
+    <string name="holo_purple">パープル</string>
+    <string name="holo_orange_light">ライトオレンジ</string>
+    <string name="holo_orange_dark">ダークオレンジ</string>
+    <string name="holo_blue_bright">ブライトブルー</string>
 </resources>
