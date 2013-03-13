@@ -150,6 +150,12 @@
     <string name="calendar_show_location_title">Lieu des événements</string>
     <string name="calendar_show_description_title">Description des événements</string>
 
+    <!-- Preferences - Font colors -->
+    <string name="font_color">Couleur de la police</string>
+    <string name="font_color_alarm">Couleur de la police d\'alarme</string>
+    <string name="font_color_timestamp">Couleur de la police de la date</string>
+    <string name="font_color_calendar_details">Couleur de la police des détails</string>
+
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 heures</string>
     <string name="calendar_lookahead_6hrs">6 heures</string>
@@ -164,5 +170,20 @@
     <string name="calendar_metadata_none">Ne pas afficher</string>
     <string name="calendar_metadata_first_line">Afficher la première ligne</string>
     <string name="calendar_metadata_all">Tout afficher</string>
+
+    <!-- Font colors -->
+    <string name="white">Blanc</string>
+    <string name="grey">Gris</string>
+    <string name="black">Noir</string>
+    <string name="holo_blue_light">Bleu clair</string>
+    <string name="holo_green_light">Vert clair</string>
+    <string name="holo_red_light">Rouge clair</string>
+    <string name="holo_blue_dark">Bleu foncé</string>
+    <string name="holo_green_dark">Vert foncé</string>
+    <string name="holo_red_dark">Noir foncé</string>
+    <string name="holo_purple">Violet</string>
+    <string name="holo_orange_light">Orange clair</string>
+    <string name="holo_orange_dark">Orange foncé</string>
+    <string name="holo_blue_bright">Bleu vif</string>
 
 </resources>
