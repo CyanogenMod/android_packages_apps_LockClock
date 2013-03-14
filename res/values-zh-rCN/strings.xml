@@ -151,6 +151,12 @@
     <string name="calendar_show_location_title">活动位置</string>
     <string name="calendar_show_description_title">活动描述</string>
 
+    <!-- Preferences - Font colors -->
+    <string name="font_color">字体颜色</string>
+    <string name="font_color_alarm">闹钟字体颜色</string>
+    <string name="font_color_timestamp">时间戳字体颜色</string>
+    <string name="font_color_calendar_details">详细信息字体颜色</string>
+
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 小时</string>
     <string name="calendar_lookahead_6hrs">6 小时</string>
@@ -165,5 +171,21 @@
     <string name="calendar_metadata_none">不显示</string>
     <string name="calendar_metadata_first_line">显示第一行</string>
     <string name="calendar_metadata_all">完全显示</string>
+
+    <!-- Font colors -->
+    <string name="white">白色</string>
+    <string name="grey">灰色</string>
+    <string name="black">黑色</string>
+    <string name="holo_blue_light">浅蓝色</string>
+    <string name="holo_green_light">浅绿色</string>
+    <string name="holo_red_light">浅红色</string>
+    <string name="holo_blue_dark">深蓝色</string>
+    <string name="holo_green_dark">深绿色</string>
+    <string name="holo_red_dark">深红色</string>
+    <string name="holo_purple">紫色</string>
+    <string name="holo_orange_light">浅橙色</string>
+    <string name="holo_orange_dark">深橙色</string>
+    <string name="holo_blue_bright">翠蓝色</string>
+
 
 </resources>
