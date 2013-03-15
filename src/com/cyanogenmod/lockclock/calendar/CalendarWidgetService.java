@@ -22,13 +22,16 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.provider.CalendarContract;
 import android.provider.CalendarContract.Events;
+import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
@@ -40,6 +43,8 @@ import com.cyanogenmod.lockclock.misc.CalendarInfo;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.CalendarInfo.EventInfo;
+
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 
@@ -56,6 +61,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
     private static final String TAG = "CalendarRemoteViewsFactory";
     private static boolean D = Constants.DEBUG;
 
+    private static final long TWENTY_HOURS_IN_MILLIS = 20L * 60L * 60L * 1000L;
     private static final long DAY_IN_MILLIS = 24L * 60L * 60L * 1000L;
 
     private Context mContext;
@@ -80,21 +86,61 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         return null;
     }
 
+    private SpannableString getSpannableString(String text, boolean bold) {
+        SpannableString spanText = new SpannableString(text);
+        if (bold) {
+            spanText.setSpan(new StyleSpan(Typeface.BOLD), 0, text.length(), 0);
+        }
+        return spanText;
+    }
+
+    private long getStartOfDay() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTimeInMillis();
+    }
+
+    private boolean isUpcoming(EventInfo event) {
+        long startOfDay = getStartOfDay();
+        long now = System.currentTimeMillis();
+        long endOfUpcoming;
+
+        if (startOfDay + TWENTY_HOURS_IN_MILLIS > now) {
+            endOfUpcoming = startOfDay + DAY_IN_MILLIS;
+        } else {
+            endOfUpcoming = startOfDay + 2 * DAY_IN_MILLIS;
+        }
+        return event.start < endOfUpcoming;
+    }
+
     @Override
     public RemoteViews getViewAt(int position) {
         if (0 > position || mCalendarInfo.getEvents().size() < position) {
             return null;
         }
 
-        int color = Preferences.calendarFontColor(mContext);
-        int detailsColor = Preferences.calendarDetailsFontColor(mContext);
+        boolean highlightNext = Preferences.calendarHighlightNextEntries(mContext);
+        boolean nextBold = Preferences.calendarNextEntriesBold(mContext);
+        int color, detailsColor;
         final RemoteViews itemViews = new RemoteViews(mContext.getPackageName(),
                 R.layout.calendar_item);
         final EventInfo event = mCalendarInfo.getEvents().get(position);
 
         // Add the event text fields
-        itemViews.setTextViewText(R.id.calendar_event_title, event.title);
-        itemViews.setTextViewText(R.id.calendar_event_details, event.description);
+        if (highlightNext && isUpcoming(event)) {
+            color = Preferences.calendarNextEntriesFontColor(mContext);
+            detailsColor = Preferences.calendarNextEntriesDetailsFontColor(mContext);
+            itemViews.setTextViewText(R.id.calendar_event_title, getSpannableString(event.title, nextBold));
+            itemViews.setTextViewText(R.id.calendar_event_details, getSpannableString(event.description, nextBold));
+        } else {
+            color = Preferences.calendarFontColor(mContext);
+            detailsColor = Preferences.calendarDetailsFontColor(mContext);
+            itemViews.setTextViewText(R.id.calendar_event_title, event.title);
+            itemViews.setTextViewText(R.id.calendar_event_details, event.description);
+        }
         itemViews.setTextColor(R.id.calendar_event_title, color);
         itemViews.setTextColor(R.id.calendar_event_details, detailsColor);
         if (D) Log.v(TAG, "Showing at position " + position + " event: " + event.title);
@@ -105,10 +151,10 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         fillInIntent.putExtra("beginTime", event.start);
         fillInIntent.putExtra("endTime", event.end);
         fillInIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-              | Intent.FLAG_ACTIVITY_SINGLE_TOP
-              | Intent.FLAG_ACTIVITY_CLEAR_TOP
-              | Intent.FLAG_ACTIVITY_NO_HISTORY
-              | Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                | Intent.FLAG_ACTIVITY_SINGLE_TOP
+                | Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_NO_HISTORY
+                | Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         itemViews.setOnClickFillInIntent(R.id.calendar_item, fillInIntent);
 
         return itemViews;

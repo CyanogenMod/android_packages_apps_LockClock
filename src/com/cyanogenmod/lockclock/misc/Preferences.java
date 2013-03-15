@@ -92,6 +92,26 @@ public class Preferences {
         return color;
     }
 
+    public static boolean calendarHighlightNextEntries(Context context) {
+        return getPrefs(context).getBoolean(Constants.CALENDAR_HIGHLIGHT_NEXT_ENTRIES, true);
+    }
+
+    public static boolean calendarNextEntriesBold(Context context) {
+        return getPrefs(context).getBoolean(Constants.CALENDAR_NEXT_ENTRIES_BOLD, true);
+    }
+
+    public static int calendarNextEntriesFontColor(Context context) {
+        int color = Color.parseColor(getPrefs(context).getString(Constants.CALENDAR_NEXT_ENTRIES_FONT_COLOR,
+                Constants.DEFAULT_LIGHT_COLOR));
+        return color;
+    }
+
+    public static int calendarNextEntriesDetailsFontColor(Context context) {
+        int color = Color.parseColor(getPrefs(context).getString(Constants.CALENDAR_NEXT_ENTRIES_DETAILS_FONT_COLOR,
+                Constants.DEFAULT_DARK_COLOR));
+        return color;
+    }
+
     public static boolean showWeatherWhenMinimized(Context context) {
         return getPrefs(context).getBoolean(Constants.WEATHER_SHOW_WHEN_MINIMIZED, true);
     }

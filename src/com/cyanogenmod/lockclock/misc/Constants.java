@@ -55,6 +55,10 @@ public class Constants {
     public static final String CALENDAR_SHOW_DESCRIPTION = "calendar_show_description";
     public static final String CALENDAR_FONT_COLOR = "calendar_font_color";
     public static final String CALENDAR_DETAILS_FONT_COLOR = "calendar_details_font_color";
+    public static final String CALENDAR_HIGHLIGHT_NEXT_ENTRIES = "calendar_highlight_next_entries";
+    public static final String CALENDAR_NEXT_ENTRIES_BOLD = "calendar_next_entries_bold";
+    public static final String CALENDAR_NEXT_ENTRIES_FONT_COLOR = "calendar_next_entries_font_color";
+    public static final String CALENDAR_NEXT_ENTRIES_DETAILS_FONT_COLOR = "calendar_next_entries_details_font_color";
 
     // other shared pref entries
     public static final String WEATHER_LAST_UPDATE = "last_weather_update";
