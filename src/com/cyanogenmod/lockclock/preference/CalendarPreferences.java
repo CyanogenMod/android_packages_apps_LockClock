@@ -44,6 +44,8 @@ public class CalendarPreferences extends PreferenceFragment implements
     private Context mContext;
     private ListPreference mFontColor;
     private ListPreference mEventDetailsFontColor;
+    private ListPreference mHighlightFontColor;
+    private ListPreference mHighlightDetailsFontColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,8 @@ public class CalendarPreferences extends PreferenceFragment implements
 
         mFontColor = (ListPreference) findPreference(Constants.CALENDAR_FONT_COLOR);
         mEventDetailsFontColor = (ListPreference) findPreference(Constants.CALENDAR_DETAILS_FONT_COLOR);
+        mHighlightFontColor = (ListPreference) findPreference(Constants.CALENDAR_UPCOMING_EVENTS_FONT_COLOR);
+        mHighlightDetailsFontColor = (ListPreference) findPreference(Constants.CALENDAR_UPCOMING_EVENTS_DETAILS_FONT_COLOR);
         updateFontColorsSummary();
     }
 
@@ -146,6 +150,12 @@ public class CalendarPreferences extends PreferenceFragment implements
         }
         if (mEventDetailsFontColor != null) {
             mEventDetailsFontColor.setSummary(mEventDetailsFontColor.getEntry());
+        }
+        if (mHighlightFontColor != null) {
+            mHighlightFontColor.setSummary(mHighlightFontColor.getEntry());
+        }
+        if (mHighlightDetailsFontColor != null) {
+            mHighlightDetailsFontColor.setSummary(mHighlightDetailsFontColor.getEntry());
         }
     }
 }
