@@ -258,7 +258,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
                         if (allDay) {
                             begin = convertUtcToLocal(time, begin);
                             end = convertUtcToLocal(time, end);
-                        }
+                        }                       
 
                         if (end < now || begin > later) {
                             continue;
