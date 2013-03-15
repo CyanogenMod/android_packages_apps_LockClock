@@ -95,5 +95,35 @@
             android:defaultValue="#80ffffff"
             android:entries="@array/font_color_entries"
             android:entryValues="@array/font_color_values" />
+
+        <CheckBoxPreference
+            android:key="calendar_highlight_next_entries"
+            android:dependency="show_calendar"
+            android:title="@string/calendar_highlight_next_entries"
+            android:hint="@string/calendar_highlight_next_entries_hint"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="calendar_next_entries_bold"
+            android:dependency="calendar_highlight_next_entries"
+            android:dialogTitle="@string/calendar_next_entries_bold"
+            android:title="@string/font_bold"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:key="calendar_next_entries_font_color"
+            android:title="@string/font_color_calendar_next_entries"
+            android:dependency="calendar_highlight_next_entries"
+            android:defaultValue="#ffffffff"
+            android:entries="@array/font_color_entries"
+            android:entryValues="@array/font_color_values" />
+
+        <ListPreference
+            android:key="calendar_next_entries_details_font_color"
+            android:title="@string/font_color_calendar_next_entries_details"
+            android:dependency="calendar_highlight_next_entries"
+            android:defaultValue="#80ffffff"
+            android:entries="@array/font_color_entries"
+            android:entryValues="@array/font_color_values" />
     </PreferenceCategory>
 </PreferenceScreen>
