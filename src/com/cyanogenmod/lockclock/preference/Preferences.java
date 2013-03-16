@@ -22,8 +22,6 @@ import android.preference.PreferenceActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ListAdapter;
-
 import com.cyanogenmod.lockclock.R;
 
 import java.util.List;
@@ -36,7 +34,6 @@ public class Preferences extends PreferenceActivity {
     @Override
     public void onBuildHeaders(List<Header> target) {
         loadHeadersFromResource(R.xml.preferences_headers, target);
-        updateHeaders(target);
 
         // Check if triggered from adding a new widget
         Intent intent = getIntent();
@@ -78,14 +75,6 @@ public class Preferences extends PreferenceActivity {
     private void myResult(int result) {
         if (mNewWidgetId != AppWidgetManager.INVALID_APPWIDGET_ID) {
             setResult(result, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
-        }
-    }
-
-    private void updateHeaders(List<Header> headers) {
-        int i = 0;
-        while (i < headers.size()) {
-            Header header = headers.get(i);
-            i++;
         }
     }
 }

@@ -40,6 +40,7 @@ import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 import java.util.Date;
+import java.util.Locale;
 
 public class ClockWidgetService extends IntentService {
     private static final String TAG = "ClockWidgetService";
@@ -248,18 +249,18 @@ public class ClockWidgetService extends IntentService {
 
                 if (!smallWidget) {
                     if (Preferences.useBoldFontForDateAndAlarms(this)) {
-                        alarmViews.setTextViewText(R.id.nextAlarm_bold, nextAlarm.toString().toUpperCase());
+                        alarmViews.setTextViewText(R.id.nextAlarm_bold, nextAlarm.toString().toUpperCase(Locale.getDefault()));
                         alarmViews.setViewVisibility(R.id.nextAlarm_bold, View.VISIBLE);
                         alarmViews.setViewVisibility(R.id.nextAlarm_regular, View.GONE);
                         alarmViews.setTextColor(R.id.nextAlarm_bold, color);
                     } else {
-                        alarmViews.setTextViewText(R.id.nextAlarm_regular, nextAlarm.toString().toUpperCase());
+                        alarmViews.setTextViewText(R.id.nextAlarm_regular, nextAlarm.toString().toUpperCase(Locale.getDefault()));
                         alarmViews.setViewVisibility(R.id.nextAlarm_regular, View.VISIBLE);
                         alarmViews.setViewVisibility(R.id.nextAlarm_bold, View.GONE);
                         alarmViews.setTextColor(R.id.nextAlarm_regular, color);
                     }
                 } else {
-                    alarmViews.setTextViewText(R.id.nextAlarm, nextAlarm.toString().toUpperCase());
+                    alarmViews.setTextViewText(R.id.nextAlarm, nextAlarm.toString().toUpperCase(Locale.getDefault()));
                     alarmViews.setViewVisibility(R.id.nextAlarm, View.VISIBLE);
                     alarmViews.setTextColor(R.id.nextAlarm, color);
                 }

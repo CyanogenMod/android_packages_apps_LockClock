@@ -10,7 +10,7 @@
  * Be honest by keep credit of this file                                      *
  *                                                                            *
  * If you have any concern, feel free to contact with me via email, i will    *
- * check email in free time                                                   * 
+ * check email in free time                                                   *
  * Email: nguyendatnq@gmail.com                                               *
  * ---------------------------------------------------------------------------*
  * Modification Logs:                                                         *
@@ -128,7 +128,6 @@ public class HttpRetriever {
             return null;
         }
 
-        String strValue = null;
         InputStream inputStream = httpConnection.getInputStream();
         if (inputStream == null) {
             Log.e(TAG, "Input stream error");
@@ -141,7 +140,6 @@ public class HttpRetriever {
 
         while ((strLine = buffReader.readLine()) != null) {
             strBuf.append(strLine + "\n");
-            strValue += strLine + "\n";
         }
 
         // Release resource to system

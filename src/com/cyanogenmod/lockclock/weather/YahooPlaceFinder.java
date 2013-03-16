@@ -18,8 +18,6 @@
 package com.cyanogenmod.lockclock.weather;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-
 import com.cyanogenmod.lockclock.misc.Preferences;
 
 public class YahooPlaceFinder {

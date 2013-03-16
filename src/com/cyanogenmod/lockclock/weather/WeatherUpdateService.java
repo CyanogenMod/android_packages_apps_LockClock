@@ -29,7 +29,6 @@ import android.os.AsyncTask;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
@@ -126,10 +125,6 @@ public class WeatherUpdateService extends Service {
     private class WeatherUpdateTask extends AsyncTask<Void, Void, WeatherInfo> {
         private WakeLock mWakeLock;
         private Context mContext;
-
-        private static final int RESULT_SUCCESS = 0;
-        private static final int RESULT_FAILURE = 1;
-        private static final int RESULT_CANCELLED = 2;
 
         public WeatherUpdateTask() {
             PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
