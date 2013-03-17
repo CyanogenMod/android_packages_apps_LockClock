@@ -168,7 +168,7 @@ public class Preferences {
     }
 
     public static long lookAheadTimeInMs(Context context) {
-        return Long.parseLong(getPrefs(context).getString(Constants.CALENDAR_LOOKAHEAD, "10800000"));
+        return Long.parseLong(getPrefs(context).getString(Constants.CALENDAR_LOOKAHEAD, "1209600000"));
     }
 
     public static final int SHOW_NEVER = 0;

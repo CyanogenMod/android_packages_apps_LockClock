@@ -39,7 +39,7 @@
             android:summary="%s"
             android:dialogTitle="@string/calendar_lookahead_title"
             android:title="@string/calendar_lookahead_title"
-            android:defaultValue="10800000"
+            android:defaultValue="1209600000"
             android:entries="@array/calendar_lookahead_entries"
             android:entryValues="@array/calendar_lookahead_values" />
 
