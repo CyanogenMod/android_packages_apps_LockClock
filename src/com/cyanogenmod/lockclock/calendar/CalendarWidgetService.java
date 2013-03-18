@@ -34,12 +34,14 @@ import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 import android.widget.RemoteViewsService.RemoteViewsFactory;
 
+import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.ClockWidgetService;
 import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.CalendarInfo;
+import com.cyanogenmod.lockclock.misc.CalendarInfo.EventInfo;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.Preferences;
-import com.cyanogenmod.lockclock.misc.CalendarInfo.EventInfo;
+
 import java.util.Date;
 import java.util.Set;
 
@@ -134,6 +136,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
     public void onDataSetChanged() {
         if (D) Log.v(TAG, "onDataSetChanged()");
         updateCalendarInfo(mContext, true);
+        updatePanelVisibility();
     }
 
     private void updateCalendarInfo(Context context, boolean force) {
@@ -143,13 +146,24 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         boolean hideAllDay = !Preferences.showAllDayEvents(context);
         long lookAhead = Preferences.lookAheadTimeInMs(context);
 
-        // If we don't have any events yet or forcing a refresh, get the next
-        // batch of events
+        // If we don't have any events yet or forcing a refresh, get the next batch of events
         if (force || !mCalendarInfo.hasEvents()) {
             if (D) Log.d(TAG, "Checking for calendar events..." + (force ? " (forced)" : ""));
             getCalendarEvents(context, lookAhead, calendarList, remindersOnly, hideAllDay);
         }
         scheduleCalendarUpdate(context);
+    }
+
+    /**
+     * Trigger the hiding of the Calendar panel if there are no events to display
+     */
+    private void updatePanelVisibility() {
+        if (!mCalendarInfo.hasEvents()) {
+            if (D) Log.v(TAG, "No events - Hide calendar panel");
+            Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
+            updateIntent.setAction(ClockWidgetService.ACTION_HIDE_CALENDAR);
+            mContext.sendBroadcast(updateIntent);
+        }
     }
 
     /**
@@ -209,8 +223,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         int LOCATION_INDEX = 5;
         int ALL_DAY_INDEX = 6;
 
-        // all day events are stored in UTC, that is why we need to fetch events
-        // after 'later'
+        // all day events are stored in UTC, that is why we need to fetch events after 'later'
         Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
                 String.format("%d/%d", now - DAY_IN_MILLIS, later + DAY_IN_MILLIS));
         Cursor cursor = null;
@@ -226,8 +239,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
                 int eventCount = 0;
 
                 cursor.moveToPosition(-1);
-                // Iterate through returned rows to a maximum number of calendar
-                // events
+                // Iterate through returned rows to a maximum number of calendar events
                 while (cursor.moveToNext() && eventCount < Constants.MAX_CALENDAR_ITEMS) {
                     long eventId = cursor.getLong(EVENT_ID_INDEX);
                     String title = cursor.getString(TITLE_INDEX);
@@ -308,8 +320,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
                         }
                     }
 
-                    // Add the event details to the CalendarInfo object and move
-                    // to next record
+                    // Add the event details to the CalendarInfo object and move to next record
                     newCalendarInfo.addEvent(populateEventInfo(eventId, title, sb.toString(), begin,
                             end, allDay));
                     eventCount++;
@@ -328,8 +339,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         long endOfLookahead = now + lookahead;
         long minUpdateTime = getMinUpdateFromNow(endOfLookahead);
 
-        // don't bother with querying if the end result is later than the
-        // minimum update time anyway
+        // don't bother with querying if the end result is later than the minimum update time anyway
         if (endOfLookahead < minUpdateTime) {
             if (where.length() > 0) {
                 where.append(" AND ");
@@ -369,7 +379,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
             long begin, long end, boolean allDay) {
         EventInfo eventInfo = new EventInfo();
 
-        // Populate
+        // Populate the fields
         eventInfo.id = eventId;
         eventInfo.title = title;
         eventInfo.description = description;
@@ -381,7 +391,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
     }
 
     private static long getMinUpdateFromNow(long now) {
-        /* we update at least once a day */
+        // we update at least once a day
         return now + DAY_IN_MILLIS;
     }
 
@@ -409,8 +419,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         }
 
         if (mCalendarInfo.getFollowingEventStart() > 0) {
-            // Make sure to update when the next event gets into the lookahead
-            // window
+            // Make sure to update when the next event gets into the lookahead window
             minUpdateTime = Math.min(minUpdateTime, mCalendarInfo.getFollowingEventStart()
                     - lookAhead);
         }
@@ -419,8 +428,9 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         if (D) {
             Date date1 = new Date(now);
             Date date2 = new Date(minUpdateTime);
-            Log.i(TAG, "Chronus: It is now " + DateFormat.getTimeFormat(context).format(date1)
-                    + ", next widget update at " + DateFormat.getTimeFormat(context).format(date2));
+            Log.i(TAG, "cLock: It is now " + DateFormat.getTimeFormat(context).format(date1)
+                    + ", next widget update at " + DateFormat.getDateFormat(context).format(date2)
+                    + " at " + DateFormat.getTimeFormat(context).format(date2));
         }
 
         // Return the next update time
@@ -436,10 +446,8 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         long updateTime = calculateUpdateTime(context);
 
         // Clear any old alarms and schedule the new alarm
-        // Since the updates are now only done very infrequently, it can wake
-        // the device to ensure the
-        // latest date is available when the user turns the screen on after a
-        // few hours sleep
+        // Since the updates are now only done very infrequently, it can wake the device to ensure
+        // the latest date is available when the user turns the screen on after a few hours sleep
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(pi);
         if (updateTime > 0) {
