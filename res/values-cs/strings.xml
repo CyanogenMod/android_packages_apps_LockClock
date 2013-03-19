@@ -19,6 +19,7 @@
   <string name="unknown">Neznámé</string>
   <string name="cancel">Zrušit</string>
   <string name="loading_indicator">Načítání widgetu\u2026</string>
+  <string name="menu_done">Hotovo</string>
   <!-- Weather - Weather codes -->
   <string name="weather_0">Tornádo</string>
   <string name="weather_1">Tropická bouře</string>
@@ -126,6 +127,8 @@
   <string name="weather_progress_title">Ověřování polohy</string>
   <string name="weather_alternate_icons_title">Použít alternativní ikony</string>
   <string name="weather_alternate_icons_summary">Vybrat mezi výchozími (bílými) či alternativními (barevnými) ikonami</string>
+  <string name="weather_show_when_minimized_title">Zobrazit v minimalizaci</string>
+  <string name="weather_show_when_minimized_summary">Pokud je widget minimalizován, zobrazit shrnující informace o počasí</string>
   <!-- Preferences - Calendar -->
   <string name="calendar_title">Zobrazit další událost</string>
   <string name="calendars_title">Událost kalendářů</string>
@@ -136,6 +139,15 @@
   <string name="calendar_lookahead_title">Časový rozsah událostí</string>
   <string name="calendar_show_location_title">Místo konání události</string>
   <string name="calendar_show_description_title">Popis události</string>
+  <string name="calendar_upcoming_events_category">Nadcházející události</string>
+  <string name="calendar_highlight_upcoming_events_title">Zvýraznit události</string>
+  <string name="calendar_highlight_upcoming_events_summary">Zvýraznit události aktuálního dne, a po 20. hodině také dalšího dne.</string>
+  <string name="calendar_highlight_upcoming_events_bold">Tučné písmo</string>
+  <!-- Preferences - Font colors -->
+  <string name="font_color">Barva písma</string>
+  <string name="font_color_alarm">Barva budíku</string>
+  <string name="font_color_timestamp">Barva časové značky</string>
+  <string name="font_color_calendar_details">Barva podrobností</string>
   <!-- Calendar - lookahead -->
   <string name="calendar_lookahead_3hrs">3 hodiny</string>
   <string name="calendar_lookahead_6hrs">6 hodin</string>
@@ -143,8 +155,24 @@
   <string name="calendar_lookahead_1day">1 den</string>
   <string name="calendar_lookahead_3days">3 dny</string>
   <string name="calendar_lookahead_1wk">1 týden</string>
+  <string name="calendar_lookahead_2wks">2 týdny</string>
+  <string name="calendar_lookahead_4wks">4 týdny</string>
   <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Nezobrazovat</string>
   <string name="calendar_metadata_first_line">Zobrazit první řádek</string>
   <string name="calendar_metadata_all">Zobrazit vše</string>
+  <!-- Font colors -->
+  <string name="white">Bílá</string>
+  <string name="grey">Šedivá</string>
+  <string name="black">Černá</string>
+  <string name="holo_blue_light">Světle modrá</string>
+  <string name="holo_green_light">Světle zelená</string>
+  <string name="holo_red_light">Světle červená</string>
+  <string name="holo_blue_dark">Tmavě modrá</string>
+  <string name="holo_green_dark">Tmavě zelená</string>
+  <string name="holo_red_dark">Tmavě červená</string>
+  <string name="holo_purple">Fialová</string>
+  <string name="holo_orange_light">Světle oranžová</string>
+  <string name="holo_orange_dark">Tmavě oranžová</string>
+  <string name="holo_blue_bright">Bledě modrá</string>
 </resources>
