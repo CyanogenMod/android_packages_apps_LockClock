@@ -157,6 +157,10 @@
     <string name="calendar_lookahead_title">Event lookahead</string>
     <string name="calendar_show_location_title">Event location</string>
     <string name="calendar_show_description_title">Event description</string>
+    <string name="calendar_upcoming_events_category">Upcoming events</string>
+    <string name="calendar_highlight_upcoming_events_title">Highlight events</string>
+    <string name="calendar_highlight_upcoming_events_summary">Highlight the current day\'s events and, after 8pm, also the next day\'s events</string>
+    <string name="calendar_highlight_upcoming_events_bold">Bold font</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Font color</string>
