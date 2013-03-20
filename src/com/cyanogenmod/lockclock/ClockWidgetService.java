@@ -80,9 +80,6 @@ public class ClockWidgetService extends IntentService {
                     if (D) Log.v(TAG, "Force hiding the calendar panel");
                     // Explicitly hide the panel since we received a broadcast indicating no events
                     mHideCalendar = true;
-                    hideCalendarPanel();
-                    return;
-
                 } else if (ACTION_REFRESH_CALENDAR.equals(intent.getAction())) {
                     if (D) Log.v(TAG, "Forcing a calendar refresh");
                     // Start with the panel not explicitly hidden
@@ -120,7 +117,7 @@ public class ClockWidgetService extends IntentService {
                 showCalendar = false;
             } else {
                 remoteViews = new RemoteViews(getPackageName(), R.layout.appwidget);
-                showCalendar = Preferences.showCalendar(this);
+                showCalendar = Preferences.showCalendar(this) && !mHideCalendar;
             }
 
             // Always Refresh the Clock widget
@@ -128,7 +125,7 @@ public class ClockWidgetService extends IntentService {
             refreshAlarmStatus(remoteViews, smallWidget);
 
             // Don't bother with Calendar if its not enabled
-            if (showCalendar && !mHideCalendar) {
+            if (showCalendar) {
                 refreshCalendar(remoteViews, id);
             }
 
@@ -158,10 +155,8 @@ public class ClockWidgetService extends IntentService {
             }
 
             // Hide the calendar panel if there is no space for it
-            if (showCalendar) {
-                boolean canFitCalendar = WidgetUtils.canFitCalendar(this, id, digitalClock) && !mHideCalendar;
-                remoteViews.setViewVisibility(R.id.calendar_panel, canFitCalendar ? View.VISIBLE : View.GONE);
-            }
+            boolean shouldDisplayCalendar = showCalendar && WidgetUtils.canFitCalendar(this, id, digitalClock);
+            remoteViews.setViewVisibility(R.id.calendar_panel, shouldDisplayCalendar ? View.VISIBLE : View.GONE);
 
             // Do the update
             mAppWidgetManager.updateAppWidget(id, remoteViews);
@@ -431,29 +426,6 @@ public class ClockWidgetService extends IntentService {
         final Intent eventClickIntent = new Intent(Intent.ACTION_VIEW);
         final PendingIntent eventClickPendingIntent = PendingIntent.getActivity(this, 0, eventClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         calendarViews.setPendingIntentTemplate(R.id.calendar_list, eventClickPendingIntent);
-    }
-
-    /**
-     * Method to explicitly hide the Calendar panel in all widgets
-     * This is only called from a passed intent to the service if there are no events to show
-     */
-    private void hideCalendarPanel() {
-        RemoteViews remoteViews;
-        boolean digitalClock = Preferences.showDigitalClock(this);
-        boolean showWeather = Preferences.showWeather(this);
-        boolean showWeatherWhenMinimized = Preferences.showWeatherWhenMinimized(this);
-
-        for (int id : mWidgetIds) {
-            // The small widget layout does not include a calendar panel, ignore it
-            boolean smallWidget = showWeather && showWeatherWhenMinimized
-                    && WidgetUtils.showSmallWidget(this, id, digitalClock);
-            if (!smallWidget) {
-                if (D) Log.v(TAG, "Not a small widget, loading widget views and hiding the calendar panel");
-                remoteViews = new RemoteViews(getPackageName(), R.layout.appwidget);
-                remoteViews.setViewVisibility(R.id.calendar_panel, View.GONE);
-                mAppWidgetManager.updateAppWidget(id, remoteViews);
-            }
-        }
     }
 
     public static PendingIntent getRefreshIntent(Context context) {
