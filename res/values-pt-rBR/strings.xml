@@ -156,4 +156,8 @@
     <string name="holo_orange_light">Laranja claro</string>
     <string name="holo_orange_dark">Laranja escuro</string>
     <string name="holo_blue_bright">Azul brilhoso</string>
+    <string name="calendar_upcoming_events_category">Próximos eventos</string>
+    <string name="calendar_highlight_upcoming_events_title">Eventos em destaque</string>
+    <string name="calendar_highlight_upcoming_events_summary">Destacar os eventos do dia e, depois das 20 horas, os eventos do dia seguinte também</string>
+    <string name="calendar_highlight_upcoming_events_bold">Fonte em negrito</string>
 </resources>
