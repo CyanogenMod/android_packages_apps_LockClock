@@ -150,6 +150,10 @@
     <string name="calendar_lookahead_title">活动查找范围</string>
     <string name="calendar_show_location_title">活动位置</string>
     <string name="calendar_show_description_title">活动描述</string>
+    <string name="calendar_upcoming_events_category">活动预告</string>
+    <string name="calendar_highlight_upcoming_events_title">高亮显示活动</string>
+    <string name="calendar_highlight_upcoming_events_summary">高亮显示当前日期、晚上8点以后以及第二天的活动</string>
+    <string name="calendar_highlight_upcoming_events_bold">粗体</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">字体颜色</string>
