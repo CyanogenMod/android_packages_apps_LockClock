@@ -128,6 +128,10 @@
     <string name="calendar_lookahead_title">Anticipo eventi</string>
     <string name="calendar_show_location_title">Posizione evento</string>
     <string name="calendar_show_description_title">Descrizione evento</string>
+    <string name="calendar_upcoming_events_category">Eventi prossimi</string>
+    <string name="calendar_highlight_upcoming_events_title">Evidenzia eventi</string>
+    <string name="calendar_highlight_upcoming_events_summary">Evidenzia gli eventi del giorno e, dopo le 20:00, anche quelli del giorno dopo</string>
+    <string name="calendar_highlight_upcoming_events_bold">Grassetto</string>
     <string name="font_color">Colore carattere</string>
     <string name="font_color_alarm">Colore carattere sveglia</string>
     <string name="font_color_timestamp">Colore carattere timestamp</string>
