@@ -146,6 +146,10 @@
     <string name="calendar_lookahead_title">Zakres wyświetlania"</string>
     <string name="calendar_show_location_title">Lokalizacja wydarzenia</string>
     <string name="calendar_show_description_title">Opis wydarzenia</string>
+    <string name="calendar_upcoming_events_category">Najbliższe wydarzenia</string>
+    <string name="calendar_highlight_upcoming_events_title">Wyróżnij wydarzenia</string>
+    <string name="calendar_highlight_upcoming_events_summary">Wyróżniaj dzisiejsze, a po godz. 20:00 również jutrzejsze wydarzenia</string>
+    <string name="calendar_highlight_upcoming_events_bold">Pogrubienie</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Kolor czcionki</string>
