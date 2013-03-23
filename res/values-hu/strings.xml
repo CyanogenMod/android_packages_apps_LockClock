@@ -149,6 +149,10 @@
     <string name="calendar_lookahead_title">Keresési időszak</string>
     <string name="calendar_show_location_title">Esemény helye</string>
     <string name="calendar_show_description_title">Esemény leírása</string>
+    <string name="calendar_upcoming_events_category">Közelgő események</string>
+    <string name="calendar_highlight_upcoming_events_title">Események kiemelése</string>
+    <string name="calendar_highlight_upcoming_events_summary">Az aktuális nap, 20:00 után a következő nap eseményeinek kiemelése</string>
+    <string name="calendar_highlight_upcoming_events_bold">Vastag betű</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Betűszín</string>
