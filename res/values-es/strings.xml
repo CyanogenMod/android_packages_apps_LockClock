@@ -129,6 +129,10 @@
     <string name="calendar_lookahead_title">Eventos futuros</string>
     <string name="calendar_show_location_title">Lugar del evento</string>
     <string name="calendar_show_description_title">Descripción del evento</string>
+    <string name="calendar_upcoming_events_category">Próximos eventos</string>
+    <string name="calendar_highlight_upcoming_events_title">Resaltar eventos</string>
+    <string name="calendar_highlight_upcoming_events_summary">Resaltar los eventos del día actual y, después de las 20 horas, resaltar también los eventos del día siguiente</string>
+    <string name="calendar_highlight_upcoming_events_bold">Resaltar el texto</string>
     <string name="font_color">Color del texto</string>
     <string name="font_color_alarm">Color de la alarma</string>
     <string name="font_color_timestamp">Color de la fecha</string>
