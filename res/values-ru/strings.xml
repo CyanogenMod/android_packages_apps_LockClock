@@ -149,6 +149,10 @@
     <string name="calendar_lookahead_title">Предпросмотр события</string>
     <string name="calendar_show_location_title">Место проведения</string>
     <string name="calendar_show_description_title">Описание события</string>
+    <string name="calendar_upcoming_events_category">Предстоящие события</string>
+    <string name="calendar_highlight_upcoming_events_title">Выделять события</string>
+    <string name="calendar_highlight_upcoming_events_summary">Выделять события текущего дня, а после 20:00 также события следующего дня</string>
+    <string name="calendar_highlight_upcoming_events_bold">Полужирный шрифт</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Цвет шрифта</string>
@@ -163,6 +167,8 @@
     <string name="calendar_lookahead_1day">1 день</string>
     <string name="calendar_lookahead_3days">3 дня</string>
     <string name="calendar_lookahead_1wk">1 неделя</string>
+    <string name="calendar_lookahead_2wks">2 недели</string>
+    <string name="calendar_lookahead_4wks">4 недели</string>
 
     <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">Не показывать</string>
