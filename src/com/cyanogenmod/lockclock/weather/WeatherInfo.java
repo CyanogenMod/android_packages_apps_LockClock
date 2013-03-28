@@ -68,11 +68,9 @@ public class WeatherInfo {
     public int getConditionResource() {
         final Resources res = mContext.getResources();
         final int resId = res.getIdentifier("weather2_" + conditionCode, "drawable", mContext.getPackageName());
-
         if (resId != 0) {
             return resId;
         }
-
         return R.drawable.weather2_na;
     }
 
@@ -80,7 +78,7 @@ public class WeatherInfo {
         final Resources res = mContext.getResources();
         int resId = res.getIdentifier("weather_" + conditionCode, "drawable", mContext.getPackageName());
         if (resId == 0) {
-            resId = res.getInteger(R.drawable.weather_na);
+            resId = R.drawable.weather_na;
         }
         return WidgetUtils.getOverlaidBitmap(mContext, resId, color);
     }
@@ -92,11 +90,9 @@ public class WeatherInfo {
     public String getCondition() {
         final Resources res = mContext.getResources();
         final int resId = res.getIdentifier("weather_" + conditionCode, "string", mContext.getPackageName());
-
         if (resId != 0) {
             return res.getString(resId);
         }
-
         return condition;
     }
 
