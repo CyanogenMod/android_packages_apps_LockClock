@@ -102,7 +102,7 @@
 
     <string name="use_digital_clock_title">Gebruik digitale klok</string>
     <string name="use_digital_clock_summary">Kies om te wissel tussen die digitale en die analoog klok weergawe</string>
-    <string name="clock_font_title">Ure vergedruk</string>
+    <string name="clock_font_title">Ure vetgedruk</string>
     <string name="clock_font_minutes_title">Minute vetgedruk</string>
     <string name="clock_font_date_title">Datum en alarm vetgedruk</string>
     <string name="show_alarm_title">Wys opkomende alarm</string>
@@ -138,6 +138,15 @@
     <string name="calendar_lookahead_title">Afspraak vooruitkyktyd</string>
     <string name="calendar_show_location_title">Afspraak ligging</string>
     <string name="calendar_show_description_title">Afspraak beskrywing</string>
+    <string name="calendar_upcoming_events_category">Opkomende afsprake</string>
+    <string name="calendar_highlight_upcoming_events_title">Verlig afsprake</string>
+    <string name="calendar_highlight_upcoming_events_summary">Verlig die huidige dag se afsprake en, na 20:00, ook die volgende dag se afsprake</string>
+    <string name="calendar_highlight_upcoming_events_bold">Vetgedruk</string>
+
+    <string name="font_color">Letertipe kleur</string>
+    <string name="font_color_alarm">Alarm Letertipe kleur</string>
+    <string name="font_color_timestamp">Tyd Stempel Letertipe kleur</string>
+    <string name="font_color_calendar_details">Details van Letertipe kleur</string>
 
     <string name="calendar_lookahead_3hrs">3 ure</string>
     <string name="calendar_lookahead_6hrs">6 ure</string>
@@ -151,5 +160,19 @@
     <string name="calendar_metadata_none">Wys niks</string>
     <string name="calendar_metadata_first_line">Wys eerste lyn</string>
     <string name="calendar_metadata_all">Wys alles</string>
+
+    <string name="white">Wit</string>
+    <string name="grey">Grys</string>
+    <string name="black">Swart</string>
+    <string name="holo_blue_light">Ligte blou</string>
+    <string name="holo_green_light">Ligte groen</string>
+    <string name="holo_red_light">Ligte rooi</string>
+    <string name="holo_blue_dark">Donker blou</string>
+    <string name="holo_green_dark">Donker groen</string>
+    <string name="holo_red_dark">Donker rooi</string>
+    <string name="holo_purple">Pers</string>
+    <string name="holo_orange_light">Ligte oranje</string>
+    <string name="holo_orange_dark">Donker oranje</string>
+    <string name="holo_blue_bright">Helder blou</string>
 
 </resources>
