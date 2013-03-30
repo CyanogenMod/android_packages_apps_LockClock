@@ -162,4 +162,19 @@
     <string name="calendar_metadata_first_line">Показувати перший рядок</string>
     <string name="calendar_metadata_all">Показувати все</string>
 
+    <!-- Font colors -->
+    <string name="white">Білий</string>
+    <string name="grey">Сірий</string>
+    <string name="black">Чорний</string>
+    <string name="holo_blue_light">Блакитний</string>
+    <string name="holo_green_light">Світло-зелений</string>
+    <string name="holo_red_light">Світло-червоний</string>
+    <string name="holo_blue_dark">Синій</string>
+    <string name="holo_green_dark">Зелений</string>
+    <string name="holo_red_dark">Червоний</string>
+    <string name="holo_purple">Рожевий</string>
+    <string name="holo_orange_light">Світло-оранжевий</string>
+    <string name="holo_orange_dark">Оранжевий</string>
+    <string name="holo_blue_bright">Світло-синій</string>
+
 </resources>
