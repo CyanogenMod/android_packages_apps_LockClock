@@ -149,6 +149,12 @@
     <string name="calendar_show_location_title">Місце події</string>
     <string name="calendar_show_description_title">опис події</string>
 
+    <!-- Preferences - Font colors -->
+    <string name="font_color">Колір шрифту</string>
+    <string name="font_color_alarm">Колір шрифту будильника</string>
+    <string name="font_color_timestamp">Колір шрифту часової мітки</string>
+    <string name="font_color_calendar_details">Колір шрифту деталей</string>
+
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 години</string>
     <string name="calendar_lookahead_6hrs">6 годин</string>
@@ -156,10 +162,27 @@
     <string name="calendar_lookahead_1day">1 день</string>
     <string name="calendar_lookahead_3days">3 дня</string>
     <string name="calendar_lookahead_1wk">1 тиждень</string>
+    <string name="calendar_lookahead_2wks">2 тижні</string>
+    <string name="calendar_lookahead_4wks">4 тижні</string>
 
     <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">Не показувати</string>
     <string name="calendar_metadata_first_line">Показувати перший рядок</string>
     <string name="calendar_metadata_all">Показувати все</string>
+
+    <!-- Font colors -->
+    <string name="white">Білий</string>
+    <string name="grey">Сірий</string>
+    <string name="black">Чорний</string>
+    <string name="holo_blue_light">Блакитний</string>
+    <string name="holo_green_light">Світло-зелений</string>
+    <string name="holo_red_light">Світло-червоний</string>
+    <string name="holo_blue_dark">Синій</string>
+    <string name="holo_green_dark">Зелений</string>
+    <string name="holo_red_dark">Червоний</string>
+    <string name="holo_purple">Рожевий</string>
+    <string name="holo_orange_light">Світло-оранжевий</string>
+    <string name="holo_orange_dark">Оранжевий</string>
+    <string name="holo_blue_bright">Світло-синій</string>
 
 </resources>
