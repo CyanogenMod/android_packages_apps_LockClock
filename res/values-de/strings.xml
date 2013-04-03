@@ -149,6 +149,10 @@
     <string name="calendar_lookahead_title">Zeitraum</string>
     <string name="calendar_show_location_title">Ort anzeigen</string>
     <string name="calendar_show_description_title">Beschreibung anzeigen</string>
+    <string name="calendar_upcoming_events_category">Bevorstehende Termine</string>
+    <string name="calendar_highlight_upcoming_events_title">Hervorheben</string>
+    <string name="calendar_highlight_upcoming_events_summary">Demnächst stattfindende Termine hervorheben</string>
+    <string name="calendar_highlight_upcoming_events_bold">Fettschrift</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Textfarbe</string>
