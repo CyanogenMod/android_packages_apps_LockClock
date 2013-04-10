@@ -25,6 +25,7 @@ import android.util.Log;
 
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
+import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 import com.cyanogenmod.lockclock.ClockWidgetService;
 import com.cyanogenmod.lockclock.WidgetApplication;
@@ -117,17 +118,29 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         if (D) Log.d(TAG, "Scheduling next weather update");
         WeatherUpdateService.scheduleNextUpdate(context);
 
-        // Start the broadcast receiver (API 16 devices)
-        // This will schedule a repeating alarm every minute to handle the clock refresh
-        // Once triggered, the receiver will unregister itself when its work is done
-        if (!WidgetUtils.isTextClockAvailable()) {
+        if (!WidgetUtils.isTextClockAvailable() || Preferences.calendarShowAnniversaries(context)) {
             final WidgetApplication app = (WidgetApplication) context.getApplicationContext();
-            app.startTickReceiver();
+
+            // Start the broadcast receiver (API 16 devices)
+            // This will schedule a repeating alarm every minute to handle the clock refresh
+            // Once triggered, the receiver will unregister itself when its work is done
+            if (!WidgetUtils.isTextClockAvailable()) {
+                app.startTickReceiver();
+            }
+
+            if (Preferences.calendarShowAnniversaries(context)) {
+                app.registerContactsObserver();
+            }
         }
     }
 
     @Override
     public void onDisabled(Context context) {
+        if (Preferences.calendarShowAnniversaries(context)) {
+            final WidgetApplication app = (WidgetApplication) context.getApplicationContext();
+
+            app.unregisterContactObserver();
+        }
         if (D) Log.d(TAG, "Cleaning up: Clearing all pending alarms");
         ClockWidgetService.cancelUpdates(context);
         WeatherUpdateService.cancelUpdates(context);

@@ -33,7 +33,9 @@ import android.provider.CalendarContract;
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.ClockWidgetService;
 import com.cyanogenmod.lockclock.R;
+import com.cyanogenmod.lockclock.WidgetApplication;
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.Preferences;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +89,13 @@ public class CalendarPreferences extends PreferenceFragment implements
             ListPreference listPref = (ListPreference) pref;
             pref.setSummary(listPref.getEntry());
         }
+
+        final WidgetApplication app = (WidgetApplication) mContext.getApplicationContext();
+        if (Preferences.calendarShowAnniversaries(mContext)) {
+            app.registerContactsObserver();
+        } else {
+            app.unregisterContactObserver();
+        }
         Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
         updateIntent.setAction(ClockWidgetService.ACTION_REFRESH_CALENDAR);
         mContext.sendBroadcast(updateIntent);
@@ -103,8 +112,8 @@ public class CalendarPreferences extends PreferenceFragment implements
 
         // Calendar projection array
         private static String[] projection = new String[] {
-               CalendarContract.Calendars._ID,
-               CalendarContract.Calendars.CALENDAR_DISPLAY_NAME,
+            CalendarContract.Calendars._ID,
+            CalendarContract.Calendars.CALENDAR_DISPLAY_NAME,
         };
 
         // The indices for the projection array

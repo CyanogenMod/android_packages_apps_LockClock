@@ -17,6 +17,7 @@
 package com.cyanogenmod.lockclock;
 
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.ClockWidgetService;
 
@@ -27,6 +28,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 public class WidgetApplication extends Application {
@@ -35,6 +39,8 @@ public class WidgetApplication extends Application {
     private static final long INTERVAL_ONE_MINUTE = 60000L;
 
     private BroadcastReceiver mTickReceiver = null;
+    private ContactsObserver mContactsObserver = null;
+    private final Handler mContentHandler = new Handler();
 
     /**
      * BroadReceiver and supporting functions used for handling clock ticks
@@ -58,6 +64,26 @@ public class WidgetApplication extends Application {
 
                 // We no longer need the tick receiver, its done its job, stop it
                 stopTickReceiver();
+            }
+        }
+    }
+
+    class ContactsObserver extends ContentObserver {
+
+        private Context mContext = null;
+
+        public ContactsObserver(Context context) {
+            super(mContentHandler);
+            mContext  = context;
+        }
+
+        public void onChange(boolean selfChange) {
+            if (D) Log.v(TAG, "ContactsObserver.onChange()");
+            if (Preferences.calendarShowAnniversaries(mContext)) {
+                // Refresh the widget
+                Intent refreshIntent = new Intent(mContext, ClockWidgetProvider.class);
+                refreshIntent.setAction(ClockWidgetService.ACTION_REFRESH_CALENDAR);
+                mContext.sendBroadcast(refreshIntent);
             }
         }
     }
@@ -97,5 +123,22 @@ public class WidgetApplication extends Application {
         Intent i = new Intent(context, ClockWidgetService.class);
         i.setAction(ClockWidgetService.ACTION_REFRESH);
         return PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    public void registerContactsObserver() {
+        if (D) Log.v(TAG, "App.registerContactObserver()");
+        if (mContactsObserver == null) {
+            mContactsObserver = new ContactsObserver(this.getApplicationContext());
+            this.getApplicationContext().getContentResolver().registerContentObserver(
+                    ContactsContract.Contacts.CONTENT_URI, true, mContactsObserver);
+        }
+    }
+
+    public void unregisterContactObserver() {
+        if (D) Log.v(TAG, "App.unregisterContactObserver()");
+        if (mContactsObserver != null) {
+            this.getApplicationContext().getContentResolver().unregisterContentObserver(mContactsObserver);
+            mContactsObserver = null;
+        }
     }
 }

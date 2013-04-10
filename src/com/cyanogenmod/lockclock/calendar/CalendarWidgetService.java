@@ -26,6 +26,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.provider.CalendarContract;
 import android.provider.CalendarContract.Events;
+import android.provider.ContactsContract;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -44,8 +45,13 @@ import com.cyanogenmod.lockclock.calendar.CalendarInfo.EventInfo;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.Preferences;
 
+import java.text.ParseException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 import java.util.Set;
 
 public class CalendarWidgetService extends RemoteViewsService {
@@ -64,6 +70,26 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
     private static final long UPCOMING_EVENT_HOURS_IN_MILLIS =
             Constants.CALENDAR_UPCOMING_EVENTS_FROM_HOUR * 60L * 60L * 1000L;
     private static final long DAY_IN_MILLIS = 24L * 60L * 60L * 1000L;
+
+    // When parsing a date without a year, the system assumes 1970, which wasn't a leap-year.
+    // Let's add a one-off hack for that day of the year
+    public static final String NO_YEAR_DATE_FEB29TH = "--02-29";
+
+    public static final SimpleDateFormat NO_YEAR_DATE_FORMAT =
+            new SimpleDateFormat("--MM-dd", Locale.US);
+
+    // Variations of ISO 8601 date format. Do not change the order - it does affect the
+    // result in ambiguous cases.
+    private static final SimpleDateFormat[] DATE_FORMATS = {
+        new SimpleDateFormat("yyyy-MM-dd", Locale.US),
+        new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US),
+        new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'", Locale.US),
+        new SimpleDateFormat("yyyyMMdd", Locale.US),
+        new SimpleDateFormat("yyyyMMdd'T'HHmmssSSS'Z'", Locale.US),
+        new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'", Locale.US),
+        new SimpleDateFormat("yyyyMMdd'T'HHmm'Z'", Locale.US),
+    };
+
 
     private Context mContext;
     private CalendarInfo mCalendarInfo = new CalendarInfo();
@@ -150,10 +176,16 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         if (D) Log.v(TAG, "Showing at position " + position + " event: " + event.title);
 
         final Intent fillInIntent = new Intent();
-        fillInIntent.setData(ContentUris.withAppendedId(Events.CONTENT_URI, event.id));
-        // work around stock calendar not displaying the correct date with only uri
-        fillInIntent.putExtra("beginTime", event.start);
-        fillInIntent.putExtra("endTime", event.end);
+        if (!event.anniversary) {
+            // normal calendar event
+            fillInIntent.setData(ContentUris.withAppendedId(Events.CONTENT_URI, event.id));
+            // work around stock calendar not displaying the correct date with only uri
+            fillInIntent.putExtra("beginTime", event.start);
+            fillInIntent.putExtra("endTime", event.end);
+        } else {
+            // anniversary event, open address book instead
+            fillInIntent.setData(ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, event.id));
+        }
         fillInIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP
                 | Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -193,10 +225,11 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         Set<String> calendarList = Preferences.calendarsToDisplay(context);
         boolean remindersOnly = Preferences.showEventsWithRemindersOnly(context);
         boolean hideAllDay = !Preferences.showAllDayEvents(context);
+        boolean showAnniversaries = Preferences.calendarShowAnniversaries(context);
         long lookAhead = Preferences.lookAheadTimeInMs(context);
 
         if (D) Log.d(TAG, "Checking for calendar events...");
-        getCalendarEvents(context, lookAhead, calendarList, remindersOnly, hideAllDay);
+        getEvents(context, lookAhead, calendarList, remindersOnly, hideAllDay, showAnniversaries);
         scheduleCalendarUpdate(context);
     }
 
@@ -213,16 +246,55 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
     }
 
     /**
-     * Get the next set of calendar events (up to MAX_CALENDAR_ITEMS) within a
-     * certain look-ahead time. Result is stored in the CalendarInfo object
+     * Get anniversaries directly from address book
      */
-    private void getCalendarEvents(Context context, long lookahead, Set<String> calendars,
-            boolean remindersOnly, boolean hideAllDay) {
-        long now = System.currentTimeMillis();
-        long later = now + lookahead;
-        CalendarInfo newCalendarInfo = new CalendarInfo();
+    private Cursor getAnniversaries(Context context) {
+        final Uri uri = ContactsContract.Data.CONTENT_URI;
 
-        // Build the 'where' clause
+        final String[] projection = new String[] {
+                ContactsContract.Contacts.DISPLAY_NAME,
+                ContactsContract.CommonDataKinds.Event.CONTACT_ID,
+                ContactsContract.CommonDataKinds.Event.START_DATE,
+                ContactsContract.CommonDataKinds.Event.TYPE,
+                ContactsContract.CommonDataKinds.Event.LABEL
+        };
+
+        final String where =
+                ContactsContract.Data.MIMETYPE + "= ?";
+        final String[] selectionArgs = new String[] {
+                ContactsContract.CommonDataKinds.Event.CONTENT_ITEM_TYPE
+        };
+        final String sortOrder = ContactsContract.CommonDataKinds.Event.START_DATE + " ASC";
+        return context.getContentResolver().query(uri, projection, where, selectionArgs, sortOrder);
+    }
+
+    /**
+     * Get calendar events within look-ahead time
+     */
+    private Cursor getCalendarEvents(Context context, StringBuilder where, long now, long later) {
+        // Projection array
+        String[] projection = new String[] {
+                CalendarContract.Instances.EVENT_ID,
+                CalendarContract.Events.TITLE,
+                CalendarContract.Instances.BEGIN,
+                CalendarContract.Instances.END,
+                CalendarContract.Events.DESCRIPTION,
+                CalendarContract.Events.EVENT_LOCATION,
+                CalendarContract.Events.ALL_DAY,
+        };
+
+        // all day events are stored in UTC, that is why we need to fetch events after 'later'
+        Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
+                String.format("%d/%d", now - DAY_IN_MILLIS, later + DAY_IN_MILLIS));
+
+        return context.getContentResolver().query(uri, projection,
+                where.toString(), null, CalendarContract.Instances.BEGIN + " ASC");
+    }
+
+    /**
+     * Build where clause for calendar queries
+     */
+    private StringBuilder buildWhere(Set<String> calendars, boolean remindersOnly, boolean hideAllDay) {
         StringBuilder where = new StringBuilder();
         if (remindersOnly) {
             where.append(CalendarContract.Events.HAS_ALARM + "=1");
@@ -248,23 +320,25 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
             }
             where.append(") ");
         }
+        return where;
+    }
 
-        // Projection array
-        String[] projection = new String[] {
-                CalendarContract.Instances.EVENT_ID,
-                CalendarContract.Events.TITLE,
-                CalendarContract.Instances.BEGIN,
-                CalendarContract.Instances.END,
-                CalendarContract.Events.DESCRIPTION,
-                CalendarContract.Events.EVENT_LOCATION,
-                CalendarContract.Events.ALL_DAY,
-        };
+    /**
+     * Get the next set of events (up to MAX_CALENDAR_ITEMS) within a certain
+     * look-ahead time. Result is stored in the CalendarInfo object
+     */
+    private void getEvents(Context context, long lookahead, Set<String> calendars,
+            boolean remindersOnly, boolean hideAllDay, boolean showAnniversaries) {
+        long now = System.currentTimeMillis();
+        long later = now + lookahead;
+        final Time time = new Time();
+        time.set(now);
 
-        // all day events are stored in UTC, that is why we need to fetch events after 'later'
-        Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
-                String.format("%d/%d", now - DAY_IN_MILLIS, later + DAY_IN_MILLIS));
-        Cursor cursor = context.getContentResolver().query(uri, projection,
-                where.toString(), null, CalendarContract.Instances.BEGIN + " ASC");
+        CalendarInfo newCalendarInfo = new CalendarInfo();
+
+        StringBuilder where = buildWhere(calendars, remindersOnly, hideAllDay);
+        Cursor cursor = getCalendarEvents(context, where, now, later);
+
 
         if (cursor != null) {
             // The indices for the projection array
@@ -278,7 +352,6 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
 
             final int showLocation = Preferences.calendarLocationMode(context);
             final int showDescription = Preferences.calendarDescriptionMode(context);
-            final Time time = new Time();
             int eventCount = 0;
 
             // Iterate through returned rows to a maximum number of calendar events
@@ -364,12 +437,78 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
 
                 // Add the event details to the CalendarInfo object and move to next record
                 newCalendarInfo.addEvent(new EventInfo(eventId, title, sb.toString(), begin,
-                        end, allDay));
+                        end, allDay, false));
                 eventCount++;
             }
             cursor.close();
-            mCalendarInfo = newCalendarInfo;
         }
+        if (showAnniversaries) {
+            if (D) Log.v(TAG, "Showing anniversaries");
+            cursor = getAnniversaries(context);
+
+            if (cursor != null) {
+                final int indexStartDate =
+                        cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.START_DATE);
+                final int indexDisplayName =
+                        cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                final int indexContactId =
+                        cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.CONTACT_ID);
+                final int indexType =
+                        cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.TYPE);
+                final int indexLabel =
+                        cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.LABEL);
+
+                GregorianCalendar calendar;
+                while (cursor.moveToNext()) {
+                    final long contactId = cursor.getLong(indexContactId);
+                    final String name = cursor.getString(indexDisplayName);
+                    final String startDate = cursor.getString(indexStartDate);
+                    boolean yearMissing = true;
+
+                    calendar = parseDateWithoutYear(startDate);
+                    if (calendar == null) {
+                        calendar = parseDateWithYear(startDate);
+                        yearMissing = false;
+                    }
+                    if (calendar == null) {
+                        if (D) Log.d(TAG, "Error parsing date for anniversary of " + name);
+                        continue;
+                    }
+
+                    // save actual anniversary year (e.g. year of birth)
+                    final int year = calendar.get(Calendar.YEAR);
+                    // set to current year (date to display the upcoming recurrence)
+                    calendar.set(Calendar.YEAR, time.year);
+                    final long begin = calendar.getTimeInMillis();
+                    if (begin < now - DAY_IN_MILLIS || begin > later){
+                        continue;
+                    }
+                    final int type = cursor.getInt(indexType);
+                    StringBuilder sbTitle = new StringBuilder();
+                    if (type == ContactsContract.CommonDataKinds.Event.TYPE_CUSTOM) {
+                        sbTitle.append(cursor.getString(indexLabel));
+                    } else {
+                        sbTitle.append(context.getResources().getString(
+                                ContactsContract.CommonDataKinds.Event.getTypeResource(type)));
+                    }
+                    sbTitle.append(" ").append(name);
+                    if (!yearMissing && type == ContactsContract.CommonDataKinds.Event.TYPE_BIRTHDAY) {
+                        sbTitle.append(" (").append(calendar.get(Calendar.YEAR) - year).append(")");
+                    }
+
+                    if (D) Log.v(TAG, "Adding anniversary: " + sbTitle + " with id: " + contactId);
+
+                    newCalendarInfo.addEvent(
+                            new EventInfo(contactId, sbTitle.toString(),
+                                    DateUtils.formatDateTime(context, begin, Constants.CALENDAR_FORMAT_ALLDAY),
+                                    begin, begin + DAY_IN_MILLIS, true, true));
+                }
+
+                newCalendarInfo.truncateTo(Constants.MAX_CALENDAR_ITEMS);
+                cursor.close();
+            }
+        }
+        mCalendarInfo = newCalendarInfo;
 
         // check for first event outside of lookahead window
         long endOfLookahead = now + lookahead;
@@ -384,9 +523,9 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
             where.append(" > ");
             where.append(endOfLookahead);
 
-            uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
+            Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
                     String.format("%d/%d", endOfLookahead, minUpdateTime));
-            projection = new String[] {
+            String[] projection = new String[] {
                     CalendarContract.Instances.BEGIN
             };
             cursor = context.getContentResolver().query(uri, projection, where.toString(), null,
@@ -411,6 +550,60 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
     private static long getMinUpdateFromNow(long now) {
         // we update at least once a day
         return now + DAY_IN_MILLIS;
+    }
+
+    private static final GregorianCalendar getCalendar(Date date, boolean noYear) {
+        final GregorianCalendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        if (noYear) {
+            calendar.set(Calendar.YEAR, 0);
+        }
+        return calendar;
+    }
+
+    private static final GregorianCalendar getCalendar(int year, int month, int dayOfMonth) {
+        final GregorianCalendar calendar = new GregorianCalendar();
+        calendar.clear();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        return calendar;
+    }
+
+    private static GregorianCalendar parseDateWithoutYear(String dateString) {
+        ParsePosition parsePosition = new ParsePosition(0);
+
+        Date date;
+        final boolean noYearParsed;
+        //Unfortunately, we can't parse Feb 29th correctly, so let's handle this day seperately
+        if (NO_YEAR_DATE_FEB29TH.equals(dateString)) {
+            return getCalendar(0, Calendar.FEBRUARY, 29);
+        } else {
+            synchronized (NO_YEAR_DATE_FORMAT) {
+                date = NO_YEAR_DATE_FORMAT.parse(dateString, parsePosition);
+            }
+            if (parsePosition.getIndex() == dateString.length()) {
+                return getCalendar(date, true);
+            }
+        }
+        return null;
+    }
+
+    private static GregorianCalendar parseDateWithYear(String dateString) {
+        ParsePosition parsePosition = new ParsePosition(0);
+        Date date;
+
+        for (int i = 0; i < DATE_FORMATS.length; i++) {
+            SimpleDateFormat f = DATE_FORMATS[i];
+            synchronized (f) {
+                parsePosition.setIndex(0);
+                date = f.parse(dateString, parsePosition);
+                if (parsePosition.getIndex() == dateString.length()) {
+                    return getCalendar(date, false);
+                }
+            }
+        }
+        return null;
     }
 
     // ===============================================================================================
