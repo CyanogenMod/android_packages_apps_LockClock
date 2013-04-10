@@ -33,6 +33,13 @@
             android:title="@string/calendars_title"
             android:summary="@string/calendars_summary" />
 
+        <CheckBoxPreference
+            android:key="calendar_show_anniversaries"
+            android:dependency="show_calendar"
+            android:title="@string/calendar_show_anniversaries_title"
+            android:summary="@string/calendar_show_anniversaries_summary"
+            android:defaultValue="false" />
+
         <ListPreference
             android:key="calendar_lookahead"
             android:dependency="show_calendar"

@@ -49,6 +49,7 @@ public class Constants {
 
     public static final String SHOW_CALENDAR = "show_calendar";
     public static final String CALENDAR_LIST = "calendar_list";
+    public static final String CALENDAR_SHOW_ANNIVERSARIES = "calendar_show_anniversaries";
     public static final String CALENDAR_LOOKAHEAD = "calendar_lookahead";
     public static final String CALENDAR_REMINDERS_ONLY = "calendar_reminders_only";
     public static final String CALENDAR_HIDE_ALLDAY = "calendar_hide_allday";
