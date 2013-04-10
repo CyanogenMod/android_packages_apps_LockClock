@@ -80,6 +80,10 @@ public class Preferences {
         return color;
     }
 
+    public static boolean calendarShowAnniversaries(Context context) {
+        return getPrefs(context).getBoolean(Constants.CALENDAR_SHOW_ANNIVERSARIES, false);
+    }
+
     public static int calendarFontColor(Context context) {
         int color = Color.parseColor(getPrefs(context).getString(Constants.CALENDAR_FONT_COLOR,
                 Constants.DEFAULT_LIGHT_COLOR));
