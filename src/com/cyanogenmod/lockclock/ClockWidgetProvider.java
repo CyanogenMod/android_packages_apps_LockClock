@@ -20,11 +20,15 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.database.ContentObserver;
 import android.net.ConnectivityManager;
+import android.os.Handler;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
+import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 import com.cyanogenmod.lockclock.ClockWidgetService;
 import com.cyanogenmod.lockclock.WidgetApplication;
@@ -32,6 +36,26 @@ import com.cyanogenmod.lockclock.WidgetApplication;
 public class ClockWidgetProvider extends AppWidgetProvider {
     private static final String TAG = "ClockWidgetProvider";
     private static boolean D = Constants.DEBUG;
+
+    class ContactsObserver extends ContentObserver {
+
+        private Context mContext = null;
+
+        public ContactsObserver(Context context) {
+            super(mContentHandler);
+            mContext  = context;
+        }
+
+        public void onChange(boolean selfChange) {
+            if (D) Log.v(TAG, "ContactsObserver.onChange()");
+            if (Preferences.calendarShowAnniversaries(mContext)) {
+                updateWidgets(mContext, true, false);
+            }
+        }
+    }
+
+    private final Handler mContentHandler = new Handler();
+    private ContactsObserver mContactsObserver = null;
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -114,6 +138,9 @@ public class ClockWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onEnabled(Context context) {
+        mContactsObserver = new ContactsObserver(context.getApplicationContext());
+        context.getContentResolver().registerContentObserver(
+                ContactsContract.Contacts.CONTENT_URI, true, mContactsObserver);
         if (D) Log.d(TAG, "Scheduling next weather update");
         WeatherUpdateService.scheduleNextUpdate(context);
 
@@ -128,6 +155,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onDisabled(Context context) {
+        context.getContentResolver().unregisterContentObserver(mContactsObserver);
         if (D) Log.d(TAG, "Cleaning up: Clearing all pending alarms");
         ClockWidgetService.cancelUpdates(context);
         WeatherUpdateService.cancelUpdates(context);
