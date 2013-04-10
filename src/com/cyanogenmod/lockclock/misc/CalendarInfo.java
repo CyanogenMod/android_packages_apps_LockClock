@@ -70,6 +70,7 @@ public class CalendarInfo {
         public long start;
         public long end;
         public boolean allDay;
+        public boolean anniversary;
 
         public EventInfo() {
         }
@@ -83,6 +84,9 @@ public class CalendarInfo {
             builder.append(id);
             builder.append(", description=");
             builder.append(description);
+            if (anniversary) {
+                builder.append(", anniversary=true");
+            }
             builder.append("]");
             return builder.toString();
         }
@@ -91,6 +95,7 @@ public class CalendarInfo {
         public int hashCode() {
             final int prime = 31;
             int result = 1;
+            result = prime * result + (anniversary ? 1231 : 1237);
             result = prime * result + (allDay ? 1231 : 1237);
             result = prime * result + (int) (id ^ (id >>> 32));
             result = prime * result + (int) (end ^ (end >>> 32));
@@ -112,6 +117,8 @@ public class CalendarInfo {
             if (id != other.id)
                 return false;
             if (allDay != other.allDay)
+                return false;
+            if (anniversary != other.anniversary)
                 return false;
             if (end != other.end)
                 return false;
@@ -146,6 +153,12 @@ public class CalendarInfo {
             }
 
             return 0;
+        }
+    }
+
+    public void truncateTo(int maxCalendarItems) {
+        while (mEventsList.size() > maxCalendarItems) {
+            mEventsList.remove(mEventsList.size() - 1);
         }
     }
 }
