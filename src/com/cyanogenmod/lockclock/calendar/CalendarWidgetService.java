@@ -260,15 +260,6 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
                 CalendarContract.Events.ALL_DAY,
         };
 
-        // The indices for the projection array
-        int EVENT_ID_INDEX = 0;
-        int TITLE_INDEX = 1;
-        int BEGIN_TIME_INDEX = 2;
-        int END_TIME_INDEX = 3;
-        int DESCRIPTION_INDEX = 4;
-        int LOCATION_INDEX = 5;
-        int ALL_DAY_INDEX = 6;
-
         // all day events are stored in UTC, that is why we need to fetch events after 'later'
         Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
                 String.format("%d/%d", now - DAY_IN_MILLIS, later + DAY_IN_MILLIS));
@@ -278,99 +269,105 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
             cursor = context.getContentResolver().query(uri, projection,
                     where.toString(), null, CalendarContract.Instances.BEGIN + " ASC");
 
-            if (cursor != null) {
-                final int showLocation = Preferences.calendarLocationMode(context);
-                final int showDescription = Preferences.calendarDescriptionMode(context);
-                final Time time = new Time();
-                int eventCount = 0;
+            // The indices for the projection array
+            final int EVENT_ID_INDEX = cursor.getColumnIndex(CalendarContract.Instances.EVENT_ID);
+            final int TITLE_INDEX = cursor.getColumnIndex(CalendarContract.Events.TITLE);
+            final int BEGIN_TIME_INDEX = cursor.getColumnIndex(CalendarContract.Instances.BEGIN);
+            final int END_TIME_INDEX = cursor.getColumnIndex(CalendarContract.Instances.END);
+            final int DESCRIPTION_INDEX = cursor.getColumnIndex(CalendarContract.Events.DESCRIPTION);
+            final int LOCATION_INDEX = cursor.getColumnIndex(CalendarContract.Events.EVENT_LOCATION);
+            final int ALL_DAY_INDEX = cursor.getColumnIndex(CalendarContract.Events.ALL_DAY);
 
-                cursor.moveToPosition(-1);
-                // Iterate through returned rows to a maximum number of calendar events
-                while (cursor.moveToNext() && eventCount < Constants.MAX_CALENDAR_ITEMS) {
-                    long eventId = cursor.getLong(EVENT_ID_INDEX);
-                    String title = cursor.getString(TITLE_INDEX);
-                    long begin = cursor.getLong(BEGIN_TIME_INDEX);
-                    long end = cursor.getLong(END_TIME_INDEX);
-                    String description = cursor.getString(DESCRIPTION_INDEX);
-                    String location = cursor.getString(LOCATION_INDEX);
-                    boolean allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
-                    int format = 0;
+            final int showLocation = Preferences.calendarLocationMode(context);
+            final int showDescription = Preferences.calendarDescriptionMode(context);
+            final Time time = new Time();
+            int eventCount = 0;
 
-                    if (allDay) {
-                        begin = convertUtcToLocal(time, begin);
-                        end = convertUtcToLocal(time, end);
-                    }
+            // Iterate through returned rows to a maximum number of calendar events
+            while (cursor.moveToNext() && eventCount < Constants.MAX_CALENDAR_ITEMS) {
+                long eventId = cursor.getLong(EVENT_ID_INDEX);
+                String title = cursor.getString(TITLE_INDEX);
+                long begin = cursor.getLong(BEGIN_TIME_INDEX);
+                long end = cursor.getLong(END_TIME_INDEX);
+                String description = cursor.getString(DESCRIPTION_INDEX);
+                String location = cursor.getString(LOCATION_INDEX);
+                boolean allDay = cursor.getInt(ALL_DAY_INDEX) != 0;
+                int format = 0;
 
-                    if (end < now || begin > later) {
-                        continue;
-                    }
-
-                    if (D) Log.v(TAG, "Adding event: " + title + " with id: " + eventId);
-
-                    // Start building the event details string
-                    // Starting with the date
-                    StringBuilder sb = new StringBuilder();
-
-                    if (allDay) {
-                        format = Constants.CALENDAR_FORMAT_ALLDAY;
-                    } else if (DateUtils.isToday(begin)) {
-                        format = Constants.CALENDAR_FORMAT_TODAY;
-                    } else {
-                        format = Constants.CALENDAR_FORMAT_FUTURE;
-                    }
-                    if (allDay || begin == end) {
-                        sb.append(DateUtils.formatDateTime(context, begin, format));
-                    } else {
-                        sb.append(DateUtils.formatDateRange(context, begin, end, format));
-                    }
-
-                    // Add the event location if it should be shown
-                    if (showLocation != Preferences.SHOW_NEVER && !TextUtils.isEmpty(location)) {
-                        switch (showLocation) {
-                            case Preferences.SHOW_FIRST_LINE:
-                                int stringEnd = location.indexOf('\n');
-                                if (stringEnd == -1) {
-                                    sb.append(": " + location);
-                                } else {
-                                    sb.append(": " + location.substring(0, stringEnd));
-                                }
-                                break;
-                            case Preferences.SHOW_ALWAYS:
-                                sb.append(": " + location);
-                                break;
-                        }
-                    }
-
-                    // Add the event description if it should be shown
-                    if (showDescription != Preferences.SHOW_NEVER
-                            && !TextUtils.isEmpty(description)) {
-                        // Show the appropriate separator
-                        if (showLocation == Preferences.SHOW_NEVER) {
-                            sb.append(": ");
-                        } else {
-                            sb.append(" - ");
-                        }
-
-                        switch (showDescription) {
-                            case Preferences.SHOW_FIRST_LINE:
-                                int stringEnd = description.indexOf('\n');
-                                if (stringEnd == -1) {
-                                    sb.append(description);
-                                } else {
-                                    sb.append(description.substring(0, stringEnd));
-                                }
-                                break;
-                            case Preferences.SHOW_ALWAYS:
-                                sb.append(description);
-                                break;
-                        }
-                    }
-
-                    // Add the event details to the CalendarInfo object and move to next record
-                    newCalendarInfo.addEvent(populateEventInfo(eventId, title, sb.toString(), begin,
-                            end, allDay));
-                    eventCount++;
+                if (allDay) {
+                    begin = convertUtcToLocal(time, begin);
+                    end = convertUtcToLocal(time, end);
                 }
+
+                if (end < now || begin > later) {
+                    continue;
+                }
+
+                if (D) Log.v(TAG, "Adding event: " + title + " with id: " + eventId);
+
+                // Start building the event details string
+                // Starting with the date
+                StringBuilder sb = new StringBuilder();
+
+                if (allDay) {
+                    format = Constants.CALENDAR_FORMAT_ALLDAY;
+                } else if (DateUtils.isToday(begin)) {
+                    format = Constants.CALENDAR_FORMAT_TODAY;
+                } else {
+                    format = Constants.CALENDAR_FORMAT_FUTURE;
+                }
+                if (allDay || begin == end) {
+                    sb.append(DateUtils.formatDateTime(context, begin, format));
+                } else {
+                    sb.append(DateUtils.formatDateRange(context, begin, end, format));
+                }
+
+                // Add the event location if it should be shown
+                if (showLocation != Preferences.SHOW_NEVER && !TextUtils.isEmpty(location)) {
+                    switch (showLocation) {
+                        case Preferences.SHOW_FIRST_LINE:
+                            int stringEnd = location.indexOf('\n');
+                            if (stringEnd == -1) {
+                                sb.append(": " + location);
+                            } else {
+                                sb.append(": " + location.substring(0, stringEnd));
+                            }
+                            break;
+                        case Preferences.SHOW_ALWAYS:
+                            sb.append(": " + location);
+                            break;
+                    }
+                }
+
+                // Add the event description if it should be shown
+                if (showDescription != Preferences.SHOW_NEVER
+                        && !TextUtils.isEmpty(description)) {
+                    // Show the appropriate separator
+                    if (showLocation == Preferences.SHOW_NEVER) {
+                        sb.append(": ");
+                    } else {
+                        sb.append(" - ");
+                    }
+
+                    switch (showDescription) {
+                        case Preferences.SHOW_FIRST_LINE:
+                            int stringEnd = description.indexOf('\n');
+                            if (stringEnd == -1) {
+                                sb.append(description);
+                            } else {
+                                sb.append(description.substring(0, stringEnd));
+                            }
+                            break;
+                        case Preferences.SHOW_ALWAYS:
+                            sb.append(description);
+                            break;
+                    }
+                }
+
+                // Add the event details to the CalendarInfo object and move to next record
+                newCalendarInfo.addEvent(new EventInfo(eventId, title, sb.toString(), begin,
+                        end, allDay));
+                eventCount++;
             }
         } catch (Exception e) {
             // Do nothing
@@ -416,24 +413,6 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         time.set(utcTime);
         time.timezone = Time.getCurrentTimezone();
         return time.normalize(true);
-    }
-
-    /**
-     * Construct the EventInfo object
-     */
-    private static EventInfo populateEventInfo(long eventId, String title, String description,
-            long begin, long end, boolean allDay) {
-        EventInfo eventInfo = new EventInfo();
-
-        // Populate the fields
-        eventInfo.id = eventId;
-        eventInfo.title = title;
-        eventInfo.description = description;
-        eventInfo.start = begin;
-        eventInfo.end = end;
-        eventInfo.allDay = allDay;
-
-        return eventInfo;
     }
 
     private static long getMinUpdateFromNow(long now) {
