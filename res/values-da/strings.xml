@@ -20,6 +20,7 @@
     <string name="unknown">Ukendt</string>
     <string name="cancel">Annuller</string>
     <string name="loading_indicator">Indlæser widget\u2026</string>
+    <string name="menu_done">Udført</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">Tornado</string>
@@ -148,6 +149,16 @@
     <string name="calendar_lookahead_title">Tidsramme for begivenheder</string>
     <string name="calendar_show_location_title">Lokation for begivenhed</string>
     <string name="calendar_show_description_title">Beskrivelse af begivenhed</string>
+    <string name="calendar_upcoming_events_category">Kommende begivenheder</string>
+    <string name="calendar_highlight_upcoming_events_title">Fremhæv begivenheder</string>
+    <string name="calendar_highlight_upcoming_events_summary">Fremhæv den aktuelle dags begivenheder og, efter 20, også den næste dags begivenheder</string>
+    <string name="calendar_highlight_upcoming_events_bold">Fed skrift</string>
+
+    <!-- Preferences - Font colors -->
+    <string name="font_color">Fontfarve</string>
+    <string name="font_color_alarm">Fontfarve for alarm</string>
+    <string name="font_color_timestamp">Fontfarve for tidsstempel</string>
+    <string name="font_color_calendar_details">Fontfarve for detaljer</string>
 
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 timer</string>
@@ -156,10 +167,26 @@
     <string name="calendar_lookahead_1day">1 dag</string>
     <string name="calendar_lookahead_3days">3 dage</string>
     <string name="calendar_lookahead_1wk">1 uge</string>
+    <string name="calendar_lookahead_2wks">2 uger</string>
+    <string name="calendar_lookahead_4wks">4 uger</string>
 
     <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">Vis ikke</string>
     <string name="calendar_metadata_first_line">Vis første linie</string>
     <string name="calendar_metadata_all">Vis alt</string>
 
+    <!-- Font colors -->
+    <string name="white">Hvid</string>
+    <string name="grey">Grå</string>
+    <string name="black">Sort</string>
+    <string name="holo_blue_light">Lyseblå</string>
+    <string name="holo_green_light">Lysegrøn</string>
+    <string name="holo_red_light">Lyserød</string>
+    <string name="holo_blue_dark">Mørkeblå</string>
+    <string name="holo_green_dark">Mørkegrøn</string>
+    <string name="holo_red_dark">Mørkerød</string>
+    <string name="holo_purple">Lilla</string>
+    <string name="holo_orange_light">Lys orange</string>
+    <string name="holo_orange_dark">Mørk orange</string>
+    <string name="holo_blue_bright">Klar blå</string>
 </resources>
