@@ -71,7 +71,14 @@ public class CalendarInfo {
         public long end;
         public boolean allDay;
 
-        public EventInfo() {
+        public EventInfo(long eventId, String title, String description, long start, long end,
+                boolean allDay) {
+            this.id = eventId;
+            this.title = title;
+            this.description = description;
+            this.start = start;
+            this.end = end;
+            this.allDay = allDay;
         }
 
         @Override
