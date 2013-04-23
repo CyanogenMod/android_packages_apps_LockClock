@@ -101,10 +101,10 @@ public class ClockWidgetService extends IntentService {
         boolean digitalClock = Preferences.showDigitalClock(this);
         boolean showWeather = Preferences.showWeather(this);
         boolean showWeatherWhenMinimized = Preferences.showWeatherWhenMinimized(this);
-        boolean showCalendar = false;
 
         // Update the widgets
         for (int id : mWidgetIds) {
+            boolean showCalendar = false;
 
             // Determine which layout to use
             boolean smallWidget = showWeather && showWeatherWhenMinimized
@@ -117,23 +117,28 @@ public class ClockWidgetService extends IntentService {
                 showCalendar = false;
             } else {
                 remoteViews = new RemoteViews(getPackageName(), R.layout.appwidget);
-                showCalendar = Preferences.showCalendar(this) && !mHideCalendar;
-            }
-
-            // Always Refresh the Clock widget
-            refreshClock(remoteViews, smallWidget, digitalClock);
-            refreshAlarmStatus(remoteViews, smallWidget);
-
-            // Don't bother with Calendar if its not enabled
-            if (showCalendar) {
-                refreshCalendar(remoteViews, id);
+                // show calendar if enabled and events available and enough space available
+                showCalendar = Preferences.showCalendar(this) && !mHideCalendar
+                        && WidgetUtils.canFitCalendar(this, id, digitalClock);
             }
 
             // Hide the Loading indicator
             remoteViews.setViewVisibility(R.id.loading_indicator, View.GONE);
 
+            // Always Refresh the Clock widget
+            refreshClock(remoteViews, smallWidget, digitalClock);
+            refreshAlarmStatus(remoteViews, smallWidget);
+
+            // Don't bother with Calendar if its not visible
+            if (showCalendar) {
+                refreshCalendar(remoteViews, id);
+            }
+            // Hide the calendar panel if not visible
+            remoteViews.setViewVisibility(R.id.calendar_panel, showCalendar ? View.VISIBLE : View.GONE);
+
+            boolean canFitWeather = smallWidget || WidgetUtils.canFitWeather(this, id, digitalClock);
             // Now, if we need to show the actual weather, do so
-            if (showWeather) {
+            if (showWeather && canFitWeather) {
                 WeatherInfo weatherInfo = Preferences.getCachedWeatherInfo(this);
 
                 if (weatherInfo != null) {
@@ -142,21 +147,13 @@ public class ClockWidgetService extends IntentService {
                     setNoWeatherData(remoteViews, smallWidget);
                 }
             }
+            remoteViews.setViewVisibility(R.id.weather_panel, (showWeather && canFitWeather) ? View.VISIBLE : View.GONE);
 
             // Resize the clock font if needed
             if (digitalClock) {
                 float ratio = WidgetUtils.getScaleRatio(this, id);
                 setClockSize(remoteViews, ratio);
             }
-
-            if (showWeather) {
-                boolean canFitWeather = smallWidget || WidgetUtils.canFitWeather(this, id, digitalClock);
-                remoteViews.setViewVisibility(R.id.weather_panel, canFitWeather ? View.VISIBLE : View.GONE);
-            }
-
-            // Hide the calendar panel if there is no space for it
-            boolean shouldDisplayCalendar = showCalendar && WidgetUtils.canFitCalendar(this, id, digitalClock);
-            remoteViews.setViewVisibility(R.id.calendar_panel, shouldDisplayCalendar ? View.VISIBLE : View.GONE);
 
             // Do the update
             mAppWidgetManager.updateAppWidget(id, remoteViews);
