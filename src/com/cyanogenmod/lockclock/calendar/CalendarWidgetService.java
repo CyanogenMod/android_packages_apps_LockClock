@@ -175,28 +175,26 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
 
     @Override
     public void onCreate() {
-        updateCalendarInfo(mContext, false);
+        updateCalendarInfo(mContext);
+        updatePanelVisibility();
     }
 
     @Override
     public void onDataSetChanged() {
         if (D) Log.v(TAG, "onDataSetChanged()");
-        updateCalendarInfo(mContext, true);
+        updateCalendarInfo(mContext);
         updatePanelVisibility();
     }
 
-    private void updateCalendarInfo(Context context, boolean force) {
+    private void updateCalendarInfo(Context context) {
         // Load the settings
         Set<String> calendarList = Preferences.calendarsToDisplay(context);
         boolean remindersOnly = Preferences.showEventsWithRemindersOnly(context);
         boolean hideAllDay = !Preferences.showAllDayEvents(context);
         long lookAhead = Preferences.lookAheadTimeInMs(context);
 
-        // If we don't have any events yet or forcing a refresh, get the next batch of events
-        if (force || !mCalendarInfo.hasEvents()) {
-            if (D) Log.d(TAG, "Checking for calendar events..." + (force ? " (forced)" : ""));
-            getCalendarEvents(context, lookAhead, calendarList, remindersOnly, hideAllDay);
-        }
+        if (D) Log.d(TAG, "Checking for calendar events...");
+        getCalendarEvents(context, lookAhead, calendarList, remindersOnly, hideAllDay);
         scheduleCalendarUpdate(context);
     }
 
