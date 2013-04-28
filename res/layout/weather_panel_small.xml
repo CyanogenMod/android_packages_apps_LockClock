@@ -93,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textColor="?android:attr/textColorPrimary"
             style="@style/label_shadow" />
 
