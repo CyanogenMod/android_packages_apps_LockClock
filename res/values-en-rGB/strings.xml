@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- <string name="weather_15">Blowing Snow</string> - is this blizzard? -->
+    <string name="use_digital_clock_summary">Select to toggle between digital and analogue display</string>
+
+    <string name="weather_use_custom_location">Use custom location</string>
+    <string name="weather_geolocated">Geolocated using network</string>
+    <string name="weather_custom_location_dialog_title">Enter location</string>
+    <string name="weather_custom_location_hint">Town/City, County/Region/Country</string>
+    <string name="weather_alternate_icons_title">Use colour icons</string>
+    <string name="weather_alternate_icons_summary">Select to toggle between the default (colour) and the alternative (white) icons</string>
+    <string name="weather_show_when_minimized_title">Show when minimised</string>
+    <string name="weather_show_when_minimized_summary">Display summary weather information when the widget is minimised</string>
+
+    <string name="font_color">Font colour</string>
+    <string name="font_color_alarm">Alarm font colour</string>
+    <string name="font_color_timestamp">Timestamp font colour</string>
+    <string name="font_color_calendar_details">Details font colour</string>
+
+    <string name="grey">Grey</string><!-- just in case the default ever becomes 'Gray' -->
+</resources>
