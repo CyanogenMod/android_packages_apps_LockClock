@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,13 +15,10 @@
 -->
 
 <resources>
-
-    <!-- General strings -->
     <string name="unknown">Ukjent</string>
     <string name="cancel">Avbryt</string>
     <string name="loading_indicator">Laster inn widget\u2026</string>
-
-    <!-- Weather - Weather codes -->
+    <string name="menu_done">Ferdig</string>
     <string name="weather_0">Tornado</string>
     <string name="weather_1">Tropisk Storm</string>
     <string name="weather_2">Orkan</string>
@@ -49,14 +46,14 @@
     <string name="weather_24">Kuling</string>
     <string name="weather_25">Kaldt</string>
     <string name="weather_26">Opphold</string>
-    <string name="weather_27">For det meste skyet</string> <!-- Night -->
-    <string name="weather_28">For det meste skyet</string> <!-- Day -->
-    <string name="weather_29">Delvis Skyet</string> <!-- Night -->
-    <string name="weather_30">Delvis Skyet</string> <!-- Day -->
-    <string name="weather_31">Klarvær</string> <!-- Night -->
+    <string name="weather_27">For det meste skyet</string>
+    <string name="weather_28">For det meste skyet</string>
+    <string name="weather_29">Delvis Skyet</string>
+    <string name="weather_30">Delvis Skyet</string>
+    <string name="weather_31">Klarvær</string>
     <string name="weather_32">Solfylt Vær</string>
-    <string name="weather_33">Pent Vær</string> <!-- Night -->
-    <string name="weather_34">Pent Vær</string> <!-- Day -->
+    <string name="weather_33">Pent Vær</string>
+    <string name="weather_34">Pent Vær</string>
     <string name="weather_35">Blandet Regn og Hagl</string>
     <string name="weather_36">Varmt</string>
     <string name="weather_37">Isolerte Tordenbyger</string>
@@ -70,26 +67,19 @@
     <string name="weather_45">Tordenvær</string>
     <string name="weather_46">Snøbyger</string>
     <string name="weather_47">Isolerte Tordenbyger</string>
-    <!-- Forecast unavailable -->
     <string name="weather_3200"></string>
-
-    <!-- Weather - Wind directions -->
     <string name="weather_N">N</string>
-    <string name="weather_NE">NE</string>
-    <string name="weather_E">E</string>
-    <string name="weather_SE">SE</string>
+    <string name="weather_NE">NØ</string>
+    <string name="weather_E">Ø</string>
+    <string name="weather_SE">SØ</string>
     <string name="weather_S">S</string>
-    <string name="weather_SW">SW</string>
-    <string name="weather_W">W</string>
-    <string name="weather_NW">NW</string>
-
-    <!-- Weather - error messages -->
+    <string name="weather_SW">SV</string>
+    <string name="weather_W">V</string>
+    <string name="weather_NW">NV</string>
     <string name="weather_no_data">Ingen data</string>
     <string name="weather_tap_to_refresh">Trykk for å oppdatere</string>
     <string name="weather_refreshing">Oppdaterer</string>
     <string name="weather_last_sync_just_now">Nå</string>
-
-    <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">Manuelt</string>
     <string name="weather_refresh_30min">30 minutter</string>
     <string name="weather_refresh_60min">60 minutter</string>
@@ -97,25 +87,17 @@
     <string name="weather_refresh_4hrs">4 timer</string>
     <string name="weather_refresh_6hrs">6 timer</string>
     <string name="weather_refresh_8hrs">8 timer</string>
-
-    <!-- Preferences - Categories -->
     <string name="clock_category">Klokke og alarm</string>
     <string name="weather_category">Værpanel</string>
     <string name="calendar_category">Kalenderoppføringer</string>
-
-    <!-- Preferences - Categories -->
     <string name="general_category">Generelt</string>
     <string name="display_category">Skjerm</string>
-
-    <!-- Preferences - Clock -->
     <string name="use_digital_clock_title">Bruk Digital Klokke</string>
     <string name="use_digital_clock_summary">Velg for å veksle mellom digital og analog klokke</string>
     <string name="clock_font_title">Timer uthevet</string>
     <string name="clock_font_minutes_title">Minutter uthevet</string>
     <string name="clock_font_date_title">Uthevet dato og alarm</string>
     <string name="show_alarm_title">Vis neste alarm</string>
-
-    <!-- Preferences - Weather -->
     <string name="weather_enabled">Aktivert</string>
     <string name="weather_enable">Vis vær</string>
     <string name="weather_source">Yahoo! Været</string>
@@ -135,8 +117,8 @@
     <string name="weather_progress_title">Verifiserer posisjon</string>
     <string name="weather_alternate_icons_title">Bruk alternative ikoner</string>
     <string name="weather_alternate_icons_summary">Velg for å veksle mellom standard (hvite) eller alternative (farger) ikoner</string>
-
-    <!-- Preferences - Calendar -->
+    <string name="weather_show_when_minimized_title">Vis når minimert</string>
+    <string name="weather_show_when_minimized_summary">Vis et sammendrag over været når modulen er minimert</string>
     <string name="calendar_title">Vis neste oppføring</string>
     <string name="calendars_title">Kalendere</string>
     <string name="calendars_summary">Finn oppføringer fra disse kalenderne</string>
@@ -146,18 +128,28 @@
     <string name="calendar_lookahead_title">Fremtidige oppføringer</string>
     <string name="calendar_show_location_title">Oppføringssted</string>
     <string name="calendar_show_description_title">Oppføringsbeskrivelse</string>
-
-    <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 timer</string>
     <string name="calendar_lookahead_6hrs">6 timer</string>
     <string name="calendar_lookahead_12hrs">12 timer</string>
     <string name="calendar_lookahead_1day">1 dag</string>
     <string name="calendar_lookahead_3days">3 dager</string>
     <string name="calendar_lookahead_1wk">1 uke</string>
-
-    <!-- Calendar - Event metadata -->
+    <string name="calendar_lookahead_2wks">2 uker</string>
+    <string name="calendar_lookahead_4wks">4 uker</string>
     <string name="calendar_metadata_none">Ikke vis</string>
     <string name="calendar_metadata_first_line">Vis første linje</string>
     <string name="calendar_metadata_all">Vis alle</string>
-
+    <string name="white">Hvit</string>
+    <string name="grey">Grå</string>
+    <string name="black">Svart</string>
+    <string name="holo_blue_light">Lyseblå</string>
+    <string name="holo_green_light">Lysegrønn</string>
+    <string name="holo_red_light">Lyserød</string>
+    <string name="holo_blue_dark">Mørkeblå</string>
+    <string name="holo_green_dark">Mørkegrønn</string>
+    <string name="holo_red_dark">Mørkerød</string>
+    <string name="holo_purple">Lilla</string>
+    <string name="holo_orange_light">Lys oransje</string>
+    <string name="holo_orange_dark">Mørk oransje</string>
+    <string name="holo_blue_bright">Klar blå</string>
 </resources>
