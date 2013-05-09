@@ -128,6 +128,14 @@
     <string name="calendar_lookahead_title">Fremtidige oppføringer</string>
     <string name="calendar_show_location_title">Oppføringssted</string>
     <string name="calendar_show_description_title">Oppføringsbeskrivelse</string>
+    <string name="calendar_upcoming_events_category">Kommende hendelser</string>
+    <string name="calendar_highlight_upcoming_events_title">Fremhev hendelser</string>
+    <string name="calendar_highlight_upcoming_events_summary">Fremhev dagens hendelser, og etter klokken 20, også morgendagens hendelser</string>
+    <string name="calendar_highlight_upcoming_events_bold">Fet skrift</string>
+    <string name="font_color">Tekstfarge</string>
+    <string name="font_color_alarm">Tekstfarge for alarm</string>
+    <string name="font_color_timestamp">Tekstfarge for tidsstempel</string>
+    <string name="font_color_calendar_details">Tekstfarge for detaljer</string>
     <string name="calendar_lookahead_3hrs">3 timer</string>
     <string name="calendar_lookahead_6hrs">6 timer</string>
     <string name="calendar_lookahead_12hrs">12 timer</string>
