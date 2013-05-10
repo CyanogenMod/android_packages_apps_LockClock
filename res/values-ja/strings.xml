@@ -130,25 +130,29 @@
     <string name="weather_refresh_interval">更新間隔</string>
     <string name="weather_use_metric">メトリック表示を使用</string>
     <string name="weather_retrieve_location_dialog_title">場所を取得できません!</string>
-    <string name="weather_retrieve_location_dialog_message">ネットワークを使った現在地の取得は利用できません.\n\nネットワークロケーションを有効にするか、カスタムの場所を設定してください。</string>
+    <string name="weather_retrieve_location_dialog_message">ネットワークを使った現在地の取得は利用できません。\n\nネットワークロケーションを有効にするか、カスタムの場所を設定してください。</string>
     <string name="weather_retrieve_location_dialog_enable_button">有効</string>
     <string name="weather_invert_lowhigh">最低/最高気温を逆にする</string>
     <string name="weather_progress_title">場所を確認中</string>
     <string name="weather_alternate_icons_title">カラーアイコンを使う</string>
     <string name="weather_alternate_icons_summary">デフォルトのカラーアイコンか別の白アイコンを使うか選択する。</string>
     <string name="weather_show_when_minimized_title">最小化時に表示</string>
-    <string name="weather_show_when_minimized_summary">ウィジェットを最小化した際に天気情報のサマリを表示する</string>
+    <string name="weather_show_when_minimized_summary">ウィジェットを最小化した際に天気情報のサマリを表示する。</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">次の予定を表示する</string>
     <string name="calendars_title">表示するカレンダー</string>
-    <string name="calendars_summary">これらのカレンダーから予定を探す</string>
+    <string name="calendars_summary">これらのカレンダーから予定を探す。</string>
     <string name="calendar_reminders_only_title">リマインダーのみ</string>
-    <string name="calendar_reminders_only_summary">リマインダーのイベントのみ表示する</string>
+    <string name="calendar_reminders_only_summary">リマインダーのイベントのみ表示する。</string>
     <string name="calendar_hide_allday_title">終日の予定を表示しない</string>
     <string name="calendar_lookahead_title">予定の探索期間</string>
     <string name="calendar_show_location_title">予定の場所</string>
     <string name="calendar_show_description_title">予定の詳細</string>
+    <string name="calendar_upcoming_events_category">これからの予定</string>
+    <string name="calendar_highlight_upcoming_events_title">予定を強調表示する</string>
+    <string name="calendar_highlight_upcoming_events_summary">今日の予定と、午後8時以降は明日の予定を含めて強調表示する。</string>
+    <string name="calendar_highlight_upcoming_events_bold">太字フォント</string>
 
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3時間</string>
