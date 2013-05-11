@@ -22,10 +22,12 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
@@ -125,11 +127,13 @@ public class WeatherUpdateService extends Service {
     private class WeatherUpdateTask extends AsyncTask<Void, Void, WeatherInfo> {
         private WakeLock mWakeLock;
         private Context mContext;
+        private LocationManager mLocationManager;
 
         public WeatherUpdateTask() {
             PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
             mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
             mContext = WeatherUpdateService.this;
+            mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         }
 
         @Override
@@ -163,8 +167,7 @@ public class WeatherUpdateService extends Service {
         }
 
         private Location getCurrentLocation() {
-            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            Location location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+            Location location = mLocationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
             if (D) Log.v(TAG, "Current location is " + location);
             return location;
         }
@@ -195,6 +198,23 @@ public class WeatherUpdateService extends Service {
             } else {
                 Location location = getCurrentLocation();
                 woeid = getWoeidForCurrentLocation(location);
+                if (location == null && woeid == null) {
+                    // If lastKnownLocation is not present because none of the apps in the
+                    // device has requested the current location to the system yet,
+                    // then try to get the current location use an non-accuracy/network
+                    // provider. To do that, we need that the device has a network connection
+                    // and NETWORK_PROVIDER is supported and enabled.
+                    ConnectivityManager connMgr =
+                            (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+                    if(mLocationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                        NetworkInfo activeNetworkInfo = connMgr.getActiveNetworkInfo();
+                        if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
+                            WeatherLocationListener locListener = new WeatherLocationListener(mContext);
+                            mLocationManager.requestSingleUpdate(
+                                    LocationManager.NETWORK_PROVIDER, locListener, mContext.getMainLooper());
+                        }
+                    }
+                }
             }
 
             if (woeid == null || isCancelled()) {
@@ -223,7 +243,7 @@ public class WeatherUpdateService extends Service {
             if (result != null) {
                 long now = System.currentTimeMillis();
                 Preferences.setCachedWeatherInfo(mContext, now, result);
-                scheduleUpdate(mContext, Preferences.weatherRefreshIntervalInMs(mContext));
+                scheduleUpdate(mContext, Preferences.weatherRefreshIntervalInMs(mContext), false);
 
                 Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
                 sendBroadcast(updateIntent);
@@ -233,7 +253,7 @@ public class WeatherUpdateService extends Service {
             } else {
                 /* failure, schedule next download in 30 minutes */
                 long interval = 30 * 60 * 1000;
-                scheduleUpdate(mContext, interval);
+                scheduleUpdate(mContext, interval, false);
             }
 
             mWakeLock.release();
@@ -241,21 +261,52 @@ public class WeatherUpdateService extends Service {
         }
     }
 
-    private static void scheduleUpdate(Context context, long timeFromNow) {
+    private class WeatherLocationListener implements LocationListener {
+
+        private Context mContext;
+
+        public WeatherLocationListener(Context ctx) {
+            super();
+            mContext = ctx;
+        }
+
+        @Override
+        public void onLocationChanged(Location location) {
+            // Now, we have a location to use. Schedule a weather update right now.
+            WeatherUpdateService.scheduleUpdate(mContext, 0L, true);
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+            // Not used
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+            // Not used
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+            // Not used
+        }
+    }
+
+    private static void scheduleUpdate(Context context, long timeFromNow, boolean force) {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         long due = System.currentTimeMillis() + timeFromNow;
 
         if (D) Log.v(TAG, "Scheduling next update at " + new Date(due));
-        am.set(AlarmManager.RTC_WAKEUP, due, getUpdateIntent(context, false));
+        am.set(AlarmManager.RTC_WAKEUP, due, getUpdateIntent(context, force));
     }
 
     public static void scheduleNextUpdate(Context context) {
         long lastUpdate = Preferences.lastWeatherUpdateTimestamp(context);
         if (lastUpdate == 0) {
-            scheduleUpdate(context, 0);
+            scheduleUpdate(context, 0, false);
         } else {
             long interval = Preferences.weatherRefreshIntervalInMs(context);
-            scheduleUpdate(context, lastUpdate + interval - System.currentTimeMillis());
+            scheduleUpdate(context, lastUpdate + interval - System.currentTimeMillis(), false);
         }
     }
 
