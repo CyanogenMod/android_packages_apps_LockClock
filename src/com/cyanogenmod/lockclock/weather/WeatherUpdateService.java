@@ -22,10 +22,12 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
@@ -148,10 +150,6 @@ public class WeatherUpdateService extends Service {
         }
 
         private String getWoeidForCurrentLocation(Location location) {
-            if (location == null) {
-                return null;
-            }
-
             String woeid = YahooPlaceFinder.reverseGeoCode(mContext,
                     location.getLatitude(), location.getLongitude());
             if (woeid == null) {
@@ -184,7 +182,7 @@ public class WeatherUpdateService extends Service {
         @Override
         protected WeatherInfo doInBackground(Void... params) {
             String customLocation = null;
-            String woeid;
+            String woeid = null;
 
             if (Preferences.useCustomWeatherLocation(mContext)) {
                 customLocation = Preferences.customWeatherLocation(mContext);
@@ -194,7 +192,14 @@ public class WeatherUpdateService extends Service {
                 woeid = getWoeidForCustomLocation(customLocation);
             } else {
                 Location location = getCurrentLocation();
-                woeid = getWoeidForCurrentLocation(location);
+                if (location != null) {
+                    woeid = getWoeidForCurrentLocation(location);
+                } else {
+                    // If lastKnownLocation is not present because none of the apps in the
+                    // device has requested the current location to the system yet,
+                    // then try to get the current location use an non-accuracy/network provider.
+                    WeatherLocationListener.registerIfNeeded(mContext, LocationManager.NETWORK_PROVIDER);
+                }
             }
 
             if (woeid == null || isCancelled()) {
@@ -223,7 +228,7 @@ public class WeatherUpdateService extends Service {
             if (result != null) {
                 long now = System.currentTimeMillis();
                 Preferences.setCachedWeatherInfo(mContext, now, result);
-                scheduleUpdate(mContext, Preferences.weatherRefreshIntervalInMs(mContext));
+                scheduleUpdate(mContext, Preferences.weatherRefreshIntervalInMs(mContext), false);
 
                 Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
                 sendBroadcast(updateIntent);
@@ -233,7 +238,7 @@ public class WeatherUpdateService extends Service {
             } else {
                 /* failure, schedule next download in 30 minutes */
                 long interval = 30 * 60 * 1000;
-                scheduleUpdate(mContext, interval);
+                scheduleUpdate(mContext, interval, false);
             }
 
             mWakeLock.release();
@@ -241,21 +246,68 @@ public class WeatherUpdateService extends Service {
         }
     }
 
-    private static void scheduleUpdate(Context context, long timeFromNow) {
+    private static class WeatherLocationListener implements LocationListener {
+        private Context mContext;
+        private static WeatherLocationListener sInstance = null;
+
+        public static void registerIfNeeded(Context context, String provider) {
+            synchronized (WeatherLocationListener.class) {
+                if (sInstance == null) {
+                    final Context realContext = context.getApplicationContext();
+                    final LocationManager locationManager =
+                            (LocationManager) realContext.getSystemService(Context.LOCATION_SERVICE);
+
+                    sInstance = new WeatherLocationListener(realContext);
+                    locationManager.requestSingleUpdate(provider, sInstance, realContext.getMainLooper());
+                }
+            }
+        }
+
+        private WeatherLocationListener(Context context) {
+            super();
+            mContext = context;
+        }
+
+        @Override
+        public void onLocationChanged(Location location) {
+            // Now, we have a location to use. Schedule a weather update right now.
+            synchronized (WeatherLocationListener.class) {
+                WeatherUpdateService.scheduleUpdate(mContext, 0, true);
+                sInstance = null;
+            }
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+            // Not used
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+            // Not used
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+            // Not used
+        }
+    }
+
+    private static void scheduleUpdate(Context context, long timeFromNow, boolean force) {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         long due = System.currentTimeMillis() + timeFromNow;
 
         if (D) Log.v(TAG, "Scheduling next update at " + new Date(due));
-        am.set(AlarmManager.RTC_WAKEUP, due, getUpdateIntent(context, false));
+        am.set(AlarmManager.RTC_WAKEUP, due, getUpdateIntent(context, force));
     }
 
     public static void scheduleNextUpdate(Context context) {
         long lastUpdate = Preferences.lastWeatherUpdateTimestamp(context);
         if (lastUpdate == 0) {
-            scheduleUpdate(context, 0);
+            scheduleUpdate(context, 0, false);
         } else {
             long interval = Preferences.weatherRefreshIntervalInMs(context);
-            scheduleUpdate(context, lastUpdate + interval - System.currentTimeMillis());
+            scheduleUpdate(context, lastUpdate + interval - System.currentTimeMillis(), false);
         }
     }
 
