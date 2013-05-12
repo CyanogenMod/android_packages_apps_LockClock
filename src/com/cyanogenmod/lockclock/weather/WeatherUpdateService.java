@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -250,15 +251,24 @@ public class WeatherUpdateService extends Service {
         private Context mContext;
         private static WeatherLocationListener sInstance = null;
 
-        public static void registerIfNeeded(Context context, String provider) {
+        static void registerIfNeeded(Context context, String provider) {
             synchronized (WeatherLocationListener.class) {
                 if (sInstance == null) {
                     final Context realContext = context.getApplicationContext();
                     final LocationManager locationManager =
                             (LocationManager) realContext.getSystemService(Context.LOCATION_SERVICE);
 
+                    // Check location provider after set sInstance, so, if the provider is not
+                    // supported, we never enter here again.
                     sInstance = new WeatherLocationListener(realContext);
-                    locationManager.requestSingleUpdate(provider, sInstance, realContext.getMainLooper());
+                    // Check whether the provider is supported.
+                    // NOTE!!! Actually only WeatherUpdateService class is calling this function
+                    // with the NETWORK_PROVIDER, so setting the instance is safe. We must
+                    // change this if this call receive differents providers
+                    LocationProvider lp = locationManager.getProvider(provider);
+                    if (lp != null) {
+                        locationManager.requestSingleUpdate(provider, sInstance, realContext.getMainLooper());
+                    }
                 }
             }
         }
