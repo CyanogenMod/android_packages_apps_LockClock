@@ -36,6 +36,10 @@ public class Preferences {
         return getPrefs(context).getBoolean(Constants.CLOCK_SHOW_ALARM, true);
     }
 
+    public static boolean showDate(Context context) {
+        return getPrefs(context).getBoolean(Constants.CLOCK_SHOW_DATE, true);
+    }
+
     public static boolean showWeather(Context context) {
         return getPrefs(context).getBoolean(Constants.SHOW_WEATHER, true);
     }

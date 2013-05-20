@@ -105,6 +105,7 @@ public class ClockWidgetService extends IntentService {
         // Update the widgets
         for (int id : mWidgetIds) {
             boolean showCalendar = false;
+            boolean showDate = true;
 
             // Determine which layout to use
             boolean smallWidget = showWeather && showWeatherWhenMinimized
@@ -125,8 +126,11 @@ public class ClockWidgetService extends IntentService {
             // Hide the Loading indicator
             remoteViews.setViewVisibility(R.id.loading_indicator, View.GONE);
 
+            // Determine if the date should be displayed
+            showDate = Preferences.showDate(this);
+
             // Always Refresh the Clock widget
-            refreshClock(remoteViews, smallWidget, digitalClock);
+            refreshClock(remoteViews, smallWidget, digitalClock, showDate);
             refreshAlarmStatus(remoteViews, smallWidget);
 
             // Don't bother with Calendar if its not visible
@@ -163,7 +167,7 @@ public class ClockWidgetService extends IntentService {
     //===============================================================================================
     // Clock related functionality
     //===============================================================================================
-    private void refreshClock(RemoteViews clockViews, boolean smallWidget, boolean digitalClock) {
+    private void refreshClock(RemoteViews clockViews, boolean smallWidget, boolean digitalClock, boolean showDate) {
         // Analog or Digital clock
         if (digitalClock) {
             // Hours/Minutes is specific to Didital, set it's size
@@ -176,7 +180,7 @@ public class ClockWidgetService extends IntentService {
         }
 
         // Date/Alarm is common to both clocks, set it's size
-        refreshDateAlarmFont(clockViews, smallWidget);
+        refreshDateAlarmFont(clockViews, smallWidget, showDate);
 
         // Register an onClickListener on Clock, starting DeskClock
         ComponentName clk = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
@@ -211,7 +215,7 @@ public class ClockWidgetService extends IntentService {
         }
     }
 
-    private void refreshDateAlarmFont(RemoteViews clockViews, boolean smallWidget) {
+    private void refreshDateAlarmFont(RemoteViews clockViews, boolean smallWidget, boolean showDate) {
         int color = Preferences.clockFontColor(this);
 
         // Date and Alarm font
@@ -228,6 +232,12 @@ public class ClockWidgetService extends IntentService {
         } else {
             clockViews.setViewVisibility(R.id.date, View.VISIBLE);
             clockViews.setTextColor(R.id.date, color);
+        }
+
+        // Hide the date entirely, if preferred
+        if (!showDate) {
+           clockViews.setViewVisibility(R.id.date_bold, View.GONE);
+           clockViews.setViewVisibility(R.id.date_regular, View.GONE);
         }
 
         // Show the panel
