@@ -29,6 +29,7 @@ public class Constants {
     public static final String CLOCK_FONT_MINUTES = "clock_font_minutes";
     public static final String CLOCK_FONT_DATE = "clock_font_date";
     public static final String CLOCK_SHOW_ALARM = "clock_show_alarm";
+    public static final String CLOCK_SHOW_DATE = "clock_show_date";
     public static final String CLOCK_FONT_COLOR = "clock_font_color";
     public static final String CLOCK_ALARM_FONT_COLOR = "clock_alarm_font_color";
 
