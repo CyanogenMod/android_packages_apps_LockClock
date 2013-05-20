@@ -112,7 +112,7 @@
     <string name="weather_refresh_interval">Intervalo de actualización</string>
     <string name="weather_use_metric">Usar sistema métrico</string>
     <string name="weather_retrieve_location_dialog_title">¡No se puede encontrar la ubicación!</string>
-    <string name="weather_retrieve_location_dialog_message">Geolocalización por red desactivada.\n\nConfigure una ubicación personalizada o active la geolocalización por red</string>
+    <string name="weather_retrieve_location_dialog_message">Geolocalización por red desactivada.\n\nConfigura una ubicación personalizada o activa la geolocalización por red</string>
     <string name="weather_retrieve_location_dialog_enable_button">Activar</string>
     <string name="weather_invert_lowhigh">Invertir temperaturas</string>
     <string name="weather_progress_title">Verificando ubicación</string>
@@ -131,7 +131,7 @@
     <string name="calendar_show_description_title">Descripción del evento</string>
     <string name="calendar_upcoming_events_category">Próximos eventos</string>
     <string name="calendar_highlight_upcoming_events_title">Resaltar eventos</string>
-    <string name="calendar_highlight_upcoming_events_summary">Resaltar los eventos del día actual y, después de las 20 horas, resaltar también los eventos del día siguiente</string>
+    <string name="calendar_highlight_upcoming_events_summary">Resaltar los eventos del día actual y, después de las 20:00, resaltar también los eventos del día siguiente</string>
     <string name="calendar_highlight_upcoming_events_bold">Resaltar el texto</string>
     <string name="font_color">Color del texto</string>
     <string name="font_color_alarm">Color de la alarma</string>
