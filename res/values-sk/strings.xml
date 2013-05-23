@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="unknown">Neznáme</string>
+    <string name="cancel">Zrušiť</string>
+    <string name="loading_indicator">Načítava sa miniaplikácia\u2026</string>
+    <string name="menu_done">Hotovo</string>
+    <string name="weather_0">Tornádo</string>
+    <string name="weather_1">Tropická búrka</string>
+    <string name="weather_2">Hurikán</string>
+    <string name="weather_3">Silné búrky</string>
+    <string name="weather_4">Búrky</string>
+    <string name="weather_5">Zmiešaný dážd so snehom</string>
+    <string name="weather_6">Zmiešaný dážď so snehomMixed Rain and Sleet</string>
+    <string name="weather_7">Zmiešaný sneh a dážď so snehom</string>
+    <string name="weather_8">Mrznúce mrholenie</string>
+    <string name="weather_9">Mrholenie</string>
+    <string name="weather_10">Mrznúci dážď</string>
+    <string name="weather_11">Prehánky</string>
+    <string name="weather_12">Prehánky</string>
+    <string name="weather_13">Snehové prívaly</string>
+    <string name="weather_14">Slabé snehové prehánky</string>
+    <string name="weather_15">Zvírený sneh</string>
+    <string name="weather_16">Sneh</string>
+    <string name="weather_17">Krupobitie</string>
+    <string name="weather_18">Dážď so snehom</string>
+    <string name="weather_19">Prašno</string>
+    <string name="weather_20">Hmla</string>
+    <string name="weather_21">Opar</string>
+    <string name="weather_22">Zadymené</string>
+    <string name="weather_23">Búrlivo</string>
+    <string name="weather_24">Veterno</string>
+    <string name="weather_25">Chladno</string>
+    <string name="weather_26">Zamračené</string>
+    <string name="weather_27">Prevažne zamračené</string>
+    <string name="weather_28">Prevažne zamračené</string>
+    <string name="weather_29">Čiastočne zamračené</string>
+    <string name="weather_30">Čiastočne zamračené</string>
+    <string name="weather_31">Jasno</string>
+    <string name="weather_32">Slnečno</string>
+    <string name="weather_33">Pekne</string>
+    <string name="weather_34">Pekne</string>
+    <string name="weather_35">Zmiešaný dážď s krupobitím</string>
+    <string name="weather_36">Horúco</string>
+    <string name="weather_37">Izolované búrky</string>
+    <string name="weather_38">Ojedinelé búrky</string>
+    <string name="weather_39">Ojedinelé búrky</string>
+    <string name="weather_40">Ojedinelé prehánky</string>
+    <string name="weather_41">Husté sneženie</string>
+    <string name="weather_42">Ojedinelé snehové prehánky</string>
+    <string name="weather_43">Husté sneženie</string>
+    <string name="weather_44">Čiastočne zamračené</string>
+    <string name="weather_45">Silné prehánky</string>
+    <string name="weather_46">Snehové prehánky</string>
+    <string name="weather_47">Izolované silné prehánky</string>
+    <string name="weather_N">S</string>
+    <string name="weather_NE">SV</string>
+    <string name="weather_E">V</string>
+    <string name="weather_SE">JV</string>
+    <string name="weather_S">J</string>
+    <string name="weather_SW">JZ</string>
+    <string name="weather_W">Z</string>
+    <string name="weather_NW">SZ</string>
+    <string name="weather_no_data">Žiadne údaje</string>
+    <string name="weather_tap_to_refresh">Ťuknutím obnovíte</string>
+    <string name="weather_refreshing">Obnovuje sa</string>
+    <string name="weather_last_sync_just_now">Práve teraz</string>
+    <string name="weather_refresh_manual">Ručne</string>
+    <string name="weather_refresh_30min">30 minút</string>
+    <string name="weather_refresh_60min">60 minút</string>
+    <string name="weather_refresh_2hrs">2 hodiny</string>
+    <string name="weather_refresh_4hrs">4 hodiny</string>
+    <string name="weather_refresh_6hrs">6 hodín</string>
+    <string name="weather_refresh_8hrs">8 hodín</string>
+    <string name="clock_category">Hodiny a budík</string>
+    <string name="weather_category">Lišta s počasím</string>
+    <string name="calendar_category">Udalosti v kalendári</string>
+    <string name="general_category">Všeobecné</string>
+    <string name="display_category">Zobrazenie</string>
+    <string name="use_digital_clock_title">Použiť digitálne hodiny</string>
+    <string name="use_digital_clock_summary">Vyberte medzi digitálnymi a ručičkovými hodinami</string>
+    <string name="clock_font_title">Hodiny tučným písmom</string>
+    <string name="clock_font_minutes_title">Minúty tučným písmom</string>
+    <string name="clock_font_date_title">Dátum a budík tučným písmom</string>
+    <string name="show_alarm_title">Zobraziť nasledujúci budík</string>
+    <string name="weather_enabled">Povolené</string>
+    <string name="weather_enable">Zobraziť počasie</string>
+    <string name="weather_source">Počasie Yahoo!</string>
+    <string name="weather_use_custom_location">Použiť vlastné umiestnenie</string>
+    <string name="weather_geolocated">Lokalizované pomocou siete</string>
+    <string name="weather_custom_location_dialog_title">Zadajte umiestnenie</string>
+    <string name="weather_custom_location_hint">Mesto, Štát/Krajina</string>
+    <string name="weather_custom_location_title">Umiestnenie</string>
+    <string name="weather_show_location_title">Zobraziť umiestnenie</string>
+    <string name="weather_show_timestamp_title">Zobraziť časovú značku</string>
+    <string name="weather_refresh_interval">Interval aktualizácie</string>
+    <string name="weather_use_metric">Použiť metrické jednotky</string>
+    <string name="weather_retrieve_location_dialog_title">Nedá sa získať umiestnenie!</string>
+    <string name="weather_retrieve_location_dialog_message">Lokalizácia pomocou siete je zakázaná.\n\nNastavte vlastné umiestnenie alebo povoľte sieťovú lokalizáciu</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Povoliť</string>
+    <string name="weather_invert_lowhigh">Invertovať nízke/vysoké teploty</string>
+    <string name="weather_progress_title">Overuje sa umiestnenie</string>
+    <string name="weather_alternate_icons_title">Použiť farebné ikony</string>
+    <string name="weather_alternate_icons_summary">Vyberte medzi predvolenými (farebnými) alebo alternatívnymi (bielymi) ikonami</string>
+    <string name="weather_show_when_minimized_title">Zobraziť pri minimalizovaní</string>
+    <string name="weather_show_when_minimized_summary">Zobrazí súhrn informácií o počasí, keď je miniaplikácia minimalizovaná</string>
+    <string name="calendar_title">Zobraziť nasledujúcu udalosť</string>
+    <string name="calendars_title">Kalendár s udalosťami</string>
+    <string name="calendars_summary">Nájsť udalosti z týchto kalendárov</string>
+    <string name="calendar_reminders_only_title">Iba pripomienky</string>
+    <string name="calendar_reminders_only_summary">Zobrazí iba udalosti s pripomienkami</string>
+    <string name="calendar_hide_allday_title">Skryť celodenné udalosti</string>
+    <string name="calendar_lookahead_title">Prednačítať udalosti dopredu na</string>
+    <string name="calendar_show_location_title">Umiestnenie udalosti</string>
+    <string name="calendar_show_description_title">Popis udalosti</string>
+    <string name="calendar_upcoming_events_category">Nadchádzajúce udalosti</string>
+    <string name="calendar_highlight_upcoming_events_title">Zvýrazniť udalosti</string>
+    <string name="calendar_highlight_upcoming_events_summary">Zvýrazní udalosti dnešného dňa a po dvadsiatej hodine tiež udalosti ďalšieho dňa</string>
+    <string name="calendar_highlight_upcoming_events_bold">Tučné písmo</string>
+    <string name="font_color">Farba písma</string>
+    <string name="font_color_alarm">Farba písma budíka</string>
+    <string name="font_color_timestamp">Farba písma časovej značky</string>
+    <string name="font_color_calendar_details">Farba písma podrobností</string>
+    <string name="calendar_lookahead_3hrs">3 hodiny</string>
+    <string name="calendar_lookahead_6hrs">6 hodín</string>
+    <string name="calendar_lookahead_12hrs">12 hodín</string>
+    <string name="calendar_lookahead_1day">1 deň</string>
+    <string name="calendar_lookahead_3days">3 dni</string>
+    <string name="calendar_lookahead_1wk">1 týždeň</string>
+    <string name="calendar_lookahead_2wks">2 týždne</string>
+    <string name="calendar_lookahead_4wks">4 týždne</string>
+    <string name="calendar_metadata_none">Nezobraziť</string>
+    <string name="calendar_metadata_first_line">Zobraziť prvý riadok</string>
+    <string name="calendar_metadata_all">Zobraziť všetko</string>
+    <string name="white">Biela</string>
+    <string name="grey">Šedá</string>
+    <string name="black">Čiernak</string>
+    <string name="holo_blue_light">Svetlo modrá</string>
+    <string name="holo_green_light">Svetlo zelená</string>
+    <string name="holo_red_light">Svetlo červená</string>
+    <string name="holo_blue_dark">Tmavo modrá</string>
+    <string name="holo_green_dark">Tmavo zelená</string>
+    <string name="holo_red_dark">Tmavo červená</string>
+    <string name="holo_purple">Fialová</string>
+    <string name="holo_orange_light">Svetlo oranžová</string>
+    <string name="holo_orange_dark">Tmavo oranžová</string>
+    <string name="holo_blue_bright">Jasno modrá</string>
+</resources>
