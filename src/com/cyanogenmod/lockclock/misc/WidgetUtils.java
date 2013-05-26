@@ -18,7 +18,10 @@
 package com.cyanogenmod.lockclock.misc;
 
 import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -129,5 +132,42 @@ public class WidgetUtils {
             return (ratio > 1) ? 1f : ratio;
         }
         return 1f;
+    }
+
+    /**
+     *  The following two methods return the default DeskClock intent depending on which
+     *  clock package is installed
+     *
+     *  Copyright 2013 Google Inc.
+     */
+    private static final String[] CLOCK_PACKAGES = new String[] {
+        "com.google.android.deskclock",
+        "com.android.deskclock",
+    };
+
+    public static Intent getDefaultClockIntent(Context context) {
+        PackageManager pm = context.getPackageManager();
+        for (String packageName : CLOCK_PACKAGES) {
+            try {
+                pm.getPackageInfo(packageName, 0);
+                return pm.getLaunchIntentForPackage(packageName);
+            } catch (PackageManager.NameNotFoundException ignored) {
+            }
+        }
+        return null;
+    }
+
+    public static Intent getDefaultAlarmsIntent(Context context) {
+        PackageManager pm = context.getPackageManager();
+        for (String packageName : CLOCK_PACKAGES) {
+            try {
+                ComponentName cn = new ComponentName(packageName,
+                        "com.android.deskclock.AlarmClock");
+                pm.getActivityInfo(cn, 0);
+                return Intent.makeMainActivity(cn);
+            } catch (PackageManager.NameNotFoundException ignored) {
+            }
+        }
+        return getDefaultClockIntent(context);
     }
 }
