@@ -166,7 +166,7 @@ public class ClockWidgetService extends IntentService {
     private void refreshClock(RemoteViews clockViews, boolean smallWidget, boolean digitalClock) {
         // Analog or Digital clock
         if (digitalClock) {
-            // Hours/Minutes is specific to Didital, set it's size
+            // Hours/Minutes is specific to Digital, set it's size
             refreshClockFont(clockViews);
             clockViews.setViewVisibility(R.id.digital_clock, View.VISIBLE);
             clockViews.setViewVisibility(R.id.analog_clock, View.GONE);
@@ -179,10 +179,11 @@ public class ClockWidgetService extends IntentService {
         refreshDateAlarmFont(clockViews, smallWidget);
 
         // Register an onClickListener on Clock, starting DeskClock
-        ComponentName clk = new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock");
-        Intent i = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(clk);
-        PendingIntent pi = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-        clockViews.setOnClickPendingIntent(R.id.clock_panel, pi);
+        Intent i = WidgetUtils.getDefaultClockIntent(this);
+        if (i != null) {
+            PendingIntent pi = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+            clockViews.setOnClickPendingIntent(R.id.clock_panel, pi);
+        }
     }
 
     private void refreshClockFont(RemoteViews clockViews) {
