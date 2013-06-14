@@ -134,4 +134,9 @@
     <string name="loading_indicator">A carregar widget\u2026</string>
     <string name="use_digital_clock_title">Usar relógio Digital</string>
     <string name="use_digital_clock_summary">Selecionar para alternar entre o relógio Digital e o Analógico</string>
+        <!-- Preferences - Font colors -->
+    <string name="font_color">Cor do Texto</string>
+    <string name="font_color_alarm">Cor do texto do Alarme/string>
+    <string name="font_color_timestamp">Cor do texto da Data e Hora de Atualização</string>
+    <string name="font_color_calendar_details">Cor do texto dos Detalhes</string>
 </resources>
