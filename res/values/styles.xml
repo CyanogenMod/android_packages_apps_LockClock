@@ -35,7 +35,7 @@
     </style>
 
     <style name="label_small" parent="@style/label_shadow">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
