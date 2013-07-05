@@ -49,7 +49,7 @@
     <string name="weather_23">强風</string>
     <string name="weather_24">大風</string>
     <string name="weather_25">冷</string>
-    <string name="weather_26">多云</string>
+    <string name="weather_26">多雲</string>
     <string name="weather_27">大部多雲</string> <!-- Night -->
     <string name="weather_28">大部多雲</string> <!-- Day -->
     <string name="weather_29">部分多雲</string> <!-- Night -->
