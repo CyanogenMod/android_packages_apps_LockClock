@@ -17,7 +17,6 @@
 <resources>
 
     <!-- General strings -->
-    <string name="app_name" translatable="false">cLock</string>
     <string name="unknown">Okänd</string>
     <string name="cancel">Avbryt</string>
     <string name="loading_indicator">Laddar widget\u2026</string>
