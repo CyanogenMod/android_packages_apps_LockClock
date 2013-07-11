@@ -36,9 +36,9 @@
     <string name="weather_10">Underkylt Regn</string>
     <string name="weather_11">Regnskurar</string>
     <string name="weather_12">Regnskurar</string>
-    <string name="weather_13">Snö Kastbyar</string>
+    <string name="weather_13">Snöbyar</string>
     <string name="weather_14">Lätt Snöfall</string>
-    <string name="weather_15">Kraftiga Snöfall</string>
+    <string name="weather_15">Kraftigt Snöfall</string>
     <string name="weather_16">Snöar</string>
     <string name="weather_17">Hagel</string>
     <string name="weather_18">Snöblandat Regn</string>
@@ -46,18 +46,18 @@
     <string name="weather_20">Dimmigt</string>
     <string name="weather_21">Dis</string>
     <string name="weather_22">Disigt</string>
-    <string name="weather_23">Blåsigt</string>
+    <string name="weather_23">Hård vind</string>
     <string name="weather_24">Blåsigt</string>
     <string name="weather_25">Kallt</string>
-    <string name="weather_26">Molningt</string>
-    <string name="weather_27">Mestadels Mulet</string> <!-- Night -->
-    <string name="weather_28">Mestadels Mulet</string> <!-- Day -->
-    <string name="weather_29">Delvis Mulet</string> <!-- Night -->
-    <string name="weather_30">Delvis Mulet</string> <!-- Day -->
+    <string name="weather_26">Molnigt</string>
+    <string name="weather_27">Övervägande Molnigt</string> <!-- Night -->
+    <string name="weather_28">Övervägande Molnigt</string> <!-- Day -->
+    <string name="weather_29">Delvis Molnigt</string> <!-- Night -->
+    <string name="weather_30">Delvis Molnigt</string> <!-- Day -->
     <string name="weather_31">Klart</string> <!-- Night -->
     <string name="weather_32">Soligt</string>
-    <string name="weather_33">Skapligt</string> <!-- Night -->
-    <string name="weather_34">Skapligt</string> <!-- Day -->
+    <string name="weather_33">Vackert</string> <!-- Night -->
+    <string name="weather_34">Vackert</string> <!-- Day -->
     <string name="weather_35">Regn Blandat med Hagel</string>
     <string name="weather_36">Varmt</string>
     <string name="weather_37">Enstaka Regnskurar</string>
@@ -99,7 +99,7 @@
 
     <!-- Preferences - Categories -->
     <string name="clock_category">Klocka och alarm</string>
-    <string name="weather_category">Väder panel</string>
+    <string name="weather_category">Väderpanel</string>
     <string name="calendar_category">Kalenderhändelser</string>
 
     <!-- Preferences - Categories -->
@@ -109,9 +109,9 @@
     <!-- Preferences - Clock -->
     <string name="use_digital_clock_title">Använd Digital klocka</string>
     <string name="use_digital_clock_summary">Välj för att växla mellan den digitala och den analoga klockan</string>
-    <string name="clock_font_title">Fet stil timmar</string>
-    <string name="clock_font_minutes_title">Fet stil minuter</string>
-    <string name="clock_font_date_title">Fet stil datum och alarm</string>
+    <string name="clock_font_title">Fetstil på timsiffra</string>
+    <string name="clock_font_minutes_title">Fetstil på minutsiffra</string>
+    <string name="clock_font_date_title">Fetstil på datum och alarm</string>
     <string name="show_alarm_title">Visa nästa alarm</string>
 
     <!-- Preferences - Weather -->
@@ -119,18 +119,18 @@
     <string name="weather_enable">Visa väder</string>
     <string name="weather_source">Yahoo! väder</string>
     <string name="weather_use_custom_location">Använd anpassad plats</string>
-    <string name="weather_geolocated">Geopositionerad använd nätverk</string>
+    <string name="weather_geolocated">Geopositionerad med mobilnätet</string>
     <string name="weather_custom_location_dialog_title">Ange plats</string>
     <string name="weather_custom_location_hint">Stad, Län/Land</string>
     <string name="weather_custom_location_title">Plats</string>
     <string name="weather_show_location_title">Visa plats</string>
     <string name="weather_show_timestamp_title">Visa tidsstämpel</string>
-    <string name="weather_refresh_interval">Uppdatera intervall</string>
-    <string name="weather_use_metric">Använd metriska</string>
+    <string name="weather_refresh_interval">Uppdateringsintervall</string>
+    <string name="weather_use_metric">Använd metriska tal</string>
     <string name="weather_retrieve_location_dialog_title">Kan inte hämta plats!</string>
     <string name="weather_retrieve_location_dialog_message">Nätverksplats är inaktiverat.\n\nStäll en egen plats eller aktivera nätverksplats</string>
     <string name="weather_retrieve_location_dialog_enable_button">Aktivera</string>
-    <string name="weather_invert_lowhigh">Inverta låga/höga temperaturer</string>
+    <string name="weather_invert_lowhigh">Invertera låga/höga temperaturer</string>
     <string name="weather_progress_title">Verifiera plats</string>
     <string name="weather_alternate_icons_title">Använd färgikonerna</string>
     <string name="weather_alternate_icons_summary">Välj för att växla mellan standard (FÄRG) och de alternativa (VITA) ikonerna</string>
@@ -144,19 +144,19 @@
     <string name="calendar_reminders_only_title">Endast påminnelser</string>
     <string name="calendar_reminders_only_summary">Visa endast evenemang med påminnelser</string>
     <string name="calendar_hide_allday_title">Dölj heldagshändelser</string>
-    <string name="calendar_lookahead_title">Händelser se framåt</string>
+    <string name="calendar_lookahead_title">Kommande Händelser</string>
     <string name="calendar_show_location_title">Händelseplats</string>
     <string name="calendar_show_description_title">Händelsebeskrivning</string>
     <string name="calendar_upcoming_events_category">Kommande händelser</string>
     <string name="calendar_highlight_upcoming_events_title">Markera händelser</string>
-    <string name="calendar_highlight_upcoming_events_summary">Markera den aktuella dagen\'s händelser och, efter 20:00, också nästa dag\'s händelser</string>
-    <string name="calendar_highlight_upcoming_events_bold">Fet stil font</string>
+    <string name="calendar_highlight_upcoming_events_summary">Markera den aktuella dagens händelser och, efter 20:00, också nästa dags händelser</string>
+    <string name="calendar_highlight_upcoming_events_bold">Fetstil</string>
 
     <!-- Preferences - Font colors -->
-    <string name="font_color">Fontfärg</string>
-    <string name="font_color_alarm">Alarm fontfärg</string>
-    <string name="font_color_timestamp">Tidsstämpel fontfärg</string>
-    <string name="font_color_calendar_details">Detaljer fontfärg</string>
+    <string name="font_color">Textfärg</string>
+    <string name="font_color_alarm">Textfärg på Alarm</string>
+    <string name="font_color_timestamp">Textfärg på Tidsstämpel</string>
+    <string name="font_color_calendar_details">Textfärg på Detaljer</string>
 
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 timmar</string>
