@@ -139,12 +139,12 @@
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Visa nästa händelse</string>
-    <string name="calendars_title">Händelse kalendrar</string>
+    <string name="calendars_title">Händelsekalendrar</string>
     <string name="calendars_summary">Hitta händelser från dessa kalendrar</string>
     <string name="calendar_reminders_only_title">Endast påminnelser</string>
     <string name="calendar_reminders_only_summary">Visa endast evenemang med påminnelser</string>
     <string name="calendar_hide_allday_title">Dölj heldagshändelser</string>
-    <string name="calendar_lookahead_title">Kommande Händelser</string>
+    <string name="calendar_lookahead_title">Kommande händelser</string>
     <string name="calendar_show_location_title">Händelseplats</string>
     <string name="calendar_show_description_title">Händelsebeskrivning</string>
     <string name="calendar_upcoming_events_category">Kommande händelser</string>
