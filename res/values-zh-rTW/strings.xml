@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- General strings -->
+    <string name="unknown">未知</string>
+    <string name="cancel">取消</string>
+    <string name="loading_indicator">小部件加載中\u2026</string>
+    <string name="menu_done">完成</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">龍捲風</string>
+    <string name="weather_1">熱帶風暴</string>
+    <string name="weather_2">颶風</string>
+    <string name="weather_3">強雷暴</string>
+    <string name="weather_4">雷暴</string>
+    <string name="weather_5">霙</string>
+    <string name="weather_6">混合雨和凍雨</string>
+    <string name="weather_7">混合雪和凍雨</string>
+    <string name="weather_8">凍毛毛雨</string>
+    <string name="weather_9">毛毛雨</string>
+    <string name="weather_10">冰雨</string>
+    <string name="weather_11">陣雨</string>
+    <string name="weather_12">陣雨</string>
+    <string name="weather_13">飄雪</string>
+    <string name="weather_14">小雪</string>
+    <string name="weather_15">吹雪</string>
+    <string name="weather_16">雪</string>
+    <string name="weather_17">冰雹</string>
+    <string name="weather_18">凍雨</string>
+    <string name="weather_19">沙塵</string>
+    <string name="weather_20">多霧</string>
+    <string name="weather_21">陰霾</string>
+    <string name="weather_22">煙霧</string>
+    <string name="weather_23">强風</string>
+    <string name="weather_24">大風</string>
+    <string name="weather_25">冷</string>
+    <string name="weather_26">多雲</string>
+    <string name="weather_27">大部多雲</string> <!-- Night -->
+    <string name="weather_28">大部多雲</string> <!-- Day -->
+    <string name="weather_29">部分多雲</string> <!-- Night -->
+    <string name="weather_30">部分多雲</string> <!-- Day -->
+    <string name="weather_31">晴天</string> <!-- Night -->
+    <string name="weather_32">晴天</string>
+    <string name="weather_33">晴天積雲</string> <!-- Night -->
+    <string name="weather_34">晴天積雲</string> <!-- Day -->
+    <string name="weather_35">雨夾冰雹</string>
+    <string name="weather_36">熱</string>
+    <string name="weather_37">局部雷暴雨</string>
+    <string name="weather_38">局部雷雨</string>
+    <string name="weather_39">局部雷雨</string>
+    <string name="weather_40">零星陣雨</string>
+    <string name="weather_41">大雪</string>
+    <string name="weather_42">零星陣雪</string>
+    <string name="weather_43">大雪</string>
+    <string name="weather_44">晴間多雲</string>
+    <string name="weather_45">雷陣雨</string>
+    <string name="weather_46">陣雪</string>
+    <string name="weather_47">局部雷陣雨</string>
+    <!-- Forecast unavailable -->
+    <string name="weather_3200"></string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">北</string>
+    <string name="weather_NE">東北</string>
+    <string name="weather_E">東</string>
+    <string name="weather_SE">東南</string>
+    <string name="weather_S">南</string>
+    <string name="weather_SW">西南</string>
+    <string name="weather_W">西</string>
+    <string name="weather_NW">西北</string>
+
+    <!-- Weather - error messages -->
+    <string name="weather_no_data">無數據</string>
+    <string name="weather_tap_to_refresh">請點擊更新</string>
+    <string name="weather_refreshing">正在更新</string>
+    <string name="weather_last_sync_just_now">剛剛</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">手動</string>
+    <string name="weather_refresh_30min">30 分鐘</string>
+    <string name="weather_refresh_60min">60 分鐘</string>
+    <string name="weather_refresh_2hrs">2 小時</string>
+    <string name="weather_refresh_4hrs">4 小時</string>
+    <string name="weather_refresh_6hrs">6 小時</string>
+    <string name="weather_refresh_8hrs">8 小時</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">時鐘與鬧鐘</string>
+    <string name="weather_category">天氣面板</string>
+    <string name="calendar_category">日曆活動</string>
+
+    <!-- Preferences - Categories -->
+    <string name="general_category">常規</string>
+    <string name="display_category">顯示</string>
+
+    <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">使用數字時鐘</string>
+    <string name="use_digital_clock_summary">在模擬與數字時鐘之間進行切換</string>
+    <string name="clock_font_title">加粗小時</string>
+    <string name="clock_font_minutes_title">加粗分鐘</string>
+    <string name="clock_font_date_title">加粗日期與鬧鐘</string>
+    <string name="show_alarm_title">顯示下一個鬧鐘</string>
+
+    <!-- Preferences - Weather -->
+    <string name="weather_enabled">已啟用</string>
+    <string name="weather_enable">顯示天氣</string>
+    <string name="weather_source">雅虎天氣</string>
+    <string name="weather_use_custom_location">使用自定義的位置</string>
+    <string name="weather_geolocated">使用網絡定位</string>
+    <string name="weather_custom_location_dialog_title">輸入位置</string>
+    <string name="weather_custom_location_hint">城市，省份/國家</string>
+    <string name="weather_custom_location_title">位置</string>
+    <string name="weather_show_location_title">顯示位置</string>
+    <string name="weather_show_timestamp_title">顯示更新時間</string>
+    <string name="weather_refresh_interval">更新間隔</string>
+    <string name="weather_use_metric">使用公制</string>
+    <string name="weather_retrieve_location_dialog_title">無法查詢位置！</string>
+    <string name="weather_retrieve_location_dialog_message">網絡定位已被禁用.\n\n請設置一個自定義的位置或啟用網絡定位服務</string>
+    <string name="weather_retrieve_location_dialog_enable_button">啟用</string>
+    <string name="weather_invert_lowhigh">交換高低溫度顯示的位置</string>
+    <string name="weather_progress_title">正在驗證位置</string>
+    <string name="weather_alternate_icons_title">使使用彩色圖示</string>
+    <string name="weather_alternate_icons_summary">在彩色與白色的圖標之間進行切換</string>
+    <string name="weather_show_when_minimized_title">最小化時顯示</string>
+    <string name="weather_show_when_minimized_summary">小部件最小化時將依然顯示天氣信息</string>
+
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">顯示下一個活動</string>
+    <string name="calendars_title">活動日曆</string>
+    <string name="calendars_summary">從這些日曆裡尋找活動</string>
+    <string name="calendar_reminders_only_title">僅顯示提醒</string>
+    <string name="calendar_reminders_only_summary">僅顯示帶提醒的活動</string>
+    <string name="calendar_hide_allday_title">隱藏全天活動</string>
+    <string name="calendar_lookahead_title">活動查找範圍</string>
+    <string name="calendar_show_location_title">活動位置</string>
+    <string name="calendar_show_description_title">活動描述</string>
+    <string name="calendar_upcoming_events_category">活動預告</string>
+    <string name="calendar_highlight_upcoming_events_title">高亮顯示活動</string>
+    <string name="calendar_highlight_upcoming_events_summary">高亮顯示當前日期、晚上8點以後以及第二天的活動</string>
+    <string name="calendar_highlight_upcoming_events_bold">粗體</string>
+
+    <!-- Preferences - Font colors -->
+    <string name="font_color">字體顏色</string>
+    <string name="font_color_alarm">鬧鐘字體顏色</string>
+    <string name="font_color_timestamp">時間戳字體顏色</string>
+    <string name="font_color_calendar_details">詳細信息字體顏色</string>
+
+    <!-- Calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 小時</string>
+    <string name="calendar_lookahead_6hrs">6 小時</string>
+    <string name="calendar_lookahead_12hrs">12 小時</string>
+    <string name="calendar_lookahead_1day">1 天</string>
+    <string name="calendar_lookahead_3days">3 天</string>
+    <string name="calendar_lookahead_1wk">1 周</string>
+    <string name="calendar_lookahead_2wks">2 周</string>
+    <string name="calendar_lookahead_4wks">4 周</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">不顯示</string>
+    <string name="calendar_metadata_first_line">顯示第一行</string>
+    <string name="calendar_metadata_all">完全顯示</string>
+
+    <!-- Font colors -->
+    <string name="white">白色</string>
+    <string name="grey">灰色</string>
+    <string name="black">黑色</string>
+    <string name="holo_blue_light">淺藍色</string>
+    <string name="holo_green_light">淺綠色</string>
+    <string name="holo_red_light">淺红色</string>
+    <string name="holo_blue_dark">深藍色</string>
+    <string name="holo_green_dark">深綠色</string>
+    <string name="holo_red_dark">深红色</string>
+    <string name="holo_purple">紫色</string>
+    <string name="holo_orange_light">淺橙色</string>
+    <string name="holo_orange_dark">深橙色</string>
+    <string name="holo_blue_bright">翠藍色</string>
+
+
+</resources>
