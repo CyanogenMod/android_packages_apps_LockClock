@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string name="unknown">Teadmata</string>
+    <string name="cancel">Katkesta</string>
+    <string name="loading_indicator">Vidina laadimine\u2026</string>
+    <string name="menu_done">Tehtud</string>
+    <string name="weather_0">Tornaado</string>
+    <string name="weather_1">Troopiline torm</string>
+    <string name="weather_2">Orkaan</string>
+    <string name="weather_3">Tõsised äikesetormid</string>
+    <string name="weather_4">Äikesetormid</string>
+    <string name="weather_5">Vihm ja lumi</string>
+    <string name="weather_6">Vihm ja lörts</string>
+    <string name="weather_7">Lumi ja lörts</string>
+    <string name="weather_8">Nõrk jäävihm</string>
+    <string name="weather_9">Uduvihm</string>
+    <string name="weather_10">Jäävihm</string>
+    <string name="weather_11">Hoovihm</string>
+    <string name="weather_12">Hoovihm</string>
+    <string name="weather_13">Vähene lumesadu</string>
+    <string name="weather_14">Kerge lumesadu</string>
+    <string name="weather_15">Tuisk</string>
+    <string name="weather_16">Lumi</string>
+    <string name="weather_17">Rahe</string>
+    <string name="weather_18">Lörts</string>
+    <string name="weather_19">Tolmuvine</string>
+    <string name="weather_20">Udu</string>
+    <string name="weather_21">Vine</string>
+    <string name="weather_22">Smoky</string>
+    <string name="weather_23">Tormine</string>
+    <string name="weather_24">Tuuline</string>
+    <string name="weather_25">Külm</string>
+    <string name="weather_26">Pilves</string>
+    <string name="weather_27">Peamiselt pilves</string>
+    <string name="weather_28">Peamiselt pilves</string>
+    <string name="weather_29">Osaline pilvisus</string>
+    <string name="weather_30">Osaline pilvisus</string>
+    <string name="weather_31">Selge</string>
+    <string name="weather_32">Päikesepaiste</string>
+    <string name="weather_33">Selge</string>
+    <string name="weather_34">Selge</string>
+    <string name="weather_35">Vihm ja rahe</string>
+    <string name="weather_36">Palav</string>
+    <string name="weather_37">Kohatised äikesetormid</string>
+    <string name="weather_38">Kohatine äike</string>
+    <string name="weather_39">Kohatine äike</string>
+    <string name="weather_40">Kohatised hoovihmad</string>
+    <string name="weather_41">Tugev lumesadu</string>
+    <string name="weather_42">Kohatine lumesadu</string>
+    <string name="weather_43">Tugev lumesadu</string>
+    <string name="weather_44">Osaline pilvisus</string>
+    <string name="weather_45">Äikesevihm</string>
+    <string name="weather_46">Lumesadu</string>
+    <string name="weather_47">Kohatine äikesevihm</string>
+    <string name="weather_3200"></string>
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NE</string>
+    <string name="weather_E">E</string>
+    <string name="weather_SE">SE</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SW</string>
+    <string name="weather_W">W</string>
+    <string name="weather_NW">NW</string>
+    <string name="weather_no_data">Andmed puuduvad</string>
+    <string name="weather_tap_to_refresh">Värskendamiseks puuduta</string>
+    <string name="weather_refreshing">Värskendamine</string>
+    <string name="weather_last_sync_just_now">Praegu</string>
+    <string name="weather_refresh_manual">Käsitsi</string>
+    <string name="weather_refresh_30min">30 minutit</string>
+    <string name="weather_refresh_60min">60 minutit</string>
+    <string name="weather_refresh_2hrs">2 tundi</string>
+    <string name="weather_refresh_4hrs">4 tundi</string>
+    <string name="weather_refresh_6hrs">6 tundi</string>
+    <string name="weather_refresh_8hrs">8 tundi</string>
+    <string name="clock_category">Kell ja äratus</string>
+    <string name="weather_category">Ilmateade</string>
+    <string name="calendar_category">Kalendri sündmused</string>
+    <string name="general_category">Üldseaded</string>
+    <string name="display_category">Visuaal</string>
+    <string name="use_digital_clock_title">Digitaalne kell</string>
+    <string name="use_digital_clock_summary">Lülitumine analoog- ja digitaalkella vahel</string>
+    <string name="clock_font_title">Tunnid rasvase fondiga</string>
+    <string name="clock_font_minutes_title">Minutid rasvase fondiga</string>
+    <string name="clock_font_date_title">Rasvane kuupäev ja äratus</string>
+    <string name="show_alarm_title">Järgmise äratuse näitamine</string>
+    <string name="weather_enabled">Lubatud</string>
+    <string name="weather_enable">Ilmateate näitamine</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Määratud asukoht</string>
+    <string name="weather_geolocated">Võrgu abil määratud</string>
+    <string name="weather_custom_location_dialog_title">Asukoha sisestamine</string>
+    <string name="weather_custom_location_hint">Linn, Osariik/Riik</string>
+    <string name="weather_custom_location_title">Asukoht</string>
+    <string name="weather_show_location_title">Asukoha näitamine</string>
+    <string name="weather_show_timestamp_title">Ajatempli näitamine</string>
+    <string name="weather_refresh_interval">Värskendamise intervall</string>
+    <string name="weather_use_metric">Meetermõõdustik</string>
+    <string name="weather_retrieve_location_dialog_title">Asukoha määramine ebaõnnestus!</string>
+    <string name="weather_retrieve_location_dialog_message">Võrgu abil asukoha määramine on keelatud.\n\nMäära asukoht käsitsi või luba võrgu abiga asukohta määrata.</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Luba</string>
+    <string name="weather_invert_lowhigh">Ülemise/alumise temperatuuri vahetamine</string>
+    <string name="weather_progress_title">Asukoha kontrollimine</string>
+    <string name="weather_alternate_icons_title">Värvilised ikoonid</string>
+    <string name="weather_alternate_icons_summary">Lülitumine värviliste vaikeikoonide ja valgete alternatiivsete ikoonide vahel</string>
+    <string name="weather_show_when_minimized_title">Minimeerimisel näitamine</string>
+    <string name="weather_show_when_minimized_summary">Ilmateate kokkuvõtet näidatakse minimeeritud vidinal</string>
+    <string name="calendar_title">Järgmise sündmuse näitamine</string>
+    <string name="calendars_title">Sündmuste kalendrid</string>
+    <string name="calendars_summary">Ainult valitud kalendritest sündmuste otsimine</string>
+    <string name="calendar_reminders_only_title">Ainult meeldetuletustega</string>
+    <string name="calendar_reminders_only_summary">Näidatakse ainult meeldetuletustega sündmusi</string>
+    <string name="calendar_hide_allday_title">Kogupäeva sündmuste peitmine</string>
+    <string name="calendar_lookahead_title">Event lookahead</string>
+    <string name="calendar_show_location_title">Sündmuse asukoht</string>
+    <string name="calendar_show_description_title">Sündmuse kirjeldus</string>
+    <string name="calendar_upcoming_events_category">Tulevad sündmused</string>
+    <string name="calendar_highlight_upcoming_events_title">Sündmuste esiletõst</string>
+    <string name="calendar_highlight_upcoming_events_summary">Tõstetakse esile tänased sündmused ning pärast 20:00 ka järgmise päeva sündmused</string>
+    <string name="calendar_highlight_upcoming_events_bold">Rasvane font</string>
+    <string name="font_color">Fondi värv</string>
+    <string name="font_color_alarm">Äratuse fondi värv</string>
+    <string name="font_color_timestamp">Ajatempli fondi värv</string>
+    <string name="font_color_calendar_details">Detailide fondi värv</string>
+    <string name="calendar_lookahead_3hrs">3 tundi</string>
+    <string name="calendar_lookahead_6hrs">6 tundi</string>
+    <string name="calendar_lookahead_12hrs">12 tundi</string>
+    <string name="calendar_lookahead_1day">1 päev</string>
+    <string name="calendar_lookahead_3days">3 päeva</string>
+    <string name="calendar_lookahead_1wk">1 nädal</string>
+    <string name="calendar_lookahead_2wks">2 nädalat</string>
+    <string name="calendar_lookahead_4wks">4 nädalat</string>
+    <string name="calendar_metadata_none">Ei näidata</string>
+    <string name="calendar_metadata_first_line">Esimene rida</string>
+    <string name="calendar_metadata_all">Kogu info</string>
+    <string name="white">Valge</string>
+    <string name="grey">Hall</string>
+    <string name="black">Must</string>
+    <string name="holo_blue_light">Helesinine</string>
+    <string name="holo_green_light">Heleroheline</string>
+    <string name="holo_red_light">Helepunane</string>
+    <string name="holo_blue_dark">Tumesinine</string>
+    <string name="holo_green_dark">Tumeroheline</string>
+    <string name="holo_red_dark">Tumepunane</string>
+    <string name="holo_purple">Punakaslilla</string>
+    <string name="holo_orange_light">Heleoranž</string>
+    <string name="holo_orange_dark">Tumeoranž</string>
+    <string name="holo_blue_bright">Eresinine</string>
+</resources>
