@@ -22,6 +22,7 @@ import android.graphics.Color;
 
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 
+import java.util.Calendar;
 import java.util.Set;
 
 public class Preferences {
@@ -188,8 +189,23 @@ public class Preferences {
     }
 
     public static long lookAheadTimeInMs(Context context) {
-        return Long.parseLong(getPrefs(context).getString(Constants.CALENDAR_LOOKAHEAD, "1209600000"));
-    }
+       long lookAheadTime;
+        
+        if(getPrefs(context).getString(Constants.CALENDAR_LOOKAHEAD, "1209600000").equals("today")){
+            long now = System.currentTimeMillis();
+            
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.HOUR_OF_DAY, 23);
+            cal.set(Calendar.MINUTE, 59);
+            cal.set(Calendar.SECOND, 59);
+            cal.set(Calendar.MILLISECOND, 999);
+            long endtimeToday =  cal.getTimeInMillis();
+            
+            lookAheadTime = endtimeToday - now;                
+        } else {
+            lookAheadTime = Long.parseLong(getPrefs(context).getString(Constants.CALENDAR_LOOKAHEAD, "1209600000"));
+        }
+        return lookAheadTime;    }
 
     public static final int SHOW_NEVER = 0;
     public static final int SHOW_FIRST_LINE = 1;
