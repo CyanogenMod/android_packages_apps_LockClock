@@ -40,6 +40,7 @@
         <item>@string/calendar_lookahead_3hrs</item>
         <item>@string/calendar_lookahead_6hrs</item>
         <item>@string/calendar_lookahead_12hrs</item>
+        <item>@string/calendar_lookahead_today</item>
         <item>@string/calendar_lookahead_1day</item>
         <item>@string/calendar_lookahead_3days</item>
         <item>@string/calendar_lookahead_1wk</item>
@@ -51,6 +52,7 @@
         <item>10800000</item>
         <item>21600000</item>
         <item>43200000</item>
+        <item>today</item>
         <item>86400000</item>
         <item>259200000</item>
         <item>604800000</item>
