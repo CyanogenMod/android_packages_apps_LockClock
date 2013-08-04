@@ -173,6 +173,7 @@
     <string name="calendar_lookahead_3hrs">3 hours</string>
     <string name="calendar_lookahead_6hrs">6 hours</string>
     <string name="calendar_lookahead_12hrs">12 hours</string>
+    <string name="calendar_lookahead_today">Today</string>
     <string name="calendar_lookahead_1day">1 day</string>
     <string name="calendar_lookahead_3days">3 days</string>
     <string name="calendar_lookahead_1wk">1 week</string>
