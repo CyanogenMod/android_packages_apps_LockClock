@@ -187,6 +187,10 @@ public class Preferences {
         return !getPrefs(context).getBoolean(Constants.CALENDAR_HIDE_ALLDAY, false);
     }
 
+    public static boolean showCalendarIcon(Context context) {
+        return getPrefs(context).getBoolean(Constants.CALENDAR_ICON, true);
+    }
+
     public static long lookAheadTimeInMs(Context context) {
         return Long.parseLong(getPrefs(context).getString(Constants.CALENDAR_LOOKAHEAD, "1209600000"));
     }

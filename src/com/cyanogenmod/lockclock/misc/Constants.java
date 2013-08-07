@@ -51,6 +51,7 @@ public class Constants {
     public static final String CALENDAR_LOOKAHEAD = "calendar_lookahead";
     public static final String CALENDAR_REMINDERS_ONLY = "calendar_reminders_only";
     public static final String CALENDAR_HIDE_ALLDAY = "calendar_hide_allday";
+    public static final String CALENDAR_ICON="calendar_icon";
     public static final String CALENDAR_SHOW_LOCATION = "calendar_show_location";
     public static final String CALENDAR_SHOW_DESCRIPTION = "calendar_show_description";
     public static final String CALENDAR_FONT_COLOR = "calendar_font_color";
