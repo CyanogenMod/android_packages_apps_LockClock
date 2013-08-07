@@ -406,8 +406,14 @@ public class ClockWidgetService extends IntentService {
     private void refreshCalendar(RemoteViews calendarViews, int widgetId) {
         // Calendar icon: Overlay the selected color and set the imageview
         int color = Preferences.calendarFontColor(this);
-        calendarViews.setImageViewBitmap(R.id.calendar_icon,
-                WidgetUtils.getOverlaidBitmap(this, R.drawable.ic_lock_idle_calendar, color));
+
+        // Hide the icon if preference set
+        if (Preferences.showCalendarIcon(this)) {
+            calendarViews.setImageViewBitmap(R.id.calendar_icon,
+                    WidgetUtils.getOverlaidBitmap(this, R.drawable.ic_lock_idle_calendar, color));
+        } else {
+            calendarViews.setImageViewBitmap(R.id.calendar_icon, null);
+        }
 
         // Set up and start the Calendar RemoteViews service
         final Intent remoteAdapterIntent = new Intent(this, CalendarWidgetService.class);
