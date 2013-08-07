@@ -55,6 +55,12 @@
             android:dependency="show_calendar"
             android:title="@string/calendar_hide_allday_title"
             android:defaultValue="false" />
+        
+        <CheckBoxPreference
+            android:key="calendar_hide_icon"
+            android:dependency="show_calendar"
+            android:title="@string/calendar_hide_icon_title"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
