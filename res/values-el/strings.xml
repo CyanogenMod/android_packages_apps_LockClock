@@ -124,6 +124,7 @@
     <string name="calendar_reminders_only_title">Υπενθύμιση μόνο</string>
     <string name="calendar_reminders_only_summary">Εμφάνιση μόνο των συμβάντων με υπενθύμιση</string>
     <string name="calendar_hide_allday_title">Απόκρυψη ολοήμερων συμβάντων</string>
+    <string name="calendar_icon_title">Εικονίδιο ημερολογίου</string>
     <string name="calendar_lookahead_title">Εμφάνιση συμβάντων εως\u2026</string>
     <string name="calendar_show_location_title">Τοποθεσία συμβάντος</string>
     <string name="calendar_show_description_title">Περιγραφή συμβάντος</string>
@@ -138,6 +139,7 @@
     <string name="calendar_lookahead_3hrs">3 ώρες</string>
     <string name="calendar_lookahead_6hrs">6 ώρες</string>
     <string name="calendar_lookahead_12hrs">12 ώρες</string>
+    <string name="calendar_lookahead_today">Σήμερα</string>
     <string name="calendar_lookahead_1day">1 ημέρα</string>
     <string name="calendar_lookahead_3days">3 ημέρες</string>
     <string name="calendar_lookahead_1wk">1 εβδομάδα</string>
