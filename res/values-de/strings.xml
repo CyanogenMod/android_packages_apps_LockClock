@@ -146,6 +146,7 @@
     <string name="calendar_reminders_only_title">Nur Erinnerungen</string>
     <string name="calendar_reminders_only_summary">Nur Termine mit Erinnerungen anzeigen</string>
     <string name="calendar_hide_allday_title">Ganztägige Termine ausblenden</string>
+    <string name="calendar_icon_title">Kalendersymbol</string>
     <string name="calendar_lookahead_title">Zeitraum</string>
     <string name="calendar_show_location_title">Ort anzeigen</string>
     <string name="calendar_show_description_title">Beschreibung anzeigen</string>
@@ -164,6 +165,7 @@
     <string name="calendar_lookahead_3hrs">3 Stunden</string>
     <string name="calendar_lookahead_6hrs">6 Stunden</string>
     <string name="calendar_lookahead_12hrs">12 Stunden</string>
+    <string name="calendar_lookahead_today">Heute</string>
     <string name="calendar_lookahead_1day">1 Tag</string>
     <string name="calendar_lookahead_3days">3 Tage</string>
     <string name="calendar_lookahead_1wk">1 Woche</string>
