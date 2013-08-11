@@ -29,6 +29,7 @@ public class Constants {
     public static final String CLOCK_FONT_MINUTES = "clock_font_minutes";
     public static final String CLOCK_FONT_DATE = "clock_font_date";
     public static final String CLOCK_SHOW_ALARM = "clock_show_alarm";
+    public static final String CLOCK_HIDE_ON_HOMESCREEN = "clock_hide_on_homescreen";
     public static final String CLOCK_FONT_COLOR = "clock_font_color";
     public static final String CLOCK_ALARM_FONT_COLOR = "clock_alarm_font_color";
     public static final String CLOCK_AM_PM_INDICATOR = "clock_am_pm_indicator";
@@ -87,4 +88,7 @@ public class Constants {
     public static final String DEFAULT_LIGHT_COLOR = "#ffffffff";
     public static final String DEFAULT_DARK_COLOR = "#80ffffff";
 
+    public static final int CLOCK_TYPE_NONE = 0;
+    public static final int CLOCK_TYPE_DIGITAL = 1;
+    public static final int CLOCK_TYPE_ANALOG = 2;
 }

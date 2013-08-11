@@ -103,11 +103,29 @@ public class ClockWidgetService extends IntentService {
         // Get things ready
         RemoteViews remoteViews;
         boolean digitalClock = Preferences.showDigitalClock(this);
+        boolean hideClockOnHomescreen = Preferences.hideClockOnHomescreen(this);
         boolean showWeather = Preferences.showWeather(this);
         boolean showWeatherWhenMinimized = Preferences.showWeatherWhenMinimized(this);
 
         // Update the widgets
         for (int id : mWidgetIds) {
+
+            // Determine whether widget is on lockscreen or homescreen
+            Bundle mWidgetOptions = mAppWidgetManager.getAppWidgetOptions(id);
+            boolean onLockscreen =
+                 (mWidgetOptions.getInt(mAppWidgetManager.OPTION_APPWIDGET_HOST_CATEGORY, -1) ==
+                       AppWidgetProviderInfo.WIDGET_CATEGORY_KEYGUARD);
+            boolean showClock = onLockscreen || !hideClockOnHomescreen;
+
+            int clockType;
+            if (!showClock) {
+                    clockType = Constants.CLOCK_TYPE_NONE;
+            } else if (digitalClock) {
+                    clockType = Constants.CLOCK_TYPE_DIGITAL;
+            } else {
+                    clockType = Constants.CLOCK_TYPE_ANALOG;
+            }
+
             boolean showCalendar = false;
 
             // Determine if its a home or a lock screen widget
@@ -123,7 +141,7 @@ public class ClockWidgetService extends IntentService {
 
             // Determine which layout to use
             boolean smallWidget = showWeather && showWeatherWhenMinimized
-                    && WidgetUtils.showSmallWidget(this, id, digitalClock, isKeyguard);
+                    && WidgetUtils.showSmallWidget(this, id, clockType, isKeyguard);
             if (smallWidget) {
                 // The small widget is only shown if weather needs to be shown
                 // and there is not enough space for the full weather widget and
@@ -134,15 +152,17 @@ public class ClockWidgetService extends IntentService {
                 remoteViews = new RemoteViews(getPackageName(), R.layout.appwidget);
                 // show calendar if enabled and events available and enough space available
                 showCalendar = Preferences.showCalendar(this) && !mHideCalendar
-                        && WidgetUtils.canFitCalendar(this, id, digitalClock);
+                        && WidgetUtils.canFitCalendar(this, id, clockType, isKeyguard);
             }
 
             // Hide the Loading indicator
             remoteViews.setViewVisibility(R.id.loading_indicator, View.GONE);
 
-            // Always Refresh the Clock widget
-            refreshClock(remoteViews, smallWidget, digitalClock);
-            refreshAlarmStatus(remoteViews, smallWidget);
+            if (showClock) {
+                 refreshClock(remoteViews, smallWidget, clockType);
+                 refreshAlarmStatus(remoteViews, smallWidget);
+            }
+            remoteViews.setViewVisibility(R.id.clock_panel, showClock ? View.VISIBLE : View.GONE);
 
             // Refresh the time if using TextView Clock (API 16)
             if(!WidgetUtils.isTextClockAvailable()) {
@@ -156,7 +176,7 @@ public class ClockWidgetService extends IntentService {
             // Hide the calendar panel if not visible
             remoteViews.setViewVisibility(R.id.calendar_panel, showCalendar ? View.VISIBLE : View.GONE);
 
-            boolean canFitWeather = smallWidget || WidgetUtils.canFitWeather(this, id, digitalClock, isKeyguard);
+            boolean canFitWeather = smallWidget || WidgetUtils.canFitWeather(this, id, clockType, isKeyguard);
             // Now, if we need to show the actual weather, do so
             if (showWeather && canFitWeather) {
                 WeatherInfo weatherInfo = Preferences.getCachedWeatherInfo(this);
@@ -170,7 +190,7 @@ public class ClockWidgetService extends IntentService {
             remoteViews.setViewVisibility(R.id.weather_panel, (showWeather && canFitWeather) ? View.VISIBLE : View.GONE);
 
             // Resize the clock font if needed
-            if (digitalClock) {
+            if (clockType == Constants.CLOCK_TYPE_DIGITAL) {
                 float ratio = WidgetUtils.getScaleRatio(this, id);
                 setClockSize(remoteViews, ratio);
             }
@@ -183,9 +203,9 @@ public class ClockWidgetService extends IntentService {
     //===============================================================================================
     // Clock related functionality
     //===============================================================================================
-    private void refreshClock(RemoteViews clockViews, boolean smallWidget, boolean digitalClock) {
+    private void refreshClock(RemoteViews clockViews, boolean smallWidget, int clockType) {
         // Analog or Digital clock
-        if (digitalClock) {
+        if (clockType == Constants.CLOCK_TYPE_DIGITAL) {
             // Hours/Minutes is specific to Digital, set it's size
             refreshClockFont(clockViews, smallWidget);
             clockViews.setViewVisibility(R.id.digital_clock, View.VISIBLE);
@@ -477,7 +497,7 @@ public class ClockWidgetService extends IntentService {
         }
 
         // Register an onClickListener on Weather with the default (Refresh) action
-        setWeatherClickListener(weatherViews, true);
+        setWeatherClickListener(weatherViews);
     }
 
     private void setWeatherClickListener(RemoteViews weatherViews) {

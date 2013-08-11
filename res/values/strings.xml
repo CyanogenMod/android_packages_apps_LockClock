@@ -102,6 +102,7 @@
     <string name="weather_tap_to_refresh">Tap to refresh</string>
     <string name="weather_refreshing">Refreshing</string>
     <string name="weather_last_sync_just_now">Just now</string>
+    <string name="weather_cannot_reach_provider">Cannot reach provider</string>
 
     <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">Manual</string>
@@ -129,6 +130,7 @@
     <string name="clock_font_date_title">Bold date and alarm</string>
     <string name="show_alarm_title">Show next alarm</string>
     <string name="clock_am_pm_title">Show AM/PM indicator</string>
+    <string name="clock_hide_on_homescreen_title">Hide on home screen</string>
 
     <!-- Preferences - Weather -->
     <string name="weather_enabled">Enabled</string>
