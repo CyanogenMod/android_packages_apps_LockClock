@@ -123,6 +123,7 @@
     <string name="clock_font_minutes_title">Bold minutes</string>
     <string name="clock_font_date_title">Bold date and alarm</string>
     <string name="show_alarm_title">Show next alarm</string>
+    <string name="clock_hide_on_homescreen_title">Hide on home screen</string>
 
     <!-- Preferences - Weather -->
     <string name="weather_enabled">Enabled</string>

@@ -23,6 +23,7 @@
     <dimen name="widget_medium_font_size">48dp</dimen>
     <dimen name="label_font_size">14sp</dimen>
 
+    <!-- Minimum widget overall sizes -->
     <dimen name="min_digital_widget_width">160dip</dimen>
     <dimen name="min_digital_widget_height">140dip</dimen>
     <dimen name="min_digital_widget_resize_width">160dip</dimen>
@@ -32,10 +33,12 @@
     <dimen name="def_digital_widget_width">160dip</dimen>
     <dimen name="def_digital_widget_height">70dip</dimen>
 
-    <dimen name="min_digital_weather_height">160dip</dimen>
-    <dimen name="min_digital_calendar_height">210dip</dimen>
-    <dimen name="min_analog_weather_height">160dip</dimen>
-    <dimen name="min_analog_calendar_height">210dip</dimen>
+    <!-- Individual clock / weather / calendar minimum sizes
+         for misc.WidgetUtils use -->
+    <dimen name="min_digital_clock_height">40dip</dimen>
+    <dimen name="min_analog_clock_height">30dip</dimen>
+    <dimen name="min_weather_height">20dip</dimen>
+    <dimen name="min_calendar_height">50dip</dimen>
 
     <dimen name="shadow_radius">4dp</dimen>
 </resources>
