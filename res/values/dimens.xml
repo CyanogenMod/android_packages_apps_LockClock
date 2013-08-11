@@ -37,5 +37,10 @@
     <dimen name="min_analog_weather_height">160dip</dimen>
     <dimen name="min_analog_calendar_height">210dip</dimen>
 
+    <dimen name="min_digital_clock_height">140dip</dimen>
+    <dimen name="min_analog_clock_height">30dip</dimen>
+    <dimen name="min_weather_height">20dip</dimen>
+    <dimen name="min_calendar_height">50dip</dimen>
+
     <dimen name="shadow_radius">4dp</dimen>
 </resources>

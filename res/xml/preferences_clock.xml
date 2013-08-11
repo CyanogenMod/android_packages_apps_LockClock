@@ -31,6 +31,11 @@
             android:key="clock_show_alarm"
             android:title="@string/show_alarm_title"
             android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="clock_hide_on_homescreen"
+            android:title="@string/clock_hide_on_homescreen_title"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory
