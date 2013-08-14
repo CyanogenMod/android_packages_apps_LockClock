@@ -160,4 +160,6 @@
     <string name="calendar_highlight_upcoming_events_title">Eventos em destaque</string>
     <string name="calendar_highlight_upcoming_events_summary">Destacar os eventos do dia e, depois das 20 horas, os eventos do dia seguinte também</string>
     <string name="calendar_highlight_upcoming_events_bold">Fonte em negrito</string>
+    <string name="calendar_icon_title">Ícone do Calendário</string>
+    <string name="calendar_lookahead_today">Hoje</string>
 </resources>
