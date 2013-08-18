@@ -20,6 +20,7 @@
     <string name="unknown">Tuntematon</string>
     <string name="cancel">Peruuta</string>
     <string name="loading_indicator">Ladataan widgetiä\u2026</string>
+    <string name="menu_done">Valmis</string>
 
     <!-- Weather - Weather codes -->
     <string name="weather_0">Pyörremyrsky</string>
@@ -132,6 +133,8 @@
     <string name="weather_progress_title">Tarkastetaan sijaintia</string>
     <string name="weather_alternate_icons_title">Käytä vaihtoehtoisia kuvakkeita</string>
     <string name="weather_alternate_icons_summary">Valitse oletukset (valkoinen) tai vaihtoehtoiset (värikkäät) kuvakkeet</string>
+    <string name="weather_show_when_minimized_title">Näytä kun pienennetty</string>
+    <string name="weather_show_when_minimized_summary">Näyttää sään yhteenvedon kun widget on pienennetty</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Näytä seuraava tapahtuma</string>
@@ -140,21 +143,50 @@
     <string name="calendar_reminders_only_title">Vain muistutukset</string>
     <string name="calendar_reminders_only_summary">Näytä vain tapahtumat joissa muistutus</string>
     <string name="calendar_hide_allday_title">Piilota koko päivän tapahtumat</string>
+    <string name="calendar_icon_title">Kalenterin kuvake</string>
     <string name="calendar_lookahead_title">Tapahtumaan aikaa</string>
     <string name="calendar_show_location_title">Tapahtuman paikka</string>
     <string name="calendar_show_description_title">Tapahtuman selitys</string>
+    <string name="calendar_upcoming_events_category">Tulevat tapahtumat</string>
+    <string name="calendar_highlight_upcoming_events_title">Korosta tapahtumat</string>
+    <string name="calendar_highlight_upcoming_events_summary">Korosta saman päivän tapahtumat, ja klo 20.00 jälkeen myös seuraavan päivän tapahtumat</string>
+    <string name="calendar_highlight_upcoming_events_bold">Lihavoitu fontti</string>
+
+    <!-- Preferences - Font colors -->
+    <string name="font_color">Fontin väri</string>
+    <string name="font_color_alarm">Hälytyksen fontin väri</string>
+    <string name="font_color_timestamp">Aikaleiman fontin väri</string>
+    <string name="font_color_calendar_details">Tietojen fontin väri</string>
 
     <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 tuntia</string>
     <string name="calendar_lookahead_6hrs">6 tuntia</string>
     <string name="calendar_lookahead_12hrs">12 tuntia</string>
+    <string name="calendar_lookahead_today">Tänään</string>
     <string name="calendar_lookahead_1day">1 päivä</string>
     <string name="calendar_lookahead_3days">3 päivää</string>
     <string name="calendar_lookahead_1wk">1 viikko</string>
+    <string name="calendar_lookahead_2wks">2 viikkoa</string>
+    <string name="calendar_lookahead_4wks">4 viikkoa</string>
 
     <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">Älä näytä</string>
     <string name="calendar_metadata_first_line">Näytä ensimmäinen rivi</string>
     <string name="calendar_metadata_all">Näytä kaikki</string>
+
+    <!-- Font colors -->
+    <string name="white">Valkoinen</string>
+    <string name="grey">Harmaa</string>
+    <string name="black">Musta</string>
+    <string name="holo_blue_light">Vaalea sininen</string>
+    <string name="holo_green_light">Vaalea vihreä</string>
+    <string name="holo_red_light">Vaalea punainen</string>
+    <string name="holo_blue_dark">Tumma sininen</string>
+    <string name="holo_green_dark">Tumma vihreä</string>
+    <string name="holo_red_dark">Tumma punainen</string>
+    <string name="holo_purple">Purppura</string>
+    <string name="holo_orange_light">Vaalea oranssi</string>
+    <string name="holo_orange_dark">Tumma oranssi</string>
+    <string name="holo_blue_bright">Kirkas sininen</string>
 
 </resources>
