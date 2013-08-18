@@ -13,16 +13,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources>
-
-    <!-- General strings -->
     <string name="unknown">Ukendt</string>
     <string name="cancel">Annuller</string>
     <string name="loading_indicator">Indlæser widget\u2026</string>
     <string name="menu_done">Udført</string>
-
-    <!-- Weather - Weather codes -->
     <string name="weather_0">Tornado</string>
     <string name="weather_1">Tropisk Storm</string>
     <string name="weather_2">Orkan</string>
@@ -71,10 +66,7 @@
     <string name="weather_45">Tordenbyger</string>
     <string name="weather_46">Snebyger</string>
     <string name="weather_47">Isolerede tordenbyger</string>
-    <!-- Forecast unavailable -->
     <string name="weather_3200"></string>
-
-    <!-- Weather - Wind directions -->
     <string name="weather_N">N</string>
     <string name="weather_NE">NØ</string>
     <string name="weather_E">Ø</string>
@@ -83,14 +75,10 @@
     <string name="weather_SW">SV</string>
     <string name="weather_W">V</string>
     <string name="weather_NW">NV</string>
-
-    <!-- Weather - error messages -->
     <string name="weather_no_data">Ingen data</string>
     <string name="weather_tap_to_refresh">Tryk for at opdatere</string>
     <string name="weather_refreshing">Opdaterer</string>
     <string name="weather_last_sync_just_now">Lige nu</string>
-
-    <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">Manuel</string>
     <string name="weather_refresh_30min">30 minutter</string>
     <string name="weather_refresh_60min">60 minutter</string>
@@ -98,25 +86,17 @@
     <string name="weather_refresh_4hrs">4 timer</string>
     <string name="weather_refresh_6hrs">6 timer</string>
     <string name="weather_refresh_8hrs">8 timer</string>
-
-    <!-- Preferences - Categories -->
     <string name="clock_category">Ur og alarm</string>
     <string name="weather_category">Vejrpanel</string>
     <string name="calendar_category">Kalender-begivenheder</string>
-
-    <!-- Preferences - Categories -->
     <string name="general_category">Generelt</string>
     <string name="display_category">Visning</string>
-
-    <!-- Preferences - Clock -->
     <string name="use_digital_clock_title">Brug digitalt ur</string>
     <string name="use_digital_clock_summary">Vælg for at skifte mellem digitalt og analogt ur</string>
     <string name="clock_font_title">Timer med fed</string>
     <string name="clock_font_minutes_title">Minutter med fed</string>
     <string name="clock_font_date_title">Dato og alarm med fed</string>
     <string name="show_alarm_title">Vis næste alarm</string>
-
-    <!-- Preferences - Weather -->
     <string name="weather_enabled">Aktiveret</string>
     <string name="weather_enable">Vis vejr</string>
     <string name="weather_source">Yahoo! Vejret</string>
@@ -138,14 +118,13 @@
     <string name="weather_alternate_icons_summary">Til at vælge mellem standard (Farvede) og de alternative (Hvide) ikoner</string>
     <string name="weather_show_when_minimized_title">Vis når minimeret</string>
     <string name="weather_show_when_minimized_summary">Viser en kort vejrinformation når widget vises minimeret</string>
-
-    <!-- Preferences - Calendar -->
     <string name="calendar_title">Vis næste begivenhed</string>
     <string name="calendars_title">Kalendere</string>
     <string name="calendars_summary">Find begivenheder fra disse kalendere</string>
     <string name="calendar_reminders_only_title">Kun påmindelser</string>
     <string name="calendar_reminders_only_summary">Vis kun begivenheder med påmindelser</string>
     <string name="calendar_hide_allday_title">Skjul heldags begivenheder</string>
+    <string name="calendar_icon_title">Kalenderikon</string>
     <string name="calendar_lookahead_title">Tidsramme for begivenheder</string>
     <string name="calendar_show_location_title">Lokation for begivenhed</string>
     <string name="calendar_show_description_title">Beskrivelse af begivenhed</string>
@@ -153,29 +132,22 @@
     <string name="calendar_highlight_upcoming_events_title">Fremhæv begivenheder</string>
     <string name="calendar_highlight_upcoming_events_summary">Fremhæv den aktuelle dags begivenheder og, efter 20, også den næste dags begivenheder</string>
     <string name="calendar_highlight_upcoming_events_bold">Fed skrift</string>
-
-    <!-- Preferences - Font colors -->
     <string name="font_color">Fontfarve</string>
     <string name="font_color_alarm">Fontfarve for alarm</string>
     <string name="font_color_timestamp">Fontfarve for tidsstempel</string>
     <string name="font_color_calendar_details">Fontfarve for detaljer</string>
-
-    <!-- Calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 timer</string>
     <string name="calendar_lookahead_6hrs">6 timer</string>
     <string name="calendar_lookahead_12hrs">12 timer</string>
+    <string name="calendar_lookahead_today">I dag</string>
     <string name="calendar_lookahead_1day">1 dag</string>
     <string name="calendar_lookahead_3days">3 dage</string>
     <string name="calendar_lookahead_1wk">1 uge</string>
     <string name="calendar_lookahead_2wks">2 uger</string>
     <string name="calendar_lookahead_4wks">4 uger</string>
-
-    <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">Vis ikke</string>
     <string name="calendar_metadata_first_line">Vis første linie</string>
     <string name="calendar_metadata_all">Vis alt</string>
-
-    <!-- Font colors -->
     <string name="white">Hvid</string>
     <string name="grey">Grå</string>
     <string name="black">Sort</string>
