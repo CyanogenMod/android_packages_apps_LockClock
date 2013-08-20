@@ -123,6 +123,7 @@
     <string name="calendar_reminders_only_title">Iba pripomienky</string>
     <string name="calendar_reminders_only_summary">Zobrazí iba udalosti s pripomienkami</string>
     <string name="calendar_hide_allday_title">Skryť celodenné udalosti</string>
+    <string name="calendar_icon_title">Ikona kalendára</string>
     <string name="calendar_lookahead_title">Prednačítať udalosti dopredu na</string>
     <string name="calendar_show_location_title">Umiestnenie udalosti</string>
     <string name="calendar_show_description_title">Popis udalosti</string>
@@ -137,6 +138,7 @@
     <string name="calendar_lookahead_3hrs">3 hodiny</string>
     <string name="calendar_lookahead_6hrs">6 hodín</string>
     <string name="calendar_lookahead_12hrs">12 hodín</string>
+    <string name="calendar_lookahead_today">Dnes</string>
     <string name="calendar_lookahead_1day">1 deň</string>
     <string name="calendar_lookahead_3days">3 dni</string>
     <string name="calendar_lookahead_1wk">1 týždeň</string>
