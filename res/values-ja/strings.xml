@@ -146,6 +146,7 @@
     <string name="calendar_reminders_only_title">リマインダーのみ</string>
     <string name="calendar_reminders_only_summary">リマインダーのイベントのみ表示する。</string>
     <string name="calendar_hide_allday_title">終日の予定を表示しない</string>
+    <string name="calendar_icon_title">カレンダーアイコン</string>
     <string name="calendar_lookahead_title">予定の探索期間</string>
     <string name="calendar_show_location_title">予定の場所</string>
     <string name="calendar_show_description_title">予定の詳細</string>
@@ -158,6 +159,7 @@
     <string name="calendar_lookahead_3hrs">3時間</string>
     <string name="calendar_lookahead_6hrs">6時間</string>
     <string name="calendar_lookahead_12hrs">12時間</string>
+    <string name="calendar_lookahead_today">今日</string>
     <string name="calendar_lookahead_1day">1日</string>
     <string name="calendar_lookahead_3days">3日</string>
     <string name="calendar_lookahead_1wk">1週間</string>
