@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string name="unknown">Desconegut</string>
+    <string name="cancel">Cancel·la</string>
+    <string name="loading_indicator">Carregant giny\u2026</string>
+    <string name="menu_done">Fet</string>
+    <string name="weather_0">Tornado</string>
+    <string name="weather_1">Tempesta Tropical</string>
+    <string name="weather_2">Huracà</string>
+    <string name="weather_3">Tempesta intensa</string>
+    <string name="weather_4">Tempestes</string>
+    <string name="weather_5">Pluja i neu</string>
+    <string name="weather_6">Pluja i aiguaneu</string>
+    <string name="weather_7">Neu i aiguaneu</string>
+    <string name="weather_8">Plugims gelats</string>
+    <string name="weather_9">Gelades</string>
+    <string name="weather_10">Plujes gelades</string>
+    <string name="weather_11">Ruixats</string>
+    <string name="weather_12">Ruixats</string>
+    <string name="weather_13">Ràfegues de neu</string>
+    <string name="weather_14">Nevades lleugeres</string>
+    <string name="weather_15">Vent i neu</string>
+    <string name="weather_16">Neu</string>
+    <string name="weather_17">Calamarsa</string>
+    <string name="weather_18">Aiguaneu</string>
+    <string name="weather_19">Pols</string>
+    <string name="weather_20">Boirós</string>
+    <string name="weather_21">Boirina</string>
+    <string name="weather_22">Ple de fum</string>
+    <string name="weather_23">Borrascós</string>
+    <string name="weather_24">Vent</string>
+    <string name="weather_25">Fred</string>
+    <string name="weather_26">Ennubolat</string>
+    <string name="weather_27">Majoritàriament Ennubolat</string> <!-- Night -->
+    <string name="weather_28">Majoritàriament Ennubolat</string> <!-- Day -->
+    <string name="weather_29">Parcialment Ennubolat</string> <!-- Night -->
+    <string name="weather_30">Parcialment Ennubolat</string> <!-- Day -->
+    <string name="weather_31">Cel serè</string> <!-- Night -->
+    <string name="weather_32">Assolleat</string>
+    <string name="weather_33">Bo</string> <!-- Night -->
+    <string name="weather_34">Bo</string> <!-- Day -->
+    <string name="weather_35">Mixed Rain and Hail</string>
+    <string name="weather_36">Calor</string>
+    <string name="weather_37">Tempestes aïllades</string>
+    <string name="weather_38">Tempestes disperses</string>
+    <string name="weather_39">Tempestes disperses</string>
+    <string name="weather_40">Ruixats dispersos</string>
+    <string name="weather_41">Nevades intenses</string>
+    <string name="weather_42">Nevades disperses</string>
+    <string name="weather_43">Nevades intenses</string>
+    <string name="weather_44">Parcialment Ennubolat</string>
+    <string name="weather_45">Tempestes</string>
+    <string name="weather_46">Nevades</string>
+    <string name="weather_47">Tempestes aïllades</string>
+    <string name="weather_3200"></string>
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NE</string>
+    <string name="weather_E">E</string>
+    <string name="weather_SE">SE</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SW</string>
+    <string name="weather_W">W</string>
+    <string name="weather_NW">NW</string>
+    <string name="weather_no_data">Sense dades</string>
+    <string name="weather_tap_to_refresh">Pica per actualitzar</string>
+    <string name="weather_refreshing">Actualizant</string>
+    <string name="weather_last_sync_just_now">Ara</string>
+    <string name="weather_refresh_manual">Manual</string>
+    <string name="weather_refresh_30min">30 minuts</string>
+    <string name="weather_refresh_60min">60 minuts</string>
+    <string name="weather_refresh_2hrs">2 hores</string>
+    <string name="weather_refresh_4hrs">4 hores</string>
+    <string name="weather_refresh_6hrs">6 hores</string>
+    <string name="weather_refresh_8hrs">8 hores</string>
+    <string name="clock_category">Rellotge i Alarma</string>
+    <string name="weather_category">Panell meteorològic</string>
+    <string name="calendar_category">Esdeveniments del calendari</string>
+    <string name="general_category">General</string>
+    <string name="display_category">Pantalla</string>
+    <string name="use_digital_clock_title">Utilitza Rellotge Digital</string>
+    <string name="use_digital_clock_summary">Selecciona per commutar entre el rellotge Digital i l\'Analògic</string>
+    <string name="clock_font_title">Hores en negreta</string>
+    <string name="clock_font_minutes_title">Minuts en negreta</string>
+    <string name="clock_font_date_title">Data i alarma en negreta</string>
+    <string name="show_alarm_title">Mostra la propera alarma</string>
+    <string name="weather_enabled">Activat</string>
+    <string name="weather_enable">Mostra el temps</string>
+    <string name="weather_source">Temps de Yahoo!</string>
+    <string name="weather_use_custom_location">Utilitza una ubicació personalitzada</string>
+    <string name="weather_geolocated">Geolocalitzat utilitzant la xarxa</string>
+    <string name="weather_custom_location_dialog_title">Introdueix ubicació</string>
+    <string name="weather_custom_location_hint">Ciutat, Estat/País</string>
+    <string name="weather_custom_location_title">Ubicació</string>
+    <string name="weather_show_location_title">Mostra ubicació</string>
+    <string name="weather_show_timestamp_title">Mostra l\'hora</string>
+    <string name="weather_refresh_interval">Interval d\'actualització</string>
+    <string name="weather_use_metric">Utilitza s. mètric</string>
+    <string name="weather_retrieve_location_dialog_title">No es pot aconseguir la ubicació!</string>
+    <string name="weather_retrieve_location_dialog_message">La geolocalització per xarxa està desactivada.\n\nEstableix una ubicació personalitzada o activa la ubicació per xarxa</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Activa</string>
+    <string name="weather_invert_lowhigh">Inverteix temperatures mín/màx</string>
+    <string name="weather_progress_title">Verificant ubicació</string>
+    <string name="weather_alternate_icons_title">Utilitza icones de color</string>
+    <string name="weather_alternate_icons_summary">Selecciona per commutar entre les icones predeterminades (Color) i l\'alternatives (Blanc)</string>
+    <string name="weather_show_when_minimized_title">Mostra quan minimitzat</string>
+    <string name="weather_show_when_minimized_summary">Mostra un resum de la informació meteorològica quan el giny està minimitzat</string>
+    <string name="calendar_title">Mostra el següent esdeveniment</string>
+    <string name="calendars_title">Esdeveniments del calendari</string>
+    <string name="calendars_summary">Troba esdeveniments dins d\'aquests calendaris</string>
+    <string name="calendar_reminders_only_title">Només recordoris</string>
+    <string name="calendar_reminders_only_summary">Mostra només els esdeveniments amb recordatoris</string>
+    <string name="calendar_hide_allday_title">Amaga els esdeveniments que duren tot el dia</string>
+    <string name="calendar_icon_title">Icona del calendari</string>
+    <string name="calendar_lookahead_title">Event lookahead</string>
+    <string name="calendar_show_location_title">Ubicació de l\'esdeveniment</string>
+    <string name="calendar_show_description_title">Descripció de l\'esdeveniment</string>
+    <string name="calendar_upcoming_events_category">Esdeveniments propers</string>
+    <string name="calendar_highlight_upcoming_events_title">Remarca esdeveniments</string>
+    <string name="calendar_highlight_upcoming_events_summary">Remarca els esdeveniments del dia actual i, després de les 8pm, també els del dia següent</string>
+    <string name="calendar_highlight_upcoming_events_bold">Bold font</string>
+    <string name="font_color">Color del tipus de lletra</string>
+    <string name="font_color_alarm">Color del tipus de lletra de l\'alarma</string>
+    <string name="font_color_timestamp">Color del tipus de lletra de l\'hora</string>
+    <string name="font_color_calendar_details">Color del tipus de lletra dels detalls</string>
+    <string name="calendar_lookahead_3hrs">3 hores</string>
+    <string name="calendar_lookahead_6hrs">6 hores</string>
+    <string name="calendar_lookahead_12hrs">12 hores</string>
+    <string name="calendar_lookahead_today">Avui</string>
+    <string name="calendar_lookahead_1day">1 dua</string>
+    <string name="calendar_lookahead_3days">3 dies</string>
+    <string name="calendar_lookahead_1wk">1 setmana</string>
+    <string name="calendar_lookahead_2wks">2 setmanes</string>
+    <string name="calendar_lookahead_4wks">4 setmanes</string>
+    <string name="calendar_metadata_none">No mostris</string>
+    <string name="calendar_metadata_first_line">Mostra la primera línia</string>
+    <string name="calendar_metadata_all">Mostra-ho tot</string>
+    <string name="white">Blanc</string>
+    <string name="grey">Gris</string>
+    <string name="black">Negre</string>
+    <string name="holo_blue_light">Blau clar</string>
+    <string name="holo_green_light">Verd clar</string>
+    <string name="holo_red_light">Vermell clar</string>
+    <string name="holo_blue_dark">Blau fosc</string>
+    <string name="holo_green_dark">Verd fosc</string>
+    <string name="holo_red_dark">Vermell fosc</string>
+    <string name="holo_purple">Lila</string>
+    <string name="holo_orange_light">Taronja clar</string>
+    <string name="holo_orange_dark">Taronja fosc</string>
+    <string name="holo_blue_bright">Blau brillant</string>
+</resources>
