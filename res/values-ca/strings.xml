@@ -17,7 +17,7 @@
 <resources>
     <string name="unknown">Desconegut</string>
     <string name="cancel">Cancel·la</string>
-    <string name="loading_indicator">Carregant giny\u2026</string>
+    <string name="loading_indicator">Carregant widget\u2026</string>
     <string name="menu_done">Fet</string>
     <string name="weather_0">Tornado</string>
     <string name="weather_1">Tempesta Tropical</string>
@@ -46,15 +46,15 @@
     <string name="weather_24">Vent</string>
     <string name="weather_25">Fred</string>
     <string name="weather_26">Ennubolat</string>
-    <string name="weather_27">Majoritàriament Ennubolat</string> <!-- Night -->
-    <string name="weather_28">Majoritàriament Ennubolat</string> <!-- Day -->
-    <string name="weather_29">Parcialment Ennubolat</string> <!-- Night -->
-    <string name="weather_30">Parcialment Ennubolat</string> <!-- Day -->
+    <string name="weather_27">Majorit. Ennubolat</string> <!-- Night -->
+    <string name="weather_28">Majorit. Ennubolat</string> <!-- Day -->
+    <string name="weather_29">Parcial. Ennubolat</string> <!-- Night -->
+    <string name="weather_30">Parcial. Ennubolat</string> <!-- Day -->
     <string name="weather_31">Cel serè</string> <!-- Night -->
     <string name="weather_32">Assolleat</string>
     <string name="weather_33">Bo</string> <!-- Night -->
     <string name="weather_34">Bo</string> <!-- Day -->
-    <string name="weather_35">Mixed Rain and Hail</string>
+    <string name="weather_35">Pluja i Calamarsa</string>
     <string name="weather_36">Calor</string>
     <string name="weather_37">Tempestes aïllades</string>
     <string name="weather_38">Tempestes disperses</string>
@@ -63,7 +63,7 @@
     <string name="weather_41">Nevades intenses</string>
     <string name="weather_42">Nevades disperses</string>
     <string name="weather_43">Nevades intenses</string>
-    <string name="weather_44">Parcialment Ennubolat</string>
+    <string name="weather_44">Parcial. Ennubolat</string>
     <string name="weather_45">Tempestes</string>
     <string name="weather_46">Nevades</string>
     <string name="weather_47">Tempestes aïllades</string>
@@ -118,7 +118,7 @@
     <string name="weather_alternate_icons_title">Utilitza icones de color</string>
     <string name="weather_alternate_icons_summary">Selecciona per commutar entre les icones predeterminades (Color) i l\'alternatives (Blanc)</string>
     <string name="weather_show_when_minimized_title">Mostra quan minimitzat</string>
-    <string name="weather_show_when_minimized_summary">Mostra un resum de la informació meteorològica quan el giny està minimitzat</string>
+    <string name="weather_show_when_minimized_summary">Mostra un resum de la informació meteorològica quan el widget està minimitzat</string>
     <string name="calendar_title">Mostra el següent esdeveniment</string>
     <string name="calendars_title">Esdeveniments del calendari</string>
     <string name="calendars_summary">Troba esdeveniments dins d\'aquests calendaris</string>
