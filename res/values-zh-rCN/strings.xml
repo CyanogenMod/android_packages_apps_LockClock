@@ -139,7 +139,6 @@
     <string name="weather_show_when_minimized_title">最小化时显示</string>
     <string name="weather_show_when_minimized_summary">小部件最小化时将依然显示天气信息</string>
 
-
     <!-- Preferences - Calendar -->
     <string name="calendar_title">显示下一个活动</string>
     <string name="calendars_title">活动日历</string>
@@ -147,6 +146,7 @@
     <string name="calendar_reminders_only_title">仅显示提醒</string>
     <string name="calendar_reminders_only_summary">仅显示带提醒的活动</string>
     <string name="calendar_hide_allday_title">隐藏全天活动</string>
+    <string name="calendar_icon_title">日历图标</string>
     <string name="calendar_lookahead_title">活动查找范围</string>
     <string name="calendar_show_location_title">活动位置</string>
     <string name="calendar_show_description_title">活动描述</string>
@@ -165,6 +165,7 @@
     <string name="calendar_lookahead_3hrs">3 小时</string>
     <string name="calendar_lookahead_6hrs">6 小时</string>
     <string name="calendar_lookahead_12hrs">12 小时</string>
+    <string name="calendar_lookahead_today">今天</string>
     <string name="calendar_lookahead_1day">1 天</string>
     <string name="calendar_lookahead_3days">3 天</string>
     <string name="calendar_lookahead_1wk">1 周</string>
@@ -190,6 +191,5 @@
     <string name="holo_orange_light">浅橙色</string>
     <string name="holo_orange_dark">深橙色</string>
     <string name="holo_blue_bright">翠蓝色</string>
-
 
 </resources>
