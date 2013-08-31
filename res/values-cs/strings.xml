@@ -136,6 +136,7 @@
   <string name="calendar_reminders_only_title">Pouze s připomínkou</string>
   <string name="calendar_reminders_only_summary">Zobrazit pouze události s připomínkou</string>
   <string name="calendar_hide_allday_title">Skrýt celodenní události</string>
+  <string name="calendar_icon_title">Ikona kalendáře</string>
   <string name="calendar_lookahead_title">Časový rozsah událostí</string>
   <string name="calendar_show_location_title">Místo konání události</string>
   <string name="calendar_show_description_title">Popis události</string>
@@ -152,6 +153,7 @@
   <string name="calendar_lookahead_3hrs">3 hodiny</string>
   <string name="calendar_lookahead_6hrs">6 hodin</string>
   <string name="calendar_lookahead_12hrs">12 hodin</string>
+  <string name="calendar_lookahead_today">Dnes</string>
   <string name="calendar_lookahead_1day">1 den</string>
   <string name="calendar_lookahead_3days">3 dny</string>
   <string name="calendar_lookahead_1wk">1 týden</string>
