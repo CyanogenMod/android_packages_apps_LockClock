@@ -125,6 +125,7 @@
     <string name="calendar_reminders_only_title">Tylko z przypomnieniem</string>
     <string name="calendar_reminders_only_summary">Wyświetl tylko wydarzenia z przypomnieniem</string>
     <string name="calendar_hide_allday_title">Ukryj całodniowe wydarzenia</string>
+    <string name="calendar_icon_title">Ikona kalendarza</string>
     <string name="calendar_lookahead_title">Zakres wyświetlania"</string>
     <string name="calendar_show_location_title">Lokalizacja wydarzenia</string>
     <string name="calendar_show_description_title">Opis wydarzenia</string>
