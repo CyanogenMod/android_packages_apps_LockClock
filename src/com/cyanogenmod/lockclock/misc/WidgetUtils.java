@@ -30,6 +30,7 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Bitmap.Config;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
 
@@ -169,5 +170,9 @@ public class WidgetUtils {
             }
         }
         return getDefaultClockIntent(context);
+    }
+
+    public static boolean isTextClockAvailable() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1;
     }
 }

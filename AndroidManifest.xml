@@ -20,7 +20,7 @@
     android:versionName="2.2.5" >
 
     <uses-sdk
-        android:minSdkVersion="17"
+        android:minSdkVersion="16"
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -68,6 +68,13 @@
                 <action android:name="android.intent.action.PROVIDER_CHANGED"/>
                 <data android:scheme="content"/>
                 <data android:host="com.android.calendar"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Receiver to update the clock on API 16 -->
+        <receiver android:name=".TickReceiver" android:enabled="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_TICK" />
             </intent-filter>
         </receiver>
 
