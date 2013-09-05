@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -28,6 +29,7 @@ import android.preference.PreferenceFragment;
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.WidgetUtils;
 
 public class ClockPreferences extends PreferenceFragment implements
     OnSharedPreferenceChangeListener {
@@ -35,6 +37,7 @@ public class ClockPreferences extends PreferenceFragment implements
     private Context mContext;
     private ListPreference mClockFontColor;
     private ListPreference mAlarmFontColor;
+    private CheckBoxPreference mAmPmToggle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +48,11 @@ public class ClockPreferences extends PreferenceFragment implements
         mContext = getActivity();
         mClockFontColor = (ListPreference) findPreference(Constants.CLOCK_FONT_COLOR);
         mAlarmFontColor = (ListPreference) findPreference(Constants.CLOCK_ALARM_FONT_COLOR);
+        mAmPmToggle = (CheckBoxPreference) findPreference(Constants.CLOCK_AM_PM_INDICATOR);
+
         updateFontColorsSummary();
+        hideAmPmToggle();
+
     }
 
     @Override
@@ -77,6 +84,14 @@ public class ClockPreferences extends PreferenceFragment implements
         }
         if (mAlarmFontColor != null) {
             mAlarmFontColor.setSummary(mAlarmFontColor.getEntry());
+        }
+    }
+
+    private void hideAmPmToggle() {
+        if(!WidgetUtils.is12HourTime(this.getActivity().getContentResolver())){
+            mAmPmToggle.setEnabled(false);
+        } else {
+            mAmPmToggle.setEnabled(true);
         }
     }
 }

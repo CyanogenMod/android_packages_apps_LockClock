@@ -18,11 +18,15 @@ package com.cyanogenmod.lockclock;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.util.Log;
+
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
 public class ClockWidgetProvider extends AppWidgetProvider {
@@ -72,7 +76,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
                 || Intent.ACTION_TIMEZONE_CHANGED.equals(action)
                 || Intent.ACTION_DATE_CHANGED.equals(action)
                 || Intent.ACTION_LOCALE_CHANGED.equals(action)
-                || Intent.ACTION_ALARM_CHANGED.equals(action)
+                || "android.intent.action.ALARM_CHANGED".equals(action)
                 || ClockWidgetService.ACTION_REFRESH_CALENDAR.equals(action)) {
             updateWidgets(context, true, false);
 
@@ -112,6 +116,9 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
         WeatherUpdateService.scheduleNextUpdate(context);
+        if (!WidgetUtils.isTextClockAvailable()) {
+            setTickReceiverEnabledState(context, true);
+        }
     }
 
     @Override
@@ -119,5 +126,18 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         if (D) Log.d(TAG, "Cleaning up: Clearing all pending alarms");
         ClockWidgetService.cancelUpdates(context);
         WeatherUpdateService.cancelUpdates(context);
+        if (!WidgetUtils.isTextClockAvailable()) {
+            setTickReceiverEnabledState(context, false);
+        }
+    }
+
+    private void setTickReceiverEnabledState(Context context, boolean enabled) {
+        ComponentName component = new ComponentName(context, TickReceiver.class);
+        PackageManager pm = context.getPackageManager();
+        int newState = enabled
+                ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+
+        pm.setComponentEnabledSetting(component, newState, PackageManager.DONT_KILL_APP);
     }
 }
