@@ -22,7 +22,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.util.Log;
+
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
 public class ClockWidgetProvider extends AppWidgetProvider {
@@ -72,7 +74,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
                 || Intent.ACTION_TIMEZONE_CHANGED.equals(action)
                 || Intent.ACTION_DATE_CHANGED.equals(action)
                 || Intent.ACTION_LOCALE_CHANGED.equals(action)
-                || Intent.ACTION_ALARM_CHANGED.equals(action)
+                || "android.intent.action.ALARM_CHANGED".equals(action)
                 || ClockWidgetService.ACTION_REFRESH_CALENDAR.equals(action)) {
             updateWidgets(context, true, false);
 
@@ -112,6 +114,13 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
         WeatherUpdateService.scheduleNextUpdate(context);
+
+        // Start the broadcast receiver on API 16 devices
+        if (!WidgetUtils.isTextClockAvailable()) {
+            final WidgetApplication app = (WidgetApplication) context.getApplicationContext();
+            app.startTickReceiver();
+            app.startScreenStateReceiver();
+        }
     }
 
     @Override
@@ -119,5 +128,12 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         if (D) Log.d(TAG, "Cleaning up: Clearing all pending alarms");
         ClockWidgetService.cancelUpdates(context);
         WeatherUpdateService.cancelUpdates(context);
+
+        // Stop the broadcast receiver on API 16 devices
+        if (!WidgetUtils.isTextClockAvailable()) {
+            final WidgetApplication app = (WidgetApplication) context.getApplicationContext();
+            app.stopTickReceiver();
+            app.stopScreenStateReceiver();
+        }
     }
 }

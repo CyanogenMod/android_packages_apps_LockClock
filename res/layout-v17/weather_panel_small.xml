@@ -41,16 +41,17 @@
         android:orientation="horizontal" >
 
         <!-- Date -->
-        <TextView
-            android:id="@+id/date"
-            style="@style/label_small"
+        <TextClock android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:format12Hour="@string/abbrev_wday_month_day_no_year"
+            android:format24Hour="@string/abbrev_wday_month_day_no_year"
             android:layout_alignParentRight="true"
-            android:ellipsize="marquee"
             android:gravity="right"
             android:singleLine="true"
-            android:textColor="?android:textColorPrimary" />
+            android:ellipsize="marquee"
+            android:textColor="?android:attr/textColorPrimary"
+            style="@style/label_small" />
 
         <!-- Alarm -->
         <LinearLayout
