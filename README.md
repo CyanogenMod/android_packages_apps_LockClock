@@ -1,4 +1,4 @@
 Lock Clock
 ==========
 
-A Lock Clock with weather And Calendar 
+A Lock and Home screen Clock widget with weather And Calendar 
