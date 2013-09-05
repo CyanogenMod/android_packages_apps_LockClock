@@ -16,11 +16,11 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cyanogenmod.lockclock"
-    android:versionCode="11"
-    android:versionName="2.2.5" >
+    android:versionCode="14"
+    android:versionName="3.0.0" >
 
     <uses-sdk
-        android:minSdkVersion="17"
+        android:minSdkVersion="16"
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -34,7 +34,8 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:name=".WidgetApplication" >
 
         <activity
             android:name=".preference.Preferences"

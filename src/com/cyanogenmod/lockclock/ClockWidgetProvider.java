@@ -22,8 +22,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.util.Log;
+
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
+import com.cyanogenmod.lockclock.ClockWidgetService;
+import com.cyanogenmod.lockclock.WidgetApplication;
 
 public class ClockWidgetProvider extends AppWidgetProvider {
     private static final String TAG = "ClockWidgetProvider";
@@ -72,7 +76,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
                 || Intent.ACTION_TIMEZONE_CHANGED.equals(action)
                 || Intent.ACTION_DATE_CHANGED.equals(action)
                 || Intent.ACTION_LOCALE_CHANGED.equals(action)
-                || Intent.ACTION_ALARM_CHANGED.equals(action)
+                || "android.intent.action.ALARM_CHANGED".equals(action)
                 || ClockWidgetService.ACTION_REFRESH_CALENDAR.equals(action)) {
             updateWidgets(context, true, false);
 
@@ -112,6 +116,14 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
         WeatherUpdateService.scheduleNextUpdate(context);
+
+        // Start the broadcast receiver (API 16 devices)
+        // This will schedule a repeating alarm every minute to handle the clock refresh
+        // Once triggered, the receiver will unregister itself when its work is done
+        if (!WidgetUtils.isTextClockAvailable()) {
+            final WidgetApplication app = (WidgetApplication) context.getApplicationContext();
+            app.startTickReceiver();
+        }
     }
 
     @Override
@@ -119,5 +131,10 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         if (D) Log.d(TAG, "Cleaning up: Clearing all pending alarms");
         ClockWidgetService.cancelUpdates(context);
         WeatherUpdateService.cancelUpdates(context);
+
+        // Stop the clock update event (API 16 devices)
+        if (!WidgetUtils.isTextClockAvailable()) {
+            WidgetApplication.cancelClockRefresh(context);
+        }
     }
 }

@@ -57,41 +57,46 @@
         android:visibility="gone" >
 
         <!-- Hours -->
-        <TextView
+        <TextClock
             android:id="@+id/clock1_bold"
+            android:format12Hour="@string/widget_12_hours_format_h"
+            android:format24Hour="@string/widget_24_hours_format_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             style="@style/widget_big_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|center"
-            android:textColor="@color/clock_white" />
-
-        <TextView
-            android:id="@+id/clock1_regular"
-            style="@style/widget_big_light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|center"
             android:textColor="@color/clock_white"
-            android:visibility="gone" />
+            android:layout_gravity="center_horizontal|top" />
+        <TextClock
+            android:id="@+id/clock1_regular"
+            android:format12Hour="@string/widget_12_hours_format_h"
+            android:format24Hour="@string/widget_24_hours_format_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/widget_big_thin"
+            android:visibility="gone"
+            android:textColor="@color/clock_white"
+            android:layout_gravity="center_horizontal|top" />
 
         <!-- Minutes -->
-        <TextView
+        <TextClock
             android:id="@+id/clock2_regular"
-            style="@style/widget_big_light"
+            android:format12Hour="@string/widget_12_hours_format_no_ampm_m"
+            android:format24Hour="@string/widget_24_hours_format_m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|center"
-            android:textColor="@color/clock_white" />
-
-        <TextView
-            android:id="@+id/clock2_bold"
-            style="@style/widget_big_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|center"
+            style="@style/widget_big_thin"
             android:textColor="@color/clock_white"
-            android:visibility="gone" />
-
-    </LinearLayout>
+            android:layout_gravity="center_horizontal|top" />
+        <TextClock
+            android:id="@+id/clock2_bold"
+            android:format12Hour="@string/widget_12_hours_format_no_ampm_m"
+            android:format24Hour="@string/widget_24_hours_format_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/widget_big_bold"
+            android:visibility="gone"
+            android:textColor="@color/clock_white"
+            android:layout_gravity="center_horizontal|top" />
+        </LinearLayout>
 
 </LinearLayout>
