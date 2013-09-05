@@ -18,16 +18,22 @@ package com.cyanogenmod.lockclock;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.util.Log;
+
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
 public class ClockWidgetProvider extends AppWidgetProvider {
     private static final String TAG = "ClockWidgetProvider";
     private static boolean D = Constants.DEBUG;
+
+    BroadcastReceiver mTickReceiver;
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -72,7 +78,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
                 || Intent.ACTION_TIMEZONE_CHANGED.equals(action)
                 || Intent.ACTION_DATE_CHANGED.equals(action)
                 || Intent.ACTION_LOCALE_CHANGED.equals(action)
-                || Intent.ACTION_ALARM_CHANGED.equals(action)
+                || "android.intent.action.ALARM_CHANGED".equals(action)
                 || ClockWidgetService.ACTION_REFRESH_CALENDAR.equals(action)) {
             updateWidgets(context, true, false);
 
@@ -112,6 +118,14 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
         WeatherUpdateService.scheduleNextUpdate(context);
+
+        // Start the broadcast receiver on API 16 devices
+        if (!WidgetUtils.isTextClockAvailable()) {
+            if (D) Log.d(TAG, "Registering the tick receiver");
+            mTickReceiver = new TickReceiver();
+            context.getApplicationContext().registerReceiver(mTickReceiver,
+                    new IntentFilter(Intent.ACTION_TIME_TICK));
+        }
     }
 
     @Override
@@ -119,5 +133,12 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         if (D) Log.d(TAG, "Cleaning up: Clearing all pending alarms");
         ClockWidgetService.cancelUpdates(context);
         WeatherUpdateService.cancelUpdates(context);
+
+        // Stop the broadcast receiver on API 16 devices
+        if (!WidgetUtils.isTextClockAvailable() && mTickReceiver != null) {
+            if (D) Log.d(TAG, "Cleaning up: Unregistering the tick receiver");
+            context.getApplicationContext().unregisterReceiver(mTickReceiver);
+            mTickReceiver = null;
+        }
     }
 }

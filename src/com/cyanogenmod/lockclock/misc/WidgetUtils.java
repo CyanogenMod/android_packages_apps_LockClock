@@ -30,7 +30,11 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Bitmap.Config;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
+import android.util.Log;
 import android.util.TypedValue;
 
 import com.cyanogenmod.lockclock.R;
@@ -39,6 +43,9 @@ public class WidgetUtils {
     //===============================================================================================
     // Widget display and resizing related functionality
     //===============================================================================================
+    private static final String TAG = "WidgetUtils";
+    private static boolean D = Constants.DEBUG;
+
     /**
      *  Load a resource by Id and overlay with a specified color
      */
@@ -169,5 +176,26 @@ public class WidgetUtils {
             }
         }
         return getDefaultClockIntent(context);
+    }
+
+    /**
+     *  API level check to see if the new API 17 TextClock is available 
+     */
+    public static boolean isTextClockAvailable(){
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1;
+    }
+
+    /**
+     *  Return the currently displayed time format (true if 12 hour)
+     */
+    public static boolean is12HourTime(Context context){
+        try {
+            int timeFormat = Settings.System.getInt(context.getContentResolver(),
+                    Settings.System.TIME_12_24);
+            return timeFormat != 24;
+        } catch (SettingNotFoundException ignored) {
+            if (D) Log.d(TAG, "Error loading settings value");
+        }
+        return false;
     }
 }
