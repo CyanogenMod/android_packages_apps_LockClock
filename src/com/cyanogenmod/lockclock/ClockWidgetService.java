@@ -16,6 +16,10 @@
 
 package com.cyanogenmod.lockclock;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import android.app.AlarmManager;
 import android.app.IntentService;
 import android.app.PendingIntent;
@@ -39,8 +43,6 @@ import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
-import java.util.Date;
-import java.util.Locale;
 
 public class ClockWidgetService extends IntentService {
     private static final String TAG = "ClockWidgetService";
@@ -128,6 +130,11 @@ public class ClockWidgetService extends IntentService {
             // Always Refresh the Clock widget
             refreshClock(remoteViews, smallWidget, digitalClock);
             refreshAlarmStatus(remoteViews, smallWidget);
+            
+            //Refresh the time, if using TextView Clock
+            if(!WidgetUtils.isTextClockAvailable()){
+            	refreshTime(remoteViews, smallWidget);
+            }
 
             // Don't bother with Calendar if its not visible
             if (showCalendar) {
@@ -167,7 +174,7 @@ public class ClockWidgetService extends IntentService {
         // Analog or Digital clock
         if (digitalClock) {
             // Hours/Minutes is specific to Digital, set it's size
-            refreshClockFont(clockViews);
+            refreshClockFont(clockViews, smallWidget);
             clockViews.setViewVisibility(R.id.digital_clock, View.VISIBLE);
             clockViews.setViewVisibility(R.id.analog_clock, View.GONE);
         } else {
@@ -185,9 +192,59 @@ public class ClockWidgetService extends IntentService {
             clockViews.setOnClickPendingIntent(R.id.clock_panel, pi);
         }
     }
+    
+    private String getTimeFormat()
+	{
+    	String output;
+    	boolean is12HourTime = WidgetUtils.is12HourTime(getContentResolver());
+    	
+ 		if(is12HourTime){
+			output = "h"; // 12 hour Java time format
+ 		}else {
+			output = "HH"; //  24 hour Java time format
+ 		}
+		return output;
+	}
+    
+    private void refreshTime(RemoteViews clockViews, boolean smallWidget){
+    	Locale locale = Locale.getDefault();
+		Date now = new Date();
+		String timeFormat = getTimeFormat();
+		String hourStr = timeFormat;
+		String dateFormat = getString(R.string.abbrev_wday_month_day_no_year);
+    	CharSequence date = DateFormat.format(dateFormat, now);
+		String hours = new SimpleDateFormat(hourStr, locale).format(now);
+		String minutes = new SimpleDateFormat(":mm", locale).format(now);
 
-    private void refreshClockFont(RemoteViews clockViews) {
+		// Hours
+        if (Preferences.useBoldFontForHours(this)) {
+            clockViews.setTextViewText(R.id.clock1_bold, hours);
+        } else {
+            clockViews.setTextViewText(R.id.clock1_regular, hours);
+        }
+
+        // Minutes
+        if (Preferences.useBoldFontForMinutes(this)) {
+            clockViews.setTextViewText(R.id.clock2_bold, minutes);
+        } else {
+            clockViews.setTextViewText(R.id.clock2_regular, minutes);
+        }
+    	 	
+        // Date and Alarm font
+        if (!smallWidget) {
+            if (Preferences.useBoldFontForDateAndAlarms(this)) {
+                clockViews.setTextViewText(R.id.date_bold, date);           
+            } else {
+                clockViews.setTextViewText(R.id.date_regular, date);
+            }
+        } else {
+            clockViews.setTextViewText(R.id.date, date);           
+        } 	
+    }
+    
+    private void refreshClockFont(RemoteViews clockViews, boolean smallWidget) {
         int color = Preferences.clockFontColor(this);
+        String amPM = new SimpleDateFormat("a", Locale.getDefault()).format(new Date());
 
         // Hours
         if (Preferences.useBoldFontForHours(this)) {
@@ -209,6 +266,16 @@ public class ClockWidgetService extends IntentService {
             clockViews.setViewVisibility(R.id.clock2_regular, View.VISIBLE);
             clockViews.setViewVisibility(R.id.clock2_bold, View.GONE);
             clockViews.setTextColor(R.id.clock2_regular, color);
+        }
+        
+      //Show the AM/PM indicator
+        if(WidgetUtils.is12HourTime(getContentResolver()) 
+        		&& Preferences.showAmPmIndicator(this)){
+        	clockViews.setViewVisibility(R.id.clock_ampm, View.VISIBLE);
+        	clockViews.setTextViewText(R.id.clock_ampm, amPM);
+        	clockViews.setTextColor(R.id.clock_ampm, color);
+        }else{
+        	clockViews.setViewVisibility(R.id.clock_ampm, View.GONE);
         }
     }
 

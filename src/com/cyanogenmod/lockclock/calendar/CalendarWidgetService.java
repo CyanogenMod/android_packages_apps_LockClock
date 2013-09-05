@@ -261,7 +261,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
         // all day events are stored in UTC, that is why we need to fetch events after 'later'
         Uri uri = Uri.withAppendedPath(CalendarContract.Instances.CONTENT_URI,
                 String.format("%d/%d", now - DAY_IN_MILLIS, later + DAY_IN_MILLIS));
-        Cursor cursor = cursor = context.getContentResolver().query(uri, projection,
+        Cursor cursor = context.getContentResolver().query(uri, projection,
                 where.toString(), null, CalendarContract.Instances.BEGIN + " ASC");
 
         if (cursor != null) {

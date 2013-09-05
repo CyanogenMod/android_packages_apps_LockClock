@@ -1,154 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The Android Open Source Project
-     Copyright (C) 2013 The CyanogenMod Project (DvTonder)
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-
-<!-- digital clock for the digital widget -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:layout_gravity="center"
+    android:background="?android:selectableItemBackground"
     android:baselineAligned="false"
-    android:background="?android:attr/selectableItemBackground" >
+    android:orientation="vertical" >
 
-    <!-- 'Loading widget ...' indicator -->
-    <!-- This is so that something shows on the screen when the phone is booted
-         until all the views are populated and the widget is ready to display -->
     <TextView
         android:id="@+id/loading_indicator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/clock_white"
         style="@style/label_thin"
-        android:padding="8dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/loading_indicator" />
+        android:padding="8.0dip"
+        android:text="@string/loading_indicator"
+        android:textColor="@color/clock_white" />
 
-    <!-- Analog clock -->
     <AnalogClock
         android:id="@+id/analog_clock"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:dial="@drawable/appwidget_clock_dial"
         android:hand_hour="@drawable/appwidget_clock_hour"
         android:hand_minute="@drawable/appwidget_clock_minute"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:visibility="gone" />
 
-    <!-- Digital clock -->
     <LinearLayout
         android:id="@+id/digital_clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
         android:baselineAligned="true"
-        android:layout_gravity="center_horizontal|top"
         android:visibility="gone" >
 
-        <!-- Hours -->
-        <TextClock
+        <TextView
             android:id="@+id/clock1_bold"
-            android:format12Hour="@string/widget_12_hours_format_h"
-            android:format24Hour="@string/widget_24_hours_format_h"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             style="@style/widget_big_bold"
-            android:textColor="@color/clock_white"
-            android:layout_gravity="center_horizontal|top" />
-        <TextClock
-            android:id="@+id/clock1_regular"
-            android:format12Hour="@string/widget_12_hours_format_h"
-            android:format24Hour="@string/widget_24_hours_format_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/widget_big_thin"
-            android:visibility="gone"
-            android:textColor="@color/clock_white"
-            android:layout_gravity="center_horizontal|top" />
+            android:layout_gravity="top|center"
+            android:textColor="@color/clock_white" />
 
-        <!-- Minutes -->
-        <TextClock
+        <TextView
+            android:id="@+id/clock1_regular"
+            style="@style/widget_big_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:textColor="@color/clock_white"
+            android:visibility="gone" />
+
+        <TextView
             android:id="@+id/clock2_regular"
-            android:format12Hour="@string/widget_12_hours_format_no_ampm_m"
-            android:format24Hour="@string/widget_24_hours_format_m"
+            style="@style/widget_big_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/widget_big_thin"
-            android:textColor="@color/clock_white"
-            android:layout_gravity="center_horizontal|top" />
-        <TextClock
+            android:layout_gravity="top|center"
+            android:textColor="@color/clock_white" />
+
+        <TextView
             android:id="@+id/clock2_bold"
-            android:format12Hour="@string/widget_12_hours_format_no_ampm_m"
-            android:format24Hour="@string/widget_24_hours_format_m"
+            style="@style/widget_big_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/widget_big_bold"
-            android:visibility="gone"
+            android:layout_gravity="top|center"
             android:textColor="@color/clock_white"
-            android:layout_gravity="center_horizontal|top" />
-        </LinearLayout>
+            android:visibility="gone" />
+        
+        <!-- AM/PM -->
+        <TextView
+            android:id="@+id/clock_ampm"
+            style="@style/label_thin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/clock_white"
+            android:visibility="gone" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/date_alarm"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:visibility="gone" >
 
-        <!-- Date -->
-        <TextClock android:id="@+id/date_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/clock_white"
-            android:format12Hour="@string/abbrev_wday_month_day_no_year"
-            android:format24Hour="@string/abbrev_wday_month_day_no_year"
+        <TextView
+            android:id="@+id/date_bold"
             style="@style/label_bold"
-            android:gravity="center" />
-        <TextClock android:id="@+id/date_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/clock_white"
-            android:format12Hour="@string/abbrev_wday_month_day_no_year"
-            android:format24Hour="@string/abbrev_wday_month_day_no_year"
-            style="@style/label_thin"
-            android:visibility="gone"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textColor="@color/clock_white" />
 
-        <!-- Alarm -->
-        <ImageView android:id="@+id/alarm_icon"
+        <TextView
+            android:id="@+id/date_regular"
+            style="@style/label_thin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="2dip"
+            android:gravity="center"
+            android:textColor="@color/clock_white"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/alarm_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8.0dip"
             android:drawableLeft="@drawable/ic_alarm_small"
-            android:layout_marginLeft="8dip"
+            android:drawablePadding="2.0dip"
             android:gravity="center"
             android:visibility="gone" />
-        <TextView android:id="@+id/nextAlarm_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/clock_gray"
+
+        <TextView
+            android:id="@+id/nextAlarm_bold"
             style="@style/alarm_label_bold"
-            android:layout_marginLeft="2dip"
-            android:gravity="center"
-            android:visibility="gone" />
-        <TextView android:id="@+id/nextAlarm_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/clock_gray"
-            style="@style/alarm_label_thin"
-            android:layout_marginLeft="4dip"
+            android:layout_marginLeft="2.0dip"
             android:gravity="center"
+            android:textColor="@color/clock_gray"
             android:visibility="gone" />
-        </LinearLayout>
+
+        <TextView
+            android:id="@+id/nextAlarm_regular"
+            style="@style/alarm_label_thin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4.0dip"
+            android:gravity="center"
+            android:textColor="@color/clock_gray"
+            android:visibility="gone" />
+    </LinearLayout>
+
 </LinearLayout>
