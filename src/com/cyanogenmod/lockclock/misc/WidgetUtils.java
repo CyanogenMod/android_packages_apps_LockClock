@@ -30,7 +30,10 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Bitmap.Config;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 import android.util.TypedValue;
 
 import com.cyanogenmod.lockclock.R;
@@ -169,5 +172,24 @@ public class WidgetUtils {
             }
         }
         return getDefaultClockIntent(context);
+    }
+
+    /**
+     *  API level check to see if the new API 17 TextClock is available 
+     */
+    public static boolean isTextClockAvailable(){
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1;
+    }
+
+    /**
+     *  Return the currently displayed time format (true if 12 hour)
+     */
+    public static boolean is12HourTime(Context context){
+        try {
+            return Settings.System.getInt(context.getContentResolver(),
+                    Settings.System.TIME_12_24) != 24;
+        } catch (SettingNotFoundException ignored) {
+        }
+        return false;
     }
 }
