@@ -39,6 +39,8 @@ import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
@@ -178,6 +180,10 @@ public class ClockWidgetService extends IntentService {
         // Date/Alarm is common to both clocks, set it's size
         refreshDateAlarmFont(clockViews, smallWidget);
 
+        if (!WidgetUtils.isTextClockAvailable()) {
+            refreshTimeAndDate(clockViews, smallWidget);
+        }
+
         // Register an onClickListener on Clock, starting DeskClock
         Intent i = WidgetUtils.getDefaultClockIntent(this);
         if (i != null) {
@@ -209,6 +215,51 @@ public class ClockWidgetService extends IntentService {
             clockViews.setViewVisibility(R.id.clock2_regular, View.VISIBLE);
             clockViews.setViewVisibility(R.id.clock2_bold, View.GONE);
             clockViews.setTextColor(R.id.clock2_regular, color);
+        }
+    }
+
+    private void refreshTimeAndDate(RemoteViews clockViews, boolean smallWidget) {
+        Date now = new Date();
+        String dateFormat = getString(R.string.abbrev_wday_month_day_no_year);
+        CharSequence date = DateFormat.format(dateFormat, now);
+
+        if (!smallWidget) {
+            if (Preferences.useBoldFontForDateAndAlarms(this)) {
+                clockViews.setTextViewText(R.id.date_bold, date);
+            } else {
+                clockViews.setTextViewText(R.id.date_regular, date);
+            }
+        } else {
+            clockViews.setTextViewText(R.id.date, date);
+        }
+
+        SimpleDateFormat timeFormat = (SimpleDateFormat) DateFormat.getTimeFormat(this);
+        String timePattern = timeFormat.toPattern();
+        // assumes that the time will always start with hours
+        String hourFormat = timePattern, minuteFormat = "";
+        for (int i = 0; i < timePattern.length(); i++) {
+            if (timePattern.charAt(i) != 'h' && timePattern.charAt(i) != 'H') {
+                // we found the end of the hour part
+                hourFormat = timePattern.substring(0, i);
+                minuteFormat = timePattern.substring(i);
+                break;
+            }
+        }
+
+        // Hours
+        CharSequence hours = new SimpleDateFormat(hourFormat).format(now);
+        if (Preferences.useBoldFontForHours(this)) {
+            clockViews.setTextViewText(R.id.clock1_bold, hours);
+        } else {
+            clockViews.setTextViewText(R.id.clock1_regular, hours);
+        }
+
+        // Minutes
+        CharSequence minutes = new SimpleDateFormat(minuteFormat).format(now);
+        if (Preferences.useBoldFontForMinutes(this)) {
+            clockViews.setTextViewText(R.id.clock2_bold, minutes);
+        } else {
+            clockViews.setTextViewText(R.id.clock2_regular, minutes);
         }
     }
 
