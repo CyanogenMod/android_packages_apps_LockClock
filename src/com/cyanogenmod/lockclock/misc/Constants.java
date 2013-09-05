@@ -31,6 +31,7 @@ public class Constants {
     public static final String CLOCK_SHOW_ALARM = "clock_show_alarm";
     public static final String CLOCK_FONT_COLOR = "clock_font_color";
     public static final String CLOCK_ALARM_FONT_COLOR = "clock_alarm_font_color";
+    public static final String CLOCK_AM_PM_INDICATOR = "clock_am_pm_indicator";
 
     public static final String SHOW_WEATHER = "show_weather";
     public static final String WEATHER_USE_CUSTOM_LOCATION = "weather_use_custom_location";
