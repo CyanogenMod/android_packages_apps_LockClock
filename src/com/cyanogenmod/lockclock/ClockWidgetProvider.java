@@ -18,10 +18,8 @@ package com.cyanogenmod.lockclock;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.util.Log;
 
@@ -32,9 +30,7 @@ import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 public class ClockWidgetProvider extends AppWidgetProvider {
     private static final String TAG = "ClockWidgetProvider";
     private static boolean D = Constants.DEBUG;
-    
-    BroadcastReceiver mTickReceiver = new TickReceiver();
-    
+        
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // Default handling, triggered via the super class
@@ -116,10 +112,9 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
         WeatherUpdateService.scheduleNextUpdate(context);
-        
-        //Only start the time tick receiver if we need it
-        if(!WidgetUtils.isTextClockAvailable()){  	
-        	context.getApplicationContext().registerReceiver(mTickReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
+        if(!WidgetUtils.isTextClockAvailable()) {
+        	ClockApplication application = (ClockApplication) context.getApplicationContext();       
+        	application.enableReceivers();
         }
     }
 
@@ -128,6 +123,10 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         if (D) Log.d(TAG, "Cleaning up: Clearing all pending alarms");
         ClockWidgetService.cancelUpdates(context);
         WeatherUpdateService.cancelUpdates(context);
+        if(!WidgetUtils.isTextClockAvailable()) {
+        	ClockApplication application = (ClockApplication) context.getApplicationContext();
+        	application.disableReceivers();
+        }
     }
     	    
 }

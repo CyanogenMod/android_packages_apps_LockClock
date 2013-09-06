@@ -18,4 +18,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="abbrev_wday_month_day_no_year">EEE, d \'de\' MMMM</string>
     <string name="full_wday_month_day_no_year">EEEE, d \'de\' MMMM</string>
+    <string name="twelve_hour_time_format">h:mm a</string>
+    <string name="twenty_four_hour_time_format">H\'h\'mm</string>
 </resources>

@@ -19,4 +19,6 @@
     <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
     <!-- Format for describing the date, for accessibility. -->
     <string name="full_wday_month_day_no_year">EEEE, MMMM d</string>
+    <string name="twelve_hour_time_format">h:mm a</string>
+    <string name="twenty_four_hour_time_format">HH:mm</string>
 </resources>
