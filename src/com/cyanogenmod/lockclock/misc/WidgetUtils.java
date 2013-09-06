@@ -19,22 +19,19 @@ package com.cyanogenmod.lockclock.misc;
 
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
-import android.graphics.Bitmap.Config;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
 import android.util.TypedValue;
 
 import com.cyanogenmod.lockclock.R;
@@ -177,14 +174,5 @@ public class WidgetUtils {
     
     public static boolean isTextClockAvailable(){
     	return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1;
-    }
-    
-    public static boolean is12HourTime(ContentResolver cr){
-    	try {
-			return Settings.System.getInt(cr , Settings.System.TIME_12_24) != 24;
-		} catch (SettingNotFoundException e) {
-			e.printStackTrace();
-		}
-		return false;
     }
 }
