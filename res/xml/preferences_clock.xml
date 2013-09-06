@@ -52,7 +52,7 @@
             android:key="clock_am_pm_indicator"
             android:title="@string/clock_am_pm_title"
             android:dependency="clock_digital"
-            android:defaultValue="true" />
+            android:defaultValue="true"/>
 
         <CheckBoxPreference
             android:key="clock_font_date"

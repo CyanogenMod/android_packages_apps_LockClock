@@ -133,7 +133,7 @@ public class ClockWidgetService extends IntentService {
             
             //Refresh the time, if using TextView Clock
             if(!WidgetUtils.isTextClockAvailable()){
-            	refreshTimeDate(remoteViews, smallWidget);
+            	refreshTime(remoteViews, smallWidget);
             }
 
             // Don't bother with Calendar if its not visible
@@ -192,22 +192,29 @@ public class ClockWidgetService extends IntentService {
             clockViews.setOnClickPendingIntent(R.id.clock_panel, pi);
         }
     }
-       
-    private void refreshTimeDate(RemoteViews clockViews, boolean smallWidget){
-    	ClockFormat clockFormat = new ClockFormat(this);
-    	Date now = new Date();
-    	Locale locale = Locale.getDefault();
+    
+    private String getTimeFormat()
+	{
+    	String output;
+    	boolean is12HourTime = WidgetUtils.is12HourTime(getContentResolver());
     	
-    	//Time
-        String hourStr = clockFormat.getHoursFormat();
-        String minuteStr = clockFormat.getMinutesFormat();
-        String separator = clockFormat.getSeparatorFormat();	
-		String hours = new SimpleDateFormat(hourStr, locale).format(now);
-		String minutes = new SimpleDateFormat(separator + minuteStr, locale).format(now);
-		
-		//Date
+ 		if(is12HourTime){
+			output = "h"; // 12 hour Java time format
+ 		}else {
+			output = "HH"; //  24 hour Java time format
+ 		}
+		return output;
+	}
+    
+    private void refreshTime(RemoteViews clockViews, boolean smallWidget){
+    	Locale locale = Locale.getDefault();
+		Date now = new Date();
+		String timeFormat = getTimeFormat();
+		String hourStr = timeFormat;
 		String dateFormat = getString(R.string.abbrev_wday_month_day_no_year);
     	CharSequence date = DateFormat.format(dateFormat, now);
+		String hours = new SimpleDateFormat(hourStr, locale).format(now);
+		String minutes = new SimpleDateFormat(":mm", locale).format(now);
 
 		// Hours
         if (Preferences.useBoldFontForHours(this)) {
@@ -223,7 +230,7 @@ public class ClockWidgetService extends IntentService {
             clockViews.setTextViewText(R.id.clock2_regular, minutes);
         }
     	 	
-        // Date and Alarm
+        // Date and Alarm font
         if (!smallWidget) {
             if (Preferences.useBoldFontForDateAndAlarms(this)) {
                 clockViews.setTextViewText(R.id.date_bold, date);           
@@ -262,7 +269,7 @@ public class ClockWidgetService extends IntentService {
         }
         
       //Show the AM/PM indicator
-        if(!DateFormat.is24HourFormat(this) 
+        if(WidgetUtils.is12HourTime(getContentResolver()) 
         		&& Preferences.showAmPmIndicator(this)){
         	clockViews.setViewVisibility(R.id.clock_ampm, View.VISIBLE);
         	clockViews.setTextViewText(R.id.clock_ampm, amPM);

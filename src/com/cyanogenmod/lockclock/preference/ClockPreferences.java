@@ -25,11 +25,11 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.text.format.DateFormat;
 
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.WidgetUtils;
 
 public class ClockPreferences extends PreferenceFragment implements
 OnSharedPreferenceChangeListener {
@@ -89,7 +89,7 @@ OnSharedPreferenceChangeListener {
 
 	private void hideAmPmToggle()
 	{
-		if(DateFormat.is24HourFormat(mContext)){
+		if(!WidgetUtils.is12HourTime(this.getActivity().getContentResolver())){
 			mAmPmToggle.setEnabled(false);
 		} else {
 			mAmPmToggle.setEnabled(true);
