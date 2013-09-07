@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+     Copyright (C) 2013 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- digital clock for the digital widget -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:baselineAligned="false"
+    android:background="?android:attr/selectableItemBackground" >
+
+    <!-- 'Loading widget ...' indicator -->
+    <!-- This is so that something shows on the screen when the phone is booted
+         until all the views are populated and the widget is ready to display -->
+    <TextView
+        android:id="@+id/loading_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/clock_white"
+        style="@style/label_thin"
+        android:padding="8dip"
+        android:gravity="center"
+        android:text="@string/loading_indicator" />
+
+    <!-- Analog clock -->
+    <AnalogClock
+        android:id="@+id/analog_clock"
+        android:dial="@drawable/appwidget_clock_dial"
+        android:hand_hour="@drawable/appwidget_clock_hour"
+        android:hand_minute="@drawable/appwidget_clock_minute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <!-- Digital clock -->
+    <LinearLayout
+        android:id="@+id/digital_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:layout_gravity="center_horizontal|top"
+        android:visibility="gone" >
+
+        <!-- Hours -->
+        <TextClock
+            android:id="@+id/clock1_bold"
+            android:format12Hour="@string/widget_12_hours_format_h"
+            android:format24Hour="@string/widget_24_hours_format_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/widget_big_bold"
+            android:textColor="@color/clock_white"
+            android:layout_gravity="center_horizontal|top" />
+        <TextClock
+            android:id="@+id/clock1_regular"
+            android:format12Hour="@string/widget_12_hours_format_h"
+            android:format24Hour="@string/widget_24_hours_format_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/widget_big_thin"
+            android:visibility="gone"
+            android:textColor="@color/clock_white"
+            android:layout_gravity="center_horizontal|top" />
+
+        <!-- Minutes -->
+        <TextClock
+            android:id="@+id/clock2_regular"
+            android:format12Hour="@string/widget_12_hours_format_no_ampm_m"
+            android:format24Hour="@string/widget_24_hours_format_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/widget_big_thin"
+            android:textColor="@color/clock_white"
+            android:layout_gravity="center_horizontal|top" />
+        <TextClock
+            android:id="@+id/clock2_bold"
+            android:format12Hour="@string/widget_12_hours_format_no_ampm_m"
+            android:format24Hour="@string/widget_24_hours_format_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/widget_big_bold"
+            android:visibility="gone"
+            android:textColor="@color/clock_white"
+            android:layout_gravity="center_horizontal|top" />
+        </LinearLayout>
+
+</LinearLayout>

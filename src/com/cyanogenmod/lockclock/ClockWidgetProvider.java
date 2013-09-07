@@ -22,13 +22,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.util.Log;
+
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
 public class ClockWidgetProvider extends AppWidgetProvider {
     private static final String TAG = "ClockWidgetProvider";
     private static boolean D = Constants.DEBUG;
-
+        
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // Default handling, triggered via the super class
@@ -72,14 +74,12 @@ public class ClockWidgetProvider extends AppWidgetProvider {
                 || Intent.ACTION_TIMEZONE_CHANGED.equals(action)
                 || Intent.ACTION_DATE_CHANGED.equals(action)
                 || Intent.ACTION_LOCALE_CHANGED.equals(action)
-                || Intent.ACTION_ALARM_CHANGED.equals(action)
+                || "android.intent.action.ALARM_CHANGED".equals(action)
                 || ClockWidgetService.ACTION_REFRESH_CALENDAR.equals(action)) {
             updateWidgets(context, true, false);
-
         // There are no events to show in the Calendar panel, hide it explicitly
         } else if (ClockWidgetService.ACTION_HIDE_CALENDAR.equals(action)) {
             updateWidgets(context, false, true);
-
         // Something we did not handle, let the super class deal with it.
         // This includes the REFRESH_CLOCK intent from Clock settings
         } else {
@@ -112,6 +112,10 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
         WeatherUpdateService.scheduleNextUpdate(context);
+        if(!WidgetUtils.isTextClockAvailable()) {
+        	ClockApplication application = (ClockApplication) context.getApplicationContext();       
+        	application.enableReceivers();
+        }
     }
 
     @Override
@@ -119,5 +123,10 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         if (D) Log.d(TAG, "Cleaning up: Clearing all pending alarms");
         ClockWidgetService.cancelUpdates(context);
         WeatherUpdateService.cancelUpdates(context);
+        if(!WidgetUtils.isTextClockAvailable()) {
+        	ClockApplication application = (ClockApplication) context.getApplicationContext();
+        	application.disableReceivers();
+        }
     }
+    	    
 }

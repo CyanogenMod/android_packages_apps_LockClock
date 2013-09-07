@@ -21,62 +21,78 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.text.format.DateFormat;
 
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.Constants;
 
 public class ClockPreferences extends PreferenceFragment implements
-    OnSharedPreferenceChangeListener {
+OnSharedPreferenceChangeListener {
 
-    private Context mContext;
-    private ListPreference mClockFontColor;
-    private ListPreference mAlarmFontColor;
+	private Context mContext;
+	private ListPreference mClockFontColor;
+	private ListPreference mAlarmFontColor;
+	private CheckBoxPreference mAmPmToggle;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
-        addPreferencesFromResource(R.xml.preferences_clock);
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
+		addPreferencesFromResource(R.xml.preferences_clock);
 
-        mContext = getActivity();
-        mClockFontColor = (ListPreference) findPreference(Constants.CLOCK_FONT_COLOR);
-        mAlarmFontColor = (ListPreference) findPreference(Constants.CLOCK_ALARM_FONT_COLOR);
-        updateFontColorsSummary();
-    }
+		mContext = getActivity();
+		mClockFontColor = (ListPreference) findPreference(Constants.CLOCK_FONT_COLOR);
+		mAlarmFontColor = (ListPreference) findPreference(Constants.CLOCK_ALARM_FONT_COLOR);
+		mAmPmToggle = (CheckBoxPreference) findPreference(Constants.CLOCK_APM_PM_INDICATOR);
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-    }
+		updateFontColorsSummary();
+		hideAmPmToggle();
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
-    }
+	}
 
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        Preference pref = findPreference(key);
-        if (pref instanceof ListPreference) {
-            ListPreference listPref = (ListPreference) pref;
-            pref.setSummary(listPref.getEntry());
-        }
-        Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
-        mContext.sendBroadcast(updateIntent);
-    }
+	@Override
+	public void onResume() {
+		super.onResume();
+		getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+	}
 
-    private void updateFontColorsSummary() {
-        if (mClockFontColor != null) {
-            mClockFontColor.setSummary(mClockFontColor.getEntry());
-        }
-        if (mAlarmFontColor != null) {
-            mAlarmFontColor.setSummary(mAlarmFontColor.getEntry());
-        }
-    }
+	@Override
+	public void onPause() {
+		super.onPause();
+		getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+	}
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+		Preference pref = findPreference(key);
+		if (pref instanceof ListPreference) {
+			ListPreference listPref = (ListPreference) pref;
+			pref.setSummary(listPref.getEntry());
+		}
+		Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
+		mContext.sendBroadcast(updateIntent);
+	}
+
+	private void updateFontColorsSummary() {
+		if (mClockFontColor != null) {
+			mClockFontColor.setSummary(mClockFontColor.getEntry());
+		}
+		if (mAlarmFontColor != null) {
+			mAlarmFontColor.setSummary(mAlarmFontColor.getEntry());
+		}
+	}
+
+	private void hideAmPmToggle()
+	{
+		if(DateFormat.is24HourFormat(mContext)){
+			mAmPmToggle.setEnabled(false);
+		} else {
+			mAmPmToggle.setEnabled(true);
+		}
+	}
 }
