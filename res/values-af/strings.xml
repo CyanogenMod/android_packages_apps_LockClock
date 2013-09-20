@@ -135,6 +135,7 @@
     <string name="calendar_reminders_only_title">Slegs herinnerings</string>
     <string name="calendar_reminders_only_summary">Wys net afsprake met gestelde herinnerings</string>
     <string name="calendar_hide_allday_title">Steek heeldag-afsprake weg</string>
+    <string name="calendar_icon_title">Kalender ikoon</string>
     <string name="calendar_lookahead_title">Afspraak vooruitkyktyd</string>
     <string name="calendar_show_location_title">Afspraak ligging</string>
     <string name="calendar_show_description_title">Afspraak beskrywing</string>
@@ -151,6 +152,7 @@
     <string name="calendar_lookahead_3hrs">3 ure</string>
     <string name="calendar_lookahead_6hrs">6 ure</string>
     <string name="calendar_lookahead_12hrs">12 ure</string>
+    <string name="calendar_lookahead_today">Vandag</string>
     <string name="calendar_lookahead_1day">1 dag</string>
     <string name="calendar_lookahead_3days">3 dae</string>
     <string name="calendar_lookahead_1wk">1 week</string>
