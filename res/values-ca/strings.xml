@@ -45,11 +45,11 @@
     <string name="weather_23">Borrascós</string>
     <string name="weather_24">Vent</string>
     <string name="weather_25">Fred</string>
-    <string name="weather_26">Ennubolat</string>
-    <string name="weather_27">Majorit. Ennubolat</string> <!-- Night -->
-    <string name="weather_28">Majorit. Ennubolat</string> <!-- Day -->
-    <string name="weather_29">Parcial. Ennubolat</string> <!-- Night -->
-    <string name="weather_30">Parcial. Ennubolat</string> <!-- Day -->
+    <string name="weather_26">Ennuvolat</string>
+    <string name="weather_27">Majorit. Ennuvolat</string> <!-- Night -->
+    <string name="weather_28">Majorit. Ennuvolat</string> <!-- Day -->
+    <string name="weather_29">Parcial. Ennuvolat</string> <!-- Night -->
+    <string name="weather_30">Parcial. Ennuvolat</string> <!-- Day -->
     <string name="weather_31">Cel serè</string> <!-- Night -->
     <string name="weather_32">Assolleat</string>
     <string name="weather_33">Bo</string> <!-- Night -->
@@ -63,7 +63,7 @@
     <string name="weather_41">Nevades intenses</string>
     <string name="weather_42">Nevades disperses</string>
     <string name="weather_43">Nevades intenses</string>
-    <string name="weather_44">Parcial. Ennubolat</string>
+    <string name="weather_44">Parcial. Ennuvolat</string>
     <string name="weather_45">Tempestes</string>
     <string name="weather_46">Nevades</string>
     <string name="weather_47">Tempestes aïllades</string>
