@@ -57,6 +57,10 @@ public class Preferences {
         return getPrefs(context).getBoolean(Constants.CLOCK_FONT_DATE, true);
     }
 
+    public static boolean showAmPmIndicator(Context context) {
+        return getPrefs(context).getBoolean(Constants.CLOCK_AM_PM_INDICATOR, false);
+    }
+
     public static int clockFontColor(Context context) {
         int color = Color.parseColor(getPrefs(context).getString(Constants.CLOCK_FONT_COLOR,
                 Constants.DEFAULT_LIGHT_COLOR));

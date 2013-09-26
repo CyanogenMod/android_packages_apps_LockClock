@@ -21,9 +21,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.text.format.DateFormat;
 
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.R;
@@ -35,6 +37,7 @@ public class ClockPreferences extends PreferenceFragment implements
     private Context mContext;
     private ListPreference mClockFontColor;
     private ListPreference mAlarmFontColor;
+    private CheckBoxPreference mAmPmToggle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +48,10 @@ public class ClockPreferences extends PreferenceFragment implements
         mContext = getActivity();
         mClockFontColor = (ListPreference) findPreference(Constants.CLOCK_FONT_COLOR);
         mAlarmFontColor = (ListPreference) findPreference(Constants.CLOCK_ALARM_FONT_COLOR);
+        mAmPmToggle = (CheckBoxPreference) findPreference(Constants.CLOCK_AM_PM_INDICATOR);
+
         updateFontColorsSummary();
+        updateAmPmToggle();
     }
 
     @Override
@@ -77,6 +83,14 @@ public class ClockPreferences extends PreferenceFragment implements
         }
         if (mAlarmFontColor != null) {
             mAlarmFontColor.setSummary(mAlarmFontColor.getEntry());
+        }
+    }
+
+    private void updateAmPmToggle() {
+        if (DateFormat.is24HourFormat(mContext)) {
+            mAmPmToggle.setEnabled(false);
+        } else {
+            mAmPmToggle.setEnabled(true);
         }
     }
 }
