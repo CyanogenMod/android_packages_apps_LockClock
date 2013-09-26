@@ -98,6 +98,7 @@
     <string name="clock_font_minutes_title">Minutes en gras</string>
     <string name="clock_font_date_title">Date et alarme en gras</string>
     <string name="show_alarm_title">Afficher la prochaine alarme</string>
+    <string name="clock_am_pm_title">Afficher l\'indicateur AM/PM</string>
     <string name="weather_enabled">Activer</string>
     <string name="weather_enable">Afficher la météo</string>
     <string name="weather_source">Yahoo! Météo</string>
