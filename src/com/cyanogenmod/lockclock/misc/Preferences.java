@@ -172,6 +172,14 @@ public class Preferences {
                 getPrefs(context).getString(Constants.WEATHER_DATA, null));
     }
 
+    public static String getCachedLocation(Context context) {
+        WeatherInfo weatherInfo = getCachedWeatherInfo(context);
+        if (weatherInfo != null) {
+            return weatherInfo.getCity();
+        }
+        return null;
+    }
+
     public static String getCachedWoeid(Context context) {
         return getPrefs(context).getString(Constants.WEATHER_WOEID, null);
     }

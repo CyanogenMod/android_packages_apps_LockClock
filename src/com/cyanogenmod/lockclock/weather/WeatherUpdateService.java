@@ -168,6 +168,12 @@ public class WeatherUpdateService extends Service {
             return location;
         }
 
+        private String getCachedLocation() {
+            String location = Preferences.getCachedLocation(mContext);
+            if (D) Log.v(TAG, "Last known location is " + location);
+            return location;
+        }
+
         private Document getDocument(String woeid) {
             boolean celcius = Preferences.useMetricUnits(mContext);
             String urlWithUnit = URL_YAHOO_API_WEATHER + (celcius ? "c" : "f");
@@ -196,6 +202,11 @@ public class WeatherUpdateService extends Service {
                 if (location != null) {
                     woeid = getWoeidForCurrentLocation(location);
                 } else {
+                    // work with cached location from last request for now
+                    customLocation = getCachedLocation();
+                    if (customLocation != null) {
+                        woeid = getWoeidForCustomLocation(customLocation);
+                    }
                     // If lastKnownLocation is not present because none of the apps in the
                     // device has requested the current location to the system yet,
                     // then try to get the current location use an non-accuracy/network provider.
