@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+<!--
+     Copyright (C) 2012 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,9 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources>
-
     <string name="unknown">Desconocido</string>
     <string name="cancel">Cancelar</string>
     <string name="loading_indicator">Cargando widget\u2026</string>
@@ -79,7 +78,7 @@
     <string name="weather_NW">NO</string>
     <string name="weather_no_data">Sin datos</string>
     <string name="weather_tap_to_refresh">Tocar para refrescar</string>
-    <string name="weather_refreshing">Actualizando\u2026</string>
+    <string name="weather_refreshing">Actualizando</string>
     <string name="weather_last_sync_just_now">Ahora</string>
     <string name="weather_refresh_manual">Manual</string>
     <string name="weather_refresh_30min">30 minutos</string>
@@ -99,9 +98,10 @@
     <string name="clock_font_minutes_title">Resaltar minutos</string>
     <string name="clock_font_date_title">Resaltar fecha y alarma</string>
     <string name="show_alarm_title">Mostrar alarma siguiente</string>
+    <string name="clock_am_pm_title">Mostrar indicador AM/PM</string>
     <string name="weather_enabled">Activado</string>
     <string name="weather_enable">Mostrar clima</string>
-    <string name="weather_source">Yahoo! Tiempo</string>
+    <string name="weather_source">Yahoo! El Tiempo</string>
     <string name="weather_use_custom_location">Usar ubicación personalizada</string>
     <string name="weather_geolocated">Geolocalización por red</string>
     <string name="weather_custom_location_dialog_title">Introducir ubicación</string>
@@ -123,8 +123,8 @@
     <string name="calendar_title">Mostrar próximo evento</string>
     <string name="calendars_title">Calendario de eventos</string>
     <string name="calendars_summary">Buscar eventos en los calendarios</string>
-    <string name="calendar_reminders_only_title">Sólo recordatorios</string>
-    <string name="calendar_reminders_only_summary">Mostrar sólo eventos con recordatorios</string>
+    <string name="calendar_reminders_only_title">Solo recordatorios</string>
+    <string name="calendar_reminders_only_summary">Mostrar solo eventos con recordatorios</string>
     <string name="calendar_hide_allday_title">Ocultar eventos \u00ABtodo el día\u00BB</string>
     <string name="calendar_icon_title">Mostrar icono</string>
     <string name="calendar_lookahead_title">Eventos futuros</string>
@@ -163,5 +163,4 @@
     <string name="holo_orange_light">Naranja claro</string>
     <string name="holo_orange_dark">Naranja oscuro</string>
     <string name="holo_blue_bright">Azul brillante</string>
-
 </resources>
