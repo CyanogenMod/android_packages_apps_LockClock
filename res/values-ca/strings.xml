@@ -78,7 +78,7 @@
     <string name="weather_NW">NW</string>
     <string name="weather_no_data">Sense dades</string>
     <string name="weather_tap_to_refresh">Pica per actualitzar</string>
-    <string name="weather_refreshing">Actualizant</string>
+    <string name="weather_refreshing">Actualitzant</string>
     <string name="weather_last_sync_just_now">Ara</string>
     <string name="weather_refresh_manual">Manual</string>
     <string name="weather_refresh_30min">30 minuts</string>
@@ -98,10 +98,11 @@
     <string name="clock_font_minutes_title">Minuts en negreta</string>
     <string name="clock_font_date_title">Data i alarma en negreta</string>
     <string name="show_alarm_title">Mostra la propera alarma</string>
+    <string name="clock_am_pm_title">Mostra l\'indicador AM/PM</string>
     <string name="weather_enabled">Activat</string>
     <string name="weather_enable">Mostra el temps</string>
     <string name="weather_source">Temps de Yahoo!</string>
-    <string name="weather_use_custom_location">Utilitza una ubicació personalitzada</string>
+    <string name="weather_use_custom_location">Utilitza una ubic. personalitzada</string>
     <string name="weather_geolocated">Geolocalitzat utilitzant la xarxa</string>
     <string name="weather_custom_location_dialog_title">Introdueix ubicació</string>
     <string name="weather_custom_location_hint">Ciutat, Estat/País</string>
@@ -109,11 +110,11 @@
     <string name="weather_show_location_title">Mostra ubicació</string>
     <string name="weather_show_timestamp_title">Mostra l\'hora</string>
     <string name="weather_refresh_interval">Interval d\'actualització</string>
-    <string name="weather_use_metric">Utilitza s. mètric</string>
+    <string name="weather_use_metric">Utilitza el sistema mètric</string>
     <string name="weather_retrieve_location_dialog_title">No es pot aconseguir la ubicació!</string>
     <string name="weather_retrieve_location_dialog_message">La geolocalització per xarxa està desactivada.\n\nEstableix una ubicació personalitzada o activa la ubicació per xarxa</string>
     <string name="weather_retrieve_location_dialog_enable_button">Activa</string>
-    <string name="weather_invert_lowhigh">Inverteix temperatures mín/màx</string>
+    <string name="weather_invert_lowhigh">Inverteix temp. mín/màx</string>
     <string name="weather_progress_title">Verificant ubicació</string>
     <string name="weather_alternate_icons_title">Utilitza icones de color</string>
     <string name="weather_alternate_icons_summary">Selecciona per commutar entre les icones predeterminades (Color) i l\'alternatives (Blanc)</string>
@@ -141,7 +142,7 @@
     <string name="calendar_lookahead_6hrs">6 hores</string>
     <string name="calendar_lookahead_12hrs">12 hores</string>
     <string name="calendar_lookahead_today">Avui</string>
-    <string name="calendar_lookahead_1day">1 dua</string>
+    <string name="calendar_lookahead_1day">1 dia</string>
     <string name="calendar_lookahead_3days">3 dies</string>
     <string name="calendar_lookahead_1wk">1 setmana</string>
     <string name="calendar_lookahead_2wks">2 setmanes</string>
