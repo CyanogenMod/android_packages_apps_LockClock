@@ -64,6 +64,7 @@ public class WeatherPreferences extends PreferenceFragment implements
     private EditTextPreference mCustomWeatherLoc;
     private ListPreference mFontColor;
     private ListPreference mTimestampFontColor;
+    private CheckBoxPreference mUseMetric;
 
     private Context mContext;
     private ContentResolver mResolver;
@@ -86,6 +87,8 @@ public class WeatherPreferences extends PreferenceFragment implements
         mFontColor = (ListPreference) findPreference(Constants.WEATHER_FONT_COLOR);
         mTimestampFontColor = (ListPreference) findPreference(Constants.WEATHER_TIMESTAMP_FONT_COLOR);
         updateFontColorsSummary();
+
+        mUseMetric = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_METRIC);
 
         // Show a warning if location manager is disabled and there is no custom location set
         if (!Settings.Secure.isLocationProviderEnabled(mResolver,
@@ -121,6 +124,12 @@ public class WeatherPreferences extends PreferenceFragment implements
 
         boolean needWeatherUpdate = false;
         boolean forceWeatherUpdate = false;
+
+        if (pref == mUseMetric) {
+            // The display format of the temperatures have changed
+            // Force a weather update to refresh the display
+            forceWeatherUpdate = true;
+        }
 
         for (String k : LOCATION_PREF_KEYS) {
             if (TextUtils.equals(key, k)) {
