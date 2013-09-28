@@ -299,7 +299,7 @@ public class ClockWidgetService extends IntentService {
     private String getHourFormat() {
         String format;
         if (DateFormat.is24HourFormat(this)) {
-            format = getString(R.string.widget_24_hours_format_h);
+            format = getString(R.string.widget_24_hours_format_h_api_16);
         } else {
             format = getString(R.string.widget_12_hours_format_h);
         }
