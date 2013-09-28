@@ -40,7 +40,6 @@ import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
@@ -195,13 +194,11 @@ public class ClockWidgetService extends IntentService {
 
     // API 16 TextView Clock support
     private void refreshTime(RemoteViews clockViews, boolean smallWidget) {
-        Locale locale = Locale.getDefault();
         Date now = new Date();
         String dateFormat = getString(R.string.abbrev_wday_month_day_no_year);
-        CharSequence date = DateFormat.format(dateFormat, now);
-        String hours = new SimpleDateFormat(getHourFormat(), locale).format(now);
-        String minutes = new SimpleDateFormat(getString(R.string.widget_12_hours_format_no_ampm_m),
-                locale).format(now);
+        CharSequence date = DateFormat.format(dateFormat, now);      
+		CharSequence hours = DateFormat.format(getHourFormat(), now);
+		CharSequence minutes = DateFormat.format(getString(R.string.widget_12_hours_format_no_ampm_m), now);
 
         // Hours
         if (Preferences.useBoldFontForHours(this)) {
@@ -231,7 +228,8 @@ public class ClockWidgetService extends IntentService {
 
     private void refreshClockFont(RemoteViews clockViews, boolean smallWidget) {
         int color = Preferences.clockFontColor(this);
-        String amPM = new SimpleDateFormat("a", Locale.getDefault()).format(new Date());
+        Date now = new Date();
+        CharSequence amPM = DateFormat.format("a", now);
 
         // Hours
         if (Preferences.useBoldFontForHours(this)) {
