@@ -97,6 +97,7 @@
     <string name="clock_font_minutes_title">Έντονα λεπτά</string>
     <string name="clock_font_date_title">Έντονη ημερομηνία και ξυπνητήρι</string>
     <string name="show_alarm_title">Εμφάνιση επόμενου ξυπνητηριού</string>
+    <string name="clock_am_pm_title">Εμφάνιση ένδειξης ΠΜ/ΜΜ</string>
     <string name="weather_enabled">Ενεργό</string>
     <string name="weather_enable">Εμφάνιση καιρού</string>
     <string name="weather_source">Καιρός Yahoo!</string>
