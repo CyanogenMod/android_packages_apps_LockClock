@@ -98,6 +98,7 @@
     <string name="clock_font_minutes_title">Minuti in grassetto</string>
     <string name="clock_font_date_title">Data e sveglia in grassetto</string>
     <string name="show_alarm_title">Visualizza la prossima sveglia</string>
+    <string name="clock_am_pm_title">Mostra l\'indicatore AM/PM</string>
     <string name="weather_enabled">Attivo</string>
     <string name="weather_enable">Visualizza meteo</string>
     <string name="weather_source">Yahoo! Meteo</string>
