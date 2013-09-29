@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+<!--
+     Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,14 +16,10 @@
 -->
 
 <resources>
-
-    <!-- General strings -->
     <string name="unknown">Unbekannt</string>
     <string name="cancel">Abbrechen</string>
     <string name="loading_indicator">Widget wird geladen\u2026</string>
     <string name="menu_done">Fertig</string>
-
-    <!-- Lock screen Weather - Weather codes -->
     <string name="weather_0">Tornado</string>
     <string name="weather_1">Tropensturm</string>
     <string name="weather_2">Hurrikan</string>
@@ -50,14 +47,14 @@
     <string name="weather_24">Windig</string>
     <string name="weather_25">Kalt</string>
     <string name="weather_26">Bedeckt</string>
-    <string name="weather_27">Stark bewölkt</string> <!-- Night -->
-    <string name="weather_28">Stark bewölkt</string> <!-- Day -->
-    <string name="weather_29">Teilweise bewölkt</string> <!-- Night -->
-    <string name="weather_30">Teilweise bewölkt</string> <!-- Day -->
-    <string name="weather_31">Klar</string> <!-- Night -->
+    <string name="weather_27">Stark bewölkt</string>
+    <string name="weather_28">Stark bewölkt</string>
+    <string name="weather_29">Teilweise bewölkt</string>
+    <string name="weather_30">Teilweise bewölkt</string>
+    <string name="weather_31">Klar</string>
     <string name="weather_32">Sonnig</string>
-    <string name="weather_33">Heiter</string> <!-- Night -->
-    <string name="weather_34">Heiter</string> <!-- Day -->
+    <string name="weather_33">Heiter</string>
+    <string name="weather_34">Heiter</string>
     <string name="weather_35">Wechselnd Regen und Hagel</string>
     <string name="weather_36">Heiß</string>
     <string name="weather_37">Örtliche Gewitter</string>
@@ -71,10 +68,7 @@
     <string name="weather_45">Gewitterschauer</string>
     <string name="weather_46">Schneeschauer</string>
     <string name="weather_47">Örtliche Gewitterschauer</string>
-    <!-- Forecast unavailable -->
     <string name="weather_3200"></string>
-
-    <!-- Lock screen Weather - Wind directions -->
     <string name="weather_N">N</string>
     <string name="weather_NE">NO</string>
     <string name="weather_E">O</string>
@@ -83,14 +77,10 @@
     <string name="weather_SW">SW</string>
     <string name="weather_W">W</string>
     <string name="weather_NW">NW</string>
-
-    <!-- Weather - error messages -->
     <string name="weather_no_data">Keine Daten</string>
     <string name="weather_tap_to_refresh">Zum Aktualisieren berühren</string>
     <string name="weather_refreshing">Aktualisiere\u2026</string>
     <string name="weather_last_sync_just_now">Gerade jetzt</string>
-
-    <!-- Lock screen Weather - Update frequency -->
     <string name="weather_refresh_manual">Manuell</string>
     <string name="weather_refresh_30min">30 Minuten</string>
     <string name="weather_refresh_60min">60 Minuten</string>
@@ -98,25 +88,18 @@
     <string name="weather_refresh_4hrs">4 Stunden</string>
     <string name="weather_refresh_6hrs">6 Stunden</string>
     <string name="weather_refresh_8hrs">8 Stunden</string>
-
-    <!-- Preferences - Categories -->
     <string name="clock_category">Uhrzeit und Alarme</string>
     <string name="weather_category">Wetter</string>
     <string name="calendar_category">Kalender</string>
-
-    <!-- Preferences - Categories -->
     <string name="general_category">Allgemein</string>
     <string name="display_category">Anzeige</string>
-
-    <!-- Preferences - Clock -->
     <string name="use_digital_clock_title">Digitaluhr verwenden</string>
     <string name="use_digital_clock_summary">Digitaluhr an Stelle der Analoguhr verwenden.</string>
     <string name="clock_font_title">Stunden in Fettschrift</string>
     <string name="clock_font_minutes_title">Minuten in Fettschrift</string>
     <string name="clock_font_date_title">Datum und Alarm in Fettschrift</string>
     <string name="show_alarm_title">Nächsten Alarm anzeigen</string>
-
-    <!-- Preferences - Weather -->
+    <string name="clock_am_pm_title">Vorm./Nachm. anzeigen</string>
     <string name="weather_enabled">Aktiviert</string>
     <string name="weather_enable">Wetter anzeigen</string>
     <string name="weather_source">Yahoo! Wetter</string>
@@ -138,8 +121,6 @@
     <string name="weather_alternate_icons_summary">Die farbigen Standardicons anstelle der alternativen, weißen Icons verwenden</string>
     <string name="weather_show_when_minimized_title">Minimierte Anzeige</string>
     <string name="weather_show_when_minimized_summary">Wetterinformationen anzeigen, wenn das Widget minimiert ist</string>
-
-    <!-- Preferences - Calendar -->
     <string name="calendar_title">Nächsten Termin anzeigen</string>
     <string name="calendars_title">Kalender</string>
     <string name="calendars_summary">Termine aus diesen Kalendern anzeigen</string>
@@ -154,14 +135,10 @@
     <string name="calendar_highlight_upcoming_events_title">Hervorheben</string>
     <string name="calendar_highlight_upcoming_events_summary">Demnächst stattfindende Termine hervorheben</string>
     <string name="calendar_highlight_upcoming_events_bold">Fettschrift</string>
-
-    <!-- Preferences - Font colors -->
     <string name="font_color">Textfarbe</string>
     <string name="font_color_alarm">Farbe des Alarms</string>
     <string name="font_color_timestamp">Farbe der Aktualisierungszeit</string>
     <string name="font_color_calendar_details">Farbe der Details</string>
-
-     <!-- Lock screen calendar - lookahead -->
     <string name="calendar_lookahead_3hrs">3 Stunden</string>
     <string name="calendar_lookahead_6hrs">6 Stunden</string>
     <string name="calendar_lookahead_12hrs">12 Stunden</string>
@@ -171,13 +148,9 @@
     <string name="calendar_lookahead_1wk">1 Woche</string>
     <string name="calendar_lookahead_2wks">2 Wochen</string>
     <string name="calendar_lookahead_4wks">4 Wochen</string>
-
-    <!-- Lock screen calendar - event metadata -->
     <string name="calendar_metadata_none">Nicht anzeigen</string>
     <string name="calendar_metadata_first_line">Nur die erste Zeile anzeigen</string>
     <string name="calendar_metadata_all">Alles anzeigen</string>
-
-    <!-- Font colors -->
     <string name="white">Weiß</string>
     <string name="grey">Grau</string>
     <string name="black">Schwarz</string>
@@ -191,5 +164,4 @@
     <string name="holo_orange_light">Helles Orange</string>
     <string name="holo_orange_dark">Dunkles Orange</string>
     <string name="holo_blue_bright">Leuchtendes Blau</string>
-
 </resources>
