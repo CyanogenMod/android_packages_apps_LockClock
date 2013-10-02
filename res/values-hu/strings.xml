@@ -115,6 +115,7 @@
     <string name="clock_font_minutes_title">Percek félkövérrel</string>
     <string name="clock_font_date_title">Dátum és ébresztés félkövérrel</string>
     <string name="show_alarm_title">Következő ébresztés megjelenítése</string>
+    <string name="clock_am_pm_title">Napszak (De/Du) megjelenítése</string>
 
     <!-- Preferences - Weather -->
     <string name="weather_enabled">Engedélyezve</string>
