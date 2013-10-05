@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+<!--
+     Copyright (C) 2012-2013 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -97,6 +98,7 @@
     <string name="clock_font_minutes_title">Minuten vetgedrukt</string>
     <string name="clock_font_date_title">Alarm/datum vetgedrukt</string>
     <string name="show_alarm_title">Volgend alarm tonen</string>
+    <string name="clock_am_pm_title">AM/PM weergeven</string>
     <string name="weather_enabled">Ingeschakeld</string>
     <string name="weather_enable">Weer tonen</string>
     <string name="weather_source">Yahoo! Weer</string>
