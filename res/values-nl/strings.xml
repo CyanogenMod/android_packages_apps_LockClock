@@ -97,6 +97,7 @@
     <string name="clock_font_minutes_title">Minuten vetgedrukt</string>
     <string name="clock_font_date_title">Alarm/datum vetgedrukt</string>
     <string name="show_alarm_title">Volgend alarm tonen</string>
+    <string name="clock_am_pm_title">12-uurs tijdsnotatie</string>
     <string name="weather_enabled">Ingeschakeld</string>
     <string name="weather_enable">Weer tonen</string>
     <string name="weather_source">Yahoo! Weer</string>
