@@ -150,8 +150,16 @@ public class Preferences {
         return getPrefs(context).getBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, false);
     }
 
-    public static String customWeatherLocation(Context context) {
-        return getPrefs(context).getString(Constants.WEATHER_CUSTOM_LOCATION_STRING, null);
+    public static String customWeatherLocationId(Context context) {
+        return getPrefs(context).getString(Constants.WEATHER_CUSTOM_LOCATION_ID, null);
+    }
+
+    public static void setCustomWeatherLocationId(Context context, String id) {
+        getPrefs(context).edit().putString(Constants.WEATHER_CUSTOM_LOCATION_ID, id).apply();
+    }
+
+    public static String customWeatherLocationCity(Context context) {
+        return getPrefs(context).getString(Constants.WEATHER_CUSTOM_LOCATION_CITY, null);
     }
 
     public static void setCachedWeatherInfo(Context context, long timestamp, WeatherInfo data) {
@@ -172,12 +180,12 @@ public class Preferences {
                 getPrefs(context).getString(Constants.WEATHER_DATA, null));
     }
 
-    public static String getCachedWoeid(Context context) {
-        return getPrefs(context).getString(Constants.WEATHER_WOEID, null);
+    public static String getCachedLocationId(Context context) {
+        return getPrefs(context).getString(Constants.WEATHER_LOCATION_ID, null);
     }
 
-    public static void setCachedWoeid(Context context, String woeid) {
-        getPrefs(context).edit().putString(Constants.WEATHER_WOEID, woeid).apply();
+    public static void setCachedLocationId(Context context, String id) {
+        getPrefs(context).edit().putString(Constants.WEATHER_LOCATION_ID, id).apply();
     }
 
     public static Set<String> calendarsToDisplay(Context context) {

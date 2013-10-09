@@ -43,7 +43,7 @@
             android:defaultValue="false" />
 
         <EditTextPreference
-            android:key="weather_custom_location_string"
+            android:key="weather_custom_location_city"
             android:dependency="weather_use_custom_location"
             android:dialogTitle="@string/weather_custom_location_dialog_title"
             android:hint="@string/weather_custom_location_hint"
