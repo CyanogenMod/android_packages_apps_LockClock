@@ -38,16 +38,11 @@ import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.Preferences;
 
-import java.io.IOException;
 import java.util.Date;
-
-import org.w3c.dom.Document;
 
 public class WeatherUpdateService extends Service {
     private static final String TAG = "WeatherUpdateService";
     private static final boolean D = Constants.DEBUG;
-
-    private static final String URL_YAHOO_API_WEATHER = "http://weather.yahooapis.com/forecastrss?w=%s&u=";
 
     public static final String ACTION_FORCE_UPDATE = "com.cyanogenmod.lockclock.action.FORCE_WEATHER_UPDATE";
 
@@ -140,27 +135,6 @@ public class WeatherUpdateService extends Service {
             mWakeLock.acquire();
         }
 
-        private String getWoeidForCustomLocation(String location) {
-            // first try with the cached woeid, no need to constantly query constant information
-            String woeid = Preferences.getCachedWoeid(mContext);
-            if (woeid == null) {
-                woeid = YahooPlaceFinder.geoCode(mContext, location);
-            }
-            if (D) Log.v(TAG, "Yahoo location code for " + location + " is " + woeid);
-            return woeid;
-        }
-
-        private String getWoeidForCurrentLocation(Location location) {
-            String woeid = YahooPlaceFinder.reverseGeoCode(mContext,
-                    location.getLatitude(), location.getLongitude());
-            if (woeid == null) {
-                // we couldn't fetch up-to-date information, fall back to cache
-                woeid = Preferences.getCachedWoeid(mContext);
-            }
-            if (D) Log.v(TAG, "Yahoo location code for current geolocation " + location + " is " + woeid);
-            return woeid;
-        }
-
         private Location getCurrentLocation() {
             LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             Location location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
@@ -168,63 +142,38 @@ public class WeatherUpdateService extends Service {
             return location;
         }
 
-        private String getCachedLocation() {
-            WeatherInfo weatherInfo = Preferences.getCachedWeatherInfo(mContext);
-            String location = (weatherInfo != null) ? weatherInfo.getCity() : null;
-            if (D) Log.v(TAG, "Last known, cached location is " + location);
-            return location;
-        }
-
-        private Document getDocument(String woeid) {
-            boolean celcius = Preferences.useMetricUnits(mContext);
-            String urlWithUnit = URL_YAHOO_API_WEATHER + (celcius ? "c" : "f");
-
-            try {
-                return new HttpRetriever().getDocumentFromURL(String.format(urlWithUnit, woeid));
-            } catch (IOException e) {
-                Log.e(TAG, "Couldn't fetch weather data", e);
-            }
-            return null;
-        }
-
         @Override
         protected WeatherInfo doInBackground(Void... params) {
-            String customLocation = null;
-            String woeid = null;
+            WeatherProvider provider = new YahooWeatherProvider(mContext);
+            String customLocationId = null, customLocationName = null;
 
             if (Preferences.useCustomWeatherLocation(mContext)) {
-                customLocation = Preferences.customWeatherLocation(mContext);
+                customLocationId = Preferences.customWeatherLocationId(mContext);
+                customLocationName = Preferences.customWeatherLocationCity(mContext);
             }
 
-            if (customLocation != null) {
-                woeid = getWoeidForCustomLocation(customLocation);
-            } else {
-                Location location = getCurrentLocation();
-                if (location != null) {
-                    woeid = getWoeidForCurrentLocation(location);
-                } else {
-                    // work with cached location from last request for now
-                    customLocation = getCachedLocation();
-                    if (customLocation != null) {
-                        woeid = getWoeidForCustomLocation(customLocation);
-                    }
-                    // If lastKnownLocation is not present because none of the apps in the
-                    // device has requested the current location to the system yet,
-                    // then try to get the current location use an non-accuracy/network provider.
-                    WeatherLocationListener.registerIfNeeded(mContext, LocationManager.NETWORK_PROVIDER);
+            if (customLocationId != null) {
+                return provider.getWeatherInfo(customLocationId, customLocationName);
+            }
+
+            Location location = getCurrentLocation();
+            if (location != null) {
+                WeatherInfo info = provider.getWeatherInfo(location);
+                if (info != null) {
+                    return info;
                 }
             }
-
-            if (woeid == null || isCancelled()) {
-                return null;
+            // work with cached location from last request for now
+            WeatherInfo cachedInfo = Preferences.getCachedWeatherInfo(mContext);
+            if (cachedInfo != null) {
+                return provider.getWeatherInfo(cachedInfo.getId(), cachedInfo.getCity());
             }
+            // If lastKnownLocation is not present because none of the apps in the
+            // device has requested the current location to the system yet,
+            // then try to get the current location use an non-accuracy/network provider.
+            WeatherLocationListener.registerIfNeeded(mContext, LocationManager.NETWORK_PROVIDER);
 
-            Document doc = getDocument(woeid);
-            if (doc == null || isCancelled()) {
-                return null;
-            }
-
-            return new WeatherXmlParser(mContext).parseWeatherResponse(doc);
+            return null;
         }
 
         @Override

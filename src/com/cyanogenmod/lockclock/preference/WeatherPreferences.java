@@ -45,7 +45,10 @@ import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
-import com.cyanogenmod.lockclock.weather.YahooPlaceFinder;
+import com.cyanogenmod.lockclock.weather.WeatherProvider.LocationResult;
+import com.cyanogenmod.lockclock.weather.YahooWeatherProvider;
+
+import java.util.List;
 
 public class WeatherPreferences extends PreferenceFragment implements
         OnPreferenceClickListener, OnSharedPreferenceChangeListener {
@@ -53,7 +56,7 @@ public class WeatherPreferences extends PreferenceFragment implements
 
     private static final String[] LOCATION_PREF_KEYS = new String[] {
         Constants.WEATHER_USE_CUSTOM_LOCATION,
-        Constants.WEATHER_CUSTOM_LOCATION_STRING
+        Constants.WEATHER_CUSTOM_LOCATION_CITY
     };
     private static final String[] WEATHER_REFRESH_KEYS = new String[] {
         Constants.SHOW_WEATHER,
@@ -80,7 +83,7 @@ public class WeatherPreferences extends PreferenceFragment implements
         // Load items that need custom summaries etc.
         mUseCustomLoc = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
         mUseCustomLoc.setOnPreferenceClickListener(this);
-        mCustomWeatherLoc = (EditTextPreference) findPreference(Constants.WEATHER_CUSTOM_LOCATION_STRING);
+        mCustomWeatherLoc = (EditTextPreference) findPreference(Constants.WEATHER_CUSTOM_LOCATION_CITY);
         mCustomWeatherLoc.setOnPreferenceClickListener(this);
         updateLocationSummary();
 
@@ -133,8 +136,8 @@ public class WeatherPreferences extends PreferenceFragment implements
 
         for (String k : LOCATION_PREF_KEYS) {
             if (TextUtils.equals(key, k)) {
-                // location pref has changed -> clear out woeid cache
-                Preferences.setCachedWoeid(mContext, null);
+                // location pref has changed -> clear out location id cache
+                Preferences.setCachedLocationId(mContext, null);
                 forceWeatherUpdate = true;
                 break;
             }
@@ -167,14 +170,14 @@ public class WeatherPreferences extends PreferenceFragment implements
     @Override
     public boolean onPreferenceClick(Preference preference) {
         if (preference == mCustomWeatherLoc) {
-            String location = com.cyanogenmod.lockclock.misc.Preferences.customWeatherLocation(mContext);
+            String location = Preferences.customWeatherLocationCity(mContext);
             if (location != null) {
                 mCustomWeatherLoc.getEditText().setText(location);
                 mCustomWeatherLoc.getEditText().setSelection(location.length());
             }
 
-            mCustomWeatherLoc.getDialog().findViewById(android.R.id.button1)
-            .setOnClickListener(new View.OnClickListener() {
+            final View okButton = mCustomWeatherLoc.getDialog().findViewById(android.R.id.button1);
+            okButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     final ProgressDialog d = new ProgressDialog(mContext);
@@ -185,21 +188,83 @@ public class WeatherPreferences extends PreferenceFragment implements
                     final String location = mCustomWeatherLoc.getEditText().getText().toString();
                     final WeatherLocationTask task = new WeatherLocationTask() {
                         @Override
-                        protected void onPostExecute(String woeid) {
-                            if (woeid == null) {
+                        protected void onPostExecute(final List<LocationResult> results) {
+                            if (results == null || results.isEmpty()) {
                                 Toast.makeText(mContext,
                                         mContext.getString(R.string.weather_retrieve_location_dialog_title),
                                         Toast.LENGTH_SHORT)
                                     .show();
+                            } else if (results.size() > 1) {
+                                handleResultDisambiguation(results);
                             } else {
-                                mCustomWeatherLoc.setText(location);
-                                mCustomWeatherLoc.setSummary(location);
-                                mCustomWeatherLoc.getDialog().dismiss();
+                                applyLocation(results.get(0));
                             }
                             d.dismiss();
                         }
                     };
                     task.execute(location);
+                }
+
+                private void handleResultDisambiguation(final List<LocationResult> results) {
+                    CharSequence[] items = buildItemList(results);
+                    new AlertDialog.Builder(mContext)
+                            .setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    applyLocation(results.get(which));
+                                    dialog.dismiss();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .setTitle(R.string.weather_select_location)
+                            .show();
+                }
+
+                private CharSequence[] buildItemList(List<LocationResult> results) {
+                    boolean needCountry = false, needPostal = false;
+                    String countryId = results.get(0).countryId;
+                    String postalCity = null, postalCountryId = null;
+
+                    for (LocationResult result : results) {
+                        if (!TextUtils.equals(result.countryId, countryId)) {
+                            needCountry = true;
+                        }
+                        if (TextUtils.equals(result.city, postalCity)
+                                && TextUtils.equals(result.countryId, postalCountryId)) {
+                            needPostal = true;
+                        }
+                        if (postalCity == null) {
+                            postalCity = result.city;
+                            postalCountryId = result.countryId;
+                        }
+                        if (needPostal && needCountry) {
+                            break;
+                        }
+                    }
+
+                    int count = results.size();
+                    CharSequence[] items = new CharSequence[count];
+                    for (int i = 0; i < count; i++) {
+                        LocationResult result = results.get(i);
+                        StringBuilder builder = new StringBuilder();
+                        if (needPostal && result.postal != null) {
+                            builder.append(result.postal).append(" ");
+                        }
+                        builder.append(result.city);
+                        if (needCountry) {
+                            String country = result.country != null
+                                ? result.country : result.countryId;
+                            builder.append(" (").append(country).append(")");
+                        }
+                        items[i] = builder.toString();
+                    }
+                    return items;
+                }
+                private void applyLocation(final LocationResult result) {
+                    Preferences.setCustomWeatherLocationId(mContext, result.id);
+                    mCustomWeatherLoc.setText(result.city);
+                    mCustomWeatherLoc.setSummary(result.city);
+                    mCustomWeatherLoc.getDialog().dismiss();
                 }
             });
             return true;
@@ -211,24 +276,22 @@ public class WeatherPreferences extends PreferenceFragment implements
     // Utility classes and supporting methods
     //===============================================================================================
 
-    private class WeatherLocationTask extends AsyncTask<String, Void, String> {
+    private class WeatherLocationTask extends AsyncTask<String, Void, List<LocationResult>> {
         @Override
-        protected String doInBackground(String... input) {
-            String woeid = null;
-
+        protected List<LocationResult> doInBackground(String... input) {
             try {
-                woeid = YahooPlaceFinder.geoCode(mContext, input[0]);
+                return new YahooWeatherProvider(mContext).getLocations(input[0]);
             } catch (Exception e) {
                 Log.e(TAG, "Could not resolve location", e);
             }
 
-            return woeid;
+            return null;
         }
     }
 
     private void updateLocationSummary() {
         if (mUseCustomLoc.isChecked()) {
-            String location = com.cyanogenmod.lockclock.misc.Preferences.customWeatherLocation(mContext);
+            String location = Preferences.customWeatherLocationCity(mContext);
             if (location == null) {
                 location = getResources().getString(R.string.unknown);
             }
