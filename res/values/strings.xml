@@ -152,6 +152,7 @@
     <string name="weather_alternate_icons_summary">Select to toggle between the default (Color) and the alternate (White) icons</string>
     <string name="weather_show_when_minimized_title">Show when minimized</string>
     <string name="weather_show_when_minimized_summary">Display summary weather information when the widget is minimized</string>
+    <string name="weather_select_location">Select location</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Display next event</string>
