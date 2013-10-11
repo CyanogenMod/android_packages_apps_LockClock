@@ -21,6 +21,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -32,6 +33,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
@@ -50,6 +52,14 @@ public class WeatherUpdateService extends Service {
     public static final String ACTION_FORCE_UPDATE = "com.cyanogenmod.lockclock.action.FORCE_WEATHER_UPDATE";
 
     private WeatherUpdateTask mTask;
+
+    private static final Criteria sLocationCriteria;
+    static {
+        sLocationCriteria = new Criteria();
+        sLocationCriteria.setPowerRequirement(Criteria.POWER_LOW);
+        sLocationCriteria.setAccuracy(Criteria.ACCURACY_COARSE);
+        sLocationCriteria.setCostAllowed(false);
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -128,6 +138,7 @@ public class WeatherUpdateService extends Service {
         private Context mContext;
 
         public WeatherUpdateTask() {
+            if (D) Log.d(TAG, "Starting weather update task");
             PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
             mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
             mContext = WeatherUpdateService.this;
@@ -135,6 +146,7 @@ public class WeatherUpdateService extends Service {
 
         @Override
         protected void onPreExecute() {
+            if (D) Log.d(TAG, "ACQUIRING WAKELOCK");
             mWakeLock.acquire();
         }
 
@@ -172,9 +184,16 @@ public class WeatherUpdateService extends Service {
                 return provider.getWeatherInfo(cachedInfo.getId(), cachedInfo.getCity());
             }
             // If lastKnownLocation is not present because none of the apps in the
-            // device has requested the current location to the system yet,
-            // then try to get the current location use an non-accuracy/network provider.
-            WeatherLocationListener.registerIfNeeded(mContext, LocationManager.NETWORK_PROVIDER);
+            // device has requested the current location to the system yet, then try to
+            // get the current location use the provider that best matches the criteria.
+            if (D) Log.d(TAG, "Getting best location provider");
+            LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            String locationProvider = lm.getBestProvider(sLocationCriteria, true);
+            if (TextUtils.isEmpty(locationProvider)) {
+                Log.e(TAG, "No available location providers matching criteria.");
+            } else {
+                WeatherLocationListener.registerIfNeeded(mContext, locationProvider);
+            }
 
             return null;
         }
@@ -191,6 +210,7 @@ public class WeatherUpdateService extends Service {
 
         private void finish(WeatherInfo result) {
             if (result != null) {
+                if (D) Log.d(TAG, "Valid weather update received, caching data and upddating widget");
                 long now = System.currentTimeMillis();
                 Preferences.setCachedWeatherInfo(mContext, now, result);
                 scheduleUpdate(mContext, Preferences.weatherRefreshIntervalInMs(mContext), false);
@@ -198,14 +218,16 @@ public class WeatherUpdateService extends Service {
                 Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
                 sendBroadcast(updateIntent);
             } else if (isCancelled()) {
-                /* cancelled, likely due to lost network - we'll get restarted
-                 * when network comes back */
+                // cancelled, likely due to lost network - we'll get restarted
+                // when network comes back
             } else {
-                /* failure, schedule next download in 30 minutes */
+                // failure, schedule next download in 30 minutes
+                if (D) Log.d(TAG, "Weather refresh failed, scheduling update in 30 minutes");
                 long interval = 30 * 60 * 1000;
                 scheduleUpdate(mContext, interval, false);
             }
 
+            if (D) Log.d(TAG, "RELEASING WAKELOCK");
             mWakeLock.release();
             stopSelf();
         }
@@ -217,6 +239,7 @@ public class WeatherUpdateService extends Service {
 
         static void registerIfNeeded(Context context, String provider) {
             synchronized (WeatherLocationListener.class) {
+                if (D) Log.d(TAG, "Registering location listener");
                 if (sInstance == null) {
                     final Context realContext = context.getApplicationContext();
                     final LocationManager locationManager =
@@ -231,6 +254,7 @@ public class WeatherUpdateService extends Service {
                     // change this if this call receive differents providers
                     LocationProvider lp = locationManager.getProvider(provider);
                     if (lp != null) {
+                        if (D) Log.d(TAG, "LocationManager - Requesting single update");
                         locationManager.requestSingleUpdate(provider, sInstance, realContext.getMainLooper());
                     }
                 }
@@ -245,6 +269,7 @@ public class WeatherUpdateService extends Service {
         @Override
         public void onLocationChanged(Location location) {
             // Now, we have a location to use. Schedule a weather update right now.
+            if (D) Log.d(TAG, "The location has changed, schedule an update ");
             synchronized (WeatherLocationListener.class) {
                 WeatherUpdateService.scheduleUpdate(mContext, 0, true);
                 sInstance = null;
@@ -271,7 +296,7 @@ public class WeatherUpdateService extends Service {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         long due = System.currentTimeMillis() + timeFromNow;
 
-        if (D) Log.v(TAG, "Scheduling next update at " + new Date(due));
+        if (D) Log.d(TAG, "Scheduling next update at " + new Date(due));
         am.set(AlarmManager.RTC_WAKEUP, due, getUpdateIntent(context, force));
     }
 
