@@ -88,6 +88,9 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
     }
 
     private SpannableString getSpannableString(String text, boolean bold) {
+        if (text == null) {
+            return null;
+        }
         SpannableString spanText = new SpannableString(text);
         if (bold) {
             spanText.setSpan(new StyleSpan(Typeface.BOLD), 0, text.length(), 0);
