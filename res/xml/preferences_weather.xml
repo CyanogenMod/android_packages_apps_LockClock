@@ -42,7 +42,7 @@
             android:title="@string/weather_use_custom_location"
             android:defaultValue="false" />
 
-        <EditTextPreference
+        <com.cyanogenmod.lockclock.preference.CustomLocationPreference
             android:key="weather_custom_location_city"
             android:dependency="weather_use_custom_location"
             android:dialogTitle="@string/weather_custom_location_dialog_title"
