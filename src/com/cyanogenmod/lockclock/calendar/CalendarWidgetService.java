@@ -119,7 +119,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
 
     @Override
     public RemoteViews getViewAt(int position) {
-        if (0 > position || mCalendarInfo.getEvents().size() < position) {
+        if (position < 0 || position >= mCalendarInfo.getEvents().size()) {
             return null;
         }
 
