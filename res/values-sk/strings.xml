@@ -75,7 +75,7 @@
     <string name="weather_W">Z</string>
     <string name="weather_NW">SZ</string>
     <string name="weather_no_data">Žiadne údaje</string>
-    <string name="weather_tap_to_refresh">Ťuknutím obnovíte</string>
+    <string name="weather_tap_to_refresh">Kliknutím obnovte</string>
     <string name="weather_refreshing">Obnovuje sa</string>
     <string name="weather_last_sync_just_now">Práve teraz</string>
     <string name="weather_refresh_manual">Ručne</string>
@@ -96,6 +96,7 @@
     <string name="clock_font_minutes_title">Minúty tučným písmom</string>
     <string name="clock_font_date_title">Dátum a budík tučným písmom</string>
     <string name="show_alarm_title">Zobraziť nasledujúci budík</string>
+    <string name="clock_am_pm_title">Zobraziť indikátor AM/PM</string>
     <string name="weather_enabled">Povolené</string>
     <string name="weather_enable">Zobraziť počasie</string>
     <string name="weather_source">Počasie Yahoo!</string>
