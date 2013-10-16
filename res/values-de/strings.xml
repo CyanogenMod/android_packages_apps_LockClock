@@ -121,6 +121,7 @@
     <string name="weather_alternate_icons_summary">Die farbigen Standardicons anstelle der alternativen, weißen Icons verwenden</string>
     <string name="weather_show_when_minimized_title">Minimierte Anzeige</string>
     <string name="weather_show_when_minimized_summary">Wetterinformationen anzeigen, wenn das Widget minimiert ist</string>
+    <string name="weather_select_location">Standort auswählen</string>
     <string name="calendar_title">Nächsten Termin anzeigen</string>
     <string name="calendars_title">Kalender</string>
     <string name="calendars_summary">Termine aus diesen Kalendern anzeigen</string>
