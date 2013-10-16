@@ -120,6 +120,7 @@
     <string name="weather_alternate_icons_summary">Usar iconos en color en vez de los predeterminados en blanco</string>
     <string name="weather_show_when_minimized_title">Mostrar al minimizar</string>
     <string name="weather_show_when_minimized_summary">Mostrar la información climática cuando el widget esté minimizado</string>
+    <string name="weather_select_location">Seleccionar ubicación</string>
     <string name="calendar_title">Mostrar próximo evento</string>
     <string name="calendars_title">Calendario de eventos</string>
     <string name="calendars_summary">Buscar eventos en los calendarios</string>
