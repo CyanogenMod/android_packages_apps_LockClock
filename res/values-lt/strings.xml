@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="unknown">Nežinoma</string>
+    <string name="cancel">Atšaukti</string>
+    <string name="loading_indicator">Įkeliamas valdiklis\u2026</string>
+    <string name="menu_done">Atlikta</string>
+    <string name="weather_0">Tornadas</string>
+    <string name="weather_1">Tropinė audra</string>
+    <string name="weather_2">Uraganas</string>
+    <string name="weather_3">Stipri perkūnija</string>
+    <string name="weather_4">Perkūnija</string>
+    <string name="weather_5">Lietus ir sniegas</string>
+    <string name="weather_6">Sniegas su lietumi</string>
+    <string name="weather_7">Sniegas su lietumi</string>
+    <string name="weather_8">Šalta dulksna</string>
+    <string name="weather_9">Dulksna</string>
+    <string name="weather_10">Šaltas lietus</string>
+    <string name="weather_11">Liūtys</string>
+    <string name="weather_12">Liūtys</string>
+    <string name="weather_13">Sniego šuorai</string>
+    <string name="weather_14">Nedidelės pūgos</string>
+    <string name="weather_15">Pustymas</string>
+    <string name="weather_16">Sniegas</string>
+    <string name="weather_17">Kruša</string>
+    <string name="weather_18">Šlapdriba</string>
+    <string name="weather_19">Dulkės</string>
+    <string name="weather_20">Ūkanota</string>
+    <string name="weather_21">Rūkas</string>
+    <string name="weather_22">Dūmuota</string>
+    <string name="weather_23">Audringas</string>
+    <string name="weather_24">Vėjuota</string>
+    <string name="weather_25">Šaltis</string>
+    <string name="weather_26">Debesuota</string>
+    <string name="weather_27">Daugiausiai debesuota</string>
+    <string name="weather_28">Daugiausiai debesuota</string>
+    <string name="weather_29">Šiek tiek debesuota</string>
+    <string name="weather_30">Šiek tiek debesuota</string>
+    <string name="weather_31">Giedra</string>
+    <string name="weather_32">Saulėta</string>
+    <string name="weather_33">Gražus</string>
+    <string name="weather_34">Gražus</string>
+    <string name="weather_35">Sniegas su lietumi</string>
+    <string name="weather_36">Karštas</string>
+    <string name="weather_37">Izoliuota perkūnija</string>
+    <string name="weather_38">Išsiskirsčiusi perkūnija</string>
+    <string name="weather_39">Išsiskirsčiusi perkūnija</string>
+    <string name="weather_40">Išsiskirsčiusios liūtys</string>
+    <string name="weather_41">Stiprus sniegas</string>
+    <string name="weather_42">Išsiskirsčiusios sniego pūgos</string>
+    <string name="weather_43">Stiprus sniegas</string>
+    <string name="weather_44">Šiek tiek debesuota</string>
+    <string name="weather_45">Liūtys su perkūnija</string>
+    <string name="weather_46">Sniego pūgos</string>
+    <string name="weather_47">Izoliuotos liūtys su perkūnija</string>
+    <string name="weather_N">Š</string>
+    <string name="weather_NE">ŠR</string>
+    <string name="weather_E">R</string>
+    <string name="weather_SE">PR</string>
+    <string name="weather_S">P</string>
+    <string name="weather_SW">PV</string>
+    <string name="weather_W">V</string>
+    <string name="weather_NW">ŠV</string>
+    <string name="weather_no_data">Nėra duomenų</string>
+    <string name="weather_tap_to_refresh">Palieskite, kad atnaujinti</string>
+    <string name="weather_refreshing">Atnaujinama</string>
+    <string name="weather_last_sync_just_now">Ką tik</string>
+    <string name="weather_refresh_manual">Rankiniu būdu</string>
+    <string name="weather_refresh_30min">30 minučių</string>
+    <string name="weather_refresh_60min">60 minučių</string>
+    <string name="weather_refresh_2hrs">2 valandos</string>
+    <string name="weather_refresh_4hrs">4 valandos</string>
+    <string name="weather_refresh_6hrs">6 valandos</string>
+    <string name="weather_refresh_8hrs">8 valandos</string>
+    <string name="clock_category">Laikrodis ir žadintuvas</string>
+    <string name="weather_category">Orų skydelis</string>
+    <string name="calendar_category">Kalendoriaus įvykiai</string>
+    <string name="general_category">Bendri</string>
+    <string name="display_category">Rodymas</string>
+    <string name="use_digital_clock_title">Naudoti skaitmeninį laikrodį</string>
+    <string name="use_digital_clock_summary">Pasirinkite, kad perjungti tarp skaitmeninio ir analoginio laikrodžių</string>
+    <string name="clock_font_title">Pusjuodės valandos</string>
+    <string name="clock_font_minutes_title">Pusjuodės minutės</string>
+    <string name="clock_font_date_title">Pusjuodžiai data ir žadintuvas</string>
+    <string name="show_alarm_title">Rodyti kitą žadintuvo laiką</string>
+    <string name="clock_am_pm_title">Rodyti AM/PM indikatorių</string>
+    <string name="weather_enabled">Įjungta</string>
+    <string name="weather_enable">Rodyti orus</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Naudoti savitą vietovę</string>
+    <string name="weather_geolocated">Nustatyta naudojant tinklą</string>
+    <string name="weather_custom_location_dialog_title">Įveskite vietovę</string>
+    <string name="weather_custom_location_hint">Miestas, Valstija/Šalis</string>
+    <string name="weather_custom_location_title">Vietovė</string>
+    <string name="weather_show_location_title">Rodyti vietovę</string>
+    <string name="weather_show_timestamp_title">Rodyti laiko žymę</string>
+    <string name="weather_refresh_interval">Atnaujinimo intervalas</string>
+    <string name="weather_use_metric">Naudoti metrinę sistemą</string>
+    <string name="weather_retrieve_location_dialog_title">Nepavyksta nustatyti vietovės!</string>
+    <string name="weather_retrieve_location_dialog_message">Tinklo geolokacija išjungta.\n\nNustatykite savitą vietovę, arba junkite tinklo vietovę</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Įjungti</string>
+    <string name="weather_invert_lowhigh">Sukeisti žema/aukšta temperatūras</string>
+    <string name="weather_progress_title">Tikrinama vietovė</string>
+    <string name="weather_alternate_icons_title">Naudoti spalvotas piktogramas</string>
+    <string name="weather_alternate_icons_summary">Pasirinkite, kad perjungti tarp numatytų (Spalvotų) ir alternatyvių (Baltų) piktogramų</string>
+    <string name="weather_show_when_minimized_title">Rodyti kai sumažinta</string>
+    <string name="weather_show_when_minimized_summary">Rodyti orų informacijos suvestinę, kai valdiklis yra sumažintas</string>
+    <string name="weather_select_location">Pažymėti vietovę</string>
+    <string name="calendar_title">Rodyti kitą įvykį</string>
+    <string name="calendars_title">Įvykių kalendoriai</string>
+    <string name="calendars_summary">Rasti įvykius iš šių kalendorių</string>
+    <string name="calendar_reminders_only_title">Tik priminimai</string>
+    <string name="calendar_reminders_only_summary">Rodyti tik įvykius su priminimais</string>
+    <string name="calendar_hide_allday_title">Slėpti visos dienos įvykius</string>
+    <string name="calendar_icon_title">Kalendoriaus piktograma</string>
+    <string name="calendar_lookahead_title">Ateities įvykių rodymas</string>
+    <string name="calendar_show_location_title">Įvykio vieta</string>
+    <string name="calendar_show_description_title">Įvykio aprašymas</string>
+    <string name="calendar_upcoming_events_category">Artėjantys įvykiai</string>
+    <string name="calendar_highlight_upcoming_events_title">Paryškinti įvykius</string>
+    <string name="calendar_highlight_upcoming_events_summary">Paryškinti šios dienos įvykius, po 8 valandos vakaro, kitos dienos įvykius</string>
+    <string name="calendar_highlight_upcoming_events_bold">Pusjuodis šriftas</string>
+    <string name="font_color">Šrifto spalva</string>
+    <string name="font_color_alarm">Žadintuvo šrifto spalva</string>
+    <string name="font_color_timestamp">Laiko žymės šrifto spalva</string>
+    <string name="font_color_calendar_details">Informacijos šrifto spalva</string>
+    <string name="calendar_lookahead_3hrs">3 valandos</string>
+    <string name="calendar_lookahead_6hrs">6 valandos</string>
+    <string name="calendar_lookahead_12hrs">12 valandų</string>
+    <string name="calendar_lookahead_today">Šiandien</string>
+    <string name="calendar_lookahead_1day">1 diena</string>
+    <string name="calendar_lookahead_3days">3 dienos</string>
+    <string name="calendar_lookahead_1wk">1 savaitė</string>
+    <string name="calendar_lookahead_2wks">2 savaitės</string>
+    <string name="calendar_lookahead_4wks">4 savaitės</string>
+    <string name="calendar_metadata_none">Nerodyti</string>
+    <string name="calendar_metadata_first_line">Rodyti pirmąją eilutę</string>
+    <string name="calendar_metadata_all">Rodyti viską</string>
+    <string name="white">Balta</string>
+    <string name="grey">Pilka</string>
+    <string name="black">Juoda</string>
+    <string name="holo_blue_light">Žydra</string>
+    <string name="holo_green_light">Šviesiai žalia</string>
+    <string name="holo_red_light">Šviesiai raudona</string>
+    <string name="holo_blue_dark">Tamsiai mėlyna</string>
+    <string name="holo_green_dark">Tamsiai žalia</string>
+    <string name="holo_red_dark">Tamsiai raudona</string>
+    <string name="holo_purple">Violetinė</string>
+    <string name="holo_orange_light">Šviesi oranžinė</string>
+    <string name="holo_orange_dark">Tamsi oranžinė</string>
+    <string name="holo_blue_bright">Šviesiai mėlyna</string>
+</resources>
