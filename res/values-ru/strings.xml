@@ -126,6 +126,7 @@
     <string name="weather_alternate_icons_summary">Выбор между иконками по умолчанию (цветные) или альтернативными (белые)</string>
     <string name="weather_show_when_minimized_title">Показывать всегда</string>
     <string name="weather_show_when_minimized_summary">Отображать погоду, когда виджет в свёрнутом состоянии</string>
+    <string name="weather_select_location">Выберите местоположение</string>
 
     <string name="calendar_title">Показывать события</string>
     <string name="calendars_title">События календарей</string>
