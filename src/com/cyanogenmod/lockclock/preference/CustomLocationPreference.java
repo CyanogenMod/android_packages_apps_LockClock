@@ -36,6 +36,7 @@ import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.weather.WeatherProvider.LocationResult;
 import com.cyanogenmod.lockclock.weather.YahooWeatherProvider;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class CustomLocationPreference extends EditTextPreference {
@@ -153,20 +154,17 @@ public class CustomLocationPreference extends EditTextPreference {
         private CharSequence[] buildItemList(List<LocationResult> results) {
             boolean needCountry = false, needPostal = false;
             String countryId = results.get(0).countryId;
-            String postalCity = null, postalCountryId = null;
+            HashSet<String> postalIds = new HashSet<String>();
 
             for (LocationResult result : results) {
                 if (!TextUtils.equals(result.countryId, countryId)) {
                     needCountry = true;
                 }
-                if (TextUtils.equals(result.city, postalCity)
-                        && TextUtils.equals(result.countryId, postalCountryId)) {
+                String postalId = result.countryId + "##" + result.city;
+                if (postalIds.contains(postalId)) {
                     needPostal = true;
                 }
-                if (postalCity == null) {
-                    postalCity = result.city;
-                    postalCountryId = result.countryId;
-                }
+                postalIds.add(postalId);
                 if (needPostal && needCountry) {
                     break;
                 }

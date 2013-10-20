@@ -66,7 +66,7 @@ public class YahooWeatherProvider implements WeatherProvider {
         ArrayList<LocationResult> results = new ArrayList<LocationResult>();
         for (int i = 0; i < places.length(); i++) {
             try {
-                LocationResult result = parsePlace(places.getJSONObject(i), true);
+                LocationResult result = parsePlace(places.getJSONObject(i));
                 if (result != null) {
                     results.add(result);
                 }
@@ -137,7 +137,7 @@ public class YahooWeatherProvider implements WeatherProvider {
         for (int i = 0; i < places.length(); i++) {
             LocationResult result = null;
             try {
-                result = parsePlace(places.getJSONObject(i), false);
+                result = parsePlace(places.getJSONObject(i));
             } catch (JSONException e) {
                 Log.w(TAG, "Found invalid JSON place record, ignoring.", e);
             }
@@ -156,8 +156,7 @@ public class YahooWeatherProvider implements WeatherProvider {
         return null;
     }
 
-    private LocationResult parsePlace(JSONObject place, boolean requireFullDataSet)
-            throws JSONException {
+    private LocationResult parsePlace(JSONObject place) throws JSONException {
         LocationResult result = new LocationResult();
         JSONObject country = place.getJSONObject("country");
 
@@ -175,10 +174,7 @@ public class YahooWeatherProvider implements WeatherProvider {
             }
         }
 
-        if (result.id == null || result.city == null) {
-            return null;
-        }
-        if (requireFullDataSet && (result.countryId == null || result.postal == null)) {
+        if (result.id == null || result.city == null || result.countryId == null) {
             return null;
         }
 
@@ -194,7 +190,13 @@ public class YahooWeatherProvider implements WeatherProvider {
         try {
             JSONObject rootObject = new JSONObject(response);
             JSONObject results = rootObject.getJSONObject("query").getJSONObject("results");
-            return results.getJSONArray("place");
+            JSONArray places = results.optJSONArray("place");
+            if (places == null) {
+                // Yahoo returns an object instead of an array when there's only one result
+                places = new JSONArray();
+                places.put(results.getJSONObject("place"));
+            }
+            return places;
         } catch (JSONException e) {
             Log.w(TAG, "Received malformed places data", e);
         }
