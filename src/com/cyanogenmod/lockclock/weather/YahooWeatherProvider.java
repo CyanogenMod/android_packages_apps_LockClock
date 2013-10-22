@@ -28,6 +28,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,6 +46,21 @@ public class YahooWeatherProvider implements WeatherProvider {
 
     private static final String[] LOCALITY_NAMES = new String[] {
         "locality2", "locality1", "admin3", "admin2", "admin1"
+    };
+
+    private static class YahooLocationResult extends LocationResult {
+        private int score;
+    };
+    private static final Comparator<YahooLocationResult> LOCATION_COMPARATOR =
+            new Comparator<YahooLocationResult>() {
+        @Override
+        public int compare(YahooLocationResult lhs, YahooLocationResult rhs) {
+            if (lhs.score == rhs.score) {
+                return 0;
+            }
+            // smaller score at the top
+            return lhs.score < rhs.score ? -1 : 1;
+        }
     };
 
     private Context mContext;
@@ -63,19 +80,7 @@ public class YahooWeatherProvider implements WeatherProvider {
             return null;
         }
 
-        ArrayList<LocationResult> results = new ArrayList<LocationResult>();
-        for (int i = 0; i < places.length(); i++) {
-            try {
-                LocationResult result = parsePlace(places.getJSONObject(i));
-                if (result != null) {
-                    results.add(result);
-                }
-            } catch (JSONException e) {
-                Log.w(TAG, "Found invalid JSON place record, ignoring.", e);
-            }
-        }
-
-        return results;
+        return new ArrayList<LocationResult>(parsePlaces(places));
     }
 
     public WeatherInfo getWeatherInfo(String id, String localizedCityName) {
@@ -134,30 +139,46 @@ public class YahooWeatherProvider implements WeatherProvider {
             return null;
         }
 
-        for (int i = 0; i < places.length(); i++) {
-            LocationResult result = null;
-            try {
-                result = parsePlace(places.getJSONObject(i));
-            } catch (JSONException e) {
-                Log.w(TAG, "Found invalid JSON place record, ignoring.", e);
-            }
-            if (result != null) {
-                Log.d(TAG, "Looking up weather for " + result.city + " (" + result.id + ")");
-                WeatherInfo info = getWeatherInfo(result.id, result.city);
-                if (info != null) {
-                    // cache the result for potential reuse
-                    // (the placefinder service API is rate limited)
-                    Preferences.setCachedLocationId(mContext, result.id);
-                    return info;
-                }
+        List<YahooLocationResult> results = parsePlaces(places);
+        Collections.sort(results, LOCATION_COMPARATOR);
+
+        for (YahooLocationResult result : results) {
+            Log.d(TAG, "Looking up weather for " + result.city + " (id=" + result.id
+                    + ", score=" + result.score + ")");
+            WeatherInfo info = getWeatherInfo(result.id, result.city);
+            if (info != null) {
+                // cache the result for potential reuse
+                // (the placefinder service API is rate limited)
+                Preferences.setCachedLocationId(mContext, result.id);
+                return info;
             }
         }
 
         return null;
     }
 
-    private LocationResult parsePlace(JSONObject place) throws JSONException {
-        LocationResult result = new LocationResult();
+    private List<YahooLocationResult> parsePlaces(JSONArray places) {
+        ArrayList<YahooLocationResult> results = new ArrayList<YahooLocationResult>();
+        for (int i = 0; i < places.length(); i++) {
+            try {
+                YahooLocationResult result = parsePlace(places.getJSONObject(i));
+                if (result != null) {
+                    results.add(result);
+                }
+            } catch (JSONException e) {
+                Log.w(TAG, "Found invalid JSON place record, ignoring.", e);
+            }
+        }
+        return results;
+    }
+
+    private YahooLocationResult parsePlace(JSONObject place) throws JSONException {
+        if (place.isNull("country")) {
+            // ignore time zone places
+            return null;
+        }
+
+        YahooLocationResult result = new YahooLocationResult();
         JSONObject country = place.getJSONObject("country");
 
         result.id = place.getString("woeid");
@@ -167,9 +188,11 @@ public class YahooWeatherProvider implements WeatherProvider {
             result.postal = place.getJSONObject("postal").getString("content");
         }
 
-        for (String locName : LOCALITY_NAMES) {
+        for (int i = 0; i < LOCALITY_NAMES.length; i++) {
+            String locName = LOCALITY_NAMES[i];
             if (!place.isNull(locName)) {
                 result.city = place.getJSONObject(locName).getString("content");
+                result.score = i;
                 break;
             }
         }
