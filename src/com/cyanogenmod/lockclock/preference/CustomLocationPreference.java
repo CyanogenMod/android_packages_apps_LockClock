@@ -26,7 +26,6 @@ import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -40,8 +39,6 @@ import java.util.HashSet;
 import java.util.List;
 
 public class CustomLocationPreference extends EditTextPreference {
-    private static final String TAG = "CustomLocationPreference";
-
     public CustomLocationPreference(Context context) {
         super(context);
     }
@@ -110,6 +107,7 @@ public class CustomLocationPreference extends EditTextPreference {
                     cancel(true);
                 }
             });
+            mProgressDialog.show();
         }
 
         @Override

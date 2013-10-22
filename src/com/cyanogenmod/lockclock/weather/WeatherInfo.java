@@ -130,17 +130,17 @@ public class WeatherInfo {
     }
 
     public String getFormattedWindSpeed() {
+        if (wind < 0) {
+            return mContext.getString(R.string.unknown);
+        }
         return getFormattedValue(wind, speedUnit);
     }
 
     public String getWindDirection() {
         int resId;
 
-        if (windDirection < 0) {
-            return "";
-        }
-
-        if (windDirection < 23) resId = R.string.weather_N;
+        if (windDirection < 0) resId = R.string.unknown;
+        else if (windDirection < 23) resId = R.string.weather_N;
         else if (windDirection < 68) resId = R.string.weather_NE;
         else if (windDirection < 113) resId = R.string.weather_E;
         else if (windDirection < 158) resId = R.string.weather_SE;
