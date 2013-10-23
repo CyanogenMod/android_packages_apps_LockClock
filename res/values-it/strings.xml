@@ -120,6 +120,7 @@
     <string name="weather_alternate_icons_summary">Seleziona per sostituire le icone predefinite (colorate) con quelle alternative (bianche)</string>
     <string name="weather_show_when_minimized_title">Mostra se minimizzato</string>
     <string name="weather_show_when_minimized_summary">Mostra le informazioni di riepilogo sul tempo quando il widget è minimizzato</string>
+    <string name="weather_select_location">Seleziona posizione</string>
     <string name="calendar_title">Visualizza eventi</string>
     <string name="calendars_title">Calendari eventi</string>
     <string name="calendars_summary">Mostra gli eventi da questi calendari</string>
