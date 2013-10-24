@@ -139,6 +139,7 @@
     <string name="weather_alternate_icons_summary">Válasszon az alapértelmezett (színes), illetve az alternatív (fehér) ikonok közül</string>
     <string name="weather_show_when_minimized_title">Megjelenítés kis méret esetén</string>
     <string name="weather_show_when_minimized_summary">Időjárási adatok megjelenítése kis modulméret esetén</string>
+    <string name="weather_select_location">Válassza ki a helyet</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Megjeleníti a következő naptárbejegyzést</string>
