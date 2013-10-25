@@ -97,6 +97,7 @@
     <string name="clock_font_minutes_title">Minutter med fed</string>
     <string name="clock_font_date_title">Dato og alarm med fed</string>
     <string name="show_alarm_title">Vis næste alarm</string>
+    <string name="clock_am_pm_title">AM/PM-indikator</string>
     <string name="weather_enabled">Aktiveret</string>
     <string name="weather_enable">Vis vejr</string>
     <string name="weather_source">Yahoo! Vejret</string>
@@ -118,6 +119,7 @@
     <string name="weather_alternate_icons_summary">Til at vælge mellem standard (Farvede) og de alternative (Hvide) ikoner</string>
     <string name="weather_show_when_minimized_title">Vis når minimeret</string>
     <string name="weather_show_when_minimized_summary">Viser en kort vejrinformation når widget vises minimeret</string>
+    <string name="weather_select_location">Vælg placering</string>
     <string name="calendar_title">Vis næste begivenhed</string>
     <string name="calendars_title">Kalendere</string>
     <string name="calendars_summary">Find begivenheder fra disse kalendere</string>
