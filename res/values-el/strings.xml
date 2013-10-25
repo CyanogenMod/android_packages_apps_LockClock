@@ -119,6 +119,7 @@
     <string name="weather_alternate_icons_summary">Επιλέξτε για εναλλαγή μεταξύ των προεπιλεγμένων (χρωματιστών) και των εναλλακτικών (άσπρων) εικονιδίων</string>
     <string name="weather_show_when_minimized_title">Εμφάνιση κατά την ελαχιστοποίηση</string>
     <string name="weather_show_when_minimized_summary">Εμφάνιση συνοπτικών πληροφοριών για τον καιρό, όταν το widget είναι ελαχιστοποιημένο</string>
+    <string name="weather_select_location">Επιλογή τοποθεσίας</string>
     <string name="calendar_title">Εμφάνιση επόμενου συμβάντος</string>
     <string name="calendars_title">Ημερολόγια</string>
     <string name="calendars_summary">Εμφάνιση συμβάντων απο αυτά τα ημερολόγια</string>
