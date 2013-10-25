@@ -120,6 +120,7 @@
     <string name="weather_alternate_icons_summary">Selecciona per commutar entre les icones predeterminades (Color) i l\'alternatives (Blanc)</string>
     <string name="weather_show_when_minimized_title">Mostra quan minimitzat</string>
     <string name="weather_show_when_minimized_summary">Mostra un resum de la informació meteorològica quan el widget està minimitzat</string>
+    <string name="weather_select_location">Selecciona ubicació</string>
     <string name="calendar_title">Mostra el següent esdeveniment</string>
     <string name="calendars_title">Esdeveniments del calendari</string>
     <string name="calendars_summary">Troba esdeveniments dins d\'aquests calendaris</string>
