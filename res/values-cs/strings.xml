@@ -126,6 +126,7 @@
   <string name="weather_alternate_icons_summary">Vybrat mezi výchozími (bílými) či alternativními (barevnými) ikonami</string>
   <string name="weather_show_when_minimized_title">Zobrazit v minimalizaci</string>
   <string name="weather_show_when_minimized_summary">Pokud je widget minimalizován, zobrazit shrnující informace o počasí</string>
+  <string name="weather_select_location">Zvolte umístění</string>
 
   <string name="calendar_title">Zobrazit další událost</string>
   <string name="calendars_title">Událost kalendářů</string>
