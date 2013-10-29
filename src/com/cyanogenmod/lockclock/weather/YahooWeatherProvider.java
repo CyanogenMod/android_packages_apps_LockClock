@@ -28,8 +28,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -45,24 +43,12 @@ public class YahooWeatherProvider implements WeatherProvider {
                     "locality1, locality2, country from geo.places where " +
                     "(placetype = 7 or placetype = 8 or placetype = 9 " +
                     "or placetype = 10 or placetype = 11) and text =");
+    private static final String URL_PLACEFINDER =
+            "http://query.yahooapis.com/v1/public/yql?format=json&q=" +
+            Uri.encode("select woeid, city from geo.placefinder where gflags=\"R\" and text =");
 
     private static final String[] LOCALITY_NAMES = new String[] {
         "locality1", "locality2", "admin3", "admin2", "admin1"
-    };
-
-    private static class YahooLocationResult extends LocationResult {
-        private int score;
-    };
-    private static final Comparator<YahooLocationResult> LOCATION_COMPARATOR =
-            new Comparator<YahooLocationResult>() {
-        @Override
-        public int compare(YahooLocationResult lhs, YahooLocationResult rhs) {
-            if (lhs.score == rhs.score) {
-                return 0;
-            }
-            // smaller score at the top
-            return lhs.score < rhs.score ? -1 : 1;
-        }
     };
 
     private Context mContext;
@@ -76,13 +62,31 @@ public class YahooWeatherProvider implements WeatherProvider {
         String locale = mContext.getResources().getConfiguration().locale.getCountry();
         String params = "\"" + input + "\" and lang = \"" + locale + "\"";
         String url = URL_LOCATION + Uri.encode(params);
-        JSONArray places = fetchPlaceList(url);
-
-        if (places == null) {
+        JSONObject jsonResults = fetchResults(url);
+        if (jsonResults == null) {
             return null;
         }
 
-        return new ArrayList<LocationResult>(parsePlaces(places));
+        try {
+            JSONArray places = jsonResults.optJSONArray("place");
+            if (places == null) {
+                // Yahoo returns an object instead of an array when there's only one result
+                places = new JSONArray();
+                places.put(jsonResults.getJSONObject("place"));
+            }
+
+            ArrayList<LocationResult> results = new ArrayList<LocationResult>();
+            for (int i = 0; i < places.length(); i++) {
+                LocationResult result = parsePlace(places.getJSONObject(i));
+                if (result != null) {
+                    results.add(result);
+                }
+            }
+            return results;
+        } catch (JSONException e) {
+            Log.e(TAG, "Received malformed places data", e);
+        }
+        return null;
     }
 
     public WeatherInfo getWeatherInfo(String id, String localizedCityName) {
@@ -133,49 +137,38 @@ public class YahooWeatherProvider implements WeatherProvider {
     }
 
     public WeatherInfo getWeatherInfo(Location location) {
-        String formattedCoordinates = String.format(Locale.US, "\"%f %f\"",
-                location.getLatitude(), location.getLongitude());
-        String url = URL_LOCATION + Uri.encode(formattedCoordinates);
-        JSONArray places = fetchPlaceList(url);
-        if (places == null) {
+        String locale = mContext.getResources().getConfiguration().locale.getCountry();
+        String params = String.format(Locale.US, "\"%f %f\" and lang=\"%s\"",
+                location.getLatitude(), location.getLongitude(), locale);
+        String url = URL_PLACEFINDER + Uri.encode(params);
+        JSONObject results = fetchResults(url);
+        if (results == null) {
             return null;
         }
 
-        List<YahooLocationResult> results = parsePlaces(places);
-        Collections.sort(results, LOCATION_COMPARATOR);
+        try {
+            JSONObject result = results.getJSONObject("Result");
+            String woeid = result.getString("woeid");
+            String city = result.getString("city");
 
-        for (YahooLocationResult result : results) {
-            Log.d(TAG, "Looking up weather for " + result.city + " (id=" + result.id
-                    + ", score=" + result.score + ")");
-            WeatherInfo info = getWeatherInfo(result.id, result.city);
+            Log.d(TAG, "Resolved location " + location + " to " + city + " (" + woeid + ")");
+
+            WeatherInfo info = getWeatherInfo(woeid, city);
             if (info != null) {
                 // cache the result for potential reuse
                 // (the placefinder service API is rate limited)
-                Preferences.setCachedLocationId(mContext, result.id);
+                Preferences.setCachedLocationId(mContext, woeid);
                 return info;
             }
+        } catch (JSONException e) {
+            Log.e(TAG, "Received malformed placefinder data", e);
         }
 
         return null;
     }
 
-    private List<YahooLocationResult> parsePlaces(JSONArray places) {
-        ArrayList<YahooLocationResult> results = new ArrayList<YahooLocationResult>();
-        for (int i = 0; i < places.length(); i++) {
-            try {
-                YahooLocationResult result = parsePlace(places.getJSONObject(i));
-                if (result != null) {
-                    results.add(result);
-                }
-            } catch (JSONException e) {
-                Log.w(TAG, "Found invalid JSON place record, ignoring.", e);
-            }
-        }
-        return results;
-    }
-
-    private YahooLocationResult parsePlace(JSONObject place) throws JSONException {
-        YahooLocationResult result = new YahooLocationResult();
+    private LocationResult parsePlace(JSONObject place) throws JSONException {
+        LocationResult result = new LocationResult();
         JSONObject country = place.getJSONObject("country");
 
         result.id = place.getString("woeid");
@@ -185,11 +178,9 @@ public class YahooWeatherProvider implements WeatherProvider {
             result.postal = place.getJSONObject("postal").getString("content");
         }
 
-        for (int i = 0; i < LOCALITY_NAMES.length; i++) {
-            String locName = LOCALITY_NAMES[i];
-            if (!place.isNull(locName)) {
-                result.city = place.getJSONObject(locName).getString("content");
-                result.score = i;
+        for (String name : LOCALITY_NAMES) {
+            if (!place.isNull(name)) {
+                result.city = place.getJSONObject(name).getString("content");
                 break;
             }
         }
@@ -201,22 +192,19 @@ public class YahooWeatherProvider implements WeatherProvider {
         return result;
     }
 
-    private JSONArray fetchPlaceList(String url) {
+    private JSONObject fetchResults(String url) {
         String response = HttpRetriever.retrieve(url);
         if (response == null) {
             return null;
         }
 
+        if (Log.isLoggable(TAG, Log.VERBOSE)) {
+            Log.v(TAG, "Request URL is " + url + ", response is " + response);
+        }
+
         try {
             JSONObject rootObject = new JSONObject(response);
-            JSONObject results = rootObject.getJSONObject("query").getJSONObject("results");
-            JSONArray places = results.optJSONArray("place");
-            if (places == null) {
-                // Yahoo returns an object instead of an array when there's only one result
-                places = new JSONArray();
-                places.put(results.getJSONObject("place"));
-            }
-            return places;
+            return rootObject.getJSONObject("query").getJSONObject("results");
         } catch (JSONException e) {
             Log.w(TAG, "Received malformed places data", e);
         }
