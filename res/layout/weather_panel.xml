@@ -28,9 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:paddingTop="8dip"
-        android:paddingLeft="8dip"
-        android:paddingRight="8dip"
+        android:padding="4dip"
         android:gravity="center"
         android:src="@android:drawable/ic_dialog_alert" />
 
