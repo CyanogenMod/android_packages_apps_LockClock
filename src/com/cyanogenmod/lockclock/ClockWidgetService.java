@@ -438,27 +438,33 @@ public class ClockWidgetService extends IntentService {
      * There is no data to display, display 'empty' fields and the 'Tap to reload' message
      */
     private void setNoWeatherData(RemoteViews weatherViews, boolean smallWidget) {
-        boolean defaultIcons = !Preferences.useAlternateWeatherIcons(this);
-        final Resources res = getBaseContext().getResources();
         int color = Preferences.weatherFontColor(this);
 
-        // Weather Image - Either the default or alternate set
-        weatherViews.setImageViewResource(R.id.weather_image,
-                defaultIcons ? R.drawable.weather_na : R.drawable.weather2_na);
-
+        // Hide the normal weather stuff
+        String noData = getString(R.string.weather_cannot_reach_provider, getString(R.string.weather_source));
+        weatherViews.setViewVisibility(R.id.weather_image, View.INVISIBLE);
         if (!smallWidget) {
-            weatherViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
-            weatherViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
+            weatherViews.setViewVisibility(R.id.weather_city, View.GONE);
             weatherViews.setViewVisibility(R.id.update_time, View.GONE);
-            weatherViews.setTextColor(R.id.weather_city, color);
+            weatherViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
+            weatherViews.setViewVisibility(R.id.weather_condition, View.GONE);
+
+            // Set up the no data and refresh indicators
+            weatherViews.setTextViewText(R.id.weather_no_data, noData);
+            weatherViews.setTextViewText(R.id.weather_refresh, getString(R.string.weather_tap_to_refresh));
+            weatherViews.setTextColor(R.id.weather_no_data, color);
+            weatherViews.setTextColor(R.id.weather_refresh, color);
+            weatherViews.setViewVisibility(R.id.weather_no_data, View.VISIBLE);
+            weatherViews.setViewVisibility(R.id.weather_refresh, View.VISIBLE);
+        } else {
+            weatherViews.setTextViewText(R.id.weather_temp, noData);
+            weatherViews.setTextViewText(R.id.weather_condition, getString(R.string.weather_tap_to_refresh));
+            weatherViews.setTextColor(R.id.weather_temp, color);
+            weatherViews.setTextColor(R.id.weather_condition, color);
         }
 
-        weatherViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
-        weatherViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
-        weatherViews.setTextColor(R.id.weather_condition, color);
-
-        // Register an onClickListener on Weather
-        setWeatherClickListener(weatherViews);
+        // Register an onClickListener on Weather with the default (Refresh) action
+        setWeatherClickListener(weatherViews, true);
     }
 
     private void setWeatherClickListener(RemoteViews weatherViews) {
