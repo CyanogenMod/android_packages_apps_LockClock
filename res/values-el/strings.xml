@@ -79,6 +79,7 @@
     <string name="weather_tap_to_refresh">Πιέστε για ανανέωση</string>
     <string name="weather_refreshing">Γίνεται ανανέωση</string>
     <string name="weather_last_sync_just_now">Μόλις τώρα</string>
+    <string name="weather_cannot_reach_provider">Αδύνατη η σύνδεση με %s</string>
     <string name="weather_refresh_manual">Χειροκίνητα</string>
     <string name="weather_refresh_30min">30 λεπτά</string>
     <string name="weather_refresh_60min">60 λεπτά</string>
