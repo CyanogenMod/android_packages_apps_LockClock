@@ -102,6 +102,7 @@
     <string name="weather_tap_to_refresh">Tap to refresh</string>
     <string name="weather_refreshing">Refreshing</string>
     <string name="weather_last_sync_just_now">Just now</string>
+    <string name="weather_cannot_reach_provider">Can\'t reach %s</string>
 
     <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">Manual</string>

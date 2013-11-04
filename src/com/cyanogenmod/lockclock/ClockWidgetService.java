@@ -477,7 +477,7 @@ public class ClockWidgetService extends IntentService {
         }
 
         // Register an onClickListener on Weather with the default (Refresh) action
-        setWeatherClickListener(weatherViews, true);
+        setWeatherClickListener(weatherViews);
     }
 
     private void setWeatherClickListener(RemoteViews weatherViews) {
