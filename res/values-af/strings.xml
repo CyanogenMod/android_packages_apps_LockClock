@@ -120,6 +120,7 @@
     <string name="weather_alternate_icons_summary">Kies om te wissel tussen die standaard (kleur) en die alternatiewe (wit) ikone</string>
     <string name="weather_show_when_minimized_title">Wys wanneer geminimaliseer</string>
     <string name="weather_show_when_minimized_summary">Wys opgesomde weerbesonderhede wanneer die legstuk geminimaliseer word</string>
+    <string name="weather_select_location">Selekteer ligging</string>
     <string name="calendar_title">Wys volgende item</string>
     <string name="calendars_title">Afsprake kalenders</string>
     <string name="calendars_summary">Vind afsprake in bepaalde kalenders</string>
