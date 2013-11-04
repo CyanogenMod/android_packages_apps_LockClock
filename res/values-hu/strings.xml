@@ -87,8 +87,9 @@
     <!-- Weather - error messages -->
     <string name="weather_no_data">Nincs adat</string>
     <string name="weather_tap_to_refresh">Érintse meg a frissítéshez</string>
-    <string name="weather_refreshing">Frissítés…</string>
+    <string name="weather_refreshing">Frissítés\u2026</string>
     <string name="weather_last_sync_just_now">Épp most</string>
+    <string name="weather_cannot_reach_provider">%s nem elérhető</string>
 
     <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">Kézi</string>
