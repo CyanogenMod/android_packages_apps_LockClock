@@ -24,12 +24,12 @@
 
     <ImageView
         android:id="@+id/weather_image"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:paddingLeft="8dip"
-        android:paddingRight="8dip"
+        android:paddingLeft="4dip"
+        android:paddingRight="4dip"
         android:gravity="center" />
 
     <RelativeLayout
@@ -107,7 +107,6 @@
             android:textSize="10sp"
             android:textColor="?android:attr/textColorPrimary"
             style="@style/label_shadow" />
-
-        </RelativeLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

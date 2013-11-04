@@ -24,9 +24,8 @@
     <dimen name="label_font_size">14sp</dimen>
 
     <dimen name="min_digital_widget_height">120dip</dimen>
-    <dimen name="min_digital_weather_height">160dip</dimen>
-    <dimen name="min_digital_calendar_height">210dip</dimen>
-    <dimen name="min_analog_weather_height">160dip</dimen>
-    <dimen name="min_analog_calendar_height">210dip</dimen>
+
+    <dimen name="min_digital_calendar_height">200dip</dimen>
+    <dimen name="min_analog_calendar_height">200dip</dimen>
 
 </resources>
