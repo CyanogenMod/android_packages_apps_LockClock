@@ -80,6 +80,7 @@
     <string name="weather_tap_to_refresh">Raak om te verfris</string>
     <string name="weather_refreshing">Verfris tans\u2026</string>
     <string name="weather_last_sync_just_now">Sopas</string>
+    <string name="weather_cannot_reach_provider">Kan nie %s bereik nie</string>
     <string name="weather_refresh_manual">Handmatig</string>
     <string name="weather_refresh_30min">30 minute</string>
     <string name="weather_refresh_60min">60 minute</string>
