@@ -391,6 +391,10 @@ public class ClockWidgetService extends IntentService {
         int timestampColor = Preferences.weatherTimestampFontColor(this);
         boolean colorIcons = Preferences.useAlternateWeatherIcons(this);
 
+        // Reset no weather visibility
+        weatherViews.setViewVisibility(R.id.weather_no_data, View.GONE);
+        weatherViews.setViewVisibility(R.id.weather_refresh, View.GONE);
+
         // Weather Image
         if (colorIcons) {
             // No additional color overlays needed
