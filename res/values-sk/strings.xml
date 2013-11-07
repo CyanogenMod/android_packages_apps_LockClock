@@ -16,7 +16,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="unknown">Neznáme</string>
     <string name="cancel">Zrušiť</string>
-    <string name="loading_indicator">Načítava sa miniaplikácia\u2026</string>
+    <string name="loading_indicator">Načítavanie miniaplikácie\u2026</string>
     <string name="menu_done">Hotovo</string>
     <string name="weather_0">Tornádo</string>
     <string name="weather_1">Tropická búrka</string>
@@ -78,6 +78,7 @@
     <string name="weather_tap_to_refresh">Kliknutím obnovte</string>
     <string name="weather_refreshing">Obnovuje sa</string>
     <string name="weather_last_sync_just_now">Práve teraz</string>
+    <string name="weather_cannot_reach_provider">Nemožno dosiahnuť %s</string>
     <string name="weather_refresh_manual">Ručne</string>
     <string name="weather_refresh_30min">30 minút</string>
     <string name="weather_refresh_60min">60 minút</string>
@@ -150,7 +151,7 @@
     <string name="calendar_metadata_all">Zobraziť všetko</string>
     <string name="white">Biela</string>
     <string name="grey">Šedá</string>
-    <string name="black">Čiernak</string>
+    <string name="black">Čierna</string>
     <string name="holo_blue_light">Svetlo modrá</string>
     <string name="holo_green_light">Svetlo zelená</string>
     <string name="holo_red_light">Svetlo červená</string>
@@ -161,4 +162,5 @@
     <string name="holo_orange_light">Svetlo oranžová</string>
     <string name="holo_orange_dark">Tmavo oranžová</string>
     <string name="holo_blue_bright">Jasno modrá</string>
+    <string name="weather_select_location">Vybrať polohu</string>
 </resources>
