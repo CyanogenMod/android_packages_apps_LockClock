@@ -26,17 +26,26 @@ import com.cyanogenmod.lockclock.misc.Preferences;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 public class YahooWeatherProvider implements WeatherProvider {
     private static final String TAG = "YahooWeatherProvider";
 
     private static final String URL_WEATHER =
-            "http://query.yahooapis.com/v1/public/yql?format=json&q=" +
-            Uri.encode("select * from weather.forecast where woeid =");
+            "http://weather.yahooapis.com/forecastrss?w=%s&u=%s";
     private static final String URL_LOCATION =
             "http://query.yahooapis.com/v1/public/yql?format=json&q=" +
             Uri.encode("select woeid, postal, admin1, admin2, admin3, " +
@@ -91,49 +100,98 @@ public class YahooWeatherProvider implements WeatherProvider {
 
     public WeatherInfo getWeatherInfo(String id, String localizedCityName) {
         String unit = Preferences.useMetricUnits(mContext) ? "c" : "f";
-        String params = "\"" + id + "\" and u = \"" + unit + "\"";
-        String url = URL_WEATHER + Uri.encode(params);
+        String url = String.format(URL_WEATHER, id, unit);
         String response = HttpRetriever.retrieve(url);
 
         if (response == null) {
             return null;
         }
 
+        SAXParserFactory factory = SAXParserFactory.newInstance();
         try {
-            JSONObject rootObject = new JSONObject(response);
-            JSONObject results = rootObject.getJSONObject("query").getJSONObject("results");
-            JSONObject data = results.getJSONObject("channel");
+            SAXParser parser = factory.newSAXParser();
+            StringReader reader = new StringReader(response);
+            WeatherHandler handler = new WeatherHandler();
+            parser.parse(new InputSource(reader), handler);
 
-            String city = localizedCityName != null
-                    ? localizedCityName : data.getJSONObject("location").getString("city");
-
-            JSONObject wind = data.getJSONObject("wind");
-            JSONObject units = data.getJSONObject("units");
-            JSONObject item = data.getJSONObject("item");
-            JSONObject conditions = item.getJSONObject("condition");
-            JSONObject forecast = item.getJSONArray("forecast").getJSONObject(0);
-
-            WeatherInfo w = new WeatherInfo(mContext, id, city,
-                    /* forecastDate */ conditions.getString("date"),
-                    /* condition */ conditions.getString("text"),
-                    /* conditionCode */ conditions.getInt("code"),
-                    /* temperature */ (float) conditions.getDouble("temp"),
-                    /* low */ (float) forecast.getDouble("low"),
-                    /* high */ (float) forecast.getDouble("high"),
-                    /* tempUnit */ units.getString("temperature"),
-                    /* humidity */ (float) data.getJSONObject("atmosphere").getDouble("humidity"),
-                    /* wind */ (float) wind.optDouble("speed", -1),
-                    /* windDir */ wind.optInt("direction", -1),
-                    /* speedUnit */ units.getString("speed"),
-                    System.currentTimeMillis());
-
-            Log.d(TAG, "Weather updated: " + w);
-            return w;
-        } catch (JSONException e) {
-            Log.w(TAG, "Weather condition data is invalid.", e);
+            if (handler.isComplete()) {
+                WeatherInfo w = new WeatherInfo(mContext, id,
+                        localizedCityName != null ? localizedCityName : handler.city, null,
+                        handler.condition, handler.conditionCode, handler.temperature,
+                        handler.forecasts.get(0).low, handler.forecasts.get(0).high,
+                        handler.temperatureUnit, handler.humidity, handler.windSpeed,
+                        handler.windDirection, handler.speedUnit,
+                        System.currentTimeMillis());
+                Log.d(TAG, "Weather updated: " + w);
+                return w;
+            }
+        } catch (ParserConfigurationException e) {
+            Log.e(TAG, "Could not create XML parser", e);
+        } catch (SAXException e) {
+            Log.e(TAG, "Could not parse weather XML", e);
+        } catch (IOException e) {
+            Log.e(TAG, "Could not parse weather XML", e);
         }
 
         return null;
+    }
+
+    private static class WeatherHandler extends DefaultHandler {
+        String city;
+        String temperatureUnit, speedUnit;
+        int windDirection, conditionCode;
+        float humidity, temperature, windSpeed;
+        String condition;
+        ArrayList<DayForecast> forecasts = new ArrayList<DayForecast>();
+
+        private static class DayForecast {
+            float low, high;
+            int conditionCode;
+            String condition;
+        }
+
+        @Override
+        public void startElement(String uri, String localName, String qName, Attributes attributes)
+                throws SAXException {
+            if (qName.equals("yweather:location")) {
+                city = attributes.getValue("city");
+            } else if (qName.equals("yweather:units")) {
+                temperatureUnit = attributes.getValue("temperature");
+                speedUnit = attributes.getValue("speed");
+            } else if (qName.equals("yweather:wind")) {
+                windDirection = (int) stringToFloat(attributes.getValue("direction"), -1);
+                windSpeed = stringToFloat(attributes.getValue("speed"), -1);
+            } else if (qName.equals("yweather:atmosphere")) {
+                humidity = stringToFloat(attributes.getValue("humidity"), -1);
+            } else if (qName.equals("yweather:condition")) {
+                condition = attributes.getValue("text");
+                conditionCode = (int) stringToFloat(attributes.getValue("code"), -1);
+                temperature = stringToFloat(attributes.getValue("temp"), Float.NaN);
+            } else if (qName.equals("yweather:forecast")) {
+                DayForecast day = new DayForecast();
+                day.low = stringToFloat(attributes.getValue("low"), Float.NaN);
+                day.high = stringToFloat(attributes.getValue("high"), Float.NaN);
+                day.condition = attributes.getValue("text");
+                day.conditionCode = (int) stringToFloat(attributes.getValue("code"), -1);
+                if (!Float.isNaN(day.low) && !Float.isNaN(day.high) && day.conditionCode >= 0) {
+                    forecasts.add(day);
+                }
+            }
+        }
+        public boolean isComplete() {
+            return temperatureUnit != null && speedUnit != null && conditionCode >= 0
+                    && !Float.isNaN(temperature) && !forecasts.isEmpty();
+        }
+        private float stringToFloat(String value, float defaultValue) {
+            try {
+                if (value != null) {
+                    return Float.parseFloat(value);
+                }
+            } catch (NumberFormatException e) {
+                // fall through to the return line below
+            }
+            return defaultValue;
+        }
     }
 
     public WeatherInfo getWeatherInfo(Location location) {
