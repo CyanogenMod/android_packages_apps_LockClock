@@ -120,6 +120,7 @@
     <string name="weather_alternate_icons_summary">Sélectionner cette option pour remplacer l\'icône par défaut (couleur) par une icône alternative (blanche)</string>
     <string name="weather_show_when_minimized_title">Afficher lorsque minimisé</string>
     <string name="weather_show_when_minimized_summary">Afficher le résumé des informations météo lorsque le widget est réduit</string>
+    <string name="weather_select_location">Définir le lieu</string>
     <string name="calendar_title">Afficher le prochain événement</string>
     <string name="calendars_title">Événement des agendas</string>
     <string name="calendars_summary">Afficher les événements de ces agendas</string>
