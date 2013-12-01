@@ -66,6 +66,7 @@
     <string name="weather_45">Liūtys su perkūnija</string>
     <string name="weather_46">Sniego pūgos</string>
     <string name="weather_47">Izoliuotos liūtys su perkūnija</string>
+    <string name="weather_3200"></string>
     <string name="weather_N">Š</string>
     <string name="weather_NE">ŠR</string>
     <string name="weather_E">R</string>
@@ -78,6 +79,7 @@
     <string name="weather_tap_to_refresh">Palieskite, kad atnaujinti</string>
     <string name="weather_refreshing">Atnaujinama</string>
     <string name="weather_last_sync_just_now">Ką tik</string>
+    <string name="weather_cannot_reach_provider">Negali pasiekti %s</string>
     <string name="weather_refresh_manual">Rankiniu būdu</string>
     <string name="weather_refresh_30min">30 minučių</string>
     <string name="weather_refresh_60min">60 minučių</string>
