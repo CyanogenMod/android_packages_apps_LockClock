@@ -46,7 +46,7 @@ public class Preferences {
     }
 
     public static boolean useBoldFontForHours(Context context) {
-        return getPrefs(context).getBoolean(Constants.CLOCK_FONT, true);
+        return getPrefs(context).getBoolean(Constants.CLOCK_FONT, false);
     }
 
     public static boolean useBoldFontForMinutes(Context context) {
