@@ -162,4 +162,7 @@
     <string name="holo_orange_light">Jasnopomarańczowy</string>
     <string name="holo_orange_dark">Ciemnopomarańczowy</string>
     <string name="holo_blue_bright">Jaskrawy niebieski</string>
+    <string name="weather_cannot_reach_provider">%s poza zasięgiem</string>
+    <string name="weather_select_location">Wybierz lokalizację</string>
+    <string name="clock_am_pm_title">Pokaż wskaźnik AM/PM</string>
 </resources>
