@@ -76,7 +76,6 @@
     <string name="weather_W">غەرب</string>
     <string name="weather_NW">غەربىي شىمال</string>
     <string name="weather_no_data">سانلىق مەلۇمات يوق</string>
-    <string name="weather_tap_to_refresh">چېكىسلە يېڭىلايدۇ</string>
     <string name="weather_refreshing">يېڭىلاۋاتىدۇ</string>
     <string name="weather_last_sync_just_now">ھازىرلا يېڭىلىدى</string>
     <string name="weather_refresh_manual">قولدا</string>

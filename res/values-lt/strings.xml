@@ -76,10 +76,8 @@
     <string name="weather_W">V</string>
     <string name="weather_NW">ŠV</string>
     <string name="weather_no_data">Nėra duomenų</string>
-    <string name="weather_tap_to_refresh">Palieskite, kad atnaujinti</string>
     <string name="weather_refreshing">Atnaujinama</string>
     <string name="weather_last_sync_just_now">Ką tik</string>
-    <string name="weather_cannot_reach_provider">Negali pasiekti %s</string>
     <string name="weather_refresh_manual">Rankiniu būdu</string>
     <string name="weather_refresh_30min">30 minučių</string>
     <string name="weather_refresh_60min">60 minučių</string>

@@ -75,7 +75,6 @@
     <string name="weather_W">O</string>
     <string name="weather_NW">NO</string>
     <string name="weather_no_data">Sem dados</string>
-    <string name="weather_tap_to_refresh">Aperte para atualizar</string>
     <string name="weather_refreshing">Atualizando</string>
     <string name="weather_last_sync_just_now">Agora mesmo</string>
     <string name="weather_refresh_manual">Manual</string>
@@ -164,5 +163,4 @@
     <string name="calendar_lookahead_today">Hoje</string>
     <string name="clock_am_pm_title">Exibir indicador AM/PM</string>
     <string name="weather_select_location">Selecionar localização</string>
-    <string name="weather_cannot_reach_provider">Não foi possível alcançar %s</string>
 </resources>

@@ -85,7 +85,6 @@
 
     <!-- Weather - error messages -->
     <string name="weather_no_data">Немає даних</string>
-    <string name="weather_tap_to_refresh">Натисніть для оновлення</string>
     <string name="weather_refreshing">Оновлення\u2026</string>
     <string name="weather_last_sync_just_now">Тільки-що</string>
 

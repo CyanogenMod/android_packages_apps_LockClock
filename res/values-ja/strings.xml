@@ -86,7 +86,6 @@
 
     <!-- Weather - error messages -->
     <string name="weather_no_data">データなし</string>
-    <string name="weather_tap_to_refresh">タップして更新</string>
     <string name="weather_refreshing">更新中</string>
     <string name="weather_last_sync_just_now">たった今</string>
 

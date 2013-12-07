@@ -83,7 +83,6 @@
 
     <!-- Weather - error messages -->
     <string name="weather_no_data">Ei tietoja</string>
-    <string name="weather_tap_to_refresh">Kosketa päivittääksesi</string>
     <string name="weather_refreshing">Päivittää</string>
     <string name="weather_last_sync_just_now">Juuri nyt</string>
 

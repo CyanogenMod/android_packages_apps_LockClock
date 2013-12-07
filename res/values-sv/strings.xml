@@ -75,7 +75,6 @@
     <string name="weather_W">V</string>
     <string name="weather_NW">NV</string>
     <string name="weather_no_data">Ingen data</string>
-    <string name="weather_tap_to_refresh">Tryck för att uppdatera</string>
     <string name="weather_refreshing">Uppdaterar</string>
     <string name="weather_last_sync_just_now">Just nu</string>
     <string name="weather_refresh_manual">Manuellt</string>

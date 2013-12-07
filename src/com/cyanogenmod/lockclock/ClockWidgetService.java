@@ -458,7 +458,6 @@ public class ClockWidgetService extends IntentService {
         int color = Preferences.weatherFontColor(this);
 
         // Hide the normal weather stuff
-        String noData = getString(R.string.weather_cannot_reach_provider, getString(R.string.weather_source));
         weatherViews.setViewVisibility(R.id.weather_image, View.INVISIBLE);
         if (!smallWidget) {
             weatherViews.setViewVisibility(R.id.weather_city, View.GONE);
@@ -466,16 +465,9 @@ public class ClockWidgetService extends IntentService {
             weatherViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
             weatherViews.setViewVisibility(R.id.weather_condition, View.GONE);
 
-            // Set up the no data and refresh indicators
-            weatherViews.setTextViewText(R.id.weather_no_data, noData);
-            weatherViews.setTextViewText(R.id.weather_refresh, getString(R.string.weather_tap_to_refresh));
-            weatherViews.setTextColor(R.id.weather_no_data, color);
-            weatherViews.setTextColor(R.id.weather_refresh, color);
-            weatherViews.setViewVisibility(R.id.weather_no_data, View.VISIBLE);
-            weatherViews.setViewVisibility(R.id.weather_refresh, View.VISIBLE);
         } else {
-            weatherViews.setTextViewText(R.id.weather_temp, noData);
-            weatherViews.setTextViewText(R.id.weather_condition, getString(R.string.weather_tap_to_refresh));
+            weatherViews.setTextViewText(R.id.weather_temp, null);
+            weatherViews.setTextViewText(R.id.weather_condition, null);
             weatherViews.setTextColor(R.id.weather_temp, color);
             weatherViews.setTextColor(R.id.weather_condition, color);
         }

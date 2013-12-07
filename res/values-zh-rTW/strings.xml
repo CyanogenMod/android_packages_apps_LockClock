@@ -77,7 +77,6 @@
     <string name="weather_W">西</string>
     <string name="weather_NW">西北</string>
     <string name="weather_no_data">無資料</string>
-    <string name="weather_tap_to_refresh">輕按以重新整理</string>
     <string name="weather_refreshing">重新整理中</string>
     <string name="weather_last_sync_just_now">剛剛</string>
     <string name="weather_refresh_manual">手動</string>
