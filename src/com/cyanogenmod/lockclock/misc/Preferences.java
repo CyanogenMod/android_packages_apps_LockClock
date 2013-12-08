@@ -29,6 +29,16 @@ public class Preferences {
     private Preferences() {
     }
 
+    public static boolean isFirstWeatherUpdate(Context context) {
+        return getPrefs(context).getBoolean(Constants.WEATHER_FIRST_UPDATE, true);
+    }
+
+    public static void firstWeatherUpdateDone(Context context) {
+        SharedPreferences.Editor editor = getPrefs(context).edit();
+        editor.putBoolean(Constants.WEATHER_FIRST_UPDATE, false);
+        editor.apply();
+    }
+
     public static boolean showDigitalClock(Context context) {
         return getPrefs(context).getBoolean(Constants.CLOCK_DIGITAL, true);
     }

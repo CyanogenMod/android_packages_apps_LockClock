@@ -214,6 +214,9 @@ public class WeatherUpdateService extends Service {
 
                 Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
                 sendBroadcast(updateIntent);
+
+                // We now have weather data to display, indicate it
+                Preferences.firstWeatherUpdateDone(mContext);
             } else if (isCancelled()) {
                 // cancelled, likely due to lost network - we'll get restarted
                 // when network comes back
@@ -301,7 +304,7 @@ public class WeatherUpdateService extends Service {
     public static void scheduleNextUpdate(Context context) {
         long lastUpdate = Preferences.lastWeatherUpdateTimestamp(context);
         if (lastUpdate == 0) {
-            scheduleUpdate(context, 0, false);
+            scheduleUpdate(context, 0, true);
         } else {
             long interval = Preferences.weatherRefreshIntervalInMs(context);
             scheduleUpdate(context, lastUpdate + interval - System.currentTimeMillis(), false);
