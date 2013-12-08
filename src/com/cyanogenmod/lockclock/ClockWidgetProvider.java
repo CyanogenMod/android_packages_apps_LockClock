@@ -63,7 +63,9 @@ public class ClockWidgetProvider extends AppWidgetProvider {
 
         // Boot completed, schedule next weather update
         } else if (Intent.ACTION_BOOT_COMPLETED.equals(action)) {
-            WeatherUpdateService.scheduleNextUpdate(context);
+            // On first boot lastUpdate will be 0 thus no need to force update
+            // Subsequent boots will use cached data
+            WeatherUpdateService.scheduleNextUpdate(context, false);
 
         // A widget has been deleted, prevent our handling and ask the super class handle it
         } else if (AppWidgetManager.ACTION_APPWIDGET_DELETED.equals(action)
@@ -115,7 +117,8 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
-        WeatherUpdateService.scheduleNextUpdate(context);
+        // A new widget has been added, we have to force the update
+        WeatherUpdateService.scheduleNextUpdate(context, true);
 
         // Start the broadcast receiver (API 16 devices)
         // This will schedule a repeating alarm every minute to handle the clock refresh

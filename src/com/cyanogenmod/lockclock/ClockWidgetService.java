@@ -456,6 +456,7 @@ public class ClockWidgetService extends IntentService {
      */
     private void setNoWeatherData(RemoteViews weatherViews, boolean smallWidget) {
         int color = Preferences.weatherFontColor(this);
+        boolean firstRun = Preferences.isFirstRun(this);
 
         // Hide the normal weather stuff
         String noData = getString(R.string.weather_cannot_reach_provider, getString(R.string.weather_source));
@@ -471,17 +472,21 @@ public class ClockWidgetService extends IntentService {
             weatherViews.setTextViewText(R.id.weather_refresh, getString(R.string.weather_tap_to_refresh));
             weatherViews.setTextColor(R.id.weather_no_data, color);
             weatherViews.setTextColor(R.id.weather_refresh, color);
-            weatherViews.setViewVisibility(R.id.weather_no_data, View.VISIBLE);
-            weatherViews.setViewVisibility(R.id.weather_refresh, View.VISIBLE);
+
+            // For a better OOBE, dont show the no_data message if this is the first run
+            weatherViews.setViewVisibility(R.id.weather_no_data, firstRun ? View.GONE : View.VISIBLE);
+            weatherViews.setViewVisibility(R.id.weather_refresh,  firstRun ? View.GONE : View.VISIBLE);
         } else {
-            weatherViews.setTextViewText(R.id.weather_temp, noData);
-            weatherViews.setTextViewText(R.id.weather_condition, getString(R.string.weather_tap_to_refresh));
+            weatherViews.setTextViewText(R.id.weather_temp, firstRun ? null : noData);
+            weatherViews.setTextViewText(R.id.weather_condition, firstRun ? null : getString(R.string.weather_tap_to_refresh));
             weatherViews.setTextColor(R.id.weather_temp, color);
             weatherViews.setTextColor(R.id.weather_condition, color);
         }
 
         // Register an onClickListener on Weather with the default (Refresh) action
-        setWeatherClickListener(weatherViews);
+        if (!firstRun) {
+            setWeatherClickListener(weatherViews);
+        }
     }
 
     private void setWeatherClickListener(RemoteViews weatherViews) {

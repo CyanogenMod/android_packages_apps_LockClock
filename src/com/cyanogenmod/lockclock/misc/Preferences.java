@@ -29,6 +29,16 @@ public class Preferences {
     private Preferences() {
     }
 
+    public static boolean isFirstRun(Context context) {
+        return getPrefs(context).getInt(Constants.FIRST_RUN, 1) == 1;
+    }
+
+    public static void firstRunDone(Context context) {
+        SharedPreferences.Editor editor = getPrefs(context).edit();
+        editor.putInt(Constants.FIRST_RUN, 0);
+        editor.apply();
+    }
+
     public static boolean showDigitalClock(Context context) {
         return getPrefs(context).getBoolean(Constants.CLOCK_DIGITAL, true);
     }

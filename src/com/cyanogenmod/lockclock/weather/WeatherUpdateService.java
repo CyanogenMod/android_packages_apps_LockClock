@@ -214,6 +214,7 @@ public class WeatherUpdateService extends Service {
 
                 Intent updateIntent = new Intent(mContext, ClockWidgetProvider.class);
                 sendBroadcast(updateIntent);
+                Preferences.firstRunDone(mContext);
             } else if (isCancelled()) {
                 // cancelled, likely due to lost network - we'll get restarted
                 // when network comes back
@@ -298,10 +299,10 @@ public class WeatherUpdateService extends Service {
         am.set(AlarmManager.RTC_WAKEUP, due, getUpdateIntent(context, force));
     }
 
-    public static void scheduleNextUpdate(Context context) {
+    public static void scheduleNextUpdate(Context context, boolean force) {
         long lastUpdate = Preferences.lastWeatherUpdateTimestamp(context);
-        if (lastUpdate == 0) {
-            scheduleUpdate(context, 0, false);
+        if (lastUpdate == 0 || force) {
+            scheduleUpdate(context, 0, true);
         } else {
             long interval = Preferences.weatherRefreshIntervalInMs(context);
             scheduleUpdate(context, lastUpdate + interval - System.currentTimeMillis(), false);
