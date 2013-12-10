@@ -80,6 +80,7 @@
     <string name="weather_tap_to_refresh">Raak om te verfris</string>
     <string name="weather_refreshing">Verfris tans\u2026</string>
     <string name="weather_last_sync_just_now">Sopas</string>
+    <string name="weather_cannot_reach_provider">Kan nie %s bereik nie</string>
     <string name="weather_refresh_manual">Handmatig</string>
     <string name="weather_refresh_30min">30 minute</string>
     <string name="weather_refresh_60min">60 minute</string>
@@ -120,6 +121,7 @@
     <string name="weather_alternate_icons_summary">Kies om te wissel tussen die standaard (kleur) en die alternatiewe (wit) ikone</string>
     <string name="weather_show_when_minimized_title">Wys wanneer geminimaliseer</string>
     <string name="weather_show_when_minimized_summary">Wys opgesomde weerbesonderhede wanneer die legstuk geminimaliseer word</string>
+    <string name="weather_select_location">Selekteer ligging</string>
     <string name="calendar_title">Wys volgende item</string>
     <string name="calendars_title">Afsprake kalenders</string>
     <string name="calendars_summary">Vind afsprake in bepaalde kalenders</string>

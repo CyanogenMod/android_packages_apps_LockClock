@@ -20,11 +20,13 @@ import android.app.AlarmManager;
 import android.app.IntentService;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProviderInfo;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -108,9 +110,20 @@ public class ClockWidgetService extends IntentService {
         for (int id : mWidgetIds) {
             boolean showCalendar = false;
 
+            // Determine if its a home or a lock screen widget
+            Bundle myOptions = mAppWidgetManager.getAppWidgetOptions (id);
+            boolean isKeyguard = false;
+            if (WidgetUtils.isTextClockAvailable()) {
+                // This is only available on API 17+, make sure we are not calling it on API16
+                // This generates an API level Lint warning, ignore it
+                int category = myOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_HOST_CATEGORY, -1);
+                isKeyguard = category == AppWidgetProviderInfo.WIDGET_CATEGORY_KEYGUARD;
+            }
+            if (D) Log.d("TAG", "For Widget id " + id + " isKeyguard is set to " + isKeyguard);
+
             // Determine which layout to use
             boolean smallWidget = showWeather && showWeatherWhenMinimized
-                    && WidgetUtils.showSmallWidget(this, id, digitalClock);
+                    && WidgetUtils.showSmallWidget(this, id, digitalClock, isKeyguard);
             if (smallWidget) {
                 // The small widget is only shown if weather needs to be shown
                 // and there is not enough space for the full weather widget and
@@ -143,7 +156,7 @@ public class ClockWidgetService extends IntentService {
             // Hide the calendar panel if not visible
             remoteViews.setViewVisibility(R.id.calendar_panel, showCalendar ? View.VISIBLE : View.GONE);
 
-            boolean canFitWeather = smallWidget || WidgetUtils.canFitWeather(this, id, digitalClock);
+            boolean canFitWeather = smallWidget || WidgetUtils.canFitWeather(this, id, digitalClock, isKeyguard);
             // Now, if we need to show the actual weather, do so
             if (showWeather && canFitWeather) {
                 WeatherInfo weatherInfo = Preferences.getCachedWeatherInfo(this);
@@ -378,6 +391,10 @@ public class ClockWidgetService extends IntentService {
         int timestampColor = Preferences.weatherTimestampFontColor(this);
         boolean colorIcons = Preferences.useAlternateWeatherIcons(this);
 
+        // Reset no weather visibility
+        weatherViews.setViewVisibility(R.id.weather_no_data, View.GONE);
+        weatherViews.setViewVisibility(R.id.weather_refresh, View.GONE);
+
         // Weather Image
         if (colorIcons) {
             // No additional color overlays needed
@@ -438,27 +455,38 @@ public class ClockWidgetService extends IntentService {
      * There is no data to display, display 'empty' fields and the 'Tap to reload' message
      */
     private void setNoWeatherData(RemoteViews weatherViews, boolean smallWidget) {
-        boolean defaultIcons = !Preferences.useAlternateWeatherIcons(this);
-        final Resources res = getBaseContext().getResources();
         int color = Preferences.weatherFontColor(this);
+        boolean firstRun = Preferences.isFirstWeatherUpdate(this);
 
-        // Weather Image - Either the default or alternate set
-        weatherViews.setImageViewResource(R.id.weather_image,
-                defaultIcons ? R.drawable.weather_na : R.drawable.weather2_na);
-
+        // Hide the normal weather stuff
+        String noData = getString(R.string.weather_cannot_reach_provider, getString(R.string.weather_source));
+        weatherViews.setViewVisibility(R.id.weather_image, View.INVISIBLE);
         if (!smallWidget) {
-            weatherViews.setTextViewText(R.id.weather_city, res.getString(R.string.weather_no_data));
-            weatherViews.setViewVisibility(R.id.weather_city, View.VISIBLE);
+            weatherViews.setViewVisibility(R.id.weather_city, View.GONE);
             weatherViews.setViewVisibility(R.id.update_time, View.GONE);
-            weatherViews.setTextColor(R.id.weather_city, color);
+            weatherViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
+            weatherViews.setViewVisibility(R.id.weather_condition, View.GONE);
+
+            // Set up the no data and refresh indicators
+            weatherViews.setTextViewText(R.id.weather_no_data, noData);
+            weatherViews.setTextViewText(R.id.weather_refresh, getString(R.string.weather_tap_to_refresh));
+            weatherViews.setTextColor(R.id.weather_no_data, color);
+            weatherViews.setTextColor(R.id.weather_refresh, color);
+
+            // For a better OOBE, dont show the no_data message if this is the first run
+            weatherViews.setViewVisibility(R.id.weather_no_data, firstRun ? View.GONE : View.VISIBLE);
+            weatherViews.setViewVisibility(R.id.weather_refresh,  firstRun ? View.GONE : View.VISIBLE);
+        } else {
+            weatherViews.setTextViewText(R.id.weather_temp, firstRun ? null : noData);
+            weatherViews.setTextViewText(R.id.weather_condition, firstRun ? null : getString(R.string.weather_tap_to_refresh));
+            weatherViews.setTextColor(R.id.weather_temp, color);
+            weatherViews.setTextColor(R.id.weather_condition, color);
         }
 
-        weatherViews.setViewVisibility(R.id.weather_temps_panel, View.GONE);
-        weatherViews.setTextViewText(R.id.weather_condition, res.getString(R.string.weather_tap_to_refresh));
-        weatherViews.setTextColor(R.id.weather_condition, color);
-
-        // Register an onClickListener on Weather
-        setWeatherClickListener(weatherViews);
+        // Register an onClickListener on Weather with the default (Refresh) action
+        if (!firstRun) {
+            setWeatherClickListener(weatherViews);
+        }
     }
 
     private void setWeatherClickListener(RemoteViews weatherViews) {

@@ -67,7 +67,10 @@ public class Constants {
     public static final String WEATHER_LAST_UPDATE = "last_weather_update";
     public static final String WEATHER_DATA = "weather_data";
 
-    public static final int MAX_CALENDAR_ITEMS = 10;
+    // First run is used to hide the initial no-weather message for a better OOBE
+    public static final String WEATHER_FIRST_UPDATE = "weather_first_update";
+
+    public static final int MAX_CALENDAR_ITEMS = 30;
     public static final long CALENDAR_UPCOMING_EVENTS_FROM_HOUR = 20L;
     public static final int CALENDAR_FORMAT_TIME =
             DateUtils.FORMAT_SHOW_TIME

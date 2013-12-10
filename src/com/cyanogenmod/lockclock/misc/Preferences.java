@@ -29,6 +29,10 @@ public class Preferences {
     private Preferences() {
     }
 
+    public static boolean isFirstWeatherUpdate(Context context) {
+        return getPrefs(context).getBoolean(Constants.WEATHER_FIRST_UPDATE, true);
+    }
+
     public static boolean showDigitalClock(Context context) {
         return getPrefs(context).getBoolean(Constants.CLOCK_DIGITAL, true);
     }
@@ -166,6 +170,8 @@ public class Preferences {
         SharedPreferences.Editor editor = getPrefs(context).edit();
         editor.putLong(Constants.WEATHER_LAST_UPDATE, timestamp);
         if (data != null) {
+            // We now have valid weather data to display
+            editor.putBoolean(Constants.WEATHER_FIRST_UPDATE, false);
             editor.putString(Constants.WEATHER_DATA, data.toSerializedString());
         }
         editor.apply();

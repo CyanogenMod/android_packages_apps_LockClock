@@ -301,7 +301,7 @@ public class WeatherUpdateService extends Service {
     public static void scheduleNextUpdate(Context context) {
         long lastUpdate = Preferences.lastWeatherUpdateTimestamp(context);
         if (lastUpdate == 0) {
-            scheduleUpdate(context, 0, false);
+            scheduleUpdate(context, 0, true);
         } else {
             long interval = Preferences.weatherRefreshIntervalInMs(context);
             scheduleUpdate(context, lastUpdate + interval - System.currentTimeMillis(), false);

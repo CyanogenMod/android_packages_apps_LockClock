@@ -83,6 +83,7 @@
     <string name="weather_tap_to_refresh">Нажмите для обновления</string>
     <string name="weather_refreshing">Обновление\u2026</string>
     <string name="weather_last_sync_just_now">Только что</string>
+    <string name="weather_cannot_reach_provider">Сервер %s недоступен</string>
 
     <string name="weather_refresh_manual">Вручную</string>
     <string name="weather_refresh_30min">30 минут</string>

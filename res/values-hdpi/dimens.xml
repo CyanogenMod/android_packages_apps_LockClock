@@ -24,9 +24,9 @@
     <dimen name="label_font_size">12sp</dimen>
 
     <dimen name="min_digital_widget_height">120dip</dimen>
-    <dimen name="min_digital_weather_height">125dip</dimen>
-    <dimen name="min_digital_calendar_height">170dip</dimen>
-    <dimen name="min_analog_weather_height">130dip</dimen>
-    <dimen name="min_analog_calendar_height">170dip</dimen>
+
+    <!-- Lock screen -->
+    <dimen name="min_digital_weather_height_lock">125dip</dimen>
+    <dimen name="min_analog_weather_height_lock">130dip</dimen>
 
 </resources>

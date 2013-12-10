@@ -80,6 +80,7 @@
     <string name="weather_tap_to_refresh">Appuyez pour actualiser</string>
     <string name="weather_refreshing">Actualisation\u2026</string>
     <string name="weather_last_sync_just_now">À l\'instant</string>
+    <string name="weather_cannot_reach_provider">Connexion à %s impossible</string>
     <string name="weather_refresh_manual">Manuellement</string>
     <string name="weather_refresh_30min">30 minutes</string>
     <string name="weather_refresh_60min">60 minutes</string>
@@ -120,6 +121,7 @@
     <string name="weather_alternate_icons_summary">Sélectionner cette option pour remplacer l\'icône par défaut (couleur) par une icône alternative (blanche)</string>
     <string name="weather_show_when_minimized_title">Afficher lorsque minimisé</string>
     <string name="weather_show_when_minimized_summary">Afficher le résumé des informations météo lorsque le widget est réduit</string>
+    <string name="weather_select_location">Définir le lieu</string>
     <string name="calendar_title">Afficher le prochain événement</string>
     <string name="calendars_title">Événement des agendas</string>
     <string name="calendars_summary">Afficher les événements de ces agendas</string>

@@ -22,15 +22,38 @@
     android:orientation="horizontal"
     android:background="?android:attr/selectableItemBackground" >
 
+    <TextView
+        android:id="@+id/weather_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="12sp"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:textColor="?android:attr/textColorPrimary"
+        android:paddingTop="8dip"
+        style="@style/label_shadow"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/weather_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/weather_no_data"
+        android:textSize="12sp"
+        android:paddingBottom="8dip"
+        android:textColor="?android:attr/textColorSecondary"
+        style="@style/label_shadow"
+        android:visibility="gone" />
+
     <ImageView
         android:id="@+id/weather_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:paddingTop="8dip"
-        android:paddingLeft="8dip"
-        android:paddingRight="8dip"
+        android:padding="4dip"
         android:gravity="center"
         android:src="@android:drawable/ic_dialog_alert" />
 
