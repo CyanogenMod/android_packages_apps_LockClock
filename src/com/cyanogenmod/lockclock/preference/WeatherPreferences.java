@@ -58,6 +58,8 @@ public class WeatherPreferences extends PreferenceFragment implements
     private ListPreference mFontColor;
     private ListPreference mTimestampFontColor;
     private CheckBoxPreference mUseMetric;
+    private IconSelectionPreference mIconSet;
+    private CheckBoxPreference mUseCustomlocation;
 
     private Context mContext;
     private ContentResolver mResolver;
@@ -73,16 +75,15 @@ public class WeatherPreferences extends PreferenceFragment implements
         // Load items that need custom summaries etc.
         mUseCustomLoc = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
         mCustomWeatherLoc = (EditTextPreference) findPreference(Constants.WEATHER_CUSTOM_LOCATION_CITY);
-
         mFontColor = (ListPreference) findPreference(Constants.WEATHER_FONT_COLOR);
         mTimestampFontColor = (ListPreference) findPreference(Constants.WEATHER_TIMESTAMP_FONT_COLOR);
-
+        mIconSet = (IconSelectionPreference) findPreference(Constants.WEATHER_ICONS);
         mUseMetric = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_METRIC);
+        mUseCustomlocation = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
 
         // Show a warning if location manager is disabled and there is no custom location set
-        if (!Settings.Secure.isLocationProviderEnabled(mResolver,
-                LocationManager.NETWORK_PROVIDER)
-                && !mUseCustomLoc.isChecked()) {
+        LocationManager lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        if (!lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER) && !mUseCustomLoc.isChecked()) {
             showDialog();
         }
     }
@@ -93,6 +94,7 @@ public class WeatherPreferences extends PreferenceFragment implements
         getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         updateLocationSummary();
         updateFontColorsSummary();
+        updateIconSetSummary();
     }
 
     @Override
@@ -109,12 +111,16 @@ public class WeatherPreferences extends PreferenceFragment implements
             pref.setSummary(listPref.getEntry());
         }
 
+        boolean needWeatherUpdate = false;
+        boolean forceWeatherUpdate = false;
+
         if (pref == mUseCustomLoc || pref == mCustomWeatherLoc) {
             updateLocationSummary();
         }
 
-        boolean needWeatherUpdate = false;
-        boolean forceWeatherUpdate = false;
+        if (pref == mIconSet) {
+            updateIconSetSummary();
+        }
 
         if (pref == mUseMetric) {
             // The display format of the temperatures have changed
@@ -122,20 +128,23 @@ public class WeatherPreferences extends PreferenceFragment implements
             forceWeatherUpdate = true;
         }
 
-        for (String k : LOCATION_PREF_KEYS) {
-            if (TextUtils.equals(key, k)) {
-                // location pref has changed -> clear out location id cache
-                Preferences.setCachedLocationId(mContext, null);
-                forceWeatherUpdate = true;
-                break;
-            }
+        // If the weather source has changes, invalidate the custom location settings and change
+        // back to GeoLocation to force the user to specify a new custom location if needed
+        if (TextUtils.equals(key, Constants.WEATHER_SOURCE)) {
+            Preferences.setCustomWeatherLocationId(mContext, null);
+            Preferences.setCustomWeatherLocationCity(mContext, null);
+            Preferences.setUseCustomWeatherLocation(mContext, false);
+            mUseCustomlocation.setChecked(false);
+            updateLocationSummary();
         }
 
-        for (String k : WEATHER_REFRESH_KEYS) {
-            if (TextUtils.equals(key, k)) {
-                needWeatherUpdate = true;
-                break;
-            }
+        if (key.equals(Constants.WEATHER_USE_CUSTOM_LOCATION)
+                || key.equals(Constants.WEATHER_CUSTOM_LOCATION_CITY)) {
+            forceWeatherUpdate = true;
+        }
+
+        if (key.equals(Constants.SHOW_WEATHER) || key.equals(Constants.WEATHER_REFRESH_INTERVAL)) {
+            needWeatherUpdate = true;
         }
 
         if (Constants.DEBUG) {
@@ -198,6 +207,12 @@ public class WeatherPreferences extends PreferenceFragment implements
         }
         if (mTimestampFontColor != null) {
             mTimestampFontColor.setSummary(mTimestampFontColor.getEntry());
+        }
+    }
+
+    private void updateIconSetSummary() {
+        if (mIconSet != null) {
+            mIconSet.setSummary(mIconSet.getEntry());
         }
     }
 }

@@ -34,6 +34,7 @@ public class Constants {
     public static final String CLOCK_AM_PM_INDICATOR = "clock_am_pm_indicator";
 
     public static final String SHOW_WEATHER = "show_weather";
+    public static final String WEATHER_SOURCE = "weather_source";
     public static final String WEATHER_USE_CUSTOM_LOCATION = "weather_use_custom_location";
     public static final String WEATHER_CUSTOM_LOCATION_ID = "weather_custom_location_id";
     public static final String WEATHER_CUSTOM_LOCATION_CITY = "weather_custom_location_city";
@@ -42,12 +43,13 @@ public class Constants {
     public static final String WEATHER_USE_METRIC = "weather_use_metric";
     public static final String WEATHER_INVERT_LOWHIGH = "weather_invert_lowhigh";
     public static final String WEATHER_REFRESH_INTERVAL = "weather_refresh_interval";
-    public static final String WEATHER_USE_ALTERNATE_ICONS = "weather_use_alternate_icons";
     public static final String WEATHER_LOCATION_ID = "weather_woeid";
     public static final String WEATHER_SHOW_WHEN_MINIMIZED = "weather_show_when_minimized";
     public static final String WEATHER_FONT_COLOR = "weather_font_color";
     public static final String WEATHER_TIMESTAMP_FONT_COLOR = "weather_timestamp_font_color";
-
+    public static final String WEATHER_ICONS = "weather_icons";
+    public static final String MONOCHROME = "mono";
+    public static final String COLOR_STD = "color";
     public static final String SHOW_CALENDAR = "show_calendar";
     public static final String CALENDAR_LIST = "calendar_list";
     public static final String CALENDAR_LOOKAHEAD = "calendar_lookahead";
@@ -89,5 +91,8 @@ public class Constants {
 
     public static final String DEFAULT_LIGHT_COLOR = "#ffffffff";
     public static final String DEFAULT_DARK_COLOR = "#80ffffff";
+    
+    // Intent actions
+    public static final String ACTION_SHOW_FORECAST = "com.cyanogenmod.lockclock.action.SHOW_FORECAST";
 
 }
