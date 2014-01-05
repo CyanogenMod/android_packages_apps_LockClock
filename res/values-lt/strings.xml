@@ -101,7 +101,7 @@
     <string name="clock_am_pm_title">Rodyti AM/PM indikatorių</string>
     <string name="weather_enabled">Įjungta</string>
     <string name="weather_enable">Rodyti orus</string>
-    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_source_yahoo">Yahoo! Weather</string>
     <string name="weather_use_custom_location">Naudoti savitą vietovę</string>
     <string name="weather_geolocated">Nustatyta naudojant tinklą</string>
     <string name="weather_custom_location_dialog_title">Įveskite vietovę</string>

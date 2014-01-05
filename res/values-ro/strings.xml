@@ -98,7 +98,7 @@
 
     <string name="weather_enabled">"Activat"</string>
     <string name="weather_enable">"Afişare inf. meteo"</string>
-    <string name="weather_source">"Yahoo! Meteo"</string>
+    <string name="weather_source_yahoo">"Yahoo! Meteo"</string>
     <string name="weather_use_custom_location">"Utilizaţi locaţia personalizată"</string>
     <string name="weather_geolocated">"Localizată utilizând reţeaua"</string>
     <string name="weather_custom_location_dialog_title">"Introduceţi locaţia"</string>

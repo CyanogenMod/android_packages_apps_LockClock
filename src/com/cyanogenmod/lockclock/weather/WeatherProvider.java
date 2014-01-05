@@ -27,11 +27,13 @@ public interface WeatherProvider {
         public String postal;
         public String countryId;
         public String country;
-    };
+    }
 
     List<LocationResult> getLocations(String input);
 
-    WeatherInfo getWeatherInfo(String id, String localizedCityName);
+    WeatherInfo getWeatherInfo(String id, String localizedCityName, boolean metricUnits);
 
-    WeatherInfo getWeatherInfo(Location location);
-};
+    WeatherInfo getWeatherInfo(Location location, boolean metricUnits);
+
+    int getNameResourceId();
+}

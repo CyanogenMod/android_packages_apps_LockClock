@@ -17,7 +17,7 @@
 <resources>
 
     <style name="label_shadow">
-        <item name="android:shadowColor">@color/text_shadow</item>
+        <item name="android:shadowColor">@color/text_shadow_opaque</item>
         <item name="android:shadowRadius">2.0</item>
     </style>
 
@@ -77,6 +77,14 @@
     <style name="widget_big_light" parent="@style/label_shadow">
         <item name="android:textSize">@dimen/widget_big_font_size</item>
         <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="transparent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorForeground">#fff</item>
+        <item name="android:windowAnimationStyle">@null</item>
     </style>
 
 </resources>
