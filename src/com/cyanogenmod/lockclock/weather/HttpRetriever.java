@@ -38,7 +38,7 @@ public class HttpRetriever {
                 return EntityUtils.toString(entity);
             }
         } catch (IOException e) {
-            Log.e(TAG, "Couldn't retrieve data", e);
+            Log.e(TAG, "Couldn't retrieve data from url " + url, e);
         }
         return null;
     }

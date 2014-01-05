@@ -86,7 +86,7 @@
     <string name="weather_refresh_6hrs">6 horas</string>
     <string name="weather_refresh_8hrs">8 horas</string>
     <string name="weather_enable">Exibir tempo</string>
-    <string name="weather_source">Yahoo! Tempo</string>
+    <string name="weather_source_yahoo">Yahoo! Tempo</string>
     <string name="weather_use_custom_location">Usar local personalizado</string>
     <string name="weather_geolocated">Geolocalização usando a rede</string>
     <string name="weather_custom_location_dialog_title">Inserir localização</string>

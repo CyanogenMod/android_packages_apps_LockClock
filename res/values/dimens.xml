@@ -47,4 +47,7 @@
 
     <dimen name="am_pm_padding">30dp</dimen>
     <dimen name="am_pm_padding_small">20dp</dimen>
+
+    <dimen name="forecast_dialog_width">340dp</dimen>
+    <dimen name="forecast_icon_size">36dp</dimen>
 </resources>

@@ -107,7 +107,7 @@
 
     <string name="weather_enabled">Použít</string>
     <string name="weather_enable">Zobrazit počasí</string>
-    <string name="weather_source">Yahoo! Počasí</string>
+    <string name="weather_source_yahoo">Yahoo! Počasí</string>
     <string name="weather_use_custom_location">Použít vlastní polohu</string>
     <string name="weather_geolocated">Zjistit polohu ze sítě</string>
     <string name="weather_custom_location_dialog_title">Zadat polohu</string>

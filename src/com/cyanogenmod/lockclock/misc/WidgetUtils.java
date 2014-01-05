@@ -23,13 +23,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.Bitmap.Config;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,22 +39,6 @@ public class WidgetUtils {
 
     private static final String TAG = "WidgetUtils";
     private static final boolean D = Constants.DEBUG;
-
-    /**
-     *  Load a resource by Id and overlay with a specified color
-     */
-    public static Bitmap getOverlaidBitmap(Context context, int resId, int overlayColor) {
-        final Resources res = context.getResources();
-        final Bitmap src = BitmapFactory.decodeResource(res, resId);
-        final Bitmap dest = Bitmap.createBitmap(src.getWidth(), src.getHeight(), Config.ARGB_8888);
-        Canvas c = new Canvas(dest);
-        final Paint paint = new Paint();
-
-        // Overlay the selected color and set the imageview
-        paint.setColorFilter(new PorterDuffColorFilter(overlayColor, PorterDuff.Mode.SRC_ATOP));
-        c.drawBitmap(src, 0, 0, paint);
-        return dest;
-    }
 
     /**
      *  Decide whether to show the small Weather panel
@@ -214,7 +193,27 @@ public class WidgetUtils {
     /**
      *  API level check to see if the new API 17 TextClock is available
      */
-    public static boolean isTextClockAvailable(){
+    public static boolean isTextClockAvailable() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1;
+    }
+
+    /**
+     *  API level check to see if the new API 19 transparencies are available
+     */
+    public static boolean isTranslucencyAvailable() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
+    }
+
+    /**
+     *  Networking available check
+     */
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = cm.getActiveNetworkInfo();
+        if (info == null || !info.isConnected() || !info.isAvailable()) {
+            if (D) Log.d(TAG, "No network connection is available for weather update");
+            return false;
+        }
+        return true;
     }
 }

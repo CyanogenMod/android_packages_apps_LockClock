@@ -16,6 +16,7 @@
 
 package com.cyanogenmod.lockclock.preference;
 
+import android.annotation.SuppressLint;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.preference.PreferenceActivity;
@@ -76,5 +77,15 @@ public class Preferences extends PreferenceActivity {
         if (mNewWidgetId != AppWidgetManager.INVALID_APPWIDGET_ID) {
             setResult(result, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mNewWidgetId));
         }
+    }
+
+    /**
+     * This is required to be able to build with API level 19
+     */
+    @SuppressLint("Override")
+    @Override
+    public boolean isValidFragment(String fragmentName) {
+        // Assume a valid fragment name at all times
+        return true;
     }
 }
