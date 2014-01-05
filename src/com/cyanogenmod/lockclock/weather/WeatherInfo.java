@@ -21,9 +21,10 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 
 import com.cyanogenmod.lockclock.R;
-import com.cyanogenmod.lockclock.misc.WidgetUtils;
+import com.cyanogenmod.lockclock.misc.IconUtils;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class WeatherInfo {
@@ -33,27 +34,24 @@ public class WeatherInfo {
 
     private String id;
     private String city;
-    private String forecastDate;
     private String condition;
     private int conditionCode;
     private float temperature;
-    private float lowTemperature;
-    private float highTemperature;
     private String tempUnit;
     private float humidity;
     private float wind;
     private int windDirection;
     private String speedUnit;
     private long timestamp;
+    private ArrayList<DayForecast> forecasts;
 
     public WeatherInfo(Context context, String id,
-            String city, String fdate, String condition, int conditionCode,
-            float temp, float low, float high, String tempUnit, float humidity,
-            float wind, int windDir, String speedUnit, long timestamp) {
+            String city, String condition, int conditionCode, float temp,
+            String tempUnit, float humidity, float wind, int windDir,
+            String speedUnit, ArrayList<DayForecast> forecasts, long timestamp) {
         this.mContext = context.getApplicationContext();
         this.id = id;
         this.city = city;
-        this.forecastDate = fdate;
         this.condition = condition;
         this.conditionCode = conditionCode;
         this.humidity = humidity;
@@ -62,27 +60,57 @@ public class WeatherInfo {
         this.speedUnit = speedUnit;
         this.timestamp = timestamp;
         this.temperature = temp;
-        this.lowTemperature = low;
-        this.highTemperature = high;
         this.tempUnit = tempUnit;
+        this.forecasts = forecasts;
     }
 
-    public int getConditionResource() {
-        final Resources res = mContext.getResources();
-        final int resId = res.getIdentifier("weather2_" + conditionCode, "drawable", mContext.getPackageName());
-        if (resId != 0) {
-            return resId;
+    public static class DayForecast {
+        public final float low, high;
+        public final int conditionCode;
+        public final String condition;
+
+        public DayForecast(float low, float high, String condition, int conditionCode) {
+            this.low = low;
+            this.high = high;
+            this.condition = condition;
+            this.conditionCode = conditionCode;
         }
-        return R.drawable.weather2_na;
+
+        public String getFormattedLow() {
+            return getFormattedValue(low, "\u00b0");
+        }
+
+        public String getFormattedHigh() {
+            return getFormattedValue(high, "\u00b0");
+        }
+
+        public int getConditionResource(Context context, String set) {
+            return IconUtils.getWeatherIconResource(context, set, conditionCode);
+        }
+
+        public Bitmap getConditionBitmap(Context context, String set, int color) {
+            return IconUtils.getWeatherIconBitmap(context, set, color, conditionCode);
+        }
+
+        public Bitmap getConditionBitmap(Context context, String set, int color, int density) {
+            return IconUtils.getWeatherIconBitmap(context, set, color, conditionCode, density);
+        }
+
+        public String getCondition(Context context) {
+            return WeatherInfo.getCondition(context, conditionCode, condition);
+        }
     }
 
-    public Bitmap getConditionBitmap(int color) {
-        final Resources res = mContext.getResources();
-        int resId = res.getIdentifier("weather_" + conditionCode, "drawable", mContext.getPackageName());
-        if (resId == 0) {
-            resId = R.drawable.weather_na;
-        }
-        return WidgetUtils.getOverlaidBitmap(mContext, resId, color);
+    public int getConditionResource(String set) {
+        return IconUtils.getWeatherIconResource(mContext, set, conditionCode);
+    }
+
+    public Bitmap getConditionBitmap(String set, int color) {
+        return IconUtils.getWeatherIconBitmap(mContext, set, color, conditionCode);
+    }
+
+    public Bitmap getConditionBitmap(String set, int color, int density) {
+        return IconUtils.getWeatherIconBitmap(mContext, set, color, conditionCode, density);
     }
 
     public String getId() {
@@ -94,8 +122,12 @@ public class WeatherInfo {
     }
 
     public String getCondition() {
-        final Resources res = mContext.getResources();
-        final int resId = res.getIdentifier("weather_" + conditionCode, "string", mContext.getPackageName());
+        return getCondition(mContext, conditionCode, condition);
+    }
+
+    private static String getCondition(Context context, int conditionCode, String condition) {
+        final Resources res = context.getResources();
+        final int resId = res.getIdentifier("weather_" + conditionCode, "string", context.getPackageName());
         if (resId != 0) {
             return res.getString(resId);
         }
@@ -106,23 +138,27 @@ public class WeatherInfo {
         return new Date(timestamp);
     }
 
-    private String getFormattedValue(float value, String unit) {
-        if (Float.isNaN(highTemperature)) {
+    private static String getFormattedValue(float value, String unit) {
+        if (Float.isNaN(value)) {
             return "-";
         }
-        return sNoDigitsFormat.format(value) + unit;
+        String formatted = sNoDigitsFormat.format(value);
+        if (formatted.equals("-0")) {
+            formatted = "0";
+        }
+        return formatted + unit;
     }
 
     public String getFormattedTemperature() {
-        return getFormattedValue(temperature, "°" + tempUnit);
+        return getFormattedValue(temperature, "\u00b0" + tempUnit);
     }
 
     public String getFormattedLow() {
-        return getFormattedValue(lowTemperature, "°");
+        return forecasts.get(0).getFormattedLow();
     }
 
     public String getFormattedHigh() {
-        return getFormattedValue(highTemperature, "°");
+        return forecasts.get(0).getFormattedHigh();
     }
 
     public String getFormattedHumidity() {
@@ -153,6 +189,10 @@ public class WeatherInfo {
         return mContext.getString(resId);
     }
 
+    public ArrayList<DayForecast> getForecasts() {
+        return forecasts;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -178,6 +218,20 @@ public class WeatherInfo {
         builder.append(getFormattedWindSpeed());
         builder.append(" at ");
         builder.append(getWindDirection());
+        if (forecasts.size() > 0) {
+            builder.append(", forecasts:");
+        }
+        for (int i = 0; i < forecasts.size(); i++) {
+            DayForecast d = forecasts.get(i);
+            if (i != 0) {
+                builder.append(";");
+            }
+            builder.append(" day ").append(i + 1).append(": ");
+            builder.append("high ").append(d.getFormattedHigh());
+            builder.append(", low ").append(d.getFormattedLow());
+            builder.append(", ").append(d.condition);
+            builder.append("(").append(d.conditionCode).append(")");
+        }
         return builder.toString();
     }
 
@@ -185,19 +239,28 @@ public class WeatherInfo {
         StringBuilder builder = new StringBuilder();
         builder.append(id).append('|');
         builder.append(city).append('|');
-        builder.append(forecastDate).append('|');
         builder.append(condition).append('|');
         builder.append(conditionCode).append('|');
         builder.append(temperature).append('|');
-        builder.append(lowTemperature).append('|');
-        builder.append(highTemperature).append('|');
         builder.append(tempUnit).append('|');
         builder.append(humidity).append('|');
         builder.append(wind).append('|');
         builder.append(windDirection).append('|');
         builder.append(speedUnit).append('|');
-        builder.append(timestamp);
+        builder.append(timestamp).append('|');
+        serializeForecasts(builder);
         return builder.toString();
+    }
+
+    private void serializeForecasts(StringBuilder builder) {
+        builder.append(forecasts.size());
+        for (DayForecast d : forecasts) {
+            builder.append(';');
+            builder.append(d.high).append(';');
+            builder.append(d.low).append(';');
+            builder.append(d.condition).append(';');
+            builder.append(d.conditionCode);
+        }
     }
 
     public static WeatherInfo fromSerializedString(Context context, String input) {
@@ -206,31 +269,58 @@ public class WeatherInfo {
         }
 
         String[] parts = input.split("\\|");
-        if (parts == null || parts.length != 14) {
+        if (parts == null || parts.length != 12) {
             return null;
         }
 
         int conditionCode, windDirection;
         long timestamp;
-        float temperature, low, high, humidity, wind;
+        float temperature, humidity, wind;
+        String[] forecastParts = parts[11].split(";");
+        int forecastItems;
+        ArrayList<DayForecast> forecasts = new ArrayList<DayForecast>();
 
+        // Parse the core data
         try {
-            conditionCode = Integer.parseInt(parts[4]);
-            temperature = Float.parseFloat(parts[5]);
-            low = Float.parseFloat(parts[6]);
-            high = Float.parseFloat(parts[7]);
-            humidity = Float.parseFloat(parts[9]);
-            wind = Float.parseFloat(parts[10]);
-            windDirection = Integer.parseInt(parts[11]);
-            timestamp = Long.parseLong(parts[13]);
+            conditionCode = Integer.parseInt(parts[3]);
+            temperature = Float.parseFloat(parts[4]);
+            humidity = Float.parseFloat(parts[6]);
+            wind = Float.parseFloat(parts[7]);
+            windDirection = Integer.parseInt(parts[8]);
+            timestamp = Long.parseLong(parts[10]);
+            forecastItems = forecastParts == null ? 0 : Integer.parseInt(forecastParts[0]);
         } catch (NumberFormatException e) {
             return null;
         }
 
+        if (forecastItems == 0 || forecastParts.length != 4 * forecastItems + 1) {
+            return null;
+        }
+
+        // Parse the forecast data
+        try {
+            for (int item = 0; item < forecastItems; item ++) {
+                int offset = item * 4 + 1;
+                DayForecast day = new DayForecast(
+                        /* low */ Float.parseFloat(forecastParts[offset + 1]),
+                        /* high */ Float.parseFloat(forecastParts[offset]),
+                        /* condition */ forecastParts[offset + 2],
+                        /* conditionCode */ Integer.parseInt(forecastParts[offset + 3]));
+                if (!Float.isNaN(day.low) && !Float.isNaN(day.high) && day.conditionCode >= 0) {
+                    forecasts.add(day);
+                }
+            }
+        } catch (NumberFormatException ignored) {
+        }
+
+        if (forecasts.isEmpty()) {
+            return null;
+        }
+
         return new WeatherInfo(context,
-                /* id */ parts[0], /* city */ parts[1], /* date */ parts[2],
-                /* condition */ parts[3], conditionCode, temperature, low, high,
-                /* tempUnit */ parts[8], humidity, wind, windDirection,
-                /* speedUnit */ parts[12], timestamp);
+                /* id */ parts[0], /* city */ parts[1], /* condition */ parts[2],
+                conditionCode, temperature, /* tempUnit */ parts[5],
+                humidity, wind, windDirection, /* speedUnit */ parts[9],
+                /* forecasts */ forecasts, timestamp);
     }
 }

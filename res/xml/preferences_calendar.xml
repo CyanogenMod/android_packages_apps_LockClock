@@ -31,7 +31,8 @@
             android:dependency="show_calendar"
             android:dialogTitle="@string/calendars_title"
             android:title="@string/calendars_title"
-            android:summary="@string/calendars_summary" />
+            android:summary="@string/calendars_summary"
+            android:defaultValue="@array/empty_array" />
 
         <ListPreference
             android:key="calendar_lookahead"
@@ -64,6 +65,18 @@
             android:key="calendar_icon"
             android:dependency="show_calendar"
             android:title="@string/calendar_icon_title"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="calendar_add_event_icon"
+            android:dependency="show_calendar"
+            android:title="@string/calendar_add_event_title"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="calendar_no_events_text"
+            android:dependency="show_calendar"
+            android:title="@string/calendar_no_events_indicator_title"
             android:defaultValue="true" />
 
         <ListPreference
