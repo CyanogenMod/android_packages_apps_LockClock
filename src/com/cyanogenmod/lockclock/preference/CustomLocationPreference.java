@@ -33,7 +33,6 @@ import android.widget.Toast;
 import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.weather.WeatherProvider.LocationResult;
-import com.cyanogenmod.lockclock.weather.YahooWeatherProvider;
 
 import java.util.HashSet;
 import java.util.List;
@@ -112,7 +111,7 @@ public class CustomLocationPreference extends EditTextPreference {
 
         @Override
         protected List<LocationResult> doInBackground(Void... input) {
-            return new YahooWeatherProvider(getContext()).getLocations(mLocation);
+            return Preferences.weatherProvider(getContext()).getLocations(mLocation);
         }
 
         @Override

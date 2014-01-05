@@ -19,9 +19,12 @@ package com.cyanogenmod.lockclock.weather;
 import android.content.Context;
 import android.location.Location;
 import android.net.Uri;
+import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 
-import com.cyanogenmod.lockclock.misc.Preferences;
+import com.cyanogenmod.lockclock.weather.WeatherInfo.DayForecast;
+import com.cyanogenmod.lockclock.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,7 +54,7 @@ public class YahooWeatherProvider implements WeatherProvider {
             Uri.encode("select woeid, postal, admin1, admin2, admin3, " +
                     "locality1, locality2, country from geo.places where " +
                     "(placetype = 7 or placetype = 8 or placetype = 9 " +
-                    "or placetype = 10 or placetype = 11) and text =");
+                    "or placetype = 10 or placetype = 11 or placetype = 20) and text =");
     private static final String URL_PLACEFINDER =
             "http://query.yahooapis.com/v1/public/yql?format=json&q=" +
             Uri.encode("select woeid, city from geo.placefinder where gflags=\"R\" and text =");
@@ -67,9 +70,14 @@ public class YahooWeatherProvider implements WeatherProvider {
     }
 
     @Override
+    public int getNameResourceId() {
+        return R.string.weather_source_yahoo;
+    }
+
+    @Override
     public List<LocationResult> getLocations(String input) {
-        String locale = mContext.getResources().getConfiguration().locale.getCountry();
-        String params = "\"" + input + "\" and lang = \"" + locale + "\"";
+        String language = getLanguage();
+        String params = "\"" + input + "\" and lang = \"" + language + "\"";
         String url = URL_LOCATION + Uri.encode(params);
         JSONObject jsonResults = fetchResults(url);
         if (jsonResults == null) {
@@ -93,14 +101,14 @@ public class YahooWeatherProvider implements WeatherProvider {
             }
             return results;
         } catch (JSONException e) {
-            Log.e(TAG, "Received malformed places data", e);
+            Log.e(TAG, "Received malformed places data (input=" + input + ", lang=" + language + ")", e);
         }
         return null;
     }
 
-    public WeatherInfo getWeatherInfo(String id, String localizedCityName) {
-        String unit = Preferences.useMetricUnits(mContext) ? "c" : "f";
-        String url = String.format(URL_WEATHER, id, unit);
+    @Override
+    public WeatherInfo getWeatherInfo(String id, String localizedCityName, boolean metric) {
+        String url = String.format(URL_WEATHER, id, metric ? "c" : "f");
         String response = HttpRetriever.retrieve(url);
 
         if (response == null) {
@@ -115,22 +123,31 @@ public class YahooWeatherProvider implements WeatherProvider {
             parser.parse(new InputSource(reader), handler);
 
             if (handler.isComplete()) {
+                // There are cases where the current condition is unknown, but the forecast
+                // is not - using the (inaccurate) forecast is probably better than showing
+                // the question mark
+                if (handler.conditionCode == 3200) {
+                    handler.condition = handler.forecasts.get(0).condition;
+                    handler.conditionCode = handler.forecasts.get(0).conditionCode;
+                }
+
                 WeatherInfo w = new WeatherInfo(mContext, id,
-                        localizedCityName != null ? localizedCityName : handler.city, null,
+                        localizedCityName != null ? localizedCityName : handler.city,
                         handler.condition, handler.conditionCode, handler.temperature,
-                        handler.forecasts.get(0).low, handler.forecasts.get(0).high,
                         handler.temperatureUnit, handler.humidity, handler.windSpeed,
-                        handler.windDirection, handler.speedUnit,
+                        handler.windDirection, handler.speedUnit, handler.forecasts,
                         System.currentTimeMillis());
                 Log.d(TAG, "Weather updated: " + w);
                 return w;
+            } else {
+                Log.w(TAG, "Received incomplete weather XML (id=" + id + ")");
             }
         } catch (ParserConfigurationException e) {
             Log.e(TAG, "Could not create XML parser", e);
         } catch (SAXException e) {
-            Log.e(TAG, "Could not parse weather XML", e);
+            Log.e(TAG, "Could not parse weather XML (id=" + id + ")", e);
         } catch (IOException e) {
-            Log.e(TAG, "Could not parse weather XML", e);
+            Log.e(TAG, "Could not parse weather XML (id=" + id + ")", e);
         }
 
         return null;
@@ -143,12 +160,6 @@ public class YahooWeatherProvider implements WeatherProvider {
         float humidity, temperature, windSpeed;
         String condition;
         ArrayList<DayForecast> forecasts = new ArrayList<DayForecast>();
-
-        private static class DayForecast {
-            float low, high;
-            int conditionCode;
-            String condition;
-        }
 
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attributes)
@@ -168,11 +179,11 @@ public class YahooWeatherProvider implements WeatherProvider {
                 conditionCode = (int) stringToFloat(attributes.getValue("code"), -1);
                 temperature = stringToFloat(attributes.getValue("temp"), Float.NaN);
             } else if (qName.equals("yweather:forecast")) {
-                DayForecast day = new DayForecast();
-                day.low = stringToFloat(attributes.getValue("low"), Float.NaN);
-                day.high = stringToFloat(attributes.getValue("high"), Float.NaN);
-                day.condition = attributes.getValue("text");
-                day.conditionCode = (int) stringToFloat(attributes.getValue("code"), -1);
+                DayForecast day = new DayForecast(
+                        /* low */ stringToFloat(attributes.getValue("low"), Float.NaN),
+                        /* high */ stringToFloat(attributes.getValue("high"), Float.NaN),
+                        /* condition */ attributes.getValue("text"),
+                        /* conditionCode */ (int) stringToFloat(attributes.getValue("code"), -1));
                 if (!Float.isNaN(day.low) && !Float.isNaN(day.high) && day.conditionCode >= 0) {
                     forecasts.add(day);
                 }
@@ -194,10 +205,11 @@ public class YahooWeatherProvider implements WeatherProvider {
         }
     }
 
-    public WeatherInfo getWeatherInfo(Location location) {
-        String locale = mContext.getResources().getConfiguration().locale.getCountry();
-        String params = String.format(Locale.US, "\"%f %f\" and lang=\"%s\"",
-                location.getLatitude(), location.getLongitude(), locale);
+    @Override
+    public WeatherInfo getWeatherInfo(Location location, boolean metric) {
+        String language = getLanguage();
+        String params = String.format(Locale.US, "\"%f %f\" and locale=\"%s\"",
+                location.getLatitude(), location.getLongitude(), language);
         String url = URL_PLACEFINDER + Uri.encode(params);
         JSONObject results = fetchResults(url);
         if (results == null) {
@@ -209,17 +221,24 @@ public class YahooWeatherProvider implements WeatherProvider {
             String woeid = result.getString("woeid");
             String city = result.getString("city");
 
+            if (city == null) {
+                city = result.getString("neighborhood");
+            }
+
+            // The city name in the placefinder result is HTML encoded :-(
+            if (city != null) {
+                city = Html.fromHtml(city).toString();
+            }
+
             Log.d(TAG, "Resolved location " + location + " to " + city + " (" + woeid + ")");
 
-            WeatherInfo info = getWeatherInfo(woeid, city);
+            WeatherInfo info = getWeatherInfo(woeid, city, metric);
             if (info != null) {
-                // cache the result for potential reuse
-                // (the placefinder service API is rate limited)
-                Preferences.setCachedLocationId(mContext, woeid);
                 return info;
             }
         } catch (JSONException e) {
-            Log.e(TAG, "Received malformed placefinder data", e);
+            Log.e(TAG, "Received malformed placefinder data (location="
+                    + location + ", lang=" + language + ")", e);
         }
 
         return null;
@@ -243,6 +262,11 @@ public class YahooWeatherProvider implements WeatherProvider {
             }
         }
 
+        if (Log.isLoggable(TAG, Log.VERBOSE)) {
+            Log.v(TAG, "JSON data " + place.toString() + " -> id=" + result.id
+                    + ", city=" + result.city + ", country=" + result.countryId);
+        }
+
         if (result.id == null || result.city == null || result.countryId == null) {
             return null;
         }
@@ -264,9 +288,20 @@ public class YahooWeatherProvider implements WeatherProvider {
             JSONObject rootObject = new JSONObject(response);
             return rootObject.getJSONObject("query").getJSONObject("results");
         } catch (JSONException e) {
-            Log.w(TAG, "Received malformed places data", e);
+            Log.w(TAG, "Received malformed places data (url=" + url + ")", e);
         }
 
         return null;
     }
-};
+
+    private String getLanguage() {
+        Locale locale = mContext.getResources().getConfiguration().locale;
+        String country = locale.getCountry();
+        String language = locale.getLanguage();
+
+        if (TextUtils.isEmpty(country)) {
+            return language;
+        }
+        return language + "-" + country;
+    }
+}

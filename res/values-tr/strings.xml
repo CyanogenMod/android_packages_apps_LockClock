@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+     Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+     Chronus additions (c) 2013 David van Tonder
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- General strings -->
+    <string name="unknown">Bilinmeyen</string>
+    <string name="cancel">İptal</string>
+    <string name="loading_indicator">Widget yükleniyor\u2026</string>
+    <string name="menu_done">Tamam</string>
+
+    <!-- Weather - Weather codes -->
+    <string name="weather_0">Hortum</string>
+    <string name="weather_1">Tropik Fırtına</string>
+    <string name="weather_2">Kasırga</string>
+    <string name="weather_3">Şiddetli Gökgürültüsü</string>
+    <string name="weather_4">Gökgürültülü</string>
+    <string name="weather_5">Karla Karışık Yağmur</string>
+    <string name="weather_6">Yağmurlu Sulusepken</string>
+    <string name="weather_7">Karlı Sulusepken</string>
+    <string name="weather_8">Soğuk Çiseli</string>
+    <string name="weather_9">Çiseleyen Yağmur</string>
+    <string name="weather_10">Soğuk Yağmur</string>
+    <string name="weather_11">Yağışlı</string>
+    <string name="weather_12">Yağışlı</string>
+    <string name="weather_13">Kar Fırtınası</string>
+    <string name="weather_14">Hafif Kar Yağışı</string>
+    <string name="weather_15">Tipi</string>
+    <string name="weather_16">Kar</string>
+    <string name="weather_17">Dolu</string>
+    <string name="weather_18">Sulusepken</string>
+    <string name="weather_19">Tozlu</string>
+    <string name="weather_20">Sis</string>
+    <string name="weather_21">Pus</string>
+    <string name="weather_22">Duman</string>
+    <string name="weather_23">Şiddetli Rüzgar</string>
+    <string name="weather_24">Rüzgarlı</string>
+    <string name="weather_25">Soğuk</string>
+    <string name="weather_26">Bulutlu</string>
+    <string name="weather_27">Çoğunlukla Bulutlu</string> <!-- Night -->
+    <string name="weather_28">Çoğunlukla Bulutlu</string> <!-- Day -->
+    <string name="weather_29">Çoğunlukla Bulutlu</string> <!-- Night -->
+    <string name="weather_30">Çoğunlukla Bulutlu</string> <!-- Day -->
+    <string name="weather_31">Açık</string> <!-- Night -->
+    <string name="weather_32">Güneşli</string>
+    <string name="weather_33">Güzel Hava</string> <!-- Night -->
+    <string name="weather_34">Güzel Hava</string> <!-- Day -->
+    <string name="weather_35">Yağmur ve Dolu</string>
+    <string name="weather_36">Sıcak</string>
+    <string name="weather_37">Bölgesel Gökgürültülü</string>
+    <string name="weather_38">Yaygın Gökgürültülü</string>
+    <string name="weather_39">Yer Yer Gökgürültülü</string>
+    <string name="weather_40">Yer Yer Yağışlı</string>
+    <string name="weather_41">Şiddetli Kar</string>
+    <string name="weather_42">Yer Yer Kar Yağışlı</string>
+    <string name="weather_43">Şiddetli Kar</string>
+    <string name="weather_44">Parçalı Bulutlu</string>
+    <string name="weather_45">Gökgürültülü</string>
+    <string name="weather_46">Kar Yağışlı</string>
+    <string name="weather_47">Bölgesel Gökgürültülü</string>
+    <string name="weather_3200"></string> <!-- Forecast unavailable -->
+
+    <!-- Weather - Speed units -->
+    <string name="weather_kph">kmh</string>
+    <string name="weather_mph">mh</string>
+
+    <!-- Weather - Wind directions -->
+    <string name="weather_N">K</string>
+    <string name="weather_NE">KD</string>
+    <string name="weather_E">D</string>
+    <string name="weather_SE">GD</string>
+    <string name="weather_S">G</string>
+    <string name="weather_SW">GB</string>
+    <string name="weather_W">B</string>
+    <string name="weather_NW">KB</string>
+
+    <!-- Weather - Error messages -->
+    <string name="weather_no_data">Veri yok</string>
+    <string name="weather_tap_to_refresh">Yenilemek için tıklayın</string>
+    <string name="weather_refreshing">Yeniliyor</string>
+    <string name="weather_last_sync_just_now">Şimdi</string>
+    <string name="weather_cannot_reach_provider">%s ulaşılamaz</string>
+
+    <!-- Weather - Update frequency -->
+    <string name="weather_refresh_manual">El ile</string>
+    <string name="weather_refresh_30min">30 dakika</string>
+    <string name="weather_refresh_60min">60 dakika</string>
+    <string name="weather_refresh_2hrs">2 saat</string>
+    <string name="weather_refresh_4hrs">4 saat</string>
+    <string name="weather_refresh_6hrs">6 saat</string>
+    <string name="weather_refresh_8hrs">8 saat</string>
+
+    <!-- Preferences - Categories -->
+    <string name="clock_category">Saat ve alarm</string>
+    <string name="weather_category">Hava durumu</string>
+    <string name="calendar_category">Takvim etkinlikleri</string>
+    <string name="general_category">Genel</string>
+    <string name="display_category">Görünüm</string>
+
+    <!-- Preferences - Clock -->
+    <string name="clock_font_title">Saat kalın</string>
+    <string name="clock_font_minutes_title">Dakika kalın</string>
+    <string name="clock_font_date_title">Tarih ve alarm kalın</string>
+    <string name="show_alarm_title">Gelecek alarmı göster</string>
+    <string name="clock_am_pm_title">AM/PM belirteci</string>
+
+    <!-- Preferences - Weather -->
+    <string name="weather_enabled">Etkin</string>
+    <string name="weather_enable">Hava durumunu göster</string>
+    <string name="weather_source_title">Hava durumu kaynağı</string>
+    <string name="weather_source_yahoo">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Özel bir konum kullan</string>
+    <string name="weather_geolocated">Ağ jeolokasyonu ile konum</string>
+    <string name="weather_custom_location_dialog_title">Konum girişi</string>
+    <string name="weather_custom_location_hint">Şehir, Bölge/Ülke</string>
+    <string name="weather_custom_location_title">Konum</string>
+    <string name="weather_show_location_title">Konumu göster</string>
+    <string name="weather_show_timestamp_title">Güncelleme anı göster</string>
+    <string name="weather_refresh_interval">Güncelleme aralığı</string>
+    <string name="weather_use_metric">Metrik biçim</string>
+    <string name="weather_retrieve_location_dialog_title">Konum saptanamıyor!</string>
+    <string name="weather_retrieve_location_dialog_message">Ağ jeolokasyonu aktif değil.\n\nBir konum girin ya da ağ konumunu etkinleştirin</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Etkin</string>
+    <string name="weather_invert_lowhigh">Yüksek/alçak sıcaklığı ters çevir</string>
+    <string name="weather_progress_title">Konum doğrulanıyor</string>
+    <string name="weather_alternate_icons_title">Renkli simge kullan</string>
+    <string name="weather_alternate_icons_summary">Varsayılan rengi ya da alternatif rengi (beyaz) kullanmak için seçin</string>
+    <string name="weather_show_when_minimized_title">Minimize iken göster</string>
+    <string name="weather_show_when_minimized_summary">Widget minimize haldeyken hava durumu bilgisini göster</string>
+    <string name="weather_select_location">Konum seçin</string>
+
+    <!-- Preferences - Calendar -->
+    <string name="calendar_title">Sonraki etkinliği göster</string>
+    <string name="calendars_title">Takvim etkinlikleri</string>
+    <string name="calendars_summary">Takvimden etkinlik bul</string>
+    <string name="calendar_reminders_only_title">Sadece hatırlatmalar</string>
+    <string name="calendar_reminders_only_summary">Sadece hatırlatılacak etkinlikleri göster</string>
+    <string name="calendar_hide_allday_title">Gün boyu etkinliklerini gizle</string>
+    <string name="calendar_icon_title">Takvim simgesi</string>
+    <string name="calendar_lookahead_title">Etkinlik izlenimi</string>
+    <string name="calendar_show_location_title">Etkinlik yeri</string>
+    <string name="calendar_show_description_title">Etkinlik tanımı</string>
+    <string name="calendar_upcoming_events_category">Yaklaşan etkinlikler</string>
+    <string name="calendar_highlight_upcoming_events_title">Etkinlikleri vurgula</string>
+    <string name="calendar_highlight_upcoming_events_summary">Günlük etkinlikleri ve saat 8\'den itibaren yarınki etkinlikleri vurgula</string>
+    <string name="calendar_highlight_upcoming_events_bold">Kalın yazı</string>
+    <string name="calendar_add_event_title">Etkinlik simgesi ekle</string>
+
+    <!-- Preferences - Font colors -->
+    <string name="font_color">Yazı rengi</string>
+    <string name="font_color_alarm">Alarm yazı rengi</string>
+    <string name="font_color_timestamp">Güncelleme saati rengi</string>
+    <string name="font_color_calendar_details">Detaylar yazı rengi</string>
+
+    <!-- Calendar - Lookahead -->
+    <string name="calendar_lookahead_3hrs">3 saat</string>
+    <string name="calendar_lookahead_6hrs">6 saat</string>
+    <string name="calendar_lookahead_12hrs">12 saat</string>
+    <string name="calendar_lookahead_today">Bugün</string>
+    <string name="calendar_lookahead_1day">1 gün</string>
+    <string name="calendar_lookahead_3days">3 gün</string>
+    <string name="calendar_lookahead_1wk">1 hafta</string>
+    <string name="calendar_lookahead_2wks">2 hafta</string>
+    <string name="calendar_lookahead_4wks">4 hafta</string>
+
+    <!-- Calendar - Event metadata -->
+    <string name="calendar_metadata_none">Gösterme</string>
+    <string name="calendar_metadata_first_line">İlk satırı göster</string>
+    <string name="calendar_metadata_all">Hepsini göster</string>
+
+    <!-- Font colors -->
+    <string name="white">Beyaz</string>
+    <string name="grey">Gri</string>
+    <string name="black">Siyah</string>
+    <string name="holo_blue_light">Açık mavi</string>
+    <string name="holo_green_light">Açık yeşil</string>
+    <string name="holo_red_light">Açık kırmızı</string>
+    <string name="holo_blue_dark">Koyu mavi</string>
+    <string name="holo_green_dark">Koyu yeşil</string>
+    <string name="holo_red_dark">Koyu kırmızı</string>
+    <string name="holo_purple">Mor</string>
+    <string name="holo_orange_light">Açık turuncu</string>
+    <string name="holo_orange_dark">Koyu turuncu</string>
+    <string name="holo_blue_bright">Parlak mavi</string>
+
+    <!-- Weather icon sets -->
+    <string name="weather_icon_set_title">Simge seti</string>
+    <string name="weather_icons_standard">Renkli</string>
+    <string name="weather_icons_monochrome">Monokrom</string>
+    <string name="weather_icons_vclouds">VClouds</string>
+    <string name="icon_set_selection_get_more">Daha fazla\u2026</string>
+</resources>

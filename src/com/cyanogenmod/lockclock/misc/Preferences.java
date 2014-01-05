@@ -20,7 +20,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 
+import com.cyanogenmod.lockclock.weather.OpenWeatherMapProvider;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
+import com.cyanogenmod.lockclock.weather.WeatherProvider;
+import com.cyanogenmod.lockclock.weather.YahooWeatherProvider;
 
 import java.util.Calendar;
 import java.util.Set;
@@ -137,8 +140,8 @@ public class Preferences {
         return getPrefs(context).getBoolean(Constants.WEATHER_INVERT_LOWHIGH, false);
     }
 
-    public static boolean useAlternateWeatherIcons(Context context) {
-        return getPrefs(context).getBoolean(Constants.WEATHER_USE_ALTERNATE_ICONS, true);
+    public static String getWeatherIconSet(Context context) {
+        return getPrefs(context).getString(Constants.WEATHER_ICONS, "color");
     }
 
     public static boolean useMetricUnits(Context context) {
@@ -154,6 +157,10 @@ public class Preferences {
         return getPrefs(context).getBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, false);
     }
 
+    public static void setUseCustomWeatherLocation(Context context, boolean value) {
+        getPrefs(context).edit().putBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, value).apply();
+    }
+
     public static String customWeatherLocationId(Context context) {
         return getPrefs(context).getString(Constants.WEATHER_CUSTOM_LOCATION_ID, null);
     }
@@ -164,6 +171,18 @@ public class Preferences {
 
     public static String customWeatherLocationCity(Context context) {
         return getPrefs(context).getString(Constants.WEATHER_CUSTOM_LOCATION_CITY, null);
+    }
+
+    public static void setCustomWeatherLocationCity(Context context, String city) {
+        getPrefs(context).edit().putString(Constants.WEATHER_CUSTOM_LOCATION_CITY, city).apply();
+    }
+
+    public static WeatherProvider weatherProvider(Context context) {
+        String name = getPrefs(context).getString(Constants.WEATHER_SOURCE, "yahoo");
+        if (name.equals("openweathermap")) {
+            return new OpenWeatherMapProvider(context);
+        }
+        return new YahooWeatherProvider(context);
     }
 
     public static void setCachedWeatherInfo(Context context, long timestamp, WeatherInfo data) {
