@@ -48,7 +48,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 
-public class CalendarWidgetService extends RemoteViewsService {
+public class CalendarViewsService extends RemoteViewsService {
 
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {

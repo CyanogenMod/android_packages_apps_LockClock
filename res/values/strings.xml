@@ -84,8 +84,11 @@
     <string name="weather_45">Thundershowers</string>
     <string name="weather_46">Snow Showers</string>
     <string name="weather_47">Isolated Thundershowers</string>
-    <!-- Forecast unavailable -->
-    <string name="weather_3200"></string>
+    <string name="weather_3200"></string> <!-- Forecast unavailable -->
+
+    <!-- Weather - Speed units -->
+    <string name="weather_kph">kph</string>
+    <string name="weather_mph">mph</string>
 
     <!-- Weather - Wind directions -->
     <string name="weather_N">N</string>
@@ -134,7 +137,9 @@
     <!-- Preferences - Weather -->
     <string name="weather_enabled">Enabled</string>
     <string name="weather_enable">Display weather</string>
-    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_source_title">Weather source</string>
+    <string name="weather_source_yahoo">Yahoo! Weather</string>
+    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Use custom location</string>
     <string name="weather_geolocated">Geolocated using network</string>
     <string name="weather_custom_location_dialog_title">Enter location</string>
@@ -170,6 +175,10 @@
     <string name="calendar_highlight_upcoming_events_title">Highlight events</string>
     <string name="calendar_highlight_upcoming_events_summary">Highlight the current day\'s events and, after 8pm, also the next day\'s events</string>
     <string name="calendar_highlight_upcoming_events_bold">Bold font</string>
+    <string name="calendar_add_event_title">Add Event icon</string>
+    <string name="calendar_no_events">No events in lookahead window</string>
+    <string name="calendar_no_events_summary">Tap + to add</string>
+    <string name="calendar_no_events_indicator_title">Show \'No events\' text</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Font color</string>
@@ -208,4 +217,11 @@
     <string name="holo_orange_dark">Dark orange</string>
     <string name="holo_blue_bright">Bright blue</string>
 
+    <!-- Weather icon sets -->
+    <string name="weather_icon_set_title">Icon set</string>
+    <string name="weather_icons_standard">Colored</string>
+    <string name="weather_icons_monochrome">Monochrome</string>
+    <string name="weather_icons_vclouds">VClouds</string>
+    <string name="icon_set_selection_get_more">Get more\u2026</string>
+    <string name="icon_set_store_filter" translatable="false">Chronus Weather Icons</string>
 </resources>
