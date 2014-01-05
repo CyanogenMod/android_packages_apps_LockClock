@@ -101,7 +101,7 @@
     <string name="clock_am_pm_title">Mostrar indicador AM/PM</string>
     <string name="weather_enabled">Ativo</string>
     <string name="weather_enable">Mostrar Meteorologia</string>
-    <string name="weather_source">Yahoo! Tempo</string>
+    <string name="weather_source_yahoo">Yahoo! Tempo</string>
     <string name="weather_use_custom_location">Usar localização personalizada</string>
     <string name="weather_geolocated">Geolocalização usando a rede</string>
     <string name="weather_custom_location_dialog_title">Insira localização</string>

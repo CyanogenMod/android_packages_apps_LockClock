@@ -58,6 +58,7 @@ public class WeatherPreferences extends PreferenceFragment implements
     private ListPreference mFontColor;
     private ListPreference mTimestampFontColor;
     private CheckBoxPreference mUseMetric;
+    private IconSelectionPreference mIconSet;
 
     private Context mContext;
     private ContentResolver mResolver;
@@ -73,10 +74,9 @@ public class WeatherPreferences extends PreferenceFragment implements
         // Load items that need custom summaries etc.
         mUseCustomLoc = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
         mCustomWeatherLoc = (EditTextPreference) findPreference(Constants.WEATHER_CUSTOM_LOCATION_CITY);
-
         mFontColor = (ListPreference) findPreference(Constants.WEATHER_FONT_COLOR);
         mTimestampFontColor = (ListPreference) findPreference(Constants.WEATHER_TIMESTAMP_FONT_COLOR);
-
+        mIconSet = (IconSelectionPreference) findPreference(Constants.WEATHER_ICONS);
         mUseMetric = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_METRIC);
 
         // Show a warning if location manager is disabled and there is no custom location set
@@ -93,6 +93,7 @@ public class WeatherPreferences extends PreferenceFragment implements
         getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         updateLocationSummary();
         updateFontColorsSummary();
+        updateIconSetSummary();
     }
 
     @Override
@@ -111,6 +112,10 @@ public class WeatherPreferences extends PreferenceFragment implements
 
         if (pref == mUseCustomLoc || pref == mCustomWeatherLoc) {
             updateLocationSummary();
+        }
+
+        if (pref == mIconSet) {
+            updateIconSetSummary();
         }
 
         boolean needWeatherUpdate = false;
@@ -198,6 +203,12 @@ public class WeatherPreferences extends PreferenceFragment implements
         }
         if (mTimestampFontColor != null) {
             mTimestampFontColor.setSummary(mTimestampFontColor.getEntry());
+        }
+    }
+
+    private void updateIconSetSummary() {
+        if (mIconSet != null) {
+            mIconSet.setSummary(mIconSet.getEntry());
         }
     }
 }

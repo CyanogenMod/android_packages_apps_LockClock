@@ -100,7 +100,7 @@
     <string name="clock_am_pm_title">Zobraziť indikátor AM/PM</string>
     <string name="weather_enabled">Povolené</string>
     <string name="weather_enable">Zobraziť počasie</string>
-    <string name="weather_source">Počasie Yahoo!</string>
+    <string name="weather_source_yahoo">Počasie Yahoo!</string>
     <string name="weather_use_custom_location">Použiť vlastné umiestnenie</string>
     <string name="weather_geolocated">Lokalizované pomocou siete</string>
     <string name="weather_custom_location_dialog_title">Zadajte umiestnenie</string>

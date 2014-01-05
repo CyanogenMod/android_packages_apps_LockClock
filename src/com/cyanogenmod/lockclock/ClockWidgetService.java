@@ -35,8 +35,9 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
 
-import com.cyanogenmod.lockclock.calendar.CalendarWidgetService;
+import com.cyanogenmod.lockclock.calendar.CalendarViewsService;
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.IconUtils;
 import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
@@ -328,10 +329,11 @@ public class ClockWidgetService extends IntentService {
             if (!TextUtils.isEmpty(nextAlarm)) {
                 // An alarm is set, deal with displaying it
                 int color = Preferences.clockAlarmFontColor(this);
+                final Resources res = getResources();
 
                 // Overlay the selected color on the alarm icon and set the imageview
                 alarmViews.setImageViewBitmap(R.id.alarm_icon,
-                        WidgetUtils.getOverlaidBitmap(this, R.drawable.ic_alarm_small, color));
+                        IconUtils.getOverlaidBitmap(res, R.drawable.ic_alarm_small, color));
                 alarmViews.setViewVisibility(R.id.alarm_icon, View.VISIBLE);
 
                 if (!smallWidget) {
@@ -389,19 +391,18 @@ public class ClockWidgetService extends IntentService {
     private void setWeatherData(RemoteViews weatherViews, boolean smallWidget, WeatherInfo w) {
         int color = Preferences.weatherFontColor(this);
         int timestampColor = Preferences.weatherTimestampFontColor(this);
-        boolean colorIcons = Preferences.useAlternateWeatherIcons(this);
+        String iconsSet = Preferences.getWeatherIconSet(this);
 
         // Reset no weather visibility
         weatherViews.setViewVisibility(R.id.weather_no_data, View.GONE);
         weatherViews.setViewVisibility(R.id.weather_refresh, View.GONE);
 
         // Weather Image
-        if (colorIcons) {
-            // No additional color overlays needed
-            weatherViews.setImageViewResource(R.id.weather_image, w.getConditionResource());
+        int resId = w.getConditionResource(iconsSet);
+        if (resId != 0) {
+            weatherViews.setImageViewResource(R.id.weather_image, w.getConditionResource(iconsSet));
         } else {
-            // Overlay the condition image with the appropriate color
-            weatherViews.setImageViewBitmap(R.id.weather_image, w.getConditionBitmap(color));
+            weatherViews.setImageViewBitmap(R.id.weather_image, w.getConditionBitmap(iconsSet, color));
         }
 
         // Weather Condition
@@ -459,7 +460,8 @@ public class ClockWidgetService extends IntentService {
         boolean firstRun = Preferences.isFirstWeatherUpdate(this);
 
         // Hide the normal weather stuff
-        String noData = getString(R.string.weather_cannot_reach_provider, getString(R.string.weather_source));
+        int providerNameResource = Preferences.weatherProvider(this).getNameResourceId();
+        String noData = getString(R.string.weather_cannot_reach_provider, getString(providerNameResource));
         weatherViews.setViewVisibility(R.id.weather_image, View.INVISIBLE);
         if (!smallWidget) {
             weatherViews.setViewVisibility(R.id.weather_city, View.GONE);
@@ -498,19 +500,20 @@ public class ClockWidgetService extends IntentService {
     // Calendar related functionality
     //===============================================================================================
     private void refreshCalendar(RemoteViews calendarViews, int widgetId) {
+        final Resources res = getResources();
         // Calendar icon: Overlay the selected color and set the imageview
         int color = Preferences.calendarFontColor(this);
 
         // Hide the icon if preference set
         if (Preferences.showCalendarIcon(this)) {
             calendarViews.setImageViewBitmap(R.id.calendar_icon,
-                    WidgetUtils.getOverlaidBitmap(this, R.drawable.ic_lock_idle_calendar, color));
+                    IconUtils.getOverlaidBitmap(res, R.drawable.ic_lock_idle_calendar, color));
         } else {
             calendarViews.setImageViewBitmap(R.id.calendar_icon, null);
         }
 
         // Set up and start the Calendar RemoteViews service
-        final Intent remoteAdapterIntent = new Intent(this, CalendarWidgetService.class);
+        final Intent remoteAdapterIntent = new Intent(this, CalendarViewsService.class);
         remoteAdapterIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
         remoteAdapterIntent.setData(Uri.parse(remoteAdapterIntent.toUri(Intent.URI_INTENT_SCHEME)));
         calendarViews.setRemoteAdapter(R.id.calendar_list, remoteAdapterIntent);
