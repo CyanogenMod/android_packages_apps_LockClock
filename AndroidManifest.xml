@@ -16,18 +16,23 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cyanogenmod.lockclock"
-    android:versionCode="15"
-    android:versionName="3.1.0" >
+    android:versionCode="20"
+    android:versionName="3.4.0" >
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="17" />
+        android:targetSdkVersion="19" />
 
+    <!-- Weather -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Calendar -->
     <uses-permission android:name="android.permission.READ_CALENDAR" />
+
+    <!-- General -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -51,6 +56,15 @@
         <activity android:name=".preference.CalendarPreferences" />
         <activity android:name=".preference.WeatherPreferences" />
 
+        <!-- The weather forecast activity -->
+        <activity android:name=".weather.ForecastActivity"
+            android:hardwareAccelerated="true"
+            android:noHistory="true"
+            android:theme="@style/transparent"
+            android:launchMode="singleInstance"
+            android:taskAffinity=""
+            android:excludeFromRecents="true" />
+
         <!-- The Widget receiver -->
         <receiver android:name=".ClockWidgetProvider" >
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/lock_clock" />
@@ -64,6 +78,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
                 <action android:name="com.android.deskclock.NEXT_ALARM_TIME_SET"/>
+                <action android:name="com.cyanogenmod.lockclock.action.SHOW_FORECAST" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PROVIDER_CHANGED"/>
@@ -74,7 +89,7 @@
 
         <service android:name=".ClockWidgetService"></service>
         <service android:name=".weather.WeatherUpdateService"></service>
-        <service android:name=".calendar.CalendarWidgetService"
+        <service android:name=".calendar.CalendarViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS">
         </service>
 
