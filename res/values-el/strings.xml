@@ -101,7 +101,7 @@
     <string name="clock_am_pm_title">Εμφάνιση ένδειξης ΠΜ/ΜΜ</string>
     <string name="weather_enabled">Ενεργό</string>
     <string name="weather_enable">Εμφάνιση καιρού</string>
-    <string name="weather_source">Καιρός Yahoo!</string>
+    <string name="weather_source_yahoo">Καιρός Yahoo!</string>
     <string name="weather_use_custom_location">Χρήση προσαρμοσμένης τοποθεσίας</string>
     <string name="weather_geolocated">Εντοπισμός τοποθεσίας μέσω δικτύου</string>
     <string name="weather_custom_location_dialog_title">Εισάγετε τοποθεσία</string>

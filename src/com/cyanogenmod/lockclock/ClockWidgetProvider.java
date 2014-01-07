@@ -25,6 +25,7 @@ import android.util.Log;
 
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
+import com.cyanogenmod.lockclock.weather.ForecastActivity;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 import com.cyanogenmod.lockclock.ClockWidgetService;
 import com.cyanogenmod.lockclock.WidgetApplication;
@@ -65,7 +66,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         } else if (Intent.ACTION_BOOT_COMPLETED.equals(action)) {
             // On first boot lastUpdate will be 0 thus no need to force an update
             // Subsequent boots will use cached data
-            WeatherUpdateService.scheduleNextUpdate(context);
+            WeatherUpdateService.scheduleNextUpdate(context, false);
 
         // A widget has been deleted, prevent our handling and ask the super class handle it
         } else if (AppWidgetManager.ACTION_APPWIDGET_DELETED.equals(action)
@@ -85,6 +86,12 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         // There are no events to show in the Calendar panel, hide it explicitly
         } else if (ClockWidgetService.ACTION_HIDE_CALENDAR.equals(action)) {
             updateWidgets(context, false, true);
+
+        // The intent is to launch the modal pop-up forecast dialog
+        } else if (Constants.ACTION_SHOW_FORECAST.equals(action)) {
+            Intent i = new Intent(context, ForecastActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(i);
 
         // Something we did not handle, let the super class deal with it.
         // This includes the REFRESH_CLOCK intent from Clock settings
@@ -117,7 +124,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
-        WeatherUpdateService.scheduleNextUpdate(context);
+        WeatherUpdateService.scheduleNextUpdate(context, true);
 
         // Start the broadcast receiver (API 16 devices)
         // This will schedule a repeating alarm every minute to handle the clock refresh

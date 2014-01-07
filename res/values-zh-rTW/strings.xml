@@ -101,7 +101,7 @@
     <string name="clock_am_pm_title">顯示 AM/PM 指示器</string>
     <string name="weather_enabled">啓用</string>
     <string name="weather_enable">顯示天氣</string>
-    <string name="weather_source">Yahoo! 氣象</string>
+    <string name="weather_source_yahoo">Yahoo! 氣象</string>
     <string name="weather_use_custom_location">使用自訂位置</string>
     <string name="weather_geolocated">使用網路定位</string>
     <string name="weather_custom_location_dialog_title">輸入位置</string>

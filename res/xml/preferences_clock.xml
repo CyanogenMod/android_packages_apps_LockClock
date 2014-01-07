@@ -40,7 +40,7 @@
             android:key="clock_font"
             android:title="@string/clock_font_title"
             android:dependency="clock_digital"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
         <CheckBoxPreference
             android:key="clock_font_minutes"

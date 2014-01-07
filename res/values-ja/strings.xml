@@ -119,7 +119,7 @@
     <!-- Preferences - Weather -->
     <string name="weather_enabled">有効</string>
     <string name="weather_enable">天気を表示する</string>
-    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_source_yahoo">Yahoo! Weather</string>
     <string name="weather_use_custom_location">カスタムの場所</string>
     <string name="weather_geolocated">ネットーワークを使った位置情報</string>
     <string name="weather_custom_location_dialog_title">場所を入力</string>
