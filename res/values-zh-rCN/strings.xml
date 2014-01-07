@@ -69,6 +69,12 @@
     <string name="weather_46">阵雪</string>
     <string name="weather_47">局部雷阵雨</string>
     <string name="weather_3200"></string>
+
+    <!-- Weather - Speed units -->
+    <string name="weather_kph">公里/小时</string>
+    <string name="weather_mph">英里/小时</string>
+
+    <!-- Weather - Wind directions -->
     <string name="weather_N">北</string>
     <string name="weather_NE">东北</string>
     <string name="weather_E">东</string>
@@ -77,11 +83,15 @@
     <string name="weather_SW">西南</string>
     <string name="weather_W">西</string>
     <string name="weather_NW">西北</string>
+
+    <!-- Weather - Error messages -->
     <string name="weather_no_data">无数据</string>
     <string name="weather_tap_to_refresh">请点击刷新</string>
     <string name="weather_refreshing">正在刷新</string>
     <string name="weather_last_sync_just_now">刚刚</string>
-    <string name="weather_cannot_reach_provider">无法获取 %s</string>
+    <string name="weather_cannot_reach_provider">暂时无法访问 %s</string>
+
+    <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">手动</string>
     <string name="weather_refresh_30min">30 分钟</string>
     <string name="weather_refresh_60min">60 分钟</string>
@@ -89,31 +99,37 @@
     <string name="weather_refresh_4hrs">4 小时</string>
     <string name="weather_refresh_6hrs">6 小时</string>
     <string name="weather_refresh_8hrs">8 小时</string>
+
+    <!-- Preferences - Categories -->
     <string name="clock_category">时钟与闹钟</string>
     <string name="weather_category">天气面板</string>
     <string name="calendar_category">日历活动</string>
     <string name="general_category">常规</string>
     <string name="display_category">显示</string>
-    <string name="use_digital_clock_title">使用数字时钟</string>
-    <string name="use_digital_clock_summary">在模拟与数字时钟之间进行切换</string>
+
+    <!-- Preferences - Clock -->
     <string name="clock_font_title">加粗小时</string>
     <string name="clock_font_minutes_title">加粗分钟</string>
     <string name="clock_font_date_title">加粗日期与闹钟</string>
     <string name="show_alarm_title">显示下一个闹钟</string>
+    <string name="clock_am_pm_title"> 显示 上午/下午 指示器</string>
+
+    <!-- Preferences - Weather -->
     <string name="weather_enabled">已启用</string>
     <string name="weather_enable">显示天气</string>
-    <string name="weather_source">雅虎天气</string>
+    <string name="weather_source_title">天气来源</string>
+    <string name="weather_source_yahoo">雅虎天气</string>
     <string name="weather_use_custom_location">使用自定义的位置</string>
     <string name="weather_geolocated">使用网络定位</string>
     <string name="weather_custom_location_dialog_title">输入位置</string>
-    <string name="weather_custom_location_hint">城市, 省份/国家</string>
+    <string name="weather_custom_location_hint">城市，省份/国家</string>
     <string name="weather_custom_location_title">位置</string>
     <string name="weather_show_location_title">显示位置</string>
     <string name="weather_show_timestamp_title">显示更新时间</string>
     <string name="weather_refresh_interval">更新间隔</string>
     <string name="weather_use_metric">使用公制</string>
     <string name="weather_retrieve_location_dialog_title">无法查询位置!</string>
-    <string name="weather_retrieve_location_dialog_message">网络定位已被禁用.\n\n请设置一个自定义的位置或启用网络定位服务</string>
+    <string name="weather_retrieve_location_dialog_message">网络定位已被禁用。\n\n请设置一个自定义的位置或启用网络定位服务</string>
     <string name="weather_retrieve_location_dialog_enable_button">启用</string>
     <string name="weather_invert_lowhigh">交换高低温度显示的位置</string>
     <string name="weather_progress_title">正在验证位置</string>
@@ -121,6 +137,9 @@
     <string name="weather_alternate_icons_summary">在彩色与白色的图标之间进行切换</string>
     <string name="weather_show_when_minimized_title">最小化时显示</string>
     <string name="weather_show_when_minimized_summary">小部件最小化时将依然显示天气信息</string>
+    <string name="weather_select_location">选择位置</string>
+
+    <!-- Preferences - Calendar -->
     <string name="calendar_title">显示下一个活动</string>
     <string name="calendars_title">活动日历</string>
     <string name="calendars_summary">从这些日历里寻找活动</string>
@@ -133,12 +152,16 @@
     <string name="calendar_show_description_title">活动描述</string>
     <string name="calendar_upcoming_events_category">活动预告</string>
     <string name="calendar_highlight_upcoming_events_title">高亮显示活动</string>
-    <string name="calendar_highlight_upcoming_events_summary">高亮显示当前日期、晚上8点以后以及第二天的活动</string>
-    <string name="calendar_highlight_upcoming_events_bold">粗体</string>
+    <string name="calendar_highlight_upcoming_events_summary">高亮显示当前日期、晚上8点后以及第二天的活动</string>
+    <string name="calendar_highlight_upcoming_events_bold">使用粗体显示</string>
+
+    <!-- Preferences - Font colors -->
     <string name="font_color">字体颜色</string>
     <string name="font_color_alarm">闹钟字体颜色</string>
     <string name="font_color_timestamp">时间戳字体颜色</string>
     <string name="font_color_calendar_details">详细信息字体颜色</string>
+
+    <!-- Calendar - Lookahead -->
     <string name="calendar_lookahead_3hrs">3 小时</string>
     <string name="calendar_lookahead_6hrs">6 小时</string>
     <string name="calendar_lookahead_12hrs">12 小时</string>
@@ -148,9 +171,13 @@
     <string name="calendar_lookahead_1wk">1 周</string>
     <string name="calendar_lookahead_2wks">2 周</string>
     <string name="calendar_lookahead_4wks">4 周</string>
+
+    <!-- Calendar - Event metadata -->
     <string name="calendar_metadata_none">不显示</string>
     <string name="calendar_metadata_first_line">显示第一行</string>
     <string name="calendar_metadata_all">完全显示</string>
+
+    <!-- Font colors -->
     <string name="white">白色</string>
     <string name="grey">灰色</string>
     <string name="black">黑色</string>
@@ -164,6 +191,11 @@
     <string name="holo_orange_light">浅橙色</string>
     <string name="holo_orange_dark">深橙色</string>
     <string name="holo_blue_bright">翠蓝色</string>
-    <string name="clock_am_pm_title"> 显示 上午/下午 指示器</string>
+
+    <!-- Weather icon sets -->
+    <string name="weather_icon_set_title">图标集</string>
+    <string name="weather_icons_standard">彩色</string>
+    <string name="weather_icons_monochrome">单色</string>
+    <string name="icon_set_selection_get_more">获取更多\u2026</string>
 
 </resources>

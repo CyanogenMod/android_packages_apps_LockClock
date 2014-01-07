@@ -98,10 +98,11 @@
     <string name="clock_font_minutes_title">Minutter med fed</string>
     <string name="clock_font_date_title">Dato og alarm med fed</string>
     <string name="show_alarm_title">Vis næste alarm</string>
-    <string name="clock_am_pm_title">AM/PM-indikator</string>
+    <string name="clock_am_pm_title">Vis AM/PM-indikator</string>
     <string name="weather_enabled">Aktiveret</string>
     <string name="weather_enable">Vis vejr</string>
-    <string name="weather_source">Yahoo! Vejret</string>
+    <string name="weather_source_title">Vejrkilde</string>
+    <string name="weather_source_yahoo">Yahoo! Vejret</string>
     <string name="weather_use_custom_location">Brug alternativ lokation</string>
     <string name="weather_geolocated">Geolokation med netværk</string>
     <string name="weather_custom_location_dialog_title">Indtast lokation</string>

@@ -68,6 +68,8 @@
     <string name="weather_46">Chuva de Neve</string>
     <string name="weather_47">Chuvas com Trovoadas Isoladas</string>
     <string name="weather_3200"></string>
+    <string name="weather_kph">km/h</string>
+    <string name="weather_mph">mph</string>
     <string name="weather_N">N</string>
     <string name="weather_NE">NE</string>
     <string name="weather_E">E</string>
@@ -80,6 +82,7 @@
     <string name="weather_tap_to_refresh">Toque para atualizar</string>
     <string name="weather_refreshing">A atualizar</string>
     <string name="weather_last_sync_just_now">Agora mesmo</string>
+    <string name="weather_cannot_reach_provider">Não é possível alcançar %s de momento.</string>
     <string name="weather_refresh_manual">Manual</string>
     <string name="weather_refresh_30min">30 minutos</string>
     <string name="weather_refresh_60min">60 minutos</string>
@@ -101,7 +104,8 @@
     <string name="clock_am_pm_title">Mostrar indicador AM/PM</string>
     <string name="weather_enabled">Ativo</string>
     <string name="weather_enable">Mostrar Meteorologia</string>
-    <string name="weather_source">Yahoo! Tempo</string>
+    <string name="weather_source_title">Fonte de meteorologia</string>
+    <string name="weather_source_yahoo">Yahoo! Tempo</string>
     <string name="weather_use_custom_location">Usar localização personalizada</string>
     <string name="weather_geolocated">Geolocalização usando a rede</string>
     <string name="weather_custom_location_dialog_title">Insira localização</string>

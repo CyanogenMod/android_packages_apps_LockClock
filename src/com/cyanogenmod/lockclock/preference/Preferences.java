@@ -16,6 +16,7 @@
 
 package com.cyanogenmod.lockclock.preference;
 
+import android.annotation.SuppressLint;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.preference.PreferenceActivity;

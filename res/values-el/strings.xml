@@ -17,7 +17,7 @@
     <string name="unknown">Άγνωστο</string>
     <string name="cancel">Ακύρωση</string>
     <string name="loading_indicator">Φόρτωση widget\u2026</string>
-    <string name="menu_done">ΟΚ</string>
+    <string name="menu_done">Τέλος</string>
     <string name="weather_0">Ανεμοστρόβιλος</string>
     <string name="weather_1">Τροπική καταιγίδα</string>
     <string name="weather_2">Τυφώνας</string>
@@ -67,6 +67,8 @@
     <string name="weather_46">Χιονοπτώσεις</string>
     <string name="weather_47">Μεμονωμένες χιονοπτώσεις</string>
     <string name="weather_3200"></string>
+    <string name="weather_kph">χμ/ω</string>
+    <string name="weather_mph">μ/ω</string>
     <string name="weather_N">Β</string>
     <string name="weather_NE">ΒΑ</string>
     <string name="weather_E">Α</string>
@@ -101,7 +103,8 @@
     <string name="clock_am_pm_title">Εμφάνιση ένδειξης ΠΜ/ΜΜ</string>
     <string name="weather_enabled">Ενεργό</string>
     <string name="weather_enable">Εμφάνιση καιρού</string>
-    <string name="weather_source">Καιρός Yahoo!</string>
+    <string name="weather_source_title">Πηγή καιρού</string>
+    <string name="weather_source_yahoo">Καιρός Yahoo!</string>
     <string name="weather_use_custom_location">Χρήση προσαρμοσμένης τοποθεσίας</string>
     <string name="weather_geolocated">Εντοπισμός τοποθεσίας μέσω δικτύου</string>
     <string name="weather_custom_location_dialog_title">Εισάγετε τοποθεσία</string>
@@ -164,4 +167,10 @@
     <string name="holo_orange_light">Ανοιχτό πορτοκαλί</string>
     <string name="holo_orange_dark">Σκούρο πορτοκαλί</string>
     <string name="holo_blue_bright">Έντονο μπλε</string>
+    <string name="weather_icon_set_title">Σετ εικονιδίων</string>
+    <string name="weather_icons_standard">Χρωματιστά</string>
+    <string name="weather_icons_monochrome">Μονόχρωμα</string>
+    <string name="weather_icons_vclouds">VClouds</string>
+    <string name="icon_set_selection_get_more">Βρείτε περισσότερα\u2026</string>
+
 </resources>

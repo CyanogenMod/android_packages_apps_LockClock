@@ -71,7 +71,11 @@
     <string name="weather_45">Ukkoskuuroja</string>
     <string name="weather_46">Lumikuuroja</string>
     <string name="weather_47">Paikallisia ukkoskuuroja</string>
-    <string name="weather_3200"></string>
+    <string name="weather_3200"></string> <!-- Forecast unavailable -->
+
+    <string name="weather_kph">kph</string>
+    <string name="weather_mph">mph</string>
+
     <string name="weather_N">N</string>
     <string name="weather_NE">NE</string>
     <string name="weather_E">E</string>
@@ -84,8 +88,9 @@
     <!-- Weather - error messages -->
     <string name="weather_no_data">Ei tietoja</string>
     <string name="weather_tap_to_refresh">Kosketa päivittääksesi</string>
-    <string name="weather_refreshing">Päivittää</string>
+    <string name="weather_refreshing">Päivitetään</string>
     <string name="weather_last_sync_just_now">Juuri nyt</string>
+    <string name="weather_cannot_reach_provider">Yhteyttä palveluun %s ei saada tällä hetkellä</string>
 
     <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">Manuaalinen</string>
@@ -112,11 +117,13 @@
     <string name="clock_font_minutes_title">Lihavoi minuutit</string>
     <string name="clock_font_date_title">Lihavoi päivä ja hälytys</string>
     <string name="show_alarm_title">Näytä seuraava hälytys</string>
+    <string name="clock_am_pm_title">Näytä AM/PM tunniste</string>
 
     <!-- Preferences - Weather -->
     <string name="weather_enabled">Käytössä</string>
     <string name="weather_enable">Näytä sää</string>
-    <string name="weather_source">Yahoo! Sää</string>
+    <string name="weather_source_title">Säätietojen lähde</string>
+    <string name="weather_source_yahoo">Yahoo! Weather</string>
     <string name="weather_use_custom_location">Käytä itse valittua sijaintia</string>
     <string name="weather_geolocated">Paikannettu verkon avulla</string>
     <string name="weather_custom_location_dialog_title">Syötä sijainti</string>
@@ -135,6 +142,7 @@
     <string name="weather_alternate_icons_summary">Valitse oletukset (valkoinen) tai vaihtoehtoiset (värikkäät) kuvakkeet</string>
     <string name="weather_show_when_minimized_title">Näytä kun pienennetty</string>
     <string name="weather_show_when_minimized_summary">Näyttää sään yhteenvedon kun widget on pienennetty</string>
+    <string name="weather_select_location">Valitse sijainti</string>
 
     <!-- Preferences - Calendar -->
     <string name="calendar_title">Näytä seuraava tapahtuma</string>
@@ -146,7 +154,7 @@
     <string name="calendar_icon_title">Kalenterin kuvake</string>
     <string name="calendar_lookahead_title">Tapahtumaan aikaa</string>
     <string name="calendar_show_location_title">Tapahtuman paikka</string>
-    <string name="calendar_show_description_title">Tapahtuman selitys</string>
+    <string name="calendar_show_description_title">Tapahtuman tiedot</string>
     <string name="calendar_upcoming_events_category">Tulevat tapahtumat</string>
     <string name="calendar_highlight_upcoming_events_title">Korosta tapahtumat</string>
     <string name="calendar_highlight_upcoming_events_summary">Korosta saman päivän tapahtumat, ja klo 20.00 jälkeen myös seuraavan päivän tapahtumat</string>
@@ -189,4 +197,8 @@
     <string name="holo_orange_dark">Tumma oranssi</string>
     <string name="holo_blue_bright">Kirkas sininen</string>
 
+    <string name="weather_icon_set_title">Kuvakkeet</string>
+    <string name="weather_icons_standard">Värikkäät</string>
+    <string name="weather_icons_monochrome">Mustavalkoinen</string>
+    <string name="icon_set_selection_get_more">Hanki lisää\u2026</string>
 </resources>

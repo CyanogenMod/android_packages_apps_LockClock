@@ -33,7 +33,7 @@
     <string name="weather_11">Averses</string>
     <string name="weather_12">Averses</string>
     <string name="weather_13">Averses de neige</string>
-    <string name="weather_14">Légére averse de neige</string>
+    <string name="weather_14">Légère averse de neige</string>
     <string name="weather_15">Neige poudreuse</string>
     <string name="weather_16">Neige</string>
     <string name="weather_17">Grêle</string>
@@ -68,6 +68,12 @@
     <string name="weather_46">Averses de neige</string>
     <string name="weather_47">Orages isolés</string>
     <string name="weather_3200"></string>
+
+    <!-- Weather - Speed units -->
+    <string name="weather_kph">km/h</string>
+    <string name="weather_mph">mi/h</string>
+
+    <!-- Weather - Wind directions -->
     <string name="weather_N">N</string>
     <string name="weather_NE">NE</string>
     <string name="weather_E">E</string>
@@ -76,11 +82,15 @@
     <string name="weather_SW">SO</string>
     <string name="weather_W">O</string>
     <string name="weather_NW">NO</string>
-    <string name="weather_no_data">Pas de données</string>
+
+    <!-- Weather - Error messages -->
+    <string name="weather_no_data">Aucune donnée</string>
     <string name="weather_tap_to_refresh">Appuyez pour actualiser</string>
     <string name="weather_refreshing">Actualisation\u2026</string>
     <string name="weather_last_sync_just_now">À l\'instant</string>
-    <string name="weather_cannot_reach_provider">Connexion à %s impossible</string>
+    <string name="weather_cannot_reach_provider">Impossible d\'atteindre %s pour le moment</string>
+
+    <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">Manuellement</string>
     <string name="weather_refresh_30min">30 minutes</string>
     <string name="weather_refresh_60min">60 minutes</string>
@@ -88,21 +98,26 @@
     <string name="weather_refresh_4hrs">4 heures</string>
     <string name="weather_refresh_6hrs">6 heures</string>
     <string name="weather_refresh_8hrs">8 heures</string>
+
+    <!-- Preferences - Categories -->
     <string name="clock_category">Horloge et alarme</string>
     <string name="weather_category">Météo</string>
     <string name="calendar_category">Événement de l\'agenda</string>
     <string name="general_category">Général</string>
     <string name="display_category">Affichage</string>
-    <string name="use_digital_clock_title">Utiliser l\'horloge digitale</string>
-    <string name="use_digital_clock_summary">Sélectionner pour basculer de l\'horloge digitale à analogique</string>
-    <string name="clock_font_title">Heure en gras</string>
+
+    <!-- Preferences - Clock -->
+    <string name="clock_font_title">Heures en gras</string>
     <string name="clock_font_minutes_title">Minutes en gras</string>
     <string name="clock_font_date_title">Date et alarme en gras</string>
     <string name="show_alarm_title">Afficher la prochaine alarme</string>
     <string name="clock_am_pm_title">Afficher l\'indicateur AM/PM</string>
+
+    <!-- Preferences - Weather -->
     <string name="weather_enabled">Activer</string>
     <string name="weather_enable">Afficher la météo</string>
-    <string name="weather_source">Yahoo! Météo</string>
+    <string name="weather_source_title">Source météo</string>
+    <string name="weather_source_yahoo">Yahoo! Météo</string>
     <string name="weather_use_custom_location">Définir un lieu</string>
     <string name="weather_geolocated">Utiliser la géolocalisation</string>
     <string name="weather_custom_location_dialog_title">Définir un lieu</string>
@@ -122,6 +137,8 @@
     <string name="weather_show_when_minimized_title">Afficher lorsque minimisé</string>
     <string name="weather_show_when_minimized_summary">Afficher le résumé des informations météo lorsque le widget est réduit</string>
     <string name="weather_select_location">Définir le lieu</string>
+
+    <!-- Preferences - Calendar -->
     <string name="calendar_title">Afficher le prochain événement</string>
     <string name="calendars_title">Événement des agendas</string>
     <string name="calendars_summary">Afficher les événements de ces agendas</string>
@@ -134,7 +151,7 @@
     <string name="calendar_show_description_title">Description des événements</string>
     <string name="calendar_upcoming_events_category">Événements à venir</string>
     <string name="calendar_highlight_upcoming_events_title">Surbrillance des événements</string>
-    <string name="calendar_highlight_upcoming_events_summary">Mettre en surbrillance les événements de la journée en cours et, après 20 heures, également les événements du lendemain</string>
+    <string name="calendar_highlight_upcoming_events_summary">Mettre en surbrillance les événements de la journée en cours et après 20 heures ajouter également ceux du lendemain</string>
     <string name="calendar_highlight_upcoming_events_bold">Police en gras</string>
     <string name="font_color">Couleur de la police</string>
     <string name="font_color_alarm">Couleur de la police d\'alarme</string>
@@ -165,4 +182,12 @@
     <string name="holo_orange_light">Orange clair</string>
     <string name="holo_orange_dark">Orange foncé</string>
     <string name="holo_blue_bright">Bleu vif</string>
+
+    <!-- Weather icon sets -->
+    <string name="weather_icon_set_title">Définir les icônes</string>
+    <string name="weather_icons_standard">Coloré</string>
+    <string name="weather_icons_monochrome">Monochrome</string>
+    <string name="weather_icons_modern">Moderne</string>
+    <string name="icon_set_selection_get_more">Plus\u2026</string>
+
 </resources>

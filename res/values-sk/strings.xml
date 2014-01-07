@@ -78,7 +78,7 @@
     <string name="weather_tap_to_refresh">Kliknutím obnovte</string>
     <string name="weather_refreshing">Obnovuje sa</string>
     <string name="weather_last_sync_just_now">Práve teraz</string>
-    <string name="weather_cannot_reach_provider">Nemožno dosiahnuť %s</string>
+    <string name="weather_cannot_reach_provider">Nemožno získať dáta z %s</string>
     <string name="weather_refresh_manual">Ručne</string>
     <string name="weather_refresh_30min">30 minút</string>
     <string name="weather_refresh_60min">60 minút</string>
@@ -87,7 +87,7 @@
     <string name="weather_refresh_6hrs">6 hodín</string>
     <string name="weather_refresh_8hrs">8 hodín</string>
     <string name="clock_category">Hodiny a budík</string>
-    <string name="weather_category">Lišta s počasím</string>
+    <string name="weather_category">Riadok s počasím</string>
     <string name="calendar_category">Udalosti v kalendári</string>
     <string name="general_category">Všeobecné</string>
     <string name="display_category">Zobrazenie</string>
@@ -100,21 +100,20 @@
     <string name="clock_am_pm_title">Zobraziť indikátor AM/PM</string>
     <string name="weather_enabled">Povolené</string>
     <string name="weather_enable">Zobraziť počasie</string>
-    <string name="weather_source">Počasie Yahoo!</string>
-    <string name="weather_use_custom_location">Použiť vlastné umiestnenie</string>
+    <string name="weather_use_custom_location">Použiť vlastnú polohu</string>
     <string name="weather_geolocated">Lokalizované pomocou siete</string>
-    <string name="weather_custom_location_dialog_title">Zadajte umiestnenie</string>
+    <string name="weather_custom_location_dialog_title">Zadajte polohu</string>
     <string name="weather_custom_location_hint">Mesto, Štát/Krajina</string>
-    <string name="weather_custom_location_title">Umiestnenie</string>
-    <string name="weather_show_location_title">Zobraziť umiestnenie</string>
+    <string name="weather_custom_location_title">Poloha</string>
+    <string name="weather_show_location_title">Zobraziť polohu</string>
     <string name="weather_show_timestamp_title">Zobraziť časovú značku</string>
     <string name="weather_refresh_interval">Interval aktualizácie</string>
     <string name="weather_use_metric">Použiť metrické jednotky</string>
-    <string name="weather_retrieve_location_dialog_title">Nedá sa získať umiestnenie!</string>
-    <string name="weather_retrieve_location_dialog_message">Lokalizácia pomocou siete je zakázaná.\n\nNastavte vlastné umiestnenie alebo povoľte sieťovú lokalizáciu</string>
+    <string name="weather_retrieve_location_dialog_title">Nemožno získať polohu!</string>
+    <string name="weather_retrieve_location_dialog_message">Lokalizácia pomocou siete je zakázaná.\n\nNastavte vlastnú polohu alebo povoľte sieťovú lokalizáciu</string>
     <string name="weather_retrieve_location_dialog_enable_button">Povoliť</string>
     <string name="weather_invert_lowhigh">Invertovať nízke/vysoké teploty</string>
-    <string name="weather_progress_title">Overuje sa umiestnenie</string>
+    <string name="weather_progress_title">Overovanie polohy</string>
     <string name="weather_alternate_icons_title">Použiť farebné ikony</string>
     <string name="weather_alternate_icons_summary">Vyberte medzi predvolenými (farebnými) alebo alternatívnymi (bielymi) ikonami</string>
     <string name="weather_show_when_minimized_title">Zobraziť pri minimalizovaní</string>
@@ -127,11 +126,11 @@
     <string name="calendar_hide_allday_title">Skryť celodenné udalosti</string>
     <string name="calendar_icon_title">Ikona kalendára</string>
     <string name="calendar_lookahead_title">Prednačítať udalosti dopredu na</string>
-    <string name="calendar_show_location_title">Umiestnenie udalosti</string>
+    <string name="calendar_show_location_title">Poloha udalosti</string>
     <string name="calendar_show_description_title">Popis udalosti</string>
     <string name="calendar_upcoming_events_category">Nadchádzajúce udalosti</string>
     <string name="calendar_highlight_upcoming_events_title">Zvýrazniť udalosti</string>
-    <string name="calendar_highlight_upcoming_events_summary">Zvýrazní udalosti dnešného dňa a po dvadsiatej hodine tiež udalosti ďalšieho dňa</string>
+    <string name="calendar_highlight_upcoming_events_summary">Zvýrazniť udalosti dnešného dňa a po dvadsiatej hodine tiež udalosti ďalšieho dňa</string>
     <string name="calendar_highlight_upcoming_events_bold">Tučné písmo</string>
     <string name="font_color">Farba písma</string>
     <string name="font_color_alarm">Farba písma budíka</string>
@@ -163,4 +162,11 @@
     <string name="holo_orange_dark">Tmavo oranžová</string>
     <string name="holo_blue_bright">Jasno modrá</string>
     <string name="weather_select_location">Vybrať polohu</string>
+    <string name="weather_source_title">Zdroj počasia</string>
+    <string name="weather_source_yahoo">Yahoo! Počasie</string>
+    <string name="weather_icon_set_title">Sada ikon</string>
+    <string name="weather_icons_standard">Farebné</string>
+    <string name="weather_icons_monochrome">Monochrome</string>
+    <string name="icon_set_selection_get_more">Získať viac\u2026</string>
+
 </resources>

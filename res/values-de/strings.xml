@@ -103,7 +103,8 @@
     <string name="clock_am_pm_title">Vorm./Nachm. anzeigen</string>
     <string name="weather_enabled">Aktiviert</string>
     <string name="weather_enable">Wetter anzeigen</string>
-    <string name="weather_source">Yahoo! Wetter</string>
+    <string name="weather_source_title">Wetterdienst</string>
+    <string name="weather_source_yahoo">Yahoo! Wetter</string>
     <string name="weather_use_custom_location">Benutzerdefinierter Standort</string>
     <string name="weather_geolocated">Über Standortdienste bestimmt</string>
     <string name="weather_custom_location_dialog_title">Standort eingeben</string>
@@ -166,4 +167,10 @@
     <string name="holo_orange_light">Helles Orange</string>
     <string name="holo_orange_dark">Dunkles Orange</string>
     <string name="holo_blue_bright">Leuchtendes Blau</string>
+    <string name="weather_icon_set_title">Icon-Pakete</string>
+    <string name="weather_icons_standard">Farbig</string>
+    <string name="weather_icons_monochrome">Einfarbig</string>
+    <string name="weather_icons_vclouds">VClouds</string>
+    <string name="icon_set_selection_get_more">Mehr beziehen\u2026</string>
+
 </resources>
