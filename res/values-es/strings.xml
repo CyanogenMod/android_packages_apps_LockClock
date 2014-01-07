@@ -68,7 +68,7 @@
     <string name="weather_46">Nieve</string>
     <string name="weather_47">Chap. aislados</string>
     <string name="weather_3200"></string> <!-- No disponible -->
-    <string name="weather_kph">kph</string>
+    <string name="weather_kph">km/h</string>
     <string name="weather_mph">mph</string>
     <string name="weather_N">N</string>
     <string name="weather_NE">NE</string>
@@ -106,6 +106,7 @@
     <string name="weather_enable">Mostrar clima</string>
     <string name="weather_source_title">Servicio de clima</string>
     <string name="weather_source_yahoo">Yahoo! El Tiempo</string>
+    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Usar ubicación personalizada</string>
     <string name="weather_geolocated">Geolocalización por red</string>
     <string name="weather_custom_location_dialog_title">Introducir ubicación</string>
@@ -124,13 +125,13 @@
     <string name="weather_alternate_icons_summary">Usar iconos en color en vez de los predeterminados en blanco</string>
     <string name="weather_show_when_minimized_title">Mostrar al minimizar</string>
     <string name="weather_show_when_minimized_summary">Mostrar la información climática cuando el widget esté minimizado</string>
-    <string name="weather_select_location">Selecciona ubicación</string>
+    <string name="weather_select_location">Seleccionar ubicación</string>
     <string name="calendar_title">Mostrar próximo evento</string>
     <string name="calendars_title">Calendario de eventos</string>
     <string name="calendars_summary">Buscar eventos en los calendarios</string>
     <string name="calendar_reminders_only_title">Solo recordatorios</string>
     <string name="calendar_reminders_only_summary">Mostrar solo eventos con recordatorios</string>
-    <string name="calendar_hide_allday_title">Ocultar eventos \u00ABtodo el día\u00BB</string>
+    <string name="calendar_hide_allday_title">Ocultar eventos \u00ABTodo el día\u00BB</string>
     <string name="calendar_icon_title">Mostrar icono Calendario</string>
     <string name="calendar_lookahead_title">Eventos futuros</string>
     <string name="calendar_show_location_title">Lugar del evento</string>
@@ -139,6 +140,10 @@
     <string name="calendar_highlight_upcoming_events_title">Resaltar eventos</string>
     <string name="calendar_highlight_upcoming_events_summary">Resaltar los eventos del día actual y, después de las 20:00, resaltar también los eventos del día siguiente</string>
     <string name="calendar_highlight_upcoming_events_bold">Resaltar el texto</string>
+    <string name="calendar_add_event_title">Mostrar icono Añadir</string>
+    <string name="calendar_no_events">No hay eventos en la ventana de eventos futuros</string>
+    <string name="calendar_no_events_summary">Toca + para añadir</string>
+    <string name="calendar_no_events_indicator_title">Mostrar texto \u00ABSin eventos\u00BB</string>
     <string name="font_color">Color del texto</string>
     <string name="font_color_alarm">Color de la alarma</string>
     <string name="font_color_timestamp">Color de la fecha</string>
@@ -171,6 +176,6 @@
     <string name="weather_icon_set_title">Conjunto de iconos</string>
     <string name="weather_icons_standard">Coloreado</string>
     <string name="weather_icons_monochrome">Monocromo</string>
+    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Conseguir más\u2026</string>
-
 </resources>
