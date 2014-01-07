@@ -74,6 +74,10 @@
     <!-- Forecast unavailable -->
     <string name="weather_3200"></string>
 
+    <!-- Weather - Speed units -->
+    <string name="weather_kph">km/h</string>
+    <string name="weather_mph">mph</string>
+
     <!-- Weather - Wind directions -->
     <string name="weather_N">É</string>
     <string name="weather_NE">ÉK</string>
@@ -121,7 +125,8 @@
     <!-- Preferences - Weather -->
     <string name="weather_enabled">Engedélyezve</string>
     <string name="weather_enable">Időjárás megjelenítése</string>
-    <string name="weather_source_yahoo">Yahoo! időjárás</string>
+    <string name="weather_source_title">Időjárás forrása</string>
+    <string name="weather_source_yahoo">Yahoo! Időjárás</string>
     <string name="weather_use_custom_location">Egyéni hely használata</string>
     <string name="weather_geolocated">Helyzetmeghatározás</string>
     <string name="weather_custom_location_dialog_title">Hely megadása</string>
