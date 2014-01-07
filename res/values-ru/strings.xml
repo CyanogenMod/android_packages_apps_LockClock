@@ -35,7 +35,7 @@
     <string name="weather_12">Ливень</string>
     <string name="weather_13">Снег с дождём</string>
     <string name="weather_14">Небольшой снег</string>
-    <string name="weather_15">Позёмка</string>
+    <string name="weather_15">Метель</string>
     <string name="weather_16">Снег</string>
     <string name="weather_17">Град</string>
     <string name="weather_18">Мокрый снег</string>
@@ -70,6 +70,9 @@
     <string name="weather_47">Местами грозы</string>
     <string name="weather_3200"></string>
 
+    <string name="weather_kph">км/ч</string>
+    <string name="weather_mph">миль/ч</string>
+
     <string name="weather_N">С</string>
     <string name="weather_NE">СВ</string>
     <string name="weather_E">В</string>
@@ -83,7 +86,7 @@
     <string name="weather_tap_to_refresh">Нажмите для обновления</string>
     <string name="weather_refreshing">Обновление\u2026</string>
     <string name="weather_last_sync_just_now">Только что</string>
-    <string name="weather_cannot_reach_provider">Сервер %s недоступен</string>
+    <string name="weather_cannot_reach_provider">Сервер «%s» недоступен</string>
 
     <string name="weather_refresh_manual">Вручную</string>
     <string name="weather_refresh_30min">30 минут</string>
@@ -108,7 +111,7 @@
 
     <string name="weather_enabled">Включено</string>
     <string name="weather_enable">Погода отображается</string>
-    <string name="weather_source_yahoo">Yahoo! Погода</string>
+    <string name="weather_source_title">Сервер погоды</string>
     <string name="weather_use_custom_location">Не определять автоматически</string>
     <string name="weather_geolocated">Местоположение по сети</string>
     <string name="weather_custom_location_dialog_title">Введите местоположение</string>
@@ -140,7 +143,7 @@
     <string name="calendar_show_location_title">Место проведения</string>
     <string name="calendar_show_description_title">Описание события</string>
     <string name="calendar_upcoming_events_category">Предстоящие события</string>
-    <string name="calendar_highlight_upcoming_events_title">Выделять события</string>
+    <string name="calendar_highlight_upcoming_events_title">Выделять ближайшие события</string>
     <string name="calendar_highlight_upcoming_events_summary">Выделять события текущего дня, а после 20:00 также события следующего дня</string>
     <string name="calendar_highlight_upcoming_events_bold">Полужирный шрифт</string>
 
@@ -176,4 +179,15 @@
     <string name="holo_orange_light">Светло-оранжевый</string>
     <string name="holo_orange_dark">Тёмно-оранжевый</string>
     <string name="holo_blue_bright">Ярко-синий</string>
+
+    <string name="calendar_add_event_title">Значок добавления события</string>
+    <string name="calendar_no_events">Нет предстоящих событий</string>
+    <string name="calendar_no_events_summary">Нажмите «+» для добавления</string>
+    <string name="calendar_no_events_indicator_title">Показывать надпись «нет событий»</string>
+
+    <string name="weather_icon_set_title">Набор значков</string>
+    <string name="weather_icons_standard">Цветные</string>
+    <string name="weather_icons_monochrome">Монохромные</string>
+    <string name="icon_set_selection_get_more">Скачать ещё</string>
+
 </resources>
