@@ -165,4 +165,17 @@
     <string name="clock_am_pm_title">Exibir indicador AM/PM</string>
     <string name="weather_select_location">Selecionar localização</string>
     <string name="weather_cannot_reach_provider">Não foi possível alcançar %s</string>
+    <string name="weather_source_title">Fonte de dados</string>
+    <string name="weather_source_openweathermap">OpenWeatherMap</string>
+    <string name="calendar_add_event_title">Ícone para adicionar evento</string>
+    <string name="calendar_no_events">Nenhum evento próximo</string>
+    <string name="calendar_no_events_summary">Toque em + para adicionar</string>
+    <string name="calendar_no_events_indicator_title">Exibir texto \'Nenhum evento\'</string>
+    <string name="weather_icon_set_title">Ícones</string>
+    <string name="weather_icons_standard">Colorido</string>
+    <string name="weather_icons_monochrome">Monocromático</string>
+    <string name="weather_icons_vclouds">VNuvens</string>
+    <string name="icon_set_selection_get_more">Obtenha mais\u2026</string>
+    <string name="weather_kph">km/h</string>
+    <string name="weather_mph">mph</string>
 </resources>
