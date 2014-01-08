@@ -127,6 +127,7 @@
     <string name="weather_enable">Időjárás megjelenítése</string>
     <string name="weather_source_title">Időjárás forrása</string>
     <string name="weather_source_yahoo">Yahoo! Időjárás</string>
+    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Egyéni hely használata</string>
     <string name="weather_geolocated">Helyzetmeghatározás</string>
     <string name="weather_custom_location_dialog_title">Hely megadása</string>
@@ -162,6 +163,10 @@
     <string name="calendar_highlight_upcoming_events_title">Események kiemelése</string>
     <string name="calendar_highlight_upcoming_events_summary">Az aktuális nap, 20:00 után a következő nap eseményeinek kiemelése</string>
     <string name="calendar_highlight_upcoming_events_bold">Vastag betű</string>
+    <string name="calendar_add_event_title">Esemény hozzáadása ikon</string>
+    <string name="calendar_no_events">Nincsenek események az előretekintő ablakban</string>
+    <string name="calendar_no_events_summary">Érintse meg a + jelet a hozzáadáshoz</string>
+    <string name="calendar_no_events_indicator_title">\'Nincsenek események\' szöveg megjelenítése</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Betűszín</string>
@@ -200,5 +205,10 @@
     <string name="holo_orange_dark">Sötét narancs</string>
     <string name="holo_blue_bright">Sötétkék</string>
 
-
+    <!-- Weather icon sets -->
+    <string name="weather_icon_set_title">Ikon beállítások</string>
+    <string name="weather_icons_standard">Színes</string>
+    <string name="weather_icons_monochrome">Fekete-fehér</string>
+    <string name="weather_icons_vclouds">VClouds</string>
+    <string name="icon_set_selection_get_more">Továbbiak beszerzése\u2026</string>
 </resources>
