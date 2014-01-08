@@ -87,4 +87,8 @@
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
+    <style name="Theme.Main" parent="@android:style/Theme.Holo">
+        <item name="android:actionBarStyle">@android:style/Widget.Holo.ActionBar.Solid</item>
+    </style>
+
 </resources>
