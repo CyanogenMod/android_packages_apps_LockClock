@@ -82,7 +82,7 @@
     <string name="weather_tap_to_refresh">Tocca per aggiornare</string>
     <string name="weather_refreshing">Aggiornamento\u2026</string>
     <string name="weather_last_sync_just_now">Poco fa</string>
-    <string name="weather_cannot_reach_provider">Impossibile collegarsi a %s</string>
+    <string name="weather_cannot_reach_provider">Impossibile collegarsi a %s al momento</string>
     <string name="weather_refresh_manual">Manuale</string>
     <string name="weather_refresh_30min">30 minuti</string>
     <string name="weather_refresh_60min">60 minuti</string>
@@ -106,6 +106,7 @@
     <string name="weather_enable">Visualizza meteo</string>
     <string name="weather_source_title">Fonte meteo</string>
     <string name="weather_source_yahoo">Yahoo! Meteo</string>
+    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Posizione personalizzata</string>
     <string name="weather_geolocated">Localizzazione tramite la rete</string>
     <string name="weather_custom_location_dialog_title">Inserisci la posizione</string>
@@ -140,6 +141,10 @@
     <string name="calendar_highlight_upcoming_events_title">Evidenzia eventi</string>
     <string name="calendar_highlight_upcoming_events_summary">Evidenzia gli eventi del giorno e, dopo le 20:00, anche quelli del giorno dopo</string>
     <string name="calendar_highlight_upcoming_events_bold">Grassetto</string>
+    <string name="calendar_add_event_title">Icona Aggiungi evento</string>
+    <string name="calendar_no_events">Nessun nuovo evento</string>
+    <string name="calendar_no_events_summary">Tocca + per aggiungere</string>
+    <string name="calendar_no_events_indicator_title">Mostra testo \'Nessun evento\'</string>
     <string name="font_color">Colore carattere</string>
     <string name="font_color_alarm">Colore carattere sveglia</string>
     <string name="font_color_timestamp">Colore carattere timestamp</string>
@@ -172,7 +177,7 @@
     <string name="weather_icon_set_title">Set icone</string>
     <string name="weather_icons_standard">Colorate</string>
     <string name="weather_icons_monochrome">Monocrome</string>
-    <string name="weather_icons_modern">Moderne</string>
+    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Altre\u2026</string>
 
 </resources>
