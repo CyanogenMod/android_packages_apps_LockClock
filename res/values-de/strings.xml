@@ -14,7 +14,6 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources>
     <string name="unknown">Unbekannt</string>
     <string name="cancel">Abbrechen</string>
@@ -107,7 +106,6 @@
     <string name="weather_enable">Wetter anzeigen</string>
     <string name="weather_source_title">Wetterdienst</string>
     <string name="weather_source_yahoo">Yahoo! Wetter</string>
-    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Benutzerdefinierter Standort</string>
     <string name="weather_geolocated">Über Standortdienste bestimmt</string>
     <string name="weather_custom_location_dialog_title">Standort eingeben</string>
@@ -173,7 +171,5 @@
     <string name="weather_icon_set_title">Icon-Pakete</string>
     <string name="weather_icons_standard">Farbig</string>
     <string name="weather_icons_monochrome">Einfarbig</string>
-    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Mehr beziehen\u2026</string>
-
 </resources>
