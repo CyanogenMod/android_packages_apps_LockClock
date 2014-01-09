@@ -67,18 +67,6 @@
             android:title="@string/calendar_icon_title"
             android:defaultValue="true" />
 
-        <CheckBoxPreference
-            android:key="calendar_add_event_icon"
-            android:dependency="show_calendar"
-            android:title="@string/calendar_add_event_title"
-            android:defaultValue="true" />
-
-        <CheckBoxPreference
-            android:key="calendar_no_events_text"
-            android:dependency="show_calendar"
-            android:title="@string/calendar_no_events_indicator_title"
-            android:defaultValue="true" />
-
         <ListPreference
             android:key="calendar_show_location"
             android:dependency="show_calendar"
