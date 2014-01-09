@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2012-2013 The CyanogenMod Project (DvTonder)
+     Copyright (C) 2012-2014 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@
 <resources>
     <string name="unknown">Onbekend</string>
     <string name="cancel">Annuleren</string>
-    <string name="loading_indicator">Bezig met laden van widget\u2026</string>
-    <string name="menu_done">Gereed</string>
+    <string name="loading_indicator">Widget laden\u2026</string>
+    <string name="menu_done">OK</string>
     <string name="weather_0">Tornado</string>
     <string name="weather_1">Tropische storm</string>
     <string name="weather_2">Tropische cycloon</string>
@@ -68,6 +68,7 @@
     <string name="weather_46">Sneeuwstormen</string>
     <string name="weather_47">Geïsoleerde onweersbuien</string>
     <string name="weather_3200"></string>
+    <string name="weather_kph">km/u</string>
     <string name="weather_N">N</string>
     <string name="weather_NE">NO</string>
     <string name="weather_E">O</string>
@@ -80,7 +81,7 @@
     <string name="weather_tap_to_refresh">Tik om te vernieuwen</string>
     <string name="weather_refreshing">Vernieuwen\u2026</string>
     <string name="weather_last_sync_just_now">Zojuist</string>
-    <string name="weather_cannot_reach_provider">Kan %s niet bereiken</string>
+    <string name="weather_cannot_reach_provider">%s momenteel niet bereikbaar</string>
     <string name="weather_refresh_manual">Handmatig</string>
     <string name="weather_refresh_30min">0,5 uur</string>
     <string name="weather_refresh_60min">1 uur</string>
@@ -102,6 +103,7 @@
     <string name="clock_am_pm_title">AM/PM weergeven</string>
     <string name="weather_enabled">Ingeschakeld</string>
     <string name="weather_enable">Weer tonen</string>
+    <string name="weather_source_title">Weerbron</string>
     <string name="weather_source_yahoo">Yahoo! Weer</string>
     <string name="weather_use_custom_location">Aangepaste locatie</string>
     <string name="weather_geolocated">Locatie bepalen door netwerk</string>
@@ -169,5 +171,4 @@
     <string name="weather_icons_standard">Gekleurd</string>
     <string name="weather_icons_monochrome">Zwart-wit</string>
     <string name="icon_set_selection_get_more">Meer\u2026</string>
-
 </resources>

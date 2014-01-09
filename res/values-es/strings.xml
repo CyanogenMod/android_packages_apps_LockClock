@@ -106,7 +106,6 @@
     <string name="weather_enable">Mostrar clima</string>
     <string name="weather_source_title">Servicio de clima</string>
     <string name="weather_source_yahoo">Yahoo! El Tiempo</string>
-    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Usar ubicación personalizada</string>
     <string name="weather_geolocated">Geolocalización por red</string>
     <string name="weather_custom_location_dialog_title">Introducir ubicación</string>
@@ -172,6 +171,5 @@
     <string name="weather_icon_set_title">Conjunto de iconos</string>
     <string name="weather_icons_standard">Coloreado</string>
     <string name="weather_icons_monochrome">Monocromo</string>
-    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Conseguir más\u2026</string>
 </resources>
