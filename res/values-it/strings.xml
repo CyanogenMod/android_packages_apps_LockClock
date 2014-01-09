@@ -141,10 +141,6 @@
     <string name="calendar_highlight_upcoming_events_title">Evidenzia eventi</string>
     <string name="calendar_highlight_upcoming_events_summary">Evidenzia gli eventi del giorno e, dopo le 20:00, anche quelli del giorno dopo</string>
     <string name="calendar_highlight_upcoming_events_bold">Grassetto</string>
-    <string name="calendar_add_event_title">Icona Aggiungi evento</string>
-    <string name="calendar_no_events">Nessun nuovo evento</string>
-    <string name="calendar_no_events_summary">Tocca + per aggiungere</string>
-    <string name="calendar_no_events_indicator_title">Mostra testo \'Nessun evento\'</string>
     <string name="font_color">Colore carattere</string>
     <string name="font_color_alarm">Colore carattere sveglia</string>
     <string name="font_color_timestamp">Colore carattere timestamp</string>

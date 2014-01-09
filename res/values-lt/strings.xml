@@ -139,10 +139,6 @@
     <string name="calendar_highlight_upcoming_events_title">Paryškinti įvykius</string>
     <string name="calendar_highlight_upcoming_events_summary">Paryškinti šios dienos įvykius, po 8 valandos vakaro, kitos dienos įvykius</string>
     <string name="calendar_highlight_upcoming_events_bold">Pusjuodis šriftas</string>
-    <string name="calendar_add_event_title">Pridėti įvykio piktogramą</string>
-    <string name="calendar_no_events">Jokių įvykių peržiūros lange</string>
-    <string name="calendar_no_events_summary">Bakstelėkite + norėdami pridėti</string>
-    <string name="calendar_no_events_indicator_title">Rodyti \'Jokių įvykių\' tekstą</string>
     <string name="font_color">Šrifto spalva</string>
     <string name="font_color_alarm">Žadintuvo šrifto spalva</string>
     <string name="font_color_timestamp">Laiko žymės šrifto spalva</string>

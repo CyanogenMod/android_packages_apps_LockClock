@@ -163,10 +163,6 @@
     <string name="calendar_highlight_upcoming_events_title">Események kiemelése</string>
     <string name="calendar_highlight_upcoming_events_summary">Az aktuális nap, 20:00 után a következő nap eseményeinek kiemelése</string>
     <string name="calendar_highlight_upcoming_events_bold">Vastag betű</string>
-    <string name="calendar_add_event_title">Esemény hozzáadása ikon</string>
-    <string name="calendar_no_events">Nincsenek események az előretekintő ablakban</string>
-    <string name="calendar_no_events_summary">Érintse meg a + jelet a hozzáadáshoz</string>
-    <string name="calendar_no_events_indicator_title">\'Nincsenek események\' szöveg megjelenítése</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Betűszín</string>

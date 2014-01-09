@@ -174,8 +174,4 @@
     <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Kry meer\u2026</string>
     <string name="weather_source_openweathermap">OpenWeatherMap</string>
-    <string name="calendar_add_event_title">Voeg afsprake by ikoon</string>
-    <string name="calendar_no_events">Geen afsprake in vooruitkyk tydperk nie</string>
-    <string name="calendar_no_events_summary">Raak + om by te voeg</string>
-    <string name="calendar_no_events_indicator_title">Wys \'Geen afsprake\' teks</string>
 </resources>

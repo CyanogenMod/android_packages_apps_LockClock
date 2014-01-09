@@ -180,11 +180,6 @@
     <string name="holo_orange_dark">Тёмно-оранжевый</string>
     <string name="holo_blue_bright">Ярко-синий</string>
 
-    <string name="calendar_add_event_title">Значок добавления события</string>
-    <string name="calendar_no_events">Нет предстоящих событий</string>
-    <string name="calendar_no_events_summary">Нажмите «+» для добавления</string>
-    <string name="calendar_no_events_indicator_title">Показывать надпись «нет событий»</string>
-
     <string name="weather_icon_set_title">Набор значков</string>
     <string name="weather_icons_standard">Цветные</string>
     <string name="weather_icons_monochrome">Монохромные</string>

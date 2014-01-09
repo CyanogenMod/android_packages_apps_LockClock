@@ -140,10 +140,6 @@
     <string name="calendar_highlight_upcoming_events_title">Resaltar eventos</string>
     <string name="calendar_highlight_upcoming_events_summary">Resaltar los eventos del día actual y, después de las 20:00, resaltar también los eventos del día siguiente</string>
     <string name="calendar_highlight_upcoming_events_bold">Resaltar el texto</string>
-    <string name="calendar_add_event_title">Mostrar icono Añadir</string>
-    <string name="calendar_no_events">No hay eventos en la ventana de eventos futuros</string>
-    <string name="calendar_no_events_summary">Toca + para añadir</string>
-    <string name="calendar_no_events_indicator_title">Mostrar texto \u00ABSin eventos\u00BB</string>
     <string name="font_color">Color del texto</string>
     <string name="font_color_alarm">Color de la alarma</string>
     <string name="font_color_timestamp">Color de la fecha</string>

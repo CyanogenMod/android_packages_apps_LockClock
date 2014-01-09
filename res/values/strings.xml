@@ -173,10 +173,6 @@
     <string name="calendar_highlight_upcoming_events_title">Highlight events</string>
     <string name="calendar_highlight_upcoming_events_summary">Highlight the current day\'s events and, after 8pm, also the next day\'s events</string>
     <string name="calendar_highlight_upcoming_events_bold">Bold font</string>
-    <string name="calendar_add_event_title">Add Event icon</string>
-    <string name="calendar_no_events">No events in lookahead window</string>
-    <string name="calendar_no_events_summary">Tap + to add</string>
-    <string name="calendar_no_events_indicator_title">Show \'No events\' text</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Font color</string>
