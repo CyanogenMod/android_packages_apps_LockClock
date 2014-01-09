@@ -166,4 +166,12 @@
     <string name="holo_orange_light">Ligte oranje</string>
     <string name="holo_orange_dark">Donker oranje</string>
     <string name="holo_blue_bright">Helder blou</string>
+    <string name="weather_kph">kph</string>
+    <string name="weather_mph">mph</string>
+    <string name="weather_icon_set_title">Ikoon stel</string>
+    <string name="weather_icons_standard">Gekleurde</string>
+    <string name="weather_icons_monochrome">Monochroom</string>
+    <string name="weather_icons_vclouds">VClouds</string>
+    <string name="icon_set_selection_get_more">Kry meer\u2026</string>
+    <string name="weather_source_openweathermap">OpenWeatherMap</string>
 </resources>
