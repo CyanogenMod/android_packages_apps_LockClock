@@ -68,6 +68,8 @@
     <string name="weather_46">Sneeuwstormen</string>
     <string name="weather_47">Geïsoleerde onweersbuien</string>
     <string name="weather_3200"></string>
+    <string name="weather_kph">km/u</string>
+    <string name="weather_mph">mph</string>
     <string name="weather_N">N</string>
     <string name="weather_NE">NO</string>
     <string name="weather_E">O</string>
@@ -80,7 +82,7 @@
     <string name="weather_tap_to_refresh">Tik om te vernieuwen</string>
     <string name="weather_refreshing">Vernieuwen\u2026</string>
     <string name="weather_last_sync_just_now">Zojuist</string>
-    <string name="weather_cannot_reach_provider">Kan %s niet bereiken</string>
+    <string name="weather_cannot_reach_provider">%s momenteel niet bereikbaar</string>
     <string name="weather_refresh_manual">Handmatig</string>
     <string name="weather_refresh_30min">0,5 uur</string>
     <string name="weather_refresh_60min">1 uur</string>
@@ -102,7 +104,9 @@
     <string name="clock_am_pm_title">AM/PM weergeven</string>
     <string name="weather_enabled">Ingeschakeld</string>
     <string name="weather_enable">Weer tonen</string>
+    <string name="weather_source_title">Weerbron</string>
     <string name="weather_source_yahoo">Yahoo! Weer</string>
+    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Aangepaste locatie</string>
     <string name="weather_geolocated">Locatie bepalen door netwerk</string>
     <string name="weather_custom_location_dialog_title">Locatie invoeren</string>
@@ -168,6 +172,6 @@
     <string name="weather_icon_set_title">Pictogrammenpakket</string>
     <string name="weather_icons_standard">Gekleurd</string>
     <string name="weather_icons_monochrome">Zwart-wit</string>
+    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Meer\u2026</string>
-
 </resources>
