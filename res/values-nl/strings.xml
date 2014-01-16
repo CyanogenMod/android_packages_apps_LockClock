@@ -69,6 +69,7 @@
     <string name="weather_47">Geïsoleerde onweersbuien</string>
     <string name="weather_3200"></string>
     <string name="weather_kph">km/u</string>
+    <string name="weather_mph">mph</string>
     <string name="weather_N">N</string>
     <string name="weather_NE">NO</string>
     <string name="weather_E">O</string>
