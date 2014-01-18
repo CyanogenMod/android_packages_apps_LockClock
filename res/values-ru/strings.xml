@@ -70,7 +70,6 @@
     <string name="weather_47">Местами грозы</string>
     <string name="weather_3200"></string>
 
-    <!-- Weather - Speed units -->
     <string name="weather_kph">км/ч</string>
     <string name="weather_mph">миль/ч</string>
 
@@ -113,7 +112,6 @@
     <string name="weather_enabled">Включено</string>
     <string name="weather_enable">Погода отображается</string>
     <string name="weather_source_title">Сервер погоды</string>
-    <string name="weather_source_yahoo">Yahoo! Погода</string>
     <string name="weather_use_custom_location">Не определять автоматически</string>
     <string name="weather_geolocated">Местоположение по сети</string>
     <string name="weather_custom_location_dialog_title">Введите местоположение</string>
@@ -182,10 +180,9 @@
     <string name="holo_orange_dark">Тёмно-оранжевый</string>
     <string name="holo_blue_bright">Ярко-синий</string>
 
-     <!-- Weather icon sets -->
-     <string name="weather_icon_set_title">Набор значков</string>
-     <string name="weather_icons_standard">Цветные</string>
-     <string name="weather_icons_monochrome">Чёрно-белые</string>
-     <string name="icon_set_selection_get_more">Скачать ещё</string>
+    <string name="weather_icon_set_title">Набор значков</string>
+    <string name="weather_icons_standard">Цветные</string>
+    <string name="weather_icons_monochrome">Монохромные</string>
+    <string name="icon_set_selection_get_more">Скачать ещё</string>
 
 </resources>

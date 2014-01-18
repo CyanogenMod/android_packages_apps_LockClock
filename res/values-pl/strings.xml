@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+<!-- 
+     Copyright (C) 2012-2014 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -68,6 +69,8 @@
     <string name="weather_46">Przelotny śnieg</string>
     <string name="weather_47">Lokalne ulewne burze</string>
     <string name="weather_3200"></string>
+    <string name="weather_kph">km/h</string>
+    <string name="weather_mph">mph</string>
     <string name="weather_N">N</string>
     <string name="weather_NE">NE</string>
     <string name="weather_E">E</string>
@@ -100,6 +103,7 @@
     <string name="show_alarm_title">Wyświetl następny alarm</string>
     <string name="weather_enabled">Włączone</string>
     <string name="weather_enable">Wyświetl pogodę</string>
+    <string name="weather_source_title">Źródło informacji o pogodzie</string>
     <string name="weather_source_yahoo">Pogoda Yahoo!</string>
     <string name="weather_use_custom_location">Użyj własnej lokalizacji</string>
     <string name="weather_geolocated">Użyj sieci do lokalizacji</string>
@@ -165,4 +169,8 @@
     <string name="weather_cannot_reach_provider">%s poza zasięgiem</string>
     <string name="weather_select_location">Wybierz lokalizację</string>
     <string name="clock_am_pm_title">Pokaż wskaźnik AM/PM</string>
+    <string name="weather_icon_set_title">Zestaw ikon</string>
+    <string name="weather_icons_standard">Kolorowe</string>
+    <string name="weather_icons_monochrome">Monochromatyczne</string>
+    <string name="icon_set_selection_get_more">Więcej\u2026</string>
 </resources>
