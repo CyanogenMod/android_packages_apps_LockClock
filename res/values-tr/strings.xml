@@ -157,7 +157,6 @@
     <string name="calendar_highlight_upcoming_events_title">Etkinlikleri vurgula</string>
     <string name="calendar_highlight_upcoming_events_summary">Günlük etkinlikleri ve saat 8\'den itibaren yarınki etkinlikleri vurgula</string>
     <string name="calendar_highlight_upcoming_events_bold">Kalın yazı</string>
-    <string name="calendar_add_event_title">Etkinlik simgesi ekle</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Yazı rengi</string>

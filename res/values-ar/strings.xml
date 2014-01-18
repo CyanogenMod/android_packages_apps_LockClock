@@ -156,7 +156,6 @@
     <string name="calendar_highlight_upcoming_events_title">تسليط الضوء على الأحداث</string>
     <string name="calendar_highlight_upcoming_events_summary">تسليط الضوء على أحداث اليوم الحالي، وبعد 8:00، وأيضا الأحداث في اليوم التالي \' ق</string>
     <string name="calendar_highlight_upcoming_events_bold">خط عريض</string>
-    <string name="calendar_add_event_title">إضافة رمز الحدث</string>
 
     <!-- الطقس - الوان الخطوط -->
     <string name="font_color">لون الخط</string>

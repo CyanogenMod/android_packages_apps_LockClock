@@ -13,7 +13,6 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources>
     <string name="unknown">Sconosciuto</string>
     <string name="cancel">Annulla</string>
@@ -82,7 +81,7 @@
     <string name="weather_tap_to_refresh">Tocca per aggiornare</string>
     <string name="weather_refreshing">Aggiornamento\u2026</string>
     <string name="weather_last_sync_just_now">Poco fa</string>
-    <string name="weather_cannot_reach_provider">Impossibile collegarsi a %s</string>
+    <string name="weather_cannot_reach_provider">Impossibile collegarsi a %s al momento</string>
     <string name="weather_refresh_manual">Manuale</string>
     <string name="weather_refresh_30min">30 minuti</string>
     <string name="weather_refresh_60min">60 minuti</string>
@@ -106,6 +105,7 @@
     <string name="weather_enable">Visualizza meteo</string>
     <string name="weather_source_title">Fonte meteo</string>
     <string name="weather_source_yahoo">Yahoo! Meteo</string>
+    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Posizione personalizzata</string>
     <string name="weather_geolocated">Localizzazione tramite la rete</string>
     <string name="weather_custom_location_dialog_title">Inserisci la posizione</string>
@@ -172,7 +172,9 @@
     <string name="weather_icon_set_title">Set icone</string>
     <string name="weather_icons_standard">Colorate</string>
     <string name="weather_icons_monochrome">Monocrome</string>
-    <string name="weather_icons_modern">Moderne</string>
+<<<<<<< HEAD
+=======
+    <string name="weather_icons_vclouds">VClouds</string>
+>>>>>>> 8e743bc... LockClock: Remove ghost settings and Update strings to match CM11
     <string name="icon_set_selection_get_more">Altre\u2026</string>
-
 </resources>
