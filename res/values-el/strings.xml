@@ -105,7 +105,6 @@
     <string name="weather_enable">Εμφάνιση καιρού</string>
     <string name="weather_source_title">Πηγή καιρού</string>
     <string name="weather_source_yahoo">Καιρός Yahoo!</string>
-    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Χρήση προσαρμοσμένης τοποθεσίας</string>
     <string name="weather_geolocated">Εντοπισμός τοποθεσίας μέσω δικτύου</string>
     <string name="weather_custom_location_dialog_title">Εισάγετε τοποθεσία</string>
@@ -139,10 +138,6 @@
     <string name="calendar_highlight_upcoming_events_title">Επισήμανση συμβάντων</string>
     <string name="calendar_highlight_upcoming_events_summary">Επισήμανση των συμβάντων της τρέχουσας ημέρας και μετά τις 8μμ, επίσης, τα γεγονότα της επόμενης ημέρας</string>
     <string name="calendar_highlight_upcoming_events_bold">Έντονη γραμματοσειρά</string>
-    <string name="calendar_add_event_title">Προσθήκη συμβάντων</string>
-    <string name="calendar_no_events">Δεν έχουν προστεθεί συμβάντα</string>
-    <string name="calendar_no_events_summary">Πιέστε + για προσθήκη</string>
-    <string name="calendar_no_events_indicator_title">Εμφάνιση κειμένου \'Χωρίς συμβάντα\'</string>
     <string name="font_color">Χρώμα γραμματοσειράς</string>
     <string name="font_color_alarm">Χρώμα ξυπνητηριού</string>
     <string name="font_color_timestamp">Χρώμα ώρας</string>

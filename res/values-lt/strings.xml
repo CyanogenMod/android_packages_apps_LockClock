@@ -67,6 +67,8 @@
     <string name="weather_46">Sniego pūgos</string>
     <string name="weather_47">Izoliuotos liūtys su perkūnija</string>
     <string name="weather_3200"></string>
+    <string name="weather_kph">km/val.</string>
+    <string name="weather_mph">ml/val.</string>
     <string name="weather_N">Š</string>
     <string name="weather_NE">ŠR</string>
     <string name="weather_E">R</string>
@@ -101,7 +103,8 @@
     <string name="clock_am_pm_title">Rodyti AM/PM indikatorių</string>
     <string name="weather_enabled">Įjungta</string>
     <string name="weather_enable">Rodyti orus</string>
-    <string name="weather_source_yahoo">Yahoo! Weather</string>
+    <string name="weather_source_title">Orų šaltinis</string>
+    <string name="weather_source_yahoo">Yahoo! Orai</string>
     <string name="weather_use_custom_location">Naudoti savitą vietovę</string>
     <string name="weather_geolocated">Nustatyta naudojant tinklą</string>
     <string name="weather_custom_location_dialog_title">Įveskite vietovę</string>
@@ -164,4 +167,8 @@
     <string name="holo_orange_light">Šviesi oranžinė</string>
     <string name="holo_orange_dark">Tamsi oranžinė</string>
     <string name="holo_blue_bright">Šviesiai mėlyna</string>
+    <string name="weather_icon_set_title">Piktogramų rinkinys</string>
+    <string name="weather_icons_standard">Spalvotas</string>
+    <string name="weather_icons_monochrome">Monochromas</string>
+    <string name="icon_set_selection_get_more">Gauti daugiau\u2026</string>
 </resources>

@@ -68,7 +68,7 @@
     <string name="weather_46">Nieve</string>
     <string name="weather_47">Chap. aislados</string>
     <string name="weather_3200"></string> <!-- No disponible -->
-    <string name="weather_kph">kph</string>
+    <string name="weather_kph">km/h</string>
     <string name="weather_mph">mph</string>
     <string name="weather_N">N</string>
     <string name="weather_NE">NE</string>
@@ -124,13 +124,13 @@
     <string name="weather_alternate_icons_summary">Usar iconos en color en vez de los predeterminados en blanco</string>
     <string name="weather_show_when_minimized_title">Mostrar al minimizar</string>
     <string name="weather_show_when_minimized_summary">Mostrar la información climática cuando el widget esté minimizado</string>
-    <string name="weather_select_location">Selecciona ubicación</string>
+    <string name="weather_select_location">Seleccionar ubicación</string>
     <string name="calendar_title">Mostrar próximo evento</string>
     <string name="calendars_title">Calendario de eventos</string>
     <string name="calendars_summary">Buscar eventos en los calendarios</string>
     <string name="calendar_reminders_only_title">Solo recordatorios</string>
     <string name="calendar_reminders_only_summary">Mostrar solo eventos con recordatorios</string>
-    <string name="calendar_hide_allday_title">Ocultar eventos \u00ABtodo el día\u00BB</string>
+    <string name="calendar_hide_allday_title">Ocultar eventos \u00ABTodo el día\u00BB</string>
     <string name="calendar_icon_title">Mostrar icono Calendario</string>
     <string name="calendar_lookahead_title">Eventos futuros</string>
     <string name="calendar_show_location_title">Lugar del evento</string>
@@ -172,5 +172,4 @@
     <string name="weather_icons_standard">Coloreado</string>
     <string name="weather_icons_monochrome">Monocromo</string>
     <string name="icon_set_selection_get_more">Conseguir más\u2026</string>
-
 </resources>

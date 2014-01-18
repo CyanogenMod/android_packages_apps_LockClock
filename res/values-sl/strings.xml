@@ -158,7 +158,6 @@
     <string name="calendar_highlight_upcoming_events_title">Izpostavi dogodke</string>
     <string name="calendar_highlight_upcoming_events_summary">Izpostavi današnji dan\'s dogodke in, po 20 uri, tudi naslednji dan\'s dogodki</string>
     <string name="calendar_highlight_upcoming_events_bold">Poudarjena pisava</string>
-    <string name="calendar_add_event_title">Dodaj ikono dogodka</string>
 
     <!-- Preferences - Font colors -->
     <string name="font_color">Barva pisave</string>
