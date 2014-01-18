@@ -13,7 +13,6 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources>
     <string name="unknown">Sconosciuto</string>
     <string name="cancel">Annulla</string>
@@ -173,7 +172,9 @@
     <string name="weather_icon_set_title">Set icone</string>
     <string name="weather_icons_standard">Colorate</string>
     <string name="weather_icons_monochrome">Monocrome</string>
+<<<<<<< HEAD
     <string name="weather_icons_vclouds">VClouds</string>
+=======
+>>>>>>> 7c2684a... LockClock: Sync translations and fixes with CM11
     <string name="icon_set_selection_get_more">Altre\u2026</string>
-
 </resources>
