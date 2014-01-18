@@ -68,6 +68,8 @@
     <string name="weather_46">Nevades</string>
     <string name="weather_47">Tempestes aïllades</string>
     <string name="weather_3200"></string>
+    <string name="weather_kph">kmh</string>
+    <string name="weather_mph">mph</string>
     <string name="weather_N">N</string>
     <string name="weather_NE">NE</string>
     <string name="weather_E">E</string>
@@ -102,7 +104,9 @@
     <string name="clock_am_pm_title">Mostra l\'indicador AM/PM</string>
     <string name="weather_enabled">Activat</string>
     <string name="weather_enable">Mostra el temps</string>
+    <string name="weather_source_title">Origen del temps</string>
     <string name="weather_source_yahoo">Temps de Yahoo!</string>
+    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Utilitza una ubic. personalitzada</string>
     <string name="weather_geolocated">Geolocalitzat utilitzant la xarxa</string>
     <string name="weather_custom_location_dialog_title">Introdueix ubicació</string>
@@ -165,4 +169,8 @@
     <string name="holo_orange_light">Taronja clar</string>
     <string name="holo_orange_dark">Taronja fosc</string>
     <string name="holo_blue_bright">Blau brillant</string>
+    <string name="weather_icon_set_title">Conjunt d\'icones</string>
+    <string name="weather_icons_standard">Color</string>
+    <string name="weather_icons_monochrome">Monocrom</string>
+    <string name="icon_set_selection_get_more">Aconsegueix-ne més\u2026</string>
 </resources>
