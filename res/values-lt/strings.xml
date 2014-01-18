@@ -105,7 +105,6 @@
     <string name="weather_enable">Rodyti orus</string>
     <string name="weather_source_title">Orų šaltinis</string>
     <string name="weather_source_yahoo">Yahoo! Orai</string>
-    <string name="weather_source_openweathermap">Atviras orų žemėlapis</string>
     <string name="weather_use_custom_location">Naudoti savitą vietovę</string>
     <string name="weather_geolocated">Nustatyta naudojant tinklą</string>
     <string name="weather_custom_location_dialog_title">Įveskite vietovę</string>
@@ -171,6 +170,5 @@
     <string name="weather_icon_set_title">Piktogramų rinkinys</string>
     <string name="weather_icons_standard">Spalvotas</string>
     <string name="weather_icons_monochrome">Monochromas</string>
-    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Gauti daugiau\u2026</string>
 </resources>

@@ -137,7 +137,7 @@
     <string name="weather_enable">Display weather</string>
     <string name="weather_source_title">Weather source</string>
     <string name="weather_source_yahoo">Yahoo! Weather</string>
-    <string name="weather_source_openweathermap">OpenWeatherMap</string>
+    <string name="weather_source_openweathermap" translatable="false">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Use custom location</string>
     <string name="weather_geolocated">Geolocated using network</string>
     <string name="weather_custom_location_dialog_title">Enter location</string>
@@ -215,7 +215,7 @@
     <string name="weather_icon_set_title">Icon set</string>
     <string name="weather_icons_standard">Colored</string>
     <string name="weather_icons_monochrome">Monochrome</string>
-    <string name="weather_icons_vclouds">VClouds</string>
+    <string name="weather_icons_vclouds" translatable="false">VClouds</string>
     <string name="icon_set_selection_get_more">Get more\u2026</string>
     <string name="icon_set_store_filter" translatable="false">Chronus Weather Icons</string>
 </resources>

@@ -127,7 +127,6 @@
     <string name="weather_enable">Időjárás megjelenítése</string>
     <string name="weather_source_title">Időjárás forrása</string>
     <string name="weather_source_yahoo">Yahoo! Időjárás</string>
-    <string name="weather_source_openweathermap">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Egyéni hely használata</string>
     <string name="weather_geolocated">Helyzetmeghatározás</string>
     <string name="weather_custom_location_dialog_title">Hely megadása</string>
@@ -205,6 +204,5 @@
     <string name="weather_icon_set_title">Ikon beállítások</string>
     <string name="weather_icons_standard">Színes</string>
     <string name="weather_icons_monochrome">Fekete-fehér</string>
-    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Továbbiak beszerzése\u2026</string>
 </resources>
