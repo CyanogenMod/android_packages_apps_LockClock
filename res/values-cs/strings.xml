@@ -183,6 +183,5 @@
     <string name="weather_icon_set_title">Sada ikon</string>
     <string name="weather_icons_standard">Barevné</string>
     <string name="weather_icons_monochrome">Černobílé</string>
-    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Získat další\u2026</string>
 </resources>
