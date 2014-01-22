@@ -199,6 +199,5 @@
     <string name="weather_icon_set_title">Simge seti</string>
     <string name="weather_icons_standard">Renkli</string>
     <string name="weather_icons_monochrome">Monokrom</string>
-    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Daha fazla\u2026</string>
 </resources>

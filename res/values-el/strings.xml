@@ -170,7 +170,5 @@
     <string name="weather_icon_set_title">Σετ εικονιδίων</string>
     <string name="weather_icons_standard">Χρωματιστά</string>
     <string name="weather_icons_monochrome">Μονόχρωμα</string>
-    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">Βρείτε περισσότερα\u2026</string>
-
 </resources>

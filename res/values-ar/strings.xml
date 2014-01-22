@@ -198,6 +198,5 @@
     <string name="weather_icon_set_title">رمز المجموعه</string>
     <string name="weather_icons_standard">اللون (مستوى)</string>
     <string name="weather_icons_monochrome">لون واحد</string>
-    <string name="weather_icons_vclouds">VClouds</string>
     <string name="icon_set_selection_get_more">الحصول على مزيد من \u2026</string>
 </resources>
