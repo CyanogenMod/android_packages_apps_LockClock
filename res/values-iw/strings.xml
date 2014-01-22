@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+  <string name="unknown">לא ידוע</string>
+  <string name="cancel">בטל</string>
+  <string name="loading_indicator">טוען ווידג\'ט\u2026</string>
+  <string name="menu_done">סיום</string>
+  <string name="weather_0">טורנדו</string>
+  <string name="weather_1">סופה טרופית</string>
+  <string name="weather_2">הוריקן</string>
+  <string name="weather_3">סופת ברקים</string>
+  <string name="weather_4">סופות רעמים</string>
+  <string name="weather_5">גשם מעורב עם שלג</string>
+  <string name="weather_6">גשם מעורב עם ברד</string>
+  <string name="weather_7">שלג מעורב עם ברד</string>
+  <string name="weather_8">טפטוף קפוא</string>
+  <string name="weather_9">טפטוף</string>
+  <string name="weather_10">גשם קופא</string>
+  <string name="weather_11">מקלחות</string>
+  <string name="weather_12">מקלחות</string>
+  <string name="weather_13">פתיתי שלג</string>
+  <string name="weather_14">קילוחי שלג</string>
+  <string name="weather_15">משבי שלג</string>
+  <string name="weather_16">שלג</string>
+  <string name="weather_17">ברד</string>
+  <string name="weather_18">ברד</string>
+  <string name="weather_19">אבק</string>
+  <string name="weather_20">ערפילי</string>
+  <string name="weather_21">אובך</string>
+  <string name="weather_22">מעושן</string>
+  <string name="weather_23">סוער</string>
+  <string name="weather_24">סוער</string>
+  <string name="weather_25">קר</string>
+  <string name="weather_26">מעונן</string>
+  <string name="weather_27">מעונן ברובו</string>
+  <string name="weather_28">מעונן ברובו</string>
+  <string name="weather_29">מעונן חלקית</string>
+  <string name="weather_30">מעונן חלקית</string>
+  <string name="weather_31">נקי</string>
+  <string name="weather_32">שמשי</string>
+  <string name="weather_33">סביר</string>
+  <string name="weather_34">סביר</string>
+  <string name="weather_35">מעורבות גשם וברד</string>
+  <string name="weather_36">חם</string>
+  <string name="weather_37">סופות רעמים מבודדת</string>
+  <string name="weather_38">סופות רעמים פזורות</string>
+  <string name="weather_39">סופות רעמים פזורות</string>
+  <string name="weather_40">ממטרים מפוזרים</string>
+  <string name="weather_41">שלג כבד</string>
+  <string name="weather_42">קילוחי שלג פזורים</string>
+  <string name="weather_43">שלג כבד</string>
+  <string name="weather_44">מעונן חלקית</string>
+  <string name="weather_45">סופות גשמים ורעמים</string>
+  <string name="weather_46">ממטרי שלג</string>
+  <string name="weather_47">סופות רעמים בודדות</string>
+  <string name="weather_kph">קמ\"ש</string>
+  <string name="weather_mph">מייל לשעה</string>
+  <string name="weather_N">צפון</string>
+  <string name="weather_NE">צפון מזרח</string>
+  <string name="weather_E">מזרח</string>
+  <string name="weather_SE">דרום מזרח</string>
+  <string name="weather_S">דרום</string>
+  <string name="weather_SW">דרום מערב</string>
+  <string name="weather_W">מערב</string>
+  <string name="weather_NW">צפון מערב</string>
+  <string name="weather_no_data">אין נתונים</string>
+  <string name="weather_tap_to_refresh">הקש לרענון</string>
+  <string name="weather_refreshing">מרענן</string>
+  <string name="weather_last_sync_just_now">רק עכשיו</string>
+  <string name="weather_cannot_reach_provider">אין אפשרות להגיע אל %s כרגע</string>
+  <string name="weather_refresh_manual">ידני</string>
+  <string name="weather_refresh_30min">30 דקות</string>
+  <string name="weather_refresh_60min">60 דקות</string>
+  <string name="weather_refresh_2hrs">2 שעות</string>
+  <string name="weather_refresh_4hrs">4 שעות</string>
+  <string name="weather_refresh_6hrs">6 שעות</string>
+  <string name="weather_refresh_8hrs">8 שעות</string>
+  <string name="clock_category">שעון ושעון מעורר</string>
+  <string name="weather_category">לוח מזג אוויר</string>
+  <string name="calendar_category">אירועי לוח שנה</string>
+  <string name="general_category">כללי</string>
+  <string name="display_category">תצוגה</string>
+  <string name="use_digital_clock_title">השתמש בשעון דיגיטלי</string>
+  <string name="use_digital_clock_summary">בחר באפשרות זו כדי לעבור בין שעון דיגיטלי לבין שעון אנלוגי</string>
+  <string name="clock_font_title">שעות מודגשות</string>
+  <string name="clock_font_minutes_title">דקות מודגשות</string>
+  <string name="clock_font_date_title">שעון מעורר ותאריך מודגשים</string>
+  <string name="show_alarm_title">הצג שעון מעורר הבא</string>
+  <string name="clock_am_pm_title">הצג מחוון AM/PM</string>
+  <string name="weather_enabled">מאופשר</string>
+  <string name="weather_enable">הצג מזג אוויר</string>
+  <string name="weather_source_title">מקור למזג אוויר</string>
+  <string name="weather_source_yahoo">מזג האוויר ב-Yahoo</string>
+  <string name="weather_use_custom_location">השתמש במיקום מותאם אישית</string>
+  <string name="weather_geolocated">מיקום לפי רשת</string>
+  <string name="weather_custom_location_dialog_title">הזן מיקום</string>
+  <string name="weather_custom_location_hint">עיר, מדינה</string>
+  <string name="weather_custom_location_title">מיקום</string>
+  <string name="weather_show_location_title">הצג מיקום</string>
+  <string name="weather_show_timestamp_title">הצג חותמת זמן</string>
+  <string name="weather_refresh_interval">עדכן מרווח זמן</string>
+  <string name="weather_use_metric">השתמש בשיטה מטרית</string>
+  <string name="weather_retrieve_location_dialog_title">אין אפשרות לקבל מיקום!</string>
+  <string name="weather_retrieve_location_dialog_message">מיקום רשת מושבת.\n\nבחר מיקום ידני או שתפעיל מיקום רשת</string>
+  <string name="weather_retrieve_location_dialog_enable_button">הפעל</string>
+  <string name="weather_invert_lowhigh">היפוך בטמפרטורה נמוכה/גבוהה</string>
+  <string name="weather_progress_title">בדיקת מיקום</string>
+  <string name="weather_alternate_icons_title">השתמש בצבע סמלים</string>
+  <string name="weather_alternate_icons_summary">בחר כדי להעביר בין סמלים ברירת מחדל (צבעים) ואלטרנטיבה (לבנים)</string>
+  <string name="weather_show_when_minimized_title">הצג כאשר ממוזער</string>
+  <string name="weather_show_when_minimized_summary">הצג נתוני סיכום תחזית כאשר יישומון ממוזער</string>
+  <string name="weather_select_location">בחר מיקום</string>
+  <string name="calendar_title">הצגת האירוע הבא</string>
+  <string name="calendars_title">אירועי לוח שנה</string>
+  <string name="calendars_summary">מצא אירועים מלוחות שנה אלו</string>
+  <string name="calendar_reminders_only_title">תזכורות בלבד</string>
+  <string name="calendar_reminders_only_summary">הצג רק אירועים עם תזכורות</string>
+  <string name="calendar_hide_allday_title">הסתר אירועים של יום שלם</string>
+  <string name="calendar_icon_title">סמל לוח שנה</string>
+  <string name="calendar_lookahead_title">אירוע לעתיד</string>
+  <string name="calendar_show_location_title">מיקום האירוע</string>
+  <string name="calendar_show_description_title">תיאור האירוע</string>
+  <string name="calendar_upcoming_events_category">אירועים קרובים</string>
+  <string name="calendar_highlight_upcoming_events_title">הדגש אירועים</string>
+  <string name="calendar_highlight_upcoming_events_summary">הדגש אירועי היום הנוכחי, ולאחר השעה 20:00, גם את אירועי למחרת</string>
+  <string name="calendar_highlight_upcoming_events_bold">גופן מודגש</string>
+  <string name="font_color">צבע גופן</string>
+  <string name="font_color_alarm">צבע גופן שעון מעורר</string>
+  <string name="font_color_timestamp">צבע גופן חותמת זמן</string>
+  <string name="font_color_calendar_details">צבע גופן של פרטים</string>
+  <string name="calendar_lookahead_3hrs">3 שעות</string>
+  <string name="calendar_lookahead_6hrs">6 שעות</string>
+  <string name="calendar_lookahead_12hrs">12 שעות</string>
+  <string name="calendar_lookahead_today">היום</string>
+  <string name="calendar_lookahead_1day">יום אחד</string>
+  <string name="calendar_lookahead_3days">3 ימים</string>
+  <string name="calendar_lookahead_1wk">שבוע אחד</string>
+  <string name="calendar_lookahead_2wks">2 שבועות</string>
+  <string name="calendar_lookahead_4wks">4 שבועות</string>
+  <string name="calendar_metadata_none">אל תראה</string>
+  <string name="calendar_metadata_first_line">הצג שורה ראשונה</string>
+  <string name="calendar_metadata_all">הצג הכל</string>
+  <string name="white">לבן</string>
+  <string name="grey">אפור</string>
+  <string name="black">שחור</string>
+  <string name="holo_blue_light">תכלת</string>
+  <string name="holo_green_light">ירוק בהיר</string>
+  <string name="holo_red_light">אדום בהיר</string>
+  <string name="holo_blue_dark">כחול כהה</string>
+  <string name="holo_green_dark">ירוק כהה</string>
+  <string name="holo_red_dark">אדום כהה</string>
+  <string name="holo_purple">סגול</string>
+  <string name="holo_orange_light">כתום בהיר</string>
+  <string name="holo_orange_dark">כתום כהה</string>
+  <string name="holo_blue_bright">כחול בהיר</string>
+  <string name="weather_icon_set_title">ערכת סמלים</string>
+  <string name="weather_icons_standard">צבעוני</string>
+  <string name="weather_icons_monochrome">אחיד</string>
+  <string name="icon_set_selection_get_more">קבל עוד\u2026</string>
+</resources>
