@@ -67,8 +67,8 @@
     <string name="weather_46">Sniego pūgos</string>
     <string name="weather_47">Izoliuotos liūtys su perkūnija</string>
     <string name="weather_3200"></string>
-    <string name="weather_kph">km/val.</string>
-    <string name="weather_mph">ml/val.</string>
+    <string name="weather_kph">km / val.</string>
+    <string name="weather_mph">ml / val.</string>
     <string name="weather_N">Š</string>
     <string name="weather_NE">ŠR</string>
     <string name="weather_E">R</string>
@@ -100,7 +100,7 @@
     <string name="clock_font_minutes_title">Pusjuodės minutės</string>
     <string name="clock_font_date_title">Pusjuodžiai data ir žadintuvas</string>
     <string name="show_alarm_title">Rodyti kitą žadintuvo laiką</string>
-    <string name="clock_am_pm_title">Rodyti AM/PM indikatorių</string>
+    <string name="clock_am_pm_title">Rodyti AM / PM indikatorių</string>
     <string name="weather_enabled">Įjungta</string>
     <string name="weather_enable">Rodyti orus</string>
     <string name="weather_source_title">Orų šaltinis</string>
@@ -108,7 +108,7 @@
     <string name="weather_use_custom_location">Naudoti savitą vietovę</string>
     <string name="weather_geolocated">Nustatyta naudojant tinklą</string>
     <string name="weather_custom_location_dialog_title">Įveskite vietovę</string>
-    <string name="weather_custom_location_hint">Miestas, Valstija/Šalis</string>
+    <string name="weather_custom_location_hint">Miestas, Valstija / Šalis</string>
     <string name="weather_custom_location_title">Vietovė</string>
     <string name="weather_show_location_title">Rodyti vietovę</string>
     <string name="weather_show_timestamp_title">Rodyti laiko žymę</string>
@@ -117,10 +117,10 @@
     <string name="weather_retrieve_location_dialog_title">Nepavyksta nustatyti vietovės!</string>
     <string name="weather_retrieve_location_dialog_message">Tinklo geolokacija išjungta.\n\nNustatykite savitą vietovę, arba junkite tinklo vietovę</string>
     <string name="weather_retrieve_location_dialog_enable_button">Įjungti</string>
-    <string name="weather_invert_lowhigh">Sukeisti žema/aukšta temperatūras</string>
+    <string name="weather_invert_lowhigh">Sukeisti žemą / aukštą temperatūras</string>
     <string name="weather_progress_title">Tikrinama vietovė</string>
     <string name="weather_alternate_icons_title">Naudoti spalvotas piktogramas</string>
-    <string name="weather_alternate_icons_summary">Pasirinkite, kad perjungti tarp numatytų (Spalvotų) ir alternatyvių (Baltų) piktogramų</string>
+    <string name="weather_alternate_icons_summary">Pasirinkite, kad perjungti tarp numatytų (spalvotų) ir alternatyvių (baltų) piktogramų</string>
     <string name="weather_show_when_minimized_title">Rodyti kai sumažinta</string>
     <string name="weather_show_when_minimized_summary">Rodyti orų informacijos suvestinę, kai valdiklis yra sumažintas</string>
     <string name="weather_select_location">Pažymėti vietovę</string>
