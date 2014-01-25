@@ -112,7 +112,7 @@ public class OpenWeatherMapProvider implements WeatherProvider {
             JSONObject conditionData = conditions.getJSONObject("main");
             JSONObject windData = conditions.getJSONObject("wind");
             ArrayList<DayForecast> forecasts =
-                    parseForecasts(new JSONObject(forecastResponse).getJSONArray("list"));
+                    parseForecasts(new JSONObject(forecastResponse).getJSONArray("list"), metric);
             int speedUnitResId = metric ? R.string.weather_kph : R.string.weather_mph;
             if (localizedCityName == null) {
                 localizedCityName = conditions.getString("name");
@@ -122,7 +122,7 @@ public class OpenWeatherMapProvider implements WeatherProvider {
                     /* condition */ weather.getString("main"),
                     /* conditionCode */ mapConditionIconToCode(
                             weather.getString("icon"), weather.getInt("id")),
-                    /* temperature */ (float) conditionData.getDouble("temp"),
+                    /* temperature */ sanitizeTemperature(conditionData.getDouble("temp"), metric),
                     /* tempUnit */ metric ? "C" : "F",
                     /* humidity */ (float) conditionData.getDouble("humidity"),
                     /* wind */ (float) windData.getDouble("speed"),
@@ -141,7 +141,7 @@ public class OpenWeatherMapProvider implements WeatherProvider {
         return null;
     }
 
-    private ArrayList<DayForecast> parseForecasts(JSONArray forecasts) throws JSONException {
+    private ArrayList<DayForecast> parseForecasts(JSONArray forecasts, boolean metric) throws JSONException {
         ArrayList<DayForecast> result = new ArrayList<DayForecast>();
         int count = forecasts.length();
 
@@ -153,8 +153,8 @@ public class OpenWeatherMapProvider implements WeatherProvider {
             JSONObject temperature = forecast.getJSONObject("temp");
             JSONObject data = forecast.getJSONArray("weather").getJSONObject(0);
             DayForecast item = new DayForecast(
-                    /* low */ (float) temperature.getDouble("min"),
-                    /* high */ (float) temperature.getDouble("max"),
+                    /* low */ sanitizeTemperature(temperature.getDouble("min"), metric),
+                    /* high */ sanitizeTemperature(temperature.getDouble("max"), metric),
                     /* condition */ data.getString("main"),
                     /* conditionCode */ mapConditionIconToCode(
                             data.getString("icon"), data.getInt("id")));
@@ -162,6 +162,22 @@ public class OpenWeatherMapProvider implements WeatherProvider {
         }
 
         return result;
+    }
+
+    // OpenWeatherMap sometimes returns temperatures in Kelvin even if we ask it
+    // for deg C or deg F. Detect this and convert accordingly.
+    private static float sanitizeTemperature(double value, boolean metric) {
+        // threshold chosen to work for both C and F. 170 deg F is hotter
+        // than the hottest place on earth.
+        if (value > 170) {
+            // K -> deg C
+            value -= 273.15;
+            if (!metric) {
+                // deg C -> deg F
+                value = (value * 1.8) + 32;
+            }
+        }
+        return (float) value;
     }
 
     private static final HashMap<String, Integer> ICON_MAPPING = new HashMap<String, Integer>();
