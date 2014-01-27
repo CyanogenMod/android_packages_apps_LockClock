@@ -115,7 +115,7 @@
     <string name="weather_refresh_interval">Διάστημα μεταξύ ενημερώσεων</string>
     <string name="weather_use_metric">Χρήση μετρικού συστήματος</string>
     <string name="weather_retrieve_location_dialog_title">Δεν είναι δυνατός ο εντοπισμός της τοποθεσίας!</string>
-    <string name="weather_retrieve_location_dialog_message">Ο εντοπισμός τοποθεσίας μέσω δικτύου είναι απενεργοποιημένος. /n/nΧρησιμοποιήστε μία προσαρμοσμένη τοποθεσία ή ενεργοποιήστε την τοποθεσία δικτύου</string>
+    <string name="weather_retrieve_location_dialog_message">Ο εντοπισμός τοποθεσίας μέσω δικτύου είναι απενεργοποιημένος.\n\nΧρησιμοποιήστε μία προσαρμοσμένη τοποθεσία ή ενεργοποιήστε την τοποθεσία δικτύου</string>
     <string name="weather_retrieve_location_dialog_enable_button">Ενεργοποίηση</string>
     <string name="weather_invert_lowhigh">Αντιστροφή χαμηλής/υψηλής θερμοκρασίας</string>
     <string name="weather_progress_title">Επαλήθευση τοποθεσίας</string>
