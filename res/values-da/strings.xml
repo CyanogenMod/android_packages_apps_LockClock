@@ -67,6 +67,8 @@
     <string name="weather_46">Snebyger</string>
     <string name="weather_47">Isolerede tordenbyger</string>
     <string name="weather_3200"></string>
+    <string name="weather_kph">km/t</string>
+    <string name="weather_mph">mph</string>
     <string name="weather_N">N</string>
     <string name="weather_NE">NØ</string>
     <string name="weather_E">Ø</string>
@@ -165,4 +167,9 @@
     <string name="holo_orange_light">Lys orange</string>
     <string name="holo_orange_dark">Mørk orange</string>
     <string name="holo_blue_bright">Klar blå</string>
+    <string name="weather_icon_set_title">Ikonsæt</string>
+    <string name="weather_icons_standard">Farvet</string>
+    <string name="weather_icons_monochrome">Sort/hvid</string>
+    <string name="icon_set_selection_get_more">Hent flere\u2026</string>
+
 </resources>
