@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2013 The CyanogenMod Project (DvTonder)
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,8 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">ไม่ทราบ</string>
   <string name="cancel">ยกเลิก</string>
   <string name="loading_indicator">กำลังโหลดวิดเจ็ด\u2026</string>
@@ -60,7 +59,8 @@
   <string name="weather_45">มีฝนฟ้าคะนอง</string>
   <string name="weather_46">หิมะตกตกปรอยๆ</string>
   <string name="weather_47">มีฝนฟ้าคะนองบางพื้นที่</string>
-  <string name="weather_3200"></string>
+  <string name="weather_kph">กม./ชม.</string>
+  <string name="weather_mph">ไมล์/ชม.</string>
   <string name="weather_N">N</string>
   <string name="weather_NE">NE</string>
   <string name="weather_E">E</string>
@@ -73,7 +73,7 @@
   <string name="weather_tap_to_refresh">แตะเพือรีเฟรช</string>
   <string name="weather_refreshing">กำลังรีเฟรช</string>
   <string name="weather_last_sync_just_now">เดี๋ยวนี้</string>
-  <string name="weather_cannot_reach_provider">ไม่สามารถเข้าถึง %s</string>
+  <string name="weather_cannot_reach_provider">ไม่สามารถเข้าถึง %s ได้ในขนาดนี้</string>
   <string name="weather_refresh_manual">ด้วยตัวเอง</string>
   <string name="weather_refresh_30min">30 นาที</string>
   <string name="weather_refresh_60min">60 นาที</string>
@@ -88,13 +88,14 @@
   <string name="display_category">แสดง</string>
   <string name="use_digital_clock_title">ใช้นาฬิกาดิจิตอล</string>
   <string name="use_digital_clock_summary">เลือกระหว่างนาฬิกาดิจิตอล หรือนาฬิกาแบบเข็ม</string>
-  <string name="clock_font_title">แสดงตัวเลข\"ชั่วโมง\"เป็นตัวหนา</string>
-  <string name="clock_font_minutes_title">แสดงตัวเลข\"นาที\"เป็นตัวหนา</string>
+  <string name="clock_font_title">แสดงตัวเลข "ชั่วโมง" เป็นตัวหนา</string>
+  <string name="clock_font_minutes_title">แสดงตัวเลข "นาที" เป็นตัวหนา</string>
   <string name="clock_font_date_title">แสดงตัวหนาสำหรับวันที่และนาฬิกาปลุก</string>
   <string name="show_alarm_title">แสดงการปลุกครั้งต่อไป</string>
   <string name="clock_am_pm_title">แสดง AM/PM</string>
   <string name="weather_enabled">เปิด</string>
   <string name="weather_enable">แสดงสภาพอากาศ</string>
+  <string name="weather_source_title">แหล่งที่มาของสภาพอากาศ</string>
   <string name="weather_source_yahoo">พยากรณ์อากาศของ Yahoo!</string>
   <string name="weather_use_custom_location">เลือกตำแหน่งเอง</string>
   <string name="weather_geolocated">หาตำแห่งโดยใช้เครือข่าย</string>
@@ -158,4 +159,8 @@
   <string name="holo_orange_light">ส้มอ่อน</string>
   <string name="holo_orange_dark">ส้มแก่</string>
   <string name="holo_blue_bright">ฟ้าสว่าง</string>
+  <string name="weather_icon_set_title">ชุดไอคอน</string>
+  <string name="weather_icons_standard">ลงสี</string>
+  <string name="weather_icons_monochrome">โมโนโครม</string>
+  <string name="icon_set_selection_get_more">รับเพิ่ม\u2026</string>
 </resources>
