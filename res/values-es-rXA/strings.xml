@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="unknown">Desconocíu</string>
+    <string name="cancel">Encaboxar</string>
+    <string name="loading_indicator">Cargando widget\u2026</string>
+    <string name="menu_done">Fecho</string>
+    <string name="weather_0">Torbolín</string>
+    <string name="weather_1">Trona tropical</string>
+    <string name="weather_2">Furacán</string>
+    <string name="weather_3">Torba</string>
+    <string name="weather_4">Trones</string>
+    <string name="weather_5">Agua y ñeve</string>
+    <string name="weather_6">Agua y aguañeve</string>
+    <string name="weather_7">Ñeve y aguañeve</string>
+    <string name="weather_8">Orbayu xelao</string>
+    <string name="weather_9">Orbayu</string>
+    <string name="weather_10">Lloviu xelao</string>
+    <string name="weather_11">Lloviu</string>
+    <string name="weather_12">Lloviu</string>
+    <string name="weather_13">Falopos</string>
+    <string name="weather_14">Ñevisca</string>
+    <string name="weather_15">Bastiáu ñeve</string>
+    <string name="weather_16">Ñeve</string>
+    <string name="weather_17">Xarazu</string>
+    <string name="weather_18">Aguañeve</string>
+    <string name="weather_19">Polvu</string>
+    <string name="weather_20">Borrina</string>
+    <string name="weather_21">Borrina</string>
+    <string name="weather_22">Fumu</string>
+    <string name="weather_23">Con borrasca</string>
+    <string name="weather_24">Airoso</string>
+    <string name="weather_25">Fríu</string>
+    <string name="weather_26">Ñuble</string>
+    <string name="weather_27">Mayorm. ñuble</string> <!-- Night -->
+    <string name="weather_28">Mayorm. ñuble</string> <!-- Day -->
+    <string name="weather_29">Parc. ñuble</string> <!-- Night -->
+    <string name="weather_30">Parc. ñuble</string> <!-- Day -->
+    <string name="weather_31">Estenao</string> <!-- Night -->
+    <string name="weather_32">Soleyero</string>
+    <string name="weather_33">Estenao</string> <!-- Night -->
+    <string name="weather_34">Estenao</string> <!-- Day -->
+    <string name="weather_35">Agua y xarazu</string>
+    <string name="weather_36">Caloroso</string>
+    <string name="weather_37">Torm. eléctriques</string>
+    <string name="weather_38">Torm. eléc. aisllaes</string>
+    <string name="weather_39">Torm. eléc. aisllaes</string>
+    <string name="weather_40">Parc. ñuble</string>
+    <string name="weather_41">Ñevaes fuertes</string>
+    <string name="weather_42">Bastiáu ñeve</string>
+    <string name="weather_43">Ñevaes fuertes</string>
+    <string name="weather_44">Parc. ñuble</string>
+    <string name="weather_45">Bastiaos</string>
+    <string name="weather_46">Ñeve</string>
+    <string name="weather_47">Bastiaos aisllaos</string>
+    <string name="weather_3200">Non disponible</string>
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NE</string>
+    <string name="weather_E">E</string>
+    <string name="weather_SE">SE</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SO</string>
+    <string name="weather_W">O</string>
+    <string name="weather_NW">NO</string>
+    <string name="weather_no_data">Ensin datos</string>
+    <string name="weather_tap_to_refresh">Tocar pa refrescar</string>
+    <string name="weather_refreshing">Anovando\u2026</string>
+    <string name="weather_last_sync_just_now">Agora</string>
+    <string name="weather_cannot_reach_provider">Imposible algamar %s</string>
+    <string name="weather_refresh_manual">Manual</string>
+    <string name="weather_refresh_30min">30 minutos</string>
+    <string name="weather_refresh_60min">60 minutos</string>
+    <string name="weather_refresh_2hrs">2 hores</string>
+    <string name="weather_refresh_4hrs">4 hores</string>
+    <string name="weather_refresh_6hrs">6 hores</string>
+    <string name="weather_refresh_8hrs">8 hores</string>
+    <string name="clock_category">Reló y alarma</string>
+    <string name="weather_category">Clima</string>
+    <string name="calendar_category">Calendariu</string>
+    <string name="general_category">Xeneral</string>
+    <string name="display_category">Aspeutu</string>
+    <string name="use_digital_clock_title">Usar reló dixital</string>
+    <string name="use_digital_clock_summary">Seleicionar p\'alternar ente\'l reló dixital y l\'analóxicu</string>
+    <string name="clock_font_title">Resaltar hora</string>
+    <string name="clock_font_minutes_title">Resaltar minutos</string>
+    <string name="clock_font_date_title">Resaltar data y alarma</string>
+    <string name="show_alarm_title">Amosar alarma siguiente</string>
+    <string name="clock_am_pm_title">Amosar indicador AM/PM</string>
+    <string name="weather_enabled">Activáu</string>
+    <string name="weather_enable">Amosar clima</string>
+    <string name="weather_use_custom_location">Usar llocalización personalizada</string>
+    <string name="weather_geolocated">Xeollocalización por rede</string>
+    <string name="weather_custom_location_dialog_title">Introducir llocalización</string>
+    <string name="weather_custom_location_hint">Ciudá, estáu/país</string>
+    <string name="weather_custom_location_title">Llocalización</string>
+    <string name="weather_show_location_title">Amosar llocalización</string>
+    <string name="weather_show_timestamp_title">Amosar data y hora</string>
+    <string name="weather_refresh_interval">Intervalu de refrescu</string>
+    <string name="weather_use_metric">Usar sistema métricu</string>
+    <string name="weather_retrieve_location_dialog_title">¡Nun pue atopase la llocalización!</string>
+    <string name="weather_retrieve_location_dialog_message">Xeollocalización por rede desactivada.\n\nConfigura una llocalización personalizada o activa la xeollocalización por rede</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Activar</string>
+    <string name="weather_invert_lowhigh">Invertir temperatures</string>
+    <string name="weather_progress_title">Verificando llocalización</string>
+    <string name="weather_alternate_icons_title">Iconos en color</string>
+    <string name="weather_alternate_icons_summary">Usar iconos en color en cuenta de los predeterminados en blanco</string>
+    <string name="weather_show_when_minimized_title">Amosar al minimizar</string>
+    <string name="weather_show_when_minimized_summary">Amosar la información climática cuando\'l widget tea minimizáu</string>
+    <string name="weather_select_location">Esbillar llocalización</string>
+    <string name="calendar_title">Amosar próximu eventu</string>
+    <string name="calendars_title">Calendariu d\'eventos</string>
+    <string name="calendars_summary">Guetar eventos nos calendarios</string>
+    <string name="calendar_reminders_only_title">Namái recordatorios</string>
+    <string name="calendar_reminders_only_summary">Amosar namái eventos con recordatorios</string>
+    <string name="calendar_hide_allday_title">Anubrir eventos \u00ABtodo el día\u00BB</string>
+    <string name="calendar_icon_title">Amosar iconu</string>
+    <string name="calendar_lookahead_title">Eventos futuros</string>
+    <string name="calendar_show_location_title">Llugar del eventu</string>
+    <string name="calendar_show_description_title">Descripción del eventu</string>
+    <string name="calendar_upcoming_events_category">Próximos eventos</string>
+    <string name="calendar_highlight_upcoming_events_title">Resaltar eventos</string>
+    <string name="calendar_highlight_upcoming_events_summary">Resaltar los eventos del día actual y, dempués de les 20:00, resaltar tabién los eventos del día siguiente</string>
+    <string name="calendar_highlight_upcoming_events_bold">Resaltar el testu</string>
+    <string name="font_color">Color del testu</string>
+    <string name="font_color_alarm">Color de l\'alarma</string>
+    <string name="font_color_timestamp">Color de la data</string>
+    <string name="font_color_calendar_details">Color del detalle</string>
+    <string name="calendar_lookahead_3hrs">3 hores</string>
+    <string name="calendar_lookahead_6hrs">6 hores</string>
+    <string name="calendar_lookahead_12hrs">12 hores</string>
+    <string name="calendar_lookahead_today">Güei</string>
+    <string name="calendar_lookahead_1day">1 día</string>
+    <string name="calendar_lookahead_3days">3 díes</string>
+    <string name="calendar_lookahead_1wk">1 selmana</string>
+    <string name="calendar_lookahead_2wks">2 selmanes</string>
+    <string name="calendar_lookahead_4wks">4 selmanes</string>
+    <string name="calendar_metadata_none">Nun amosar</string>
+    <string name="calendar_metadata_first_line">Amosar primera llinia</string>
+    <string name="calendar_metadata_all">Amosar too</string>
+    <string name="white">Blanco</string>
+    <string name="grey">Gris</string>
+    <string name="black">Prieto</string>
+    <string name="holo_blue_light">Azul claru</string>
+    <string name="holo_green_light">Verde claru</string>
+    <string name="holo_red_light">Bermeyu claru</string>
+    <string name="holo_blue_dark">Azul escuru</string>
+    <string name="holo_green_dark">Verde escuru</string>
+    <string name="holo_red_dark">Bermeyu escuru</string>
+    <string name="holo_purple">Moráu</string>
+    <string name="holo_orange_light">Naranxa claru</string>
+    <string name="holo_orange_dark">Naranxa escuru</string>
+    <string name="holo_blue_bright">Azul brillante</string>
+</resources>
