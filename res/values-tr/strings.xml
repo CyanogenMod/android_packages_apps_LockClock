@@ -71,7 +71,6 @@
     <string name="weather_45">Gökgürültülü</string>
     <string name="weather_46">Kar Yağışlı</string>
     <string name="weather_47">Bölgesel Gökgürültülü</string>
-    <string name="weather_3200"></string> <!-- Forecast unavailable -->
 
     <!-- Weather - Speed units -->
     <string name="weather_kph">kmh</string>

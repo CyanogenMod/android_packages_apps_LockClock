@@ -71,7 +71,6 @@
     <string name="weather_46">Дощ зі снігом</string>
     <string name="weather_47">Місцями грози</string>
     <!-- Forecast unavailable -->
-    <string name="weather_3200"></string>
 
     <!-- Weather - Wind directions -->
     <string name="weather_N">Пн</string>

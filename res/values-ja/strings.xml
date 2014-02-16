@@ -72,7 +72,6 @@
     <string name="weather_46">小雪</string>
     <string name="weather_47">一部雷雨</string>
     <!-- Forecast unavailable -->
-    <string name="weather_3200"></string>
 
     <!-- Weather - Wind directions -->
     <string name="weather_N">北</string>

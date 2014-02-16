@@ -67,7 +67,6 @@
     <string name="weather_45">Orages</string>
     <string name="weather_46">Averses de neige</string>
     <string name="weather_47">Orages isolés</string>
-    <string name="weather_3200"></string>
 
     <!-- Weather - Speed units -->
     <string name="weather_kph">km/h</string>

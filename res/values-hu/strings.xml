@@ -72,7 +72,6 @@
     <string name="weather_46">Hózáporok</string>
     <string name="weather_47">Elszigetelt vihar</string>
     <!-- Forecast unavailable -->
-    <string name="weather_3200"></string>
 
     <!-- Weather - Speed units -->
     <string name="weather_kph">km/h</string>

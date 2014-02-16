@@ -71,7 +71,6 @@
     <string name="weather_45">Ukkoskuuroja</string>
     <string name="weather_46">Lumikuuroja</string>
     <string name="weather_47">Paikallisia ukkoskuuroja</string>
-    <string name="weather_3200"></string> <!-- Forecast unavailable -->
 
     <string name="weather_kph">kph</string>
     <string name="weather_mph">mph</string>

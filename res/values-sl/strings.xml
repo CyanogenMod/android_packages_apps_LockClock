@@ -72,7 +72,6 @@
     <string name="weather_45">Nevihta z grmenjem</string>
     <string name="weather_46">Rahlo sneženje</string>
     <string name="weather_47">Lokalna nevihta z grmenjem</string>
-    <string name="weather_3200"></string> <!-- Forecast unavailable -->
 
     <!-- Weather - Speed units -->
     <string name="weather_kph">km/h</string>

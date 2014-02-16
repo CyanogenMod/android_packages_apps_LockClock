@@ -70,7 +70,6 @@
     <string name="weather_45">زخات مطر رعدية</string>
     <string name="weather_46">زخات الثلج</string>
     <string name="weather_47">زخات مطر رعدية معزولة</string>
-    <string name="weather_3200"></string> <!-- توقعات غير متوفرة -->
 
     <!-- الطقس - وحدات السرعه -->
     <string name="weather_kph">kph</string>

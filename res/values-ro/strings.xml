@@ -69,7 +69,6 @@
     <string name="weather_45">"Descărcări electrice"</string>
     <string name="weather_46">"Averse de ninsoare"</string>
     <string name="weather_47">"Descărcări electrice izolate"</string>
-    <string name="weather_3200"></string> <!-- Forecast unavailable -->
 
     <!-- Weather - Speed units -->
     <string name="weather_kph">km/h</string>
