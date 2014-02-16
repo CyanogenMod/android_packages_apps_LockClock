@@ -62,14 +62,21 @@
     <string name="weather_24">Windy</string>
     <string name="weather_25">Cold</string>
     <string name="weather_26">Cloudy</string>
-    <string name="weather_27">Mostly Cloudy</string> <!-- Night -->
-    <string name="weather_28">Mostly Cloudy</string> <!-- Day -->
-    <string name="weather_29">Partly Cloudy</string> <!-- Night -->
-    <string name="weather_30">Partly Cloudy</string> <!-- Day -->
-    <string name="weather_31">Clear</string> <!-- Night -->
+    <!-- Night -->
+    <string name="weather_27">Mostly Cloudy</string>
+    <!-- Day -->
+    <string name="weather_28">Mostly Cloudy</string>
+    <!-- Night -->
+    <string name="weather_29">Partly Cloudy</string>
+    <!-- Day -->
+    <string name="weather_30">Partly Cloudy</string>
+    <!-- Night -->
+    <string name="weather_31">Clear</string>
     <string name="weather_32">Sunny</string>
-    <string name="weather_33">Fair</string> <!-- Night -->
-    <string name="weather_34">Fair</string> <!-- Day -->
+    <!-- Night -->
+    <string name="weather_33">Fair</string>
+    <!-- Day -->
+    <string name="weather_34">Fair</string>
     <string name="weather_35">Mixed Rain and Hail</string>
     <string name="weather_36">Hot</string>
     <string name="weather_37">Isolated Thunderstorms</string>
@@ -83,7 +90,8 @@
     <string name="weather_45">Thundershowers</string>
     <string name="weather_46">Snow Showers</string>
     <string name="weather_47">Isolated Thundershowers</string>
-    <string name="weather_3200"></string> <!-- Forecast unavailable -->
+    <!-- Forecast unavailable -->
+    <string name="weather_3200" translatable="false"></string>
 
     <!-- Weather - Speed units -->
     <string name="weather_kph">kph</string>
