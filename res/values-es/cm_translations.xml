@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+<!--
+     Copyright (C) 2012-2014 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -45,7 +46,14 @@
   <string name="weather_24">Ventoso</string>
   <string name="weather_25">Frío</string>
   <string name="weather_26">Nublado</string>
+  <string name="weather_27">Mayorm. nublado</string>
+  <string name="weather_28">Mayorm. nublado</string>
+  <string name="weather_29">Parc. nublado</string>
+  <string name="weather_30">Parc. nublado</string>
+  <string name="weather_31">Despejado</string>
   <string name="weather_32">Soleado</string>
+  <string name="weather_33">Despejado</string>
+  <string name="weather_34">Despejado</string>
   <string name="weather_35">Lluvia y granizo</string>
   <string name="weather_36">Caluroso</string>
   <string name="weather_37">Torm. eléctricas</string>
