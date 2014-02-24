@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+     Copyright (C) 2012-2014 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -46,14 +46,14 @@
     <string name="weather_24">Ventoso</string>
     <string name="weather_25">Frío</string>
     <string name="weather_26">Nublado</string>
-    <string name="weather_27">Mayorm. nublado</string> <!-- Night -->
-    <string name="weather_28">Mayorm. nublado</string> <!-- Day -->
-    <string name="weather_29">Parc. nublado</string> <!-- Night -->
-    <string name="weather_30">Parc. nublado</string> <!-- Day -->
-    <string name="weather_31">Despejado</string> <!-- Night -->
+    <string name="weather_27">Mayorm. nublado</string>
+    <string name="weather_28">Mayorm. nublado</string>
+    <string name="weather_29">Parc. nublado</string>
+    <string name="weather_30">Parc. nublado</string>
+    <string name="weather_31">Despejado</string>
     <string name="weather_32">Soleado</string>
-    <string name="weather_33">Despejado</string> <!-- Night -->
-    <string name="weather_34">Despejado</string> <!-- Day -->
+    <string name="weather_33">Despejado</string>
+    <string name="weather_34">Despejado</string>
     <string name="weather_35">Lluvia y granizo</string>
     <string name="weather_36">Caluroso</string>
     <string name="weather_37">Torm. eléctricas</string>
@@ -67,7 +67,6 @@
     <string name="weather_45">Chaparrones</string>
     <string name="weather_46">Nieve</string>
     <string name="weather_47">Chap. aislados</string>
-    <string name="weather_3200"></string> <!-- No disponible -->
     <string name="weather_kph">km/h</string>
     <string name="weather_mph">mph</string>
     <string name="weather_N">N</string>
