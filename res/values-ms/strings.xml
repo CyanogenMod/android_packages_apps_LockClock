@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2014 The CyanogenMod Project (DvTonder)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="unknown">Tidak diketahui</string>
+  <string name="cancel">Batal</string>
+  <string name="loading_indicator">Memuatkan widget\u2026</string>
+  <string name="menu_done">Selesai</string>
+  <string name="weather_0">Puting Beliung</string>
+  <string name="weather_1">Ribut Tropika</string>
+  <string name="weather_2">Taufan</string>
+  <string name="weather_3">Ribut Petir Teruk</string>
+  <string name="weather_4">Ribut Petir</string>
+  <string name="weather_5">Campuran Hujan dan Salji</string>
+  <string name="weather_6">Campuran Hujan dan Hujan Beku</string>
+  <string name="weather_7">Campuran Salji dan Hujan Beku</string>
+  <string name="weather_8">Hujan renyai yang sejuk</string>
+  <string name="weather_9">Hujan renyai-renyai</string>
+  <string name="weather_10">Hujan Sejuk</string>
+  <string name="weather_11">Pancuran Hujan</string>
+  <string name="weather_12">Pancuran Hujan</string>
+  <string name="weather_16">Salji</string>
+  <string name="weather_17">Hujan Batu</string>
+  <string name="weather_18">Hujan Beku</string>
+  <string name="weather_19">Berhabuk</string>
+  <string name="weather_20">Berkabus</string>
+  <string name="weather_21">Jerebu</string>
+  <string name="weather_22">Berasap</string>
+  <string name="weather_23">Angin Kencang</string>
+  <string name="weather_24">Berangin</string>
+  <string name="weather_25">Sejuk</string>
+  <string name="weather_26">Mendung</string>
+  <string name="weather_29">Mendung Sebahagian</string>
+  <string name="weather_30">Mendung Sebahagian</string>
+  <string name="weather_31">Cerah</string>
+  <string name="weather_32">Cerah</string>
+  <string name="weather_35">Campuran Hujan dan Hujan Batu</string>
+  <string name="weather_36">Panas</string>
+  <string name="weather_37">Ribut Petir Terasing</string>
+  <string name="weather_38">Ribut Petir Berserakan</string>
+  <string name="weather_39">Ribut Petir Berserakan</string>
+  <string name="weather_41">Salji Tebal</string>
+  <string name="weather_42">Pancuran Salji Berserakan</string>
+  <string name="weather_43">Salji Tebal</string>
+  <string name="weather_44">Mendung Sebahagian</string>
+  <string name="weather_45">Pancuran Petir</string>
+  <string name="weather_46">Pancuran Salji</string>
+  <string name="weather_47">Pancuran Petir Terasing</string>
+  <string name="weather_N">Utara</string>
+  <string name="weather_NE">Timur Laut</string>
+  <string name="weather_E">Timur</string>
+  <string name="weather_SE">Tenggara</string>
+  <string name="weather_S">Selatan</string>
+  <string name="weather_SW">Barat Daya</string>
+  <string name="weather_W">Barat</string>
+  <string name="weather_NW">Barat Laut</string>
+  <string name="weather_no_data">Tiada data</string>
+  <string name="weather_tap_to_refresh">Ketik untuk buka kembali</string>
+  <string name="weather_last_sync_just_now">Baru sebentar</string>
+  <string name="weather_refresh_manual">Manual</string>
+  <string name="weather_refresh_30min">30 minit</string>
+  <string name="weather_refresh_60min">60 minit</string>
+  <string name="weather_refresh_2hrs">2 jam</string>
+  <string name="weather_refresh_4hrs">4 jam</string>
+  <string name="weather_refresh_6hrs">6 jam</string>
+  <string name="weather_refresh_8hrs">8 jam</string>
+  <string name="clock_category">Jam dan penggera</string>
+  <string name="weather_category">Panel cuaca</string>
+  <string name="calendar_category">Acara kalendar</string>
+  <string name="general_category">Umum</string>
+  <string name="display_category">Paparan</string>
+  <string name="use_digital_clock_title">Guna jam digital</string>
+  <string name="use_digital_clock_summary">Pilih untuk ubah antara jam Digital dan Analog</string>
+  <string name="show_alarm_title">Papar penggera seterusnya</string>
+  <string name="clock_am_pm_title">Papar penunjuk AM/PM</string>
+  <string name="weather_enabled">Aktif</string>
+  <string name="weather_enable">Papar cuaca</string>
+  <string name="weather_source_title">Sumber cuaca</string>
+  <string name="weather_source_yahoo">Yahoo! Weather</string>
+  <string name="weather_use_custom_location">Guna lokasi tetapan sendiri</string>
+  <string name="weather_geolocated">Tetapan geolokasi menggunakan rangkaian</string>
+  <string name="weather_custom_location_dialog_title">Masukkan lokasi</string>
+  <string name="weather_custom_location_hint">Bandar, Negeri/Negara</string>
+  <string name="weather_custom_location_title">Lokasi</string>
+  <string name="weather_show_location_title">Papar lokasi</string>
+  <string name="weather_show_timestamp_title">Papar cap masa</string>
+  <string name="weather_refresh_interval">Selang masa kemaskini</string>
+  <string name="weather_use_metric">Guna metrik</string>
+  <string name="weather_retrieve_location_dialog_title">Tidak dapat mencari lokasi!</string>
+  <string name="weather_retrieve_location_dialog_message">Geolokasi rangkaian tidak aktif.\n\nTetapkan lokasi sendiri atau aktifkan lokasi rangkaian</string>
+  <string name="weather_retrieve_location_dialog_enable_button">Aktif</string>
+  <string name="weather_progress_title">Mengesahkan lokasi</string>
+  <string name="weather_alternate_icons_title">Guna ikon berwarna</string>
+  <string name="weather_alternate_icons_summary">Pilih untuk ubah antara ikon lalai (warna) dan alternatif (Putih)</string>
+  <string name="weather_show_when_minimized_title">Papar bila dikecilkan</string>
+  <string name="calendar_highlight_upcoming_events_bold">Font tebal</string>
+  <string name="font_color">Warna font</string>
+  <string name="font_color_alarm">Warna font penggera</string>
+  <string name="font_color_timestamp">Warna font cop masa</string>
+  <string name="font_color_calendar_details">Warna font penerangan</string>
+  <string name="calendar_lookahead_3hrs">3 jam</string>
+  <string name="calendar_lookahead_6hrs">6 jam</string>
+  <string name="calendar_lookahead_12hrs">12 jam</string>
+  <string name="calendar_lookahead_today">Hari ini</string>
+  <string name="calendar_lookahead_1day">1 hari</string>
+  <string name="calendar_lookahead_3days">3 hari</string>
+  <string name="calendar_lookahead_1wk">1 minggu</string>
+  <string name="calendar_lookahead_2wks">2 minggu</string>
+  <string name="calendar_lookahead_4wks">4 minggu</string>
+  <string name="calendar_metadata_none">Jangan papar</string>
+  <string name="calendar_metadata_first_line">Papar baris pertama</string>
+  <string name="calendar_metadata_all">Papar semua</string>
+  <string name="white">Putih</string>
+  <string name="grey">Kelabu</string>
+  <string name="black">Hitam</string>
+  <string name="holo_blue_light">Biru muda</string>
+  <string name="holo_green_light">Hijau muda</string>
+  <string name="holo_red_light">Merah muda</string>
+  <string name="holo_blue_dark">Biru gelap</string>
+  <string name="holo_green_dark">Hijau gelap</string>
+  <string name="holo_red_dark">Merah gelap</string>
+  <string name="holo_purple">Ungu</string>
+  <string name="holo_orange_light">Jingga muda</string>
+  <string name="holo_orange_dark">Jingga gelap</string>
+  <string name="holo_blue_bright">Biru terang</string>
+  <string name="weather_icon_set_title">Set ikon</string>
+  <string name="weather_icons_standard">Warna</string>
+  <string name="weather_icons_monochrome">Monokrom</string>
+  <string name="icon_set_selection_get_more">Dapatkan lagi\u2026</string>
+</resources>
