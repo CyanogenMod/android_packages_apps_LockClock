@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+<!--
+     Copyright (C) 2012-2014 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="unknown">Sconosciuto</string>
     <string name="cancel">Annulla</string>
     <string name="loading_indicator">Caricamento widget\u2026</string>
@@ -66,8 +67,8 @@
     <string name="weather_45">Rovesci temporaleschi</string>
     <string name="weather_46">Rovesci di neve</string>
     <string name="weather_47">Rovesci temporaleschi isolati</string>
-    <string name="weather_kph">kph</string>
-    <string name="weather_mph">mph</string>
+    <string name="weather_kph">km/h</string>
+    <string name="weather_mph">mi/h</string>
     <string name="weather_N">N</string>
     <string name="weather_NE">NE</string>
     <string name="weather_E">E</string>
@@ -114,9 +115,8 @@
     <string name="weather_refresh_interval">Intervallo aggiornamento</string>
     <string name="weather_use_metric">Usa unità metriche</string>
     <string name="weather_retrieve_location_dialog_title">Impossibile rilevare la posizione</string>
-    <string name="weather_retrieve_location_dialog_message">La localizzazione tramite la rete è disabilitata.\n\nImposta una posizione 
-        personalizzata o abilita la localizzazione tramite la rete</string>
-    <string name="weather_retrieve_location_dialog_enable_button">Abilita</string>
+    <string name="weather_retrieve_location_dialog_message">La localizzazione tramite la rete è disattivata.\n\nImposta una posizione personalizzata o attiva la localizzazione tramite la rete</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Attiva</string>
     <string name="weather_invert_lowhigh">Inverti temperature minime/massime</string>
     <string name="weather_progress_title">Verifica della posizione\u2026</string>
     <string name="weather_alternate_icons_title">Usa icone colorate</string>
@@ -169,6 +169,6 @@
     <string name="holo_blue_bright">Azzurro luminoso</string>
     <string name="weather_icon_set_title">Set icone</string>
     <string name="weather_icons_standard">Colorate</string>
-    <string name="weather_icons_monochrome">Monocrome</string>
+    <string name="weather_icons_monochrome">Monocromatiche</string>
     <string name="icon_set_selection_get_more">Altre\u2026</string>
 </resources>
