@@ -106,6 +106,8 @@
     <string name="display_category">Affichage</string>
 
     <!-- Preferences - Clock -->
+    <string name="use_digital_clock_title">Utiliser l\'heure digitale</string>
+    <string name="use_digital_clock_summary">Basculer entre l\'heure digitale et l\'heure analogique</string>
     <string name="clock_font_title">Heures en gras</string>
     <string name="clock_font_minutes_title">Minutes en gras</string>
     <string name="clock_font_date_title">Date et alarme en gras</string>
