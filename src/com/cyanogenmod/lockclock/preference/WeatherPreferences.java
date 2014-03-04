@@ -91,6 +91,9 @@ public class WeatherPreferences extends PreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+
+        mUseMetric.setDefaultValue(Preferences.useMetricUnits(mContext));
+
         getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         updateLocationSummary();
         updateFontColorsSummary();

@@ -76,8 +76,7 @@
         <CheckBoxPreference
             android:key="weather_use_metric"
             android:dependency="show_weather"
-            android:title="@string/weather_use_metric"
-            android:defaultValue="true" />
+            android:title="@string/weather_use_metric" />
 
         <CheckBoxPreference
             android:key="weather_show_location"
