@@ -26,6 +26,7 @@ import com.cyanogenmod.lockclock.weather.WeatherProvider;
 import com.cyanogenmod.lockclock.weather.YahooWeatherProvider;
 
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Set;
 
 public class Preferences {
@@ -145,7 +146,15 @@ public class Preferences {
     }
 
     public static boolean useMetricUnits(Context context) {
-        return getPrefs(context).getBoolean(Constants.WEATHER_USE_METRIC, true);
+        if(getPrefs(context).contains(Constants.WEATHER_USE_METRIC)) {
+            return getPrefs(context).getBoolean(Constants.WEATHER_USE_METRIC, true);
+        } else {
+            Locale locale = context.getResources().getConfiguration().locale;
+            return !locale.equals(Locale.US)
+                || !locale.equals("ms_MY") // Malaysia
+                || !locale.equals("si_LK") // Sri Lanka
+                ;
+        }
     }
 
     public static long weatherRefreshIntervalInMs(Context context) {
