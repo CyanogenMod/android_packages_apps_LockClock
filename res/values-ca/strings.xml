@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2014 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -45,7 +46,14 @@
   <string name="weather_24">Vent</string>
   <string name="weather_25">Fred</string>
   <string name="weather_26">Ennuvolat</string>
-  <string name="weather_32">Assolleat</string>
+  <string name="weather_27">Majorit. Ennuvolat</string>
+  <string name="weather_28">Majorit. Ennuvolat</string>
+  <string name="weather_29">Parcial. Ennuvolat</string>
+  <string name="weather_30">Parcial. Ennuvolat</string>
+  <string name="weather_31">Cel serè</string>
+  <string name="weather_32">Assolellat</string>
+  <string name="weather_33">Bo</string>
+  <string name="weather_34">Bo</string>
   <string name="weather_35">Pluja i Calamarsa</string>
   <string name="weather_36">Calor</string>
   <string name="weather_37">Tempestes aïllades</string>
@@ -59,7 +67,7 @@
   <string name="weather_45">Tempestes</string>
   <string name="weather_46">Nevades</string>
   <string name="weather_47">Tempestes aïllades</string>
-  <string name="weather_kph">kph</string>
+  <string name="weather_kph">kmh</string>
   <string name="weather_mph">mph</string>
   <string name="weather_N">N</string>
   <string name="weather_NE">NE</string>
@@ -73,7 +81,7 @@
   <string name="weather_tap_to_refresh">Pica per actualitzar</string>
   <string name="weather_refreshing">Actualitzant</string>
   <string name="weather_last_sync_just_now">Ara</string>
-  <string name="weather_cannot_reach_provider">No s\'ha pogut aconseguir %s</string>
+  <string name="weather_cannot_reach_provider">No es pot contactar amb %s en aquest moment</string>
   <string name="weather_refresh_manual">Manual</string>
   <string name="weather_refresh_30min">30 minuts</string>
   <string name="weather_refresh_60min">60 minuts</string>
@@ -96,6 +104,7 @@
   <string name="weather_enabled">Activada</string>
   <string name="weather_enable">Mostra el temps</string>
   <string name="weather_source_title">Origen meteorològic</string>
+  <string name="weather_source_yahoo">Temps de Yahoo!</string>
   <string name="weather_use_custom_location">Utilitza una ubic. personalitzada</string>
   <string name="weather_geolocated">Geolocalitzat utilitzant la xarxa</string>
   <string name="weather_custom_location_dialog_title">Introdueix ubicació</string>
