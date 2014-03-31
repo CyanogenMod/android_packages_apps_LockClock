@@ -314,7 +314,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
                 } else {
                     format = Constants.CALENDAR_FORMAT_FUTURE;
                 }
-                if (allDay || begin == end) {
+                if (begin == end) {
                     sb.append(DateUtils.formatDateTime(context, begin, format));
                 } else {
                     sb.append(DateUtils.formatDateRange(context, begin, end, format));
