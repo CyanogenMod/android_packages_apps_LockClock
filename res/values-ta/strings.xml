@@ -16,6 +16,5 @@
      limitations under the License.
 -->
 <resources>
-  <string name="weather_enabled">啟用</string>
-  <string name="weather_retrieve_location_dialog_enable_button">啟用</string>
+  <string name="weather_enabled">இயக்கப்பட்டது</string>
 </resources>
