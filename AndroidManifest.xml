@@ -23,6 +23,8 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="19" />
 
+    <permission android:name="com.cyanogenmod.lockclock.permission.READ_WEATHER" />
+
     <!-- Weather -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -93,6 +95,21 @@
         <service android:name=".calendar.CalendarViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS">
         </service>
+
+        <provider
+            android:name=".weather.WeatherContentProvider"
+            android:authorities="com.cyanogenmod.lockclock.weather.provider"
+            android:exported="true"
+            android:readPermission="com.cyanogenmod.lockclock.permission.READ_WEATHER" />
+        <reciever
+            android:name=".weather.ExternalWeatherUpdateReceiver"
+            android:exported="true"
+            android:permission="com.cyanogenmod.lockclock.permission.READ_WEATHER">
+            <intent-filter>
+                <action android:name="com.cyanogenmod.lockclock.action.FORCE_WEATHER_UPDATE" />
+                <action android:name="com.cyanogenmod.lockclock.action.REQUEST_WEATHER_UPDATE" />
+            </intent-filter>
+        </reciever>
 
     </application>
 
