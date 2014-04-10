@@ -26,6 +26,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -249,6 +250,7 @@ public class WeatherUpdateService extends Service {
                 long interval = 30 * 60 * 1000;
                 scheduleUpdate(mContext, interval, false);
             }
+            WeatherContentProvider.updateCachedWeatherInfo(mContext, result);
 
             Intent finishedIntent = new Intent(ACTION_UPDATE_FINISHED);
             finishedIntent.putExtra(EXTRA_UPDATE_CANCELLED, result == null);
