@@ -290,6 +290,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
                 final String description = cursor.getString(indexDescription);
                 final String location = cursor.getString(indexLocation);
                 final boolean allDay = cursor.getInt(indexAllDay) != 0;
+                final boolean multiDay = allDay && (end - begin) > DAY_IN_MILLIS;
                 int format = 0;
 
                 if (allDay) {
@@ -314,7 +315,7 @@ class CalendarRemoteViewsFactory implements RemoteViewsFactory {
                 } else {
                     format = Constants.CALENDAR_FORMAT_FUTURE;
                 }
-                if (allDay || begin == end) {
+                if ((allDay && !multiDay) || begin == end) {
                     sb.append(DateUtils.formatDateTime(context, begin, format));
                 } else {
                     sb.append(DateUtils.formatDateRange(context, begin, end, format));
