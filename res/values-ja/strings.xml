@@ -101,11 +101,11 @@
   <string name="clock_font_minutes_title">分を太字にする</string>
   <string name="clock_font_date_title">日付とアラームを太字にする</string>
   <string name="show_alarm_title">次のアラームを表示</string>
-  <string name="clock_am_pm_title">午前/午後を表示</string>
+  <string name="clock_am_pm_title">午前/午後のインジケータを表示</string>
   <string name="weather_enabled">有効</string>
   <string name="weather_enable">天気を表示</string>
-  <string name="weather_source_title">天気の情報源</string>
-  <string name="weather_source_yahoo">Yahoo! 天気</string>
+  <string name="weather_source_title">天気の情報元</string>
+  <string name="weather_source_yahoo">Yahoo!天気</string>
   <string name="weather_use_custom_location">カスタムの場所を使用</string>
   <string name="weather_geolocated">ネットワークを使用して現在地を取得する</string>
   <string name="weather_custom_location_dialog_title">場所を入力</string>
