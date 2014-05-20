@@ -15,10 +15,10 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Desconegut</string>
   <string name="cancel">Cancel·la</string>
-  <string name="loading_indicator">Carregant widget\u2026</string>
+  <string name="loading_indicator">S\'està carregant el widget\u2026</string>
   <string name="menu_done">Fet</string>
   <string name="weather_0">Tornado</string>
   <string name="weather_1">Tempesta Tropical</string>

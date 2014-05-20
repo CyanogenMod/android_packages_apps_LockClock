@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Bilinmeyen</string>
   <string name="cancel">İptal</string>
   <string name="loading_indicator">Widget yükleniyor\u2026</string>
@@ -61,9 +61,9 @@
   <string name="weather_38">Aralıklı Gökgürültülü Fırtına</string>
   <string name="weather_39">Aralıklı Gökgürültülü Fırtına</string>
   <string name="weather_40">Aralıklı Sağanak</string>
-  <string name="weather_41">Ağı Kar Yağışı</string>
+  <string name="weather_41">Ağır Kar Yağışı</string>
   <string name="weather_42">Aralıklı Sağanak Kar Yağışı</string>
-  <string name="weather_43">Ağı Kar Yağışı</string>
+  <string name="weather_43">Ağır Kar Yağışı</string>
   <string name="weather_44">Kısmen Bulutlu</string>
   <string name="weather_45">Gökgürültülü Sağanak</string>
   <string name="weather_46">Sağanak Kar</string>
@@ -130,7 +130,7 @@
   <string name="calendars_summary">Bu takvimlerden olayları bul</string>
   <string name="calendar_reminders_only_title">Sadece hatırlatıcılar</string>
   <string name="calendar_reminders_only_summary">Sadece hatırlatıcıları olan olayları göster</string>
-  <string name="calendar_hide_allday_title">Gün botu süren olayları gizle</string>
+  <string name="calendar_hide_allday_title">Gün boyu süren olayları gizle</string>
   <string name="calendar_icon_title">Takvim simgesi</string>
   <string name="calendar_lookahead_title">İleriye yönelik olaylar</string>
   <string name="calendar_show_location_title">Olay konumu</string>

@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Άγνωστο</string>
   <string name="cancel">Ακύρωση</string>
   <string name="loading_indicator">Φόρτωση widget\u2026</string>

@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Nežinoma</string>
   <string name="cancel">Atšaukti</string>
   <string name="loading_indicator">Įkeliamas valdiklis\u2026</string>

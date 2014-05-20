@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Inconnu</string>
   <string name="cancel">Annuler</string>
   <string name="loading_indicator">Chargement du widget\u2026</string>

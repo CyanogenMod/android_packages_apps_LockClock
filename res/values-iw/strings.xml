@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">לא ידוע</string>
   <string name="cancel">בטל</string>
   <string name="loading_indicator">טוען ווידג\'ט\u2026</string>
