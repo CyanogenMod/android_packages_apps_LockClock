@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Ismeretlen</string>
   <string name="cancel">Elvet</string>
   <string name="loading_indicator">Modul betöltése\u2026</string>

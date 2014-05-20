@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">不明</string>
   <string name="cancel">取消</string>
   <string name="loading_indicator">正在載入小工具\u2026</string>

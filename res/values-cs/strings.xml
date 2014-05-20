@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Neznámé</string>
   <string name="cancel">Zrušit</string>
   <string name="loading_indicator">Načítání widgetu\u2026</string>
@@ -69,6 +69,7 @@
   <string name="weather_46">Sněhové přeháňky</string>
   <string name="weather_47">Ojedinělé bouřky</string>
   <string name="weather_kph">km/h</string>
+  <string name="weather_mph">mph</string>
   <string name="weather_N">S</string>
   <string name="weather_NE">SV</string>
   <string name="weather_E">V</string>

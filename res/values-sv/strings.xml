@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Okänd</string>
   <string name="cancel">Avbryt</string>
   <string name="loading_indicator">Laddar widget\u2026</string>
@@ -134,6 +134,7 @@
   <string name="calendar_show_description_title">Händelsebeskrivning</string>
   <string name="calendar_upcoming_events_category">Kommande händelser</string>
   <string name="calendar_highlight_upcoming_events_title">Markera händelser</string>
+  <string name="calendar_highlight_upcoming_events_summary">Visa den aktuella dagens händelser och efter 20:00 även nästa dags händelser</string>
   <string name="calendar_highlight_upcoming_events_bold">Tecken i fetstil</string>
   <string name="font_color">Teckenfärg</string>
   <string name="font_color_alarm">Färg för alarm</string>
