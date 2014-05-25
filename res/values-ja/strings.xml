@@ -100,8 +100,8 @@
   <string name="clock_font_title">時を太字にする</string>
   <string name="clock_font_minutes_title">分を太字にする</string>
   <string name="clock_font_date_title">日付とアラームを太字にする</string>
-  <string name="show_alarm_title">次回のアラームを表示</string>
-  <string name="clock_am_pm_title">午前/午後のインジケータを表示</string>
+  <string name="show_alarm_title">次のアラームを表示</string>
+  <string name="clock_am_pm_title">午前/午後を表示</string>
   <string name="weather_enabled">有効</string>
   <string name="weather_enable">天気を表示</string>
   <string name="weather_source_title">天気の情報源</string>
@@ -109,7 +109,7 @@
   <string name="weather_use_custom_location">カスタムの場所を使用</string>
   <string name="weather_geolocated">ネットワークを使用して現在地を取得する</string>
   <string name="weather_custom_location_dialog_title">場所を入力</string>
-  <string name="weather_custom_location_hint">市, 州/国</string>
+  <string name="weather_custom_location_hint">国、県、市町村</string>
   <string name="weather_custom_location_title">場所</string>
   <string name="weather_show_location_title">場所を表示</string>
   <string name="weather_show_timestamp_title">更新日時を表示</string>
@@ -118,7 +118,7 @@
   <string name="weather_retrieve_location_dialog_title">場所を取得できません</string>
   <string name="weather_retrieve_location_dialog_message">ネットワークを使った現在地の取得が利用できません。\n\nカスタムの場所を設定するか、ネットワークでの現在地の特定を有効にしてください。</string>
   <string name="weather_retrieve_location_dialog_enable_button">有効</string>
-  <string name="weather_invert_lowhigh">最低気温/最高気温を入れ替える</string>
+  <string name="weather_invert_lowhigh">最低/最高気温を入れ替える</string>
   <string name="weather_progress_title">場所を確認中</string>
   <string name="weather_alternate_icons_title">カラーアイコンを使う</string>
   <string name="weather_alternate_icons_summary">デフォルトのアイコン（カラー）と別のアイコン（ホワイト）を切り替える</string>
