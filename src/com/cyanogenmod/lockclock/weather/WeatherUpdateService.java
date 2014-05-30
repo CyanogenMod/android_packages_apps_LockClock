@@ -178,12 +178,8 @@ public class WeatherUpdateService extends Service {
             }
             if (needsUpdate) {
                 if (D) Log.d(TAG, "Getting best location provider");
-                String locationProvider = lm.getBestProvider(sLocationCriteria, true);
-                if (TextUtils.isEmpty(locationProvider)) {
-                    Log.e(TAG, "No available location providers matching criteria.");
-                } else {
-                    WeatherLocationListener.registerIfNeeded(mContext, locationProvider);
-                }
+
+                WeatherLocationListener.registerIfNeeded(mContext);
             }
 
             return location;
@@ -267,7 +263,7 @@ public class WeatherUpdateService extends Service {
         private PendingIntent mTimeoutIntent;
         private static WeatherLocationListener sInstance = null;
 
-        static void registerIfNeeded(Context context, String provider) {
+        static void registerIfNeeded(Context context) {
             synchronized (WeatherLocationListener.class) {
                 if (D) Log.d(TAG, "Registering location listener");
                 if (sInstance == null) {
@@ -282,13 +278,17 @@ public class WeatherUpdateService extends Service {
                     // NOTE!!! Actually only WeatherUpdateService class is calling this function
                     // with the NETWORK_PROVIDER, so setting the instance is safe. We must
                     // change this if this call receive different providers
-                    LocationProvider lp = locationManager.getProvider(provider);
+                    LocationProvider lp = locationManager.getProvider(LocationManager.NETWORK_PROVIDER);
                     if (lp != null) {
-                        if (D) Log.d(TAG, "LocationManager - Requesting single update");
-                        locationManager.requestSingleUpdate(provider, sInstance,
+                        if (D) Log.d(TAG, "LocationManager - Requesting single network update");
+                        locationManager.requestSingleUpdate(sLocationCriteria, sInstance,
                                 appContext.getMainLooper());
-                        sInstance.setTimeoutAlarm();
+                    } else {
+                        Log.e(TAG, "LocationManager - NETWORK_PROVIDER not found; trying GPS_PROVIDER");
+                        locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, sInstance,
+                                appContext.getMainLooper());
                     }
+                    sInstance.setTimeoutAlarm();
                 }
             }
         }
