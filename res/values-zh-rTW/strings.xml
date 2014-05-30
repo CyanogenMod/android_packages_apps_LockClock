@@ -102,7 +102,7 @@
   <string name="clock_font_date_title">日期與鬧鐘使用粗體</string>
   <string name="show_alarm_title">顯示下一個鬧鐘</string>
   <string name="clock_am_pm_title">顯示 AM/PM 指示器</string>
-  <string name="weather_enabled">啟用</string>
+  <string name="weather_enabled">已啟用</string>
   <string name="weather_enable">顯示天氣</string>
   <string name="weather_source_title">天氣來源</string>
   <string name="weather_source_yahoo">Yahoo! 氣象</string>
