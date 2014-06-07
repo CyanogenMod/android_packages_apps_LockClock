@@ -57,10 +57,14 @@ public class YahooWeatherProvider implements WeatherProvider {
                     "or placetype = 10 or placetype = 11 or placetype = 20) and text =");
     private static final String URL_PLACEFINDER =
             "http://query.yahooapis.com/v1/public/yql?format=json&q=" +
-            Uri.encode("select woeid, city from geo.placefinder where gflags=\"R\" and text =");
+            Uri.encode("select woeid, city, neighborhood, county from geo.placefinder where " +
+                    "gflags=\"R\" and text =");
 
     private static final String[] LOCALITY_NAMES = new String[] {
         "locality1", "locality2", "admin3", "admin2", "admin1"
+    };
+    private static final String[] PLACE_NAMES = new String[] {
+        "city", "neigborhood", "county"
     };
 
     private Context mContext;
@@ -219,15 +223,25 @@ public class YahooWeatherProvider implements WeatherProvider {
         try {
             JSONObject result = results.getJSONObject("Result");
             String woeid = result.getString("woeid");
-            String city = result.getString("city");
 
-            if (city == null) {
-                city = result.getString("neighborhood");
+            String city = null;
+            for (String name : PLACE_NAMES) {
+                if (!result.isNull(name)) {
+                    city = result.getString(name);
+                    if (Log.isLoggable(TAG, Log.VERBOSE)) {
+                        Log.v(TAG, String.format(Locale.US, "Placefinder for location %f %f " +
+                                "matched %s using %s", location.getLatitude(),
+                                location.getLongitude(), city, name));
+                    }
+                    break;
+                }
             }
 
             // The city name in the placefinder result is HTML encoded :-(
             if (city != null) {
                 city = Html.fromHtml(city).toString();
+            } else {
+                Log.w(TAG, "Can not resolve place name for " + location);
             }
 
             Log.d(TAG, "Resolved location " + location + " to " + city + " (" + woeid + ")");
