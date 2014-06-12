@@ -47,10 +47,10 @@
   <string name="weather_24">強風</string>
   <string name="weather_25">寒冷</string>
   <string name="weather_26">曇り</string>
-  <string name="weather_27">曇りのち晴れ</string>
-  <string name="weather_28">曇りのち晴れ</string>
-  <string name="weather_29">晴れ時々曇り</string>
-  <string name="weather_30">晴れ時々曇り</string>
+  <string name="weather_27">曇のち晴</string>
+  <string name="weather_28">曇のち晴</string>
+  <string name="weather_29">晴時々曇</string>
+  <string name="weather_30">晴時々曇</string>
   <string name="weather_31">快晴</string>
   <string name="weather_32">晴れ</string>
   <string name="weather_33">晴れ</string>
@@ -64,7 +64,7 @@
   <string name="weather_41">大雪</string>
   <string name="weather_42">所によりにわか雪</string>
   <string name="weather_43">大雪</string>
-  <string name="weather_44">晴れ時々曇り</string>
+  <string name="weather_44">晴時々曇</string>
   <string name="weather_45">雷雨</string>
   <string name="weather_46">にわか雪</string>
   <string name="weather_47">局地的雷雨</string>
@@ -109,7 +109,7 @@
   <string name="weather_use_custom_location">カスタムの場所を使用</string>
   <string name="weather_geolocated">ネットワークを使用して現在地を取得する</string>
   <string name="weather_custom_location_dialog_title">場所を入力</string>
-  <string name="weather_custom_location_hint">国、県、市町村</string>
+  <string name="weather_custom_location_hint">国、都道府県、市町村</string>
   <string name="weather_custom_location_title">場所</string>
   <string name="weather_show_location_title">場所を表示</string>
   <string name="weather_show_timestamp_title">更新日時を表示</string>

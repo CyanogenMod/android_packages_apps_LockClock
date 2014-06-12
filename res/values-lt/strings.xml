@@ -84,8 +84,8 @@
   <string name="weather_last_sync_just_now">Ką tik</string>
   <string name="weather_cannot_reach_provider">Negali pasiekti %s</string>
   <string name="weather_refresh_manual">Rankiniu būdu</string>
-  <string name="weather_refresh_30min">30 minučių</string>
-  <string name="weather_refresh_60min">60 minučių</string>
+  <string name="weather_refresh_30min">30 min.</string>
+  <string name="weather_refresh_60min">60 min.</string>
   <string name="weather_refresh_2hrs">2 valandos</string>
   <string name="weather_refresh_4hrs">4 valandos</string>
   <string name="weather_refresh_6hrs">6 valandos</string>
