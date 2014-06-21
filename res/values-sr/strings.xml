@@ -67,7 +67,7 @@
   <string name="weather_44">Претежно облачно</string>
   <string name="weather_45">Олујни пљускови</string>
   <string name="weather_46">Снежне падавине</string>
-  <string name="weather_47">Локалне олујне кише</string>
+  <string name="weather_47">Локални олујни пљускови</string>
   <string name="weather_kph">км/ч</string>
   <string name="weather_mph">м/ч</string>
   <string name="weather_N">С</string>
@@ -112,7 +112,7 @@
   <string name="weather_custom_location_hint">Град, Држава/Регион</string>
   <string name="weather_custom_location_title">Локација</string>
   <string name="weather_show_location_title">Прикажи локацију</string>
-  <string name="weather_show_timestamp_title">Прикажи печат времена</string>
+  <string name="weather_show_timestamp_title">Прикажи временску ознаку</string>
   <string name="weather_refresh_interval">Интервал освежавања</string>
   <string name="weather_use_metric">Користи метричне вредности</string>
   <string name="weather_retrieve_location_dialog_title">Не може да се преузме место!</string>
@@ -141,7 +141,7 @@
   <string name="calendar_highlight_upcoming_events_bold">Подебљани фонт</string>
   <string name="font_color">Боја фонта</string>
   <string name="font_color_alarm">Боја фонта аларма</string>
-  <string name="font_color_timestamp">Боја фонта печата времена</string>
+  <string name="font_color_timestamp">Боја фонта временске ознаке</string>
   <string name="font_color_calendar_details">Боја фонта детаља</string>
   <string name="calendar_lookahead_3hrs">3 сата</string>
   <string name="calendar_lookahead_6hrs">6 сати</string>
