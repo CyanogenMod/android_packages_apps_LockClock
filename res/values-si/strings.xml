@@ -91,7 +91,7 @@
   <string name="weather_refresh_6hrs">පැය 6</string>
   <string name="weather_refresh_8hrs">පැය 8</string>
   <string name="clock_category">ඔරලෝසුව සහ ඇඟවීම</string>
-  <string name="weather_category">කාලගුණ පනේලය</string>
+  <string name="weather_category">කාලගුණ පුවරුව</string>
   <string name="calendar_category">දින දර්ශක සිදුවීම්</string>
   <string name="general_category">ප්‍රධාන</string>
   <string name="display_category">සංදර්ශකය</string>
