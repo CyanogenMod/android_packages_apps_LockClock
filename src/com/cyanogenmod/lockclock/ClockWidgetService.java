@@ -120,7 +120,7 @@ public class ClockWidgetService extends IntentService {
                 int category = myOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_HOST_CATEGORY, -1);
                 isKeyguard = category == AppWidgetProviderInfo.WIDGET_CATEGORY_KEYGUARD;
             }
-            if (D) Log.d("TAG", "For Widget id " + id + " isKeyguard is set to " + isKeyguard);
+            if (D) Log.d(TAG, "For Widget id " + id + " isKeyguard is set to " + isKeyguard);
 
             // Determine which layout to use
             boolean smallWidget = showWeather && showWeatherWhenMinimized

@@ -117,7 +117,7 @@
   <string name="weather_use_metric">Utilitza el sistema mètric</string>
   <string name="weather_retrieve_location_dialog_title">No es pot aconseguir la ubicació!</string>
   <string name="weather_retrieve_location_dialog_message">La geolocalització per xarxa està desactivada.\n\nEstableix una ubicació personalitzada o activa la ubicació per xarxa</string>
-  <string name="weather_retrieve_location_dialog_enable_button">Activat</string>
+  <string name="weather_retrieve_location_dialog_enable_button">Activa</string>
   <string name="weather_invert_lowhigh">Inverteix temp. mín/màx</string>
   <string name="weather_progress_title">Verificant ubicació</string>
   <string name="weather_alternate_icons_title">Utilitza icones de color</string>

@@ -57,6 +57,7 @@
   <string name="weather_34">Skapligt</string>
   <string name="weather_35">Regn blandat med hagel</string>
   <string name="weather_36">Varmt</string>
+  <string name="weather_37">Enstaka åskbyar</string>
   <string name="weather_38">Spridda åskskurar</string>
   <string name="weather_39">Spridda åskskurar</string>
   <string name="weather_40">Spridda regnskurar</string>
@@ -64,7 +65,9 @@
   <string name="weather_42">Spridda snöbyar</string>
   <string name="weather_43">Krafigt snöfall</string>
   <string name="weather_44">Delvis mulet</string>
+  <string name="weather_45">Åskskurar</string>
   <string name="weather_46">Snöbyar</string>
+  <string name="weather_47">Enstaka åskskurar</string>
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">mph</string>
   <string name="weather_N">N</string>
