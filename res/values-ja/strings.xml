@@ -33,15 +33,15 @@
   <string name="weather_10">着氷性の雨</string>
   <string name="weather_11">小雨</string>
   <string name="weather_12">小雨</string>
-  <string name="weather_13">驟雪</string>
-  <string name="weather_14">軽い小雪</string>
+  <string name="weather_13">にわか雪</string>
+  <string name="weather_14">弱い小雪</string>
   <string name="weather_15">吹雪</string>
   <string name="weather_16">雪</string>
   <string name="weather_17">雹</string>
   <string name="weather_18">みぞれ</string>
-  <string name="weather_19">靄</string>
+  <string name="weather_19">砂塵</string>
   <string name="weather_20">霧</string>
-  <string name="weather_21">霞</string>
+  <string name="weather_21">もや</string>
   <string name="weather_22">煙たい</string>
   <string name="weather_23">大荒れ</string>
   <string name="weather_24">強風</string>
@@ -91,7 +91,7 @@
   <string name="weather_refresh_6hrs">6時間</string>
   <string name="weather_refresh_8hrs">8時間</string>
   <string name="clock_category">時計とアラーム</string>
-  <string name="weather_category">お天気パネル</string>
+  <string name="weather_category">天気パネル</string>
   <string name="calendar_category">カレンダーの予定</string>
   <string name="general_category">全般</string>
   <string name="display_category">表示</string>
@@ -104,7 +104,7 @@
   <string name="clock_am_pm_title">午前/午後を表示</string>
   <string name="weather_enabled">有効</string>
   <string name="weather_enable">天気を表示</string>
-  <string name="weather_source_title">天気の情報源</string>
+  <string name="weather_source_title">天気のソース</string>
   <string name="weather_source_yahoo">Yahoo!天気</string>
   <string name="weather_use_custom_location">カスタムの場所を使用</string>
   <string name="weather_geolocated">ネットワークを使用して現在地を取得する</string>
@@ -123,7 +123,7 @@
   <string name="weather_alternate_icons_title">カラーアイコンを使う</string>
   <string name="weather_alternate_icons_summary">デフォルトのアイコン（カラー）と別のアイコン（ホワイト）を切り替える</string>
   <string name="weather_show_when_minimized_title">最小化時に表示</string>
-  <string name="weather_show_when_minimized_summary">最小化されたウィジェットに天気情報の概要を表示する</string>
+  <string name="weather_show_when_minimized_summary">ウィジェット最小化時に天気情報の概要を表示する</string>
   <string name="weather_select_location">場所を選択</string>
   <string name="calendar_title">次の予定を表示</string>
   <string name="calendars_title">表示するカレンダー</string>
