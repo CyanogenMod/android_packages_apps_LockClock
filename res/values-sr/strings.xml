@@ -93,7 +93,7 @@
   <string name="clock_category">Сат и аларм</string>
   <string name="weather_category">Временски панел</string>
   <string name="calendar_category">Догађаји у календару</string>
-  <string name="general_category">Главно</string>
+  <string name="general_category">Опште</string>
   <string name="display_category">Екран</string>
   <string name="use_digital_clock_title">Користи дигитални сат</string>
   <string name="use_digital_clock_summary">Изабери да пребацујеш између дигиталног и аналогног сата</string>
