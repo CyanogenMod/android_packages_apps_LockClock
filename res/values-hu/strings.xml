@@ -28,9 +28,9 @@
   <string name="weather_5">Havas eső</string>
   <string name="weather_6">Eső és ónos eső</string>
   <string name="weather_7">Hó és ónos eső</string>
-  <string name="weather_8">Fagyos permet</string>
-  <string name="weather_9">Permet</string>
-  <string name="weather_10">Fagyos eső</string>
+  <string name="weather_8">Ónos szitálás</string>
+  <string name="weather_9">Ködszitálás</string>
+  <string name="weather_10">Ónos eső</string>
   <string name="weather_11">Záporok</string>
   <string name="weather_12">Záporok</string>
   <string name="weather_13">Hófúvás</string>
