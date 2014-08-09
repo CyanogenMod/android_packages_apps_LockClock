@@ -47,10 +47,10 @@
   <string name="weather_24">強風</string>
   <string name="weather_25">寒冷</string>
   <string name="weather_26">曇り</string>
-  <string name="weather_27">曇のち晴</string>
-  <string name="weather_28">曇のち晴</string>
-  <string name="weather_29">晴時々曇</string>
-  <string name="weather_30">晴時々曇</string>
+  <string name="weather_27">曇り</string>
+  <string name="weather_28">曇り</string>
+  <string name="weather_29">ところにより曇り</string>
+  <string name="weather_30">ところにより曇り</string>
   <string name="weather_31">快晴</string>
   <string name="weather_32">晴れ</string>
   <string name="weather_33">晴れ</string>
@@ -64,7 +64,7 @@
   <string name="weather_41">大雪</string>
   <string name="weather_42">ところによりにわか雪</string>
   <string name="weather_43">大雪</string>
-  <string name="weather_44">晴時々曇</string>
+  <string name="weather_44">ところにより曇り</string>
   <string name="weather_45">雷雨</string>
   <string name="weather_46">にわか雪</string>
   <string name="weather_47">局地的雷雨</string>
