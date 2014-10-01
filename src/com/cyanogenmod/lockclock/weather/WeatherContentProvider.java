@@ -32,10 +32,12 @@ public class WeatherContentProvider extends ContentProvider {
     private static final String COLUMN_CURRENT_HUMIDITY = "humidity";
     private static final String COLUMN_CURRENT_WIND = "wind";
     private static final String COLUMN_CURRENT_TIME_STAMP = "time_stamp";
+    private static final String COLUMN_CURRENT_CONDITION_CODE = "condition_code";
 
     private static final String COLUMN_FORECAST_LOW = "forecast_low";
     private static final String COLUMN_FORECAST_HIGH = "forecast_high";
     private static final String COLUMN_FORECAST_CONDITION = "forecast_condition";
+    private static final String COLUMN_FORECAST_CONDITION_CODE = "forecast_condition_code";
 
     private static final String[] PROJECTION_DEFAULT_CURRENT = new String[] {
             COLUMN_CURRENT_CITY_ID,
@@ -44,13 +46,15 @@ public class WeatherContentProvider extends ContentProvider {
             COLUMN_CURRENT_TEMPERATURE,
             COLUMN_CURRENT_HUMIDITY,
             COLUMN_CURRENT_WIND,
-            COLUMN_CURRENT_TIME_STAMP
+            COLUMN_CURRENT_TIME_STAMP,
+            COLUMN_CURRENT_CONDITION_CODE
     };
 
     private static final String[] PROJECTION_DEFAULT_FORECAST = new String[] {
             COLUMN_FORECAST_LOW,
             COLUMN_FORECAST_HIGH,
             COLUMN_FORECAST_CONDITION,
+            COLUMN_FORECAST_CONDITION_CODE
     };
 
     private static final String[] PROJECTION_DEFAULT_EVERYTHING = new String[] {
@@ -61,10 +65,12 @@ public class WeatherContentProvider extends ContentProvider {
             COLUMN_CURRENT_HUMIDITY,
             COLUMN_CURRENT_WIND,
             COLUMN_CURRENT_TIME_STAMP,
+            COLUMN_CURRENT_CONDITION_CODE,
 
             COLUMN_FORECAST_LOW,
             COLUMN_FORECAST_HIGH,
             COLUMN_FORECAST_CONDITION,
+            COLUMN_FORECAST_CONDITION_CODE
     };
 
     public static final String AUTHORITY = "com.cyanogenmod.lockclock.weather.provider";
@@ -108,14 +114,16 @@ public class WeatherContentProvider extends ContentProvider {
                     .add(COLUMN_CURRENT_WIND, weather.getFormattedWindSpeed()
                             + " " + weather.getWindDirection())
                     .add(COLUMN_CURRENT_TEMPERATURE, weather.getFormattedTemperature())
-                    .add(COLUMN_CURRENT_TIME_STAMP, weather.getTimestamp().toString());
+                    .add(COLUMN_CURRENT_TIME_STAMP, weather.getTimestamp().toString())
+                    .add(COLUMN_CURRENT_CONDITION_CODE, weather.getConditionCode());
 
             // forecast
             for (DayForecast day : weather.getForecasts()) {
                 result.newRow()
                         .add(COLUMN_FORECAST_CONDITION, day.getCondition(mContext))
                         .add(COLUMN_FORECAST_LOW, day.getFormattedLow())
-                        .add(COLUMN_FORECAST_HIGH, day.getFormattedHigh());
+                        .add(COLUMN_FORECAST_HIGH, day.getFormattedHigh())
+                        .add(COLUMN_FORECAST_CONDITION_CODE, day.getConditionCode());
             }
             return result;
         } else {

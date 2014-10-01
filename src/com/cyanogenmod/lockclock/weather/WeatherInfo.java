@@ -99,6 +99,10 @@ public class WeatherInfo {
         public String getCondition(Context context) {
             return WeatherInfo.getCondition(context, conditionCode, condition);
         }
+
+        public int getConditionCode() {
+            return conditionCode;
+        }
     }
 
     public int getConditionResource(String set) {
@@ -123,6 +127,10 @@ public class WeatherInfo {
 
     public String getCondition() {
         return getCondition(mContext, conditionCode, condition);
+    }
+
+    public int getConditionCode() {
+        return conditionCode;
     }
 
     private static String getCondition(Context context, int conditionCode, String condition) {
