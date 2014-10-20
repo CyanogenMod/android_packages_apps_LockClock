@@ -116,7 +116,7 @@
   <string name="weather_refresh_interval">Aktualiséierungsintervall</string>
   <string name="weather_use_metric">Metresch Eenheete benotzen</string>
   <string name="weather_retrieve_location_dialog_title">Standuert kann net bestëmmt ginn!</string>
-  <string name="weather_retrieve_location_dialog_message">D\'Geolokaliséierung iwwer Netzwierk ass deaktivéiert.\n\nDefinéier en eegene Standuert oder aktivéier den Netzwierk-Standuert</string>
+  <string name="weather_retrieve_location_dialog_message">D\'Geolokaliséierung iwwer Netzwierk ass desaktivéiert.\n\nDefinéier en eegene Standuert oder aktivéier den Netzwierk-Standuert</string>
   <string name="weather_retrieve_location_dialog_enable_button">Aktivéieren</string>
   <string name="weather_invert_lowhigh">Minimal a maximal Temperaturen ëmdréinen</string>
   <string name="weather_progress_title">Standuert gëtt iwwerpréift</string>
