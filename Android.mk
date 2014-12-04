@@ -19,7 +19,7 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
-LOCAL_SDK_VERSION := 19
+LOCAL_SDK_VERSION := 21
 LOCAL_PACKAGE_NAME := LockClock
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 LOCAL_AAPT_INCLUDE_ALL_RESOURCES := true
