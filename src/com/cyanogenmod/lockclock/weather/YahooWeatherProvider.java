@@ -48,15 +48,15 @@ public class YahooWeatherProvider implements WeatherProvider {
     private static final String TAG = "YahooWeatherProvider";
 
     private static final String URL_WEATHER =
-            "http://weather.yahooapis.com/forecastrss?w=%s&u=%s";
+            "https://weather.yahooapis.com/forecastrss?w=%s&u=%s";
     private static final String URL_LOCATION =
-            "http://query.yahooapis.com/v1/public/yql?format=json&q=" +
+            "https://query.yahooapis.com/v1/public/yql?format=json&q=" +
             Uri.encode("select woeid, postal, admin1, admin2, admin3, " +
                     "locality1, locality2, country from geo.places where " +
                     "(placetype = 7 or placetype = 8 or placetype = 9 " +
                     "or placetype = 10 or placetype = 11 or placetype = 20) and text =");
     private static final String URL_PLACEFINDER =
-            "http://query.yahooapis.com/v1/public/yql?format=json&q=" +
+            "https://query.yahooapis.com/v1/public/yql?format=json&q=" +
             Uri.encode("select woeid, city, neighborhood, county from geo.placefinder where " +
                     "gflags=\"R\" and text =");
 
