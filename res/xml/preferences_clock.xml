@@ -21,13 +21,13 @@
     <PreferenceCategory
         android:title="@string/general_category" >
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_digital"
             android:title="@string/use_digital_clock_title"
             android:summary="@string/use_digital_clock_summary"
             android:defaultValue="true" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_show_alarm"
             android:title="@string/show_alarm_title"
             android:defaultValue="true" />
@@ -36,25 +36,25 @@
     <PreferenceCategory
         android:title="@string/display_category" >
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_font"
             android:title="@string/clock_font_title"
             android:dependency="clock_digital"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_font_minutes"
             android:title="@string/clock_font_minutes_title"
             android:dependency="clock_digital"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_am_pm_indicator"
             android:title="@string/clock_am_pm_title"
             android:dependency="clock_digital"
             android:defaultValue="false"/>
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_font_date"
             android:title="@string/clock_font_date_title"
             android:defaultValue="true" />

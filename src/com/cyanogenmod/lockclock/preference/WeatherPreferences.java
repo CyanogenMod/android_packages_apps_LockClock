@@ -25,11 +25,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
@@ -53,13 +53,13 @@ public class WeatherPreferences extends PreferenceFragment implements
         Constants.WEATHER_REFRESH_INTERVAL
     };
 
-    private CheckBoxPreference mUseCustomLoc;
+    private SwitchPreference mUseCustomLoc;
     private EditTextPreference mCustomWeatherLoc;
     private ListPreference mFontColor;
     private ListPreference mTimestampFontColor;
-    private CheckBoxPreference mUseMetric;
+    private SwitchPreference mUseMetric;
     private IconSelectionPreference mIconSet;
-    private CheckBoxPreference mUseCustomlocation;
+    private SwitchPreference mUseCustomlocation;
 
     private Context mContext;
     private ContentResolver mResolver;
@@ -73,13 +73,13 @@ public class WeatherPreferences extends PreferenceFragment implements
         mResolver = mContext.getContentResolver();
 
         // Load items that need custom summaries etc.
-        mUseCustomLoc = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
+        mUseCustomLoc = (SwitchPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
         mCustomWeatherLoc = (EditTextPreference) findPreference(Constants.WEATHER_CUSTOM_LOCATION_CITY);
         mFontColor = (ListPreference) findPreference(Constants.WEATHER_FONT_COLOR);
         mTimestampFontColor = (ListPreference) findPreference(Constants.WEATHER_TIMESTAMP_FONT_COLOR);
         mIconSet = (IconSelectionPreference) findPreference(Constants.WEATHER_ICONS);
-        mUseMetric = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_METRIC);
-        mUseCustomlocation = (CheckBoxPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
+        mUseMetric = (SwitchPreference) findPreference(Constants.WEATHER_USE_METRIC);
+        mUseCustomlocation = (SwitchPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
 
         // At first placement/start default the use of Metric units based on locale
         // If we had a previously set value already, this will just reset the same value
