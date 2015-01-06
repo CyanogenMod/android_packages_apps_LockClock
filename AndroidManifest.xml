@@ -18,10 +18,8 @@
     package="com.cyanogenmod.lockclock"
     android:versionCode="20"
     android:versionName="3.4.0" >
-
-    <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="19" />
+  
+   <uses-sdk android:minSdkVersion="21" />
 
     <permission android:name="com.cyanogenmod.lockclock.permission.READ_WEATHER" />
 
@@ -75,12 +73,12 @@
         <receiver android:name=".ClockWidgetProvider" >
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/lock_clock" />
             <intent-filter>
+                <action android:name="android.app.action.NEXT_ALARM_CLOCK_CHANGED" />
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
                 <action android:name="android.intent.action.DATE_CHANGED"/>
                 <action android:name="android.intent.action.TIME_SET"/>
                 <action android:name="android.intent.action.LOCALE_CHANGED"/>
-                <action android:name="android.intent.action.ALARM_CHANGED"/>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
                 <action android:name="com.android.deskclock.NEXT_ALARM_TIME_SET"/>

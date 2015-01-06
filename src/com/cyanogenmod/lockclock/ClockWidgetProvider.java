@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+ * Copyright (C) 2012-2015 The CyanogenMod Project (DvTonder)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -79,7 +79,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
                 || Intent.ACTION_TIMEZONE_CHANGED.equals(action)
                 || Intent.ACTION_DATE_CHANGED.equals(action)
                 || Intent.ACTION_LOCALE_CHANGED.equals(action)
-                || "android.intent.action.ALARM_CHANGED".equals(action)
+                || "android.app.action.NEXT_ALARM_CLOCK_CHANGED".equals(action)
                 || ClockWidgetService.ACTION_REFRESH_CALENDAR.equals(action)) {
             updateWidgets(context, true, false);
 
