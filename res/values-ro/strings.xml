@@ -121,7 +121,7 @@
   <string name="weather_invert_lowhigh">Inversare temperaturi min/max</string>
   <string name="weather_progress_title">Verificare locație</string>
   <string name="weather_alternate_icons_title">Pictograme alternative</string>
-  <string name="weather_alternate_icons_summary">Comutare între pictogramele prestabilite (colore) și cele alternative (albe)</string>
+  <string name="weather_alternate_icons_summary">Comutare între pictogramele prestabilite (colorate) și cele alternative (albe)</string>
   <string name="weather_show_when_minimized_title">Afișare minimizat</string>
   <string name="weather_show_when_minimized_summary">Afișare informație meteo sumară cănd widget-ul este minimizat</string>
   <string name="weather_select_location">Selectați locația</string>
