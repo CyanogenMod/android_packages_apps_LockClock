@@ -116,7 +116,7 @@
   <string name="weather_refresh_interval">更新時間間隔</string>
   <string name="weather_use_metric">使用公制</string>
   <string name="weather_retrieve_location_dialog_title">無法取得位置！</string>
-  <string name="weather_retrieve_location_dialog_message">網路地理位置已停用。\n\n設定自訂位置或啟用網絡位置</string>
+  <string name="weather_retrieve_location_dialog_message">網絡地理位置已停用。\n\n設定自訂位置或啟用網絡位置</string>
   <string name="weather_retrieve_location_dialog_enable_button">啟用</string>
   <string name="weather_invert_lowhigh">逆轉低/高的溫度</string>
   <string name="weather_progress_title">正在核實位置</string>

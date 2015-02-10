@@ -112,7 +112,7 @@
   <string name="weather_custom_location_hint">Ville, État/Pays</string>
   <string name="weather_custom_location_title">Lieu</string>
   <string name="weather_show_location_title">Afficher le lieu</string>
-  <string name="weather_show_timestamp_title">Afficher le temps depuis la dernière actualisation</string>
+  <string name="weather_show_timestamp_title">Afficher la date d\'actualisation</string>
   <string name="weather_refresh_interval">Intervalle d\'actualisation</string>
   <string name="weather_use_metric">Utiliser le système métrique</string>
   <string name="weather_retrieve_location_dialog_title">Impossible de trouver la localisation\u00A0!</string>
