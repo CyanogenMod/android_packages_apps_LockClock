@@ -112,8 +112,8 @@ public class CalendarPreferences extends PreferenceFragment implements
         private static final int DISPLAY_NAME_INDEX = 1;
 
         static CalendarEntries findCalendars(Context context) {
-            List<CharSequence> entries = new ArrayList<CharSequence>();
-            List<CharSequence> entryValues = new ArrayList<CharSequence>();
+            List<CharSequence> entries = new ArrayList<>();
+            List<CharSequence> entryValues = new ArrayList<>();
             ContentResolver cr = context.getContentResolver();
 
             Cursor calendarCursor = cr.query(uri, projection, null, null, null);
