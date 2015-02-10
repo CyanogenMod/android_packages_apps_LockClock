@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The CyanogenMod Project (DvTonder)
+
+<!-- Copyright (C) 2015 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,10 +19,9 @@
     android:key="calendar_settings"
     android:title="@string/calendar_category">
 
-    <PreferenceCategory
-        android:title="@string/general_category" >
+    <PreferenceCategory android:title="@string/general_category">
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="show_calendar"
             android:title="@string/calendar_title"
             android:defaultValue="false" />
@@ -44,24 +44,23 @@
             android:entries="@array/calendar_lookahead_entries"
             android:entryValues="@array/calendar_lookahead_values" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="calendar_reminders_only"
             android:dependency="show_calendar"
             android:title="@string/calendar_reminders_only_title"
             android:summary="@string/calendar_reminders_only_summary"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="calendar_hide_allday"
             android:dependency="show_calendar"
             android:title="@string/calendar_hide_allday_title"
             android:defaultValue="false" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/display_category" >
+    <PreferenceCategory android:title="@string/display_category">
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="calendar_icon"
             android:dependency="show_calendar"
             android:title="@string/calendar_icon_title"
@@ -104,17 +103,16 @@
             android:entryValues="@array/font_color_values" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/calendar_upcoming_events_category" >
+    <PreferenceCategory android:title="@string/calendar_upcoming_events_category">
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="calendar_highlight_upcoming_events"
             android:dependency="show_calendar"
             android:title="@string/calendar_highlight_upcoming_events_title"
             android:summary="@string/calendar_highlight_upcoming_events_summary"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="calendar_highlight_upcoming_events_bold"
             android:dependency="calendar_highlight_upcoming_events"
             android:title="@string/calendar_highlight_upcoming_events_bold"

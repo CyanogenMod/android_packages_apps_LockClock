@@ -24,19 +24,16 @@
     <style name="label_bold" parent="@style/label_shadow">
         <item name="android:textSize">@dimen/label_font_size</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textAllCaps">true</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
     <style name="label_thin" parent="@style/label_shadow">
         <item name="android:textSize">@dimen/label_font_size</item>
-        <item name="android:textAllCaps">true</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
     <style name="label_small" parent="@style/label_shadow">
         <item name="android:textSize">12sp</item>
-        <item name="android:textAllCaps">true</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
@@ -87,8 +84,25 @@
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-    <style name="Theme.Main" parent="@android:style/Theme.Holo">
-        <item name="android:actionBarStyle">@android:style/Widget.Holo.ActionBar.Solid</item>
+    <style name="Theme.Main" parent="@android:style/Theme.Material.Light.DarkActionBar">
+        <!-- Main theme colors -->
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <!-- One can also set colorControlNormal, colorControlActivated
+             colorControlHighlight, and colorSwitchThumbNormal. -->
+
+        <!-- App behaviour -->
+        <item name="android:fadeScrollbars">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:alertDialogTheme">@style/Theme.AlertDialog</item>
+
+    </style>
+
+    <style name="Theme.AlertDialog" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
     </style>
 
 </resources>

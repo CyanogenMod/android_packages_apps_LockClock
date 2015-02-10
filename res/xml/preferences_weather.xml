@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The CyanogenMod Project (DvTonder)
+
+<!-- Copyright (C) 2015 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,10 +19,9 @@
     android:key="weather_settings"
     android:title="@string/weather_category">
 
-    <PreferenceCategory
-        android:title="@string/general_category" >
+    <PreferenceCategory android:title="@string/general_category">
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="show_weather"
             android:title="@string/weather_enable"
             android:defaultValue="true" />
@@ -43,7 +43,7 @@
             android:entryValues="@array/weather_interval_values"
             android:title="@string/weather_refresh_interval" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="weather_use_custom_location"
             android:dependency="show_weather"
             android:title="@string/weather_use_custom_location"
@@ -57,8 +57,7 @@
             android:title="@string/weather_custom_location_title" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/display_category" >
+    <PreferenceCategory android:title="@string/display_category">
 
         <com.cyanogenmod.lockclock.preference.IconSelectionPreference
             android:key="weather_icons"
@@ -66,31 +65,31 @@
             android:dialogTitle="@string/weather_icon_set_title"
             android:defaultValue="color" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="weather_show_when_minimized"
             android:dependency="show_weather"
             android:title="@string/weather_show_when_minimized_title"
             android:summary="@string/weather_show_when_minimized_summary"
             android:defaultValue="true" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="weather_use_metric"
             android:dependency="show_weather"
             android:title="@string/weather_use_metric" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="weather_show_location"
             android:dependency="show_weather"
             android:title="@string/weather_show_location_title"
             android:defaultValue="true" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="weather_show_timestamp"
             android:dependency="show_weather"
             android:title="@string/weather_show_timestamp_title"
             android:defaultValue="true" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="weather_invert_lowhigh"
             android:dependency="show_weather"
             android:title="@string/weather_invert_lowhigh"

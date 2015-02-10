@@ -23,4 +23,9 @@
     <color name="list_selector_focused">#cc33b5e5</color>
     <color name="list_selector_activated">#4d33b5e5</color>
 
+    <!-- Material design app colors -->
+    <color name="colorPrimary">#3462b3</color>
+    <color name="colorPrimaryDark">#294d8c</color>
+    <color name="colorAccent">#3462b3</color>
+
 </resources>

@@ -338,21 +338,18 @@ public class ClockWidgetService extends IntentService {
 
                 if (!smallWidget) {
                     if (Preferences.useBoldFontForDateAndAlarms(this)) {
-                        alarmViews.setTextViewText(R.id.nextAlarm_bold,
-                                nextAlarm.toString().toUpperCase(Locale.getDefault()));
+                        alarmViews.setTextViewText(R.id.nextAlarm_bold, nextAlarm);
                         alarmViews.setViewVisibility(R.id.nextAlarm_bold, View.VISIBLE);
                         alarmViews.setViewVisibility(R.id.nextAlarm_regular, View.GONE);
                         alarmViews.setTextColor(R.id.nextAlarm_bold, color);
                     } else {
-                        alarmViews.setTextViewText(R.id.nextAlarm_regular,
-                                nextAlarm.toString().toUpperCase(Locale.getDefault()));
+                        alarmViews.setTextViewText(R.id.nextAlarm_regular, nextAlarm);
                         alarmViews.setViewVisibility(R.id.nextAlarm_regular, View.VISIBLE);
                         alarmViews.setViewVisibility(R.id.nextAlarm_bold, View.GONE);
                         alarmViews.setTextColor(R.id.nextAlarm_regular, color);
                     }
                 } else {
-                    alarmViews.setTextViewText(R.id.nextAlarm,
-                            nextAlarm.toString().toUpperCase(Locale.getDefault()));
+                    alarmViews.setTextViewText(R.id.nextAlarm, nextAlarm);
                     alarmViews.setViewVisibility(R.id.nextAlarm, View.VISIBLE);
                     alarmViews.setTextColor(R.id.nextAlarm, color);
                 }
@@ -374,12 +371,21 @@ public class ClockWidgetService extends IntentService {
      * @return A formatted string of the next alarm or null if there is no next alarm.
      */
     private String getNextAlarm() {
-        String nextAlarm = Settings.System.getString(
-                getContentResolver(), Settings.System.NEXT_ALARM_FORMATTED);
-        if (nextAlarm == null || TextUtils.isEmpty(nextAlarm)) {
-            return null;
+        String nextAlarm = null;
+
+        AlarmManager am =(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        AlarmManager.AlarmClockInfo alarmClock = am.getNextAlarmClock();
+        if (alarmClock != null) {
+            nextAlarm = getNextAlarmFormattedTime(this, alarmClock.getTriggerTime());
         }
+
         return nextAlarm;
+    }
+
+    private static String getNextAlarmFormattedTime(Context context, long time) {
+        String skeleton = DateFormat.is24HourFormat(context) ? "EHm" : "Ehma";
+        String pattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
+        return (String) DateFormat.format(pattern, time);
     }
 
     //===============================================================================================

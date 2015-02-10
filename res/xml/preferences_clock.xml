@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The CyanogenMod Project (DvTonder)
+
+<!-- Copyright (C) 2015 The CyanogenMod Project (DvTonder)
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,43 +19,41 @@
     android:key="clock_settings"
     android:title="@string/clock_category">
 
-    <PreferenceCategory
-        android:title="@string/general_category" >
+    <PreferenceCategory android:title="@string/general_category">
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_digital"
             android:title="@string/use_digital_clock_title"
             android:summary="@string/use_digital_clock_summary"
             android:defaultValue="true" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_show_alarm"
             android:title="@string/show_alarm_title"
             android:defaultValue="true" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/display_category" >
+    <PreferenceCategory android:title="@string/display_category">
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_font"
             android:title="@string/clock_font_title"
             android:dependency="clock_digital"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_font_minutes"
             android:title="@string/clock_font_minutes_title"
             android:dependency="clock_digital"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_am_pm_indicator"
             android:title="@string/clock_am_pm_title"
             android:dependency="clock_digital"
-            android:defaultValue="false"/>
+            android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="clock_font_date"
             android:title="@string/clock_font_date_title"
             android:defaultValue="true" />

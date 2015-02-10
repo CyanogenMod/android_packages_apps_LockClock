@@ -21,10 +21,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.SwitchPreference;
 import android.text.format.DateFormat;
 
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
@@ -37,7 +37,7 @@ public class ClockPreferences extends PreferenceFragment implements
     private Context mContext;
     private ListPreference mClockFontColor;
     private ListPreference mAlarmFontColor;
-    private CheckBoxPreference mAmPmToggle;
+    private SwitchPreference mAmPmToggle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class ClockPreferences extends PreferenceFragment implements
         mContext = getActivity();
         mClockFontColor = (ListPreference) findPreference(Constants.CLOCK_FONT_COLOR);
         mAlarmFontColor = (ListPreference) findPreference(Constants.CLOCK_ALARM_FONT_COLOR);
-        mAmPmToggle = (CheckBoxPreference) findPreference(Constants.CLOCK_AM_PM_INDICATOR);
+        mAmPmToggle = (SwitchPreference) findPreference(Constants.CLOCK_AM_PM_INDICATOR);
 
         updateFontColorsSummary();
         updateAmPmToggle();
