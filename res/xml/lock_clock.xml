@@ -21,7 +21,7 @@
     android:previewImage="@drawable/lock_clock_preview"
     android:initialLayout="@layout/appwidget"
     android:resizeMode="vertical|horizontal"
-    android:minResizeWidth="@dimen/min_digital_widget_resize_width"
+    android:minResizeWidth="@dimen/min_digital_widget_width"
     android:minResizeHeight="@dimen/min_digital_widget_resize_height"
     android:widgetCategory="keyguard|home_screen"
     android:configure="com.cyanogenmod.lockclock.preference.Preferences"

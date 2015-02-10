@@ -51,7 +51,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:padding="8dp"
-                android:src="@drawable/ic_menu_refresh_holo_dark"
+                android:src="@drawable/ic_menu_refresh"
                 android:background="?android:attr/selectableItemBackground" />
         </RelativeLayout>
 
