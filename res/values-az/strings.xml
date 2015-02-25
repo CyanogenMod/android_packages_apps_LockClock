@@ -21,7 +21,7 @@
   <string name="loading_indicator">Widget yüklənir\u2026</string>
   <string name="menu_done">Hazırdır</string>
   <string name="weather_0">Tornado</string>
-  <string name="weather_no_data">Məlumat yoxdur</string>
+  <string name="weather_no_data">Verilənlər yoxdur</string>
   <string name="weather_tap_to_refresh">Yeniləmək üçün toxunun</string>
   <string name="weather_refreshing">Yenilənir</string>
   <string name="weather_last_sync_just_now">İndicə</string>
