@@ -79,10 +79,10 @@
   <string name="weather_W">西</string>
   <string name="weather_NW">西北</string>
   <string name="weather_no_data">無資料</string>
-  <string name="weather_tap_to_refresh">輕按以重新整理</string>
+  <string name="weather_tap_to_refresh">輕觸以重新整理</string>
   <string name="weather_refreshing">重新整理中</string>
   <string name="weather_last_sync_just_now">剛剛</string>
-  <string name="weather_cannot_reach_provider">目前無法連上 %s</string>
+  <string name="weather_cannot_reach_provider">目前無法連線至 %s</string>
   <string name="weather_refresh_manual">手動</string>
   <string name="weather_refresh_30min">30 分鐘</string>
   <string name="weather_refresh_60min">60 分鐘</string>
@@ -96,7 +96,7 @@
   <string name="general_category">一般</string>
   <string name="display_category">顯示</string>
   <string name="use_digital_clock_title">使用數位時鐘</string>
-  <string name="use_digital_clock_summary">選取以在數位與類比時鐘之間切換</string>
+  <string name="use_digital_clock_summary">選取在數位與類比時鐘之間切換</string>
   <string name="clock_font_title">小時使用粗體</string>
   <string name="clock_font_minutes_title">分鐘使用粗體</string>
   <string name="clock_font_date_title">日期與鬧鐘使用粗體</string>
