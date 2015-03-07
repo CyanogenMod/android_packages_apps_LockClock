@@ -53,9 +53,8 @@ public class Preferences extends PreferenceActivity {
         inflater.inflate(R.menu.options_menu, menu);
 
         ActionBar mActionBar = getActionBar();
-        // Show up navigation and hide 'done' button when not triggered from adding a new widget
+        // Hide 'done' button when not triggered from adding a new widget
         if ((mActionBar != null) && (mNewWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID)) {
-            mActionBar.setDisplayHomeAsUpEnabled(true);
             MenuItem item = menu.findItem(R.id.menu_done);
             item.setVisible(false);
         }
@@ -68,7 +67,6 @@ public class Preferences extends PreferenceActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.menu_done:
-            case android.R.id.home:
                 myResult(RESULT_OK);
                 finish();
                 return true;
