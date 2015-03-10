@@ -58,6 +58,7 @@ public class WeatherUpdateService extends Service {
 
     private static final long LOCATION_REQUEST_TIMEOUT = 5L * 60L * 1000L; // request for at most 5 minutes
     private static final long OUTDATED_LOCATION_THRESHOLD_MILLIS = 10L * 60L * 1000L; // 10 minutes
+    private static final float LOCATION_ACCURACY_THRESHOLD_METERS = 50000;
 
     private WeatherUpdateTask mTask;
 
@@ -168,6 +169,11 @@ public class WeatherUpdateService extends Service {
             LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             Location location = lm.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
             if (D) Log.v(TAG, "Current location is " + location);
+
+            if (location != null && location.getAccuracy() > LOCATION_ACCURACY_THRESHOLD_METERS) {
+                if (D) Log.d(TAG, "Ignoring inaccurate location");
+                location = null;
+            }
 
             // If lastKnownLocation is not present (because none of the apps in the
             // device has requested the current location to the system yet) or outdated,
