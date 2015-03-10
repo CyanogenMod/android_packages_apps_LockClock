@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 
+import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.weather.OpenWeatherMapProvider;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherProvider;
@@ -147,10 +148,12 @@ public class Preferences {
 
     public static boolean useMetricUnits(Context context) {
         Locale locale = context.getResources().getConfiguration().locale;
-        boolean defValue = !(locale.equals(Locale.US)
-                        || locale.toString().equals("ms_MY") // Malaysia
-                        || locale.toString().equals("si_LK") // Sri Lanka
-                        );
+        boolean forceMetric = context.getResources().getBoolean(R.bool
+                .force_metric_unit_default);
+        boolean defValue = (forceMetric) || !(locale.equals(Locale.US)
+                || locale.toString().equals("ms_MY") // Malaysia
+                || locale.toString().equals("si_LK") // Sri Lanka
+        );
         return getPrefs(context).getBoolean(Constants.WEATHER_USE_METRIC, defValue);
     }
 
