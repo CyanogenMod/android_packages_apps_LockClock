@@ -32,7 +32,10 @@
   <string name="weather_refresh_4hrs">4 saat</string>
   <string name="weather_refresh_6hrs">6 saat</string>
   <string name="weather_refresh_8hrs">8 saat</string>
+  <string name="clock_category">Saat və zəngli saat</string>
   <string name="general_category">Ümumi</string>
+  <string name="clock_font_date_title">Tarix və zəngli saatı qalın göstər</string>
+  <string name="show_alarm_title">Növbəti zəngli saatı göstər</string>
   <string name="weather_enabled">Aktiv</string>
   <string name="weather_source_title">Hava mənbəsi</string>
   <string name="weather_source_yahoo">Yahoo! Hava</string>
@@ -41,6 +44,7 @@
   <string name="weather_custom_location_title">Məkan</string>
   <string name="weather_show_location_title">Məkanı göstər</string>
   <string name="calendar_icon_title">Təqvim nişanı</string>
+  <string name="font_color_alarm">Zəngli saat yazı rəngi</string>
   <string name="calendar_lookahead_3hrs">3 saat</string>
   <string name="calendar_lookahead_6hrs">6 saat</string>
   <string name="calendar_lookahead_12hrs">12 saat</string>
@@ -51,6 +55,7 @@
   <string name="calendar_lookahead_2wks">2 həftə</string>
   <string name="calendar_lookahead_4wks">4 həftə</string>
   <string name="calendar_metadata_none">Göstərmə</string>
+  <string name="calendar_metadata_first_line">Birinci sətri göstər</string>
   <string name="calendar_metadata_all">Hamısını göstər</string>
   <string name="white">Ağ</string>
   <string name="black">Qara</string>
