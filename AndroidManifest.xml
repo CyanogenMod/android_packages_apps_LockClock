@@ -92,7 +92,27 @@
             </intent-filter>
         </receiver>
 
+        <!-- The Weather Widget receiver -->
+        <receiver
+            android:name=".WeatherWidgetProvider"
+            android:label="@string/app_widget_weather">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/lock_weather"/>
+            <intent-filter>
+                <action android:name="android.app.action.NEXT_ALARM_CLOCK_CHANGED" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.android.deskclock.NEXT_ALARM_TIME_SET"/>
+                <action android:name="com.cyanogenmod.lockclock.action.SHOW_FORECAST" />
+            </intent-filter>
+        </receiver>
+
         <service android:name=".ClockWidgetService"></service>
+        <service android:name=".WeatherWidgetService"></service>
         <service android:name=".weather.WeatherUpdateService"></service>
         <service android:name=".calendar.CalendarViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS">

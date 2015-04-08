@@ -22,6 +22,9 @@
     <string name="loading_indicator">Loading widget\u2026</string>
     <string name="menu_done">Done</string>
 
+    <!-- Weather Widget -->
+    <string name="app_widget_weather">Weather</string>
+
     <!-- Formating strings for widget clock -->
     <string name="widget_12_hours_format_h" translatable="false">h</string>
     <string name="widget_12_hours_format_no_ampm_m" translatable="false">:mm</string>
