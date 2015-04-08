@@ -19,6 +19,8 @@ package com.cyanogenmod.lockclock;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.ClockWidgetService;
+import com.cyanogenmod.lockclock.WeatherWidgetProvider;
+import com.cyanogenmod.lockclock.WeatherWidgetService;
 
 import android.app.AlarmManager;
 import android.app.Application;
@@ -54,6 +56,10 @@ public class WidgetApplication extends Application {
                 // Refresh the widget
                 Intent refreshIntent = new Intent(context, ClockWidgetProvider.class);
                 refreshIntent.setAction(ClockWidgetService.ACTION_REFRESH);
+                context.sendBroadcast(refreshIntent);
+
+                Intent refreshIntent = new Intent(context, WeatherWidgetProvider.class);
+                refreshIntent.setAction(WeatherWidgetService.ACTION_REFRESH);
                 context.sendBroadcast(refreshIntent);
 
                 // We no longer need the tick receiver, its done its job, stop it
@@ -96,6 +102,25 @@ public class WidgetApplication extends Application {
     private static PendingIntent getClockRefreshIntent(Context context) {
         Intent i = new Intent(context, ClockWidgetService.class);
         i.setAction(ClockWidgetService.ACTION_REFRESH);
+        return PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    private static void scheduleWeatherRefresh(Context context) {
+        if (D) Log.d(TAG, "Starting weather refresh alarm");
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        long due = System.currentTimeMillis() + INTERVAL_ONE_MINUTE;
+        am.setRepeating(AlarmManager.RTC, due, INTERVAL_ONE_MINUTE, getWeatherRefreshIntent(context));
+    }
+
+    public static void cancelWeatherRefresh(Context context) {
+        if (D) Log.d(TAG, "Cleaning up: Stopping weather refresh alarm");
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        am.cancel(getWeatherRefreshIntent(context));
+    }
+
+    private static PendingIntent getWeatherRefreshIntent(Context context) {
+        Intent i = new Intent(context, WeatherWidgetService.class);
+        i.setAction(WeatherWidgetService.ACTION_REFRESH);
         return PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 }
