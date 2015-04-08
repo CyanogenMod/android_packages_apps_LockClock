@@ -19,6 +19,8 @@ package com.cyanogenmod.lockclock;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.ClockWidgetService;
+import com.cyanogenmod.lockclock.WeatherWidgetProvider;
+import com.cyanogenmod.lockclock.WeatherWidgetService;
 
 import android.app.AlarmManager;
 import android.app.Application;
