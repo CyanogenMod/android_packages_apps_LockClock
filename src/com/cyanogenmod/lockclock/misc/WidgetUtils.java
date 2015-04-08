@@ -41,9 +41,10 @@ public class WidgetUtils {
     private static final boolean D = Constants.DEBUG;
 
     /**
-     *  Decide whether to show the small Weather panel
+     * Decide whether to show the small Weather panel
      */
-    public static boolean showSmallWidget(Context context, int id, boolean digitalClock, boolean isKeyguard) {
+    public static boolean showSmallWidget(Context context, int id, int digitalClock, boolean
+            isKeyguard) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
         if (options == null) {
             // no data to make the calculation, show the list anyway
@@ -54,14 +55,30 @@ public class WidgetUtils {
         int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight,
                 resources.getDisplayMetrics());
         int neededFullSize = 0;
+        int resource;
         if (isKeyguard) {
-            neededFullSize = (int) resources.getDimension(
-                    digitalClock ? R.dimen.min_digital_weather_height_lock
-                                 : R.dimen.min_analog_weather_height_lock);
+            if (digitalClock == 0) {
+                resource = R.dimen.min_digital_weather_height_lock;
+            } else if (digitalClock == 1) {
+                resource = R.dimen.min_analog_weather_height_lock;
+            } else if (digitalClock == 2) {
+                resource = R.dimen.min_weather_height_lock;
+            } else {
+                resource = 0;
+            }
+
+            neededFullSize = (int) resources.getDimension(resource);
         } else {
-            neededFullSize = (int) resources.getDimension(
-                    digitalClock ? R.dimen.min_digital_weather_height
-                                 : R.dimen.min_analog_weather_height);
+            if (digitalClock == 0) {
+                resource = R.dimen.min_digital_weather_height;
+            } else if (digitalClock == 1) {
+                resource = R.dimen.min_analog_weather_height;
+            } else if (digitalClock == 2) {
+                resource = R.dimen.min_weather_height;
+            } else {
+                resource = 0;
+            }
+            neededFullSize = (int) resources.getDimension(resource);
         }
         int neededSmallSize = (int) resources.getDimension(R.dimen.min_digital_widget_height);
 
@@ -76,7 +93,7 @@ public class WidgetUtils {
     }
 
     /**
-     *  Decide whether to show the full Weather panel
+     * Decide whether to show the full Weather panel
      */
     public static boolean canFitWeather(Context context, int id, boolean digitalClock, boolean isKeyguard) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
@@ -92,11 +109,11 @@ public class WidgetUtils {
         if (isKeyguard) {
             neededSize = (int) resources.getDimension(
                     digitalClock ? R.dimen.min_digital_weather_height_lock
-                                 : R.dimen.min_analog_weather_height_lock);
+                            : R.dimen.min_analog_weather_height_lock);
         } else {
             neededSize = (int) resources.getDimension(
                     digitalClock ? R.dimen.min_digital_weather_height
-                                 : R.dimen.min_analog_weather_height);
+                            : R.dimen.min_analog_weather_height);
         }
 
         // Check to see if the widget size is big enough, if it is return true.
@@ -110,7 +127,7 @@ public class WidgetUtils {
     }
 
     /**
-     *  Decide whether to show the Calendar panel
+     * Decide whether to show the Calendar panel
      */
     public static boolean canFitCalendar(Context context, int id, boolean digitalClock) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
@@ -128,15 +145,16 @@ public class WidgetUtils {
         // Check to see if the widget size is big enough, if it is return true.
         Boolean result = minHeightPx > neededSize;
         if (D) {
-            if (D) Log.d(TAG, "canFitCalendar: digital clock = " + digitalClock + " with minHeightPx = "
-                    + minHeightPx + "  and neededSize = " + neededSize);
+            if (D)
+                Log.d(TAG, "canFitCalendar: digital clock = " + digitalClock + " with minHeightPx = "
+                        + minHeightPx + "  and neededSize = " + neededSize);
             Log.d(TAG, "canFitCalendar result = " + result);
         }
         return result;
     }
 
     /**
-     *  Calculate the scale factor of the fonts in the widget
+     * Calculate the scale factor of the fonts in the widget
      */
     public static float getScaleRatio(Context context, int id) {
         Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
@@ -154,14 +172,14 @@ public class WidgetUtils {
     }
 
     /**
-     *  The following two methods return the default DeskClock intent depending on which
-     *  clock package is installed
-     *
-     *  Copyright 2013 Google Inc.
+     * The following two methods return the default DeskClock intent depending on which
+     * clock package is installed
+     * <p/>
+     * Copyright 2013 Google Inc.
      */
-    private static final String[] CLOCK_PACKAGES = new String[] {
-        "com.google.android.deskclock",
-        "com.android.deskclock",
+    private static final String[] CLOCK_PACKAGES = new String[]{
+            "com.google.android.deskclock",
+            "com.android.deskclock",
     };
 
     public static Intent getDefaultClockIntent(Context context) {
@@ -191,21 +209,21 @@ public class WidgetUtils {
     }
 
     /**
-     *  API level check to see if the new API 17 TextClock is available
+     * API level check to see if the new API 17 TextClock is available
      */
     public static boolean isTextClockAvailable() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1;
     }
 
     /**
-     *  API level check to see if the new API 19 transparencies are available
+     * API level check to see if the new API 19 transparencies are available
      */
     public static boolean isTranslucencyAvailable() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
     }
 
     /**
-     *  Networking available check
+     * Networking available check
      */
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

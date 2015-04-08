@@ -28,5 +28,6 @@
     <!-- Lock screen -->
     <dimen name="min_digital_weather_height_lock">125dip</dimen>
     <dimen name="min_analog_weather_height_lock">130dip</dimen>
+    <dimen name="min_weather_height_lock">45dip</dimen>
 
 </resources>
