@@ -19,7 +19,6 @@ package com.cyanogenmod.lockclock;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.ClockWidgetService;
-
 import android.app.AlarmManager;
 import android.app.Application;
 import android.app.PendingIntent;
