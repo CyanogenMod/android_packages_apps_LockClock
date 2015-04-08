@@ -104,8 +104,12 @@ public class ClockWidgetService extends IntentService {
         // Get things ready
         RemoteViews remoteViews;
         boolean digitalClock = Preferences.showDigitalClock(this);
+        int ClockType = 1;
         boolean showWeather = Preferences.showWeather(this);
         boolean showWeatherWhenMinimized = Preferences.showWeatherWhenMinimized(this);
+        if (digitalClock){
+            ClockType=0;
+        }
 
         // Update the widgets
         for (int id : mWidgetIds) {
@@ -124,7 +128,7 @@ public class ClockWidgetService extends IntentService {
 
             // Determine which layout to use
             boolean smallWidget = showWeather && showWeatherWhenMinimized
-                    && WidgetUtils.showSmallWidget(this, id, digitalClock, isKeyguard);
+                    && WidgetUtils.showSmallWidget(this, id, ClockType, isKeyguard);
             if (smallWidget) {
                 // The small widget is only shown if weather needs to be shown
                 // and there is not enough space for the full weather widget and

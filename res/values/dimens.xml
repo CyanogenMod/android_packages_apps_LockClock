@@ -35,10 +35,12 @@
     <!-- Home screen -->
     <dimen name="min_digital_weather_height">110dip</dimen>
     <dimen name="min_analog_weather_height">110dip</dimen>
+    <dimen name="min_weather_height">40dip</dimen>
 
     <!-- Lock screen -->
     <dimen name="min_digital_weather_height_lock">160dip</dimen>
     <dimen name="min_analog_weather_height_lock">160dip</dimen>
+    <dimen name="min_weather_height_lock">60dip</dimen>
 
     <dimen name="min_digital_calendar_height">210dip</dimen>
     <dimen name="min_analog_calendar_height">210dip</dimen>
