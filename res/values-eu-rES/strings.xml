@@ -121,7 +121,6 @@
   <string name="weather_invert_lowhigh">Tenperaturak elkarraldatu</string>
   <string name="weather_progress_title">Kokapena berresten</string>
   <string name="weather_alternate_icons_title">Koloredun ikonoak</string>
-  <string name="weather_alternate_icons_summary">Koloredun ikonoak erabili ikono zuriak baino</string>
   <string name="weather_show_when_minimized_title">Txikitzean erakutsi</string>
   <string name="weather_show_when_minimized_summary">Widget-a txikituta dagoenean informazio klimatikoa erakutsi</string>
   <string name="weather_select_location">Kokapena aukeratu</string>
@@ -167,7 +166,6 @@
   <string name="holo_purple">Morea</string>
   <string name="holo_orange_light">Laranja argia</string>
   <string name="holo_orange_dark">Laranja iluna</string>
-  <string name="holo_blue_bright">Urdin diztiratsua</string>
   <string name="weather_icon_set_title">Ikono multzoa</string>
   <string name="weather_icons_standard">Koloreduna</string>
   <string name="weather_icons_monochrome">Monokromoa</string>
