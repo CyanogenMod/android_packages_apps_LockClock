@@ -113,7 +113,6 @@
   <string name="weather_custom_location_title">Kokapena</string>
   <string name="weather_show_location_title">Kokapena erakutsi</string>
   <string name="weather_show_timestamp_title">Ordua eta data erakutsi</string>
-  <string name="weather_refresh_interval">Egunerketa tartea</string>
   <string name="weather_use_metric">Sistema metrikoa erabili</string>
   <string name="weather_retrieve_location_dialog_title">Ezin da kokapena lortu!</string>
   <string name="weather_retrieve_location_dialog_message">Sare bidezko geokokapena ezgaituta.\n\n Kokapen pertsonalizatua ezarri edo sare bidezko geokokapena gaitu</string>
@@ -121,7 +120,6 @@
   <string name="weather_invert_lowhigh">Tenperaturak elkarraldatu</string>
   <string name="weather_progress_title">Kokapena berresten</string>
   <string name="weather_alternate_icons_title">Koloredun ikonoak</string>
-  <string name="weather_alternate_icons_summary">Koloredun ikonoak erabili ikono zuriak baino</string>
   <string name="weather_show_when_minimized_title">Txikitzean erakutsi</string>
   <string name="weather_show_when_minimized_summary">Widget-a txikituta dagoenean informazio klimatikoa erakutsi</string>
   <string name="weather_select_location">Kokapena aukeratu</string>
@@ -167,9 +165,7 @@
   <string name="holo_purple">Morea</string>
   <string name="holo_orange_light">Laranja argia</string>
   <string name="holo_orange_dark">Laranja iluna</string>
-  <string name="holo_blue_bright">Urdin diztiratsua</string>
   <string name="weather_icon_set_title">Ikono multzoa</string>
   <string name="weather_icons_standard">Koloreduna</string>
   <string name="weather_icons_monochrome">Monokromoa</string>
-  <string name="icon_set_selection_get_more">Gehiago lortu\u2026</string>
 </resources>
