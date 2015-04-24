@@ -113,7 +113,6 @@
   <string name="weather_custom_location_title">Kokapena</string>
   <string name="weather_show_location_title">Kokapena erakutsi</string>
   <string name="weather_show_timestamp_title">Ordua eta data erakutsi</string>
-  <string name="weather_refresh_interval">Egunerketa tartea</string>
   <string name="weather_use_metric">Sistema metrikoa erabili</string>
   <string name="weather_retrieve_location_dialog_title">Ezin da kokapena lortu!</string>
   <string name="weather_retrieve_location_dialog_message">Sare bidezko geokokapena ezgaituta.\n\n Kokapen pertsonalizatua ezarri edo sare bidezko geokokapena gaitu</string>
@@ -169,5 +168,4 @@
   <string name="weather_icon_set_title">Ikono multzoa</string>
   <string name="weather_icons_standard">Koloreduna</string>
   <string name="weather_icons_monochrome">Monokromoa</string>
-  <string name="icon_set_selection_get_more">Gehiago lortu\u2026</string>
 </resources>
