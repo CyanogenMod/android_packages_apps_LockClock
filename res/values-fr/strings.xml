@@ -108,7 +108,7 @@
   <string name="weather_source_yahoo">Yahoo! Météo</string>
   <string name="weather_use_custom_location">Définir un lieu</string>
   <string name="weather_geolocated">Utiliser la géolocalisation</string>
-  <string name="weather_custom_location_dialog_title">Entrez l\'emplacement</string>
+  <string name="weather_custom_location_dialog_title">Entrez un lieu</string>
   <string name="weather_custom_location_hint">Ville, État/Pays</string>
   <string name="weather_custom_location_title">Lieu</string>
   <string name="weather_show_location_title">Afficher le lieu</string>
