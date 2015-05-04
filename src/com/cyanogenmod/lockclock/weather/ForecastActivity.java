@@ -60,28 +60,11 @@ public class ForecastActivity extends Activity implements OnClickListener {
     @SuppressLint("InlinedApi")
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        // If we are in keyguard, override the default transparent theme
-        KeyguardManager km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
-        boolean locked = km.isKeyguardLocked();
-        if (locked) {
-            if (WidgetUtils.isTranslucencyAvailable()) {
-                setTheme(android.R.style.Theme_Holo_NoActionBar_TranslucentDecor);
-            } else {
-                setTheme(android.R.style.Theme_Holo_NoActionBar);
-            }
-        }
         super.onCreate(savedInstanceState);
-
         // Get the window ready
         Window window = getWindow();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        if (locked) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-                    | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-            final WallpaperManager wallpaperManager = WallpaperManager.getInstance(this);
-            final Drawable wallpaperDrawable = wallpaperManager.getFastDrawable();
-            window.setBackgroundDrawable(wallpaperDrawable);
-        } else if (WidgetUtils.isTranslucencyAvailable()) {
+        if (WidgetUtils.isTranslucencyAvailable()) {
             window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
             window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
