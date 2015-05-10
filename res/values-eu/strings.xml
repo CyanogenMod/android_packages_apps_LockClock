@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Ezezaguna</string>
   <string name="cancel">Ezeztatu</string>
-  <string name="loading_indicator">Widget-a kargatzen\u2026</string>
+  <string name="loading_indicator">Trepeta kargatzen\u2026</string>
   <string name="menu_done">Eginda</string>
   <string name="weather_0">Tornadoa</string>
   <string name="weather_1">Ekaitz tropikala</string>
@@ -121,7 +121,7 @@
   <string name="weather_progress_title">Kokapena berresten</string>
   <string name="weather_alternate_icons_title">Koloredun ikonoak</string>
   <string name="weather_show_when_minimized_title">Txikitzean erakutsi</string>
-  <string name="weather_show_when_minimized_summary">Widget-a txikituta dagoenean informazio klimatikoa erakutsi</string>
+  <string name="weather_show_when_minimized_summary">Erakutsi eguraldiaren informazioa trepeta minimizatuta dagoenean</string>
   <string name="weather_select_location">Kokapena aukeratu</string>
   <string name="calendar_title">Hurrengo gertakaria erakutsi</string>
   <string name="calendars_title">Gertakarien egutegia</string>
