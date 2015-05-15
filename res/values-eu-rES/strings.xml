@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Ezezaguna</string>
   <string name="cancel">Ezeztatu</string>
-  <string name="loading_indicator">Widget-a kargatzen\u2026</string>
+  <string name="loading_indicator">Trepeta kargatzen\u2026</string>
   <string name="menu_done">Eginda</string>
   <string name="weather_0">Tornadoa</string>
   <string name="weather_1">Ekaitz tropikala</string>
@@ -96,7 +96,7 @@
   <string name="general_category">Orokorra</string>
   <string name="display_category">Itxura</string>
   <string name="use_digital_clock_title">Erloju digitala erabili</string>
-  <string name="use_digital_clock_summary">Aukeratu erloju digitalaren eta analogikoaren artean aldatzeko</string>
+  <string name="use_digital_clock_summary">Hautatu erloju digitalaren eta analogikoaren artean aldatzeko</string>
   <string name="clock_font_title">Orduak nabarmendu</string>
   <string name="clock_font_minutes_title">Minutuak nabarmendu</string>
   <string name="clock_font_date_title">Data eta alarma nabarmendu</string>
@@ -113,16 +113,18 @@
   <string name="weather_custom_location_title">Kokapena</string>
   <string name="weather_show_location_title">Kokapena erakutsi</string>
   <string name="weather_show_timestamp_title">Ordua eta data erakutsi</string>
+  <string name="weather_refresh_interval">Eguneraketaren maiztasuna</string>
   <string name="weather_use_metric">Sistema metrikoa erabili</string>
   <string name="weather_retrieve_location_dialog_title">Ezin da kokapena lortu!</string>
   <string name="weather_retrieve_location_dialog_message">Sare bidezko geokokapena ezgaituta.\n\n Kokapen pertsonalizatua ezarri edo sare bidezko geokokapena gaitu</string>
   <string name="weather_retrieve_location_dialog_enable_button">Gaitu</string>
   <string name="weather_invert_lowhigh">Tenperaturak elkarraldatu</string>
   <string name="weather_progress_title">Kokapena berresten</string>
-  <string name="weather_alternate_icons_title">Koloredun ikonoak</string>
+  <string name="weather_alternate_icons_title">Erabili kolorezko ikonoak</string>
+  <string name="weather_alternate_icons_summary">Hautatu lehenetsitako (kolorezko) ikonoen eta ordezko ikono (zurien) artean txandakatzeko</string>
   <string name="weather_show_when_minimized_title">Txikitzean erakutsi</string>
-  <string name="weather_show_when_minimized_summary">Widget-a txikituta dagoenean informazio klimatikoa erakutsi</string>
-  <string name="weather_select_location">Kokapena aukeratu</string>
+  <string name="weather_show_when_minimized_summary">Erakutsi eguraldiaren informazioa trepeta minimizatuta dagoenean</string>
+  <string name="weather_select_location">Kokapena hautatu</string>
   <string name="calendar_title">Hurrengo gertakaria erakutsi</string>
   <string name="calendars_title">Gertakarien egutegia</string>
   <string name="calendars_summary">Egutegietan gertakariak bilatu</string>
@@ -165,7 +167,9 @@
   <string name="holo_purple">Morea</string>
   <string name="holo_orange_light">Laranja argia</string>
   <string name="holo_orange_dark">Laranja iluna</string>
+  <string name="holo_blue_bright">Urdin argia</string>
   <string name="weather_icon_set_title">Ikono multzoa</string>
   <string name="weather_icons_standard">Koloreduna</string>
   <string name="weather_icons_monochrome">Monokromoa</string>
+  <string name="icon_set_selection_get_more">Lortu gehiago\u2026</string>
 </resources>
