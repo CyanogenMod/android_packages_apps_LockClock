@@ -27,7 +27,7 @@
     <LinearLayout
         android:layout_width="@dimen/forecast_dialog_width"
         android:layout_height="wrap_content"
-        android:background="@drawable/dialog_full_holo_dark"
+        android:background="@android:color/white"
         android:gravity="center_vertical"
         android:orientation="vertical" >
 
@@ -42,7 +42,8 @@
                 android:layout_height="match_parent"
                 android:gravity="center|center_horizontal"
                 android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+		android:textColor="#D9000000" />
 
             <ImageView
                 android:id="@+id/weather_refresh"
@@ -51,7 +52,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:padding="8dp"
-                android:src="@drawable/ic_menu_refresh"
+                android:src="@drawable/ic_refresh_black_24dp"
                 android:background="?android:attr/selectableItemBackground" />
         </RelativeLayout>
 
@@ -93,7 +94,7 @@
                     android:ellipsize="marquee"
                     android:gravity="center_horizontal"
                     android:maxLines="2"
-                    android:textColor="?android:attr/textColorPrimary"
+                    android:textColor="#D9000000"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -104,7 +105,7 @@
                     android:layout_below="@id/weather_city"
                     android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
-                    android:textColor="?android:attr/textColorSecondary"
+                    android:textColor="#8C000000"
                     android:textSize="10sp" />
             </RelativeLayout>
 
@@ -121,7 +122,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:textAppearance="?android:attr/textAppearanceLarge" 
+		    android:textColor="#D9000000" />
 
                 <ImageView
                     android:id="@+id/weather_divider"
@@ -139,7 +141,7 @@
                     android:layout_centerHorizontal="true"
                     android:paddingTop="2dip"
                     android:textSize="12sp"
-                    android:textColor="?android:attr/textColorPrimary" />
+                    android:textColor="#D9000000" />
             </RelativeLayout>
 
             <TextView
@@ -151,7 +153,8 @@
                 android:ellipsize="marquee"
                 android:singleLine="true"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:paddingBottom="8dp" />
+                android:paddingBottom="8dp"
+		android:textColor="#8C000000" />
         </RelativeLayout>
 
         <LinearLayout
@@ -177,7 +180,8 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:padding="8dp"
-            android:visibility="gone" />
+            android:visibility="gone"
+	    android:textColor="#8C000000" />
 
         <LinearLayout android:id="@+id/buttonPanel"
             android:layout_width="match_parent"
@@ -202,10 +206,11 @@
                     android:layout_weight="1"
                     android:maxLines="2"
                     android:text="@string/menu_done"
-                    style="?android:attr/buttonBarButtonStyle"
+                    style="?android:attr/borderlessButtonStyle"
                     android:textSize="14sp"
                     android:minHeight="48dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+		    android:textColor="#D9000000" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

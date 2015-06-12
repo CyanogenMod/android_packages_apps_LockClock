@@ -28,7 +28,7 @@
         android:drawableBottom="@android:drawable/divider_horizontal_dark"
         android:gravity="center_horizontal|fill_horizontal"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="?android:attr/textColorPrimary"
+        android:textColor="#D9000000"
         style="@style/label_shadow"/>
 
     <ImageView
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="?android:attr/textColorPrimary"
+        android:textColor="#D9000000"
         style="@style/label_shadow"/>
 
 </LinearLayout>
