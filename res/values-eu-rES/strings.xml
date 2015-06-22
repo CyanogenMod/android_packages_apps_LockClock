@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Ezezaguna</string>
-  <string name="cancel">Ezeztatu</string>
+  <string name="cancel">Utzi</string>
   <string name="loading_indicator">Trepeta kargatzen\u2026</string>
   <string name="menu_done">Eginda</string>
   <string name="weather_0">Tornadoa</string>
@@ -80,7 +80,7 @@
   <string name="weather_NW">NM</string>
   <string name="weather_no_data">Daturik gabe</string>
   <string name="weather_tap_to_refresh">Sakatu berritzeko</string>
-  <string name="weather_refreshing">Berritzen\u2026</string>
+  <string name="weather_refreshing">Berritzen</string>
   <string name="weather_last_sync_just_now">Orain</string>
   <string name="weather_cannot_reach_provider">Momentu honetan ezinezkoa da %s -ra sartzea</string>
   <string name="weather_refresh_manual">Eskuz</string>
@@ -92,7 +92,7 @@
   <string name="weather_refresh_8hrs">8 ordu</string>
   <string name="clock_category">Erlojua eta alarma</string>
   <string name="weather_category">Eguraldiaren panela</string>
-  <string name="calendar_category">Egutegia</string>
+  <string name="calendar_category">Egutegiko gertaerak</string>
   <string name="general_category">Orokorra</string>
   <string name="display_category">Itxura</string>
   <string name="use_digital_clock_title">Erloju digitala erabili</string>
