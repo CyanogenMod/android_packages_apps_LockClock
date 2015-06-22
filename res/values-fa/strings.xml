@@ -16,7 +16,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="unknown">ناشناخته</string>
   <string name="cancel">لغو</string>
+  <string name="display_category">نمایش</string>
   <string name="clock_am_pm_title">نمایش نشانگر ق‌ظ/ب‌ظ</string>
   <string name="weather_custom_location_title">مکان</string>
   <string name="weather_show_location_title">نمایش مکان</string>
