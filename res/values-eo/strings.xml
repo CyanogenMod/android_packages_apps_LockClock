@@ -31,6 +31,10 @@
   <string name="weather_8">Glaciiga pluveto</string>
   <string name="weather_9">Pluveto</string>
   <string name="weather_10">Glaciiga pluvo</string>
+  <string name="weather_11">Pluvoverŝoj</string>
+  <string name="weather_12">Pluvoverŝoj</string>
+  <string name="weather_13">Neĝverŝoj</string>
+  <string name="weather_14">Neĝverŝetoj</string>
   <string name="weather_15">Venta neĝo</string>
   <string name="weather_16">Neĝo</string>
   <string name="weather_17">Hajlo</string>
@@ -48,6 +52,7 @@
   <string name="weather_29">Parte nuba</string>
   <string name="weather_30">Parte nuba</string>
   <string name="weather_31">Forviŝi</string>
+  <string name="weather_32">Suna</string>
   <string name="weather_33">Akcepteble</string>
   <string name="weather_34">Akcepteble</string>
   <string name="weather_35">Pluvo kaj hajlo</string>
@@ -60,6 +65,9 @@
   <string name="weather_42">Dissemitaj neĝoverŝoj</string>
   <string name="weather_43">Forta neĝo</string>
   <string name="weather_44">Parta nuba</string>
+  <string name="weather_45">Fulmotondraj pluvegoj</string>
+  <string name="weather_46">Neĝoverŝoj</string>
+  <string name="weather_47">Izolitaj fulmotondraj pluvegoj</string>
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">mph</string>
   <string name="weather_N">N</string>
@@ -71,6 +79,7 @@
   <string name="weather_W">Ok</string>
   <string name="weather_NW">NOk</string>
   <string name="weather_no_data">Neniu datumo</string>
+  <string name="weather_tap_to_refresh">Tuŝetu por aktualigi</string>
   <string name="weather_refreshing">Aktualigo</string>
   <string name="weather_last_sync_just_now">Nur nun</string>
   <string name="weather_cannot_reach_provider">%s ne atingeblas nuntempe</string>
@@ -86,6 +95,7 @@
   <string name="calendar_category">Kalendaraj eventoj</string>
   <string name="general_category">Ĝeneralo</string>
   <string name="display_category">Ekrano</string>
+  <string name="use_digital_clock_title">Uzi ciferan horloĝon</string>
   <string name="use_digital_clock_summary">Baskuligi inter cifera kaj analoga horo</string>
   <string name="clock_font_title">Grasigitaj horoj</string>
   <string name="clock_font_minutes_title">Grasigitaj minutoj</string>
@@ -100,18 +110,23 @@
   <string name="weather_geolocated">Uzi geolokigilon</string>
   <string name="weather_custom_location_dialog_title">Entajpu lokon</string>
   <string name="weather_custom_location_hint">Urbo, Ŝtato/Lando</string>
-  <string name="weather_custom_location_title">Loko</string>
+  <string name="weather_custom_location_title">Lokigo</string>
   <string name="weather_show_location_title">Montri lokon</string>
   <string name="weather_show_timestamp_title">Montri tempindikon</string>
   <string name="weather_refresh_interval">Intervalo de ĝisdatigo</string>
   <string name="weather_use_metric">Uzi metran sistemon</string>
   <string name="weather_retrieve_location_dialog_title">Loko ne troveblas!</string>
+  <string name="weather_retrieve_location_dialog_message">Reta geolokigilo malŝaltita.\n\nAgordu propran lokon aŭ ebligu geolokigon</string>
+  <string name="weather_retrieve_location_dialog_enable_button">Ŝalti</string>
   <string name="weather_invert_lowhigh">Inversigi min/maks. temperaturojn</string>
+  <string name="weather_progress_title">Kontrolado de loko</string>
   <string name="weather_alternate_icons_title">Uzi kolorigitajn piktogramojn</string>
+  <string name="weather_alternate_icons_summary">Uzi tion por baskuligi la defaŭltan (koloriga) kaj la alternativan (blanka) piktogramon</string>
   <string name="weather_show_when_minimized_title">Montri kiam minimumiga</string>
   <string name="weather_show_when_minimized_summary">Montri resumitajn informojn pri vetero kiam la fenestraĵo estas minimumigita</string>
   <string name="weather_select_location">Elekti lokon</string>
   <string name="calendar_title">Montri venontan eventon</string>
+  <string name="calendars_title">Kalendara evento</string>
   <string name="calendars_summary">Trovi eventon el tiuj kalendaroj</string>
   <string name="calendar_reminders_only_title">Nur kun memorigiloj</string>
   <string name="calendar_reminders_only_summary">Montri nur eventojn kun memorigilo</string>
@@ -122,6 +137,12 @@
   <string name="calendar_show_description_title">Eventa priskribo</string>
   <string name="calendar_upcoming_events_category">Venontaj eventoj</string>
   <string name="calendar_highlight_upcoming_events_title">Markitaj eventoj</string>
+  <string name="calendar_highlight_upcoming_events_summary">Marki la ĉi-tagajn eventojn kaj, post la 20a, ankaŭ la morgaŭ-aj</string>
+  <string name="calendar_highlight_upcoming_events_bold">Grasigita tiparo</string>
+  <string name="font_color">Tipara koloro</string>
+  <string name="font_color_alarm">Koloro de la alarma tiparo</string>
+  <string name="font_color_timestamp">Tipara koloro de la tempindiko</string>
+  <string name="font_color_calendar_details">Tipara koloro de la detaloj</string>
   <string name="calendar_lookahead_3hrs">3 horoj</string>
   <string name="calendar_lookahead_6hrs">6 horoj</string>
   <string name="calendar_lookahead_12hrs">12 horoj</string>
@@ -133,6 +154,7 @@
   <string name="calendar_lookahead_4wks">4 semajnoj</string>
   <string name="calendar_metadata_none">Ne montri</string>
   <string name="calendar_metadata_first_line">Montri la unuan linion</string>
+  <string name="calendar_metadata_all">Montri ĉion</string>
   <string name="white">Blanko</string>
   <string name="grey">Griza</string>
   <string name="black">Nigra</string>
@@ -146,6 +168,8 @@
   <string name="holo_orange_light">Heloranĝa</string>
   <string name="holo_orange_dark">Malheloranĝa</string>
   <string name="holo_blue_bright">Blua</string>
+  <string name="weather_icon_set_title">Piktogramaro</string>
   <string name="weather_icons_standard">Kolorigita</string>
+  <string name="weather_icons_monochrome">Unukolora</string>
   <string name="icon_set_selection_get_more">Pliaj\u2026</string>
 </resources>
