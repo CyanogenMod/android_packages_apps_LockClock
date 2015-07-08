@@ -76,6 +76,32 @@ public class WidgetUtils {
     }
 
     /**
+     * Decide whether to show the timestamp
+     */
+    public static boolean canFitTimestamp(Context context, int id, boolean digitalClock) {
+        Bundle options = AppWidgetManager.getInstance(context).getAppWidgetOptions(id);
+        if (options == null) {
+            // no data to make the calculation, show the list anyway
+            return true;
+        }
+        Resources resources = context.getResources();
+        int minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
+        int minHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, minHeight,
+                resources.getDisplayMetrics());
+        int neededSize = (int) resources.getDimension(digitalClock
+                ? R.dimen.min_digital_timestamp_height : R.dimen.min_analog_timestamp_height);
+
+        // Check to see if the widget size is big enough, if it is return true.
+        Boolean result = minHeightPx > neededSize;
+        if (D) {
+            Log.d(TAG, "canFitTimestamp: digital clock = " + digitalClock
+                    + " with minHeightPx = " + minHeightPx + "  and neededSize = " + neededSize);
+            Log.d(TAG, "canFitTimestamp result = " + result);
+        }
+        return result;
+    }
+
+    /**
      *  Decide whether to show the full Weather panel
      */
     public static boolean canFitWeather(Context context, int id, boolean digitalClock, boolean isKeyguard) {
