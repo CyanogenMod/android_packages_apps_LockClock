@@ -43,6 +43,9 @@
     <dimen name="min_digital_calendar_height">210dip</dimen>
     <dimen name="min_analog_calendar_height">210dip</dimen>
 
+    <dimen name="min_digital_timestamp_height">210dip</dimen>
+    <dimen name="min_analog_timestamp_height">210dip</dimen>
+
     <dimen name="shadow_radius">4dp</dimen>
 
     <dimen name="am_pm_padding">30dp</dimen>

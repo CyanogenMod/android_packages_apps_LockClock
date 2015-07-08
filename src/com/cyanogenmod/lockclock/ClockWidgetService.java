@@ -155,9 +155,13 @@ public class ClockWidgetService extends IntentService {
                 refreshCalendar(remoteViews, id);
             }
             // Hide the calendar panel if not visible
-            remoteViews.setViewVisibility(R.id.calendar_panel, showCalendar ? View.VISIBLE : View.GONE);
+            remoteViews.setViewVisibility(R.id.calendar_panel,
+                    showCalendar ? View.VISIBLE : View.GONE);
 
-            boolean canFitWeather = smallWidget || WidgetUtils.canFitWeather(this, id, digitalClock, isKeyguard);
+            boolean canFitWeather = smallWidget
+                    || WidgetUtils.canFitWeather(this, id, digitalClock, isKeyguard);
+            boolean canFitTimestamp = smallWidget
+                    || WidgetUtils.canFitTimestamp(this, id, digitalClock);
             // Now, if we need to show the actual weather, do so
             if (showWeather && canFitWeather) {
                 WeatherInfo weatherInfo = Preferences.getCachedWeatherInfo(this);
@@ -168,7 +172,10 @@ public class ClockWidgetService extends IntentService {
                     setNoWeatherData(remoteViews, smallWidget);
                 }
             }
-            remoteViews.setViewVisibility(R.id.weather_panel, (showWeather && canFitWeather) ? View.VISIBLE : View.GONE);
+            remoteViews.setViewVisibility(R.id.update_time,
+                    (showWeather && canFitWeather && canFitTimestamp) ? View.VISIBLE : View.GONE);
+            remoteViews.setViewVisibility(R.id.weather_panel,
+                    (showWeather && canFitWeather) ? View.VISIBLE : View.GONE);
 
             // Resize the clock font if needed
             if (digitalClock) {
