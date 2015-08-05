@@ -34,7 +34,7 @@
   <string name="weather_11">Plohe</string>
   <string name="weather_12">Plohe</string>
   <string name="weather_13">Snežni metež</string>
-  <string name="weather_14">Rahle snežne plohe</string>
+  <string name="weather_14">Rahla snežna ploha</string>
   <string name="weather_15">Snežni vihar</string>
   <string name="weather_16">Sneg</string>
   <string name="weather_17">Toča</string>
@@ -43,7 +43,7 @@
   <string name="weather_20">Megleno</string>
   <string name="weather_21">Meglica</string>
   <string name="weather_22">Zadimljeno ozračje</string>
-  <string name="weather_23">Rahel veter</string>
+  <string name="weather_23">Vihar</string>
   <string name="weather_24">Vetrovno</string>
   <string name="weather_25">Hladno</string>
   <string name="weather_26">Oblačno</string>
@@ -65,9 +65,9 @@
   <string name="weather_42">Razpršene snežne plohe</string>
   <string name="weather_43">Močno sneženje</string>
   <string name="weather_44">Delno oblačno</string>
-  <string name="weather_45">Nevihta z grmenjem</string>
-  <string name="weather_46">Snežne plohe</string>
-  <string name="weather_47">Lokalna nevihta z grmenjem</string>
+  <string name="weather_45">Ploha z grmenjem</string>
+  <string name="weather_46">Snežna ploha</string>
+  <string name="weather_47">Lokalna ploha z grmenjem</string>
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">milj/h</string>
   <string name="weather_N">S</string>
