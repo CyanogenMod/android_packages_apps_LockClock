@@ -81,6 +81,18 @@ public class Preferences {
         return color;
     }
 
+    public static int clockBackgroundColor(Context context) {
+        int color = Color.parseColor(getPrefs(context).getString(Constants.CLOCK_BACKGROUND_COLOR,
+                Constants.DEFAULT_BACKGROUND_COLOR));
+        return color;
+    }
+
+    public static int clockBackgroundTransparency(Context context) {
+        int trans = getPrefs(context).getInt(Constants.CLOCK_BACKGROUND_TRANSPARENCY,
+                Constants.DEFAULT_BACKGROUND_TRANSPARENCY);
+        return trans;
+    }
+
     public static int weatherFontColor(Context context) {
         int color = Color.parseColor(getPrefs(context).getString(Constants.WEATHER_FONT_COLOR,
                 Constants.DEFAULT_LIGHT_COLOR));

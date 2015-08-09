@@ -26,15 +26,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top" />
 
-    <!-- Use a negative top margin to create a bit of an overlap
-         and get rid of some of the gap -->
     <include layout="@layout/weather_panel"
         android:id="@+id/weather_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
         android:layout_below="@id/clock_panel"
-        android:layout_marginTop="-4dp"
         android:visibility="gone" />
 
     <include layout="@layout/calendar_panel"

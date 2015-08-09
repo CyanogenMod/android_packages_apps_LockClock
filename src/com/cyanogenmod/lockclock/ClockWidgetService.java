@@ -183,6 +183,14 @@ public class ClockWidgetService extends IntentService {
                 setClockSize(remoteViews, ratio);
             }
 
+            // Set the widget background color/transparency
+            int backColor = Preferences.clockBackgroundColor(this);
+            int backTrans = Preferences.clockBackgroundTransparency(this);
+            backColor = (backTrans << 24) | (backColor & 0xFFFFFF);
+            remoteViews.setInt(R.id.clock_panel, "setBackgroundColor", backColor);
+            remoteViews.setInt(R.id.calendar_panel, "setBackgroundColor", backColor);
+            remoteViews.setInt(R.id.weather_panel, "setBackgroundColor", backColor);
+
             // Do the update
             mAppWidgetManager.updateAppWidget(id, remoteViews);
         }

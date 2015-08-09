@@ -72,5 +72,20 @@
             android:defaultValue="#80ffffff"
             android:entries="@array/font_color_entries"
             android:entryValues="@array/font_color_values" />
+
+        <ListPreference
+            android:key="clock_background_color"
+            android:title="@string/background_color"
+            android:summary="%s"
+            android:defaultValue="#ff000000"
+            android:entries="@array/font_color_entries"
+            android:entryValues="@array/font_color_values" />
+
+        <!-- Background transparency selection -->
+        <com.cyanogenmod.lockclock.preference.BackgroundTransparency
+                android:key="clock_background_transparency"
+                android:title="@string/background_transparency"
+                android:dialogTitle="@string/background_transparency"
+                android:persistent="false" />
     </PreferenceCategory>
 </PreferenceScreen>
