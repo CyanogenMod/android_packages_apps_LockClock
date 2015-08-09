@@ -31,6 +31,8 @@ public class Constants {
     public static final String CLOCK_SHOW_ALARM = "clock_show_alarm";
     public static final String CLOCK_FONT_COLOR = "clock_font_color";
     public static final String CLOCK_ALARM_FONT_COLOR = "clock_alarm_font_color";
+    public static final String CLOCK_BACKGROUND_COLOR = "clock_background_color";
+    public static final String CLOCK_BACKGROUND_TRANSPARENCY = "clock_background_transparency";
     public static final String CLOCK_AM_PM_INDICATOR = "clock_am_pm_indicator";
 
     public static final String SHOW_WEATHER = "show_weather";
@@ -91,7 +93,9 @@ public class Constants {
 
     public static final String DEFAULT_LIGHT_COLOR = "#ffffffff";
     public static final String DEFAULT_DARK_COLOR = "#80ffffff";
-    
+    public static final String DEFAULT_BACKGROUND_COLOR = "#00000000";
+    public static final int DEFAULT_BACKGROUND_TRANSPARENCY = 0;
+
     // Intent actions
     public static final String ACTION_SHOW_FORECAST = "com.cyanogenmod.lockclock.action.SHOW_FORECAST";
 
