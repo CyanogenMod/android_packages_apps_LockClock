@@ -106,6 +106,34 @@
         <item>#ffaa66cc</item>
     </string-array>
 
+    <string-array name="background_transparency_entries" translatable="false">
+        <item>@string/zeroper</item>
+        <item>@string/tenper</item>
+        <item>@string/twentyper</item>
+        <item>@string/thirtyper</item>
+        <item>@string/fortyper</item>
+        <item>@string/fiftyper</item>
+        <item>@string/sixtyper</item>
+        <item>@string/seventyper</item>
+        <item>@string/eightyper</item>
+        <item>@string/ninetyper</item>
+        <item>@string/hundredper</item>
+    </string-array>
+
+    <string-array name="background_transparency_values" translatable="false">
+        <item>0</item>
+        <item>25</item>
+        <item>51</item>
+        <item>76</item>
+        <item>102</item>
+        <item>127</item>
+        <item>153</item>
+        <item>178</item>
+        <item>204</item>
+        <item>229</item>
+        <item>255</item>
+    </string-array>
+
     <string-array name="weather_source_entries" translatable="false">
         <item>@string/weather_source_yahoo</item>
         <item>@string/weather_source_openweathermap</item>

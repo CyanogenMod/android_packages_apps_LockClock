@@ -34,6 +34,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
+import android.graphics.Color;
 
 import com.cyanogenmod.lockclock.calendar.CalendarViewsService;
 import com.cyanogenmod.lockclock.misc.Constants;
@@ -182,6 +183,14 @@ public class ClockWidgetService extends IntentService {
                 float ratio = WidgetUtils.getScaleRatio(this, id);
                 setClockSize(remoteViews, ratio);
             }
+
+            // Set the widget background color/transparency
+            int backColor = Preferences.clockBackgroundColor(this);
+            int backTrans = Preferences.clockBackgroundTransparency(this);
+            backColor = (backTrans << 24) | (backColor & 0xFFFFFF);
+            remoteViews.setInt(R.id.clock_panel, "setBackgroundColor", backColor); 
+            remoteViews.setInt(R.id.calendar_panel, "setBackgroundColor", backColor);
+            remoteViews.setInt(R.id.weather_panel, "setBackgroundColor", backColor);
 
             // Do the update
             mAppWidgetManager.updateAppWidget(id, remoteViews);

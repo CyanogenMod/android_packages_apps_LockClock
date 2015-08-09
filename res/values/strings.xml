@@ -189,6 +189,10 @@
     <string name="font_color_timestamp">Timestamp font color</string>
     <string name="font_color_calendar_details">Details font color</string>
 
+    <!-- Preferences - Background color -->
+    <string name="background_color">Background color</string>
+    <string name="background_transparency">Background transparency</string>
+
     <!-- Calendar - Lookahead -->
     <string name="calendar_lookahead_3hrs">3 hours</string>
     <string name="calendar_lookahead_6hrs">6 hours</string>
@@ -219,6 +223,19 @@
     <string name="holo_orange_light">Light orange</string>
     <string name="holo_orange_dark">Dark orange</string>
     <string name="holo_blue_bright">Bright blue</string>
+
+    <!-- Transparency percentages -->
+    <string name="zeroper">0</string>
+    <string name="tenper">10</string>
+    <string name="twentyper">20</string>
+    <string name="thirtyper">30</string>
+    <string name="fortyper">40</string>
+    <string name="fiftyper">50</string>
+    <string name="sixtyper">60</string>
+    <string name="seventyper">70</string>
+    <string name="eightyper">80</string>
+    <string name="ninetyper">90</string>
+    <string name="hundredper">100</string>
 
     <!-- Weather icon sets -->
     <string name="weather_icon_set_title">Icon set</string>
