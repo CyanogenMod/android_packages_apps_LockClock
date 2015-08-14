@@ -94,8 +94,8 @@ public class Constants {
     public static final String DEFAULT_LIGHT_COLOR = "#ffffffff";
     public static final String DEFAULT_DARK_COLOR = "#80ffffff";
     public static final String DEFAULT_BACKGROUND_COLOR = "#00000000";
-    public static final String DEFAULT_BACKGROUND_TRANSPARENCY = "0";
-    
+    public static final int DEFAULT_BACKGROUND_TRANSPARENCY = 0;
+
     // Intent actions
     public static final String ACTION_SHOW_FORECAST = "com.cyanogenmod.lockclock.action.SHOW_FORECAST";
 

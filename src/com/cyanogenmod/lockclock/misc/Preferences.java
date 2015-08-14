@@ -88,8 +88,8 @@ public class Preferences {
     }
 
     public static int clockBackgroundTransparency(Context context) {
-        int trans = Integer.parseInt(getPrefs(context).getString(Constants.CLOCK_BACKGROUND_TRANSPARENCY,
-                Constants.DEFAULT_BACKGROUND_TRANSPARENCY));
+        int trans = getPrefs(context).getInt(Constants.CLOCK_BACKGROUND_TRANSPARENCY,
+                Constants.DEFAULT_BACKGROUND_TRANSPARENCY);
         return trans;
     }
 
