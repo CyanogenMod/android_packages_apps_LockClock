@@ -126,7 +126,7 @@
   <string name="weather_show_when_minimized_summary">Afișare informație meteo sumară cănd widget-ul este minimizat</string>
   <string name="weather_select_location">Selectați locația</string>
   <string name="calendar_title">Afișare eveniment următor</string>
-  <string name="calendars_title">Calendare</string>
+  <string name="calendars_title">Calendare eveniment</string>
   <string name="calendars_summary">Afișare evenimente din calendarul selectat</string>
   <string name="calendar_reminders_only_title">Numai cu memento-uri</string>
   <string name="calendar_reminders_only_summary">Afișare doar evenimente cu memento-uri</string>

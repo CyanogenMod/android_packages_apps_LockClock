@@ -116,7 +116,7 @@
   <string name="weather_refresh_interval">새로 고침 간격</string>
   <string name="weather_use_metric">미터법 사용</string>
   <string name="weather_retrieve_location_dialog_title">위치를 받아올 수 없음</string>
-  <string name="weather_retrieve_location_dialog_message">네트워크 위치가 비활성화되어 있습니다.\n\n위치를 직접 지정하거나 네트워크 위치를 활성화해주세요</string>
+  <string name="weather_retrieve_location_dialog_message">네트워크 위치가 비활성화되어 있습니다.\n\n위치를 직접 지정하거나 네트워크 위치를 활성화해 주십시오</string>
   <string name="weather_retrieve_location_dialog_enable_button">활성화</string>
   <string name="weather_invert_lowhigh">기온 저/고 바꾸기</string>
   <string name="weather_progress_title">위치 확인 중</string>
