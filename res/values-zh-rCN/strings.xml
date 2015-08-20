@@ -143,6 +143,8 @@
   <string name="font_color_alarm">闹钟字体颜色</string>
   <string name="font_color_timestamp">时间戳字体颜色</string>
   <string name="font_color_calendar_details">详细信息字体颜色</string>
+  <string name="background_color">背景颜色</string>
+  <string name="background_transparency">背景透明度</string>
   <string name="calendar_lookahead_3hrs">3 小时</string>
   <string name="calendar_lookahead_6hrs">6 小时</string>
   <string name="calendar_lookahead_12hrs">12 小时</string>

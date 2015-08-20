@@ -143,6 +143,8 @@
   <string name="font_color_alarm">Боја фонта аларма</string>
   <string name="font_color_timestamp">Боја фонта временске ознаке</string>
   <string name="font_color_calendar_details">Боја фонта детаља</string>
+  <string name="background_color">Боја позадине</string>
+  <string name="background_transparency">Транспарентност позадине</string>
   <string name="calendar_lookahead_3hrs">3 сата</string>
   <string name="calendar_lookahead_6hrs">6 сати</string>
   <string name="calendar_lookahead_12hrs">12 сати</string>

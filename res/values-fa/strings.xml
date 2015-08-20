@@ -143,6 +143,8 @@
   <string name="font_color_alarm">رنگ قلم هشدار</string>
   <string name="font_color_timestamp">رنگ قلم مهر زمان</string>
   <string name="font_color_calendar_details">رنگ قلم جزئیات</string>
+  <string name="background_color">رنگ پس‌زمینه</string>
+  <string name="background_transparency">شفافیت پس‌زمینه</string>
   <string name="calendar_lookahead_3hrs">۳ ساعت</string>
   <string name="calendar_lookahead_6hrs">۶ ساعت</string>
   <string name="calendar_lookahead_12hrs">۱۲ ساعت</string>
