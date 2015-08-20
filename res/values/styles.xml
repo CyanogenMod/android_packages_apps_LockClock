@@ -76,12 +76,18 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
-    <style name="transparent">
+    <!--Translucent theme so the activity does not show-->
+    <style name="Theme.Transparent" parent="@android:style/Theme.Material">
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
         <item name="android:colorForeground">#fff</item>
         <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowIsFloating">true</item>
     </style>
 
     <style name="Theme.Main" parent="@android:style/Theme.Material.Light.DarkActionBar">
