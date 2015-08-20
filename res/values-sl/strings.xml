@@ -143,6 +143,8 @@
   <string name="font_color_alarm">Barva pisave za budilko</string>
   <string name="font_color_timestamp">Barva pisave za časovni žig</string>
   <string name="font_color_calendar_details">Barva pisave za podrobnosti</string>
+  <string name="background_color">Barva ozadja</string>
+  <string name="background_transparency">Prosojnost ozadja</string>
   <string name="calendar_lookahead_3hrs">3 ure</string>
   <string name="calendar_lookahead_6hrs">6 ur</string>
   <string name="calendar_lookahead_12hrs">12 ur</string>

@@ -143,6 +143,8 @@
   <string name="font_color_alarm">Будильник</string>
   <string name="font_color_timestamp">Дата</string>
   <string name="font_color_calendar_details">Календарь</string>
+  <string name="background_color">Цвет фона</string>
+  <string name="background_transparency">Прозрачность фона</string>
   <string name="calendar_lookahead_3hrs">3 часа</string>
   <string name="calendar_lookahead_6hrs">6 часов</string>
   <string name="calendar_lookahead_12hrs">12 часов</string>

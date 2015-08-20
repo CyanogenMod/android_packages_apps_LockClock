@@ -143,6 +143,7 @@
   <string name="font_color_alarm">Alarmaren letra-kolorea</string>
   <string name="font_color_timestamp">Dataren letra-kolorea</string>
   <string name="font_color_calendar_details">Xehetasunen letra-kolorea</string>
+  <string name="background_color">Atzeko planoaren kolorea</string>
   <string name="calendar_lookahead_3hrs">3 ordu</string>
   <string name="calendar_lookahead_6hrs">6 ordu</string>
   <string name="calendar_lookahead_12hrs">12 ordu</string>

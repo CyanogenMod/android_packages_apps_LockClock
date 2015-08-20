@@ -143,6 +143,8 @@
   <string name="font_color_alarm">アラームのフォントカラー</string>
   <string name="font_color_timestamp">タイムスタンプのフォントカラー</string>
   <string name="font_color_calendar_details">詳細のフォントカラー</string>
+  <string name="background_color">背景色</string>
+  <string name="background_transparency">背景の透過率</string>
   <string name="calendar_lookahead_3hrs">3時間</string>
   <string name="calendar_lookahead_6hrs">6時間</string>
   <string name="calendar_lookahead_12hrs">12時間</string>

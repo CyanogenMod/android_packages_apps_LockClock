@@ -143,6 +143,8 @@
   <string name="font_color_alarm">Cor da fonte do alarme</string>
   <string name="font_color_timestamp">Cor da fonte do horário</string>
   <string name="font_color_calendar_details">Detalhes da cor da fonte</string>
+  <string name="background_color">Cor de fundo</string>
+  <string name="background_transparency">Transparência do fundo</string>
   <string name="calendar_lookahead_3hrs">3 horas</string>
   <string name="calendar_lookahead_6hrs">6 horas</string>
   <string name="calendar_lookahead_12hrs">12 horas</string>
