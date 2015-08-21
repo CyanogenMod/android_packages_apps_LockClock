@@ -16,9 +16,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="unknown">ناشناخته</string>
+  <string name="unknown">نامشخص</string>
   <string name="cancel">لغو</string>
-  <string name="loading_indicator">بارگذاری ویجت\u2026</string>
+  <string name="loading_indicator">بارگذاری ابزارک\u2026</string>
   <string name="menu_done">انجام شد</string>
   <string name="weather_0">گردباد</string>
   <string name="weather_1">طوفان گرمسیری</string>
@@ -97,8 +97,8 @@
   <string name="display_category">نمایش</string>
   <string name="use_digital_clock_title">استفاده از ساعت دیجیتالی</string>
   <string name="use_digital_clock_summary">برای جابجاشدن بین ساعت دیجیتال و آنالوگ انتخاب کنید</string>
-  <string name="clock_font_title">ساعت‌شمار پررنگ</string>
-  <string name="clock_font_minutes_title">دقیقه‌شمار پررنگ</string>
+  <string name="clock_font_title">عدد ساعت پررنگ</string>
+  <string name="clock_font_minutes_title">عدد دقیقه پررنگ</string>
   <string name="clock_font_date_title">تاریخ و هشدار پررنگ</string>
   <string name="show_alarm_title">نمایش هشدار بعدی</string>
   <string name="clock_am_pm_title">نمایش نشانگر ق‌ظ/ب‌ظ</string>
@@ -123,7 +123,7 @@
   <string name="weather_alternate_icons_title">استفاده از آیکون‌های رنگ</string>
   <string name="weather_alternate_icons_summary">انتخاب برای جابجایی بین آیکون‌های پیش‌فرض (رنگ) و جایگزین (سفید)</string>
   <string name="weather_show_when_minimized_title">نمایش هنگام کوچک‌شدن</string>
-  <string name="weather_show_when_minimized_summary">نمایش خلاصه اطلاعات هوا هنگام کوچک‌بودن ویجت</string>
+  <string name="weather_show_when_minimized_summary">نمایش خلاصه اطلاعات هوا هنگام کوچک بودن ابزارک</string>
   <string name="weather_select_location">انتخاب مکان</string>
   <string name="calendar_title">نمایش رویداد بعدی</string>
   <string name="calendars_title">رویدادهای تقویم</string>
@@ -139,10 +139,10 @@
   <string name="calendar_highlight_upcoming_events_title">نمایش رنگی رویدادها</string>
   <string name="calendar_highlight_upcoming_events_summary">نمایش رنگی رویدادهای امروز و همچنین بعد از ساعت 8 ب.ظ نمایش رویدادهای روز بعد</string>
   <string name="calendar_highlight_upcoming_events_bold">فونت درشت</string>
-  <string name="font_color">رنگ قلم</string>
-  <string name="font_color_alarm">رنگ قلم هشدار</string>
-  <string name="font_color_timestamp">رنگ قلم مهر زمان</string>
-  <string name="font_color_calendar_details">رنگ قلم جزئیات</string>
+  <string name="font_color">رنگ فونت</string>
+  <string name="font_color_alarm">رنگ فونت هشدار</string>
+  <string name="font_color_timestamp">رنگ فونت برچسب زمان</string>
+  <string name="font_color_calendar_details">رنگ فونت جزئیات</string>
   <string name="background_color">رنگ پس‌زمینه</string>
   <string name="background_transparency">شفافیت پس‌زمینه</string>
   <string name="calendar_lookahead_3hrs">۳ ساعت</string>
