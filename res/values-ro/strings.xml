@@ -144,6 +144,7 @@
   <string name="font_color_timestamp">Culoare font marcaj de timp</string>
   <string name="font_color_calendar_details">Detalii culoare font</string>
   <string name="background_color">Culoare fundal</string>
+  <string name="background_transparency">Transparență fundal</string>
   <string name="calendar_lookahead_3hrs">3 ore</string>
   <string name="calendar_lookahead_6hrs">6 ore</string>
   <string name="calendar_lookahead_12hrs">12 ore</string>
