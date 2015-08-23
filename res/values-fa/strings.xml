@@ -18,11 +18,22 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">ناشناخته</string>
   <string name="cancel">لغو</string>
+  <string name="loading_indicator">بارگذاری ابزارک\u2026</string>
   <string name="display_category">نمایش</string>
+  <string name="clock_font_title">عدد ساعت پررنگ</string>
+  <string name="clock_font_minutes_title">عدد دقیقه پررنگ</string>
+  <string name="clock_font_date_title">تاریخ و هشدار پررنگ</string>
   <string name="clock_am_pm_title">نمایش نشانگر ق‌ظ/ب‌ظ</string>
   <string name="weather_custom_location_title">مکان</string>
   <string name="weather_show_location_title">نمایش مکان</string>
   <string name="weather_progress_title">تایید مکان</string>
+  <string name="weather_show_when_minimized_summary">نمایش خلاصه اطلاعات هوا هنگام کوچک بودن ابزارک</string>
   <string name="weather_select_location">انتخاب مکان</string>
   <string name="calendar_show_location_title">مکان رویداد</string>
+  <string name="calendar_highlight_upcoming_events_bold">فونت درشت</string>
+  <string name="font_color">رنگ فونت</string>
+  <string name="font_color_alarm">رنگ فونت هشدار</string>
+  <string name="font_color_timestamp">رنگ فونت برچسب زمان</string>
+  <string name="font_color_calendar_details">رنگ فونت جزئیات</string>
+  <string name="white">سفید</string>
 </resources>

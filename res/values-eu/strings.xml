@@ -128,7 +128,7 @@
   <string name="calendar_title">Bistaratu hurrengo gertaera</string>
   <string name="calendars_title">Gertaera egutegiak</string>
   <string name="calendars_summary">Bilatu egutegi hauetako gertaerak</string>
-  <string name="calendar_reminders_only_title">Oroigariak bakarrik</string>
+  <string name="calendar_reminders_only_title">Oroigarriak besterik ez</string>
   <string name="calendar_reminders_only_summary">Erakutsi soilik oroigarria duten gertaerak</string>
   <string name="calendar_hide_allday_title">Ezkutatu egun osoko gertaerak</string>
   <string name="calendar_icon_title">Egutegi ikonoa erakutsi</string>
