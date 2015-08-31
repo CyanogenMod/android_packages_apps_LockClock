@@ -143,6 +143,8 @@
   <string name="font_color_alarm">알람 글꼴 색</string>
   <string name="font_color_timestamp">갱신시간 글꼴 색</string>
   <string name="font_color_calendar_details">자세한 정보 글꼴 색</string>
+  <string name="background_color">배경 색상</string>
+  <string name="background_transparency">배경 투명도</string>
   <string name="calendar_lookahead_3hrs">3시간</string>
   <string name="calendar_lookahead_6hrs">6시간</string>
   <string name="calendar_lookahead_12hrs">12시간</string>

@@ -143,6 +143,8 @@
   <string name="font_color_alarm">Ébresztés idejének színe</string>
   <string name="font_color_timestamp">Frissítés idejének színe</string>
   <string name="font_color_calendar_details">Részletek színe</string>
+  <string name="background_color">Háttérszín</string>
+  <string name="background_transparency">Háttér átlátszóság</string>
   <string name="calendar_lookahead_3hrs">3 óra</string>
   <string name="calendar_lookahead_6hrs">6 óra</string>
   <string name="calendar_lookahead_12hrs">12 óra</string>
