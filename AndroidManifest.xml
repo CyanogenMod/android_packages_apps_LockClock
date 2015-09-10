@@ -48,6 +48,7 @@
 
         <activity
             android:name=".preference.Preferences"
+            android:configChanges="orientation|screenSize"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
