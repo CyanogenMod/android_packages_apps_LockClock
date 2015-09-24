@@ -46,10 +46,12 @@
   <string name="weather_23">Gió giật</string>
   <string name="weather_24">Gió</string>
   <string name="weather_25">Lạnh</string>
+  <string name="weather_26">Có mây</string>
   <string name="weather_27">Nhiều mây</string>
   <string name="weather_28">Nhiều mây</string>
   <string name="weather_29">Ít mây</string>
   <string name="weather_30">Ít mây</string>
+  <string name="weather_31">Quang mây</string>
   <string name="weather_32">Nắng</string>
   <string name="weather_33">Thời tiết tốt</string>
   <string name="weather_34">Thời tiết tốt</string>
@@ -141,6 +143,8 @@
   <string name="font_color_alarm">Màu sắc phông báo thức</string>
   <string name="font_color_timestamp">Màu sắc phông nhãn thời gian</string>
   <string name="font_color_calendar_details">Màu phông chữ chi tiết</string>
+  <string name="background_color">Màu nền</string>
+  <string name="background_transparency">Độ trong suốt của nền</string>
   <string name="calendar_lookahead_3hrs">3 giờ</string>
   <string name="calendar_lookahead_6hrs">6 giờ</string>
   <string name="calendar_lookahead_12hrs">12 giờ</string>

@@ -143,6 +143,8 @@
   <string name="font_color_alarm">สีตัวอักษร นาฬิกาปลุก</string>
   <string name="font_color_timestamp">สีตัวอักษรบอกเวลา</string>
   <string name="font_color_calendar_details">สีตัวอักษรรายละเอียด</string>
+  <string name="background_color">สีพื้นหลัง</string>
+  <string name="background_transparency">ความโปร่งใสของพื้นหลัง</string>
   <string name="calendar_lookahead_3hrs">3 ชั่วโมง</string>
   <string name="calendar_lookahead_6hrs">6 ชั่วโมง</string>
   <string name="calendar_lookahead_12hrs">12 ชั่วโมง</string>

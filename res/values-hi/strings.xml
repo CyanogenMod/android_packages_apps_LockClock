@@ -143,6 +143,8 @@
   <string name="font_color_alarm">अलार्म फ़ॉन्ट का रंग</string>
   <string name="font_color_timestamp">समय-मुहर के फ़ॉन्ट का रंग</string>
   <string name="font_color_calendar_details">विवरण फ़ॉन्ट का रंग</string>
+  <string name="background_color">पृष्ठभूमि रंग</string>
+  <string name="background_transparency">पृष्ठभूमि पारदर्शिता</string>
   <string name="calendar_lookahead_3hrs">3 घंटे</string>
   <string name="calendar_lookahead_6hrs">6 घंटे</string>
   <string name="calendar_lookahead_12hrs">12 घंटे</string>
