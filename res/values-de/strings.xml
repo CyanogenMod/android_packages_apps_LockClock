@@ -79,7 +79,7 @@
   <string name="weather_W">W</string>
   <string name="weather_NW">NW</string>
   <string name="weather_no_data">Keine Daten</string>
-  <string name="weather_tap_to_refresh">Zum Aktualisieren berühren</string>
+  <string name="weather_tap_to_refresh">Zum Aktualisieren tippen</string>
   <string name="weather_refreshing">Aktualisiere\u2026</string>
   <string name="weather_last_sync_just_now">Gerade jetzt</string>
   <string name="weather_cannot_reach_provider">%s ist momentan nicht erreichbar</string>

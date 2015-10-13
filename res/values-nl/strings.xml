@@ -143,6 +143,8 @@
   <string name="font_color_alarm">Letterkleur alarm</string>
   <string name="font_color_timestamp">Letterkleur tijdsaanduiding</string>
   <string name="font_color_calendar_details">Letterkleur details</string>
+  <string name="background_color">Achtergrondkleur</string>
+  <string name="background_transparency">Achtergrondtransparantie</string>
   <string name="calendar_lookahead_3hrs">3 uur</string>
   <string name="calendar_lookahead_6hrs">6 uur</string>
   <string name="calendar_lookahead_12hrs">12 uur</string>
