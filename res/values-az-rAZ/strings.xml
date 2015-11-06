@@ -136,6 +136,8 @@
   <string name="calendar_upcoming_events_category">Yaxınlaşan tədbirlər</string>
   <string name="calendar_highlight_upcoming_events_title">Tədbirləri ayır</string>
   <string name="calendar_highlight_upcoming_events_summary">Bugünün tədbirləri axşam 8-dən sonradırsa sabahın tədbirlərini ayır</string>
+  <string name="font_color">Yazı rəngi</string>
+  <string name="font_color_alarm">Zəngli saat yazı rəngi</string>
   <string name="font_color_timestamp">Vaxt damğası yazı rəngi</string>
   <string name="font_color_calendar_details">Yazı rəngi təfsilatı</string>
   <string name="background_color">Arxaplan rəngi</string>
