@@ -102,7 +102,7 @@
   <string name="clock_font_date_title">Tarix və zəngli saatı qalın göstər</string>
   <string name="show_alarm_title">Növbəti zəngli saatı göstər</string>
   <string name="clock_am_pm_title">AM/PM göstəricisi</string>
-  <string name="weather_enabled">Aktiv</string>
+  <string name="weather_enabled">Fəallaşdırıldı</string>
   <string name="weather_enable">Hava durumunu göstər</string>
   <string name="weather_source_title">Hava mənbəsi</string>
   <string name="weather_source_yahoo">Yahoo! Hava</string>
@@ -116,6 +116,7 @@
   <string name="weather_refresh_interval">Yeniləmə aralığı</string>
   <string name="weather_use_metric">Metrik sistem</string>
   <string name="weather_retrieve_location_dialog_title">Yer alına bilmir!</string>
+  <string name="weather_retrieve_location_dialog_message">Şəbəkə yerləşdirməsi ləğv edilib.\n\nXüsusi yer tənzimləyin, ya da şəbəkə yerini fəallaşdırın</string>
   <string name="weather_retrieve_location_dialog_enable_button">Fəallaşdır</string>
   <string name="weather_invert_lowhigh">Aşağı/Yüksək hərarətləri tərsinə çevir</string>
   <string name="weather_progress_title">Yer təsdiqlənir</string>
@@ -131,11 +132,13 @@
   <string name="calendar_reminders_only_summary">Yalnız xatırlatıcıları olan tədbirləri göstər</string>
   <string name="calendar_hide_allday_title">Gün ərzindəki tədbirləri gizlət</string>
   <string name="calendar_icon_title">Təqvim nişanı</string>
+  <string name="calendar_lookahead_title">Gələcək tədbirlər</string>
   <string name="calendar_show_location_title">Tədbir yeri</string>
   <string name="calendar_show_description_title">Tədbir təsviri</string>
   <string name="calendar_upcoming_events_category">Yaxınlaşan tədbirlər</string>
   <string name="calendar_highlight_upcoming_events_title">Tədbirləri ayır</string>
   <string name="calendar_highlight_upcoming_events_summary">Bugünün tədbirləri axşam 8-dən sonradırsa sabahın tədbirlərini ayır</string>
+  <string name="calendar_highlight_upcoming_events_bold">Qalın yazı tipi</string>
   <string name="font_color">Yazı rəngi</string>
   <string name="font_color_alarm">Zəngli saat yazı rəngi</string>
   <string name="font_color_timestamp">Vaxt damğası yazı rəngi</string>
