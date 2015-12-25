@@ -143,6 +143,8 @@
   <string name="font_color_alarm">Tekstfarge for alarm</string>
   <string name="font_color_timestamp">Tekstfarge for tidsstempel</string>
   <string name="font_color_calendar_details">Tekstfarge for detaljer</string>
+  <string name="background_color">Bakgrunnsfarge</string>
+  <string name="background_transparency">Bakgrunnsgjennomsiktighet</string>
   <string name="calendar_lookahead_3hrs">3 timer</string>
   <string name="calendar_lookahead_6hrs">6 timer</string>
   <string name="calendar_lookahead_12hrs">12 timer</string>

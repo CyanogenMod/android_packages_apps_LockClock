@@ -16,8 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="unknown">ไม่รู้จัก</string>
-  <string name="cancel">ยกเลิก</string>
-  <string name="background_color">สีพื้นหลัง</string>
-  <string name="background_transparency">ความโปร่งใสของพื้นหลัง</string>
+  <string name="unknown">Descoñecido</string>
+  <string name="cancel">Cancelar</string>
+  <string name="menu_done">Feito</string>
 </resources>
