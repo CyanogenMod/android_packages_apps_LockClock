@@ -19,7 +19,7 @@
     android:versionCode="21"
     android:versionName="3.4.1" >
 
-    <uses-sdk android:minSdkVersion="21" />
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="23" />
 
     <permission android:name="com.cyanogenmod.lockclock.permission.READ_WEATHER" />
 
