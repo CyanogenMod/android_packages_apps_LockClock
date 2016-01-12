@@ -16,6 +16,7 @@
 
 package com.cyanogenmod.lockclock.preference;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
@@ -23,6 +24,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
@@ -41,8 +43,9 @@ import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
 public class WeatherPreferences extends PreferenceFragment implements
-        SharedPreferences.OnSharedPreferenceChangeListener {
+        SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener {
     private static final String TAG = "WeatherPreferences";
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     private static final String[] LOCATION_PREF_KEYS = new String[] {
         Constants.WEATHER_USE_CUSTOM_LOCATION,
@@ -60,9 +63,10 @@ public class WeatherPreferences extends PreferenceFragment implements
     private SwitchPreference mUseMetric;
     private IconSelectionPreference mIconSet;
     private SwitchPreference mUseCustomlocation;
-
+    private SwitchPreference mShowWeather;
     private Context mContext;
     private ContentResolver mResolver;
+    private Runnable mPostResumeRunnable;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,6 +84,9 @@ public class WeatherPreferences extends PreferenceFragment implements
         mIconSet = (IconSelectionPreference) findPreference(Constants.WEATHER_ICONS);
         mUseMetric = (SwitchPreference) findPreference(Constants.WEATHER_USE_METRIC);
         mUseCustomlocation = (SwitchPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
+
+        mShowWeather = (SwitchPreference) findPreference(Constants.SHOW_WEATHER);
+        mShowWeather.setOnPreferenceChangeListener(this);
 
         // At first placement/start default the use of Metric units based on locale
         // If we had a previously set value already, this will just reset the same value
@@ -99,6 +106,16 @@ public class WeatherPreferences extends PreferenceFragment implements
         super.onResume();
 
         getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+
+        if (!hasLocationPermission(mContext)) {
+            mShowWeather.setChecked(false);
+        }
+
+        if (mPostResumeRunnable != null) {
+            mPostResumeRunnable.run();
+            mPostResumeRunnable = null;
+        }
+
         updateLocationSummary();
         updateFontColorsSummary();
         updateIconSetSummary();
@@ -171,6 +188,11 @@ public class WeatherPreferences extends PreferenceFragment implements
         mContext.sendBroadcast(updateIntent);
     }
 
+    public static boolean hasLocationPermission(Context context) {
+        return context.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
     //===============================================================================================
     // Utility classes and supporting methods
     //===============================================================================================
@@ -221,5 +243,35 @@ public class WeatherPreferences extends PreferenceFragment implements
         if (mIconSet != null) {
             mIconSet.setSummary(mIconSet.getEntry());
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // We only get here if user tried to enable the preference,
+                // hence safe to turn it on after permission is granted
+                mPostResumeRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        mShowWeather.setChecked(true);
+                    }
+                };
+            }
+        }
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mShowWeather) {
+            if (!hasLocationPermission(mContext)) {
+                String[] permissions = new String[]{Manifest.permission.ACCESS_COARSE_LOCATION};
+                requestPermissions(permissions, LOCATION_PERMISSION_REQUEST_CODE);
+                return false;
+            }
+        }
+        return true;
     }
 }
