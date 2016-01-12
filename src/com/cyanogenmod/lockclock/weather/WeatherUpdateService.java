@@ -39,6 +39,8 @@ import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
+import com.cyanogenmod.lockclock.preference.WeatherPreferences;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
@@ -126,6 +128,11 @@ public class WeatherUpdateService extends Service {
         long interval = Preferences.weatherRefreshIntervalInMs(this);
         if (interval == 0 && !force) {
             if (D) Log.v(TAG, "Interval set to manual and update not forced, skip update");
+            return false;
+        }
+
+        if (!WeatherPreferences.hasLocationPermission(this)) {
+            if (D) Log.v(TAG, "Application does not have the location permission");
             return false;
         }
 

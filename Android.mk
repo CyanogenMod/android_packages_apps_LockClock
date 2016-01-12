@@ -19,7 +19,7 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
-LOCAL_SDK_VERSION := 21
+LOCAL_SDK_VERSION := current
 LOCAL_PACKAGE_NAME := LockClock
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 LOCAL_AAPT_INCLUDE_ALL_RESOURCES := true
@@ -32,6 +32,7 @@ LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dir))
 LOCAL_AAPT_FLAGS := --auto-add-overlay
 LOCAL_AAPT_FLAGS += --extra-packages com.google.android.gms
 
-LOCAL_STATIC_JAVA_LIBRARIES := play
+LOCAL_STATIC_JAVA_LIBRARIES := play \
+                               org.apache.http.legacy
 
 include $(BUILD_PACKAGE)
