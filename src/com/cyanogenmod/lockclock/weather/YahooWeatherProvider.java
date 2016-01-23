@@ -64,7 +64,7 @@ public class YahooWeatherProvider implements WeatherProvider {
         "locality1", "locality2", "admin3", "admin2", "admin1"
     };
     private static final String[] PLACE_NAMES = new String[] {
-        "city", "neigborhood", "county"
+        "city", "neigborhood", "country"
     };
 
     private Context mContext;
