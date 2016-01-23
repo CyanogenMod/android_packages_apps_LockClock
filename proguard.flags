@@ -27,3 +27,11 @@
 -dontwarn org.apache.http.**
 -dontwarn android.support.**
 -dontwarn com.google.android.gms.**
+
+# No webkit-related build errors
+-keep public class android.net.http.SslError
+-keep public class android.webkit.WebViewClient
+
+-dontwarn android.webkit.WebView
+-dontwarn android.net.http.SslError
+-dontwarn android.webkit.WebViewClient
