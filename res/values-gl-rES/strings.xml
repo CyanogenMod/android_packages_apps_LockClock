@@ -125,8 +125,19 @@
   <string name="weather_show_when_minimized_title">Amosar ao minimizar</string>
   <string name="weather_show_when_minimized_summary">Amosar a previsión do tempo cando o trebello está minimizado</string>
   <string name="weather_select_location">Seleccionar a localización</string>
+  <string name="calendar_title">Amosar a vindeira cita</string>
+  <string name="calendars_title">Calendarios de citas</string>
+  <string name="calendars_summary">Atopar citas destes calendarios</string>
   <string name="calendar_reminders_only_title">Só recordatorios</string>
+  <string name="calendar_reminders_only_summary">Amosar só citas con recordatorios</string>
+  <string name="calendar_hide_allday_title">Agochar as citas de días completos</string>
   <string name="calendar_icon_title">Icona do calendario</string>
+  <string name="calendar_lookahead_title">Adianto da cita</string>
+  <string name="calendar_show_location_title">Localización da cita</string>
+  <string name="calendar_show_description_title">Descrición da cita</string>
+  <string name="calendar_upcoming_events_category">Citas previstas</string>
+  <string name="calendar_highlight_upcoming_events_title">Realzar citas</string>
+  <string name="calendar_highlight_upcoming_events_summary">Realzar as citas do día actual e, despois das 20:00, tamén as do día seguinte</string>
   <string name="calendar_highlight_upcoming_events_bold">Texto en grosa</string>
   <string name="font_color">Cor da letra</string>
   <string name="font_color_alarm">Cor da letra da alarma</string>
@@ -145,6 +156,7 @@
   <string name="calendar_lookahead_4wks">4 semanas</string>
   <string name="calendar_metadata_none">Non amosar</string>
   <string name="calendar_metadata_first_line">Amosar a primeira liña</string>
+  <string name="calendar_metadata_all">Amosar todo</string>
   <string name="white">Branco</string>
   <string name="grey">Gris</string>
   <string name="black">Negro</string>
@@ -156,4 +168,10 @@
   <string name="holo_red_dark">Vermello escuro</string>
   <string name="holo_purple">Púrpura</string>
   <string name="holo_orange_light">Laranxa claro</string>
+  <string name="holo_orange_dark">Laranxa escuro</string>
+  <string name="holo_blue_bright">Azul brillante</string>
+  <string name="weather_icon_set_title">Conxunto de iconas</string>
+  <string name="weather_icons_standard">Colorido</string>
+  <string name="weather_icons_monochrome">Monocromático</string>
+  <string name="icon_set_selection_get_more">Obter máis\u2026</string>
 </resources>

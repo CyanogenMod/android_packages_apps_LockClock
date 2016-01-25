@@ -143,6 +143,8 @@
   <string name="font_color_alarm">لون خط التنبيه</string>
   <string name="font_color_timestamp">لون الخط الطابع الزمني</string>
   <string name="font_color_calendar_details">لون الخط الخاص بالتفاصيل</string>
+  <string name="background_color">لون الخلفية</string>
+  <string name="background_transparency">شفافية الخليفة</string>
   <string name="calendar_lookahead_3hrs">3 ساعات</string>
   <string name="calendar_lookahead_6hrs">6 ساعات</string>
   <string name="calendar_lookahead_12hrs">12 ساعة</string>
