@@ -67,6 +67,7 @@
   <string name="weather_44">Djelomično oblačno</string>
   <string name="weather_45">Udari groma</string>
   <string name="weather_46">Povremeni snijeg</string>
+  <string name="weather_47">Olujni pljuskovi</string>
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">mph</string>
   <string name="weather_N">S</string>
@@ -91,6 +92,7 @@
   <string name="weather_refresh_8hrs">8 sati</string>
   <string name="clock_category">Sat i alarm</string>
   <string name="weather_category">Vremenska prognoza</string>
+  <string name="calendar_category">Kalendar događaja</string>
   <string name="general_category">Općenito</string>
   <string name="display_category">Prikaz</string>
   <string name="use_digital_clock_title">Koristi digitalni sat</string>
@@ -119,12 +121,30 @@
   <string name="weather_invert_lowhigh">Izokreni niske/visoke temperature</string>
   <string name="weather_progress_title">Provjera lokacije</string>
   <string name="weather_alternate_icons_title">Koristi ikone u boji</string>
+  <string name="weather_alternate_icons_summary">Odaberite da biste se prebacivali između zadane (Boje) i alternativnih (Bijelih) ikona</string>
   <string name="weather_show_when_minimized_title">Prikaži kad je minimizirano</string>
+  <string name="weather_show_when_minimized_summary">Prikaži sažete vremenske podatke kada je widget minimiziran</string>
   <string name="weather_select_location">Odaberite mjesto</string>
   <string name="calendar_title">Prikaži sljedeći događaj</string>
+  <string name="calendars_title">Događaji kalendara</string>
+  <string name="calendars_summary">Pronađi događaje iz ovih kalendara</string>
+  <string name="calendar_reminders_only_title">Samo podsjetnici</string>
+  <string name="calendar_reminders_only_summary">Pokaži samo događaje s podsjetnicima</string>
+  <string name="calendar_hide_allday_title">Sakrij cjelodnevne događaje</string>
   <string name="calendar_icon_title">Ikona kalendara</string>
+  <string name="calendar_lookahead_title">Predstojeći događaji</string>
+  <string name="calendar_show_location_title">Lokacija događaja</string>
+  <string name="calendar_show_description_title">Opis događaja</string>
+  <string name="calendar_upcoming_events_category">Nadolazeći događaji</string>
+  <string name="calendar_highlight_upcoming_events_title">Istaknuti događaji</string>
+  <string name="calendar_highlight_upcoming_events_summary">Istakni današnje događaje i, nakon 8 sati sutrašnje događaje</string>
   <string name="calendar_highlight_upcoming_events_bold">Podebljani font</string>
   <string name="font_color">Boja fonta</string>
+  <string name="font_color_alarm">Boja fonta alarma</string>
+  <string name="font_color_timestamp">Boja fonta vremenske oznake</string>
+  <string name="font_color_calendar_details">Boja fonta detalja</string>
+  <string name="background_color">Boja pozadine</string>
+  <string name="background_transparency">Transparentnost pozadine</string>
   <string name="calendar_lookahead_3hrs">3 sata</string>
   <string name="calendar_lookahead_6hrs">6 sati</string>
   <string name="calendar_lookahead_12hrs">12 sati</string>
@@ -148,4 +168,10 @@
   <string name="holo_red_dark">Tamno crveno</string>
   <string name="holo_purple">Ljubičasto</string>
   <string name="holo_orange_light">Svijetlo narančasto</string>
+  <string name="holo_orange_dark">Tamno narančasto</string>
+  <string name="holo_blue_bright">Svijetlo plavo</string>
+  <string name="weather_icon_set_title">Set ikona</string>
+  <string name="weather_icons_standard">Obojano</string>
+  <string name="weather_icons_monochrome">Crno-bijelo</string>
+  <string name="icon_set_selection_get_more">Preuzmi više\u2026</string>
 </resources>

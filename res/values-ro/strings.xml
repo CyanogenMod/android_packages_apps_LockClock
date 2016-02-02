@@ -82,7 +82,7 @@
   <string name="weather_tap_to_refresh">Apăsați pentru actualizare</string>
   <string name="weather_refreshing">Actualizare</string>
   <string name="weather_last_sync_just_now">Acum</string>
-  <string name="weather_cannot_reach_provider">Meteo indisponibil</string>
+  <string name="weather_cannot_reach_provider">Nu se poate contacta %s acum</string>
   <string name="weather_refresh_manual">Manual</string>
   <string name="weather_refresh_30min">30 minute</string>
   <string name="weather_refresh_60min">60 minute</string>
