@@ -96,7 +96,7 @@
   <string name="general_category">Общи</string>
   <string name="display_category">Дисплей</string>
   <string name="use_digital_clock_title">Използвайте цифров часовник</string>
-  <string name="use_digital_clock_summary">Изберете, за да превключвате между цифров и аналогов часовник</string>
+  <string name="use_digital_clock_summary">Изберете между цифров и аналогов часовник</string>
   <string name="clock_font_title">Удебели часа</string>
   <string name="clock_font_minutes_title">Удебели минутите</string>
   <string name="clock_font_date_title">Удебели датата и алармата</string>
@@ -111,9 +111,9 @@
   <string name="weather_custom_location_dialog_title">Въведете местоположение</string>
   <string name="weather_custom_location_hint">Град, област/държава</string>
   <string name="weather_custom_location_title">Местоположение</string>
-  <string name="weather_show_location_title">Показвай къде е</string>
-  <string name="weather_show_timestamp_title">Показвай час и дата</string>
-  <string name="weather_refresh_interval">Промеждутък за актуализиране</string>
+  <string name="weather_show_location_title">Покажи местоположение</string>
+  <string name="weather_show_timestamp_title">Показвай дата и час</string>
+  <string name="weather_refresh_interval">Интервал на актуализиране</string>
   <string name="weather_use_metric">Използвайте метричната система</string>
   <string name="weather_retrieve_location_dialog_title">Не може да извлече местоположението ви!</string>
   <string name="weather_retrieve_location_dialog_message">Мрежовата геолокация е деактивирана.\n\nЗадайте местоположение по избор или активирайте мрежовата геолокация</string>
@@ -122,8 +122,8 @@
   <string name="weather_progress_title">Проверка на местоположението</string>
   <string name="weather_alternate_icons_title">Използвай цвятни икони</string>
   <string name="weather_alternate_icons_summary">Изберете, за да превключвате иконите по цвят по подразбиране (цвят) или на алтернативно (бяло)</string>
-  <string name="weather_show_when_minimized_title">Показвай когато минимизиран</string>
-  <string name="weather_show_when_minimized_summary">Показвай информация за времето, когато приспособлението е минимизирано</string>
+  <string name="weather_show_when_minimized_title">Винаги показвай</string>
+  <string name="weather_show_when_minimized_summary">Показвай информация за времето, дори когато приспособлението е минимизирано</string>
   <string name="weather_select_location">Изберете местоположение</string>
   <string name="calendar_title">Покажи следващо събитие</string>
   <string name="calendars_title">Показване на събития от календари</string>
@@ -137,7 +137,7 @@
   <string name="calendar_show_description_title">Описание на събитието</string>
   <string name="calendar_upcoming_events_category">Предстоящи събития</string>
   <string name="calendar_highlight_upcoming_events_title">Маркирайте събития</string>
-  <string name="calendar_highlight_upcoming_events_summary">Маркирайте събитията на текущия ден и след 8 ч., също така маркирайте събитията на следващия ден</string>
+  <string name="calendar_highlight_upcoming_events_summary">Маркирайте събития от деня, както и събития след 20: 00 часа на следващия ден</string>
   <string name="calendar_highlight_upcoming_events_bold">Удебелен шрифт</string>
   <string name="font_color">Цвят на шрифта</string>
   <string name="font_color_alarm">Цвят на шрифта на алармата</string>
