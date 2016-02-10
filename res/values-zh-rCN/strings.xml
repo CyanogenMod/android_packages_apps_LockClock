@@ -123,7 +123,7 @@
   <string name="weather_alternate_icons_title">使用彩色图标</string>
   <string name="weather_alternate_icons_summary">在彩色与白色的图标之间进行切换</string>
   <string name="weather_show_when_minimized_title">最小化时显示</string>
-  <string name="weather_show_when_minimized_summary">小部件最小化时将依然显示天气信息</string>
+  <string name="weather_show_when_minimized_summary">小部件最小化时依然显示天气信息</string>
   <string name="weather_select_location">选择位置</string>
   <string name="calendar_title">显示下一个活动</string>
   <string name="calendars_title">活动日历</string>
