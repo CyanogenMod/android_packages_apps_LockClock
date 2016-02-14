@@ -57,14 +57,11 @@ public class YahooWeatherProvider implements WeatherProvider {
                     "or placetype = 10 or placetype = 11 or placetype = 20) and text =");
     private static final String URL_PLACEFINDER =
             "https://query.yahooapis.com/v1/public/yql?format=json&q=" +
-            Uri.encode("select woeid, city, neighborhood, county from geo.placefinder where " +
-                    "gflags=\"R\" and text =");
+            Uri.encode("select * from geo.places where " +
+                    "text =");
 
     private static final String[] LOCALITY_NAMES = new String[] {
         "locality1", "locality2", "admin3", "admin2", "admin1"
-    };
-    private static final String[] PLACE_NAMES = new String[] {
-        "city", "neigborhood", "county"
     };
 
     private Context mContext;
@@ -212,31 +209,22 @@ public class YahooWeatherProvider implements WeatherProvider {
     @Override
     public WeatherInfo getWeatherInfo(Location location, boolean metric) {
         String language = getLanguage();
-        String params = String.format(Locale.US, "\"%f %f\" and locale=\"%s\"",
+        String params = String.format(Locale.US, "\"(%f,%f)\" and lang=\"%s\"",
                 location.getLatitude(), location.getLongitude(), language);
         String url = URL_PLACEFINDER + Uri.encode(params);
         JSONObject results = fetchResults(url);
         if (results == null) {
             return null;
         }
-
         try {
-            JSONObject result = results.getJSONObject("Result");
-            String woeid = result.getString("woeid");
-
+            JSONObject place = results.getJSONObject("place");
+            LocationResult result = parsePlace(place);
+            String woeid = null;
             String city = null;
-            for (String name : PLACE_NAMES) {
-                if (!result.isNull(name)) {
-                    city = result.getString(name);
-                    if (Log.isLoggable(TAG, Log.VERBOSE)) {
-                        Log.v(TAG, String.format(Locale.US, "Placefinder for location %f %f " +
-                                "matched %s using %s", location.getLatitude(),
-                                location.getLongitude(), city, name));
-                    }
-                    break;
-                }
+            if (result != null) {
+                woeid = result.id;
+                city = result.city;
             }
-
             // The city name in the placefinder result is HTML encoded :-(
             if (city != null) {
                 city = Html.fromHtml(city).toString();
@@ -271,7 +259,11 @@ public class YahooWeatherProvider implements WeatherProvider {
 
         for (String name : LOCALITY_NAMES) {
             if (!place.isNull(name)) {
-                result.city = place.getJSONObject(name).getString("content");
+                JSONObject localeObject = place.getJSONObject(name);
+                result.city = localeObject.getString("content");
+                if (localeObject.optString("woeid") != null) {
+                    result.id = localeObject.getString("woeid");
+                }
                 break;
             }
         }
