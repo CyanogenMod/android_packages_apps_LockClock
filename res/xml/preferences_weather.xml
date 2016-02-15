@@ -28,7 +28,7 @@
 
         <ListPreference
             android:key="weather_source"
-            android:defaultValue="yahoo"
+            android:defaultValue="openweathermap"
             android:dependency="show_weather"
             android:summary="%s"
             android:entries="@array/weather_source_entries"
