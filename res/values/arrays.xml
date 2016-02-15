@@ -107,12 +107,12 @@
     </string-array>
 
     <string-array name="weather_source_entries" translatable="false">
-        <item>@string/weather_source_yahoo</item>
+<!--        <item>@string/weather_source_yahoo</item> -->
         <item>@string/weather_source_openweathermap</item>
     </string-array>
 
     <string-array name="weather_source_values" translatable="false">
-        <item>yahoo</item>
+<!--        <item>yahoo</item> -->
         <item>openweathermap</item>
     </string-array>
 
