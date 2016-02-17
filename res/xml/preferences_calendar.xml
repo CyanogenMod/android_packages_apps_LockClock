@@ -31,8 +31,7 @@
             android:dependency="show_calendar"
             android:dialogTitle="@string/calendars_title"
             android:title="@string/calendars_title"
-            android:summary="@string/calendars_summary"
-            android:defaultValue="@array/empty_array" />
+            android:summary="@string/calendars_summary" />
 
         <ListPreference
             android:key="calendar_lookahead"
