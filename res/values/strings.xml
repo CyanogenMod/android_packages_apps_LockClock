@@ -171,6 +171,7 @@
     <string name="calendar_title">Display next event</string>
     <string name="calendars_title">Event calendars</string>
     <string name="calendars_summary">Find events from these calendars</string>
+    <string name="calendars_none_found_summary">No Calendars found, please add a Calendar account</string>
     <string name="calendar_reminders_only_title">Reminders only</string>
     <string name="calendar_reminders_only_summary">Show only events with reminders</string>
     <string name="calendar_hide_allday_title">Hide all-day events</string>
