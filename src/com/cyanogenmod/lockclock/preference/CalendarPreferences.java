@@ -78,6 +78,7 @@ public class CalendarPreferences extends PreferenceFragment implements
         if (!hasCalendarPermission()) {
             mShowCalendar.setChecked(false);
         } else {
+            mShowCalendar.setChecked(true);
             updateCalendars();
         }
     }
@@ -129,6 +130,14 @@ public class CalendarPreferences extends PreferenceFragment implements
         CalendarEntries calEntries = CalendarEntries.findCalendars(getActivity());
         calendarList.setEntries(calEntries.getEntries());
         calendarList.setEntryValues(calEntries.getEntryValues());
+
+        if (calEntries.getEntryValues().length == 0) {
+            calendarList.setSummary(R.string.calendars_none_found_summary);
+            calendarList.setEnabled(false);
+        } else {
+            calendarList.setSummary(R.string.calendars_summary);
+            calendarList.setEnabled(true);
+        }
     }
 
     @Override
