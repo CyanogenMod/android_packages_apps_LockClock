@@ -41,6 +41,7 @@ import com.cyanogenmod.lockclock.misc.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
 
 public class CalendarPreferences extends PreferenceFragment implements
     OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener {
@@ -128,8 +129,18 @@ public class CalendarPreferences extends PreferenceFragment implements
         MultiSelectListPreference calendarList =
                 (MultiSelectListPreference) findPreference(Constants.CALENDAR_LIST);
         CalendarEntries calEntries = CalendarEntries.findCalendars(getActivity());
+
+        boolean firstTime = com.cyanogenmod.lockclock.misc.Preferences.calendarsToDisplay(mContext) == null;
         calendarList.setEntries(calEntries.getEntries());
         calendarList.setEntryValues(calEntries.getEntryValues());
+        if (firstTime) {
+            // by default, select all the things
+            HashSet defaults = new HashSet();
+            for (CharSequence s : calEntries.getEntryValues()) {
+                defaults.add((String) s);
+            }
+            calendarList.setValues(defaults);
+        }
 
         if (calEntries.getEntryValues().length == 0) {
             calendarList.setSummary(R.string.calendars_none_found_summary);
