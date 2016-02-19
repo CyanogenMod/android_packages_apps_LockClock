@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="unknown">Nepoznato</string>
-  <string name="cancel">Odbaci</string>
+  <string name="cancel">Odustani</string>
   <string name="loading_indicator">Učitavanje widgeta\u2026</string>
   <string name="menu_done">Gotovo</string>
   <string name="weather_0">Tornado</string>
