@@ -128,6 +128,7 @@
   <string name="calendar_title">Volgende afspraak tonen</string>
   <string name="calendars_title">Afspraakagenda\'s</string>
   <string name="calendars_summary">Afspraken gebruiken uit deze agenda\'s</string>
+  <string name="calendars_none_found_summary">Geen agenda\'s gevonden</string>
   <string name="calendar_reminders_only_title">Alleen met herinneringen</string>
   <string name="calendar_reminders_only_summary">Alleen afspraken tonen met herinneringen</string>
   <string name="calendar_hide_allday_title">Hele dag-afspraken verbergen</string>

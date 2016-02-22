@@ -95,7 +95,7 @@
   <string name="calendar_category">Събития от календара</string>
   <string name="general_category">Общи</string>
   <string name="display_category">Дисплей</string>
-  <string name="use_digital_clock_title">Използвайте цифров часовник</string>
+  <string name="use_digital_clock_title">Използвай цифров часовник</string>
   <string name="use_digital_clock_summary">Изберете между цифров и аналогов часовник</string>
   <string name="clock_font_title">Удебели часа</string>
   <string name="clock_font_minutes_title">Удебели минутите</string>
@@ -125,10 +125,11 @@
   <string name="weather_show_when_minimized_title">Винаги показвай</string>
   <string name="weather_show_when_minimized_summary">Показвай информация за времето, дори когато приспособлението е минимизирано</string>
   <string name="weather_select_location">Изберете местоположение</string>
-  <string name="calendar_title">Покажи следващо събитие</string>
+  <string name="calendar_title">Покажи събития от календара</string>
   <string name="calendars_title">Показване на събития от календари</string>
   <string name="calendars_summary">Търсене на събития в следните календари</string>
-  <string name="calendar_reminders_only_title">Напомняния само</string>
+  <string name="calendars_none_found_summary">Не са намерени календари</string>
+  <string name="calendar_reminders_only_title">Само с напомняния</string>
   <string name="calendar_reminders_only_summary">Покажи само събития с напомняния</string>
   <string name="calendar_hide_allday_title">Скрий целодневните събития</string>
   <string name="calendar_icon_title">Икона на календара</string>
@@ -140,7 +141,7 @@
   <string name="calendar_highlight_upcoming_events_summary">Маркирайте събития от деня, както и събития след 20: 00 часа на следващия ден</string>
   <string name="calendar_highlight_upcoming_events_bold">Удебелен шрифт</string>
   <string name="font_color">Цвят на шрифта</string>
-  <string name="font_color_alarm">Цвят на шрифта на алармата</string>
+  <string name="font_color_alarm">Цвят на алармата</string>
   <string name="font_color_timestamp">Цвят на шрифта на датата</string>
   <string name="font_color_calendar_details">Цвят на шрифта на детайлите</string>
   <string name="background_color">Цвят на фона</string>

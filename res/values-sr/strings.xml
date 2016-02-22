@@ -128,6 +128,7 @@
   <string name="calendar_title">Прикажи следећи догађај</string>
   <string name="calendars_title">Календар догађаја</string>
   <string name="calendars_summary">Пронађи догађаје из тих календара</string>
+  <string name="calendars_none_found_summary">Нема пронађених календара</string>
   <string name="calendar_reminders_only_title">Само подсетник</string>
   <string name="calendar_reminders_only_summary">Прикажи само догађаје са опоменама</string>
   <string name="calendar_hide_allday_title">Сакриј целодневне догађаје</string>
