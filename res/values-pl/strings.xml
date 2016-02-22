@@ -128,6 +128,7 @@
   <string name="calendar_title">Wyświetl następne wydarzenie</string>
   <string name="calendars_title">Używane kalendarze</string>
   <string name="calendars_summary">Wyszukuj wydarzenia w tych kalendarzach</string>
+  <string name="calendars_none_found_summary">Nie znaleziono kalendarzy</string>
   <string name="calendar_reminders_only_title">Tylko z przypomnieniem</string>
   <string name="calendar_reminders_only_summary">Wyświetl tylko wydarzenia z przypomnieniem</string>
   <string name="calendar_hide_allday_title">Ukryj całodniowe wydarzenia</string>

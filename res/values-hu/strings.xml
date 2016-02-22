@@ -128,6 +128,7 @@
   <string name="calendar_title">Megjeleníti a következő naptárbejegyzést</string>
   <string name="calendars_title">Naptárak</string>
   <string name="calendars_summary">Csak a megadott naptárakban keresse az eseményeket</string>
+  <string name="calendars_none_found_summary">Naptár nem található</string>
   <string name="calendar_reminders_only_title">Csak emlékeztetők</string>
   <string name="calendar_reminders_only_summary">Csak az emlékeztetővel ellátott eseményeket mutassa</string>
   <string name="calendar_hide_allday_title">Egész napos események elrejtése</string>

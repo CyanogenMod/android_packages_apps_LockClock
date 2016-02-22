@@ -80,7 +80,7 @@
   <string name="weather_NW">СЗ</string>
   <string name="weather_no_data">Нет данных</string>
   <string name="weather_tap_to_refresh">Нажмите для обновления</string>
-  <string name="weather_refreshing">Обновление\u2026</string>
+  <string name="weather_refreshing">Обновление</string>
   <string name="weather_last_sync_just_now">Только что</string>
   <string name="weather_cannot_reach_provider">Сервер «%s» недоступен</string>
   <string name="weather_refresh_manual">Вручную</string>
@@ -92,7 +92,7 @@
   <string name="weather_refresh_8hrs">8 часов</string>
   <string name="clock_category">Часы и будильник</string>
   <string name="weather_category">Погода</string>
-  <string name="calendar_category">Календарь</string>
+  <string name="calendar_category">Календарные события</string>
   <string name="general_category">Основные</string>
   <string name="display_category">Отображение</string>
   <string name="use_digital_clock_title">Цифровые часы</string>
@@ -121,13 +121,14 @@
   <string name="weather_invert_lowhigh">Изменить порядок температур</string>
   <string name="weather_progress_title">Проверка местоположения</string>
   <string name="weather_alternate_icons_title">Цветные иконки</string>
-  <string name="weather_alternate_icons_summary">Выбор между иконками по умолчанию (цветные) или альтернативными (белые)</string>
-  <string name="weather_show_when_minimized_title">Показывать всегда</string>
+  <string name="weather_alternate_icons_summary">Выбор между значками по умолчанию (цветными) или альтернативными (белыми)</string>
+  <string name="weather_show_when_minimized_title">Показывать, когда свернуто</string>
   <string name="weather_show_when_minimized_summary">Отображать погоду, когда виджет в свёрнутом состоянии</string>
   <string name="weather_select_location">Выберите местоположение</string>
-  <string name="calendar_title">Показывать события</string>
-  <string name="calendars_title">События календарей</string>
+  <string name="calendar_title">Показать след. событие</string>
+  <string name="calendars_title">Календари событий</string>
   <string name="calendars_summary">Показывать события из этих календарей</string>
+  <string name="calendars_none_found_summary">Календарей не найдено</string>
   <string name="calendar_reminders_only_title">Только с напоминаниями</string>
   <string name="calendar_reminders_only_summary">Отображать только события с напоминаниями</string>
   <string name="calendar_hide_allday_title">Скрыть события на весь день</string>
@@ -173,5 +174,5 @@
   <string name="weather_icon_set_title">Набор значков</string>
   <string name="weather_icons_standard">Цветные</string>
   <string name="weather_icons_monochrome">Монохромные</string>
-  <string name="icon_set_selection_get_more">Скачать ещё</string>
+  <string name="icon_set_selection_get_more">Скачать ещё\u2026</string>
 </resources>

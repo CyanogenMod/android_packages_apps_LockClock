@@ -128,6 +128,7 @@
   <string name="calendar_title">Näytä seuraava tapahtuma</string>
   <string name="calendars_title">Tapahtumakalenterit</string>
   <string name="calendars_summary">Etsi tapahtuma näistä kalentereista</string>
+  <string name="calendars_none_found_summary">Kalentereita ei löytynyt</string>
   <string name="calendar_reminders_only_title">Vain muistutukset</string>
   <string name="calendar_reminders_only_summary">Näytä vain tapahtumat joissa muistutus</string>
   <string name="calendar_hide_allday_title">Piilota koko päivän tapahtumat</string>

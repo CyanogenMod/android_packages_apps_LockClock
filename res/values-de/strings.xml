@@ -67,7 +67,7 @@
   <string name="weather_44">Teilweise bewölkt</string>
   <string name="weather_45">Gewitterschauer</string>
   <string name="weather_46">Schneeschauer</string>
-  <string name="weather_47">Örtliche Gewitterschauer</string>
+  <string name="weather_47">Vereinzelte Gewitter</string>
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">mph</string>
   <string name="weather_N">N</string>
@@ -96,7 +96,7 @@
   <string name="general_category">Allgemein</string>
   <string name="display_category">Anzeige</string>
   <string name="use_digital_clock_title">Digitaluhr verwenden</string>
-  <string name="use_digital_clock_summary">Digitaluhr an Stelle der Analoguhr verwenden.</string>
+  <string name="use_digital_clock_summary">Digitaluhr an Stelle der Analoguhr verwenden</string>
   <string name="clock_font_title">Stunden in Fettschrift</string>
   <string name="clock_font_minutes_title">Minuten in Fettschrift</string>
   <string name="clock_font_date_title">Datum und Alarm in Fettschrift</string>
@@ -112,7 +112,7 @@
   <string name="weather_custom_location_hint">Stadt, Bundesland bzw. Kanton/Land</string>
   <string name="weather_custom_location_title">Standort</string>
   <string name="weather_show_location_title">Standort anzeigen</string>
-  <string name="weather_show_timestamp_title">Aktualisierungszeit anzeigen</string>
+  <string name="weather_show_timestamp_title">Zeitstempel anzeigen</string>
   <string name="weather_refresh_interval">Aktualisierungsintervall</string>
   <string name="weather_use_metric">Metrische Einheiten verwenden</string>
   <string name="weather_retrieve_location_dialog_title">Standort kann nicht bestimmt werden!</string>
@@ -121,7 +121,7 @@
   <string name="weather_invert_lowhigh">Anzeigereihenfolge Min/Max-Temperatur tauschen</string>
   <string name="weather_progress_title">Standort wird überprüft</string>
   <string name="weather_alternate_icons_title">Farbige Symbole</string>
-  <string name="weather_alternate_icons_summary">Umschalten zwischen den farbigen Standardsysmbolen und den alternativen, weißen Symbole</string>
+  <string name="weather_alternate_icons_summary">Zwischen den farbigen Standardsymbolen und den alternativen, weißen Symbole umschalten</string>
   <string name="weather_show_when_minimized_title">Anzeigen, wenn minimiert</string>
   <string name="weather_show_when_minimized_summary">Wetterinformationen anzeigen, wenn das Widget minimiert ist</string>
   <string name="weather_select_location">Standort auswählen</string>
@@ -141,7 +141,7 @@
   <string name="calendar_highlight_upcoming_events_bold">Fettschrift</string>
   <string name="font_color">Schriftfarbe</string>
   <string name="font_color_alarm">Schriftfarbe für Alarme</string>
-  <string name="font_color_timestamp">Schriftfarbe für Aktualisierungszeit</string>
+  <string name="font_color_timestamp">Schriftfarbe für Zeitstempel</string>
   <string name="font_color_calendar_details">Schriftfarbe für Details</string>
   <string name="background_color">Hintergrundfarbe</string>
   <string name="background_transparency">Hintergrundtransparenz</string>

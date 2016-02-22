@@ -128,6 +128,7 @@
   <string name="calendar_title">Prikaži naslednji dogodek</string>
   <string name="calendars_title">Koledarji dogodkov</string>
   <string name="calendars_summary">Poišči dogodke iz teh koledarjev</string>
+  <string name="calendars_none_found_summary">Ni najdenih koledarjev</string>
   <string name="calendar_reminders_only_title">Samo opomniki</string>
   <string name="calendar_reminders_only_summary">Prikaži samo dogodke z opomniki</string>
   <string name="calendar_hide_allday_title">Skrij celodnevne dogodke</string>

@@ -128,6 +128,7 @@
   <string name="calendar_title">显示下一个活动</string>
   <string name="calendars_title">活动日历</string>
   <string name="calendars_summary">从这些日历里寻找活动</string>
+  <string name="calendars_none_found_summary">没有发现日历</string>
   <string name="calendar_reminders_only_title">仅显示提醒</string>
   <string name="calendar_reminders_only_summary">仅显示带提醒的活动</string>
   <string name="calendar_hide_allday_title">隐藏全天活动</string>

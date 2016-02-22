@@ -23,8 +23,8 @@
   <string name="weather_0">Tornade</string>
   <string name="weather_1">Tempête tropicale</string>
   <string name="weather_2">Ouragan</string>
-  <string name="weather_3">Orage violent</string>
-  <string name="weather_4">Orage</string>
+  <string name="weather_3">Orages violents</string>
+  <string name="weather_4">Orages</string>
   <string name="weather_5">Pluie et neige</string>
   <string name="weather_6">Pluie et neige fondue</string>
   <string name="weather_7">Neige et neige fondue</string>
@@ -62,7 +62,7 @@
   <string name="weather_39">Orages épars</string>
   <string name="weather_40">Averses intermittentes</string>
   <string name="weather_41">Fortes chutes de neige</string>
-  <string name="weather_42">Averses de neige épars</string>
+  <string name="weather_42">Averses de neige éparses</string>
   <string name="weather_43">Fortes chutes de neige</string>
   <string name="weather_44">Partiellement nuageux</string>
   <string name="weather_45">Orages</string>
