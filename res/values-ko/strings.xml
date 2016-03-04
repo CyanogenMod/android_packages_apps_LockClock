@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">알 수 없음</string>
   <string name="cancel">취소</string>
   <string name="loading_indicator">위젯 불러오는 중\u2026</string>
   <string name="menu_done">완료</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">토네이도</string>
   <string name="weather_1">열대 폭풍우</string>
   <string name="weather_2">허리케인</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">바람</string>
   <string name="weather_25">추움</string>
   <string name="weather_26">흐림</string>
+  <!-- Night -->
   <string name="weather_27">대체로 흐림</string>
+  <!-- Day -->
   <string name="weather_28">대체로 흐림</string>
+  <!-- Night -->
   <string name="weather_29">대체로 흐림</string>
+  <!-- Day -->
   <string name="weather_30">대체로 흐림</string>
+  <!-- Night -->
   <string name="weather_31">맑음</string>
   <string name="weather_32">맑음</string>
+  <!-- Night -->
   <string name="weather_33">맑음</string>
+  <!-- Day -->
   <string name="weather_34">맑음</string>
   <string name="weather_35">비와 우박</string>
   <string name="weather_36">더위</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">뇌우</string>
   <string name="weather_46">소낙눈</string>
   <string name="weather_47">집중 뇌우</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">북</string>
   <string name="weather_NE">북동</string>
   <string name="weather_E">동</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">남서</string>
   <string name="weather_W">서</string>
   <string name="weather_NW">북서</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">데이터 없음</string>
   <string name="weather_tap_to_refresh">탭하여 새로 고침</string>
   <string name="weather_refreshing">새로 고침 중</string>
   <string name="weather_last_sync_just_now">방금 전</string>
   <string name="weather_cannot_reach_provider">%s에 접속할 수 없음</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">수동</string>
   <string name="weather_refresh_30min">30분</string>
   <string name="weather_refresh_60min">60분</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4시간</string>
   <string name="weather_refresh_6hrs">6시간</string>
   <string name="weather_refresh_8hrs">8시간</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">시계 및 알람</string>
   <string name="weather_category">날씨 패널</string>
   <string name="calendar_category">캘린더 약속</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">일반</string>
   <string name="display_category">표시</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">디지털 시계 사용</string>
   <string name="use_digital_clock_summary">선택하여 디지털 시계와 아날로그 시계를 전환합니다</string>
   <string name="clock_font_title">시간 굵게</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">날짜와 알람 굵게</string>
   <string name="show_alarm_title">다음 알람 표시</string>
   <string name="clock_am_pm_title">오전/오후 표시</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">활성화</string>
   <string name="weather_enable">날씨 표시</string>
   <string name="weather_source_title">날씨 제공자</string>
@@ -125,9 +147,11 @@
   <string name="weather_show_when_minimized_title">최소화되었을 때 표시</string>
   <string name="weather_show_when_minimized_summary">위젯이 최소화되었을 때 날씨 정보를 표시합니다</string>
   <string name="weather_select_location">위치 선택</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">다음 약속 표시</string>
   <string name="calendars_title">캘린더</string>
   <string name="calendars_summary">이 캘린더들에서 약속 찾기</string>
+  <string name="calendars_none_found_summary">달력을 찾을 수 없음</string>
   <string name="calendar_reminders_only_title">알림만</string>
   <string name="calendar_reminders_only_summary">알림이 설정된 약속만 표시</string>
   <string name="calendar_hide_allday_title">종일 약속 숨기기</string>
@@ -139,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">약속 강조</string>
   <string name="calendar_highlight_upcoming_events_summary">오늘(오후 8시 이후엔 다음 날도 포함)의 약속을 강조합니다</string>
   <string name="calendar_highlight_upcoming_events_bold">굵은 폰트</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">글꼴 색</string>
   <string name="font_color_alarm">알람 글꼴 색</string>
   <string name="font_color_timestamp">갱신시간 글꼴 색</string>
   <string name="font_color_calendar_details">자세한 정보 글꼴 색</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">배경 색상</string>
   <string name="background_transparency">배경 투명도</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3시간</string>
   <string name="calendar_lookahead_6hrs">6시간</string>
   <string name="calendar_lookahead_12hrs">12시간</string>
@@ -154,9 +181,11 @@
   <string name="calendar_lookahead_1wk">1주</string>
   <string name="calendar_lookahead_2wks">2주</string>
   <string name="calendar_lookahead_4wks">4주</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">표시 안 함</string>
   <string name="calendar_metadata_first_line">첫 줄 보이기</string>
   <string name="calendar_metadata_all">전부 보이기</string>
+  <!-- Font colors -->
   <string name="white">흰색</string>
   <string name="grey">회색</string>
   <string name="black">검정</string>
@@ -170,6 +199,7 @@
   <string name="holo_orange_light">밝은 오렌지색</string>
   <string name="holo_orange_dark">어두운 오렌지색</string>
   <string name="holo_blue_bright">밝은 파란색</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">아이콘 세트</string>
   <string name="weather_icons_standard">컬러</string>
   <string name="weather_icons_monochrome">흑백</string>

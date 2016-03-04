@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">غير معروف</string>
   <string name="cancel">الغاء</string>
   <string name="loading_indicator">جاري تحميل عنصر واجهة مستخدم\u2026</string>
   <string name="menu_done">تم</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">اعصار</string>
   <string name="weather_1">العاصفة الاستوائية</string>
   <string name="weather_2">الإعصار</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">محمل بالرياح</string>
   <string name="weather_25">بارد</string>
   <string name="weather_26">غائم</string>
+  <!-- Night -->
   <string name="weather_27">غائم جزئيا</string>
+  <!-- Day -->
   <string name="weather_28">غائم في معظمه</string>
+  <!-- Night -->
   <string name="weather_29">غائم جزئيا</string>
+  <!-- Day -->
   <string name="weather_30">غائم جزئيا</string>
+  <!-- Night -->
   <string name="weather_31">صاف</string>
   <string name="weather_32">مشمس</string>
+  <!-- Night -->
   <string name="weather_33">معتدل</string>
+  <!-- Day -->
   <string name="weather_34">معتدل</string>
   <string name="weather_35">المطر والبرد</string>
   <string name="weather_36">حار</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">زخات مطر رعدية</string>
   <string name="weather_46">زخات الثلج</string>
   <string name="weather_47">زخات مطر رعدية معزولة</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">كلم في الساعة</string>
   <string name="weather_mph">ميل في الساعة</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">شمال</string>
   <string name="weather_NE">شمال غرب</string>
   <string name="weather_E">شرق</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">جنوب غرب</string>
   <string name="weather_W">غرب</string>
   <string name="weather_NW">شمال غرب</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">لا توجد بيانات</string>
   <string name="weather_tap_to_refresh">اضغط للتحديث</string>
   <string name="weather_refreshing">تحديث</string>
   <string name="weather_last_sync_just_now">الآن للتو</string>
   <string name="weather_cannot_reach_provider">يتعذر الوصول إلى %s في هذه اللحظة</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">يدوي</string>
   <string name="weather_refresh_30min">30 دقيقة</string>
   <string name="weather_refresh_60min">60 دقيقة</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 ساعات</string>
   <string name="weather_refresh_6hrs">6 ساعات</string>
   <string name="weather_refresh_8hrs">8 ساعات</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">الساعه والمنبه</string>
   <string name="weather_category">لوحة الطقس</string>
   <string name="calendar_category">أحداث التقويم</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">عام</string>
   <string name="display_category">عرض</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">استخدام ساعة رقمية</string>
   <string name="use_digital_clock_summary">حدد للتبديل بين الساعة الرقمية والساعة التناظرية</string>
   <string name="clock_font_title">الساعات بلون غامق</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">التاريخ والإنذار بخط عريض</string>
   <string name="show_alarm_title">إظهار التنبيه التالي</string>
   <string name="clock_am_pm_title">اظهار المؤشر صباحاً/ مساءً</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">تمكين</string>
   <string name="weather_enable">عرض حالة الطقس</string>
   <string name="weather_source_title">مصدر الطقس</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">إظهار عند التصغير</string>
   <string name="weather_show_when_minimized_summary">عرض معلومات الطقس موجزة عندما يتم تصغير عنصر واجهة المستخدم</string>
   <string name="weather_select_location">حدد موقع</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">عرض الحدث القادم</string>
   <string name="calendars_title">تقويمات الحدث</string>
   <string name="calendars_summary">العثور على الأحداث من هذه التقويمات</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">تسليط الضوء على الأحداث</string>
   <string name="calendar_highlight_upcoming_events_summary">تسليط الضوء على أحداث اليوم الحالي، وبعد 8 مساءً، وأيضا الأحداث في اليوم التالي</string>
   <string name="calendar_highlight_upcoming_events_bold">خط عريض</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">لون الخط</string>
   <string name="font_color_alarm">لون خط التنبيه</string>
   <string name="font_color_timestamp">لون الخط الطابع الزمني</string>
   <string name="font_color_calendar_details">لون الخط الخاص بالتفاصيل</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">لون الخلفية</string>
   <string name="background_transparency">شفافية الخليفة</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 ساعات</string>
   <string name="calendar_lookahead_6hrs">6 ساعات</string>
   <string name="calendar_lookahead_12hrs">12 ساعة</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">1 أسبوع</string>
   <string name="calendar_lookahead_2wks">2 أسابيع</string>
   <string name="calendar_lookahead_4wks">4 أسابيع</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">عدم إظهار</string>
   <string name="calendar_metadata_first_line">إظهار السطر الأول</string>
   <string name="calendar_metadata_all">اظهار الكل</string>
+  <!-- Font colors -->
   <string name="white">أبيض</string>
   <string name="grey">رمادي</string>
   <string name="black">اسود</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">برتقالي فاتح</string>
   <string name="holo_orange_dark">برتقالي غامق</string>
   <string name="holo_blue_bright">سماوي</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">مجموعة أيقونات</string>
   <string name="weather_icons_standard">ملون</string>
   <string name="weather_icons_monochrome">أحادي اللون</string>

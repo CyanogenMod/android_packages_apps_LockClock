@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Непознато</string>
   <string name="cancel">Откажи</string>
   <string name="loading_indicator">Учитавање виџета\u2026</string>
   <string name="menu_done">Готово</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Торнадо</string>
   <string name="weather_1">Тропска олуја</string>
   <string name="weather_2">Ураган</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Ветровито</string>
   <string name="weather_25">Хладно</string>
   <string name="weather_26">Облачно</string>
+  <!-- Night -->
   <string name="weather_27">Углавном облачно</string>
+  <!-- Day -->
   <string name="weather_28">Углавном облачно</string>
+  <!-- Night -->
   <string name="weather_29">Делимично облачно</string>
+  <!-- Day -->
   <string name="weather_30">Делимично облачно</string>
+  <!-- Night -->
   <string name="weather_31">Ведро</string>
   <string name="weather_32">Сунчано</string>
+  <!-- Night -->
   <string name="weather_33">Ведро</string>
+  <!-- Day -->
   <string name="weather_34">Ведро</string>
   <string name="weather_35">Киша и град</string>
   <string name="weather_36">Вруће</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Олујни пљускови</string>
   <string name="weather_46">Снежне падавине</string>
   <string name="weather_47">Локални олујни пљускови</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">км/ч</string>
   <string name="weather_mph">м/ч</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">С</string>
   <string name="weather_NE">СИ</string>
   <string name="weather_E">И</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">ЈЗ</string>
   <string name="weather_W">З</string>
   <string name="weather_NW">СЗ</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Нема података</string>
   <string name="weather_tap_to_refresh">Додирни за освежавање</string>
   <string name="weather_refreshing">Освежавање</string>
   <string name="weather_last_sync_just_now">Управо сада</string>
   <string name="weather_cannot_reach_provider">Не може да се достигне %s тренутно</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ручно</string>
   <string name="weather_refresh_30min">30 минута</string>
   <string name="weather_refresh_60min">60 минута</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 сата</string>
   <string name="weather_refresh_6hrs">6 сати</string>
   <string name="weather_refresh_8hrs">8 сати</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Сат и аларм</string>
   <string name="weather_category">Временски панел</string>
   <string name="calendar_category">Догађаји у календару</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Опште</string>
   <string name="display_category">Екран</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Користи дигитални сат</string>
   <string name="use_digital_clock_summary">Изабери да пребацујеш између дигиталног и аналогног сата</string>
   <string name="clock_font_title">Подебљани сати</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Подебљани датум и аларм</string>
   <string name="show_alarm_title">Прикажи следећи аларм</string>
   <string name="clock_am_pm_title">Прикажи AM/PM индикатор</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Омогућено</string>
   <string name="weather_enable">Прикажи време</string>
   <string name="weather_source_title">Извор времена</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Прикажи док је умањено</string>
   <string name="weather_show_when_minimized_summary">Прикажи сажете информације о времену када је виџет умањен</string>
   <string name="weather_select_location">Изабери локацију</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Прикажи следећи догађај</string>
   <string name="calendars_title">Календар догађаја</string>
   <string name="calendars_summary">Пронађи догађаје из тих календара</string>
@@ -140,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">Главни догађаји</string>
   <string name="calendar_highlight_upcoming_events_summary">Истакни тренутне дневне догађаје и, након 8 сати увече, такође и догађаје наредног дана</string>
   <string name="calendar_highlight_upcoming_events_bold">Подебљани фонт</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Боја фонта</string>
   <string name="font_color_alarm">Боја фонта аларма</string>
   <string name="font_color_timestamp">Боја фонта временске ознаке</string>
   <string name="font_color_calendar_details">Боја фонта детаља</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Боја позадине</string>
   <string name="background_transparency">Транспарентност позадине</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 сата</string>
   <string name="calendar_lookahead_6hrs">6 сати</string>
   <string name="calendar_lookahead_12hrs">12 сати</string>
@@ -155,9 +181,11 @@
   <string name="calendar_lookahead_1wk">1 недеља</string>
   <string name="calendar_lookahead_2wks">2 недеље</string>
   <string name="calendar_lookahead_4wks">4 недеље</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Не приказуј</string>
   <string name="calendar_metadata_first_line">Прикажи само први ред</string>
   <string name="calendar_metadata_all">Прикажи све</string>
+  <!-- Font colors -->
   <string name="white">Бела</string>
   <string name="grey">Сива</string>
   <string name="black">Црна</string>
@@ -171,6 +199,7 @@
   <string name="holo_orange_light">Светло наранџаста</string>
   <string name="holo_orange_dark">Тамно наранџаста</string>
   <string name="holo_blue_bright">Светло плава</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Пакет икона</string>
   <string name="weather_icons_standard">Обојене</string>
   <string name="weather_icons_monochrome">Монохромне</string>

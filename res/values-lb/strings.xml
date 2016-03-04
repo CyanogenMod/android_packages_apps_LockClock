@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Onbekannt</string>
   <string name="cancel">Ofbriechen</string>
   <string name="loading_indicator">Widget gëtt gelueden\u2026</string>
   <string name="menu_done">Fäerdeg</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornado</string>
   <string name="weather_1">Tropesche Stuerm</string>
   <string name="weather_2">Hurrikan</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Vill Wand</string>
   <string name="weather_25">Kal</string>
   <string name="weather_26">Wollekeg</string>
+  <!-- Night -->
   <string name="weather_27">Staark wollekeg</string>
+  <!-- Day -->
   <string name="weather_28">Staark wollekeg</string>
+  <!-- Night -->
   <string name="weather_29">Deels wollekeg</string>
+  <!-- Day -->
   <string name="weather_30">Deels wollekeg</string>
+  <!-- Night -->
   <string name="weather_31">Kloer</string>
   <string name="weather_32">Sonneg</string>
+  <!-- Night -->
   <string name="weather_33">Schéin</string>
+  <!-- Day -->
   <string name="weather_34">Schéin</string>
   <string name="weather_35">Reen a Knëppelsteng gemëscht</string>
   <string name="weather_36">Waarm</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Donnerwiederschaueren</string>
   <string name="weather_46">Schnéischaueren</string>
   <string name="weather_47">Lokal Donnerwiederschaueren</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">mi/h</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NO</string>
   <string name="weather_E">O</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SW</string>
   <string name="weather_W">W</string>
   <string name="weather_NW">NW</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Keng Daten</string>
   <string name="weather_tap_to_refresh">Drécke fir opzefrëschen</string>
   <string name="weather_refreshing">Gëtt opgefrëscht\u2026</string>
   <string name="weather_last_sync_just_now">Elo grad</string>
   <string name="weather_cannot_reach_provider">%s ass momentan net erreechbar</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuell</string>
   <string name="weather_refresh_30min">30 Minutten</string>
   <string name="weather_refresh_60min">60 Minutten</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 Stonnen</string>
   <string name="weather_refresh_6hrs">6 Stonnen</string>
   <string name="weather_refresh_8hrs">8 Stonnen</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Auer a Wecker</string>
   <string name="weather_category">Meteo</string>
   <string name="calendar_category">Kalenner</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Allgemeng</string>
   <string name="display_category">Usiicht</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Digitalauer benotzen</string>
   <string name="use_digital_clock_summary">Drécke fir tëscht der Digitalauer an der Analogauer ze wiesselen</string>
   <string name="clock_font_title">Stonne fett geschriwwen</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Datum a Wecker fett geschriwwen</string>
   <string name="show_alarm_title">Nächste Wecker uweisen</string>
   <string name="clock_am_pm_title">AM/PM uweisen</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Aktivéiert</string>
   <string name="weather_enable">Wieder uweisen</string>
   <string name="weather_source_title">Meteoservice</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Uweise wa verklengert</string>
   <string name="weather_show_when_minimized_summary">Zesummegefaasst Wiederinformatiounen uweisen, wann de Widget verklengert ass</string>
   <string name="weather_select_location">Standuert auswielen</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Nächste Rendezvous uweisen</string>
   <string name="calendars_title">Agenda</string>
   <string name="calendars_summary">Rendezvousen aus dëse Kalenneren uweisen</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">Rendezvousen ervirhiewen</string>
   <string name="calendar_highlight_upcoming_events_summary">D\'Rendezvouse vun dësem Dag ervirhiewen, an no 8 Auer owes och déi vum nächsten Dag</string>
   <string name="calendar_highlight_upcoming_events_bold">Fettschrëft</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Schrëftfaarf</string>
   <string name="font_color_alarm">Schrëftfaarf vum Wecker</string>
   <string name="font_color_timestamp">Schrëftfaarf vum Zäitstempel</string>
   <string name="font_color_calendar_details">Schrëftfaarf vun den Detailer</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Hannergrondfaarf</string>
   <string name="background_transparency">Hannergrond-Duerchsiichtegkeet</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 Stonnen</string>
   <string name="calendar_lookahead_6hrs">6 Stonnen</string>
   <string name="calendar_lookahead_12hrs">12 Stonnen</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">1 Woch</string>
   <string name="calendar_lookahead_2wks">2 Wochen</string>
   <string name="calendar_lookahead_4wks">4 Wochen</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Net uweisen</string>
   <string name="calendar_metadata_first_line">Éischt Zeil uweisen</string>
   <string name="calendar_metadata_all">Alles uweisen</string>
+  <!-- Font colors -->
   <string name="white">Wäiss</string>
   <string name="grey">Gro</string>
   <string name="black">Schwaarz</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">Hell Orange</string>
   <string name="holo_orange_dark">Däischter Orange</string>
   <string name="holo_blue_bright">Liichtend Blo</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Symbolpak</string>
   <string name="weather_icons_standard">Agefierft</string>
   <string name="weather_icons_monochrome">Monochrom</string>

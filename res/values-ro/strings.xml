@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Necunoscut</string>
   <string name="cancel">Revocați</string>
   <string name="loading_indicator">Încărcare widget\u2026</string>
   <string name="menu_done">Efectuat</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornadă</string>
   <string name="weather_1">Furtună</string>
   <string name="weather_2">Uragan</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Vânt</string>
   <string name="weather_25">Rece</string>
   <string name="weather_26">Înnorat</string>
+  <!-- Night -->
   <string name="weather_27">Înnorat</string>
+  <!-- Day -->
   <string name="weather_28">Înnorat</string>
+  <!-- Night -->
   <string name="weather_29">Parțial înnorat</string>
+  <!-- Day -->
   <string name="weather_30">Parțial înnorat</string>
+  <!-- Night -->
   <string name="weather_31">Senin</string>
   <string name="weather_32">Însorit</string>
+  <!-- Night -->
   <string name="weather_33">Senin</string>
+  <!-- Day -->
   <string name="weather_34">Senin</string>
   <string name="weather_35">Ploaie cu grindină</string>
   <string name="weather_36">Cald</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Descărcări electrice</string>
   <string name="weather_46">Averse de ninsoare</string>
   <string name="weather_47">Descărcări electrice izolate</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">ml/h</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NE</string>
   <string name="weather_E">E</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SV</string>
   <string name="weather_W">V</string>
   <string name="weather_NW">NV</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Nu există date</string>
   <string name="weather_tap_to_refresh">Apăsați pentru actualizare</string>
   <string name="weather_refreshing">Actualizare</string>
   <string name="weather_last_sync_just_now">Acum</string>
   <string name="weather_cannot_reach_provider">Nu se poate contacta %s acum</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manual</string>
   <string name="weather_refresh_30min">30 minute</string>
   <string name="weather_refresh_60min">60 minute</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 ore</string>
   <string name="weather_refresh_6hrs">6 ore</string>
   <string name="weather_refresh_8hrs">8 ore</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Ceas și alarmă</string>
   <string name="weather_category">Panou meteo</string>
   <string name="calendar_category">Evenimente din calendar</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">General</string>
   <string name="display_category">Afișare</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Utilizați ceasul Digital</string>
   <string name="use_digital_clock_summary">Selectați pentru a comuta între ceasul Digital și cel Analogic</string>
   <string name="clock_font_title">Font oră îngroșat</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Font dată și alarmă îngroșat</string>
   <string name="show_alarm_title">Afișare următoarea alarmă</string>
   <string name="clock_am_pm_title">Afișare indicator AM/PM</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Activat</string>
   <string name="weather_enable">Afișare meteo</string>
   <string name="weather_source_title">Sursă meteo</string>
@@ -125,9 +147,11 @@
   <string name="weather_show_when_minimized_title">Afișare minimizat</string>
   <string name="weather_show_when_minimized_summary">Afișare informație meteo sumară cănd widget-ul este minimizat</string>
   <string name="weather_select_location">Selectați locația</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Afișare eveniment următor</string>
   <string name="calendars_title">Calendare eveniment</string>
   <string name="calendars_summary">Afișare evenimente din calendarul selectat</string>
+  <string name="calendars_none_found_summary">Nu s-au găsit calendare</string>
   <string name="calendar_reminders_only_title">Numai cu memento-uri</string>
   <string name="calendar_reminders_only_summary">Afișare doar evenimente cu memento-uri</string>
   <string name="calendar_hide_allday_title">Ascundere evenimente pt. toată ziua</string>
@@ -139,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">Evidențiere elemente</string>
   <string name="calendar_highlight_upcoming_events_summary">Evenimente din ziua curentă, iar după 20:00, și cele din ziua următoare</string>
   <string name="calendar_highlight_upcoming_events_bold">Font îngroșat</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Culoare font</string>
   <string name="font_color_alarm">Culoare font alarmă</string>
   <string name="font_color_timestamp">Culoare font marcaj de timp</string>
   <string name="font_color_calendar_details">Detalii culoare font</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Culoare fundal</string>
   <string name="background_transparency">Transparență fundal</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 ore</string>
   <string name="calendar_lookahead_6hrs">6 ore</string>
   <string name="calendar_lookahead_12hrs">12 ore</string>
@@ -154,9 +181,11 @@
   <string name="calendar_lookahead_1wk">1 săptămână</string>
   <string name="calendar_lookahead_2wks">2 săptămâni</string>
   <string name="calendar_lookahead_4wks">4 săptămâni</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Nu se afișează</string>
   <string name="calendar_metadata_first_line">Afișare primul rând</string>
   <string name="calendar_metadata_all">Afișare totală</string>
+  <!-- Font colors -->
   <string name="white">Alb</string>
   <string name="grey">Gri</string>
   <string name="black">Negru</string>
@@ -170,6 +199,7 @@
   <string name="holo_orange_light">Portocaliu deschis</string>
   <string name="holo_orange_dark">Portocaliu închis</string>
   <string name="holo_blue_bright">Albastru aprins</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Pictograme</string>
   <string name="weather_icons_standard">Color</string>
   <string name="weather_icons_monochrome">Monocrom</string>

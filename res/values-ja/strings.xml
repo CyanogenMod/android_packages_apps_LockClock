@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">不明</string>
   <string name="cancel">キャンセル</string>
   <string name="loading_indicator">ウィジェットを読み込み中\u2026</string>
   <string name="menu_done">完了</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">竜巻</string>
   <string name="weather_1">熱帯暴風雨</string>
   <string name="weather_2">ハリケーン</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">強風</string>
   <string name="weather_25">寒冷</string>
   <string name="weather_26">曇り</string>
+  <!-- Night -->
   <string name="weather_27">曇り</string>
+  <!-- Day -->
   <string name="weather_28">曇り</string>
+  <!-- Night -->
   <string name="weather_29">ところにより曇り</string>
+  <!-- Day -->
   <string name="weather_30">ところにより曇り</string>
+  <!-- Night -->
   <string name="weather_31">晴れ</string>
   <string name="weather_32">晴れ</string>
+  <!-- Night -->
   <string name="weather_33">晴れ</string>
+  <!-- Day -->
   <string name="weather_34">晴れ</string>
   <string name="weather_35">雨と雹</string>
   <string name="weather_36">温暖</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">雷雨</string>
   <string name="weather_46">にわか雪</string>
   <string name="weather_47">局地的雷雨</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">m/h</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">北</string>
   <string name="weather_NE">北東</string>
   <string name="weather_E">東</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">南西</string>
   <string name="weather_W">西</string>
   <string name="weather_NW">北西</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">データなし</string>
   <string name="weather_tap_to_refresh">タップして更新</string>
   <string name="weather_refreshing">更新中</string>
   <string name="weather_last_sync_just_now">たった今</string>
   <string name="weather_cannot_reach_provider">現在%sに接続できません</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">手動</string>
   <string name="weather_refresh_30min">30分</string>
   <string name="weather_refresh_60min">60分</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4時間</string>
   <string name="weather_refresh_6hrs">6時間</string>
   <string name="weather_refresh_8hrs">8時間</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">時計とアラーム</string>
   <string name="weather_category">天気パネル</string>
   <string name="calendar_category">カレンダーの予定</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">全般</string>
   <string name="display_category">表示</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">デジタル時計を使用</string>
   <string name="use_digital_clock_summary">デジタル時計とアナログ時計を切り替える</string>
   <string name="clock_font_title">時を太字にする</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">日付とアラームを太字にする</string>
   <string name="show_alarm_title">次のアラームを表示</string>
   <string name="clock_am_pm_title">午前/午後を表示</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">有効</string>
   <string name="weather_enable">天気を表示</string>
   <string name="weather_source_title">天気のソース</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">最小化時に表示</string>
   <string name="weather_show_when_minimized_summary">ウィジェット最小化時に天気情報の概要を表示する</string>
   <string name="weather_select_location">場所を選択</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">次の予定を表示</string>
   <string name="calendars_title">表示するカレンダー</string>
   <string name="calendars_summary">これらのカレンダーから予定を探す</string>
@@ -140,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">予定をハイライト表示</string>
   <string name="calendar_highlight_upcoming_events_summary">今日の予定をハイライト表示します。午後8時以降は翌日の予定をハイライト表示します。</string>
   <string name="calendar_highlight_upcoming_events_bold">太字フォント</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">フォントカラー</string>
   <string name="font_color_alarm">アラームのフォントカラー</string>
   <string name="font_color_timestamp">タイムスタンプのフォントカラー</string>
   <string name="font_color_calendar_details">詳細のフォントカラー</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">背景色</string>
   <string name="background_transparency">背景の透過率</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3時間</string>
   <string name="calendar_lookahead_6hrs">6時間</string>
   <string name="calendar_lookahead_12hrs">12時間</string>
@@ -155,9 +181,11 @@
   <string name="calendar_lookahead_1wk">1週間</string>
   <string name="calendar_lookahead_2wks">2週間</string>
   <string name="calendar_lookahead_4wks">4週間</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">表示しない</string>
   <string name="calendar_metadata_first_line">最初の行を表示</string>
   <string name="calendar_metadata_all">すべて表示</string>
+  <!-- Font colors -->
   <string name="white">ホワイト</string>
   <string name="grey">グレー</string>
   <string name="black">ブラック</string>
@@ -171,6 +199,7 @@
   <string name="holo_orange_light">ライトオレンジ</string>
   <string name="holo_orange_dark">ダークオレンジ</string>
   <string name="holo_blue_bright">ブライトブルー</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">アイコンセット</string>
   <string name="weather_icons_standard">カラー</string>
   <string name="weather_icons_monochrome">モノクロ</string>

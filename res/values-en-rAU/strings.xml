@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Unknown</string>
   <string name="cancel">Cancel</string>
   <string name="loading_indicator">Loading widget\u2026</string>
   <string name="menu_done">Done</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornado</string>
   <string name="weather_1">Tropical Storm</string>
   <string name="weather_2">Hurricane</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Windy</string>
   <string name="weather_25">Cold</string>
   <string name="weather_26">Cloudy</string>
+  <!-- Night -->
   <string name="weather_27">Mostly Cloudy</string>
+  <!-- Day -->
   <string name="weather_28">Mostly Cloudy</string>
+  <!-- Night -->
   <string name="weather_29">Partly Cloudy</string>
+  <!-- Day -->
   <string name="weather_30">Partly Cloudy</string>
+  <!-- Night -->
   <string name="weather_31">Clear</string>
   <string name="weather_32">Sunny</string>
+  <!-- Night -->
   <string name="weather_33">Fair</string>
+  <!-- Day -->
   <string name="weather_34">Fair</string>
   <string name="weather_35">Mixed Rain and Hail</string>
   <string name="weather_36">Hot</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Thundershowers</string>
   <string name="weather_46">Snow Showers</string>
   <string name="weather_47">Isolated Thundershowers</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">kph</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NE</string>
   <string name="weather_E">E</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SW</string>
   <string name="weather_W">W</string>
   <string name="weather_NW">NW</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">No data</string>
   <string name="weather_tap_to_refresh">Tap to refresh</string>
   <string name="weather_refreshing">Refreshing</string>
   <string name="weather_last_sync_just_now">Just now</string>
   <string name="weather_cannot_reach_provider">Can\'t reach %s at the moment</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manual</string>
   <string name="weather_refresh_30min">30 minutes</string>
   <string name="weather_refresh_60min">60 minutes</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 hours</string>
   <string name="weather_refresh_6hrs">6 hours</string>
   <string name="weather_refresh_8hrs">8 hours</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Clock and alarm</string>
   <string name="weather_category">Weather panel</string>
   <string name="calendar_category">Calendar events</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">General</string>
   <string name="display_category">Display</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Use Digital clock</string>
   <string name="use_digital_clock_summary">Select to toggle between the Digital and the Analogue clock</string>
   <string name="clock_font_title">Bold hours</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Bold date and alarm</string>
   <string name="show_alarm_title">Show next alarm</string>
   <string name="clock_am_pm_title">Show AM/PM indicator</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Enabled</string>
   <string name="weather_enable">Display weather</string>
   <string name="weather_source_title">Weather source</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Show when minimised</string>
   <string name="weather_show_when_minimized_summary">Display summary weather information when the widget is minimised</string>
   <string name="weather_select_location">Select location</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Display next event</string>
   <string name="calendars_title">Event calendars</string>
   <string name="calendars_summary">Find events from these calendars</string>
@@ -139,10 +162,13 @@
   <string name="calendar_highlight_upcoming_events_title">Highlight events</string>
   <string name="calendar_highlight_upcoming_events_summary">Highlight the current day\'s events and, after 8pm, also the next day\'s events</string>
   <string name="calendar_highlight_upcoming_events_bold">Bold font</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Font colour</string>
   <string name="font_color_alarm">Alarm font colour</string>
   <string name="font_color_timestamp">Timestamp font colour</string>
   <string name="font_color_calendar_details">Details font colour</string>
+  <!-- Preferences - Background color -->
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 hours</string>
   <string name="calendar_lookahead_6hrs">6 hours</string>
   <string name="calendar_lookahead_12hrs">12 hours</string>
@@ -152,9 +178,11 @@
   <string name="calendar_lookahead_1wk">1 week</string>
   <string name="calendar_lookahead_2wks">2 weeks</string>
   <string name="calendar_lookahead_4wks">4 weeks</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Do not show</string>
   <string name="calendar_metadata_first_line">Show first line</string>
   <string name="calendar_metadata_all">Show all</string>
+  <!-- Font colors -->
   <string name="white">White</string>
   <string name="grey">Grey</string>
   <string name="black">Black</string>
@@ -168,6 +196,7 @@
   <string name="holo_orange_light">Light orange</string>
   <string name="holo_orange_dark">Dark orange</string>
   <string name="holo_blue_bright">Bright blue</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Icon set</string>
   <string name="weather_icons_standard">Coloured</string>
   <string name="weather_icons_monochrome">Monochrome</string>

@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">نەناسراو</string>
   <string name="cancel">پاشگەزبونەوە</string>
   <string name="loading_indicator">چاوەڕوانی کورتە وێنۆچکه‌بە\u2026</string>
   <string name="menu_done">تەواو</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">گەردەلوول</string>
   <string name="weather_1">زریانی خولگەیی</string>
   <string name="weather_2">زریان</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">با</string>
   <string name="weather_25">سارد</string>
   <string name="weather_26">هەور</string>
+  <!-- Night -->
   <string name="weather_27">زۆربەی هەورە</string>
+  <!-- Day -->
   <string name="weather_28">زۆربەی هەورە</string>
+  <!-- Night -->
   <string name="weather_29">کەمێک هەورە</string>
+  <!-- Day -->
   <string name="weather_30">کەمێک هەور</string>
+  <!-- Night -->
   <string name="weather_31">ڕوونە</string>
   <string name="weather_32">خۆر هەتاو</string>
+  <!-- Night -->
   <string name="weather_33">خراپە</string>
+  <!-- Day -->
   <string name="weather_34">خراپە</string>
   <string name="weather_35">باران و ته‌رزه‌ تێکه‌ڵ</string>
   <string name="weather_36">گەرم</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">هەورە بروسکە</string>
   <string name="weather_46">لێزمه‌ به‌فر</string>
   <string name="weather_47">هه‌وره‌ بروسکه</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">kph</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NE</string>
   <string name="weather_E">E</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SW</string>
   <string name="weather_W">W</string>
   <string name="weather_NW">NW</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">داتای نیە</string>
   <string name="weather_tap_to_refresh">تاپ بکه‌ بۆ نوێکردنه‌وه‌</string>
   <string name="weather_refreshing">نوێده‌کاته‌وه‌</string>
   <string name="weather_last_sync_just_now">هه‌ر ئێستا</string>
   <string name="weather_cannot_reach_provider">ناگه‌یه‌ندرێته‌ %s له‌م کاته‌دا</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">دەستی</string>
   <string name="weather_refresh_30min">30 خوله‌ک</string>
   <string name="weather_refresh_60min">60 خوله‌ک</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 کاژێر</string>
   <string name="weather_refresh_6hrs">6  کاژێر</string>
   <string name="weather_refresh_8hrs">8 کاژێر</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">كاتژمێر و ئاگادارکردنه‌وه‌</string>
   <string name="weather_category">ته‌خته‌ی که‌ش و هه‌وا</string>
   <string name="calendar_category">ڕووداوه‌کانی ڕۆژژمێر</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">گشتی</string>
   <string name="display_category">پیشاندان</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">بەکارهێنانی کاتژمێری دیجیتاڵ</string>
   <string name="use_digital_clock_summary">دۆخێک هه‌ڵبژێره‌ له‌ نێوان کاتژمێر و پێوه‌ری</string>
   <string name="clock_font_title">تۆخکردنی کاژێر</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">تۆخکردنی بەروار و ئاگادارکەرەوە</string>
   <string name="show_alarm_title">پیساندانی ئاگادارکەرەوەی داهاتوو</string>
   <string name="clock_am_pm_title">AM/PM پیشاندانی </string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">چالاکە</string>
   <string name="weather_enable">پیشاندانی کەش و هەو</string>
   <string name="weather_source_title">سەرچاوەی کەش و هەوا</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">نیشاندان کاتێک ده‌چێته‌ خواره‌وه‌</string>
   <string name="weather_show_when_minimized_summary">نیشاندانی که‌ش و هه‌وای هاوینه‌ و زانیاری کاتێک کورته‌وێنه‌ێت چۆته‌ خواره‌وه‌</string>
   <string name="weather_select_location">شوێن دیاریبکە</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">نیشاندانی ڕووداوی داهاتوو</string>
   <string name="calendars_title">ڕووداوه‌کانی ڕۆژژمێر</string>
   <string name="calendars_summary">دۆزینه‌وه‌ی ڕووداو له‌م ڕۆژژمێرانه‌</string>
@@ -139,10 +162,13 @@
   <string name="calendar_highlight_upcoming_events_title">ڕوداوه‌ به‌رچاوه‌کان</string>
   <string name="calendar_highlight_upcoming_events_summary">به‌رچاوکردنی ڕوداوه‌کانی ئه‌مڕۆ وه‌، دوای کاژێر 8 ئێواره‌،وه‌ ڕوداوی سبه‌ینێ</string>
   <string name="calendar_highlight_upcoming_events_bold">فۆنتی تۆخ</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">ڕەنگی فۆنت</string>
   <string name="font_color_alarm">ڕه‌نگی خه‌تی ئاگادارکه‌ره‌وه‌</string>
   <string name="font_color_timestamp">ڕه‌نگی خه‌تی کاتپول</string>
   <string name="font_color_calendar_details">ڕه‌نگی خه‌تی ڕوونکراوه‌کان</string>
+  <!-- Preferences - Background color -->
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 کاژێر</string>
   <string name="calendar_lookahead_6hrs">6  کاژێر</string>
   <string name="calendar_lookahead_12hrs">12 کاژێر</string>
@@ -152,9 +178,11 @@
   <string name="calendar_lookahead_1wk">1 هه‌فته‌</string>
   <string name="calendar_lookahead_2wks">2 هه‌فته‌</string>
   <string name="calendar_lookahead_4wks">4 هه‌فته‌</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">نیشانی نه‌دات</string>
   <string name="calendar_metadata_first_line">نیشاندانی هێڵی یه‌که‌مین</string>
   <string name="calendar_metadata_all">نیشاندانی هه‌موو</string>
+  <!-- Font colors -->
   <string name="white">سپی</string>
   <string name="grey">خۆڵەمێشی</string>
   <string name="black">ڕەش</string>
@@ -168,6 +196,7 @@
   <string name="holo_orange_light">پرته‌قاڵی کاڵ</string>
   <string name="holo_orange_dark">پرته‌قاڵی تاریک</string>
   <string name="holo_blue_bright">شینێکی ڕووناک</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">دیاریکردنی وێنۆچکه‌</string>
   <string name="weather_icons_standard">ڕه‌نگکراو</string>
   <string name="weather_icons_monochrome">تاککرۆم</string>

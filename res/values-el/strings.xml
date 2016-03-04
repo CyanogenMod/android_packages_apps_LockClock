@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Άγνωστο</string>
   <string name="cancel">Ακύρωση</string>
   <string name="loading_indicator">Φόρτωση widget\u2026</string>
   <string name="menu_done">ΟΚ</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Ανεμοστρόβιλος</string>
   <string name="weather_1">Τροπική καταιγίδα</string>
   <string name="weather_2">Τυφώνας</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Ανεμώδης</string>
   <string name="weather_25">Κρύος</string>
   <string name="weather_26">Συννεφιασμένος</string>
+  <!-- Night -->
   <string name="weather_27">Νεφελώδης</string>
+  <!-- Day -->
   <string name="weather_28">Νεφελώδης</string>
+  <!-- Night -->
   <string name="weather_29">Αίθριος</string>
+  <!-- Day -->
   <string name="weather_30">Αίθριος</string>
+  <!-- Night -->
   <string name="weather_31">Καθαρός</string>
   <string name="weather_32">Ηλιόλουστος</string>
+  <!-- Night -->
   <string name="weather_33">Ξαστεριά</string>
+  <!-- Day -->
   <string name="weather_34">Καλοκαιρία</string>
   <string name="weather_35">Βροχή και χαλάζι</string>
   <string name="weather_36">Ζεστός</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Καταιγίδες</string>
   <string name="weather_46">Χιονοπτώσεις</string>
   <string name="weather_47">Μεμονωμένες καταιγίδες</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">χμ/ω</string>
   <string name="weather_mph">μ/ω</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">Β</string>
   <string name="weather_NE">ΒΑ</string>
   <string name="weather_E">Α</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">ΝΔ</string>
   <string name="weather_W">Δ</string>
   <string name="weather_NW">ΒΔ</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Χωρίς δεδομένα</string>
   <string name="weather_tap_to_refresh">Πιέστε για ανανέωση</string>
   <string name="weather_refreshing">Γίνεται ανανέωση</string>
   <string name="weather_last_sync_just_now">Μόλις τώρα</string>
   <string name="weather_cannot_reach_provider">Αδύνατη η σύνδεση με %s αυτή τη στιγμή</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Χειροκίνητα</string>
   <string name="weather_refresh_30min">30 λεπτά</string>
   <string name="weather_refresh_60min">60 λεπτά</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 ώρες</string>
   <string name="weather_refresh_6hrs">6 ώρες</string>
   <string name="weather_refresh_8hrs">8 ώρες</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Ρολόι και ξυπνητήρι</string>
   <string name="weather_category">Καιρός</string>
   <string name="calendar_category">Ημερολόγιο</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Γενικά</string>
   <string name="display_category">Οθόνη</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Χρήση ψηφιακού ρολογιού</string>
   <string name="use_digital_clock_summary">Επιλέξτε για εναλλαγή μεταξύ του ψηφιακού και του αναλογικού ρολογιού</string>
   <string name="clock_font_title">Έντονη ώρα</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Έντονη ημερομηνία και ξυπνητήρι</string>
   <string name="show_alarm_title">Εμφάνιση επόμενου ξυπνητηριού</string>
   <string name="clock_am_pm_title">Εμφάνιση ένδειξης ΠΜ/ΜΜ</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Ενεργό</string>
   <string name="weather_enable">Εμφάνιση καιρού</string>
   <string name="weather_source_title">Πηγή καιρού</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Εμφάνιση κατά την ελαχιστοποίηση</string>
   <string name="weather_show_when_minimized_summary">Εμφάνιση συνοπτικών πληροφοριών για τον καιρό, όταν το widget είναι ελαχιστοποιημένο</string>
   <string name="weather_select_location">Επιλογή τοποθεσίας</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Εμφάνιση επόμενου συμβάντος</string>
   <string name="calendars_title">Ημερολόγια</string>
   <string name="calendars_summary">Εμφάνιση συμβάντων απο αυτά τα ημερολόγια</string>
@@ -140,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">Επισήμανση συμβάντων</string>
   <string name="calendar_highlight_upcoming_events_summary">Επισήμανση των συμβάντων της τρέχουσας ημέρας και, μετά τις 8μμ, επίσης τα γεγονότα της επόμενης ημέρας</string>
   <string name="calendar_highlight_upcoming_events_bold">Έντονη γραμματοσειρά</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Χρώμα γραμματοσειράς</string>
   <string name="font_color_alarm">Χρώμα ξυπνητηριού</string>
   <string name="font_color_timestamp">Χρώμα ώρας</string>
   <string name="font_color_calendar_details">Χρώμα λεπτομερειών</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Χρώμα φόντου</string>
   <string name="background_transparency">Διαφάνεια φόντου</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 ώρες</string>
   <string name="calendar_lookahead_6hrs">6 ώρες</string>
   <string name="calendar_lookahead_12hrs">12 ώρες</string>
@@ -155,9 +181,11 @@
   <string name="calendar_lookahead_1wk">1 εβδομάδα</string>
   <string name="calendar_lookahead_2wks">2 εβδομάδες</string>
   <string name="calendar_lookahead_4wks">4 εβδομάδες</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Απόκρυψη</string>
   <string name="calendar_metadata_first_line">Εμφάνιση της πρώτης γραμμής</string>
   <string name="calendar_metadata_all">Εμφάνιση όλων</string>
+  <!-- Font colors -->
   <string name="white">Λευκό</string>
   <string name="grey">Γκρι</string>
   <string name="black">Μαύρο</string>
@@ -171,6 +199,7 @@
   <string name="holo_orange_light">Ανοιχτό πορτοκαλί</string>
   <string name="holo_orange_dark">Σκούρο πορτοκαλί</string>
   <string name="holo_blue_bright">Έντονο μπλε</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Σετ εικονιδίων</string>
   <string name="weather_icons_standard">Χρωματιστά</string>
   <string name="weather_icons_monochrome">Μονόχρωμα</string>

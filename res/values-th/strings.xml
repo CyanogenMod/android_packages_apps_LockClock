@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">ไม่รู้จัก</string>
   <string name="cancel">ยกเลิก</string>
   <string name="loading_indicator">กำลังโหลดวิดเจ็ด\u2026</string>
   <string name="menu_done">เสร็จสิ้น</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">ทอร์นาโด</string>
   <string name="weather_1">พายุโซนร้อน</string>
   <string name="weather_2">พายุเฮอร์ริเคน</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">ลมแรง</string>
   <string name="weather_25">หนาว</string>
   <string name="weather_26">เมฆมาก</string>
+  <!-- Night -->
   <string name="weather_27">มีเมฆมากเป็นส่วนใหญ่</string>
+  <!-- Day -->
   <string name="weather_28">มีเมฆมากเป็นส่วนใหญ่</string>
+  <!-- Night -->
   <string name="weather_29">มีเมฆมากบางส่วน</string>
+  <!-- Day -->
   <string name="weather_30">มีเมฆมากบางส่วน</string>
+  <!-- Night -->
   <string name="weather_31">แจ่มใส</string>
   <string name="weather_32">แดดจัด</string>
+  <!-- Night -->
   <string name="weather_33">ปลอดโปร่ง</string>
+  <!-- Day -->
   <string name="weather_34">ปลอดโปร่ง</string>
   <string name="weather_35">ฝนผสมลูกเห็บ</string>
   <string name="weather_36">ร้อน</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">มีฝนฟ้าคะนอง</string>
   <string name="weather_46">หิมะตกปรอย ๆ</string>
   <string name="weather_47">มีฝนฟ้าคะนองบางพื้นที่</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">kph</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NE</string>
   <string name="weather_E">E</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SW</string>
   <string name="weather_W">W</string>
   <string name="weather_NW">NW</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">ไม่มีข้อมูล</string>
   <string name="weather_tap_to_refresh">แตะเพื่อรีเฟรช</string>
   <string name="weather_refreshing">กำลังรีเฟรช</string>
   <string name="weather_last_sync_just_now">เมื่อเร็ว ๆ นี้</string>
   <string name="weather_cannot_reach_provider">ไม่สามารถเข้าถึง %s ได้ในขณะนี้</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">ด้วยตัวเอง</string>
   <string name="weather_refresh_30min">30 นาที</string>
   <string name="weather_refresh_60min">60 นาที</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 ชั่วโมง</string>
   <string name="weather_refresh_6hrs">6 ชั่วโมง</string>
   <string name="weather_refresh_8hrs">8 ชั่วโมง</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">นาฬิกาและการปลุก</string>
   <string name="weather_category">แผงพยากรณ์อากาศ</string>
   <string name="calendar_category">กิจกรรมปฏิทิน</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">ทั่วไป</string>
   <string name="display_category">แสดง</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">ใช้นาฬิกาดิจิตอล</string>
   <string name="use_digital_clock_summary">เลือกเพื่อสลับระหว่างนาฬิกาดิจิตอลและนาฬิกาแบบเข็ม</string>
   <string name="clock_font_title">แสดงชั่วโมงเป็นตัวหนา</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">แสดงตัวหนาวันที่และนาฬิกาปลุก</string>
   <string name="show_alarm_title">แสดงการปลุกครั้งต่อไป</string>
   <string name="clock_am_pm_title">แสดง AM/PM</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">เปิด</string>
   <string name="weather_enable">แสดงสภาพอากาศ</string>
   <string name="weather_source_title">แหล่งที่มาของสภาพอากาศ</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">แสดงเมื่อย่อเล็กสุด</string>
   <string name="weather_show_when_minimized_summary">แสดงสรุปรายงานอากาศเมื่อวิจิทถูกย่อเล็กสุด</string>
   <string name="weather_select_location">เลือกตำแหน่งที่ตั้ง</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">แสดงกิจกรรมถัดไป</string>
   <string name="calendars_title">ปฏิทินกิจกรรม</string>
   <string name="calendars_summary">ค้นหากิจกรรมจากปฏิทินเหล่านี้</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">กิจกรรมที่จะเกิดขึ้น</string>
   <string name="calendar_highlight_upcoming_events_summary">เน้นกิจกรรมของวันที่ปัจจุบัน และหลังจาก 20. 00 น. ให้เน้นกิจกรรมของวันถัดไปด้วย</string>
   <string name="calendar_highlight_upcoming_events_bold">ตัวหนา</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">สีตัวอักษร</string>
   <string name="font_color_alarm">สีตัวอักษรนาฬิกาปลุก</string>
   <string name="font_color_timestamp">สีตัวอักษรรายละเอียดเวลา</string>
   <string name="font_color_calendar_details">สีตัวอักษรรายละเอียด</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">สีพื้นหลัง</string>
   <string name="background_transparency">ความโปร่งใสของพื้นหลัง</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 ชั่วโมง</string>
   <string name="calendar_lookahead_6hrs">6 ชั่วโมง</string>
   <string name="calendar_lookahead_12hrs">12 ชั่วโมง</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">1 สัปดาห์</string>
   <string name="calendar_lookahead_2wks">2 สัปดาห์</string>
   <string name="calendar_lookahead_4wks">4 สัปดาห์</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">ไม่แสดง</string>
   <string name="calendar_metadata_first_line">แสดงบรรทัดแรก</string>
   <string name="calendar_metadata_all">แสดงทั้งหมด</string>
+  <!-- Font colors -->
   <string name="white">ขาว</string>
   <string name="grey">เทา</string>
   <string name="black">ดำ</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">ส้มอ่อน</string>
   <string name="holo_orange_dark">ส้มแก่</string>
   <string name="holo_blue_bright">ฟ้าสว่าง</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">ชุดไอคอน</string>
   <string name="weather_icons_standard">มีสีสัน</string>
   <string name="weather_icons_monochrome">ขาวดำ</string>

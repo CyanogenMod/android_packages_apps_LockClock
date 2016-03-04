@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">לא ידוע</string>
   <string name="cancel">בטל</string>
   <string name="loading_indicator">טוען ווידג\'ט\u2026</string>
   <string name="menu_done">סיום</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">טורנדו</string>
   <string name="weather_1">סופה טרופית</string>
   <string name="weather_2">הוריקן</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">משבי רוח</string>
   <string name="weather_25">קר</string>
   <string name="weather_26">מעונן</string>
+  <!-- Night -->
   <string name="weather_27">מעונן ברובו</string>
+  <!-- Day -->
   <string name="weather_28">מעונן ברובו</string>
+  <!-- Night -->
   <string name="weather_29">מעונן חלקית</string>
+  <!-- Day -->
   <string name="weather_30">מעונן חלקית</string>
+  <!-- Night -->
   <string name="weather_31">בהיר</string>
   <string name="weather_32">שמשי</string>
+  <!-- Night -->
   <string name="weather_33">סביר</string>
+  <!-- Day -->
   <string name="weather_34">סביר</string>
   <string name="weather_35">גשם מעורב עם ברד</string>
   <string name="weather_36">חם</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">סופות גשם ורעמים</string>
   <string name="weather_46">ממטרי שלג</string>
   <string name="weather_47">סופות גשם ורעמים בודדות</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">קמ\"ש</string>
   <string name="weather_mph">מייל לשעה</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">צפון</string>
   <string name="weather_NE">צפון מזרח</string>
   <string name="weather_E">מזרח</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">דרום מערב</string>
   <string name="weather_W">מערב</string>
   <string name="weather_NW">צפון מערב</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">אין נתונים</string>
   <string name="weather_tap_to_refresh">הקש לרענון</string>
   <string name="weather_refreshing">מרענן</string>
   <string name="weather_last_sync_just_now">כרגע</string>
   <string name="weather_cannot_reach_provider">אין אפשרות להגיע אל %s כרגע</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">ידני</string>
   <string name="weather_refresh_30min">30 דקות</string>
   <string name="weather_refresh_60min">60 דקות</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 שעות</string>
   <string name="weather_refresh_6hrs">6 שעות</string>
   <string name="weather_refresh_8hrs">8 שעות</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">שעון ושעון מעורר</string>
   <string name="weather_category">לוח מזג אוויר</string>
   <string name="calendar_category">אירועי לוח שנה</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">כללי</string>
   <string name="display_category">תצוגה</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">השתמש בשעון דיגיטלי</string>
   <string name="use_digital_clock_summary">בחר באפשרות זו כדי לעבור בין שעון דיגיטלי לבין שעון אנלוגי</string>
   <string name="clock_font_title">שעות מודגשות</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">שעון מעורר ותאריך מודגשים</string>
   <string name="show_alarm_title">הצג שעון מעורר הבא</string>
   <string name="clock_am_pm_title">הצג מחוון AM/PM</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">מאופשר</string>
   <string name="weather_enable">הצג מזג אוויר</string>
   <string name="weather_source_title">מקור למזג אוויר</string>
@@ -125,9 +147,11 @@
   <string name="weather_show_when_minimized_title">הצג כאשר ממוזער</string>
   <string name="weather_show_when_minimized_summary">הצג נתוני סיכום תחזית כאשר יישומון ממוזער</string>
   <string name="weather_select_location">בחר מיקום</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">הצגת האירוע הבא</string>
   <string name="calendars_title">אירועי לוח שנה</string>
   <string name="calendars_summary">מצא אירועים מלוחות שנה אלו</string>
+  <string name="calendars_none_found_summary">לא נמצאו לוחות שנה</string>
   <string name="calendar_reminders_only_title">תזכורות בלבד</string>
   <string name="calendar_reminders_only_summary">הצג רק אירועים עם תזכורות</string>
   <string name="calendar_hide_allday_title">הסתר אירועים של יום שלם</string>
@@ -139,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">הדגש אירועים</string>
   <string name="calendar_highlight_upcoming_events_summary">הדגש אירועי היום הנוכחי, ולאחר השעה 20:00, גם את אירועי למחרת</string>
   <string name="calendar_highlight_upcoming_events_bold">גופן מודגש</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">צבע גופן</string>
   <string name="font_color_alarm">צבע גופן שעון מעורר</string>
   <string name="font_color_timestamp">צבע גופן חותמת זמן</string>
   <string name="font_color_calendar_details">צבע גופן של פרטים</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">צבע רקע</string>
   <string name="background_transparency">שקיפות רקע</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 שעות</string>
   <string name="calendar_lookahead_6hrs">6 שעות</string>
   <string name="calendar_lookahead_12hrs">12 שעות</string>
@@ -154,9 +181,11 @@
   <string name="calendar_lookahead_1wk">שבוע אחד</string>
   <string name="calendar_lookahead_2wks">2 שבועות</string>
   <string name="calendar_lookahead_4wks">4 שבועות</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">אל תראה</string>
   <string name="calendar_metadata_first_line">הצג שורה ראשונה</string>
   <string name="calendar_metadata_all">הצג הכל</string>
+  <!-- Font colors -->
   <string name="white">לבן</string>
   <string name="grey">אפור</string>
   <string name="black">שחור</string>
@@ -170,6 +199,7 @@
   <string name="holo_orange_light">כתום בהיר</string>
   <string name="holo_orange_dark">כתום כהה</string>
   <string name="holo_blue_bright">כחול בהיר</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">ערכת סמלים</string>
   <string name="weather_icons_standard">צבעוני</string>
   <string name="weather_icons_monochrome">אחיד</string>
