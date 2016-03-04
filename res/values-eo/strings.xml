@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Nekonata</string>
   <string name="cancel">Rezigni</string>
   <string name="loading_indicator">Ŝarĝado de de fenestraĵo\u2026</string>
   <string name="menu_done">Finite</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornado</string>
   <string name="weather_1">Tropika ŝtormo</string>
   <string name="weather_2">Uragano</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Venta</string>
   <string name="weather_25">Malvarma</string>
   <string name="weather_26">Nuba</string>
+  <!-- Night -->
   <string name="weather_27">Nubega</string>
+  <!-- Day -->
   <string name="weather_28">Nubega</string>
+  <!-- Night -->
   <string name="weather_29">Parte nuba</string>
+  <!-- Day -->
   <string name="weather_30">Parte nuba</string>
+  <!-- Night -->
   <string name="weather_31">Forviŝi</string>
   <string name="weather_32">Suna</string>
+  <!-- Night -->
   <string name="weather_33">Akcepteble</string>
+  <!-- Day -->
   <string name="weather_34">Akcepteble</string>
   <string name="weather_35">Pluvo kaj hajlo</string>
   <string name="weather_36">Varma</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Fulmotondraj pluvegoj</string>
   <string name="weather_46">Neĝoverŝoj</string>
   <string name="weather_47">Izolitaj fulmotondraj pluvegoj</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NOr</string>
   <string name="weather_E">Or</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SOk</string>
   <string name="weather_W">Ok</string>
   <string name="weather_NW">NOk</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Neniu datumo</string>
   <string name="weather_tap_to_refresh">Tuŝetu por aktualigi</string>
   <string name="weather_refreshing">Aktualigo</string>
   <string name="weather_last_sync_just_now">Nur nun</string>
   <string name="weather_cannot_reach_provider">%s ne atingeblas nuntempe</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Mane</string>
   <string name="weather_refresh_30min">30 minutoj</string>
   <string name="weather_refresh_60min">60 minutoj</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 horoj</string>
   <string name="weather_refresh_6hrs">6 horoj</string>
   <string name="weather_refresh_8hrs">8 horoj</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Horloĝo kaj alarmo</string>
   <string name="weather_category">Vetero</string>
   <string name="calendar_category">Kalendaraj eventoj</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Ĝeneralo</string>
   <string name="display_category">Ekrano</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Uzi ciferan horloĝon</string>
   <string name="use_digital_clock_summary">Baskuligi inter cifera kaj analoga horo</string>
   <string name="clock_font_title">Grasigitaj horoj</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Grasigita dato kaj alarmo</string>
   <string name="show_alarm_title">Montri venontan alarmon</string>
   <string name="clock_am_pm_title">Montri AM/PM indikilon</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Ŝaltita</string>
   <string name="weather_enable">Montri veteron</string>
   <string name="weather_source_title">Vetera fonto</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Montri kiam minimumiga</string>
   <string name="weather_show_when_minimized_summary">Montri resumitajn informojn pri vetero kiam la fenestraĵo estas minimumigita</string>
   <string name="weather_select_location">Elekti lokon</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Montri venontan eventon</string>
   <string name="calendars_title">Kalendara evento</string>
   <string name="calendars_summary">Trovi eventon el tiuj kalendaroj</string>
@@ -139,10 +162,13 @@
   <string name="calendar_highlight_upcoming_events_title">Markitaj eventoj</string>
   <string name="calendar_highlight_upcoming_events_summary">Marki la ĉi-tagajn eventojn kaj, post la 20a, ankaŭ la morgaŭ-aj</string>
   <string name="calendar_highlight_upcoming_events_bold">Grasigita tiparo</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Tipara koloro</string>
   <string name="font_color_alarm">Koloro de la alarma tiparo</string>
   <string name="font_color_timestamp">Tipara koloro de la tempindiko</string>
   <string name="font_color_calendar_details">Tipara koloro de la detaloj</string>
+  <!-- Preferences - Background color -->
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 horoj</string>
   <string name="calendar_lookahead_6hrs">6 horoj</string>
   <string name="calendar_lookahead_12hrs">12 horoj</string>
@@ -152,9 +178,11 @@
   <string name="calendar_lookahead_1wk">1 semajno</string>
   <string name="calendar_lookahead_2wks">2 semajnoj</string>
   <string name="calendar_lookahead_4wks">4 semajnoj</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Ne montri</string>
   <string name="calendar_metadata_first_line">Montri la unuan linion</string>
   <string name="calendar_metadata_all">Montri ĉion</string>
+  <!-- Font colors -->
   <string name="white">Blanko</string>
   <string name="grey">Griza</string>
   <string name="black">Nigra</string>
@@ -168,6 +196,7 @@
   <string name="holo_orange_light">Heloranĝa</string>
   <string name="holo_orange_dark">Malheloranĝa</string>
   <string name="holo_blue_bright">Blua</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Piktogramaro</string>
   <string name="weather_icons_standard">Kolorigita</string>
   <string name="weather_icons_monochrome">Unukolora</string>

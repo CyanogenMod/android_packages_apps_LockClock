@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Tuntematon</string>
   <string name="cancel">Peruuta</string>
   <string name="loading_indicator">Ladataan widgetiä\u2026</string>
   <string name="menu_done">Valmis</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Pyörremyrsky</string>
   <string name="weather_1">Trooppinen myrsky</string>
   <string name="weather_2">Hurrikaani</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Tuulista</string>
   <string name="weather_25">Kylmää</string>
   <string name="weather_26">Pilvistä</string>
+  <!-- Night -->
   <string name="weather_27">Enimmäkseen pilvistä</string>
+  <!-- Day -->
   <string name="weather_28">Enimmäkseen pilvistä</string>
+  <!-- Night -->
   <string name="weather_29">Puolipilvistä</string>
+  <!-- Day -->
   <string name="weather_30">Puolipilvistä</string>
+  <!-- Night -->
   <string name="weather_31">Kirkasta</string>
   <string name="weather_32">Aurinkoista</string>
+  <!-- Night -->
   <string name="weather_33">Selkeää</string>
+  <!-- Day -->
   <string name="weather_34">Poutaa</string>
   <string name="weather_35">Raekuuroja</string>
   <string name="weather_36">Hellettä</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Ukkoskuuroja</string>
   <string name="weather_46">Lumikuuroja</string>
   <string name="weather_47">Paikallisia ukkoskuuroja</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NE</string>
   <string name="weather_E">E</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SW</string>
   <string name="weather_W">W</string>
   <string name="weather_NW">NW</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Ei tietoja</string>
   <string name="weather_tap_to_refresh">Kosketa päivittääksesi</string>
   <string name="weather_refreshing">Päivitetään</string>
   <string name="weather_last_sync_just_now">Juuri nyt</string>
   <string name="weather_cannot_reach_provider">Yhteyttä palveluun %s ei saada tällä hetkellä</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuaalinen</string>
   <string name="weather_refresh_30min">30 minuuttia</string>
   <string name="weather_refresh_60min">60 minuuttia</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 tuntia</string>
   <string name="weather_refresh_6hrs">6 tuntia</string>
   <string name="weather_refresh_8hrs">8 tuntia</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Kello ja hälytys</string>
   <string name="weather_category">Sääpaneeli</string>
   <string name="calendar_category">Kalenteri</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Yleiset</string>
   <string name="display_category">Näyttö</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Käytä digitaalista kelloa</string>
   <string name="use_digital_clock_summary">Valitse digitaalinen tai analoginen kello</string>
   <string name="clock_font_title">Lihavoi tunnit</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Lihavoi päivä ja hälytys</string>
   <string name="show_alarm_title">Näytä seuraava hälytys</string>
   <string name="clock_am_pm_title">Näytä AM/PM tunniste</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Käytössä</string>
   <string name="weather_enable">Näytä sää</string>
   <string name="weather_source_title">Säätietojen lähde</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Näytä kun pienennetty</string>
   <string name="weather_show_when_minimized_summary">Näyttää sään yhteenvedon kun widget on pienennetty</string>
   <string name="weather_select_location">Valitse sijainti</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Näytä seuraava tapahtuma</string>
   <string name="calendars_title">Tapahtumakalenterit</string>
   <string name="calendars_summary">Etsi tapahtuma näistä kalentereista</string>
@@ -140,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">Korosta tapahtumat</string>
   <string name="calendar_highlight_upcoming_events_summary">Korosta saman päivän tapahtumat, ja klo 20.00 jälkeen myös seuraavan päivän tapahtumat</string>
   <string name="calendar_highlight_upcoming_events_bold">Lihavoitu fontti</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Fontin väri</string>
   <string name="font_color_alarm">Hälytyksen fontin väri</string>
   <string name="font_color_timestamp">Aikaleiman fontin väri</string>
   <string name="font_color_calendar_details">Tietojen fontin väri</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Taustan väri</string>
   <string name="background_transparency">Taustan läpinäkyvyys</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 tuntia</string>
   <string name="calendar_lookahead_6hrs">6 tuntia</string>
   <string name="calendar_lookahead_12hrs">12 tuntia</string>
@@ -155,9 +181,11 @@
   <string name="calendar_lookahead_1wk">1 viikko</string>
   <string name="calendar_lookahead_2wks">2 viikkoa</string>
   <string name="calendar_lookahead_4wks">4 viikkoa</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Älä näytä</string>
   <string name="calendar_metadata_first_line">Näytä ensimmäinen rivi</string>
   <string name="calendar_metadata_all">Näytä kaikki</string>
+  <!-- Font colors -->
   <string name="white">Valkoinen</string>
   <string name="grey">Harmaa</string>
   <string name="black">Musta</string>
@@ -171,6 +199,7 @@
   <string name="holo_orange_light">Vaalea oranssi</string>
   <string name="holo_orange_dark">Tumma oranssi</string>
   <string name="holo_blue_bright">Kirkas sininen</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Kuvakkeet</string>
   <string name="weather_icons_standard">Värikkäät</string>
   <string name="weather_icons_monochrome">Mustavalkoinen</string>

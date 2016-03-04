@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Desconhecido</string>
   <string name="cancel">Cancelar</string>
   <string name="loading_indicator">A carregar widget\u2026</string>
   <string name="menu_done">Feito</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornado</string>
   <string name="weather_1">Tempestade tropical</string>
   <string name="weather_2">Furacão</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Ventoso</string>
   <string name="weather_25">Frio</string>
   <string name="weather_26">Nublado</string>
+  <!-- Night -->
   <string name="weather_27">Muito Nublado</string>
+  <!-- Day -->
   <string name="weather_28">Muito Nublado</string>
+  <!-- Night -->
   <string name="weather_29">Parcialmente Nublado</string>
+  <!-- Day -->
   <string name="weather_30">Parcialmente Nublado</string>
+  <!-- Night -->
   <string name="weather_31">Limpo</string>
   <string name="weather_32">Ensolarado</string>
+  <!-- Night -->
   <string name="weather_33">Razoável</string>
+  <!-- Day -->
   <string name="weather_34">Razoável</string>
   <string name="weather_35">Misto de Chuva e Saraiva</string>
   <string name="weather_36">Quente</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Chuvas com Trovoadas</string>
   <string name="weather_46">Chuva de Neve</string>
   <string name="weather_47">Chuvas com Trovoadas Isoladas</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NE</string>
   <string name="weather_E">E</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SO</string>
   <string name="weather_W">O</string>
   <string name="weather_NW">NO</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Sem dados</string>
   <string name="weather_tap_to_refresh">Toque para atualizar</string>
   <string name="weather_refreshing">A atualizar</string>
   <string name="weather_last_sync_just_now">Agora mesmo</string>
   <string name="weather_cannot_reach_provider">Não é possível alcançar %s de momento.</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manual</string>
   <string name="weather_refresh_30min">30 minutos</string>
   <string name="weather_refresh_60min">60 minutos</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 horas</string>
   <string name="weather_refresh_6hrs">6 horas</string>
   <string name="weather_refresh_8hrs">8 horas</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Relógio e alarme</string>
   <string name="weather_category">Painel do tempo</string>
   <string name="calendar_category">Eventos do calendário</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Geral</string>
   <string name="display_category">Mostrar</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Usar relógio digital</string>
   <string name="use_digital_clock_summary">Selecione para alternar entre o relógio Digital e o Analógico</string>
   <string name="clock_font_title">Horas a negrito</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Data e alarme a negrito</string>
   <string name="show_alarm_title">Mostrar próximo alarme</string>
   <string name="clock_am_pm_title">Mostrar indicador AM/PM</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Ativado</string>
   <string name="weather_enable">Mostrar meteorologia</string>
   <string name="weather_source_title">Fonte de meteorologia</string>
@@ -125,9 +147,11 @@
   <string name="weather_show_when_minimized_title">Mostrar quando minimizado</string>
   <string name="weather_show_when_minimized_summary">Mostrar informação resumida do tempo quando o widget está minimizado</string>
   <string name="weather_select_location">Selecionar local</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Mostrar próximo evento</string>
   <string name="calendars_title">Eventos das agendas</string>
   <string name="calendars_summary">Procurar por eventos nestas agendas</string>
+  <string name="calendars_none_found_summary">Não foram encontrados calendários</string>
   <string name="calendar_reminders_only_title">Apenas lembretes</string>
   <string name="calendar_reminders_only_summary">Mostrar apenas eventos com lembretes</string>
   <string name="calendar_hide_allday_title">Ocultar eventos de dia inteiro</string>
@@ -139,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">Destacar eventos</string>
   <string name="calendar_highlight_upcoming_events_summary">Destacar os eventos do próprio dia e, após as 20:00, também os do dia seguinte</string>
   <string name="calendar_highlight_upcoming_events_bold">Texto a negrito</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Cor do texto</string>
   <string name="font_color_alarm">Cor do texto do alarme</string>
   <string name="font_color_timestamp">Cor do texto da hora da última atualização</string>
   <string name="font_color_calendar_details">Cor do texto dos detalhes</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Cor de fundo</string>
   <string name="background_transparency">Transparência de fundo</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 horas</string>
   <string name="calendar_lookahead_6hrs">6 horas</string>
   <string name="calendar_lookahead_12hrs">12 horas</string>
@@ -154,9 +181,11 @@
   <string name="calendar_lookahead_1wk">1 semana</string>
   <string name="calendar_lookahead_2wks">2 semanas</string>
   <string name="calendar_lookahead_4wks">4 semanas</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Não mostrar</string>
   <string name="calendar_metadata_first_line">Mostrar primeira linha</string>
   <string name="calendar_metadata_all">Mostrar tudo</string>
+  <!-- Font colors -->
   <string name="white">Branco</string>
   <string name="grey">Cinzento</string>
   <string name="black">Preto</string>
@@ -170,6 +199,7 @@
   <string name="holo_orange_light">Laranja claro</string>
   <string name="holo_orange_dark">Laranja escuro</string>
   <string name="holo_blue_bright">Azul brilhante</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Conjunto de ícones</string>
   <string name="weather_icons_standard">Colorido</string>
   <string name="weather_icons_monochrome">Monocromático</string>

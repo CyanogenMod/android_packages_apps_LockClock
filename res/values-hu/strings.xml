@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Ismeretlen</string>
   <string name="cancel">Elvet</string>
   <string name="loading_indicator">Modul betöltése\u2026</string>
   <string name="menu_done">Kész</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornádó</string>
   <string name="weather_1">Trópusi vihar</string>
   <string name="weather_2">Hurrikán</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Szeles</string>
   <string name="weather_25">Hideg</string>
   <string name="weather_26">Felhős</string>
+  <!-- Night -->
   <string name="weather_27">Túlnyomóan felhős</string>
+  <!-- Day -->
   <string name="weather_28">Túlnyomóan felhős</string>
+  <!-- Night -->
   <string name="weather_29">Nyomokban felhős</string>
+  <!-- Day -->
   <string name="weather_30">Nyomokban felhős</string>
+  <!-- Night -->
   <string name="weather_31">Tiszta</string>
   <string name="weather_32">Napos</string>
+  <!-- Night -->
   <string name="weather_33">Derűs</string>
+  <!-- Day -->
   <string name="weather_34">Derűs</string>
   <string name="weather_35">Eső és jégeső</string>
   <string name="weather_36">Forróság</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Viharos</string>
   <string name="weather_46">Hózáporok</string>
   <string name="weather_47">Elszigetelt vihar</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">É</string>
   <string name="weather_NE">ÉK</string>
   <string name="weather_E">K</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">DNy</string>
   <string name="weather_W">Ny</string>
   <string name="weather_NW">ÉNy</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Nincs adat</string>
   <string name="weather_tap_to_refresh">Érintse meg a frissítéshez</string>
   <string name="weather_refreshing">Frissítés\u2026</string>
   <string name="weather_last_sync_just_now">Épp most</string>
   <string name="weather_cannot_reach_provider">%s nem elérhető</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Kézi</string>
   <string name="weather_refresh_30min">30 perc</string>
   <string name="weather_refresh_60min">60 perc</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 óra</string>
   <string name="weather_refresh_6hrs">6 óra</string>
   <string name="weather_refresh_8hrs">8 óra</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Óra és ébresztő</string>
   <string name="weather_category">Időjárás panel</string>
   <string name="calendar_category">Naptárbejegyzések</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Általános</string>
   <string name="display_category">Megjelenítés</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Digitális óra</string>
   <string name="use_digital_clock_summary">Válasszon az analóg illetve a digitális óra közt</string>
   <string name="clock_font_title">Órák félkövérrel</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Dátum és ébresztés félkövérrel</string>
   <string name="show_alarm_title">Következő ébresztés megjelenítése</string>
   <string name="clock_am_pm_title">Napszak (De/Du) megjelenítése</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Engedélyezve</string>
   <string name="weather_enable">Időjárás megjelenítése</string>
   <string name="weather_source_title">Időjárás forrása</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Megjelenítés kis méret esetén</string>
   <string name="weather_show_when_minimized_summary">Időjárási adatok megjelenítése kis modulméret esetén</string>
   <string name="weather_select_location">Válassza ki a helyet</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Megjeleníti a következő naptárbejegyzést</string>
   <string name="calendars_title">Naptárak</string>
   <string name="calendars_summary">Csak a megadott naptárakban keresse az eseményeket</string>
@@ -140,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">Események kiemelése</string>
   <string name="calendar_highlight_upcoming_events_summary">Az aktuális nap, 20:00 után a következő nap eseményeinek kiemelése</string>
   <string name="calendar_highlight_upcoming_events_bold">Vastag betű</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Betűszín</string>
   <string name="font_color_alarm">Ébresztés idejének színe</string>
   <string name="font_color_timestamp">Frissítés idejének színe</string>
   <string name="font_color_calendar_details">Részletek színe</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Háttérszín</string>
   <string name="background_transparency">Háttér átlátszóság</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 óra</string>
   <string name="calendar_lookahead_6hrs">6 óra</string>
   <string name="calendar_lookahead_12hrs">12 óra</string>
@@ -155,9 +181,11 @@
   <string name="calendar_lookahead_1wk">1 hét</string>
   <string name="calendar_lookahead_2wks">2 hét</string>
   <string name="calendar_lookahead_4wks">4 hét</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Ne mutassa</string>
   <string name="calendar_metadata_first_line">Csak az első sorát mutassa</string>
   <string name="calendar_metadata_all">A teljeset mutassa</string>
+  <!-- Font colors -->
   <string name="white">Fehér</string>
   <string name="grey">Szürke</string>
   <string name="black">Fekete</string>
@@ -171,6 +199,7 @@
   <string name="holo_orange_light">Világos narancs</string>
   <string name="holo_orange_dark">Sötét narancs</string>
   <string name="holo_blue_bright">Élénk kék</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Ikon beállítások</string>
   <string name="weather_icons_standard">Színes</string>
   <string name="weather_icons_monochrome">Fekete-fehér</string>

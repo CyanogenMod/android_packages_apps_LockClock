@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">يوچۇن</string>
   <string name="cancel">ۋاز كەچ</string>
   <string name="loading_indicator">ئەپچە يۈكلەۋاتىدۇ\u2026</string>
   <string name="menu_done">تامام</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">قارا قۇيۇن</string>
   <string name="weather_1">تروپىك بوران-چاپقۇنى</string>
   <string name="weather_2">دەھشەتلىك بوران</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">شاماللىق</string>
   <string name="weather_25">سوغۇق</string>
   <string name="weather_26">بۇلۇتلۇق</string>
+  <!-- Night -->
   <string name="weather_27">بۇلۇتلۇق بەزىدە ئوچۇق</string>
+  <!-- Day -->
   <string name="weather_28">بۇلۇتلۇق بەزىدە ئوچۇق</string>
+  <!-- Night -->
   <string name="weather_29">قىسمەن بۇلۇتلۇق</string>
+  <!-- Day -->
   <string name="weather_30">قىسمەن بۇلۇتلۇق</string>
+  <!-- Night -->
   <string name="weather_31">ئوچۇق</string>
   <string name="weather_32">ئوچۇق كۈن</string>
+  <!-- Night -->
   <string name="weather_33">ياخشىراق</string>
+  <!-- Day -->
   <string name="weather_34">ياخشىراق</string>
   <string name="weather_35">يامغۇر ئارىلاش مۆلدۈر</string>
   <string name="weather_36">ئىسسىق</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">گۈلدۈرمامالىق ئۆتكۈنچى يامغۇر</string>
   <string name="weather_46">ئۆتكۈنچى قار</string>
   <string name="weather_47">قىسمەن گۈلدۈرمامالىق ئۆتكۈنچى يامغۇر</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">kph</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">شىمال</string>
   <string name="weather_NE">شەرقىي شىمال</string>
   <string name="weather_E">شەرق</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">غەربىي جەنۇپ</string>
   <string name="weather_W">غەرب</string>
   <string name="weather_NW">غەربىي شىمال</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">سانلىق مەلۇمات يوق</string>
   <string name="weather_tap_to_refresh">چېكىسلە يېڭىلايدۇ</string>
   <string name="weather_refreshing">يېڭىلاۋاتىدۇ</string>
   <string name="weather_last_sync_just_now">ھازىرلا يېڭىلىدى</string>
   <string name="weather_cannot_reach_provider">نۆۋەتتە %s نى زىيارەت قىلالمايدۇ</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">قولدا</string>
   <string name="weather_refresh_30min">30 مىنۇت</string>
   <string name="weather_refresh_60min">60 مىنۇت</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 سائەت</string>
   <string name="weather_refresh_6hrs">6 سائەت</string>
   <string name="weather_refresh_8hrs">8 سائەت</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">سائەت ۋە قوڭغۇراق</string>
   <string name="weather_category">ھاۋارايى تاختا</string>
   <string name="calendar_category">يىلنامە پائالىيەتلەر</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">ئادەتتىكى</string>
   <string name="display_category">ئېكران</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">رەقەملىك سائەت ئىشلەت</string>
   <string name="use_digital_clock_summary">رەقەملىك سائەت بىلەن تەقلىد سائەت ئارىسىدا ئالماشتۇرۇشنى تاللايدۇ</string>
   <string name="clock_font_title">سائەت توم</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">چېسلا ۋە قوڭغۇراق توم</string>
   <string name="show_alarm_title">كېيىنكى قوڭغۇراقنى كۆرسەت</string>
   <string name="clock_am_pm_title">چ ب/چ ك كۆرسەتكۈچنى كۆرسەت</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">قوزغىتىلغان</string>
   <string name="weather_enable">ھاۋارايى كۆرسەت</string>
   <string name="weather_source_title">ھاۋارايى مەنبەسى</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">كىچىكلەتكەندە كۆرسەت</string>
   <string name="weather_show_when_minimized_summary">ئەپچە كىچىكلىتىلگەندە يەنىلا ھاۋارايى ئۇچۇرىنى كۆرسىتىدۇ</string>
   <string name="weather_select_location">ئورۇن تاللاڭ</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">كېيىنكى پائالىيەتنى كۆرسەت</string>
   <string name="calendars_title">پائالىيەت يىلنامەسى</string>
   <string name="calendars_summary">بۇ يىلنامەدىن پائالىيەت ئىزدە</string>
@@ -139,10 +162,13 @@
   <string name="calendar_highlight_upcoming_events_title">پائالىيەتنى يورۇت</string>
   <string name="calendar_highlight_upcoming_events_summary">نۆۋەتتىكى چېسلادىكى پائالىيەتلەر، چۈشتىن كېيىن سائەت 8 دىن كېيىنكى ۋە ئەتىدىكى پائالىيەتلەرنى يورۇتىدۇ</string>
   <string name="calendar_highlight_upcoming_events_bold">توم خەت</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">خەت رەڭگى</string>
   <string name="font_color_alarm">قوڭغۇراق خېتىنىڭ رەڭگى</string>
   <string name="font_color_timestamp">ۋاقىت تامغىسىنىڭ خەت رەڭگى</string>
   <string name="font_color_calendar_details">تەپسىلات  خەت رەڭگى</string>
+  <!-- Preferences - Background color -->
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 سائەت</string>
   <string name="calendar_lookahead_6hrs">6 سائەت</string>
   <string name="calendar_lookahead_12hrs">12 سائەت</string>
@@ -152,9 +178,11 @@
   <string name="calendar_lookahead_1wk">1 ھەپتە</string>
   <string name="calendar_lookahead_2wks">2 ھەپتە</string>
   <string name="calendar_lookahead_4wks">4 ھەپتە</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">كۆرسەتمە</string>
   <string name="calendar_metadata_first_line">بىرىنچى قۇرنى كۆرسەت</string>
   <string name="calendar_metadata_all">ھەممىنى كۆرسەت</string>
+  <!-- Font colors -->
   <string name="white">ئاق</string>
   <string name="grey">كۈلرەڭ</string>
   <string name="black">قارا</string>
@@ -168,6 +196,7 @@
   <string name="holo_orange_light">ئاچ قىزغۇچ سېرىق</string>
   <string name="holo_orange_dark">توق قىزغۇچ سېرىق</string>
   <string name="holo_blue_bright">ئاچ كۆك</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">سىنبەلگە توپلىمى</string>
   <string name="weather_icons_standard">رەڭلىك</string>
   <string name="weather_icons_monochrome">رەڭسىز</string>

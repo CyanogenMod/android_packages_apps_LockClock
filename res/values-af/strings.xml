@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Onbekend</string>
   <string name="cancel">Kanselleer</string>
   <string name="loading_indicator">Legstuk laai tans\u2026</string>
   <string name="menu_done">Stoor</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornado</string>
   <string name="weather_1">Tropiese storm</string>
   <string name="weather_2">Orkaan</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Winderig</string>
   <string name="weather_25">Koud</string>
   <string name="weather_26">Bewolk</string>
+  <!-- Night -->
   <string name="weather_27">Meestal bewolk</string>
+  <!-- Day -->
   <string name="weather_28">Meestal bewolk</string>
+  <!-- Night -->
   <string name="weather_29">Gedeeltelik bewolk</string>
+  <!-- Day -->
   <string name="weather_30">Gedeeltelik bewolk</string>
+  <!-- Night -->
   <string name="weather_31">Helder</string>
   <string name="weather_32">Sonnig</string>
+  <!-- Night -->
   <string name="weather_33">Mooiweer</string>
+  <!-- Day -->
   <string name="weather_34">Mooiweer</string>
   <string name="weather_35">Gemengde reën en hael</string>
   <string name="weather_36">Warm</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Donderstorms</string>
   <string name="weather_46">Sneeubuie</string>
   <string name="weather_47">Geïsoleerde donderstorms</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">kph</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NO</string>
   <string name="weather_E">O</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SW</string>
   <string name="weather_W">W</string>
   <string name="weather_NW">NW</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Geen data</string>
   <string name="weather_tap_to_refresh">Raak om te verfris</string>
   <string name="weather_refreshing">Verfris tans\u2026</string>
   <string name="weather_last_sync_just_now">Sopas</string>
   <string name="weather_cannot_reach_provider">Kan nie %s bereik nie</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Handmatig</string>
   <string name="weather_refresh_30min">30 minute</string>
   <string name="weather_refresh_60min">60 minute</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 ure</string>
   <string name="weather_refresh_6hrs">6 ure</string>
   <string name="weather_refresh_8hrs">8 ure</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Klok en alarm</string>
   <string name="weather_category">Weerpaneel</string>
   <string name="calendar_category">Kalender afsprake</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Algemeen</string>
   <string name="display_category">vertooneienskappe</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Gebruik digitale klok</string>
   <string name="use_digital_clock_summary">Kies om te wissel tussen die digitale en die analoog klok weergawe</string>
   <string name="clock_font_title">Ure vetgedruk</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Datum en alarm vetgedruk</string>
   <string name="show_alarm_title">Wys opkomende alarm</string>
   <string name="clock_am_pm_title">Wys VM/NM indikator</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Geaktiveer</string>
   <string name="weather_enable">Weerpaneel sigbaar</string>
   <string name="weather_source_title">Weer bron</string>
@@ -125,9 +147,11 @@
   <string name="weather_show_when_minimized_title">Wys wanneer geminimaliseer</string>
   <string name="weather_show_when_minimized_summary">Wys opgesomde weerbesonderhede wanneer die legstuk geminimaliseer word</string>
   <string name="weather_select_location">Selekteer ligging</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Wys volgende item</string>
   <string name="calendars_title">Afsprake kalenders</string>
   <string name="calendars_summary">Vind afsprake in bepaalde kalenders</string>
+  <string name="calendars_none_found_summary">Geen kalenders gevind</string>
   <string name="calendar_reminders_only_title">Slegs herinnerings</string>
   <string name="calendar_reminders_only_summary">Wys net afsprake met gestelde herinnerings</string>
   <string name="calendar_hide_allday_title">Steek heeldag-afsprake weg</string>
@@ -139,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">Verlig afsprake</string>
   <string name="calendar_highlight_upcoming_events_summary">Verlig die huidige dag se afsprake en, na 20:00, ook die volgende dag se afsprake</string>
   <string name="calendar_highlight_upcoming_events_bold">Vetgedruk</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Letertipe kleur</string>
   <string name="font_color_alarm">Alarm Letertipe kleur</string>
   <string name="font_color_timestamp">Tyd Stempel Letertipe kleur</string>
   <string name="font_color_calendar_details">Details van Letertipe kleur</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Agtergrond kleur</string>
   <string name="background_transparency">Agtergrond deursigtigheid</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 ure</string>
   <string name="calendar_lookahead_6hrs">6 ure</string>
   <string name="calendar_lookahead_12hrs">12 ure</string>
@@ -154,9 +181,11 @@
   <string name="calendar_lookahead_1wk">1 week</string>
   <string name="calendar_lookahead_2wks">2 weke</string>
   <string name="calendar_lookahead_4wks">4 weke</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Wys niks</string>
   <string name="calendar_metadata_first_line">Wys eerste lyn</string>
   <string name="calendar_metadata_all">Wys alles</string>
+  <!-- Font colors -->
   <string name="white">Wit</string>
   <string name="grey">Grys</string>
   <string name="black">Swart</string>
@@ -170,6 +199,7 @@
   <string name="holo_orange_light">Ligte oranje</string>
   <string name="holo_orange_dark">Donker oranje</string>
   <string name="holo_blue_bright">Helder blou</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Ikoon stel</string>
   <string name="weather_icons_standard">Gekleurde</string>
   <string name="weather_icons_monochrome">Monochroom</string>

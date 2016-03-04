@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Teadmata</string>
   <string name="cancel">Tühista</string>
   <string name="loading_indicator">Laen vidinat\u2026</string>
   <string name="menu_done">Valmis</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornaado</string>
   <string name="weather_1">Troopiline Torm</string>
   <string name="weather_2">Orkaan</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Tuuline</string>
   <string name="weather_25">Külm</string>
   <string name="weather_26">Pilves</string>
+  <!-- Night -->
   <string name="weather_27">Peamiselt Pilves</string>
+  <!-- Day -->
   <string name="weather_28">Peamiselt Pilves</string>
+  <!-- Night -->
   <string name="weather_29">Osaliselt Pilves</string>
+  <!-- Day -->
   <string name="weather_30">Osaliselt Pilves</string>
+  <!-- Night -->
   <string name="weather_31">Selge</string>
   <string name="weather_32">Päikeseline</string>
+  <!-- Night -->
   <string name="weather_33">Rahulik</string>
+  <!-- Day -->
   <string name="weather_34">Rahulik</string>
   <string name="weather_35">Vihma ja Rahe Segu</string>
   <string name="weather_36">Kuum</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Äikesevihmad</string>
   <string name="weather_46">Lumesadu</string>
   <string name="weather_47">Mitmed Äikesevihmad</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">miili/h</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NE</string>
   <string name="weather_E">E</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SW</string>
   <string name="weather_W">W</string>
   <string name="weather_NW">NW</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Andmed puuduvad</string>
   <string name="weather_tap_to_refresh">Toksa värskendamiseks</string>
   <string name="weather_refreshing">Värskendan</string>
   <string name="weather_last_sync_just_now">Just praegu</string>
   <string name="weather_cannot_reach_provider">%s on hetkel kättesaamatu</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuaalne</string>
   <string name="weather_refresh_30min">30 minutit</string>
   <string name="weather_refresh_60min">60 minutit</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 tundi</string>
   <string name="weather_refresh_6hrs">6 tundi</string>
   <string name="weather_refresh_8hrs">8 tundi</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Kella ja äratus</string>
   <string name="weather_category">Ilmapaneel</string>
   <string name="calendar_category">Kalendri sündmused</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Üldine</string>
   <string name="display_category">Kuva</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Kasuta Digitaalkella</string>
   <string name="use_digital_clock_summary">Vali et lülitada Digitaalse ja Analoogse kella vahel</string>
   <string name="clock_font_title">Paksus kirjas tunnid</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Paksus kirjas kuupäev ja äratus</string>
   <string name="show_alarm_title">Kuva järgmine äratus</string>
   <string name="clock_am_pm_title">Kuva AM/PM indikaator</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Lubatud</string>
   <string name="weather_enable">Näita ilma</string>
   <string name="weather_source_title">Ilma allikas</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Näita kui on minimeeritud</string>
   <string name="weather_show_when_minimized_summary">Kuva kokkuvõttev ilmateate vidina minimeerimisel</string>
   <string name="weather_select_location">Vali asukoht</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Kuva järgmine sündmus</string>
   <string name="calendars_title">Kalendrid</string>
   <string name="calendars_summary">Näita sündmusi nendest kalendritest</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">Sündmuse esiletõstmine</string>
   <string name="calendar_highlight_upcoming_events_summary">Tõsta esile käesoleva päeva sündmused ja peale kella 20.00 ka järgmise päeva sündmused</string>
   <string name="calendar_highlight_upcoming_events_bold">Paksus kirjas</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Teksti värv</string>
   <string name="font_color_alarm">Alarmi värv</string>
   <string name="font_color_timestamp">Aja värv</string>
   <string name="font_color_calendar_details">Detailide värv</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Tausta värv</string>
   <string name="background_transparency">Tausta läbipaistvus</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 tundi</string>
   <string name="calendar_lookahead_6hrs">6 tundi</string>
   <string name="calendar_lookahead_12hrs">12 tundi</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">1 nädal</string>
   <string name="calendar_lookahead_2wks">2 nädalat</string>
   <string name="calendar_lookahead_4wks">4 nädalat</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Ära kuva</string>
   <string name="calendar_metadata_first_line">Kuva esimene rida</string>
   <string name="calendar_metadata_all">Näita kõiki</string>
+  <!-- Font colors -->
   <string name="white">Valge</string>
   <string name="grey">Hall</string>
   <string name="black">Must</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">Heleoranž</string>
   <string name="holo_orange_dark">Tumeoranž</string>
   <string name="holo_blue_bright">Ere sinine</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Ikoon</string>
   <string name="weather_icons_standard">Värvilised</string>
   <string name="weather_icons_monochrome">Mustvalge</string>

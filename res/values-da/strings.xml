@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Ukendt</string>
   <string name="cancel">Annuller</string>
   <string name="loading_indicator">Indlæser widget\u2026</string>
   <string name="menu_done">Udført</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornado</string>
   <string name="weather_1">Tropisk Storm</string>
   <string name="weather_2">Orkan</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Blæst</string>
   <string name="weather_25">Koldt</string>
   <string name="weather_26">Skyet</string>
+  <!-- Night -->
   <string name="weather_27">Mest skyet</string>
+  <!-- Day -->
   <string name="weather_28">Mest skyet</string>
+  <!-- Night -->
   <string name="weather_29">Delvist skyet</string>
+  <!-- Day -->
   <string name="weather_30">Delvist skyet</string>
+  <!-- Night -->
   <string name="weather_31">Klart</string>
   <string name="weather_32">Sol</string>
+  <!-- Night -->
   <string name="weather_33">Fint</string>
+  <!-- Day -->
   <string name="weather_34">Fint</string>
   <string name="weather_35">Blandet regn og hagl</string>
   <string name="weather_36">Varmt</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Tordenbyger</string>
   <string name="weather_46">Snebyger</string>
   <string name="weather_47">Isolerede tordenbyger</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/t</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NØ</string>
   <string name="weather_E">Ø</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">SV</string>
   <string name="weather_W">V</string>
   <string name="weather_NW">NV</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Ingen data</string>
   <string name="weather_tap_to_refresh">Tryk for at opdatere</string>
   <string name="weather_refreshing">Opdaterer</string>
   <string name="weather_last_sync_just_now">Lige nu</string>
   <string name="weather_cannot_reach_provider">Kan ikke nå %s</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuel</string>
   <string name="weather_refresh_30min">30 minutter</string>
   <string name="weather_refresh_60min">60 minutter</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 timer</string>
   <string name="weather_refresh_6hrs">6 timer</string>
   <string name="weather_refresh_8hrs">8 timer</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Ur og alarm</string>
   <string name="weather_category">Vejrpanel</string>
   <string name="calendar_category">Kalender-begivenheder</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Generelt</string>
   <string name="display_category">Visning</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Brug digitalt ur</string>
   <string name="use_digital_clock_summary">Vælg for at skifte mellem digitalt og analogt ur</string>
   <string name="clock_font_title">Timer med fed</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Dato og alarm med fed</string>
   <string name="show_alarm_title">Vis næste alarm</string>
   <string name="clock_am_pm_title">Vis AM/PM-indikator</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Aktiveret</string>
   <string name="weather_enable">Vis vejr</string>
   <string name="weather_source_title">Vejrkilde</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Vis når minimeret</string>
   <string name="weather_show_when_minimized_summary">Viser en kort vejrinformation når widget vises minimeret</string>
   <string name="weather_select_location">Vælg placering</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Vis næste begivenhed</string>
   <string name="calendars_title">Kalendere</string>
   <string name="calendars_summary">Find begivenheder fra disse kalendere</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">Fremhæv begivenheder</string>
   <string name="calendar_highlight_upcoming_events_summary">Fremhæv den aktuelle dags begivenheder og, efter 20, også den næste dags begivenheder</string>
   <string name="calendar_highlight_upcoming_events_bold">Fed skrift</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Fontfarve</string>
   <string name="font_color_alarm">Fontfarve for alarm</string>
   <string name="font_color_timestamp">Fontfarve for tidsstempel</string>
   <string name="font_color_calendar_details">Fontfarve for detaljer</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Baggrundsfarve</string>
   <string name="background_transparency">Gennemsigtig baggrund</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 timer</string>
   <string name="calendar_lookahead_6hrs">6 timer</string>
   <string name="calendar_lookahead_12hrs">12 timer</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">1 uge</string>
   <string name="calendar_lookahead_2wks">2 uger</string>
   <string name="calendar_lookahead_4wks">4 uger</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Vis ikke</string>
   <string name="calendar_metadata_first_line">Vis første linie</string>
   <string name="calendar_metadata_all">Vis alt</string>
+  <!-- Font colors -->
   <string name="white">Hvid</string>
   <string name="grey">Grå</string>
   <string name="black">Sort</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">Lys orange</string>
   <string name="holo_orange_dark">Mørk orange</string>
   <string name="holo_blue_bright">Klar blå</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Ikonsæt</string>
   <string name="weather_icons_standard">Farvet</string>
   <string name="weather_icons_monochrome">Sort/hvid</string>

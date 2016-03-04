@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Tidak diketahui</string>
   <string name="cancel">Batal</string>
   <string name="loading_indicator">Memuat widget\u2026</string>
   <string name="menu_done">Selesai</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Topan</string>
   <string name="weather_1">Badai Tropis</string>
   <string name="weather_2">Badai</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Berangin</string>
   <string name="weather_25">Dingin</string>
   <string name="weather_26">Berawan</string>
+  <!-- Night -->
   <string name="weather_27">Umumnya Berawan</string>
+  <!-- Day -->
   <string name="weather_28">Umumnya Berawan</string>
+  <!-- Night -->
   <string name="weather_29">Sebagian Berawan</string>
+  <!-- Day -->
   <string name="weather_30">Sebagian Berawan</string>
+  <!-- Night -->
   <string name="weather_31">Terang</string>
   <string name="weather_32">Cerah</string>
+  <!-- Night -->
   <string name="weather_33">Baik</string>
+  <!-- Day -->
   <string name="weather_34">Baik</string>
   <string name="weather_35">Campuran hujan dan hujan es</string>
   <string name="weather_36">Panas</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Petir disertai gerimis</string>
   <string name="weather_46">Salju ringan</string>
   <string name="weather_47">Terisolasi Thundershowers</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/j</string>
   <string name="weather_mph">mil/j</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">U</string>
   <string name="weather_NE">TL</string>
   <string name="weather_E">T</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">BD</string>
   <string name="weather_W">B</string>
   <string name="weather_NW">BL</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Tidak ada data</string>
   <string name="weather_tap_to_refresh">Tap untuk merefresh</string>
   <string name="weather_refreshing">Refreshing</string>
   <string name="weather_last_sync_just_now">Baru saja</string>
   <string name="weather_cannot_reach_provider">Tidak dapat mencapai %s pada saat ini</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manual</string>
   <string name="weather_refresh_30min">30 menit</string>
   <string name="weather_refresh_60min">60 menit</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 jam</string>
   <string name="weather_refresh_6hrs">6 jam</string>
   <string name="weather_refresh_8hrs">8 jam</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Jam dan alarm</string>
   <string name="weather_category">Panel cuaca</string>
   <string name="calendar_category">Acara kalender</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Umum</string>
   <string name="display_category">Tampilan</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Gunakan jam Digital</string>
   <string name="use_digital_clock_summary">Pilih untuk beralih di antara Digital dan jam Analog</string>
   <string name="clock_font_title">Tebal jam</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Tebal tanggal dan alarm</string>
   <string name="show_alarm_title">Tampilkan alarm berikutnya</string>
   <string name="clock_am_pm_title">Tampilkan indikator AM/PM</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Diaktifkan</string>
   <string name="weather_enable">Tampilkan cuaca</string>
   <string name="weather_source_title">Sumber cuaca</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Tampilkan ketika diminimalkan</string>
   <string name="weather_show_when_minimized_summary">Tampilkan ringkasan informasi cuaca ketika widget diminimalkan</string>
   <string name="weather_select_location">Pilih lokasi</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Tampilkan acara berikutnya</string>
   <string name="calendars_title">Kalender acara</string>
   <string name="calendars_summary">Temukan acara dari kalender tersebut</string>
@@ -139,10 +162,13 @@
   <string name="calendar_highlight_upcoming_events_title">Sorot acara</string>
   <string name="calendar_highlight_upcoming_events_summary">Sorot acara hari ini, setelah jam 8, juga acara-acara hari berikutnya</string>
   <string name="calendar_highlight_upcoming_events_bold">Huruf tebal</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Warna huruf</string>
   <string name="font_color_alarm">Warna huruf alarm</string>
   <string name="font_color_timestamp">Warna huruf jam</string>
   <string name="font_color_calendar_details">Warna huruf rincian</string>
+  <!-- Preferences - Background color -->
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 jam</string>
   <string name="calendar_lookahead_6hrs">6 jam</string>
   <string name="calendar_lookahead_12hrs">12 jam</string>
@@ -152,9 +178,11 @@
   <string name="calendar_lookahead_1wk">1 minggu</string>
   <string name="calendar_lookahead_2wks">2 minggu</string>
   <string name="calendar_lookahead_4wks">4 minggu</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Jangan tampilkan</string>
   <string name="calendar_metadata_first_line">Tampilkan baris pertama</string>
   <string name="calendar_metadata_all">Tampilkan semua</string>
+  <!-- Font colors -->
   <string name="white">Putih</string>
   <string name="grey">Abu-abu</string>
   <string name="black">Hitam</string>
@@ -168,6 +196,7 @@
   <string name="holo_orange_light">Oranye muda</string>
   <string name="holo_orange_dark">Oranye tua</string>
   <string name="holo_blue_bright">Biru cerah</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Kumpulan ikon</string>
   <string name="weather_icons_standard">Berwarna</string>
   <string name="weather_icons_monochrome">Monokrom</string>

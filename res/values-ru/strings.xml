@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Неизвестно</string>
   <string name="cancel">Отмена</string>
   <string name="loading_indicator">Загрузка виджета\u2026</string>
   <string name="menu_done">Готово</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Торнадо</string>
   <string name="weather_1">Шторм</string>
   <string name="weather_2">Ураган</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Ветрено</string>
   <string name="weather_25">Холодно</string>
   <string name="weather_26">Облачно</string>
+  <!-- Night -->
   <string name="weather_27">Малооблачно</string>
-  <string name="weather_28">Малооблачно</string>
+  <!-- Day -->
+  <string name="weather_28">Облачно с прояснениями</string>
+  <!-- Night -->
   <string name="weather_29">Малооблачно</string>
+  <!-- Day -->
   <string name="weather_30">Малооблачно</string>
+  <!-- Night -->
   <string name="weather_31">Ясно</string>
   <string name="weather_32">Солнечно</string>
+  <!-- Night -->
   <string name="weather_33">Ясно</string>
+  <!-- Day -->
   <string name="weather_34">Ясно</string>
   <string name="weather_35">Дождь с градом</string>
   <string name="weather_36">Жарко</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Дождь с грозой</string>
   <string name="weather_46">Дождь со снегом</string>
   <string name="weather_47">Местами грозы</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">км/ч</string>
   <string name="weather_mph">миль/ч</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">С</string>
   <string name="weather_NE">СВ</string>
   <string name="weather_E">В</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">ЮЗ</string>
   <string name="weather_W">З</string>
   <string name="weather_NW">СЗ</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Нет данных</string>
   <string name="weather_tap_to_refresh">Нажмите для обновления</string>
   <string name="weather_refreshing">Обновление</string>
   <string name="weather_last_sync_just_now">Только что</string>
   <string name="weather_cannot_reach_provider">Сервер «%s» недоступен</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Вручную</string>
   <string name="weather_refresh_30min">30 минут</string>
   <string name="weather_refresh_60min">60 минут</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 часа</string>
   <string name="weather_refresh_6hrs">6 часов</string>
   <string name="weather_refresh_8hrs">8 часов</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Часы и будильник</string>
   <string name="weather_category">Погода</string>
   <string name="calendar_category">Календарные события</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Основные</string>
   <string name="display_category">Отображение</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Цифровые часы</string>
   <string name="use_digital_clock_summary">Выбор между цифровыми и аналоговыми часами</string>
   <string name="clock_font_title">Часы полужирным</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Дата и будильник полужирным</string>
   <string name="show_alarm_title">Показывать будильник</string>
   <string name="clock_am_pm_title">Показывать индикатор «AM/PM»</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Включено</string>
   <string name="weather_enable">Показывать погоду</string>
   <string name="weather_source_title">Сервер погоды</string>
@@ -125,10 +147,11 @@
   <string name="weather_show_when_minimized_title">Показывать, когда свернуто</string>
   <string name="weather_show_when_minimized_summary">Отображать погоду, когда виджет в свёрнутом состоянии</string>
   <string name="weather_select_location">Выберите местоположение</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Показать след. событие</string>
   <string name="calendars_title">Календари событий</string>
   <string name="calendars_summary">Показывать события из этих календарей</string>
-  <string name="calendars_none_found_summary">Календарей не найдено</string>
+  <string name="calendars_none_found_summary">Календари не найдены</string>
   <string name="calendar_reminders_only_title">Только с напоминаниями</string>
   <string name="calendar_reminders_only_summary">Отображать только события с напоминаниями</string>
   <string name="calendar_hide_allday_title">Скрыть события на весь день</string>
@@ -140,12 +163,15 @@
   <string name="calendar_highlight_upcoming_events_title">Выделять ближайшие события</string>
   <string name="calendar_highlight_upcoming_events_summary">Выделять события текущего дня, а после 20:00 также события следующего дня</string>
   <string name="calendar_highlight_upcoming_events_bold">Полужирный шрифт</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Цвет шрифта</string>
   <string name="font_color_alarm">Будильник</string>
   <string name="font_color_timestamp">Дата</string>
   <string name="font_color_calendar_details">Календарь</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Цвет фона</string>
   <string name="background_transparency">Прозрачность фона</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 часа</string>
   <string name="calendar_lookahead_6hrs">6 часов</string>
   <string name="calendar_lookahead_12hrs">12 часов</string>
@@ -155,9 +181,11 @@
   <string name="calendar_lookahead_1wk">1 неделя</string>
   <string name="calendar_lookahead_2wks">2 недели</string>
   <string name="calendar_lookahead_4wks">4 недели</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Не показывать</string>
   <string name="calendar_metadata_first_line">Показывать первую строку</string>
   <string name="calendar_metadata_all">Показывать всё</string>
+  <!-- Font colors -->
   <string name="white">Белый</string>
   <string name="grey">Серый</string>
   <string name="black">Чёрный</string>
@@ -171,6 +199,7 @@
   <string name="holo_orange_light">Светло-оранжевый</string>
   <string name="holo_orange_dark">Тёмно-оранжевый</string>
   <string name="holo_blue_bright">Ярко-синий</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Набор значков</string>
   <string name="weather_icons_standard">Цветные</string>
   <string name="weather_icons_monochrome">Монохромные</string>
