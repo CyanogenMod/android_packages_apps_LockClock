@@ -71,6 +71,12 @@
             android:taskAffinity=""
             android:excludeFromRecents="true" />
 
+        <activity android:name=".weather.PermissionRequestActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:exported="true" />
+
         <!-- The Widget receiver -->
         <receiver android:name=".ClockWidgetProvider" >
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/lock_clock" />
