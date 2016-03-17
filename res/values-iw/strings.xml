@@ -20,7 +20,7 @@
   <string name="unknown">לא ידוע</string>
   <string name="cancel">בטל</string>
   <string name="loading_indicator">טוען ווידג\'ט\u2026</string>
-  <string name="menu_done">סיום</string>
+  <string name="menu_done">בוצע</string>
   <!-- Formating strings for widget clock -->
   <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
          android.text.format.DateFormat uses k for hours in the 0-23 range.
@@ -63,14 +63,14 @@
   <string name="weather_30">מעונן חלקית</string>
   <!-- Night -->
   <string name="weather_31">בהיר</string>
-  <string name="weather_32">שמשי</string>
+  <string name="weather_32">בהיר</string>
   <!-- Night -->
-  <string name="weather_33">סביר</string>
+  <string name="weather_33">לילה בהיר</string>
   <!-- Day -->
-  <string name="weather_34">סביר</string>
+  <string name="weather_34">בהיר</string>
   <string name="weather_35">גשם מעורב עם ברד</string>
   <string name="weather_36">חם</string>
-  <string name="weather_37">סופות רעמים מבודדת</string>
+  <string name="weather_37">סופות רעמים בודדות</string>
   <string name="weather_38">סופות רעמים פזורות</string>
   <string name="weather_39">סופות רעמים פזורות</string>
   <string name="weather_40">ממטרים פזורים</string>
@@ -96,7 +96,7 @@
   <string name="weather_NW">צפון מערב</string>
   <!-- Weather - Error messages -->
   <string name="weather_no_data">אין נתונים</string>
-  <string name="weather_tap_to_refresh">הקש לרענון</string>
+  <string name="weather_tap_to_refresh">גע לרענון</string>
   <string name="weather_refreshing">מרענן</string>
   <string name="weather_last_sync_just_now">כרגע</string>
   <string name="weather_cannot_reach_provider">אין אפשרות להגיע אל %s כרגע</string>
@@ -104,7 +104,7 @@
   <string name="weather_refresh_manual">ידני</string>
   <string name="weather_refresh_30min">30 דקות</string>
   <string name="weather_refresh_60min">60 דקות</string>
-  <string name="weather_refresh_2hrs">2 שעות</string>
+  <string name="weather_refresh_2hrs">שעתיים</string>
   <string name="weather_refresh_4hrs">4 שעות</string>
   <string name="weather_refresh_6hrs">6 שעות</string>
   <string name="weather_refresh_8hrs">8 שעות</string>
@@ -117,14 +117,14 @@
   <string name="display_category">תצוגה</string>
   <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">השתמש בשעון דיגיטלי</string>
-  <string name="use_digital_clock_summary">בחר באפשרות זו כדי לעבור בין שעון דיגיטלי לבין שעון אנלוגי</string>
+  <string name="use_digital_clock_summary">בחר באפשרות זו כדי לעבור בין שעון דיגיטלי לשעון אנלוגי</string>
   <string name="clock_font_title">שעות מודגשות</string>
   <string name="clock_font_minutes_title">דקות מודגשות</string>
   <string name="clock_font_date_title">שעון מעורר ותאריך מודגשים</string>
   <string name="show_alarm_title">הצג שעון מעורר הבא</string>
   <string name="clock_am_pm_title">הצג מחוון AM/PM</string>
   <!-- Preferences - Weather -->
-  <string name="weather_enabled">מאופשר</string>
+  <string name="weather_enabled">מופעל</string>
   <string name="weather_enable">הצג מזג אוויר</string>
   <string name="weather_source_title">מקור למזג אוויר</string>
   <string name="weather_source_yahoo">Yahoo! Weather</string>
@@ -138,14 +138,14 @@
   <string name="weather_refresh_interval">עדכן מרווח זמן</string>
   <string name="weather_use_metric">השתמש בשיטה מטרית</string>
   <string name="weather_retrieve_location_dialog_title">אין אפשרות לקבל מיקום!</string>
-  <string name="weather_retrieve_location_dialog_message">מיקום רשת מושבת.\n\nבחר מיקום ידני או שתפעיל מיקום רשת</string>
+  <string name="weather_retrieve_location_dialog_message">מיקום רשת מושבת.\n\nבחר מיקום ידני או הפעל מיקום רשת</string>
   <string name="weather_retrieve_location_dialog_enable_button">הפעל</string>
   <string name="weather_invert_lowhigh">היפוך בטמפרטורה נמוכה/גבוהה</string>
   <string name="weather_progress_title">בדיקת מיקום</string>
-  <string name="weather_alternate_icons_title">השתמש בצבע סמלים</string>
-  <string name="weather_alternate_icons_summary">בחר כדי להעביר בין סמלים ברירת מחדל (צבעים) ואלטרנטיבה (לבנים)</string>
+  <string name="weather_alternate_icons_title">השתמש בסמלי צבע</string>
+  <string name="weather_alternate_icons_summary">בחר כדי להעביר בין סמלי ברירת מחדל (בצבעים) וסמלים אלטרנטיביים (לבנים)</string>
   <string name="weather_show_when_minimized_title">הצג כאשר ממוזער</string>
-  <string name="weather_show_when_minimized_summary">הצג נתוני סיכום תחזית כאשר יישומון ממוזער</string>
+  <string name="weather_show_when_minimized_summary">הצג נתוני סיכום תחזית כאשר היישומון ממוזער</string>
   <string name="weather_select_location">בחר מיקום</string>
   <!-- Preferences - Calendar -->
   <string name="calendar_title">הצגת האירוע הבא</string>
@@ -179,12 +179,12 @@
   <string name="calendar_lookahead_1day">יום אחד</string>
   <string name="calendar_lookahead_3days">3 ימים</string>
   <string name="calendar_lookahead_1wk">שבוע אחד</string>
-  <string name="calendar_lookahead_2wks">2 שבועות</string>
+  <string name="calendar_lookahead_2wks">שבועיים</string>
   <string name="calendar_lookahead_4wks">4 שבועות</string>
   <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">אל תראה</string>
   <string name="calendar_metadata_first_line">הצג שורה ראשונה</string>
-  <string name="calendar_metadata_all">הצג הכל</string>
+  <string name="calendar_metadata_all">הצג הכול</string>
   <!-- Font colors -->
   <string name="white">לבן</string>
   <string name="grey">אפור</string>

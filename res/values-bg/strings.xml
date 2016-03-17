@@ -139,7 +139,7 @@
   <string name="weather_use_metric">Използвай метрична система</string>
   <string name="weather_retrieve_location_dialog_title">Не може да извлече местоположението ви!</string>
   <string name="weather_retrieve_location_dialog_message">Мрежовата геолокация е деактивирана.\n\nЗадайте местоположение по избор или активирайте мрежовата геолокация</string>
-  <string name="weather_retrieve_location_dialog_enable_button">Активирана</string>
+  <string name="weather_retrieve_location_dialog_enable_button">Активирай</string>
   <string name="weather_invert_lowhigh">Обръщане на ниски / високи температури</string>
   <string name="weather_progress_title">Проверка на местоположението</string>
   <string name="weather_alternate_icons_title">Използвай цвятни икони</string>

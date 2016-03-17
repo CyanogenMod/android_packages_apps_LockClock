@@ -17,32 +17,191 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General strings -->
+  <string name="unknown">தெரியாதது</string>
+  <string name="cancel">ரத்துசெய்</string>
+  <string name="loading_indicator">விட்ஜெட் லோடாகிறது\u2026</string>
+  <string name="menu_done">முடிந்தது</string>
   <!-- Formating strings for widget clock -->
   <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
          android.text.format.DateFormat uses k for hours in the 0-23 range.
          We need to support both -->
   <!-- Weather - Weather codes -->
+  <string name="weather_0">டொர்னாடோ</string>
+  <string name="weather_1">வெப்பமண்டல புயல்</string>
+  <string name="weather_2">சூறாவளி</string>
+  <string name="weather_3">கடுமையான இடி மின்னலுடன் கூடிய மழை</string>
+  <string name="weather_4">இடி மின்னலுடன் கூடிய மழை</string>
+  <string name="weather_5">கலப்பு மழை மற்றும் பனி</string>
+  <string name="weather_6">கலப்பு மழை மற்றும் ஆலங்கட்டி மழை</string>
+  <string name="weather_7">கலப்பு பனி மற்றும் ஆலங்கட்டி மழை</string>
+  <string name="weather_8">உறையவைக்கும் தூறல்</string>
+  <string name="weather_9">தூறல்</string>
+  <string name="weather_10">உறை மழை</string>
+  <string name="weather_11">மழைத்தூறல்</string>
+  <string name="weather_12">மழைத்தூறல்</string>
+  <string name="weather_13">பனிப்பொழிவு</string>
+  <string name="weather_14">லேசான பனித் தூறல்கள்</string>
+  <string name="weather_15">காற்றுடன் பனிப்பொழிவு</string>
+  <string name="weather_16">பனி</string>
+  <string name="weather_17">ஹெயில்</string>
+  <string name="weather_18">பனிப்பொழிவு</string>
+  <string name="weather_19">தூசி</string>
+  <string name="weather_20">ஃபாகி</string>
+  <string name="weather_21">மூட்டம்</string>
+  <string name="weather_22">புகைமண்டலம்</string>
+  <string name="weather_23">பிளஸ்டரி</string>
+  <string name="weather_24">காற்று</string>
+  <string name="weather_25">குளிர்ச்சி</string>
+  <string name="weather_26">மேகமூட்டம்</string>
   <!-- Night -->
+  <string name="weather_27">பெரும்பாளும் மேஅமூட்டம்</string>
   <!-- Day -->
+  <string name="weather_28">பெரும்பாளும் மேஅமூட்டம்</string>
   <!-- Night -->
+  <string name="weather_29">ஒரளவு மேகமூட்டம்</string>
   <!-- Day -->
+  <string name="weather_30">ஒரளவு மேகமூட்டம்</string>
   <!-- Night -->
+  <string name="weather_31">அழி</string>
+  <string name="weather_32">வெயில்</string>
   <!-- Night -->
+  <string name="weather_33">இயல்பான</string>
   <!-- Day -->
+  <string name="weather_34">இயல்பான</string>
+  <string name="weather_35">கலப்பு மழை மற்றும் ஆலங்கட்டி</string>
+  <string name="weather_36">உஷ்ணம்</string>
+  <string name="weather_37">ஆங்காங்கே இடியுடன்கூடிய மழை</string>
+  <string name="weather_38">பரவலான இடிமழை</string>
+  <string name="weather_39">பரவலான இடிமழை</string>
+  <string name="weather_40">பரவலான தூறல்</string>
+  <string name="weather_41">கடும் பனி</string>
+  <string name="weather_42">பரவலான பனிப்பொழிவு</string>
+  <string name="weather_43">கடும் பனி</string>
+  <string name="weather_44">ஒரளவு மேகமூட்டம்</string>
+  <string name="weather_45">இடியுடன்கூடிய மழை</string>
+  <string name="weather_46">பனிப்பொழிவு</string>
+  <string name="weather_47">ஆங்காங்கே இடியுடன்கூடிய மழை</string>
   <!-- Forecast unavailable -->
   <!-- Weather - Speed units -->
+  <string name="weather_kph">kph</string>
+  <string name="weather_mph">mph</string>
   <!-- Weather - Wind directions -->
+  <string name="weather_N">N</string>
+  <string name="weather_NE">NE</string>
+  <string name="weather_E">E</string>
+  <string name="weather_SE">SE</string>
+  <string name="weather_S">S</string>
+  <string name="weather_SW">SW</string>
+  <string name="weather_W">W</string>
+  <string name="weather_NW">NW</string>
   <!-- Weather - Error messages -->
+  <string name="weather_no_data">தரவு இல்லை</string>
+  <string name="weather_tap_to_refresh">புதுப்பிக்க தட்டு</string>
+  <string name="weather_refreshing">புதுப்பிக்கிறது</string>
+  <string name="weather_last_sync_just_now">சற்றுமுன்</string>
+  <string name="weather_cannot_reach_provider">தற்போது %s அடைய முடியாது</string>
   <!-- Weather - Update frequency -->
+  <string name="weather_refresh_manual">கைமுறை</string>
+  <string name="weather_refresh_30min">30 நிமிடங்கள்</string>
+  <string name="weather_refresh_60min">60 நிமிடங்கள்</string>
+  <string name="weather_refresh_2hrs">2 மணிநேரம்</string>
+  <string name="weather_refresh_4hrs">4 மணிநேரம்</string>
+  <string name="weather_refresh_6hrs">6 மணிநேரம்</string>
+  <string name="weather_refresh_8hrs">8 மணிநேரம்</string>
   <!-- Preferences - Categories -->
+  <string name="clock_category">கடியாரமும் அலாரமும்</string>
+  <string name="weather_category">வானிலை மன்றம்</string>
+  <string name="calendar_category">நாள்காட்டி நிகழ்வுகள்</string>
   <!-- Preferences - Categories -->
+  <string name="general_category">பொது</string>
+  <string name="display_category">டிஸ்பிளே</string>
   <!-- Preferences - Clock -->
+  <string name="use_digital_clock_title">டிஜிட்டல் கடிகாரம் பயன்படுத்துக</string>
+  <string name="use_digital_clock_summary">டிஜிட்டல் மற்றும் அனலாக் கடிகாரங்களுக்கு இடையே நிலைமாற்றத்தை தேர்வுசெய்</string>
+  <string name="clock_font_title">போல்டு மணிநேரங்கள்</string>
+  <string name="clock_font_minutes_title">போல்டு நிமிடங்கள்</string>
+  <string name="clock_font_date_title">போல்டு தேதி மற்றும் அலாரம்</string>
+  <string name="show_alarm_title">அடுத்த அலாரத்தைக் காட்டு</string>
+  <string name="clock_am_pm_title">AM/PM அறிவிப்பைக் காட்டு</string>
   <!-- Preferences - Weather -->
+  <string name="weather_enabled">இயக்கப்பட்டவை</string>
+  <string name="weather_enable">வானிலையை காண்பி</string>
+  <string name="weather_source_title">வானிலை ஆதாரம்</string>
+  <string name="weather_source_yahoo">Yahoo! வானிலை</string>
+  <string name="weather_use_custom_location">தனிப்பயனாக்கப்பட்ட இடத்தைப் பயன்படுத்து</string>
+  <string name="weather_geolocated">பிணையத்தை பயன்படுத்தி புவியல் இடம்கண்டறியப்பட்டது</string>
+  <string name="weather_custom_location_dialog_title">இருப்பிடத்தை உள்ளிடு</string>
+  <string name="weather_custom_location_hint">நகரம், மாநிலம்/நாடு</string>
+  <string name="weather_custom_location_title">இருப்பிடம்</string>
+  <string name="weather_show_location_title">இருப்பிடத்தைக் காண்பி</string>
+  <string name="weather_show_timestamp_title">நேரமுத்திரையை காண்பி</string>
+  <string name="weather_refresh_interval">இடைவெளியை புதுப்பி</string>
+  <string name="weather_use_metric">மெட்ரிக்கைப் பயன்படுத்து</string>
+  <string name="weather_retrieve_location_dialog_title">இருப்பிடத்தை மீட்டெடுக்க முடியவில்லை!</string>
+  <string name="weather_retrieve_location_dialog_message">பிணைய ஜியோலொகேசன் முடக்கப்பட்டது.\n\n ஒரு தனிப்பயனாக்கப்பட்ட இருப்பிடடத்தை அமை அல்லது பிணைய இருப்பிடத்தை செயல்படுத்து</string>
+  <string name="weather_retrieve_location_dialog_enable_button">இயக்கு</string>
+  <string name="weather_invert_lowhigh">குறைந்த/உயர்ந்த தட்பவெப்பத்தை புரட்டு</string>
+  <string name="weather_progress_title">இருப்பிடத்தை சரிபார்</string>
+  <string name="weather_alternate_icons_title">வண்ண படவுருக்களைப் பயன்படுத்து</string>
+  <string name="weather_alternate_icons_summary">இயல்புநிலை(வண்ணம்) மற்றும் மாற்று (வெள்ளை) படவுருக்களுக்கு இடையே நிலைமாற்றத்தை தேர்வுசெய்</string>
+  <string name="weather_show_when_minimized_title">சிறிதாக்கப்படும்போது காண்பி</string>
+  <string name="weather_show_when_minimized_summary">விட்ஜெட் சிறிதாக்கப்படும்போது சுருக்க வானிலையைக் காண்பி</string>
+  <string name="weather_select_location">இருப்பிடத்தை தேர்வுசெய்</string>
   <!-- Preferences - Calendar -->
+  <string name="calendar_title">அடுத்த நிகழ்வை காண்பி</string>
+  <string name="calendars_title">நிகழ்வு நாள்காட்டிகள்</string>
+  <string name="calendars_summary">இந்த நாள்காட்டிகளுக்கான நிகழ்வுகளைக் காண்பி</string>
+  <string name="calendars_none_found_summary">காலெண்டர்கள் எதுவும் கண்டறியப்படவில்லை</string>
+  <string name="calendar_reminders_only_title">நினைவூட்டிகள் மட்டும்</string>
+  <string name="calendar_reminders_only_summary">நினைவூட்டிகள் உடைய நிகழ்வுகளை மட்டும் காண்பி</string>
+  <string name="calendar_hide_allday_title">நாள் முழுவதுமான நிகழ்வுகளை மறை</string>
+  <string name="calendar_icon_title">நாள்காட்டி படவுரு</string>
+  <string name="calendar_lookahead_title">நிகழ்வை முன்னதாகக்காண்</string>
+  <string name="calendar_show_location_title">நிகழ்வு இடம்</string>
+  <string name="calendar_show_description_title">நிகழ்வு விளக்கம்</string>
+  <string name="calendar_upcoming_events_category">வரவிருக்கும் நிகழ்வுகள்</string>
+  <string name="calendar_highlight_upcoming_events_title">நிகழ்வுகளை தனிப்படுத்து</string>
+  <string name="calendar_highlight_upcoming_events_summary">நடப்பு நாளின் நிகழ்வுகளை, மாலை 8 மணிக்கு மேலும், அடுத்த நாள் நிகழ்வுகளையும் தனிப்படுத்து</string>
+  <string name="calendar_highlight_upcoming_events_bold">தடித்த எழுத்துரு</string>
   <!-- Preferences - Font colors -->
+  <string name="font_color">எழுத்துரு வண்ணம்</string>
+  <string name="font_color_alarm">அலாரம் எழுத்துரு வண்ணம்</string>
+  <string name="font_color_timestamp">நேரமுத்திரை எழுத்துரு வண்ணம்</string>
+  <string name="font_color_calendar_details">எழுத்துரு வண்ணங்களை விவரிக்கிறது</string>
   <!-- Preferences - Background color -->
+  <string name="background_color">பின்புல வண்ணம்</string>
+  <string name="background_transparency">பின்னணி கண்ணாடித்தன்மை</string>
   <!-- Calendar - Lookahead -->
+  <string name="calendar_lookahead_3hrs">3 மணிநேரம்</string>
+  <string name="calendar_lookahead_6hrs">6 மணிநேரம்</string>
+  <string name="calendar_lookahead_12hrs">12 மணிநேரம்</string>
+  <string name="calendar_lookahead_today">இன்று</string>
+  <string name="calendar_lookahead_1day">1 நாள்</string>
+  <string name="calendar_lookahead_3days">3 நாட்கள்</string>
+  <string name="calendar_lookahead_1wk">1 வாரம்</string>
+  <string name="calendar_lookahead_2wks">2 வாரங்கள்</string>
+  <string name="calendar_lookahead_4wks">4 வாரங்கள்</string>
   <!-- Calendar - Event metadata -->
+  <string name="calendar_metadata_none">காண்பிக்காதே</string>
+  <string name="calendar_metadata_first_line">உங்கள் முதல் வரி</string>
+  <string name="calendar_metadata_all">அனைத்தையும் காண்பி</string>
   <!-- Font colors -->
+  <string name="white">வெள்ளை</string>
+  <string name="grey">சாம்பல்</string>
+  <string name="black">கருப்பு</string>
+  <string name="holo_blue_light">லேசான நீலம்</string>
+  <string name="holo_green_light">லேசான பச்சை</string>
+  <string name="holo_red_light">லேசான சிவப்பு</string>
+  <string name="holo_blue_dark">கருநீலம்</string>
+  <string name="holo_green_dark">கரும்பச்சை</string>
+  <string name="holo_red_dark">கருஞ்சிவப்பு</string>
+  <string name="holo_purple">ஊதா</string>
+  <string name="holo_orange_light">லேசான ஆரஞ்சு</string>
+  <string name="holo_orange_dark">கரும் ஆரஞ்சு</string>
+  <string name="holo_blue_bright">பிரகாசமான நீலம்</string>
   <!-- Weather icon sets -->
+  <string name="weather_icon_set_title">படவுரு தொகுப்பு</string>
+  <string name="weather_icons_standard">வண்ணமுடையது</string>
+  <string name="weather_icons_monochrome">ஒற்றைநிறம்</string>
+  <string name="icon_set_selection_get_more">மேலும் பெறுக\u2026</string>
 </resources>

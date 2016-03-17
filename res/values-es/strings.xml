@@ -151,6 +151,7 @@
   <string name="calendar_title">Mostrar próximo evento</string>
   <string name="calendars_title">Calendario de eventos</string>
   <string name="calendars_summary">Buscar eventos de estos calendarios</string>
+  <string name="calendars_none_found_summary">No se encontraron calendarios</string>
   <string name="calendar_reminders_only_title">Solo recordatorios</string>
   <string name="calendar_reminders_only_summary">Mostrar solo eventos con recordatorios</string>
   <string name="calendar_hide_allday_title">Ocultar eventos de todo el día</string>

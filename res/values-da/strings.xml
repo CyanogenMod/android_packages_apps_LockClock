@@ -151,6 +151,7 @@
   <string name="calendar_title">Vis næste begivenhed</string>
   <string name="calendars_title">Kalendere</string>
   <string name="calendars_summary">Find begivenheder fra disse kalendere</string>
+  <string name="calendars_none_found_summary">Ingen kalendere fundet</string>
   <string name="calendar_reminders_only_title">Kun påmindelser</string>
   <string name="calendar_reminders_only_summary">Vis kun begivenheder med påmindelser</string>
   <string name="calendar_hide_allday_title">Skjul heldags begivenheder</string>
