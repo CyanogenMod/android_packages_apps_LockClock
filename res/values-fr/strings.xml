@@ -151,6 +151,7 @@
   <string name="calendar_title">Afficher le prochain événement</string>
   <string name="calendars_title">Agendas des événements</string>
   <string name="calendars_summary">Rechercher des événements dans ces agendas</string>
+  <string name="calendars_none_found_summary">Aucun agenda trouvé</string>
   <string name="calendar_reminders_only_title">Rappels uniquement</string>
   <string name="calendar_reminders_only_summary">Afficher seulement les événements avec des rappels</string>
   <string name="calendar_hide_allday_title">Masquer les événements qui durent toute une journée</string>

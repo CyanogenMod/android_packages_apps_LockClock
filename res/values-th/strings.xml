@@ -151,6 +151,7 @@
   <string name="calendar_title">แสดงกิจกรรมถัดไป</string>
   <string name="calendars_title">ปฏิทินกิจกรรม</string>
   <string name="calendars_summary">ค้นหากิจกรรมจากปฏิทินเหล่านี้</string>
+  <string name="calendars_none_found_summary">ไม่พบปฏิทิน</string>
   <string name="calendar_reminders_only_title">การแจ้งเตือนเท่านั้น</string>
   <string name="calendar_reminders_only_summary">แสดงเฉพาะกิจกรรมที่มีการแจ้งเตือน</string>
   <string name="calendar_hide_allday_title">ซ่อนกิจกรรมทั้งวัน</string>

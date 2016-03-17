@@ -17,32 +17,191 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General strings -->
+  <string name="unknown">अज्ञात</string>
+  <string name="cancel">रद्द करा</string>
+  <string name="loading_indicator">विजेट लोड करीत आहे\u2026</string>
+  <string name="menu_done">पूर्ण केले</string>
   <!-- Formating strings for widget clock -->
   <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
          android.text.format.DateFormat uses k for hours in the 0-23 range.
          We need to support both -->
   <!-- Weather - Weather codes -->
+  <string name="weather_0">तूफान</string>
+  <string name="weather_1">उष्णदेशीय वादळ</string>
+  <string name="weather_2">चक्री वादळ</string>
+  <string name="weather_3">तीव्र गडगडाटी वादळ</string>
+  <string name="weather_4">गडगडाटी वादळ</string>
+  <string name="weather_5">मिश्र पाऊस आणि हिम</string>
+  <string name="weather_6">मिश्र पाऊस आणि गारांचा पाऊस</string>
+  <string name="weather_7">मिश्र हिम आणि गारांचा पाऊस</string>
+  <string name="weather_8">गोठवणारी रिमझीम</string>
+  <string name="weather_9">रिमझीम</string>
+  <string name="weather_10">गोठवणारा पाऊस</string>
+  <string name="weather_11">पाऊस</string>
+  <string name="weather_12">पाऊस</string>
+  <string name="weather_13">हिम वर्षाव</string>
+  <string name="weather_14">हलका हिम पाऊस</string>
+  <string name="weather_15">भुरभुरणारे हिम</string>
+  <string name="weather_16">हिम</string>
+  <string name="weather_17">गारा</string>
+  <string name="weather_18">गारांचा पाऊस</string>
+  <string name="weather_19">धूळ</string>
+  <string name="weather_20">अंधुक</string>
+  <string name="weather_21">धुके</string>
+  <string name="weather_22">धुरकट</string>
+  <string name="weather_23">घोंघावणारा वारा</string>
+  <string name="weather_24">वादळी</string>
+  <string name="weather_25">थंड</string>
+  <string name="weather_26">ढगाळ</string>
   <!-- Night -->
+  <string name="weather_27">बहुतांश ढगाळ</string>
   <!-- Day -->
+  <string name="weather_28">बहुतांश ढगाळ</string>
   <!-- Night -->
+  <string name="weather_29">आंशिक ढगाळ</string>
   <!-- Day -->
+  <string name="weather_30">आंशिक ढगाळ</string>
   <!-- Night -->
+  <string name="weather_31">साफ करा</string>
+  <string name="weather_32">सूर्यप्रकाश असलेले</string>
   <!-- Night -->
+  <string name="weather_33">चांगला</string>
   <!-- Day -->
+  <string name="weather_34">चांगला</string>
+  <string name="weather_35">मिश्र पाऊस आणि गारा</string>
+  <string name="weather_36">उष्ण</string>
+  <string name="weather_37">थोड्या थोड्या वेळाने झंझावात</string>
+  <string name="weather_38">काही वेळाच्या अंतराने झंझावात</string>
+  <string name="weather_39">काही वेळाच्या अंतराने झंझावात</string>
+  <string name="weather_40">काही वेळाच्या अंतराने पाऊस</string>
+  <string name="weather_41">जोरदार हिम</string>
+  <string name="weather_42">काही वेळाच्या हिम वर्षाव</string>
+  <string name="weather_43">जोरदार हिम</string>
+  <string name="weather_44">आंशिक ढगाळ</string>
+  <string name="weather_45">गडगडाटी पाऊस</string>
+  <string name="weather_46">हिम वर्षाव</string>
+  <string name="weather_47">थोड्या थोड्या वेळाने गडगडाटी पाऊस</string>
   <!-- Forecast unavailable -->
   <!-- Weather - Speed units -->
+  <string name="weather_kph">kph</string>
+  <string name="weather_mph">mph</string>
   <!-- Weather - Wind directions -->
+  <string name="weather_N">N</string>
+  <string name="weather_NE">NE</string>
+  <string name="weather_E">E</string>
+  <string name="weather_SE">SE</string>
+  <string name="weather_S">S</string>
+  <string name="weather_SW">SW</string>
+  <string name="weather_W">W</string>
+  <string name="weather_NW">NW</string>
   <!-- Weather - Error messages -->
+  <string name="weather_no_data">डेटा नाही</string>
+  <string name="weather_tap_to_refresh">रिफ्रेश करण्यासाठी टॅप करा</string>
+  <string name="weather_refreshing">रिफ्रेश करत आहे</string>
+  <string name="weather_last_sync_just_now">आत्ताच</string>
+  <string name="weather_cannot_reach_provider">या क्षणी %s पर्यंत पोहोचू शकत नाही</string>
   <!-- Weather - Update frequency -->
+  <string name="weather_refresh_manual">व्यक्तिचलित</string>
+  <string name="weather_refresh_30min">30 मिनिटे</string>
+  <string name="weather_refresh_60min">60 मिनिटे</string>
+  <string name="weather_refresh_2hrs">2 तास</string>
+  <string name="weather_refresh_4hrs">4 तास</string>
+  <string name="weather_refresh_6hrs">6 तास</string>
+  <string name="weather_refresh_8hrs">8 तास</string>
   <!-- Preferences - Categories -->
+  <string name="clock_category">घड्याळ आणि अलार्म</string>
+  <string name="weather_category">हवामान पॅनेल</string>
+  <string name="calendar_category">दिनदर्शिका इव्हेंट्स</string>
   <!-- Preferences - Categories -->
+  <string name="general_category">सामान्य</string>
+  <string name="display_category">प्रदर्शित करा</string>
   <!-- Preferences - Clock -->
+  <string name="use_digital_clock_title">डिजिटल घड्याळ वापरा</string>
+  <string name="use_digital_clock_summary">डिजिटल आणि ऍनालॉग घड्याळांदरम्यान टॉगल निवडा</string>
+  <string name="clock_font_title">ठळक तास</string>
+  <string name="clock_font_minutes_title">ठळक मिनिटे</string>
+  <string name="clock_font_date_title">ठळक तारीख आणि अलार्म</string>
+  <string name="show_alarm_title">पुढील अलार्म दर्शवा</string>
+  <string name="clock_am_pm_title">AM/PM निदर्शक दर्शवा</string>
   <!-- Preferences - Weather -->
+  <string name="weather_enabled">सक्षम केले</string>
+  <string name="weather_enable">हवामान प्रदर्शित करा</string>
+  <string name="weather_source_title">हवामान स्त्रोत</string>
+  <string name="weather_source_yahoo">Yahoo! हवामान</string>
+  <string name="weather_use_custom_location">सानुकूल स्थान वापरा</string>
+  <string name="weather_geolocated">नेटवर्क वापरून भौगोलिक स्थानिय</string>
+  <string name="weather_custom_location_dialog_title">स्थान प्रविष्ठ करा</string>
+  <string name="weather_custom_location_hint">शहर, राज्य/देश</string>
+  <string name="weather_custom_location_title">स्थान</string>
+  <string name="weather_show_location_title">स्थान दर्शवा</string>
+  <string name="weather_show_timestamp_title">वेळशिक्का दर्शवा</string>
+  <string name="weather_refresh_interval">अद्यतन मध्यांतर</string>
+  <string name="weather_use_metric">मेट्रिक वापरा</string>
+  <string name="weather_retrieve_location_dialog_title">स्थान पुनर्प्राप्त करू शकत नाही!</string>
+  <string name="weather_retrieve_location_dialog_message">नेटवर्क भौगोलिक स्थान अक्षम केलेले आहे.\n\nसानुकूल स्थान सेट करा किंवा नेटवर्क स्थान सक्षम करा</string>
+  <string name="weather_retrieve_location_dialog_enable_button">सक्षम करा</string>
+  <string name="weather_invert_lowhigh">उलट कमी/उच्च तापमाने</string>
+  <string name="weather_progress_title">स्थाने सत्यापित करा</string>
+  <string name="weather_alternate_icons_title">रंग प्रतीके वापरा</string>
+  <string name="weather_alternate_icons_summary">डिफॉल्ट (रंग) आणि पर्यायी (पांढरा) प्रतीकांदरम्यान टॉगल करण्यासाठी निवडा</string>
+  <string name="weather_show_when_minimized_title">कमी केलेले असताना दर्शवा</string>
+  <string name="weather_show_when_minimized_summary">विजेट कमी केलेले असताना हवामान सारांश माहिती प्रदर्शित करा</string>
+  <string name="weather_select_location">स्थान निवडा</string>
   <!-- Preferences - Calendar -->
+  <string name="calendar_title">पुढील इव्हेंट प्रदर्शित करा</string>
+  <string name="calendars_title">इव्हेंट दिनदर्शिका</string>
+  <string name="calendars_summary">ह्या दिनदर्शिकामधून इव्हेंट्स शोधा</string>
+  <string name="calendars_none_found_summary">कॅलेंडर्स सापडले नाहीत</string>
+  <string name="calendar_reminders_only_title">केवळ स्मरणपत्रे</string>
+  <string name="calendar_reminders_only_summary">केवळ स्मरणपत्रांसह इव्हेंट्स दर्शवा</string>
+  <string name="calendar_hide_allday_title">संपूर्ण-दिवस इव्हेंट्स लपवा</string>
+  <string name="calendar_icon_title">दिनदर्शिका प्रतीक</string>
+  <string name="calendar_lookahead_title">इव्हेंट पुढे पाहा</string>
+  <string name="calendar_show_location_title">इव्हेंट स्थान</string>
+  <string name="calendar_show_description_title">इव्हेंट वर्णन</string>
+  <string name="calendar_upcoming_events_category">आगामी इव्हेंट्स</string>
+  <string name="calendar_highlight_upcoming_events_title">इव्हेंट्स हायलाईट करा</string>
+  <string name="calendar_highlight_upcoming_events_summary">चालू दिवसाच्या इव्हेंट्स हायलाईट करा आणि रात्री 8 नंतर, दुसऱ्या दिवशीच्या इव्हेंट्स सुध्दा</string>
+  <string name="calendar_highlight_upcoming_events_bold">ठळक फाँट</string>
   <!-- Preferences - Font colors -->
+  <string name="font_color">फाँट रंग</string>
+  <string name="font_color_alarm">अलार्म फाँट रंग</string>
+  <string name="font_color_timestamp">वेळशिक्का फाँट रंग</string>
+  <string name="font_color_calendar_details">तपशील फाँट रंग</string>
   <!-- Preferences - Background color -->
+  <string name="background_color">पार्श्वभूमी रंग</string>
+  <string name="background_transparency">पार्श्वभूमी पारदर्शकता</string>
   <!-- Calendar - Lookahead -->
+  <string name="calendar_lookahead_3hrs">3 तास</string>
+  <string name="calendar_lookahead_6hrs">6 तास</string>
+  <string name="calendar_lookahead_12hrs">12 तास</string>
+  <string name="calendar_lookahead_today">आज</string>
+  <string name="calendar_lookahead_1day">1 दिवस</string>
+  <string name="calendar_lookahead_3days">3 दिवस</string>
+  <string name="calendar_lookahead_1wk">1 आठवडा</string>
+  <string name="calendar_lookahead_2wks">2 आठवडे</string>
+  <string name="calendar_lookahead_4wks">4 आठवडे</string>
   <!-- Calendar - Event metadata -->
+  <string name="calendar_metadata_none">दाखवू नका</string>
+  <string name="calendar_metadata_first_line">पहिली ओळ दर्शवा</string>
+  <string name="calendar_metadata_all">सर्व दर्शवा</string>
   <!-- Font colors -->
+  <string name="white">पांढरा</string>
+  <string name="grey">करडा</string>
+  <string name="black">काळा</string>
+  <string name="holo_blue_light">फिकट निळा</string>
+  <string name="holo_green_light">फिकट हिरवा</string>
+  <string name="holo_red_light">फिकट लाल</string>
+  <string name="holo_blue_dark">गडद निळा</string>
+  <string name="holo_green_dark">गडद हिरवा</string>
+  <string name="holo_red_dark">गडद लाल</string>
+  <string name="holo_purple">जांभळा</string>
+  <string name="holo_orange_light">फिकट केशरी</string>
+  <string name="holo_orange_dark">गडद केशरी</string>
+  <string name="holo_blue_bright">चमकदार निळा</string>
   <!-- Weather icon sets -->
+  <string name="weather_icon_set_title">प्रतीक सेट केले</string>
+  <string name="weather_icons_standard">रंगीत</string>
+  <string name="weather_icons_monochrome">मोनोक्रोम</string>
+  <string name="icon_set_selection_get_more">अधिक मिळवा\u2026</string>
 </resources>

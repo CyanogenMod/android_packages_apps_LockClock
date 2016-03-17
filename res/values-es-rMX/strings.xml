@@ -39,6 +39,7 @@
   <!-- Preferences - Clock -->
   <!-- Preferences - Weather -->
   <!-- Preferences - Calendar -->
+  <string name="calendars_none_found_summary">No se encontraron calendarios</string>
   <!-- Preferences - Font colors -->
   <!-- Preferences - Background color -->
   <!-- Calendar - Lookahead -->

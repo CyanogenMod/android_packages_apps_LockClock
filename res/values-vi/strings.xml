@@ -151,6 +151,7 @@
   <string name="calendar_title">Hiển thị sự kiện tiếp theo</string>
   <string name="calendars_title">Sự kiện lịch</string>
   <string name="calendars_summary">Tìm sự kiện từ các lịch này</string>
+  <string name="calendars_none_found_summary">Không tìm thấy lịch</string>
   <string name="calendar_reminders_only_title">Chỉ có nhắc nhở</string>
   <string name="calendar_reminders_only_summary">Chỉ hiển thị sự kiện có nhắc nhở</string>
   <string name="calendar_hide_allday_title">Ẩn sự kiện diễn ra cả ngày</string>

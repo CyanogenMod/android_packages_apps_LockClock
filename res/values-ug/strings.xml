@@ -151,6 +151,7 @@
   <string name="calendar_title">كېيىنكى پائالىيەتنى كۆرسەت</string>
   <string name="calendars_title">پائالىيەت يىلنامەسى</string>
   <string name="calendars_summary">بۇ يىلنامەدىن پائالىيەت ئىزدە</string>
+  <string name="calendars_none_found_summary">ھېچقانداق كالېندار بايقىمىدى</string>
   <string name="calendar_reminders_only_title">ئەسكەرتىشلا</string>
   <string name="calendar_reminders_only_summary">ئەسكەرتىشى بار پائالىيەتنىلا كۆرسەت</string>
   <string name="calendar_hide_allday_title">پۈتۈن كۈنلۈك پائالىيەتنى يوشۇر</string>
@@ -168,6 +169,8 @@
   <string name="font_color_timestamp">ۋاقىت تامغىسىنىڭ خەت رەڭگى</string>
   <string name="font_color_calendar_details">تەپسىلات  خەت رەڭگى</string>
   <!-- Preferences - Background color -->
+  <string name="background_color">تەگلىك رەڭگى</string>
+  <string name="background_transparency">ئارقا كۆرۈنۈش سۈزۈكلىكى</string>
   <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 سائەت</string>
   <string name="calendar_lookahead_6hrs">6 سائەت</string>

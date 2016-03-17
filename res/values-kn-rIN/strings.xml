@@ -151,6 +151,7 @@
   <string name="calendar_title">ಮುಂದಿನ ಘಟನೆಯನ್ನು ಪ್ರದರ್ಶಿಸು</string>
   <string name="calendars_title">ಘಟನೆ ಕ್ಯಾಲೆಂಡರ್‍ಗಳು</string>
   <string name="calendars_summary">ಈ ಕ್ಯಾಲೆಂಡರ್‍ಗಳಿಂದ ಘಟನೆಗಳನ್ನು ಹುಡುಕು</string>
+  <string name="calendars_none_found_summary">ಯಾವುದೇ ಕ್ಯಾಲೆಂಡರ್‍ಗಳಿಲ್ಲ</string>
   <string name="calendar_reminders_only_title">ಜ್ಞಾಪನೆಗಳು ಮಾತ್ರ</string>
   <string name="calendar_reminders_only_summary">ಜ್ಞಾಪನೆಗಳುಳ್ಳ ಘಟನೆಗಳನ್ನು ಮಾತ್ರ ಪ್ರದರ್ಶಿಸು</string>
   <string name="calendar_hide_allday_title">ಪೂರ್ತಿ-ದಿನ ಘಟನೆಗಳನ್ನು ಮರೆಮಾಡು</string>
