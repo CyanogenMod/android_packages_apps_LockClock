@@ -20,11 +20,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 
+import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.weather.OpenWeatherMapProvider;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherProvider;
 import com.cyanogenmod.lockclock.weather.YahooWeatherProvider;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Set;
@@ -197,6 +199,23 @@ public class Preferences {
 
     public static void setCustomWeatherLocationCity(Context context, String city) {
         getPrefs(context).edit().putString(Constants.WEATHER_CUSTOM_LOCATION_CITY, city).apply();
+    }
+
+    public static void ensureValidWeatherProvider(Context context) {
+        SharedPreferences sharedPreferences = getPrefs(context);
+        String name = sharedPreferences.getString(Constants.WEATHER_SOURCE, "yahoo");
+        String[] validweatherProviders = context.getResources()
+                .getStringArray(R.array.weather_source_values);
+        if (Arrays.binarySearch(validweatherProviders, name) >= 0) {
+            return;
+        }
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if (validweatherProviders.length == 0) {
+            editor.remove(Constants.WEATHER_SOURCE);
+        } else {
+            editor.putString(Constants.WEATHER_SOURCE, validweatherProviders[0]);
+        }
+        editor.commit();
     }
 
     public static WeatherProvider weatherProvider(Context context) {
