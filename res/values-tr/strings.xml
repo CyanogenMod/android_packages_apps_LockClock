@@ -151,6 +151,7 @@
   <string name="calendar_title">Sonraki etkinliği göster</string>
   <string name="calendars_title">Etkinlik takvimleri</string>
   <string name="calendars_summary">Bu takvimlerden olayları bul</string>
+  <string name="calendars_none_found_summary">Hiçbir takvim bulunamadı</string>
   <string name="calendar_reminders_only_title">Sadece hatırlatıcılar</string>
   <string name="calendar_reminders_only_summary">Sadece hatırlatıcıları olan etkinlikleri göster</string>
   <string name="calendar_hide_allday_title">Gün boyu süren olayları gizle</string>

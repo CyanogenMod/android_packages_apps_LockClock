@@ -111,7 +111,7 @@
   <!-- Preferences - Categories -->
   <string name="clock_category">Часы и будильник</string>
   <string name="weather_category">Погода</string>
-  <string name="calendar_category">Календарные события</string>
+  <string name="calendar_category">События календаря</string>
   <!-- Preferences - Categories -->
   <string name="general_category">Основные</string>
   <string name="display_category">Отображение</string>

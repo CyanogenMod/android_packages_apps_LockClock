@@ -151,6 +151,7 @@
   <string name="calendar_title">عرض الحدث القادم</string>
   <string name="calendars_title">تقويمات الحدث</string>
   <string name="calendars_summary">العثور على الأحداث من هذه التقويمات</string>
+  <string name="calendars_none_found_summary">لا توجد تقويمات</string>
   <string name="calendar_reminders_only_title">تذكيرات فقط</string>
   <string name="calendar_reminders_only_summary">تظهر الأحداث فقط مع التذكيرات</string>
   <string name="calendar_hide_allday_title">إخفاء أحداث اليوم كله</string>
