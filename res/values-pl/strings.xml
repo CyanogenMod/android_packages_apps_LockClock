@@ -20,7 +20,7 @@
   <string name="unknown">Nieznane</string>
   <string name="cancel">Anuluj</string>
   <string name="loading_indicator">Uruchamianie widżetu\u2026</string>
-  <string name="menu_done">Wykonano</string>
+  <string name="menu_done">Gotowe</string>
   <!-- Formating strings for widget clock -->
   <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
          android.text.format.DateFormat uses k for hours in the 0-23 range.

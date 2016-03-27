@@ -151,6 +151,7 @@
   <string name="calendar_title">Vis neste oppføring</string>
   <string name="calendars_title">Kalendere</string>
   <string name="calendars_summary">Finn oppføringer fra disse kalenderne</string>
+  <string name="calendars_none_found_summary">Ingen kalendere funnet</string>
   <string name="calendar_reminders_only_title">Bare påminnelser</string>
   <string name="calendar_reminders_only_summary">Bare vis oppføringer med påminnelser</string>
   <string name="calendar_hide_allday_title">Skjul heldagsoppføringer</string>
