@@ -16,12 +16,10 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cyanogenmod.lockclock"
-    android:versionCode="21"
-    android:versionName="3.4.1" >
+    android:versionCode="22"
+    android:versionName="3.5" >
 
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="23" />
-
-    <permission android:name="com.cyanogenmod.lockclock.permission.READ_WEATHER" />
 
     <!-- Weather -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -35,6 +33,9 @@
     <!-- General -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="cyanogenmod.permission.ACCESS_WEATHER_MANAGER" />
+    <uses-permission android:name="cyanogenmod.permission.READ_WEATHER" />
 
     <application
         android:allowBackup="true"
@@ -101,15 +102,10 @@
 
         <service android:name=".ClockWidgetService"></service>
         <service android:name=".weather.WeatherUpdateService"></service>
+        <service android:name=".weather.WeatherSourceListenerService"></service>
         <service android:name=".calendar.CalendarViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS">
         </service>
-
-        <provider
-            android:name=".weather.WeatherContentProvider"
-            android:authorities="com.cyanogenmod.lockclock.weather.provider"
-            android:exported="true"
-            android:readPermission="com.cyanogenmod.lockclock.permission.READ_WEATHER" />
 
     </application>
 

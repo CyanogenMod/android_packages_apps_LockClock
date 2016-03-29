@@ -17,27 +17,27 @@
 package com.cyanogenmod.lockclock.preference;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.EditTextPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.Preferences;
-import com.cyanogenmod.lockclock.weather.WeatherProvider.LocationResult;
+import cyanogenmod.weather.CMWeatherManager;
+import cyanogenmod.weather.WeatherLocation;
 
 import java.util.HashSet;
 import java.util.List;
 
-public class CustomLocationPreference extends EditTextPreference {
+public class CustomLocationPreference extends EditTextPreference
+        implements CMWeatherManager.LookupCityRequestListener {
     public CustomLocationPreference(Context context) {
         super(context);
     }
@@ -48,18 +48,35 @@ public class CustomLocationPreference extends EditTextPreference {
         super(context, attrs, defStyle);
     }
 
+    private ProgressDialog mProgressDialog;
+    private int mCustomLocationRequestId;
+    private Handler mHandler;
     @Override
     protected void showDialog(Bundle state) {
         super.showDialog(state);
+        mHandler = new Handler(getContext().getMainLooper());
 
         final AlertDialog d = (AlertDialog) getDialog();
-        Button okButton = d.getButton(DialogInterface.BUTTON_POSITIVE);
-
+        final Button okButton = d.getButton(DialogInterface.BUTTON_POSITIVE);
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CustomLocationPreference.this.onClick(d, DialogInterface.BUTTON_POSITIVE);
-                new WeatherLocationTask(d, getEditText().getText().toString()).execute();
+                final String customLocationToLookUp = getEditText().getText().toString();
+                if (TextUtils.equals(customLocationToLookUp, "")) return;
+                final CMWeatherManager weatherManager = CMWeatherManager.getInstance(getContext());
+                mProgressDialog = new ProgressDialog(getContext());
+                mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                mProgressDialog.setMessage(getContext().getString(R.string.weather_progress_title));
+                mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        weatherManager.cancelRequest(mCustomLocationRequestId);
+                    }
+                });
+                mCustomLocationRequestId = weatherManager.lookupCity(customLocationToLookUp,
+                        CustomLocationPreference.this);
+                mProgressDialog.show();
             }
         });
     }
@@ -68,10 +85,12 @@ public class CustomLocationPreference extends EditTextPreference {
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
 
-        String location = Preferences.customWeatherLocationCity(getContext());
+        String location = Preferences.getCustomWeatherLocationCity(getContext());
         if (location != null) {
             getEditText().setText(location);
             getEditText().setSelection(location.length());
+        } else {
+            getEditText().setText("");
         }
     }
 
@@ -81,115 +100,88 @@ public class CustomLocationPreference extends EditTextPreference {
         super.onDialogClosed(false);
     }
 
-    private class WeatherLocationTask extends AsyncTask<Void, Void, List<LocationResult>> {
-        private Dialog mDialog;
-        private ProgressDialog mProgressDialog;
-        private String mLocation;
+    private void handleResultDisambiguation(final List<WeatherLocation> results) {
+        CharSequence[] items = buildItemList(results);
+        new AlertDialog.Builder(getContext())
+                .setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        applyLocation(results.get(which));
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .setTitle(R.string.weather_select_location)
+                .show();
+    }
 
-        public WeatherLocationTask(Dialog dialog, String location) {
-            mDialog = dialog;
-            mLocation = location;
-        }
+    private CharSequence[] buildItemList(List<WeatherLocation> results) {
+        boolean needCountry = false, needPostal = false;
+        String countryId = results.get(0).getCountryId();
+        HashSet<String> postalIds = new HashSet<>();
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-            final Context context = getContext();
-
-            mProgressDialog = new ProgressDialog(context);
-            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            mProgressDialog.setMessage(context.getString(R.string.weather_progress_title));
-            mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                @Override
-                public void onCancel(DialogInterface dialog) {
-                    cancel(true);
-                }
-            });
-            mProgressDialog.show();
-        }
-
-        @Override
-        protected List<LocationResult> doInBackground(Void... input) {
-            return Preferences.weatherProvider(getContext()).getLocations(mLocation);
-        }
-
-        @Override
-        protected void onPostExecute(List<LocationResult> results) {
-            super.onPostExecute(results);
-
-            final Context context = getContext();
-
-            if (results == null || results.isEmpty()) {
-                Toast.makeText(context,
-                        context.getString(R.string.weather_retrieve_location_dialog_title),
-                        Toast.LENGTH_SHORT)
-                        .show();
-            } else if (results.size() > 1) {
-                handleResultDisambiguation(results);
-            } else {
-                applyLocation(results.get(0));
+        for (WeatherLocation result : results) {
+            if (!TextUtils.equals(result.getCountryId(), countryId)) {
+                needCountry = true;
             }
-            mProgressDialog.dismiss();
-        }
-
-        private void handleResultDisambiguation(final List<LocationResult> results) {
-            CharSequence[] items = buildItemList(results);
-            new AlertDialog.Builder(getContext())
-                    .setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            applyLocation(results.get(which));
-                            dialog.dismiss();
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .setTitle(R.string.weather_select_location)
-                    .show();
-        }
-
-        private CharSequence[] buildItemList(List<LocationResult> results) {
-            boolean needCountry = false, needPostal = false;
-            String countryId = results.get(0).countryId;
-            HashSet<String> postalIds = new HashSet<String>();
-
-            for (LocationResult result : results) {
-                if (!TextUtils.equals(result.countryId, countryId)) {
-                    needCountry = true;
-                }
-                String postalId = result.countryId + "##" + result.city;
-                if (postalIds.contains(postalId)) {
-                    needPostal = true;
-                }
-                postalIds.add(postalId);
-                if (needPostal && needCountry) {
-                    break;
-                }
+            String postalId = result.getCountryId() + "##" + result.getCity();
+            if (postalIds.contains(postalId)) {
+                needPostal = true;
             }
-
-            int count = results.size();
-            CharSequence[] items = new CharSequence[count];
-            for (int i = 0; i < count; i++) {
-                LocationResult result = results.get(i);
-                StringBuilder builder = new StringBuilder();
-                if (needPostal && result.postal != null) {
-                    builder.append(result.postal).append(" ");
-                }
-                builder.append(result.city);
-                if (needCountry) {
-                    String country = result.country != null
-                            ? result.country : result.countryId;
-                    builder.append(" (").append(country).append(")");
-                }
-                items[i] = builder.toString();
+            postalIds.add(postalId);
+            if (needPostal && needCountry) {
+                break;
             }
-            return items;
         }
 
-        private void applyLocation(final LocationResult result) {
-            Preferences.setCustomWeatherLocationId(getContext(), result.id);
-            setText(result.city);
-            mDialog.dismiss();
+        int count = results.size();
+        CharSequence[] items = new CharSequence[count];
+        for (int i = 0; i < count; i++) {
+            WeatherLocation result = results.get(i);
+            StringBuilder builder = new StringBuilder();
+            if (needPostal && result.getPostalCode() != null) {
+                builder.append(result.getPostalCode()).append(" ");
+            }
+            builder.append(result.getCity());
+            if (needCountry) {
+                String country = result.getCountry() != null
+                        ? result.getCountry() : result.getCountryId();
+                builder.append(" (").append(country).append(")");
+            }
+            items[i] = builder.toString();
         }
+        return items;
+    }
+
+    private void applyLocation(final WeatherLocation result) {
+        if (Preferences.setCustomWeatherLocation(getContext(), result)) {
+            String cityName = result.getCity();
+            String state = result.getState();
+            String country = result.getCountry();
+            setText(cityName + "," + state + "/" + country);
+        }
+        final AlertDialog d = (AlertDialog) getDialog();
+        d.dismiss();
+    }
+
+    @Override
+    public void onLookupCityRequestCompleted(int status, final List<WeatherLocation> locations) {
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                final Context context = getContext();
+                if (locations == null || locations.isEmpty()) {
+                    Toast.makeText(context,
+                            context.getString(R.string.weather_retrieve_location_dialog_title),
+                            Toast.LENGTH_SHORT)
+                            .show();
+                } else if (locations.size() > 1) {
+                    handleResultDisambiguation(locations);
+                } else {
+                    applyLocation(locations.get(0));
+                }
+                mProgressDialog.dismiss();
+            }
+        });
     }
 }
