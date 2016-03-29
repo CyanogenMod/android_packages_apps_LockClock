@@ -16,29 +16,34 @@
 
 package com.cyanogenmod.lockclock.weather;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-import java.util.TimeZone;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.IconUtils;
 import com.cyanogenmod.lockclock.misc.Preferences;
-import com.cyanogenmod.lockclock.misc.WidgetUtils;
-import com.cyanogenmod.lockclock.weather.WeatherInfo.DayForecast;
-import com.cyanogenmod.lockclock.R;
+import static cyanogenmod.providers.WeatherContract.WeatherColumns.WindSpeedUnit.MPH;
+import static cyanogenmod.providers.WeatherContract.WeatherColumns.WindSpeedUnit.KPH;
+import static cyanogenmod.providers.WeatherContract.WeatherColumns.TempUnit.FAHRENHEIT;
+import static cyanogenmod.providers.WeatherContract.WeatherColumns.TempUnit.CELSIUS;
+import cyanogenmod.weather.CMWeatherManager;
+import cyanogenmod.weather.WeatherInfo;
+import cyanogenmod.weather.WeatherInfo.DayForecast;
+import cyanogenmod.weather.util.WeatherUtils;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class ForecastBuilder {
     private static final String TAG = "ForecastBuilder";
@@ -58,50 +63,82 @@ public class ForecastBuilder {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
         int color = Preferences.weatherFontColor(context);
         boolean invertLowHigh = Preferences.invertLowHighTemperature(context);
+        final boolean useMetric = Preferences.useMetricUnits(context);
+
+        //Make any conversion needed in case the data was not provided in the desired unit
+        double temp = w.getTemperature();
+        double todaysLow = w.getTodaysLow();
+        double todaysHigh = w.getTodaysHigh();
+        int tempUnit = w.getTemperatureUnit();
+        if (tempUnit == FAHRENHEIT && useMetric) {
+            temp = WeatherUtils.fahrenheitToCelsius(temp);
+            todaysLow = WeatherUtils.fahrenheitToCelsius(todaysLow);
+            todaysHigh = WeatherUtils.fahrenheitToCelsius(todaysHigh);
+            tempUnit = CELSIUS;
+        } else if (tempUnit == CELSIUS && !useMetric) {
+            temp = WeatherUtils.celsiusToFahrenheit(temp);
+            todaysLow = WeatherUtils.celsiusToFahrenheit(todaysLow);
+            todaysHigh = WeatherUtils.celsiusToFahrenheit(todaysHigh);
+            tempUnit = FAHRENHEIT;
+        }
+
+        double windSpeed = w.getWindSpeed();
+        int windSpeedUnit = w.getWindSpeedUnit();
+        if (windSpeedUnit == MPH && useMetric) {
+            windSpeedUnit = KPH;
+            windSpeed = Utils.milesToKilometers(windSpeed);
+        } else if (windSpeedUnit == KPH && !useMetric) {
+            windSpeedUnit = MPH;
+            windSpeed = Utils.kilometersToMiles(windSpeed);
+        }
 
         View view = inflater.inflate(resourceId, null);
 
         // Set the weather source
         TextView weatherSource = (TextView) view.findViewById(R.id.weather_source);
-        weatherSource.setText(Preferences.weatherProvider(context).getNameResourceId());
+        final CMWeatherManager cmWeatherManager = CMWeatherManager.getInstance(context);
+        String activeWeatherLabel = cmWeatherManager.getActiveWeatherServiceProviderLabel();
+        weatherSource.setText(activeWeatherLabel != null ? activeWeatherLabel : "");
 
         // Set the current conditions
         // Weather Image
         ImageView weatherImage = (ImageView) view.findViewById(R.id.weather_image);
         String iconsSet = Preferences.getWeatherIconSet(context);
-        weatherImage.setImageBitmap(w.getConditionBitmap(iconsSet, color,
-                IconUtils.getNextHigherDensity(context)));
+        weatherImage.setImageBitmap(IconUtils.getWeatherIconBitmap(context, iconsSet, color,
+                w.getConditionCode(), IconUtils.getNextHigherDensity(context)));
 
         // Weather Condition
         TextView weatherCondition = (TextView) view.findViewById(R.id.weather_condition);
-        weatherCondition.setText(w.getCondition());
+        weatherCondition.setText(Utils.resolveWeatherCondition(context, w.getConditionCode()));
 
         // Weather Temps
         TextView weatherTemp = (TextView) view.findViewById(R.id.weather_temp);
-        weatherTemp.setText(w.getFormattedTemperature());
+        weatherTemp.setText(WeatherUtils.formatTemperature(temp, tempUnit));
 
         // Humidity and Wind
         TextView weatherHumWind = (TextView) view.findViewById(R.id.weather_hum_wind);
-        weatherHumWind.setText(w.getFormattedHumidity() + ", " + w.getFormattedWindSpeed() + " "
-                + w.getWindDirection());
+        weatherHumWind.setText(Utils.formatHumidity(w.getHumidity()) + ", "
+                + Utils.formatWindSpeed(context, windSpeed, windSpeedUnit) + " "
+                + Utils.resolveWindDirection(context, w.getWindDirection()));
 
         // City
         TextView city = (TextView) view.findViewById(R.id.weather_city);
         city.setText(w.getCity());
 
         // Weather Update Time
-        Date lastUpdate = w.getTimestamp();
+        Date lastUpdate = new Date(w.getTimestamp());
         StringBuilder sb = new StringBuilder();
         sb.append(DateFormat.format("E", lastUpdate));
         sb.append(" ");
         sb.append(DateFormat.getTimeFormat(context).format(lastUpdate));
         TextView updateTime = (TextView) view.findViewById(R.id.update_time);
         updateTime.setText(sb.toString());
-        updateTime.setVisibility(Preferences.showWeatherTimestamp(context) ? View.VISIBLE : View.GONE);
+        updateTime.setVisibility(
+                Preferences.showWeatherTimestamp(context) ? View.VISIBLE : View.GONE);
 
         // Weather Temps Panel additional items
-        final String low = w.getFormattedLow();
-        final String high = w.getFormattedHigh();
+        final String low = WeatherUtils.formatTemperature(todaysLow, tempUnit);
+        final String high = WeatherUtils.formatTemperature(todaysHigh, tempUnit);
         TextView weatherLowHigh = (TextView) view.findViewById(R.id.weather_low_high);
         weatherLowHigh.setText(invertLowHigh ? high + " | " + low : low + " | " + high);
 
@@ -113,6 +150,9 @@ public class ForecastBuilder {
         if (buildSmallPanel(context, forecastView, w)) {
             // Success, hide the progress container
             progressIndicator.setVisibility(View.GONE);
+        } else {
+            // TODO: Display a text notifying the user that the forecast data is not available
+            // rather than keeping the indicator spinning forever
         }
 
         return view;
@@ -125,55 +165,72 @@ public class ForecastBuilder {
      * @param w = the Weather info object that contains the forecast data
      */
     public static boolean buildSmallPanel(Context context, LinearLayout smallPanel, WeatherInfo w) {
-      if (smallPanel == null) {
+        if (smallPanel == null) {
           Log.d(TAG, "Invalid view passed");
           return false;
-      }
+        }
 
-      // Get things ready
-      LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
-      int color = Preferences.weatherFontColor(context);
-      boolean invertLowHigh = Preferences.invertLowHighTemperature(context);
+        // Get things ready
+        LayoutInflater inflater
+              = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        int color = Preferences.weatherFontColor(context);
+        boolean invertLowHigh = Preferences.invertLowHighTemperature(context);
+        final boolean useMetric = Preferences.useMetricUnits(context);
 
-      ArrayList<DayForecast> forecasts = w.getForecasts();
-      if (forecasts == null || forecasts.size() <= 1) {
+        List<DayForecast> forecasts = w.getForecasts();
+        if (forecasts == null || forecasts.size() <= 1) {
           smallPanel.setVisibility(View.GONE);
           return false;
-      }
+        }
 
-      TimeZone MyTimezone = TimeZone.getDefault();
-      Calendar calendar = new GregorianCalendar(MyTimezone);
+        TimeZone MyTimezone = TimeZone.getDefault();
+        Calendar calendar = new GregorianCalendar(MyTimezone);
+        int weatherTempUnit = w.getTemperatureUnit();
+        // Iterate through the forecasts
+        for (DayForecast d : forecasts) {
+            // Load the views
+            View forecastItem = inflater.inflate(R.layout.forecast_item, null);
 
-      // Iterate through the forecasts
-      for (DayForecast d : forecasts) {
-          // Load the views
-          View forecastItem = inflater.inflate(R.layout.forecast_item, null);
+            // The day of the week
+            TextView day = (TextView) forecastItem.findViewById(R.id.forecast_day);
+            day.setText(calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT,
+                  Locale.getDefault()));
+            calendar.roll(Calendar.DAY_OF_WEEK, true);
 
-          // The day of the week
-          TextView day = (TextView) forecastItem.findViewById(R.id.forecast_day);
-          day.setText(calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.getDefault()));
-          calendar.roll(Calendar.DAY_OF_WEEK, true);
-
-          // Weather Image
-          ImageView image = (ImageView) forecastItem.findViewById(R.id.weather_image);
-          String iconsSet = Preferences.getWeatherIconSet(context);
-          int resId = d.getConditionResource(context, iconsSet);
-          if (resId != 0) {
+            // Weather Image
+            ImageView image = (ImageView) forecastItem.findViewById(R.id.weather_image);
+            String iconsSet = Preferences.getWeatherIconSet(context);
+            final int resId = IconUtils.getWeatherIconResource(context, iconsSet,
+                  d.getConditionCode());
+            if (resId != 0) {
               image.setImageResource(resId);
-          } else {
-              image.setImageBitmap(d.getConditionBitmap(context, iconsSet, color));
-          }
+            } else {
+              image.setImageBitmap(IconUtils.getWeatherIconBitmap(context, iconsSet,
+                      color, d.getConditionCode()));
+            }
 
-          // Temperatures
-          String dayLow = d.getFormattedLow();
-          String dayHigh = d.getFormattedHigh();
-          TextView temps = (TextView) forecastItem.findViewById(R.id.weather_temps);
-          temps.setText(invertLowHigh ? dayHigh + " " + dayLow : dayLow + " " + dayHigh);
+            // Temperatures
+            double lowTemp = d.getLow();
+            double highTemp = d.getHigh();
+            int tempUnit = weatherTempUnit;
+            if (weatherTempUnit == FAHRENHEIT && useMetric) {
+                lowTemp = WeatherUtils.fahrenheitToCelsius(lowTemp);
+                highTemp = WeatherUtils.fahrenheitToCelsius(highTemp);
+                tempUnit = CELSIUS;
+            } else if (weatherTempUnit == CELSIUS && !useMetric) {
+                lowTemp = WeatherUtils.celsiusToFahrenheit(lowTemp);
+                highTemp = WeatherUtils.celsiusToFahrenheit(highTemp);
+                tempUnit = FAHRENHEIT;
+            }
+            String dayLow = WeatherUtils.formatTemperature(lowTemp, tempUnit);
+            String dayHigh = WeatherUtils.formatTemperature(highTemp, tempUnit);
+            TextView temps = (TextView) forecastItem.findViewById(R.id.weather_temps);
+            temps.setText(invertLowHigh ? dayHigh + " " + dayLow : dayLow + " " + dayHigh);
 
-          // Add the view
-          smallPanel.addView(forecastItem,
+            // Add the view
+            smallPanel.addView(forecastItem,
                   new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
-      }
-      return true;
+        }
+        return true;
     }
 }

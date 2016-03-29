@@ -113,6 +113,8 @@
     <string name="weather_refreshing">Refreshing</string>
     <string name="weather_last_sync_just_now">Just now</string>
     <string name="weather_cannot_reach_provider">Can\'t reach %s at the moment</string>
+    <string name="weather_source_not_selected">not selected</string>
+    <string name="weather_tap_to_select_source">Tap to select one</string>
 
     <!-- Weather - Update frequency -->
     <string name="weather_refresh_manual">Manual</string>
@@ -145,8 +147,6 @@
     <string name="weather_enabled">Enabled</string>
     <string name="weather_enable">Display weather</string>
     <string name="weather_source_title">Weather source</string>
-    <string name="weather_source_yahoo">Yahoo! Weather</string>
-    <string name="weather_source_openweathermap" translatable="false">OpenWeatherMap</string>
     <string name="weather_use_custom_location">Use custom location</string>
     <string name="weather_geolocated">Geolocated using network</string>
     <string name="weather_custom_location_dialog_title">Enter location</string>
