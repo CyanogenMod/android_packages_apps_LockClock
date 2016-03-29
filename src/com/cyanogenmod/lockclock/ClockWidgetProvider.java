@@ -24,11 +24,11 @@ import android.net.ConnectivityManager;
 import android.util.Log;
 
 import com.cyanogenmod.lockclock.misc.Constants;
+import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.ForecastActivity;
+import com.cyanogenmod.lockclock.weather.WeatherSourceListenerService;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
-import com.cyanogenmod.lockclock.ClockWidgetService;
-import com.cyanogenmod.lockclock.WidgetApplication;
 
 public class ClockWidgetProvider extends AppWidgetProvider {
     private static final String TAG = "ClockWidgetProvider";
@@ -64,8 +64,9 @@ public class ClockWidgetProvider extends AppWidgetProvider {
 
         // Boot completed, schedule next weather update
         } else if (Intent.ACTION_BOOT_COMPLETED.equals(action)) {
-            // On first boot lastUpdate will be 0 thus no need to force an update
-            // Subsequent boots will use cached data
+            //Since we're using elapsed time since boot, we can't use the timestamp from the
+            //previous boot so we need to reset the timer
+            Preferences.setLastWeatherUpadteTimestamp(context, 0);
             WeatherUpdateService.scheduleNextUpdate(context, false);
 
         // A widget has been deleted, prevent our handling and ask the super class handle it
@@ -124,6 +125,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
+        context.startService(new Intent(context, WeatherSourceListenerService.class));
         WeatherUpdateService.scheduleNextUpdate(context, true);
 
         // Start the broadcast receiver (API 16 devices)
@@ -138,6 +140,7 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         if (D) Log.d(TAG, "Cleaning up: Clearing all pending alarms");
+        context.stopService(new Intent(context, WeatherSourceListenerService.class));
         ClockWidgetService.cancelUpdates(context);
         WeatherUpdateService.cancelUpdates(context);
 
