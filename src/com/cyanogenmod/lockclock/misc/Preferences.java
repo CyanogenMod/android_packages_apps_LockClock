@@ -19,12 +19,14 @@ package com.cyanogenmod.lockclock.misc;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import cyanogenmod.weather.WeatherInfo;
+import cyanogenmod.weather.WeatherLocation;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
 
-import com.cyanogenmod.lockclock.weather.OpenWeatherMapProvider;
-import com.cyanogenmod.lockclock.weather.WeatherInfo;
-import com.cyanogenmod.lockclock.weather.WeatherProvider;
-import com.cyanogenmod.lockclock.weather.YahooWeatherProvider;
-
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Set;
@@ -172,9 +174,29 @@ public class Preferences {
 
     public static long weatherRefreshIntervalInMs(Context context) {
         String value = getPrefs(context).getString(Constants.WEATHER_REFRESH_INTERVAL, "60");
-        return Long.parseLong(value) * 60 * 1000;
+        return Long.parseLong(value) * 60L * 1000L;
     }
 
+    public static WeatherLocation getWeatherLocation(Context context) {
+        String weatherLocation = getPrefs(context).getString(Constants.WEATHER_LOCATION, null);
+        if (weatherLocation == null) return null;
+
+        try {
+            JSONObject jsonObject = new JSONObject(weatherLocation);
+            return JSONToWeatherLocation(jsonObject);
+        } catch (JSONException e) {
+            return null;
+        }
+    }
+
+    public static void setWeatherLocation(Context context, WeatherLocation location) {
+        try {
+            JSONObject object = weatherLocationToJSON(location);
+            getPrefs(context).edit()
+                    .putString(Constants.WEATHER_LOCATION, object.toString()).apply();
+        } catch (JSONException e) {
+        }
+    }
     public static boolean useCustomWeatherLocation(Context context) {
         return getPrefs(context).getBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, false);
     }
@@ -183,15 +205,7 @@ public class Preferences {
         getPrefs(context).edit().putBoolean(Constants.WEATHER_USE_CUSTOM_LOCATION, value).apply();
     }
 
-    public static String customWeatherLocationId(Context context) {
-        return getPrefs(context).getString(Constants.WEATHER_CUSTOM_LOCATION_ID, null);
-    }
-
-    public static void setCustomWeatherLocationId(Context context, String id) {
-        getPrefs(context).edit().putString(Constants.WEATHER_CUSTOM_LOCATION_ID, id).apply();
-    }
-
-    public static String customWeatherLocationCity(Context context) {
+    public static String getCustomWeatherLocationCity(Context context) {
         return getPrefs(context).getString(Constants.WEATHER_CUSTOM_LOCATION_CITY, null);
     }
 
@@ -199,21 +213,114 @@ public class Preferences {
         getPrefs(context).edit().putString(Constants.WEATHER_CUSTOM_LOCATION_CITY, city).apply();
     }
 
-    public static WeatherProvider weatherProvider(Context context) {
-        String name = getPrefs(context).getString(Constants.WEATHER_SOURCE, "yahoo");
-        if (name.equals("openweathermap")) {
-            return new OpenWeatherMapProvider(context);
+    public static void setCustomWeatherLocation(Context context, WeatherLocation weatherLocation) {
+        if (weatherLocation == null) {
+            getPrefs(context).edit()
+                    .putString(Constants.WEATHER_CUSTOM_LOCATION, null).apply();
+            return;
         }
-        return new YahooWeatherProvider(context);
+        try {
+            JSONObject jsonObject = weatherLocationToJSON(weatherLocation);
+            getPrefs(context).edit()
+                    .putString(Constants.WEATHER_CUSTOM_LOCATION, jsonObject.toString()).apply();
+        } catch (JSONException e) {
+        }
     }
 
-    public static void setCachedWeatherInfo(Context context, long timestamp, WeatherInfo data) {
+    public static WeatherLocation getCustomWeatherLocation(Context context) {
+        String weatherLocation = getPrefs(context)
+                .getString(Constants.WEATHER_CUSTOM_LOCATION, null);
+
+        if (weatherLocation == null) {
+            return null;
+        }
+
+        try {
+            JSONObject jsonObject = new JSONObject(weatherLocation);
+            return JSONToWeatherLocation(jsonObject);
+        } catch (JSONException e) {
+            return null;
+        }
+    }
+
+    private static WeatherLocation JSONToWeatherLocation(JSONObject jsonObject)
+            throws JSONException {
+        String cityId;
+        String cityName;
+        String state;
+        String postalCode;
+        String countryId;
+        String countryName;
+
+        cityId = jsonObject.getString("city_id");
+        cityName = jsonObject.getString("city_name");
+        state = jsonObject.getString("state");
+        postalCode = jsonObject.getString("postal_code");
+        countryId = jsonObject.getString("country_id");
+        countryName = jsonObject.getString("country_name");
+
+        //We need at least city id and city name to build a WeatherLocation
+        if (cityId == null && cityName == null) {
+            return null;
+        }
+
+        WeatherLocation.Builder location = new WeatherLocation.Builder(cityId, cityName);
+        if (countryId != null) location.setCountryId(countryId);
+        if (countryName != null) location.setCountry(countryName);
+        if (state != null) location.setState(state);
+        if (postalCode != null) location.setPostalCode(postalCode);
+
+        return location.build();
+    }
+
+    private static JSONObject weatherLocationToJSON(WeatherLocation location) throws JSONException {
+        return new JSONObject()
+                .put("city_id", location.getCityId())
+                .put("city_name", location.getCity())
+                .put("state", location.getState())
+                .put("postal_code", location.getPostalCode())
+                .put("country_id", location.getCountryId())
+                .put("country_name", location.getCountry());
+    }
+
+    public static void setCachedWeatherInfo(Context context, long timestamp, WeatherInfo info) {
         SharedPreferences.Editor editor = getPrefs(context).edit();
         editor.putLong(Constants.WEATHER_LAST_UPDATE, timestamp);
-        if (data != null) {
+        if (info != null) {
             // We now have valid weather data to display
-            editor.putBoolean(Constants.WEATHER_FIRST_UPDATE, false);
-            editor.putString(Constants.WEATHER_DATA, data.toSerializedString());
+            JSONStringer stringer = new JSONStringer();
+            boolean serialized = false;
+            try {
+                stringer.object()
+                    .key("city").value(info.getCity())
+                    .key("condition_code").value(info.getConditionCode())
+                    .key("temperature").value(info.getTemperature())
+                    .key("temperature_unit").value(info.getTemperatureUnit())
+                    .key("humidity").value(info.getHumidity())
+                    .key("wind_speed").value(info.getWindSpeed())
+                    .key("wind_speed_unit").value(info.getWindSpeedUnit())
+                    .key("wind_speed_direction").value(info.getWindDirection())
+                    .key("todays_high").value(info.getTodaysHigh())
+                    .key("todays_low").value(info.getTodaysLow())
+                    .key("timestamp").value(info.getTimestamp());
+
+                stringer.key("forecasts").array();
+                for (WeatherInfo.DayForecast forecast : info.getForecasts()) {
+                    stringer.object()
+                        .key("low").value(forecast.getLow())
+                        .key("high").value(forecast.getHigh())
+                        .key("condition_code").value(forecast.getConditionCode())
+                    .endObject();
+                }
+                stringer.endArray();
+                stringer.endObject();
+                serialized = true;
+            } catch (JSONException e) {
+            }
+            if (serialized) {
+                editor.putString(Constants.WEATHER_DATA, stringer.toString());
+                editor.putBoolean(Constants.WEATHER_FIRST_UPDATE, false);
+            }
         }
         editor.apply();
     }
@@ -222,17 +329,76 @@ public class Preferences {
         return getPrefs(context).getLong(Constants.WEATHER_LAST_UPDATE, 0);
     }
 
+    public static void setLastWeatherUpadteTimestamp(Context context, long timestamp) {
+        getPrefs(context).edit().putLong(Constants.WEATHER_LAST_UPDATE, timestamp).apply();
+    }
+
     public static WeatherInfo getCachedWeatherInfo(Context context) {
-        return WeatherInfo.fromSerializedString(context,
-                getPrefs(context).getString(Constants.WEATHER_DATA, null));
+        final String cachedInfo = getPrefs(context).getString(Constants.WEATHER_DATA, null);
+
+        if (cachedInfo == null) return null;
+
+        String city;
+        int conditionCode;
+        double temperature;
+        int tempUnit;
+        double humidity;
+        double windSpeed;
+        double windDirection;
+        double todaysHigh;
+        double todaysLow;
+        int windSpeedUnit;
+        long timestamp;
+        ArrayList<WeatherInfo.DayForecast> forecastList = new ArrayList<>();
+
+        try {
+            JSONObject cached = new JSONObject(cachedInfo);
+            city = cached.getString("city");
+            conditionCode = cached.getInt("condition_code");
+            temperature = cached.getDouble("temperature");
+            tempUnit = cached.getInt("temperature_unit");
+            humidity = cached.getDouble("humidity");
+            windSpeed = cached.getDouble("wind_speed");
+            windDirection = cached.getDouble("wind_speed_direction");
+            windSpeedUnit = cached.getInt("wind_speed_unit");
+            timestamp = cached.getLong("timestamp");
+            todaysHigh = cached.getDouble("todays_high");
+            todaysLow = cached.getDouble("todays_low");
+            JSONArray forecasts = cached.getJSONArray("forecasts");
+            for (int indx = 0; indx < forecasts.length(); indx++) {
+                JSONObject forecast = forecasts.getJSONObject(indx);
+                double low;
+                double high;
+                int code;
+                low = forecast.getDouble("low");
+                high = forecast.getDouble("high");
+                code = forecast.getInt("condition_code");
+                forecastList.add( new WeatherInfo.DayForecast.Builder(code)
+                        .setLow(low).setHigh(high).build());
+            }
+            WeatherInfo.Builder weatherInfo = new WeatherInfo.Builder(city, temperature, tempUnit)
+                    .setWeatherCondition(conditionCode)
+                    .setTimestamp(timestamp);
+
+            if (!Double.isNaN(humidity)) weatherInfo.setHumidity(humidity);
+            if (!Double.isNaN(windSpeed) && !Double.isNaN(windDirection)) {
+                weatherInfo.setWind(windSpeed, windDirection, windSpeedUnit);
+            }
+            if (forecastList.size() > 0) weatherInfo.setForecast(forecastList);
+            if (!Double.isNaN(todaysHigh)) weatherInfo.setTodaysHigh(todaysHigh);
+            if (!Double.isNaN(todaysLow)) weatherInfo.setTodaysLow(todaysLow);
+            return weatherInfo.build();
+        } catch (JSONException e) {
+        }
+        return null;
     }
 
-    public static String getCachedLocationId(Context context) {
-        return getPrefs(context).getString(Constants.WEATHER_LOCATION_ID, null);
+    public static void setWeatherSource(Context context, String source) {
+        getPrefs(context).edit().putString(Constants.WEATHER_SOURCE, source).apply();
     }
 
-    public static void setCachedLocationId(Context context, String id) {
-        getPrefs(context).edit().putString(Constants.WEATHER_LOCATION_ID, id).apply();
+    public static String getWeatherSource(Context context) {
+        return getPrefs(context).getString(Constants.WEATHER_SOURCE, null);
     }
 
     public static Set<String> calendarsToDisplay(Context context) {

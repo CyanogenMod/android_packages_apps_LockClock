@@ -27,21 +27,22 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
-
 import com.cyanogenmod.lockclock.calendar.CalendarViewsService;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.IconUtils;
 import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
-import com.cyanogenmod.lockclock.weather.WeatherInfo;
+import com.cyanogenmod.lockclock.weather.Utils;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
+import cyanogenmod.weather.CMWeatherManager;
+import cyanogenmod.weather.WeatherInfo;
+import cyanogenmod.weather.util.WeatherUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -60,6 +61,7 @@ public class ClockWidgetService extends IntentService {
 
     private int[] mWidgetIds;
     private AppWidgetManager mAppWidgetManager;
+    private Context mContext;
 
     public ClockWidgetService() {
         super("ClockWidgetService");
@@ -72,6 +74,7 @@ public class ClockWidgetService extends IntentService {
         ComponentName thisWidget = new ComponentName(this, ClockWidgetProvider.class);
         mAppWidgetManager = AppWidgetManager.getInstance(this);
         mWidgetIds = mAppWidgetManager.getAppWidgetIds(thisWidget);
+        mContext = getApplicationContext();
     }
 
     @Override
@@ -419,21 +422,26 @@ public class ClockWidgetService extends IntentService {
         weatherViews.setViewVisibility(R.id.weather_refresh, View.GONE);
 
         // Weather Image
-        int resId = w.getConditionResource(iconsSet);
+        int resId = IconUtils.getWeatherIconResource(mContext, iconsSet, w.getConditionCode());
         weatherViews.setViewVisibility(R.id.weather_image, View.VISIBLE);
         if (resId != 0) {
-            weatherViews.setImageViewResource(R.id.weather_image, w.getConditionResource(iconsSet));
+            weatherViews.setImageViewResource(R.id.weather_image,
+                    IconUtils.getWeatherIconResource(mContext, iconsSet, w.getConditionCode()));
         } else {
-            weatherViews.setImageViewBitmap(R.id.weather_image, w.getConditionBitmap(iconsSet, color));
+            weatherViews.setImageViewBitmap(R.id.weather_image,
+                    IconUtils.getWeatherIconBitmap(mContext, iconsSet, color,
+                            w.getConditionCode()));
         }
 
         // Weather Condition
-        weatherViews.setTextViewText(R.id.weather_condition, w.getCondition());
+        weatherViews.setTextViewText(R.id.weather_condition,
+                Utils.resolveWeatherCondition(mContext, w.getConditionCode()));
         weatherViews.setViewVisibility(R.id.weather_condition, View.VISIBLE);
         weatherViews.setTextColor(R.id.weather_condition, color);
 
         // Weather Temps Panel
-        weatherViews.setTextViewText(R.id.weather_temp, w.getFormattedTemperature());
+        weatherViews.setTextViewText(R.id.weather_temp,
+                WeatherUtils.formatTemperature(w.getTemperature(), w.getTemperatureUnit()));
         weatherViews.setViewVisibility(R.id.weather_temps_panel, View.VISIBLE);
         weatherViews.setTextColor(R.id.weather_temp, color);
 
@@ -450,7 +458,7 @@ public class ClockWidgetService extends IntentService {
 
             // Weather Update Time
             if (showTimestamp) {
-                Date updateTime = w.getTimestamp();
+                Date updateTime = new Date(w.getTimestamp());
                 StringBuilder sb = new StringBuilder();
                 sb.append(DateFormat.format("E", updateTime));
                 sb.append(" ");
@@ -464,8 +472,10 @@ public class ClockWidgetService extends IntentService {
 
             // Weather Temps Panel additional items
             boolean invertLowhigh = Preferences.invertLowHighTemperature(this);
-            final String low = w.getFormattedLow();
-            final String high = w.getFormattedHigh();
+            final String low = WeatherUtils.formatTemperature(w.getTodaysLow(),
+                    w.getTemperatureUnit());
+            final String high = WeatherUtils.formatTemperature(w.getTodaysHigh(),
+                    w.getTemperatureUnit());
             weatherViews.setTextViewText(R.id.weather_low_high, invertLowhigh ? high + " | " + low : low + " | " + high);
             weatherViews.setTextColor(R.id.weather_low_high, color);
         }
@@ -482,8 +492,9 @@ public class ClockWidgetService extends IntentService {
         boolean firstRun = Preferences.isFirstWeatherUpdate(this);
 
         // Hide the normal weather stuff
-        int providerNameResource = Preferences.weatherProvider(this).getNameResourceId();
-        String noData = getString(R.string.weather_cannot_reach_provider, getString(providerNameResource));
+        final CMWeatherManager weatherManager = CMWeatherManager.getInstance(mContext);
+        final String activeProviderLabel = weatherManager.getActiveWeatherServiceProviderLabel();
+        String noData = getString(R.string.weather_cannot_reach_provider, activeProviderLabel);
         weatherViews.setViewVisibility(R.id.weather_image, View.INVISIBLE);
         if (!smallWidget) {
             weatherViews.setViewVisibility(R.id.weather_city, View.GONE);

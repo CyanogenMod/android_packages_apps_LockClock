@@ -31,9 +31,10 @@
         android:gravity="center_vertical"
         android:orientation="vertical" >
 
-        <RelativeLayout 
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:weightSum="1"
             android:gravity="center_horizontal">
 
             <TextView
@@ -42,6 +43,9 @@
                 android:layout_height="match_parent"
                 android:gravity="center|center_horizontal"
                 android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_weight="0.8"
+                android:paddingLeft="3dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <ImageView
@@ -52,8 +56,9 @@
                 android:layout_centerVertical="true"
                 android:padding="8dp"
                 android:src="@drawable/ic_menu_refresh"
+                android:layout_weight="0.2"
                 android:background="?android:attr/selectableItemBackground" />
-        </RelativeLayout>
+        </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
