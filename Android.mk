@@ -36,3 +36,5 @@ LOCAL_STATIC_JAVA_LIBRARIES := play \
                                org.apache.http.legacy
 
 include $(BUILD_PACKAGE)
+
+include $(call all-makefiles-under,$(LOCAL_PATH)/providers)
