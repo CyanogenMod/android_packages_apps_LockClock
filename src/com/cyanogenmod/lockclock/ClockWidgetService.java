@@ -42,6 +42,7 @@ import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
+import cyanogenmod.weather.CMWeatherManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -60,6 +61,7 @@ public class ClockWidgetService extends IntentService {
 
     private int[] mWidgetIds;
     private AppWidgetManager mAppWidgetManager;
+    private Context mContext;
 
     public ClockWidgetService() {
         super("ClockWidgetService");
@@ -72,6 +74,7 @@ public class ClockWidgetService extends IntentService {
         ComponentName thisWidget = new ComponentName(this, ClockWidgetProvider.class);
         mAppWidgetManager = AppWidgetManager.getInstance(this);
         mWidgetIds = mAppWidgetManager.getAppWidgetIds(thisWidget);
+        mContext = getApplicationContext();
     }
 
     @Override
@@ -482,8 +485,9 @@ public class ClockWidgetService extends IntentService {
         boolean firstRun = Preferences.isFirstWeatherUpdate(this);
 
         // Hide the normal weather stuff
-        int providerNameResource = Preferences.weatherProvider(this).getNameResourceId();
-        String noData = getString(R.string.weather_cannot_reach_provider, getString(providerNameResource));
+        final CMWeatherManager weatherManager = CMWeatherManager.getInstance(mContext);
+        final String activeProviderLabel = weatherManager.getActiveWeatherServiceProviderLabel();
+        String noData = getString(R.string.weather_cannot_reach_provider, activeProviderLabel);
         weatherViews.setViewVisibility(R.id.weather_image, View.INVISIBLE);
         if (!smallWidget) {
             weatherViews.setViewVisibility(R.id.weather_city, View.GONE);

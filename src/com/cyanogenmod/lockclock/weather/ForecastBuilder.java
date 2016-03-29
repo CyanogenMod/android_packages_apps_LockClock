@@ -39,6 +39,7 @@ import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.WeatherInfo.DayForecast;
 import com.cyanogenmod.lockclock.R;
+import cyanogenmod.weather.CMWeatherManager;
 
 public class ForecastBuilder {
     private static final String TAG = "ForecastBuilder";
@@ -63,7 +64,9 @@ public class ForecastBuilder {
 
         // Set the weather source
         TextView weatherSource = (TextView) view.findViewById(R.id.weather_source);
-        weatherSource.setText(Preferences.weatherProvider(context).getNameResourceId());
+        final CMWeatherManager cmWeatherManager = CMWeatherManager.getInstance(context);
+        String activeWeatherLabel = cmWeatherManager.getActiveWeatherServiceProviderLabel();
+        weatherSource.setText(activeWeatherLabel != null ? activeWeatherLabel : "");
 
         // Set the current conditions
         // Weather Image

@@ -22,8 +22,6 @@ import android.graphics.Color;
 
 import com.cyanogenmod.lockclock.weather.OpenWeatherMapProvider;
 import com.cyanogenmod.lockclock.weather.WeatherInfo;
-import com.cyanogenmod.lockclock.weather.WeatherProvider;
-import com.cyanogenmod.lockclock.weather.YahooWeatherProvider;
 
 import java.util.Calendar;
 import java.util.Locale;
