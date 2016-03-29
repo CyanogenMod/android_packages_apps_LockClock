@@ -19,7 +19,6 @@ package com.cyanogenmod.lockclock.preference;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,30 +30,23 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
-
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
+import cyanogenmod.weather.CMWeatherManager;
 
 public class WeatherPreferences extends PreferenceFragment implements
-        SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener {
+        SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener,
+        CMWeatherManager.WeatherServiceProviderChangeListener {
     private static final String TAG = "WeatherPreferences";
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-
-    private static final String[] LOCATION_PREF_KEYS = new String[] {
-        Constants.WEATHER_USE_CUSTOM_LOCATION,
-        Constants.WEATHER_CUSTOM_LOCATION_CITY
-    };
-    private static final String[] WEATHER_REFRESH_KEYS = new String[] {
-        Constants.SHOW_WEATHER,
-        Constants.WEATHER_REFRESH_INTERVAL
-    };
 
     private SwitchPreference mUseCustomLoc;
     private EditTextPreference mCustomWeatherLoc;
@@ -65,8 +57,8 @@ public class WeatherPreferences extends PreferenceFragment implements
     private SwitchPreference mUseCustomlocation;
     private SwitchPreference mShowWeather;
     private Context mContext;
-    private ContentResolver mResolver;
     private Runnable mPostResumeRunnable;
+    private PreferenceScreen mWeatherSource;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,7 +66,6 @@ public class WeatherPreferences extends PreferenceFragment implements
         getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
         addPreferencesFromResource(R.xml.preferences_weather);
         mContext = getActivity();
-        mResolver = mContext.getContentResolver();
 
         // Load items that need custom summaries etc.
         mUseCustomLoc = (SwitchPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
@@ -84,6 +75,18 @@ public class WeatherPreferences extends PreferenceFragment implements
         mIconSet = (IconSelectionPreference) findPreference(Constants.WEATHER_ICONS);
         mUseMetric = (SwitchPreference) findPreference(Constants.WEATHER_USE_METRIC);
         mUseCustomlocation = (SwitchPreference) findPreference(Constants.WEATHER_USE_CUSTOM_LOCATION);
+        mWeatherSource = (PreferenceScreen) findPreference(Constants.WEATHER_SOURCE);
+        mWeatherSource.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object o) {
+                if (Preferences.getWeatherSource(mContext) != null && mShowWeather.isChecked()) {
+                    mWeatherSource.notifyDependencyChange(false);
+                } else {
+                    mWeatherSource.notifyDependencyChange(true);
+                }
+                return false;
+            }
+        });
 
         mShowWeather = (SwitchPreference) findPreference(Constants.SHOW_WEATHER);
         mShowWeather.setOnPreferenceChangeListener(this);
@@ -116,15 +119,34 @@ public class WeatherPreferences extends PreferenceFragment implements
             mPostResumeRunnable = null;
         }
 
+        final CMWeatherManager weatherManager = CMWeatherManager.getInstance(mContext);
+        weatherManager.registerWeatherServiceProviderChangeListener(this);
+
+        mWeatherSource.setEnabled(mShowWeather.isChecked());
+
         updateLocationSummary();
         updateFontColorsSummary();
         updateIconSetSummary();
+        updateWeatherProviderSummary(getWeatherProviderName());
     }
 
     @Override
     public void onPause() {
         super.onPause();
         getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+        final CMWeatherManager weatherManager = CMWeatherManager.getInstance(mContext);
+        weatherManager.unregisterWeatherServiceProviderChangeListener(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mUseCustomlocation.isChecked()
+                && Preferences.getCustomWeatherLocationCity(mContext) == null) {
+            //The user decided to toggle the custom location switch, but forgot to set a custom
+            //location, we need to go back to geo location
+            Preferences.setUseCustomWeatherLocation(mContext, false);
+        }
     }
 
     @Override
@@ -152,23 +174,38 @@ public class WeatherPreferences extends PreferenceFragment implements
             forceWeatherUpdate = true;
         }
 
-        // If the weather source has changes, invalidate the custom location settings and change
-        // back to GeoLocation to force the user to specify a new custom location if needed
         if (TextUtils.equals(key, Constants.WEATHER_SOURCE)) {
-            Preferences.setCustomWeatherLocationId(mContext, null);
+            // The weather source changed, invalidate the custom location settings and change
+            // back to GeoLocation to force the user to specify a new custom location if needed
             Preferences.setCustomWeatherLocationCity(mContext, null);
+            Preferences.setCustomWeatherLocation(mContext, null);
             Preferences.setUseCustomWeatherLocation(mContext, false);
             mUseCustomlocation.setChecked(false);
             updateLocationSummary();
         }
 
-        if (key.equals(Constants.WEATHER_USE_CUSTOM_LOCATION)
-                || key.equals(Constants.WEATHER_CUSTOM_LOCATION_CITY)) {
+        if (key.equals(Constants.WEATHER_USE_CUSTOM_LOCATION)) {
+            if (!mUseCustomLoc.isChecked() || (mUseCustomLoc.isChecked() &&
+                    Preferences.getCustomWeatherLocation(mContext) != null)) {
+                forceWeatherUpdate = true;
+            }
+        }
+
+        if (key.equals(Constants.WEATHER_CUSTOM_LOCATION_CITY) && mUseCustomLoc.isChecked()) {
             forceWeatherUpdate = true;
         }
 
         if (key.equals(Constants.SHOW_WEATHER) || key.equals(Constants.WEATHER_REFRESH_INTERVAL)) {
             needWeatherUpdate = true;
+        }
+
+        if (key.equals(Constants.SHOW_WEATHER)) {
+            mWeatherSource.setEnabled(mShowWeather.isChecked());
+            if (Preferences.getWeatherSource(mContext) != null && mShowWeather.isChecked()) {
+                mWeatherSource.notifyDependencyChange(false);
+            } else {
+                mWeatherSource.notifyDependencyChange(true);
+            }
         }
 
         if (Constants.DEBUG) {
@@ -199,7 +236,7 @@ public class WeatherPreferences extends PreferenceFragment implements
 
     private void updateLocationSummary() {
         if (mUseCustomLoc.isChecked()) {
-            String location = Preferences.customWeatherLocationCity(mContext);
+            String location = Preferences.getCustomWeatherLocationCity(mContext);
             if (location == null) {
                 location = getResources().getString(R.string.unknown);
             }
@@ -273,5 +310,31 @@ public class WeatherPreferences extends PreferenceFragment implements
             }
         }
         return true;
+    }
+
+    @Override
+    public void onWeatherServiceProviderChanged(String providerName) {
+        updateWeatherProviderSummary(providerName);
+    }
+
+    private void updateWeatherProviderSummary(String providerName) {
+        if (providerName != null) {
+            mWeatherSource.setSummary(providerName);
+            Preferences.setWeatherSource(mContext, providerName);
+        } else {
+            mWeatherSource.setSummary(R.string.weather_source_not_selected);
+            Preferences.setWeatherSource(mContext, null);
+        }
+
+        if (providerName != null && mShowWeather.isChecked()) {
+            mWeatherSource.notifyDependencyChange(false);
+        } else {
+            mWeatherSource.notifyDependencyChange(true);
+        }
+    }
+
+    private String getWeatherProviderName() {
+        final CMWeatherManager weatherManager = CMWeatherManager.getInstance(mContext);
+        return weatherManager.getActiveWeatherServiceProviderLabel();
     }
 }
