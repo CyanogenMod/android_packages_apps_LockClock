@@ -80,6 +80,11 @@ public class ForecastBuilder {
         TextView weatherTemp = (TextView) view.findViewById(R.id.weather_temp);
         weatherTemp.setText(w.getFormattedTemperature());
 
+        // Humidity and Wind
+        TextView weatherHumWind = (TextView) view.findViewById(R.id.weather_hum_wind);
+        weatherHumWind.setText(w.getFormattedHumidity() + ", " + w.getFormattedWindSpeed() + " "
+                + w.getWindDirection());
+
         // City
         TextView city = (TextView) view.findViewById(R.id.weather_city);
         city.setText(w.getCity());
