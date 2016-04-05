@@ -27,60 +27,60 @@
          We need to support both -->
   <!-- Weather - Weather codes -->
   <string name="weather_0">Tornado</string>
-  <string name="weather_1">Tempestade Tropical</string>
+  <string name="weather_1">Tempestade tropical</string>
   <string name="weather_2">Furacão</string>
-  <string name="weather_3">Tempestades Fortes</string>
+  <string name="weather_3">Tempestades fortes</string>
   <string name="weather_4">Tempestades</string>
-  <string name="weather_5">Chuva e Neve Misturados</string>
-  <string name="weather_6">Chuva e Geada Misturados</string>
-  <string name="weather_7">Neve e Geada Misturados</string>
-  <string name="weather_8">Chuvisco Congelante</string>
-  <string name="weather_9">Chuvisco</string>
-  <string name="weather_10">Chuva Congelante</string>
-  <string name="weather_11">Chuva</string>
-  <string name="weather_12">Chuva</string>
-  <string name="weather_13">Flocos de Neve</string>
-  <string name="weather_14">Chuva de Neve Fraca</string>
-  <string name="weather_15">Tempestade de Neve</string>
+  <string name="weather_5">Mistura de chuva e neve</string>
+  <string name="weather_6">Mistura de chuva e geada</string>
+  <string name="weather_7">Mistura de neve e geada</string>
+  <string name="weather_8">Garoa congelante</string>
+  <string name="weather_9">Garoa</string>
+  <string name="weather_10">Chuva congelante</string>
+  <string name="weather_11">Pancadas de chuva</string>
+  <string name="weather_12">Pancadas de chuva</string>
+  <string name="weather_13">Flocos de neve</string>
+  <string name="weather_14">Chuva de neve fraca</string>
+  <string name="weather_15">Tempestade de neve</string>
   <string name="weather_16">Neve</string>
   <string name="weather_17">Granizo</string>
   <string name="weather_18">Geada</string>
   <string name="weather_19">Poeira</string>
-  <string name="weather_20">Nebuloso</string>
+  <string name="weather_20">Névoa</string>
   <string name="weather_21">Neblina</string>
   <string name="weather_22">Enfumaçado</string>
-  <string name="weather_23">Ventos Fortes</string>
+  <string name="weather_23">Ventos fortes</string>
   <string name="weather_24">Ventania</string>
   <string name="weather_25">Frio</string>
   <string name="weather_26">Nublado</string>
   <!-- Night -->
-  <string name="weather_27">Maior Parte Nublado</string>
+  <string name="weather_27">Encoberto</string>
   <!-- Day -->
-  <string name="weather_28">Maior Parte Nublado</string>
+  <string name="weather_28">Encoberto</string>
   <!-- Night -->
-  <string name="weather_29">Parcialmente Nublado</string>
+  <string name="weather_29">Parcialmente nublado</string>
   <!-- Day -->
-  <string name="weather_30">Parcialmente Nublado</string>
+  <string name="weather_30">Parcialmente nublado</string>
   <!-- Night -->
   <string name="weather_31">Limpo</string>
   <string name="weather_32">Ensolarado</string>
   <!-- Night -->
-  <string name="weather_33">Razoável</string>
+  <string name="weather_33">Bom</string>
   <!-- Day -->
-  <string name="weather_34">Razoável</string>
-  <string name="weather_35">Chuva e Granizo Misturados</string>
+  <string name="weather_34">Bom</string>
+  <string name="weather_35">Misto de chuva e granizo</string>
   <string name="weather_36">Quente</string>
-  <string name="weather_37">Tempestades Isoladas</string>
-  <string name="weather_38">Tempestades Dispersas</string>
-  <string name="weather_39">Tempestades Dispersas</string>
-  <string name="weather_40">Chuvas Dispersas</string>
-  <string name="weather_41">Nevasca Forte</string>
-  <string name="weather_42">Neve Dispersa</string>
-  <string name="weather_43">Nevasca Forte</string>
-  <string name="weather_44">Parcialmente Nublado</string>
-  <string name="weather_45">Chuvas com Trovoadas</string>
-  <string name="weather_46">Chuva de Neve</string>
-  <string name="weather_47">Chuvas com Trovoadas Isoladas</string>
+  <string name="weather_37">Tempestades isoladas</string>
+  <string name="weather_38">Tempestades dispersas</string>
+  <string name="weather_39">Tempestades dispersas</string>
+  <string name="weather_40">Chuvas dispersas</string>
+  <string name="weather_41">Nevasca forte</string>
+  <string name="weather_42">Neve dispersa</string>
+  <string name="weather_43">Nevasca forte</string>
+  <string name="weather_44">Parcialmente nublado</string>
+  <string name="weather_45">Chuvas com trovoadas</string>
+  <string name="weather_46">Chuva de neve</string>
+  <string name="weather_47">Chuvas com trovoadas isoladas</string>
   <!-- Forecast unavailable -->
   <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
@@ -88,7 +88,7 @@
   <!-- Weather - Wind directions -->
   <string name="weather_N">N</string>
   <string name="weather_NE">NE</string>
-  <string name="weather_E">E</string>
+  <string name="weather_E">L</string>
   <string name="weather_SE">SE</string>
   <string name="weather_S">S</string>
   <string name="weather_SW">SO</string>
@@ -96,9 +96,9 @@
   <string name="weather_NW">NO</string>
   <!-- Weather - Error messages -->
   <string name="weather_no_data">Sem dados</string>
-  <string name="weather_tap_to_refresh">Aperte para atualizar</string>
+  <string name="weather_tap_to_refresh">Toque para atualizar</string>
   <string name="weather_refreshing">Atualizando</string>
-  <string name="weather_last_sync_just_now">Agora mesmo</string>
+  <string name="weather_last_sync_just_now">Há pouco</string>
   <string name="weather_cannot_reach_provider">Não foi possível alcançar %s</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manual</string>
@@ -116,41 +116,41 @@
   <string name="general_category">Geral</string>
   <string name="display_category">Exibir</string>
   <!-- Preferences - Clock -->
-  <string name="use_digital_clock_title">Usar relógio Digital</string>
-  <string name="use_digital_clock_summary">Selecione para alternar entre relógio Digital e Analógico</string>
+  <string name="use_digital_clock_title">Usar relógio digital</string>
+  <string name="use_digital_clock_summary">Selecione para alternar entre digital e analógico</string>
   <string name="clock_font_title">Horas em negrito</string>
   <string name="clock_font_minutes_title">Minutos em negrito</string>
-  <string name="clock_font_date_title">Data e minutos em negrito</string>
+  <string name="clock_font_date_title">Data e alarme em negrito</string>
   <string name="show_alarm_title">Exibir próximo alarme</string>
   <string name="clock_am_pm_title">Exibir indicador AM/PM</string>
   <!-- Preferences - Weather -->
   <string name="weather_enabled">Ativado</string>
-  <string name="weather_enable">Exibir tempo</string>
-  <string name="weather_source_title">Fonte de dados</string>
-  <string name="weather_source_yahoo">Yahoo! Tempo</string>
+  <string name="weather_enable">Exibir clima</string>
+  <string name="weather_source_title">Fonte do clima</string>
+  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">Usar local personalizado</string>
   <string name="weather_geolocated">Geolocalização usando a rede</string>
   <string name="weather_custom_location_dialog_title">Inserir localização</string>
-  <string name="weather_custom_location_hint">Cidade, Estado/País</string>
+  <string name="weather_custom_location_hint">Cidade, estado/país</string>
   <string name="weather_custom_location_title">Local</string>
   <string name="weather_show_location_title">Exibir local</string>
   <string name="weather_show_timestamp_title">Exibir horário</string>
   <string name="weather_refresh_interval">Intervalo de atualização</string>
   <string name="weather_use_metric">Usar sistema métrico</string>
-  <string name="weather_retrieve_location_dialog_title">Não é possível definir sua localização!</string>
-  <string name="weather_retrieve_location_dialog_message">Geolocalização por rede está desativada.\n\nDefinir uma localização personalizada ou ativar localização por rede</string>
+  <string name="weather_retrieve_location_dialog_title">Impossível definir sua localização!</string>
+  <string name="weather_retrieve_location_dialog_message">Geolocalização por rede desativada.\n\nDefina uma localização personalizada ou ative a localização por rede</string>
   <string name="weather_retrieve_location_dialog_enable_button">Ativar</string>
-  <string name="weather_invert_lowhigh">Inverte temperaturas alta/baixa</string>
+  <string name="weather_invert_lowhigh">Inverte temperaturas máxima/mínima</string>
   <string name="weather_progress_title">Verificando localização</string>
   <string name="weather_alternate_icons_title">Usar ícones coloridos</string>
-  <string name="weather_alternate_icons_summary">Selecione para alternar entre o padrão (Colorido) ou os ícones (Brancos) alternativos</string>
+  <string name="weather_alternate_icons_summary">Selecione para alternar entre os ícones padrão (coloridos) ou alternativos (brancos)</string>
   <string name="weather_show_when_minimized_title">Exibir quando minimizado</string>
-  <string name="weather_show_when_minimized_summary">Exibir um resumo de informações sobre o tempo quando o widget estiver minimizado</string>
+  <string name="weather_show_when_minimized_summary">Exibir um resumo de informações sobre o clima quando o widget estiver minimizado</string>
   <string name="weather_select_location">Selecionar localização</string>
   <!-- Preferences - Calendar -->
   <string name="calendar_title">Exibir próximo evento</string>
-  <string name="calendars_title">Eventos dos calendários</string>
-  <string name="calendars_summary">Procurar por eventos nestas agendas</string>
+  <string name="calendars_title">Calendários de evento</string>
+  <string name="calendars_summary">Procurar por eventos nesses calendários</string>
   <string name="calendars_none_found_summary">Não há calendários encontrados</string>
   <string name="calendar_reminders_only_title">Apenas lembretes</string>
   <string name="calendar_reminders_only_summary">Exibir somente eventos com lembretes</string>
@@ -167,7 +167,7 @@
   <string name="font_color">Cor da fonte</string>
   <string name="font_color_alarm">Cor da fonte do alarme</string>
   <string name="font_color_timestamp">Cor da fonte do horário</string>
-  <string name="font_color_calendar_details">Detalhes da cor da fonte</string>
+  <string name="font_color_calendar_details">Cor da fonte dos detalhes</string>
   <!-- Preferences - Background color -->
   <string name="background_color">Cor de fundo</string>
   <string name="background_transparency">Transparência do fundo</string>
@@ -198,10 +198,10 @@
   <string name="holo_purple">Roxo</string>
   <string name="holo_orange_light">Laranja claro</string>
   <string name="holo_orange_dark">Laranja escuro</string>
-  <string name="holo_blue_bright">Azul brilhoso</string>
+  <string name="holo_blue_bright">Azul brilhante</string>
   <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Ícones</string>
-  <string name="weather_icons_standard">Colorido</string>
-  <string name="weather_icons_monochrome">Monocromático</string>
+  <string name="weather_icons_standard">Coloridos</string>
+  <string name="weather_icons_monochrome">Monocromáticos</string>
   <string name="icon_set_selection_get_more">Obtenha mais\u2026</string>
 </resources>

@@ -31,9 +31,9 @@
   <string name="weather_2">הוריקן</string>
   <string name="weather_3">סופות רעמים קשות</string>
   <string name="weather_4">סופות רעמים</string>
-  <string name="weather_5">גשם מעורב עם שלג</string>
-  <string name="weather_6">גשם מעורב עם שלג קל</string>
-  <string name="weather_7">שלג מעורב עם גשם קל</string>
+  <string name="weather_5">גשם מעורב בשלג</string>
+  <string name="weather_6">גשם מעורב בשלג קל</string>
+  <string name="weather_7">שלג מעורב בגשם קל</string>
   <string name="weather_8">טפטוף קפוא</string>
   <string name="weather_9">טפטוף</string>
   <string name="weather_10">גשם קפוא</string>
@@ -68,7 +68,7 @@
   <string name="weather_33">לילה בהיר</string>
   <!-- Day -->
   <string name="weather_34">בהיר</string>
-  <string name="weather_35">גשם מעורב עם ברד</string>
+  <string name="weather_35">גשם מעורב בברד</string>
   <string name="weather_36">חם</string>
   <string name="weather_37">סופות רעמים בודדות</string>
   <string name="weather_38">סופות רעמים פזורות</string>
@@ -96,7 +96,7 @@
   <string name="weather_NW">צפון מערב</string>
   <!-- Weather - Error messages -->
   <string name="weather_no_data">אין נתונים</string>
-  <string name="weather_tap_to_refresh">גע לרענון</string>
+  <string name="weather_tap_to_refresh">הקש לרענון</string>
   <string name="weather_refreshing">מרענן</string>
   <string name="weather_last_sync_just_now">כרגע</string>
   <string name="weather_cannot_reach_provider">אין אפשרות להגיע אל %s כרגע</string>
