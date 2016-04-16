@@ -110,7 +110,7 @@
   <string name="weather_refresh_8hrs">8 horas</string>
   <!-- Preferences - Categories -->
   <string name="clock_category">Relógio e alarme</string>
-  <string name="weather_category">Painel do tempo</string>
+  <string name="weather_category">Painel do clima</string>
   <string name="calendar_category">Eventos do calendário</string>
   <!-- Preferences - Categories -->
   <string name="general_category">Geral</string>
