@@ -29,8 +29,8 @@
   <string name="weather_0">Tornadoa</string>
   <string name="weather_1">Ekaitz tropikala</string>
   <string name="weather_2">Urakana</string>
-  <string name="weather_3">Ekaitz larriak</string>
-  <string name="weather_4">Ekaitzak</string>
+  <string name="weather_3">Trumoi-ekaitz larriak</string>
+  <string name="weather_4">Trumoi-ekaitzak</string>
   <string name="weather_5">Ura eta elurra</string>
   <string name="weather_6">Ura eta elur bustia</string>
   <string name="weather_7">Elurra eta elur bustia</string>
@@ -46,38 +46,38 @@
   <string name="weather_17">Kazkabarra</string>
   <string name="weather_18">Elur bustia</string>
   <string name="weather_19">Hautsa</string>
-  <string name="weather_20">Lainoa</string>
-  <string name="weather_21">Lainoa</string>
+  <string name="weather_20">Lainotsua</string>
+  <string name="weather_21">Behe-lainoa</string>
   <string name="weather_22">Kea</string>
-  <string name="weather_23">Ekaitza</string>
+  <string name="weather_23">Enbata</string>
   <string name="weather_24">Haizetsua</string>
   <string name="weather_25">Hotza</string>
-  <string name="weather_26">Lainotsua</string>
+  <string name="weather_26">Hodeitsua</string>
   <!-- Night -->
-  <string name="weather_27">Lainotsua gehienbat</string>
+  <string name="weather_27">Hodeitsua gehienbat</string>
   <!-- Day -->
-  <string name="weather_28">Lainotsua gehienbat</string>
+  <string name="weather_28">Hodeitsua gehienbat</string>
   <!-- Night -->
-  <string name="weather_29">Partzialki lainotsua</string>
+  <string name="weather_29">Partzialki hodeitsua</string>
   <!-- Day -->
-  <string name="weather_30">Partzialki lainotsua</string>
+  <string name="weather_30">Partzialki hodeitsua</string>
   <!-- Night -->
   <string name="weather_31">Garbia</string>
   <string name="weather_32">Eguzkitsua</string>
   <!-- Night -->
-  <string name="weather_33">Argia</string>
+  <string name="weather_33">Ona</string>
   <!-- Day -->
-  <string name="weather_34">Argia</string>
+  <string name="weather_34">Ona</string>
   <string name="weather_35">Euria eta kazkabarra</string>
   <string name="weather_36">Beroa</string>
-  <string name="weather_37">Ekaitza isolatuak</string>
-  <string name="weather_38">Ekaitza tartekatuak</string>
-  <string name="weather_39">Ekaitza tartekatuak</string>
+  <string name="weather_37">Trumoi-ekaitza isolatuak</string>
+  <string name="weather_38">Trumoi-ekaitza tartekatuak</string>
+  <string name="weather_39">Trumoi-ekaitza tartekatuak</string>
   <string name="weather_40">Zaparradak tarteka</string>
   <string name="weather_41">Elurte gogorrak</string>
   <string name="weather_42">Elurteak tarteka</string>
   <string name="weather_43">Elurte gogorrak</string>
-  <string name="weather_44">Partzialki lainotua</string>
+  <string name="weather_44">Partzialki hodeitsua</string>
   <string name="weather_45">Ekaitzak</string>
   <string name="weather_46">Elurteak</string>
   <string name="weather_47">Ekaitza isolatuak</string>

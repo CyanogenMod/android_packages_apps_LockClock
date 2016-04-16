@@ -17,32 +17,191 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General strings -->
+  <string name="unknown">Tidak diketahui</string>
+  <string name="cancel">Batal</string>
+  <string name="loading_indicator">Memuat gawit\u2026</string>
+  <string name="menu_done">Selesai</string>
   <!-- Formating strings for widget clock -->
   <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
          android.text.format.DateFormat uses k for hours in the 0-23 range.
          We need to support both -->
   <!-- Weather - Weather codes -->
+  <string name="weather_0">Topan</string>
+  <string name="weather_1">Badai Tropis</string>
+  <string name="weather_2">Badai</string>
+  <string name="weather_3">Badai Petir Besar</string>
+  <string name="weather_4">Badai Petir</string>
+  <string name="weather_5">Campuran Hujan dan Salju</string>
+  <string name="weather_6">Campuran Hujan dan Hujan Es</string>
+  <string name="weather_7">Campuran Salju dan Hujan Es</string>
+  <string name="weather_8">Gerimis Membeku</string>
+  <string name="weather_9">Gerimis</string>
+  <string name="weather_10">Hujan Membeku</string>
+  <string name="weather_11">Hujan ringan</string>
+  <string name="weather_12">Hujan ringan</string>
+  <string name="weather_13">Bersalju</string>
+  <string name="weather_14">Hujan Salju Ringan</string>
+  <string name="weather_15">Hembusan Salju</string>
+  <string name="weather_16">Salju</string>
+  <string name="weather_17">Hujan es</string>
+  <string name="weather_18">Hujan bercampur salju</string>
+  <string name="weather_19">Debu</string>
+  <string name="weather_20">Berkabut</string>
+  <string name="weather_21">Kabut</string>
+  <string name="weather_22">Berasap</string>
+  <string name="weather_23">Angin kencang</string>
+  <string name="weather_24">Berangin</string>
+  <string name="weather_25">Dingin</string>
+  <string name="weather_26">Berawan</string>
   <!-- Night -->
+  <string name="weather_27">Umumnya Berawan</string>
   <!-- Day -->
+  <string name="weather_28">Umumnya Berawan</string>
   <!-- Night -->
+  <string name="weather_29">Sebagian Berawan</string>
   <!-- Day -->
+  <string name="weather_30">Sebagian Berawan</string>
   <!-- Night -->
+  <string name="weather_31">Terang</string>
+  <string name="weather_32">Cerah</string>
   <!-- Night -->
+  <string name="weather_33">Baik</string>
   <!-- Day -->
+  <string name="weather_34">Baik</string>
+  <string name="weather_35">Campuran hujan dan hujan es</string>
+  <string name="weather_36">Panas</string>
+  <string name="weather_37">Badai petir terisolasi</string>
+  <string name="weather_38">Badai Petir tersebar</string>
+  <string name="weather_39">Badai Petir tersebar</string>
+  <string name="weather_40">Hujan Gerimis</string>
+  <string name="weather_41">Hujan salju</string>
+  <string name="weather_42">Hujan Gerimis</string>
+  <string name="weather_43">Hujan salju</string>
+  <string name="weather_44">Sebagian Berawan</string>
+  <string name="weather_45">Petir disertai hujan</string>
+  <string name="weather_46">Salju ringan</string>
+  <string name="weather_47">Hujan gerimis dengan badai petir yang terisolasi</string>
   <!-- Forecast unavailable -->
   <!-- Weather - Speed units -->
+  <string name="weather_kph">km/j</string>
+  <string name="weather_mph">mil/j</string>
   <!-- Weather - Wind directions -->
+  <string name="weather_N">U</string>
+  <string name="weather_NE">TL</string>
+  <string name="weather_E">T</string>
+  <string name="weather_SE">TG</string>
+  <string name="weather_S">S</string>
+  <string name="weather_SW">BD</string>
+  <string name="weather_W">B</string>
+  <string name="weather_NW">BL</string>
   <!-- Weather - Error messages -->
+  <string name="weather_no_data">Tidak ada data</string>
+  <string name="weather_tap_to_refresh">Ketuk untuk memuat ulang</string>
+  <string name="weather_refreshing">Memuat ulang</string>
+  <string name="weather_last_sync_just_now">Baru saja</string>
+  <string name="weather_cannot_reach_provider">Tidak dapat mencapai %s pada saat ini</string>
   <!-- Weather - Update frequency -->
+  <string name="weather_refresh_manual">Manual</string>
+  <string name="weather_refresh_30min">30 menit</string>
+  <string name="weather_refresh_60min">60 menit</string>
+  <string name="weather_refresh_2hrs">2 jam</string>
+  <string name="weather_refresh_4hrs">4 jam</string>
+  <string name="weather_refresh_6hrs">6 jam</string>
+  <string name="weather_refresh_8hrs">8 jam</string>
   <!-- Preferences - Categories -->
+  <string name="clock_category">Jam dan alarm</string>
+  <string name="weather_category">Panel cuaca</string>
+  <string name="calendar_category">Acara kalender</string>
   <!-- Preferences - Categories -->
+  <string name="general_category">Umum</string>
+  <string name="display_category">Tampilan</string>
   <!-- Preferences - Clock -->
+  <string name="use_digital_clock_title">Gunakan jam Digital</string>
+  <string name="use_digital_clock_summary">Pilih untuk beralih di antara jam digital dan analog</string>
+  <string name="clock_font_title">Jam ditebalkan</string>
+  <string name="clock_font_minutes_title">Menit ditebalkan</string>
+  <string name="clock_font_date_title">Tanggal dan alarm ditebalkan</string>
+  <string name="show_alarm_title">Tampilkan alarm berikutnya</string>
+  <string name="clock_am_pm_title">Tampilkan indikator AM/PM</string>
   <!-- Preferences - Weather -->
+  <string name="weather_enabled">Diaktifkan</string>
+  <string name="weather_enable">Tampilkan cuaca</string>
+  <string name="weather_source_title">Sumber cuaca</string>
+  <string name="weather_source_yahoo">Yahoo! Weather</string>
+  <string name="weather_use_custom_location">Gunakan lokasi yang dikhususkan</string>
+  <string name="weather_geolocated">Geo-lokasi menggunakan jaringan</string>
+  <string name="weather_custom_location_dialog_title">Masukkan lokasi</string>
+  <string name="weather_custom_location_hint">Kota, Negara Bagian/Negara</string>
+  <string name="weather_custom_location_title">Lokasi</string>
+  <string name="weather_show_location_title">Tampilkan lokasi</string>
+  <string name="weather_show_timestamp_title">Tampilkan jam</string>
+  <string name="weather_refresh_interval">Perbarui interval</string>
+  <string name="weather_use_metric">Gunakan metrik</string>
+  <string name="weather_retrieve_location_dialog_title">Tidak dapat mengambil lokasi!</string>
+  <string name="weather_retrieve_location_dialog_message">Jaringan geo-lokasi dinon-aktifkan.\n\nTentukan lokasi yang tersuai atau aktifkan lokasi jaringan</string>
+  <string name="weather_retrieve_location_dialog_enable_button">Aktifkan</string>
+  <string name="weather_invert_lowhigh">Balikkan suhu rendah/tinggi</string>
+  <string name="weather_progress_title">Verifikasi lokasi</string>
+  <string name="weather_alternate_icons_title">Gunakan ikon warna</string>
+  <string name="weather_alternate_icons_summary">Pilih untuk beralih di antara ikon baku (berwarna) atau ikon alternatif (putih)</string>
+  <string name="weather_show_when_minimized_title">Tampilkan ketika dikecilkan</string>
+  <string name="weather_show_when_minimized_summary">Tampilkan ringkasan informasi cuaca ketika gawit diperkecil</string>
+  <string name="weather_select_location">Pilih lokasi</string>
   <!-- Preferences - Calendar -->
+  <string name="calendar_title">Tampilkan acara berikutnya</string>
+  <string name="calendars_title">Kalender acara</string>
+  <string name="calendars_summary">Temukan acara dari kalender tersebut</string>
+  <string name="calendars_none_found_summary">Tidak ada kalendar yang ditemukan</string>
+  <string name="calendar_reminders_only_title">Pengingat saja</string>
+  <string name="calendar_reminders_only_summary">Tampilkan acara dengan pengingat saja</string>
+  <string name="calendar_hide_allday_title">Sembunyikan acara sepanjang hari</string>
+  <string name="calendar_icon_title">Ikon kalender</string>
+  <string name="calendar_lookahead_title">Acara lookahead</string>
+  <string name="calendar_show_location_title">Acara lokasi</string>
+  <string name="calendar_show_description_title">Deskripsi acara</string>
+  <string name="calendar_upcoming_events_category">Acara mendatang</string>
+  <string name="calendar_highlight_upcoming_events_title">Sorot acara</string>
+  <string name="calendar_highlight_upcoming_events_summary">Sorot acara hari ini, setelah jam 8, juga acara-acara hari berikutnya</string>
+  <string name="calendar_highlight_upcoming_events_bold">Fon ditebalkan</string>
   <!-- Preferences - Font colors -->
+  <string name="font_color">Warna fon</string>
+  <string name="font_color_alarm">Warna fon alarm</string>
+  <string name="font_color_timestamp">Warna fon stempel waktu</string>
+  <string name="font_color_calendar_details">Detail warna fon</string>
   <!-- Preferences - Background color -->
+  <string name="background_color">Warna latar belakang</string>
+  <string name="background_transparency">Transparansi latar belakang</string>
   <!-- Calendar - Lookahead -->
+  <string name="calendar_lookahead_3hrs">3 jam</string>
+  <string name="calendar_lookahead_6hrs">6 jam</string>
+  <string name="calendar_lookahead_12hrs">12 jam</string>
+  <string name="calendar_lookahead_today">Hari Ini</string>
+  <string name="calendar_lookahead_1day">1 hari</string>
+  <string name="calendar_lookahead_3days">3 hari</string>
+  <string name="calendar_lookahead_1wk">1 minggu</string>
+  <string name="calendar_lookahead_2wks">2 minggu</string>
+  <string name="calendar_lookahead_4wks">4 minggu</string>
   <!-- Calendar - Event metadata -->
+  <string name="calendar_metadata_none">Jangan tampilkan</string>
+  <string name="calendar_metadata_first_line">Tampilkan baris pertama</string>
+  <string name="calendar_metadata_all">Tampilkan semua</string>
   <!-- Font colors -->
+  <string name="white">Putih</string>
+  <string name="grey">Abu-abu</string>
+  <string name="black">Hitam</string>
+  <string name="holo_blue_light">Biru muda</string>
+  <string name="holo_green_light">Hijau muda</string>
+  <string name="holo_red_light">Merah muda</string>
+  <string name="holo_blue_dark">Biru tua</string>
+  <string name="holo_green_dark">Hijau tua</string>
+  <string name="holo_red_dark">Merah tua</string>
+  <string name="holo_purple">Ungu</string>
+  <string name="holo_orange_light">Oranye muda</string>
+  <string name="holo_orange_dark">Oranye tua</string>
+  <string name="holo_blue_bright">Biru cerah</string>
   <!-- Weather icon sets -->
+  <string name="weather_icon_set_title">Kumpulan ikon</string>
+  <string name="weather_icons_standard">Berwarna</string>
+  <string name="weather_icons_monochrome">Monokrom</string>
+  <string name="icon_set_selection_get_more">Dapatkan lebih\u2026</string>
 </resources>
