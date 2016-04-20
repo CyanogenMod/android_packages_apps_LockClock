@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Bilinməyən</string>
   <string name="cancel">İmtina</string>
   <string name="loading_indicator">Widget yüklənir\u2026</string>
   <string name="menu_done">Hazırdır</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornado</string>
   <string name="weather_1">Tropik Fırtına</string>
   <string name="weather_2">Qasırğa</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Küləkli</string>
   <string name="weather_25">Soyuq</string>
   <string name="weather_26">Buludlu</string>
+  <!-- Night -->
   <string name="weather_27">Çox Buludlu</string>
+  <!-- Day -->
   <string name="weather_28">Çox Buludlu</string>
+  <!-- Night -->
   <string name="weather_29">Qismən Buludlu</string>
+  <!-- Day -->
   <string name="weather_30">Qismən Buludlu</string>
+  <!-- Night -->
   <string name="weather_31">Təmizlə</string>
   <string name="weather_32">Günəşli</string>
+  <!-- Night -->
   <string name="weather_33">Gözəl</string>
+  <!-- Day -->
   <string name="weather_34">Gözəl</string>
   <string name="weather_35">Yağmurla Qarışıq Dolu</string>
   <string name="weather_36">İsti</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Göygurultulu leysan</string>
   <string name="weather_46">Leysanlı Qar</string>
   <string name="weather_47">Qismən Göygurultulu Leysan</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/s</string>
   <string name="weather_mph">mil/s</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">Şi</string>
   <string name="weather_NE">ŞŞ</string>
   <string name="weather_E">Şə</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">CQ</string>
   <string name="weather_W">Q</string>
   <string name="weather_NW">ŞQ</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Verilənlər yoxdur</string>
   <string name="weather_tap_to_refresh">Yeniləmək üçün toxunun</string>
   <string name="weather_refreshing">Yenilənir</string>
   <string name="weather_last_sync_just_now">İndicə</string>
   <string name="weather_cannot_reach_provider">%s indi əlçatan deyil</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Əllə</string>
   <string name="weather_refresh_30min">30 dəqiqə</string>
   <string name="weather_refresh_60min">60 dəqiqə</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 saat</string>
   <string name="weather_refresh_6hrs">6 saat</string>
   <string name="weather_refresh_8hrs">8 saat</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Saat və zəngli saat</string>
   <string name="weather_category">Hava durumu paneli</string>
   <string name="calendar_category">Təqvim tədbirləri</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Ümumi</string>
   <string name="display_category">Görünüş</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Rəqəmli saat</string>
   <string name="use_digital_clock_summary">Rəqəmli və Analoq saat arası keçid etmək üçün seçin</string>
   <string name="clock_font_title">Saatı qalın göstər</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Tarix və zəngli saatı qalın göstər</string>
   <string name="show_alarm_title">Növbəti zəngli saatı göstər</string>
   <string name="clock_am_pm_title">AM/PM göstəricisi</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Fəallaşdırıldı</string>
   <string name="weather_enable">Hava durumunu göstər</string>
   <string name="weather_source_title">Hava mənbəsi</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Kiçildiləndə göstər</string>
   <string name="weather_show_when_minimized_summary">Widget kiçildiləndə hava durumu məlumatının icmalını göstər</string>
   <string name="weather_select_location">Yer seçin</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Sonrakı tədbiri göstər</string>
   <string name="calendars_title">Tədbir təqvimləri</string>
   <string name="calendars_summary">Bu təqvimdən tədbirləri tap</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">Tədbirləri ayır</string>
   <string name="calendar_highlight_upcoming_events_summary">Bugünün tədbirləri axşam 8-dən sonradırsa sabahın tədbirlərini ayır</string>
   <string name="calendar_highlight_upcoming_events_bold">Qalın yazı tipi</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Yazı rəngi</string>
   <string name="font_color_alarm">Zəngli saat yazı rəngi</string>
   <string name="font_color_timestamp">Vaxt damğası yazı rəngi</string>
   <string name="font_color_calendar_details">Yazı rəngi təfsilatı</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Arxaplan rəngi</string>
   <string name="background_transparency">Arxaplan şəffaflığı</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 saat</string>
   <string name="calendar_lookahead_6hrs">6 saat</string>
   <string name="calendar_lookahead_12hrs">12 saat</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">1 həftə</string>
   <string name="calendar_lookahead_2wks">2 həftə</string>
   <string name="calendar_lookahead_4wks">4 həftə</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Göstərmə</string>
   <string name="calendar_metadata_first_line">Birinci sətri göstər</string>
   <string name="calendar_metadata_all">Hamısını göstər</string>
+  <!-- Font colors -->
   <string name="white">Ağ</string>
   <string name="grey">Boz</string>
   <string name="black">Qara</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">Açıq narıncı</string>
   <string name="holo_orange_dark">Tünd narıncı</string>
   <string name="holo_blue_bright">Parlaq mavi</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Nişan dəsti</string>
   <string name="weather_icons_standard">Rəngli</string>
   <string name="weather_icons_monochrome">Tək rəngli</string>

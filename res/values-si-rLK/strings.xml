@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">නොදනී</string>
   <string name="cancel">අවලංගුයි</string>
   <string name="loading_indicator">විජටය පූරණයවෙමින්\u2026</string>
   <string name="menu_done">හරි</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">ටෝනාඩෝව</string>
   <string name="weather_1">නිවර්තන කුණාටුව</string>
   <string name="weather_2">චණ්ඩමාරුතය</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">සුළං සහිත</string>
   <string name="weather_25">සීතල</string>
   <string name="weather_26">වලාකුළින් වැසුණු</string>
+  <!-- Night -->
   <string name="weather_27">වැඩිවශයෙන් වලාකුළින් වැසුණු</string>
+  <!-- Day -->
   <string name="weather_28">වැඩිවශයෙන් වලාකුළින් වැසුණු</string>
+  <!-- Night -->
   <string name="weather_29">අඩවශයෙන් වලාකුළින් වැසුණු</string>
+  <!-- Day -->
   <string name="weather_30">අඩවශයෙන් වලාකුළින් වැසුණු</string>
+  <!-- Night -->
   <string name="weather_31">පැහැදිලි</string>
   <string name="weather_32">ප්‍රබෝධමත්</string>
+  <!-- Night -->
   <string name="weather_33">වැසි නැති</string>
+  <!-- Day -->
   <string name="weather_34">වැසි නැති</string>
   <string name="weather_35">හිම කැට මිශ්‍රිත වැස්ස</string>
   <string name="weather_36">උණුසුම්</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">ගිගුරුම් සහිත වැසි</string>
   <string name="weather_46">නොකඩවා හිම වැසි</string>
   <string name="weather_47">ඒකලිත ගිගුරුම් සහිත වැසි</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">kph</string>
   <string name="weather_mph">mph</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">උතුර</string>
   <string name="weather_NE">ඊශාන</string>
   <string name="weather_E">නැගෙනහිර</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">නිරිත</string>
   <string name="weather_W">බටහිර</string>
   <string name="weather_NW">වයඹ</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">දත්ත නැත</string>
   <string name="weather_tap_to_refresh">නැවුම්කිරීමට තට්ටු කරන්න</string>
   <string name="weather_refreshing">නැවුම්කරමින්</string>
   <string name="weather_last_sync_just_now">මේදැන්</string>
   <string name="weather_cannot_reach_provider">මෙම මොහොතේ %s වෙත ළඟා වියනොහැක</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">හස්තීය</string>
   <string name="weather_refresh_30min">මිනිත්තු 30</string>
   <string name="weather_refresh_60min">මිනිත්තු 60</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">පැය 4</string>
   <string name="weather_refresh_6hrs">පැය 6</string>
   <string name="weather_refresh_8hrs">පැය 8</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">ඔරලෝසුව සහ ඇඟවීම</string>
   <string name="weather_category">කාලගුණ පුවරුව</string>
   <string name="calendar_category">දින දර්ශක සිදුවීම්</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">ප්‍රධාන</string>
   <string name="display_category">සංදර්ශකය</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">සංඛ්‍යාංක ඔරලෝසුව භාවිතාකරන්න</string>
   <string name="use_digital_clock_summary">සංඛ්‍යාංක සහ ප්‍රතිසම ඔරලෝසුව අතර ටොගලනය සඳහා තෝරන්න</string>
   <string name="clock_font_title">තදකුරු පැය</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">තදකුරු දිනය සහ ඇඟවීම</string>
   <string name="show_alarm_title">ඊළඟ ඇඟවීම පෙන්වන්න</string>
   <string name="clock_am_pm_title">පෙ.ව./ප.ව. දර්ශකය පෙන්වන්න</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">සබලයි</string>
   <string name="weather_enable">කාලගුණය පෙන්වන්න</string>
   <string name="weather_source_title">කාලගුණ මූලාශ්‍රය</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">හකුලා ඇතිවිට පෙන්වන්න</string>
   <string name="weather_show_when_minimized_summary">විජටය හකුලා ඇතිවිට සංක්ෂිප්ත කාලගුණ තොරතුරු පෙන්වන්න</string>
   <string name="weather_select_location">ස්ථානය තෝරන්න</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">ඊළඟ සිදුවීම පෙන්වන්න</string>
   <string name="calendars_title">සිදුවීම් දින දර්ශක</string>
   <string name="calendars_summary">මෙම දින දර්ශක මගින් සිදුවීම් සොයන්න</string>
@@ -139,10 +162,13 @@
   <string name="calendar_highlight_upcoming_events_title">සිදුවීම් ඉස්මතු කරන්න</string>
   <string name="calendar_highlight_upcoming_events_summary">අදදින සිදුවීම් සහ, ප.ව. 8න් පසුව, ඊළඟ දිනයේ සිදුවීම්ද ඉස්මතු කරන්න</string>
   <string name="calendar_highlight_upcoming_events_bold">තදකුරු ෆොන්ටය</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">ෆොන්ටයේ පාට</string>
   <string name="font_color_alarm">ඇඟවීම් ෆොන්ටයේ පාට</string>
   <string name="font_color_timestamp">කාල මුද්‍රා ෆොන්ටයේ පාට</string>
   <string name="font_color_calendar_details">තොරතුරු ෆොන්ටයේ පාට</string>
+  <!-- Preferences - Background color -->
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">පැය 3</string>
   <string name="calendar_lookahead_6hrs">පැය 6</string>
   <string name="calendar_lookahead_12hrs">පැය 12</string>
@@ -152,9 +178,11 @@
   <string name="calendar_lookahead_1wk">1 සතියයි</string>
   <string name="calendar_lookahead_2wks">සති 2</string>
   <string name="calendar_lookahead_4wks">සති 4</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">පෙන්වන්න එපා</string>
   <string name="calendar_metadata_first_line">මුල් පේළිය පෙන්වන්න</string>
   <string name="calendar_metadata_all">සියල්ල පෙන්වන්න</string>
+  <!-- Font colors -->
   <string name="white">සුදු</string>
   <string name="grey">අළු</string>
   <string name="black">කළු</string>
@@ -168,6 +196,7 @@
   <string name="holo_orange_light">ලා තැඹිලි</string>
   <string name="holo_orange_dark">තද තැඹිලි</string>
   <string name="holo_blue_bright">දීප්තිමත් නිල්</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">අයිකන පොදිය</string>
   <string name="weather_icons_standard">පැහැගැන්වූ</string>
   <string name="weather_icons_monochrome">ඒකවර්ණ</string>

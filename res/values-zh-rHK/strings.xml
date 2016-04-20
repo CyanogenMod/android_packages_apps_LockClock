@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">不明</string>
   <string name="cancel">取消</string>
   <string name="loading_indicator">正在載入小工具\u2026</string>
   <string name="menu_done">完成</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">龍捲風</string>
   <string name="weather_1">熱帶風暴</string>
   <string name="weather_2">暴風</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">大風</string>
   <string name="weather_25">寒冷</string>
   <string name="weather_26">多雲</string>
+  <!-- Night -->
   <string name="weather_27">晴間多雲</string>
+  <!-- Day -->
   <string name="weather_28">晴間多雲</string>
+  <!-- Night -->
   <string name="weather_29">局部有雲</string>
+  <!-- Day -->
   <string name="weather_30">局部有雲</string>
+  <!-- Night -->
   <string name="weather_31">晴朗</string>
   <string name="weather_32">陽光普照</string>
+  <!-- Night -->
   <string name="weather_33">晴天積雲</string>
+  <!-- Day -->
   <string name="weather_34">晴天積雲</string>
   <string name="weather_35">雨加冰雹</string>
   <string name="weather_36">炎熱</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">雷雨</string>
   <string name="weather_46">陣雪</string>
   <string name="weather_47">局部地區性雷暴</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">公里/小時</string>
   <string name="weather_mph">英里/小時</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">北</string>
   <string name="weather_NE">東北</string>
   <string name="weather_E">東</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">西南</string>
   <string name="weather_W">西</string>
   <string name="weather_NW">西北</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">無數據</string>
   <string name="weather_tap_to_refresh">輕按以重新整理</string>
   <string name="weather_refreshing">重新整理</string>
   <string name="weather_last_sync_just_now">剛剛</string>
   <string name="weather_cannot_reach_provider">目前無法達到 %s</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">手動</string>
   <string name="weather_refresh_30min">30 分鐘</string>
   <string name="weather_refresh_60min">60 分鐘</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 個小時</string>
   <string name="weather_refresh_6hrs">6 個小時</string>
   <string name="weather_refresh_8hrs">8 個小時</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">時鐘與鬧鐘</string>
   <string name="weather_category">天氣面板</string>
   <string name="calendar_category">日曆活動</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">一般</string>
   <string name="display_category">顯示</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">使用數字時鐘</string>
   <string name="use_digital_clock_summary">選擇以在數字時鐘與模擬時鐘之間進行切換</string>
   <string name="clock_font_title">粗體小時</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">粗體日期和鬧鐘</string>
   <string name="show_alarm_title">顯示下一個鬧鐘</string>
   <string name="clock_am_pm_title">顯示 AM/PM 指示器</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">已啟用</string>
   <string name="weather_enable">顯示天氣</string>
   <string name="weather_source_title">天氣來源</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">當最小化時顯示</string>
   <string name="weather_show_when_minimized_summary">當小工具最小化時顯示天氣資訊摘要</string>
   <string name="weather_select_location">選取位置</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">顯示下一個活動</string>
   <string name="calendars_title">活動日曆</string>
   <string name="calendars_summary">從這些日曆中尋找活動</string>
@@ -139,10 +162,13 @@
   <string name="calendar_highlight_upcoming_events_title">突顯活動</string>
   <string name="calendar_highlight_upcoming_events_summary">突出顯示今日活動、晚上 8 點之後的活動以及隔天的活動</string>
   <string name="calendar_highlight_upcoming_events_bold">粗體</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">字體顏色</string>
   <string name="font_color_alarm">鬧鐘字體顏色</string>
   <string name="font_color_timestamp">更新時間字體顏色</string>
   <string name="font_color_calendar_details">詳細資料字體顏色</string>
+  <!-- Preferences - Background color -->
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 個小時</string>
   <string name="calendar_lookahead_6hrs">6 個小時</string>
   <string name="calendar_lookahead_12hrs">12 個小時</string>
@@ -152,9 +178,11 @@
   <string name="calendar_lookahead_1wk">1 週</string>
   <string name="calendar_lookahead_2wks">2 週</string>
   <string name="calendar_lookahead_4wks">4 週</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">不顯示</string>
   <string name="calendar_metadata_first_line">顯示第一行</string>
   <string name="calendar_metadata_all">全部顯示</string>
+  <!-- Font colors -->
   <string name="white">白色</string>
   <string name="grey">灰色</string>
   <string name="black">黑色</string>
@@ -168,6 +196,7 @@
   <string name="holo_orange_light">淺橙色</string>
   <string name="holo_orange_dark">深橙色</string>
   <string name="holo_blue_bright">翠藍色</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">圖示集</string>
   <string name="weather_icons_standard">彩色</string>
   <string name="weather_icons_monochrome">單色</string>
