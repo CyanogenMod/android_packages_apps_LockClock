@@ -48,7 +48,8 @@ public class YahooWeatherProvider implements WeatherProvider {
     private static final String TAG = "YahooWeatherProvider";
 
     private static final String URL_WEATHER =
-            "https://weather.yahooapis.com/forecastrss?w=%s&u=%s";
+            "https://query.yahooapis.com/v1/public/yql?q=" +
+            Uri.encode("select * from weather.forecast where ");
     private static final String URL_LOCATION =
             "https://query.yahooapis.com/v1/public/yql?format=json&q=" +
             Uri.encode("select woeid, postal, admin1, admin2, admin3, " +
@@ -109,7 +110,9 @@ public class YahooWeatherProvider implements WeatherProvider {
 
     @Override
     public WeatherInfo getWeatherInfo(String id, String localizedCityName, boolean metric) {
-        String url = String.format(URL_WEATHER, id, metric ? "c" : "f");
+        String params = "woeid=" + id + " and u='" + (metric ? "c" : "f") + "'";
+        String url = URL_WEATHER + Uri.encode(params);
+        Log.d(TAG, "Weather URL: " + url);
         String response = HttpRetriever.retrieve(url);
 
         if (response == null) {
