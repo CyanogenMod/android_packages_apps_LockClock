@@ -76,14 +76,6 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
-    <style name="transparent">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:colorForeground">#fff</item>
-        <item name="android:windowAnimationStyle">@null</item>
-    </style>
-
     <style name="Theme.Main" parent="@android:style/Theme.Material.Light.DarkActionBar">
         <!-- Main theme colors -->
         <item name="android:colorPrimary">@color/colorPrimary</item>
