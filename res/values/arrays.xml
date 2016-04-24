@@ -16,7 +16,6 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string-array name="empty_array" translatable="false"/>
 
     <string-array name="weather_interval_entries" translatable="false">
         <item>@string/weather_refresh_manual</item>

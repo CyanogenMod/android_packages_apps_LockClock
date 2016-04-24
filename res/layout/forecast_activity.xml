@@ -47,8 +47,6 @@
                 android:id="@+id/weather_refresh"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
                 android:padding="8dp"
                 android:src="@drawable/ic_menu_refresh"
                 android:background="?android:attr/selectableItemBackground" />
@@ -61,7 +59,6 @@
             android:background="@android:drawable/divider_horizontal_dark" />
 
         <RelativeLayout
-            android:id="@+id/current_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -80,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/weather_image"
+                android:layout_toStartOf="@id/weather_image"
                 android:orientation="horizontal"
                 android:padding="4dip" >
 
@@ -112,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/weather_image"
+                android:layout_toEndOf="@id/weather_image"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -167,7 +164,7 @@
             android:id="@+id/forecast_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dip"
+            android:layout_marginStart="12dip"
             android:layout_marginRight="12dip"
             android:paddingBottom="16dp"
             android:gravity="center_horizontal"
@@ -179,15 +176,6 @@
             android:layout_height="48dp"
             android:gravity="center" />
 
-        <TextView
-            android:id="@+id/no_network"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:padding="8dp"
-            android:visibility="gone" />
-
         <LinearLayout android:id="@+id/buttonPanel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -197,25 +185,16 @@
             android:showDividers="beginning"
             android:dividerPadding="0dip">
 
-            <LinearLayout
-                style="?android:attr/buttonBarStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layoutDirection="locale"
-                android:measureWithLargestChild="true">
-
-                <Button android:id="@+id/button"
-                    android:layout_width="0dip"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:maxLines="2"
-                    android:text="@string/menu_done"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:textSize="14sp"
-                    android:minHeight="48dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+            <Button android:id="@+id/button"
+                android:layout_width="0dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:maxLines="2"
+                android:text="@string/menu_done"
+                style="?android:attr/buttonBarButtonStyle"
+                android:textSize="14sp"
+                android:minHeight="48dp"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -20,7 +20,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="28dip"
-    android:layout_weight="1"
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:background="?android:attr/selectableItemBackground">
@@ -36,7 +35,7 @@
 
     <ListView
         android:id="@+id/calendar_list"
-        android:layout_toRightOf="@id/calendar_icon"
+        android:layout_toEndOf="@id/calendar_icon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="#00000000" />

@@ -53,8 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:paddingLeft="4dip"
-        android:paddingRight="4dip"
+        android:paddingStart="4dip"
+        android:paddingEnd="4dip"
         android:paddingBottom="4dip"
         android:gravity="center"
         android:src="@android:drawable/ic_dialog_alert" />
@@ -63,10 +63,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/weather_image"
+        android:layout_toStartOf="@id/weather_image"
         android:orientation="horizontal"
-        android:paddingLeft="4dip"
-        android:paddingRight="4dip"
+        android:paddingStart="4dip"
+        android:paddingEnd="4dip"
         android:paddingBottom="4dip" >
 
         <TextView
@@ -75,8 +75,8 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:layout_alignParentRight="true"
-            android:gravity="right"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"
             android:singleLine="true"
             android:ellipsize="marquee"
             android:textColor="?android:attr/textColorPrimary"
@@ -87,8 +87,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/weather_city"
-            android:layout_alignParentRight="true"
-            android:gravity="right"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"
             android:singleLine="true"
             android:ellipsize="marquee"
             android:textSize="12sp"
@@ -99,9 +99,9 @@
             android:id="@+id/update_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="end"
             android:layout_below="@id/weather_condition"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:textSize="8sp"
             android:textColor="?android:attr/textColorSecondary"
             style="@style/label_shadow" />
@@ -112,7 +112,7 @@
         android:id="@+id/weather_temps_panel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/weather_image"
+        android:layout_toEndOf="@id/weather_image"
         android:orientation="horizontal"
         android:layout_centerVertical="true" >
 
