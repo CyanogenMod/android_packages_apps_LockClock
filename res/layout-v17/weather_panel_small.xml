@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:paddingLeft="4dip"
-        android:paddingRight="4dip"
+        android:paddingStart="4dip"
+        android:paddingEnd="4dip"
         android:gravity="center" />
 
     <RelativeLayout
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/weather_image"
+        android:layout_toStartOf="@id/weather_image"
         android:orientation="horizontal" >
 
         <!-- Date -->
@@ -46,8 +46,8 @@
             android:layout_height="wrap_content"
             android:format12Hour="@string/abbrev_wday_month_day_no_year"
             android:format24Hour="@string/abbrev_wday_month_day_no_year"
-            android:layout_alignParentRight="true"
-            android:gravity="right"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"
             android:singleLine="true"
             android:ellipsize="marquee"
             android:textColor="?android:attr/textColorPrimary"
@@ -58,22 +58,22 @@
             android:layout_below="@id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:orientation="horizontal" >
 
             <ImageView android:id="@+id/alarm_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawablePadding="2dip"
-                android:drawableLeft="@drawable/ic_alarm_small"
+                android:drawableStart="@drawable/ic_alarm_small"
                 android:gravity="center"
                 android:visibility="gone" />
 
             <TextView android:id="@+id/nextAlarm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="2dip"
-                android:gravity="right"
+                android:layout_marginStart="2dip"
+                android:gravity="end"
                 android:textColor="@color/clock_gray"
                 style="@style/alarm_label_small"
                 android:visibility="gone" />
@@ -84,7 +84,7 @@
         android:id="@+id/weather_temps_panel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/weather_image"
+        android:layout_toEndOf="@id/weather_image"
         android:orientation="horizontal"
         android:layout_centerVertical="true" >
 
@@ -105,7 +105,7 @@
             android:layout_below="@id/weather_temp"
             android:singleLine="true"
             android:ellipsize="marquee"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textColor="?android:attr/textColorPrimary"
             style="@style/label_shadow" />
     </RelativeLayout>

@@ -20,7 +20,7 @@
     android:layout_height="wrap_content"
     android:minHeight="28dip"
     android:gravity="center_vertical"
-    android:paddingLeft="6dip" >
+    android:paddingStart="6dip" >
 
     <ImageView
         android:layout_width="1dip"
@@ -35,7 +35,7 @@
         android:layout_weight="1"
         android:paddingTop="6dip"
         android:paddingBottom="6dip"
-        android:paddingLeft="4dip" >
+        android:paddingStart="4dip" >
 
         <TextView
             android:id="@+id/calendar_event_title"
@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/calendar_event_title"
-            android:layout_alignLeft="@id/calendar_event_title"
+            android:layout_alignStart="@id/calendar_event_title"
             android:textSize="12sp"
             android:singleLine="true"
             android:ellipsize="marquee"

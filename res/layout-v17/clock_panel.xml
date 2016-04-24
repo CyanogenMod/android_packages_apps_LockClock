@@ -142,8 +142,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="2dip"
-            android:drawableLeft="@drawable/ic_alarm_small"
-            android:layout_marginLeft="8dip"
+            android:drawableStart="@drawable/ic_alarm_small"
+            android:layout_marginStart="8dip"
             android:gravity="center"
             android:visibility="gone" />
         <TextView android:id="@+id/nextAlarm_bold"
@@ -151,7 +151,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/clock_gray"
             style="@style/alarm_label_bold"
-            android:layout_marginLeft="2dip"
+            android:layout_marginStart="2dip"
             android:gravity="center"
             android:visibility="gone" />
         <TextView android:id="@+id/nextAlarm_regular"
@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/clock_gray"
             style="@style/alarm_label_thin"
-            android:layout_marginLeft="4dip"
+            android:layout_marginStart="4dip"
             android:gravity="center"
             android:visibility="gone" />
         </LinearLayout>

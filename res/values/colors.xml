@@ -18,7 +18,6 @@
 
     <color name="clock_white">#ffffff</color>
     <color name="clock_gray">#80ffffff</color>
-    <color name="text_shadow">#dd000000</color>
     <color name="text_shadow_opaque">#3f000000</color>
     <color name="list_selector_focused">#cc33b5e5</color>
     <color name="list_selector_activated">#4d33b5e5</color>
