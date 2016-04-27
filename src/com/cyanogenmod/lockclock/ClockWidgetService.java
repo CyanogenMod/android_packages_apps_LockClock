@@ -514,8 +514,7 @@ public class ClockWidgetService extends IntentService {
         if (activeProviderLabel != null) {
             noData = getString(R.string.weather_cannot_reach_provider, activeProviderLabel);
         } else {
-            noData = getString(R.string.weather_source_title) + " "
-                    + getString(R.string.weather_source_not_selected);
+            noData = getString(R.string.weather_source_not_selected);
         }
         weatherViews.setViewVisibility(R.id.weather_image, View.INVISIBLE);
         if (!smallWidget) {
