@@ -113,7 +113,7 @@
     <string name="weather_refreshing">Refreshing</string>
     <string name="weather_last_sync_just_now">Just now</string>
     <string name="weather_cannot_reach_provider">Can\'t reach %s at the moment</string>
-    <string name="weather_source_not_selected">not selected</string>
+    <string name="weather_source_not_selected">No weather source selected</string>
     <string name="weather_tap_to_select_source">Tap to select one</string>
 
     <!-- Weather - Update frequency -->
