@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Обновяване</string>
   <string name="weather_last_sync_just_now">Точно сега</string>
   <string name="weather_cannot_reach_provider">Не може да достигнете до %s в този момент</string>
+  <string name="weather_source_not_selected">Няма избран източник на време</string>
+  <string name="weather_tap_to_select_source">Натиснете, за да изберете</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ръчно</string>
   <string name="weather_refresh_30min">30 минути</string>
@@ -127,7 +129,6 @@
   <string name="weather_enabled">Разрешено</string>
   <string name="weather_enable">Покажи на времето</string>
   <string name="weather_source_title">Източник за проверка на времето</string>
-  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">Местоположение по избор</string>
   <string name="weather_geolocated">Геолокализация по мрежата</string>
   <string name="weather_custom_location_dialog_title">Въведете местоположение</string>

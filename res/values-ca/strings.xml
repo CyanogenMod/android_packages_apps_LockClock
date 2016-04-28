@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Actualitzant</string>
   <string name="weather_last_sync_just_now">Ara</string>
   <string name="weather_cannot_reach_provider">No es pot contactar amb %s en aquest moment</string>
+  <string name="weather_source_not_selected">No s\'ha seleccionat cap proveïdor meteorològic</string>
+  <string name="weather_tap_to_select_source">Pica per seleccionar-ne un</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manual</string>
   <string name="weather_refresh_30min">30 minuts</string>
@@ -127,7 +129,6 @@
   <string name="weather_enabled">Activada</string>
   <string name="weather_enable">Mostra el temps</string>
   <string name="weather_source_title">Origen meteorològic</string>
-  <string name="weather_source_yahoo">Temps de Yahoo!</string>
   <string name="weather_use_custom_location">Utilitza una ubic. personalitzada</string>
   <string name="weather_geolocated">Geolocalitzat utilitzant la xarxa</string>
   <string name="weather_custom_location_dialog_title">Introdueix ubicació</string>

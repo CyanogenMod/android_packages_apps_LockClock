@@ -127,7 +127,6 @@
   <string name="weather_enabled">Activado</string>
   <string name="weather_enable">Mostrar clima</string>
   <string name="weather_source_title">Servicio de clima</string>
-  <string name="weather_source_yahoo">Yahoo! Clima</string>
   <string name="weather_use_custom_location">Usar ubicación personalizada</string>
   <string name="weather_geolocated">Geolocalización por red</string>
   <string name="weather_custom_location_dialog_title">Introducir ubicación</string>

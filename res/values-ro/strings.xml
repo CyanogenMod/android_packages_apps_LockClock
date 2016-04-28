@@ -127,7 +127,6 @@
   <string name="weather_enabled">Activat</string>
   <string name="weather_enable">Afișare meteo</string>
   <string name="weather_source_title">Sursă meteo</string>
-  <string name="weather_source_yahoo">Yahoo! Meteo</string>
   <string name="weather_use_custom_location">Locație personalizată</string>
   <string name="weather_geolocated">Localizare utilizând rețeaua</string>
   <string name="weather_custom_location_dialog_title">Introduceți locația</string>

@@ -127,7 +127,6 @@
   <string name="weather_enabled">Gaituta</string>
   <string name="weather_enable">Erakutsi eguraldia</string>
   <string name="weather_source_title">Eguraldiaren jatorria</string>
-  <string name="weather_source_yahoo">Yahoo! Eguraldia</string>
   <string name="weather_use_custom_location">Erabili kokaleku pertsonalizatua</string>
   <string name="weather_geolocated">Sare bidezko geo-kokapena</string>
   <string name="weather_custom_location_dialog_title">Sartu kokalekua</string>

@@ -127,7 +127,6 @@
   <string name="weather_enabled">Włączone</string>
   <string name="weather_enable">Wyświetl pogodę</string>
   <string name="weather_source_title">Źródło informacji o pogodzie</string>
-  <string name="weather_source_yahoo">Pogoda Yahoo!</string>
   <string name="weather_use_custom_location">Użyj własnej lokalizacji</string>
   <string name="weather_geolocated">Użyj sieci do lokalizacji</string>
   <string name="weather_custom_location_dialog_title">Podaj lokalizację</string>

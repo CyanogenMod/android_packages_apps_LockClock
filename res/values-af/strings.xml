@@ -127,7 +127,6 @@
   <string name="weather_enabled">Geaktiveer</string>
   <string name="weather_enable">Weerpaneel sigbaar</string>
   <string name="weather_source_title">Weer bron</string>
-  <string name="weather_source_yahoo">Yahoo! Weer</string>
   <string name="weather_use_custom_location">Gebruik persoonlike ligging</string>
   <string name="weather_geolocated">Geoligging bepaal deur die netwerk</string>
   <string name="weather_custom_location_dialog_title">Voer ligging in</string>

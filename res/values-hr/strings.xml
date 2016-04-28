@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Osvježavanje</string>
   <string name="weather_last_sync_just_now">Sada</string>
   <string name="weather_cannot_reach_provider">Ne mogu doći do %s u ovom trenutku</string>
+  <string name="weather_source_not_selected">Nema odabranog izvora vremenske prognoze</string>
+  <string name="weather_tap_to_select_source">Dodirnite za odabir jednog</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ručno</string>
   <string name="weather_refresh_30min">30 minuta</string>
@@ -127,7 +129,6 @@
   <string name="weather_enabled">Omogućeno</string>
   <string name="weather_enable">Prikaži vrijeme</string>
   <string name="weather_source_title">Izvor vremena</string>
-  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">Koristi prilagođenu lokaciju</string>
   <string name="weather_geolocated">Geolocirano pomoću mreže</string>
   <string name="weather_custom_location_dialog_title">Unesite lokaciju</string>

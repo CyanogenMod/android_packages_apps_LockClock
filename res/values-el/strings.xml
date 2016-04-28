@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Γίνεται ανανέωση</string>
   <string name="weather_last_sync_just_now">Μόλις τώρα</string>
   <string name="weather_cannot_reach_provider">Αδύνατη η σύνδεση με %s αυτή τη στιγμή</string>
+  <string name="weather_source_not_selected">Δεν έχει επιλεχθεί πηγή καιρού</string>
+  <string name="weather_tap_to_select_source">Πιέστε για επιλογή</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Χειροκίνητα</string>
   <string name="weather_refresh_30min">30 λεπτά</string>
@@ -127,7 +129,6 @@
   <string name="weather_enabled">Ενεργό</string>
   <string name="weather_enable">Εμφάνιση καιρού</string>
   <string name="weather_source_title">Πηγή καιρού</string>
-  <string name="weather_source_yahoo">Καιρός Yahoo!</string>
   <string name="weather_use_custom_location">Χρήση προσαρμοσμένης τοποθεσίας</string>
   <string name="weather_geolocated">Εντοπισμός τοποθεσίας μέσω δικτύου</string>
   <string name="weather_custom_location_dialog_title">Εισάγετε τοποθεσία</string>

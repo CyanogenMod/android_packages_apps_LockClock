@@ -127,7 +127,6 @@
   <string name="weather_enabled">Diaktifkan</string>
   <string name="weather_enable">Tampilkan cuaca</string>
   <string name="weather_source_title">Sumber cuaca</string>
-  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">Gunakan lokasi yang dikhususkan</string>
   <string name="weather_geolocated">Geo-lokasi menggunakan jaringan</string>
   <string name="weather_custom_location_dialog_title">Masukkan lokasi</string>

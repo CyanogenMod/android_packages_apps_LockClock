@@ -127,7 +127,6 @@
   <string name="weather_enabled">Etkin</string>
   <string name="weather_enable">Hava durumunu göster</string>
   <string name="weather_source_title">Hava durumu kaynağı</string>
-  <string name="weather_source_yahoo">Yahoo! Havadurumu</string>
   <string name="weather_use_custom_location">Özel konum kullan</string>
   <string name="weather_geolocated">Ağ kullanılarak coğrafi konumlandırıldı</string>
   <string name="weather_custom_location_dialog_title">Konum girin</string>

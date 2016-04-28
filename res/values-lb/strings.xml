@@ -127,7 +127,6 @@
   <string name="weather_enabled">Aktivéiert</string>
   <string name="weather_enable">Wieder uweisen</string>
   <string name="weather_source_title">Meteoservice</string>
-  <string name="weather_source_yahoo">Yahoo! Wieder</string>
   <string name="weather_use_custom_location">Benotzerdefinéierte Standuert</string>
   <string name="weather_geolocated">Standuert iwwer d\'Netzwierk bestëmmt</string>
   <string name="weather_custom_location_dialog_title">Standuert aginn</string>

@@ -127,7 +127,6 @@
   <string name="weather_enabled">പ്രവർത്തനക്ഷമമാക്കി</string>
   <string name="weather_enable">കാലാവസ്ഥ പ്രദർശിപ്പിക്കുക</string>
   <string name="weather_source_title">കാലാവസ്ഥ സ്രോതസ്സ്‌</string>
-  <string name="weather_source_yahoo">Yahoo! കാലാവസ്ഥ</string>
   <string name="weather_use_custom_location">ഇഷ്‌ടാനുസൃത സ്ഥാനം ഉപയോഗിക്കുക</string>
   <string name="weather_geolocated">ജിയോലൊക്കേറ്റ് നെറ്റ്‌വർക്ക് ഉപയോഗിക്കുന്നു</string>
   <string name="weather_custom_location_dialog_title">സ്ഥലം രേഖപ്പെടുത്തുക</string>

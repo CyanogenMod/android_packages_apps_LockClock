@@ -127,7 +127,6 @@
   <string name="weather_enabled">Включено</string>
   <string name="weather_enable">Показывать погоду</string>
   <string name="weather_source_title">Сервер погоды</string>
-  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">Не определять автоматически</string>
   <string name="weather_geolocated">Местоположение по сети</string>
   <string name="weather_custom_location_dialog_title">Введите местоположение</string>

@@ -127,7 +127,6 @@
   <string name="weather_enabled">מופעל</string>
   <string name="weather_enable">הצג מזג אוויר</string>
   <string name="weather_source_title">מקור למזג אוויר</string>
-  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">השתמש במיקום מותאם אישית</string>
   <string name="weather_geolocated">מיקום לפי רשת</string>
   <string name="weather_custom_location_dialog_title">הזן מיקום</string>

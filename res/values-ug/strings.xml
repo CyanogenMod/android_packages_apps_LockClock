@@ -127,7 +127,6 @@
   <string name="weather_enabled">قوزغىتىلغان</string>
   <string name="weather_enable">ھاۋارايى كۆرسەت</string>
   <string name="weather_source_title">ھاۋارايى مەنبەسى</string>
-  <string name="weather_source_yahoo">Yahoo! ھاۋارايى</string>
   <string name="weather_use_custom_location">ئىختىيارىي ئورۇن ئىشلەت</string>
   <string name="weather_geolocated">جۇغراپىيەلىك ئورۇنغا تورنى ئىشلىتىدۇ</string>
   <string name="weather_custom_location_dialog_title">ئورۇننى كىرگۈزۈڭ</string>

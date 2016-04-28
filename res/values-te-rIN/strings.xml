@@ -127,7 +127,6 @@
   <string name="weather_enabled">ప్రారంభించబడినవి</string>
   <string name="weather_enable">వాతావరణాన్ని ప్రదర్శించుము</string>
   <string name="weather_source_title">వాతావరణ వనరు</string>
-  <string name="weather_source_yahoo">యాహూ! వాతావరణం</string>
   <string name="weather_use_custom_location">అనుకూల ప్రదేశాన్ని ఉపయోగించుము</string>
   <string name="weather_geolocated">నెట్వర్కును ఉపయోగించి భౌగోళికంగా</string>
   <string name="weather_custom_location_dialog_title">ప్రదేశాన్ని ఎంటర్ చేయుము</string>

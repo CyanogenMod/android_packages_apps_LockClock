@@ -127,7 +127,6 @@
   <string name="weather_enabled">Aktivert</string>
   <string name="weather_enable">Vis vær</string>
   <string name="weather_source_title">Vær-kilde</string>
-  <string name="weather_source_yahoo">Yahoo! Været</string>
   <string name="weather_use_custom_location">Bruk egen posisjon</string>
   <string name="weather_geolocated">Geolokalisert via nettverk</string>
   <string name="weather_custom_location_dialog_title">Oppgi posisjon</string>

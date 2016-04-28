@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Päivitetään</string>
   <string name="weather_last_sync_just_now">Juuri nyt</string>
   <string name="weather_cannot_reach_provider">Yhteyttä palveluun %s ei saada tällä hetkellä</string>
+  <string name="weather_source_not_selected">Sään lähdettä ei ole valittu</string>
+  <string name="weather_tap_to_select_source">Paina tästä valitaksesi</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuaalinen</string>
   <string name="weather_refresh_30min">30 minuuttia</string>
@@ -127,7 +129,6 @@
   <string name="weather_enabled">Käytössä</string>
   <string name="weather_enable">Näytä sää</string>
   <string name="weather_source_title">Säätietojen lähde</string>
-  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">Käytä itse valittua sijaintia</string>
   <string name="weather_geolocated">Paikannettu verkon avulla</string>
   <string name="weather_custom_location_dialog_title">Syötä sijainti</string>

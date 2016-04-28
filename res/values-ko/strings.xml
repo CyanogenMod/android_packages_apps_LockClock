@@ -127,7 +127,6 @@
   <string name="weather_enabled">활성화</string>
   <string name="weather_enable">날씨 표시</string>
   <string name="weather_source_title">날씨 제공자</string>
-  <string name="weather_source_yahoo">Yahoo! 날씨</string>
   <string name="weather_use_custom_location">직접 위치 지정</string>
   <string name="weather_geolocated">네트워크에서 위치 얻기</string>
   <string name="weather_custom_location_dialog_title">위치 입력</string>

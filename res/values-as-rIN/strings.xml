@@ -127,7 +127,6 @@
   <string name="weather_enabled">সক্ৰিয় কৰা হল</string>
   <string name="weather_enable">বতৰ প্ৰদৰ্শন কৰক</string>
   <string name="weather_source_title">বতৰৰ উৎস</string>
-  <string name="weather_source_yahoo">Yahoo! বতৰ</string>
   <string name="weather_use_custom_location">কাষ্টম অৱস্থান ব্যৱহাৰ কৰক</string>
   <string name="weather_geolocated">জিঅ\'লোকেটেড এ নেটৱৰ্ক ব্যৱহাৰ কৰি আছে</string>
   <string name="weather_custom_location_dialog_title">অৱস্থান প্ৰৱেশ কৰক</string>
