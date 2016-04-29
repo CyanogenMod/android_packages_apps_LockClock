@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- General strings -->
-    <string name="app_name" translatable="false">cLock</string>
+    <string name="app_name" translatable="false">Clock</string>
     <string name="unknown">Unknown</string>
     <string name="cancel">Cancel</string>
     <string name="loading_indicator">Loading widget\u2026</string>
