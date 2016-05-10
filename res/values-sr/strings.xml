@@ -100,6 +100,7 @@
   <string name="weather_refreshing">Освежавање</string>
   <string name="weather_last_sync_just_now">Управо сада</string>
   <string name="weather_cannot_reach_provider">Не може да се достигне %s тренутно</string>
+  <string name="weather_source_not_selected">Нема изабраног добављача прогнозе</string>
   <string name="weather_tap_to_select_source">Додирни да изабереш једно</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ручно</string>

@@ -100,6 +100,8 @@
   <string name="weather_refreshing">正在刷新</string>
   <string name="weather_last_sync_just_now">刚刚</string>
   <string name="weather_cannot_reach_provider">暂时无法访问 %s</string>
+  <string name="weather_source_not_selected">没有选择天气源</string>
+  <string name="weather_tap_to_select_source">点击以选择一个</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">手动</string>
   <string name="weather_refresh_30min">30 分钟</string>

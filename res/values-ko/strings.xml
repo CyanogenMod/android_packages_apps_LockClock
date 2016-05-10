@@ -100,6 +100,8 @@
   <string name="weather_refreshing">새로 고침 중</string>
   <string name="weather_last_sync_just_now">방금 전</string>
   <string name="weather_cannot_reach_provider">%s에 접속할 수 없음</string>
+  <string name="weather_source_not_selected">날씨 제공자 선택하지 않음</string>
+  <string name="weather_tap_to_select_source">탭하여 선택하기</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">수동</string>
   <string name="weather_refresh_30min">30분</string>

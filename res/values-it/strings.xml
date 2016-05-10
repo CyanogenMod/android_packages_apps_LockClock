@@ -100,6 +100,7 @@
   <string name="weather_refreshing">Aggiornamento\u2026</string>
   <string name="weather_last_sync_just_now">Poco fa</string>
   <string name="weather_cannot_reach_provider">Impossibile collegarsi a %s al momento</string>
+  <string name="weather_source_not_selected">Nessuna fonte meteo selezionata</string>
   <string name="weather_tap_to_select_source">Tocca per impostare</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuale</string>

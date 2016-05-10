@@ -100,6 +100,8 @@
   <string name="weather_refreshing">กำลังรีเฟรช</string>
   <string name="weather_last_sync_just_now">เมื่อเร็ว ๆ นี้</string>
   <string name="weather_cannot_reach_provider">ไม่สามารถเข้าถึง %s ได้ในขณะนี้</string>
+  <string name="weather_source_not_selected">ไม่มีแหล่งข้อมูลอากาศที่ถูกเลือก</string>
+  <string name="weather_tap_to_select_source">แตะเพื่อเลือกแหล่ง</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">ด้วยตัวเอง</string>
   <string name="weather_refresh_30min">30 นาที</string>

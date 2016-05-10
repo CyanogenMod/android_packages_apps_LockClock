@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Verfris tans\u2026</string>
   <string name="weather_last_sync_just_now">Sopas</string>
   <string name="weather_cannot_reach_provider">Kan nie %s bereik nie</string>
+  <string name="weather_source_not_selected">Geen weer bron gekies</string>
+  <string name="weather_tap_to_select_source">Raak om een te kies</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Handmatig</string>
   <string name="weather_refresh_30min">30 minute</string>

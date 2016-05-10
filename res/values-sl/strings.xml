@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Osveževanje</string>
   <string name="weather_last_sync_just_now">Pravkar</string>
   <string name="weather_cannot_reach_provider">%s trenutno ni mogoče doseči</string>
+  <string name="weather_source_not_selected">Vir za vreme ni izbran</string>
+  <string name="weather_tap_to_select_source">Tapnite za izbiro</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ročno</string>
   <string name="weather_refresh_30min">30 minut</string>

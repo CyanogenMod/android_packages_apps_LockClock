@@ -100,6 +100,8 @@
   <string name="weather_refreshing">تحديث</string>
   <string name="weather_last_sync_just_now">الآن للتو</string>
   <string name="weather_cannot_reach_provider">يتعذر الوصول إلى %s في هذه اللحظة</string>
+  <string name="weather_source_not_selected">لم يتم تحديد مصدر الطقس</string>
+  <string name="weather_tap_to_select_source">اضغط لتحديد واحد</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">يدوي</string>
   <string name="weather_refresh_30min">30 دقيقة</string>

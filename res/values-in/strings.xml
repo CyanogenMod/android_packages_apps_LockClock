@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Memuat ulang</string>
   <string name="weather_last_sync_just_now">Baru saja</string>
   <string name="weather_cannot_reach_provider">Tidak dapat mencapai %s pada saat ini</string>
+  <string name="weather_source_not_selected">Tidak ada sumber cuaca yang dipilih</string>
+  <string name="weather_tap_to_select_source">Ketuk untuk memilih salah satu</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manual</string>
   <string name="weather_refresh_30min">30 menit</string>

@@ -100,6 +100,8 @@
   <string name="weather_refreshing">מרענן</string>
   <string name="weather_last_sync_just_now">כרגע</string>
   <string name="weather_cannot_reach_provider">אין אפשרות להגיע אל %s כרגע</string>
+  <string name="weather_source_not_selected">לא נבחר מקור לנתוני מזג אוויר</string>
+  <string name="weather_tap_to_select_source">גע כדי לבחור אחד</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">ידני</string>
   <string name="weather_refresh_30min">30 דקות</string>

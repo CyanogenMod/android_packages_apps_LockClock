@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Обновление</string>
   <string name="weather_last_sync_just_now">Только что</string>
   <string name="weather_cannot_reach_provider">Сервер «%s» недоступен</string>
+  <string name="weather_source_not_selected">Не выбран источник погоды</string>
+  <string name="weather_tap_to_select_source">Нажмите, чтобы выбрать</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Вручную</string>
   <string name="weather_refresh_30min">30 минут</string>

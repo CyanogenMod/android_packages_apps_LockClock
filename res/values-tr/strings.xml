@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Yenileniyor</string>
   <string name="weather_last_sync_just_now">Az önce</string>
   <string name="weather_cannot_reach_provider">%s şu anda ulaşılamıyor</string>
+  <string name="weather_source_not_selected">Hiçbir hava kaynağı seçilmedi</string>
+  <string name="weather_tap_to_select_source">Birini seçmek için dokunun</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Elle</string>
   <string name="weather_refresh_30min">30 dakika</string>

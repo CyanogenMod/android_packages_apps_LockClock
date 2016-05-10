@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Obnovování</string>
   <string name="weather_last_sync_just_now">Právě teď</string>
   <string name="weather_cannot_reach_provider">Server %s nedostupný</string>
+  <string name="weather_source_not_selected">Není vybrán žádný zdroj počasí</string>
+  <string name="weather_tap_to_select_source">Dotykem vybrat</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ručně</string>
   <string name="weather_refresh_30min">30 minut</string>

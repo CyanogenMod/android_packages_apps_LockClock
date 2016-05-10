@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Đang làm mới</string>
   <string name="weather_last_sync_just_now">Vừa mới đây</string>
   <string name="weather_cannot_reach_provider">Không truy cập được %s lúc này</string>
+  <string name="weather_source_not_selected">Không có nguồn thời tiết nào được chọn</string>
+  <string name="weather_tap_to_select_source">Chạm để chọn một</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Thủ công</string>
   <string name="weather_refresh_30min">30 phút</string>
