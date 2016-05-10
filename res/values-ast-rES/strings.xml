@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Anovando\u2026</string>
   <string name="weather_last_sync_just_now">Agora</string>
   <string name="weather_cannot_reach_provider">Imposible algamar %s pel momentu</string>
+  <string name="weather_source_not_selected">Nun s\'esbilló una fonte meteorolóxica</string>
+  <string name="weather_tap_to_select_source">Calca pa esbillar una</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manual</string>
   <string name="weather_refresh_30min">30 minutos</string>
@@ -150,6 +152,7 @@
   <string name="calendar_title">Amosar próximu eventu</string>
   <string name="calendars_title">Calendariu d\'eventos</string>
   <string name="calendars_summary">Guetar eventos nos calendarios</string>
+  <string name="calendars_none_found_summary">Nun s\'alcontraron calendarios</string>
   <string name="calendar_reminders_only_title">Namái recordatorios</string>
   <string name="calendar_reminders_only_summary">Amosar namái eventos con recordatorios</string>
   <string name="calendar_hide_allday_title">Anubrir eventos \u00ABtol día\u00BB</string>
