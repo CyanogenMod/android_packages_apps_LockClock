@@ -185,6 +185,8 @@ public class ForecastBuilder {
 
         TimeZone MyTimezone = TimeZone.getDefault();
         Calendar calendar = new GregorianCalendar(MyTimezone);
+        // The forecase starts with tomorrow
+        calendar.roll(Calendar.DAY_OF_WEEK, true);
         int weatherTempUnit = w.getTemperatureUnit();
         // Iterate through the forecasts
         for (DayForecast d : forecasts) {
