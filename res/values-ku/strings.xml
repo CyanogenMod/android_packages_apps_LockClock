@@ -127,7 +127,6 @@
   <string name="weather_enabled">چالاکە</string>
   <string name="weather_enable">پیشاندانی کەش و هەو</string>
   <string name="weather_source_title">سەرچاوەی کەش و هەوا</string>
-  <string name="weather_source_yahoo">کەش و هەوای یاهۆ!</string>
   <string name="weather_use_custom_location">بەکارهێنانی شوێنی تایبەت</string>
   <string name="weather_geolocated">شوێن دیاریکه‌ر به‌ به‌کارهێنانی هێڵ</string>
   <string name="weather_custom_location_dialog_title">شوێن بنوسە</string>

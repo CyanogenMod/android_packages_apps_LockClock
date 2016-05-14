@@ -127,7 +127,6 @@
   <string name="weather_enabled">Fəallaşdırıldı</string>
   <string name="weather_enable">Hava durumunu göstər</string>
   <string name="weather_source_title">Hava mənbəsi</string>
-  <string name="weather_source_yahoo">Yahoo! Hava</string>
   <string name="weather_use_custom_location">Özəl yer istifadə et</string>
   <string name="weather_geolocated">Şəbəkədən istifadə edilərək coğrafi yerləşdirildi</string>
   <string name="weather_custom_location_dialog_title">Məkan daxil edin</string>

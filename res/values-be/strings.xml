@@ -127,7 +127,6 @@
   <string name="weather_enabled">Уключана</string>
   <string name="weather_enable">Паказваць надвор\'е</string>
   <string name="weather_source_title">Сервер надвор\'я</string>
-  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">Не вызначаць аўтаматычна</string>
   <string name="weather_geolocated">Месцазнаходжанне па сетцы</string>
   <string name="weather_custom_location_dialog_title">Увядзіце месцазнаходжанне</string>

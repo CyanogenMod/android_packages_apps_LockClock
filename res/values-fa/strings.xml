@@ -127,7 +127,6 @@
   <string name="weather_enabled">فعال</string>
   <string name="weather_enable">نمایش آب و هوا</string>
   <string name="weather_source_title">منبع آب و هوا</string>
-  <string name="weather_source_yahoo">آب و هوای یاهو</string>
   <string name="weather_use_custom_location">استفاده از مکان دیگر</string>
   <string name="weather_geolocated">مکان جغرافیایی با استفاده از شبکه</string>
   <string name="weather_custom_location_dialog_title">وارد کردن مکان</string>

@@ -49,7 +49,7 @@
   <string name="weather_20">Brumeux</string>
   <string name="weather_21">Brume</string>
   <string name="weather_22">Fumeux</string>
-  <string name="weather_23">Tempétueux</string>
+  <string name="weather_23">Vents forts</string>
   <string name="weather_24">Venteux</string>
   <string name="weather_25">Froid</string>
   <string name="weather_26">Nuageux</string>
@@ -100,6 +100,7 @@
   <string name="weather_refreshing">Actualisation</string>
   <string name="weather_last_sync_just_now">À l\'instant</string>
   <string name="weather_cannot_reach_provider">Impossible d\'accéder à %s pour le moment</string>
+  <string name="weather_tap_to_select_source">Appuyer pour en sélectionner une</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuellement</string>
   <string name="weather_refresh_30min">30 minutes</string>
@@ -127,7 +128,6 @@
   <string name="weather_enabled">Activée</string>
   <string name="weather_enable">Afficher la météo</string>
   <string name="weather_source_title">Source météo</string>
-  <string name="weather_source_yahoo">Yahoo! Météo</string>
   <string name="weather_use_custom_location">Définir un lieu</string>
   <string name="weather_geolocated">Géolocalisé via le réseau</string>
   <string name="weather_custom_location_dialog_title">Entrez un lieu</string>

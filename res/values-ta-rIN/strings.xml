@@ -127,7 +127,6 @@
   <string name="weather_enabled">இயக்கப்பட்டவை</string>
   <string name="weather_enable">வானிலையை காண்பி</string>
   <string name="weather_source_title">வானிலை ஆதாரம்</string>
-  <string name="weather_source_yahoo">Yahoo! வானிலை</string>
   <string name="weather_use_custom_location">தனிப்பயனாக்கப்பட்ட இடத்தைப் பயன்படுத்து</string>
   <string name="weather_geolocated">பிணையத்தை பயன்படுத்தி புவியல் இடம்கண்டறியப்பட்டது</string>
   <string name="weather_custom_location_dialog_title">இருப்பிடத்தை உள்ளிடு</string>

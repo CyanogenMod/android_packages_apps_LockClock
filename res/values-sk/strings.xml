@@ -127,7 +127,6 @@
   <string name="weather_enabled">Povolené</string>
   <string name="weather_enable">Zobraziť počasie</string>
   <string name="weather_source_title">Zdroj počasia</string>
-  <string name="weather_source_yahoo">Yahoo! Počasie</string>
   <string name="weather_use_custom_location">Použiť vlastnú polohu</string>
   <string name="weather_geolocated">Lokalizované pomocou siete</string>
   <string name="weather_custom_location_dialog_title">Zadajte polohu</string>

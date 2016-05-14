@@ -127,7 +127,6 @@
   <string name="weather_enabled">Activado</string>
   <string name="weather_enable">Amosar o tempo</string>
   <string name="weather_source_title">Fonte do tempo</string>
-  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">Utilizar localización personalizada</string>
   <string name="weather_geolocated">Xeolocalizar empregando a rede</string>
   <string name="weather_custom_location_dialog_title">Inserir localización</string>
