@@ -151,6 +151,7 @@
   <string name="calendar_title">Amosar próximu eventu</string>
   <string name="calendars_title">Calendariu d\'eventos</string>
   <string name="calendars_summary">Guetar eventos nos calendarios</string>
+  <string name="calendars_none_found_summary">Nun s\'alcontraron calendarios</string>
   <string name="calendar_reminders_only_title">Namái recordatorios</string>
   <string name="calendar_reminders_only_summary">Amosar namái eventos con recordatorios</string>
   <string name="calendar_hide_allday_title">Anubrir eventos \u00ABtol día\u00BB</string>
