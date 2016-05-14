@@ -127,7 +127,6 @@
   <string name="weather_enabled">සබලයි</string>
   <string name="weather_enable">කාලගුණය පෙන්වන්න</string>
   <string name="weather_source_title">කාලගුණ මූලාශ්‍රය</string>
-  <string name="weather_source_yahoo">යාහූ! කාලගුණය</string>
   <string name="weather_use_custom_location">රීසිවූ ස්ථානයක් භාවිතාකරන්න</string>
   <string name="weather_geolocated">භූගෝලීය ස්ථානය ජාල භාවිතයෙන්</string>
   <string name="weather_custom_location_dialog_title">ස්ථානය ඇතුල් කරන්න</string>

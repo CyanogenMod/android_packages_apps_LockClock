@@ -100,6 +100,7 @@
   <string name="weather_refreshing">Đang làm mới</string>
   <string name="weather_last_sync_just_now">Vừa mới đây</string>
   <string name="weather_cannot_reach_provider">Không truy cập được %s lúc này</string>
+  <string name="weather_tap_to_select_source">Chạm để chọn một</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Thủ công</string>
   <string name="weather_refresh_30min">30 phút</string>
@@ -127,7 +128,6 @@
   <string name="weather_enabled">Đã bật</string>
   <string name="weather_enable">Hiển thị thời tiết</string>
   <string name="weather_source_title">Nguồn dữ liệu thời tiết</string>
-  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">Sử dụng vị trí tùy chỉnh</string>
   <string name="weather_geolocated">Định vị địa lý bằng mạng</string>
   <string name="weather_custom_location_dialog_title">Nhập vị trí</string>

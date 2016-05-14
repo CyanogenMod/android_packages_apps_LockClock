@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Atualizando</string>
   <string name="weather_last_sync_just_now">Há pouco</string>
   <string name="weather_cannot_reach_provider">Não foi possível alcançar %s</string>
+  <string name="weather_source_not_selected">não selecionado</string>
+  <string name="weather_tap_to_select_source">Toque para selecionar uma</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manual</string>
   <string name="weather_refresh_30min">30 minutos</string>
@@ -110,7 +112,7 @@
   <string name="weather_refresh_8hrs">8 horas</string>
   <!-- Preferences - Categories -->
   <string name="clock_category">Relógio e alarme</string>
-  <string name="weather_category">Painel do tempo</string>
+  <string name="weather_category">Painel do clima</string>
   <string name="calendar_category">Eventos do calendário</string>
   <!-- Preferences - Categories -->
   <string name="general_category">Geral</string>
@@ -127,7 +129,6 @@
   <string name="weather_enabled">Ativado</string>
   <string name="weather_enable">Exibir clima</string>
   <string name="weather_source_title">Fonte do clima</string>
-  <string name="weather_source_yahoo">Yahoo! Weather</string>
   <string name="weather_use_custom_location">Usar local personalizado</string>
   <string name="weather_geolocated">Geolocalização usando a rede</string>
   <string name="weather_custom_location_dialog_title">Inserir localização</string>

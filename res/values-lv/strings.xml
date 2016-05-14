@@ -127,7 +127,6 @@
   <string name="weather_enabled">Ieslēgts</string>
   <string name="weather_enable">Rādīt laika apstākļus</string>
   <string name="weather_source_title">Laika apstākļu avots</string>
-  <string name="weather_source_yahoo">Yahoo! Laika apstākļi</string>
   <string name="weather_use_custom_location">Lietot pielāgotu atrašanās vietu</string>
   <string name="weather_geolocated">Noteikt koordinātes, izmantojot tīklu</string>
   <string name="weather_custom_location_dialog_title">Ievadiet atrašanās vietu</string>

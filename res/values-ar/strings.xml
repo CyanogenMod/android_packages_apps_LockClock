@@ -100,6 +100,7 @@
   <string name="weather_refreshing">تحديث</string>
   <string name="weather_last_sync_just_now">الآن للتو</string>
   <string name="weather_cannot_reach_provider">يتعذر الوصول إلى %s في هذه اللحظة</string>
+  <string name="weather_tap_to_select_source">اضغط لتحديد واحد</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">يدوي</string>
   <string name="weather_refresh_30min">30 دقيقة</string>
@@ -127,7 +128,6 @@
   <string name="weather_enabled">تمكين</string>
   <string name="weather_enable">عرض حالة الطقس</string>
   <string name="weather_source_title">مصدر الطقس</string>
-  <string name="weather_source_yahoo">ياهو! طقس</string>
   <string name="weather_use_custom_location">استخدام موقع مخصص</string>
   <string name="weather_geolocated">تحديد الموقع الجغرافي باستخدام الشبكة</string>
   <string name="weather_custom_location_dialog_title">إدخال الموقع</string>

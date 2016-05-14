@@ -127,7 +127,6 @@
   <string name="weather_enabled">Įgalinta</string>
   <string name="weather_enable">Rodyti orus</string>
   <string name="weather_source_title">Orų šaltinis</string>
-  <string name="weather_source_yahoo">Yahoo! Orai</string>
   <string name="weather_use_custom_location">Naudoti tinkintą vietovę</string>
   <string name="weather_geolocated">Nustatyta naudojant tinklą</string>
   <string name="weather_custom_location_dialog_title">Įveskite vietovę</string>

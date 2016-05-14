@@ -127,7 +127,6 @@
   <string name="weather_enabled">ಸಕ್ರಿಯಗೊಂಡಿದೆ</string>
   <string name="weather_enable">ಹವಾಮಾನ ಪ್ರದರ್ಶಿಸು</string>
   <string name="weather_source_title">ಹವಾಮಾನ ಮೂಲ</string>
-  <string name="weather_source_yahoo">ಯಾಹೂ! ಹವಾಮಾನ</string>
   <string name="weather_use_custom_location">ಕಸ್ಟಂ ಸ್ಥಳವನ್ನು ಉಪಯೋಗಿಸಿ</string>
   <string name="weather_geolocated">ನೆಟ್‌ವರ್ಕ್ ಉಪಯೋಗಿಸಿ ಜಿಯೋಲೊಕೇಟ್ ಮಾಡಿದೆ</string>
   <string name="weather_custom_location_dialog_title">ಸ್ಥಳವನ್ನು ಹಾಕಿ</string>

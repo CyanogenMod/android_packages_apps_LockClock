@@ -127,7 +127,6 @@
   <string name="weather_enabled">Aktiverad</string>
   <string name="weather_enable">Visa väder</string>
   <string name="weather_source_title">Väderkälla</string>
-  <string name="weather_source_yahoo">Yahoo! Väder</string>
   <string name="weather_use_custom_location">Använd anpassad plats</string>
   <string name="weather_geolocated">Geopositionerad använd nätverk</string>
   <string name="weather_custom_location_dialog_title">Ange plats</string>

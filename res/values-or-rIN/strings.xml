@@ -127,7 +127,6 @@
   <string name="weather_enabled">ସକ୍ଷମ ହୋଇଛି</string>
   <string name="weather_enable">ପାଣିପାଗ ଦେଖାନ୍ତୁ</string>
   <string name="weather_source_title">ପାଣିପାଗ ଉତ୍ସ</string>
-  <string name="weather_source_yahoo">Yahoo! ପାଣିପାଗ</string>
   <string name="weather_use_custom_location">କଷ୍ଟମ୍‍ ଅବଥାନ ବ୍ୟବହାର କରନ୍ତୁ</string>
   <string name="weather_geolocated">ନେଟ୍‍ୱାର୍କ ବ୍ୟବହାର କରି ଭୂ‍ସ୍ଥାନ ନି‍ର୍ଧାରଣ</string>
   <string name="weather_custom_location_dialog_title">ଅବଥାନ ପ୍ରବେଶ କରନ୍ତୁ</string>

@@ -100,6 +100,7 @@
   <string name="weather_refreshing">Obnovování</string>
   <string name="weather_last_sync_just_now">Právě teď</string>
   <string name="weather_cannot_reach_provider">Server %s nedostupný</string>
+  <string name="weather_tap_to_select_source">Dotykem vybrat</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ručně</string>
   <string name="weather_refresh_30min">30 minut</string>
@@ -127,7 +128,6 @@
   <string name="weather_enabled">Použít</string>
   <string name="weather_enable">Zobrazit počasí</string>
   <string name="weather_source_title">Poskytovatel informací o počasí</string>
-  <string name="weather_source_yahoo">Počasí Yahoo!</string>
   <string name="weather_use_custom_location">Použít vlastní polohu</string>
   <string name="weather_geolocated">Zjistit polohu ze sítě</string>
   <string name="weather_custom_location_dialog_title">Zadat polohu</string>

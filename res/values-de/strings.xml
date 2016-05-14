@@ -100,6 +100,7 @@
   <string name="weather_refreshing">Aktualisierung</string>
   <string name="weather_last_sync_just_now">Gerade jetzt</string>
   <string name="weather_cannot_reach_provider">%s ist momentan nicht erreichbar.</string>
+  <string name="weather_tap_to_select_source">Tippen, um eine Auswahl zu treffen</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuell</string>
   <string name="weather_refresh_30min">30 Minuten</string>
@@ -127,7 +128,6 @@
   <string name="weather_enabled">Aktiviert</string>
   <string name="weather_enable">Wetter anzeigen</string>
   <string name="weather_source_title">Wetterdienst</string>
-  <string name="weather_source_yahoo">Yahoo! Wetter</string>
   <string name="weather_use_custom_location">Benutzerdefinierter Standort</string>
   <string name="weather_geolocated">Geolokalisiert über das Netz</string>
   <string name="weather_custom_location_dialog_title">Standort eingeben</string>

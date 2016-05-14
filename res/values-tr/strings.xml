@@ -100,6 +100,7 @@
   <string name="weather_refreshing">Yenileniyor</string>
   <string name="weather_last_sync_just_now">Az önce</string>
   <string name="weather_cannot_reach_provider">%s şu anda ulaşılamıyor</string>
+  <string name="weather_tap_to_select_source">Birini seçmek için dokunun</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Elle</string>
   <string name="weather_refresh_30min">30 dakika</string>
@@ -127,7 +128,6 @@
   <string name="weather_enabled">Etkin</string>
   <string name="weather_enable">Hava durumunu göster</string>
   <string name="weather_source_title">Hava durumu kaynağı</string>
-  <string name="weather_source_yahoo">Yahoo! Havadurumu</string>
   <string name="weather_use_custom_location">Özel konum kullan</string>
   <string name="weather_geolocated">Ağ kullanılarak coğrafi konumlandırıldı</string>
   <string name="weather_custom_location_dialog_title">Konum girin</string>

@@ -127,7 +127,6 @@
   <string name="weather_enabled">已啟用</string>
   <string name="weather_enable">顯示天氣</string>
   <string name="weather_source_title">天氣來源</string>
-  <string name="weather_source_yahoo">Yahoo! 天氣</string>
   <string name="weather_use_custom_location">使用自訂位置</string>
   <string name="weather_geolocated">使用網絡的地理定位</string>
   <string name="weather_custom_location_dialog_title">輸入位置</string>
