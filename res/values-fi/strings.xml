@@ -100,6 +100,7 @@
   <string name="weather_refreshing">Päivitetään</string>
   <string name="weather_last_sync_just_now">Juuri nyt</string>
   <string name="weather_cannot_reach_provider">Yhteyttä palveluun %s ei saada tällä hetkellä</string>
+  <string name="weather_source_not_selected">Sään lähdettä ei ole valittu</string>
   <string name="weather_tap_to_select_source">Paina tästä valitaksesi</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuaalinen</string>

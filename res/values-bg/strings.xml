@@ -100,6 +100,7 @@
   <string name="weather_refreshing">Обновяване</string>
   <string name="weather_last_sync_just_now">Точно сега</string>
   <string name="weather_cannot_reach_provider">Не може да достигнете до %s в този момент</string>
+  <string name="weather_source_not_selected">Няма избран източник на време</string>
   <string name="weather_tap_to_select_source">Натиснете, за да изберете</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ръчно</string>
