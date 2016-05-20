@@ -21,11 +21,6 @@
             android:icon="@drawable/clock_preferences"
             android:title="@string/clock_category" />
 
-    <header android:id="@+id/preferences_weather_section"
-            android:fragment="com.cyanogenmod.lockclock.preference.WeatherPreferences"
-            android:icon="@drawable/weather_preferences"
-            android:title="@string/weather_category" />
-
     <header android:id="@+id/preferences_calendar_section"
             android:fragment="com.cyanogenmod.lockclock.preference.CalendarPreferences"
             android:icon="@drawable/calendar_preferences"
