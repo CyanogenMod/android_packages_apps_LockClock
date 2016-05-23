@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Nezināms</string>
   <string name="cancel">Atcelt</string>
   <string name="loading_indicator">Ielādē logrīku\u2026</string>
   <string name="menu_done">Gatavs</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Virpuļviesulis</string>
   <string name="weather_1">Tropu vētra</string>
   <string name="weather_2">Viesuļvētra</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Vējains</string>
   <string name="weather_25">Auksts</string>
   <string name="weather_26">Mākoņains</string>
+  <!-- Night -->
   <string name="weather_27">Lielākoties mākoņains</string>
+  <!-- Day -->
   <string name="weather_28">Lielākoties mākoņains</string>
+  <!-- Night -->
   <string name="weather_29">Daļēji mākoņains</string>
+  <!-- Day -->
   <string name="weather_30">Daļēji mākoņains</string>
+  <!-- Night -->
   <string name="weather_31">Skaidrs</string>
   <string name="weather_32">Saulains</string>
+  <!-- Night -->
   <string name="weather_33">Jauks</string>
+  <!-- Day -->
   <string name="weather_34">Jauks</string>
   <string name="weather_35">Lietus un krusa</string>
   <string name="weather_36">Karsts</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Lietusgāzes un negaiss</string>
   <string name="weather_46">Sniegputeņi</string>
   <string name="weather_47">Atseviški negaisi</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">jūdzes/h</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">Z</string>
   <string name="weather_NE">ZA</string>
   <string name="weather_E">A</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">DR</string>
   <string name="weather_W">R</string>
   <string name="weather_NW">ZR</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Nav datu</string>
   <string name="weather_tap_to_refresh">Piesitiet, lai atjaunotu</string>
   <string name="weather_refreshing">Atjauno</string>
   <string name="weather_last_sync_just_now">Tieši tagad</string>
   <string name="weather_cannot_reach_provider">Šobrīd %s nevar piekļūt</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuāli</string>
   <string name="weather_refresh_30min">30 minūtes</string>
   <string name="weather_refresh_60min">60 minūtes</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 stundas</string>
   <string name="weather_refresh_6hrs">6 stundas</string>
   <string name="weather_refresh_8hrs">8 stundas</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Pulkstenim un modinātājam</string>
   <string name="weather_category">Laika panelis</string>
   <string name="calendar_category">Kalendāra notikumi</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Vispārīgi</string>
   <string name="display_category">Rādīt</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Lietot ciparu pulksteni</string>
   <string name="use_digital_clock_summary">Iezīmējiet, lai pārslēgtos starp digitālo un analogo pulksteni</string>
   <string name="clock_font_title">Stundas treknrakstā</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Treknrakstā datumu un modinātāju</string>
   <string name="show_alarm_title">Rādīt nākamo atgādinājumu</string>
   <string name="clock_am_pm_title">Rādīt AM/PM norādi</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Ieslēgts</string>
   <string name="weather_enable">Rādīt laika apstākļus</string>
   <string name="weather_source_title">Laika apstākļu avots</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Rādīt, kad minimizēts</string>
   <string name="weather_show_when_minimized_summary">Parādītu laika kopsavilkumu informāciju, kad logrīks ir minimizēts</string>
   <string name="weather_select_location">Izvēlieties atrašanās vietu</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Parādīt nākamo notikumu</string>
   <string name="calendars_title">Notikumu kalendāri</string>
   <string name="calendars_summary">Meklēt notikumus no šiem kalendāriem</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">Izcelt notikumus</string>
   <string name="calendar_highlight_upcoming_events_summary">Izcelt šodienas notikumus un pēc 20 arī nākamās dienas notikumus</string>
   <string name="calendar_highlight_upcoming_events_bold">Treknraksts</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Fonta krāsa</string>
   <string name="font_color_alarm">Atgādinājuma fotna krāsa</string>
   <string name="font_color_timestamp">Laikspiedola fonta krāsa</string>
   <string name="font_color_calendar_details">Detaļu fonta krāsa</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Fona krāsa</string>
   <string name="background_transparency">Fona caurspīdīgums</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 stundas</string>
   <string name="calendar_lookahead_6hrs">6 stundas</string>
   <string name="calendar_lookahead_12hrs">12 stundas</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">1 nedēļa</string>
   <string name="calendar_lookahead_2wks">2 nedēļas</string>
   <string name="calendar_lookahead_4wks">4 nedēļas</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Nerādīt</string>
   <string name="calendar_metadata_first_line">Rādīt pirmo rindu</string>
   <string name="calendar_metadata_all">Rādīt visu</string>
+  <!-- Font colors -->
   <string name="white">Balts</string>
   <string name="grey">Pelēks</string>
   <string name="black">Melns</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">Gaiši oranžš</string>
   <string name="holo_orange_dark">Tumši oranžš</string>
   <string name="holo_blue_bright">Spilgti zils</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Ikonu kopa</string>
   <string name="weather_icons_standard">Krāsaina</string>
   <string name="weather_icons_monochrome">Vienkrāsas</string>

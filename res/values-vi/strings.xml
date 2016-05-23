@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Không rõ</string>
   <string name="cancel">Huỷ</string>
   <string name="loading_indicator">Đang tải tiện ích con\u2026</string>
   <string name="menu_done">Xong</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Lốc xoáy</string>
   <string name="weather_1">Bão nhiệt đới</string>
   <string name="weather_2">Bão</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Gió</string>
   <string name="weather_25">Lạnh</string>
   <string name="weather_26">Có mây</string>
+  <!-- Night -->
   <string name="weather_27">Nhiều mây</string>
+  <!-- Day -->
   <string name="weather_28">Nhiều mây</string>
+  <!-- Night -->
   <string name="weather_29">Ít mây</string>
+  <!-- Day -->
   <string name="weather_30">Ít mây</string>
+  <!-- Night -->
   <string name="weather_31">Quang mây</string>
   <string name="weather_32">Nắng</string>
+  <!-- Night -->
   <string name="weather_33">Thời tiết tốt</string>
+  <!-- Day -->
   <string name="weather_34">Thời tiết tốt</string>
   <string name="weather_35">Mưa và mưa đá</string>
   <string name="weather_36">Nóng</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Mưa rào có sấm sét</string>
   <string name="weather_46">Mưa có tuyết</string>
   <string name="weather_47">Mưa rào có sấm sét cục bộ</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km/h</string>
   <string name="weather_mph">m/h</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">B</string>
   <string name="weather_NE">ĐB</string>
   <string name="weather_E">Đ</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">TN</string>
   <string name="weather_W">T</string>
   <string name="weather_NW">TB</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Không có dữ liệu</string>
   <string name="weather_tap_to_refresh">Chạm để làm mới</string>
   <string name="weather_refreshing">Đang làm mới</string>
   <string name="weather_last_sync_just_now">Vừa mới đây</string>
   <string name="weather_cannot_reach_provider">Không truy cập được %s lúc này</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Thủ công</string>
   <string name="weather_refresh_30min">30 phút</string>
   <string name="weather_refresh_60min">60 phút</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 giờ</string>
   <string name="weather_refresh_6hrs">6 giờ</string>
   <string name="weather_refresh_8hrs">8 giờ</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Đồng hồ và báo thức</string>
   <string name="weather_category">Thanh thời tiết</string>
   <string name="calendar_category">Lịch sự kiện</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Chung</string>
   <string name="display_category">Hiển thị</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Dùng đồng hồ số</string>
   <string name="use_digital_clock_summary">Chọn chuyển đổi giữa đồng hồ số và đồng hồ kim</string>
   <string name="clock_font_title">Tô đậm giờ</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Tô đậm ngày và báo thức</string>
   <string name="show_alarm_title">Hiển thị báo thức tiếp theo</string>
   <string name="clock_am_pm_title">Hiện chế độ giờ SA/CH</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Đã bật</string>
   <string name="weather_enable">Hiển thị thời tiết</string>
   <string name="weather_source_title">Nguồn dữ liệu thời tiết</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Hiện khi thu nhỏ</string>
   <string name="weather_show_when_minimized_summary">Hiển thị thông tin thời tiết tóm tắt khi tiện ích con được thu nhỏ</string>
   <string name="weather_select_location">Chọn vị trí</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Hiển thị sự kiện tiếp theo</string>
   <string name="calendars_title">Sự kiện lịch</string>
   <string name="calendars_summary">Tìm sự kiện từ các lịch này</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">Làm nổi bật sự kiện</string>
   <string name="calendar_highlight_upcoming_events_summary">Làm nổi bật sự kiện hôm nay, sau 8 giờ tối và cả sự kiện hôm sau</string>
   <string name="calendar_highlight_upcoming_events_bold">Phông chữ đậm</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Màu phông chữ</string>
   <string name="font_color_alarm">Màu sắc phông chữ báo thức</string>
   <string name="font_color_timestamp">Màu sắc phông chữ nhãn thời gian</string>
   <string name="font_color_calendar_details">Màu phông chữ chi tiết</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Màu nền</string>
   <string name="background_transparency">Độ trong suốt của nền</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 giờ</string>
   <string name="calendar_lookahead_6hrs">6 giờ</string>
   <string name="calendar_lookahead_12hrs">12 giờ</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">1 tuần</string>
   <string name="calendar_lookahead_2wks">2 tuần</string>
   <string name="calendar_lookahead_4wks">4 tuần</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Không hiển thị</string>
   <string name="calendar_metadata_first_line">Hiển thị dòng đầu tiên</string>
   <string name="calendar_metadata_all">Hiển thị tất cả</string>
+  <!-- Font colors -->
   <string name="white">Trắng</string>
   <string name="grey">Xám</string>
   <string name="black">Đen</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">Cam nhạt</string>
   <string name="holo_orange_dark">Cam đậm</string>
   <string name="holo_blue_bright">Xanh dương sáng</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Bộ biểu tượng</string>
   <string name="weather_icons_standard">Màu sắc</string>
   <string name="weather_icons_monochrome">Đơn sắc</string>

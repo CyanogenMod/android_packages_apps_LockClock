@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">نامشخص</string>
   <string name="cancel">لغو</string>
   <string name="loading_indicator">بارگذاری ابزارک\u2026</string>
   <string name="menu_done">انجام شد</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">گردباد</string>
   <string name="weather_1">طوفان گرمسیری</string>
   <string name="weather_2">طوفان</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">پرباد</string>
   <string name="weather_25">سرد</string>
   <string name="weather_26">ابری</string>
+  <!-- Night -->
   <string name="weather_27">نسبتاً ابری</string>
+  <!-- Day -->
   <string name="weather_28">نسبتاً ابری</string>
+  <!-- Night -->
   <string name="weather_29">نیمه ابری</string>
+  <!-- Day -->
   <string name="weather_30">نیمه ابری</string>
+  <!-- Night -->
   <string name="weather_31">صاف</string>
   <string name="weather_32">آفتابی</string>
+  <!-- Night -->
   <string name="weather_33">نسبتاً خوب</string>
+  <!-- Day -->
   <string name="weather_34">نسبتاً خوب</string>
   <string name="weather_35">مخلوط باران و تگرگ</string>
   <string name="weather_36">داغ</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">رعد و برق</string>
   <string name="weather_46">بارش برف</string>
   <string name="weather_47">رعد و برق پراکنده</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">کیلومتربرساعت</string>
   <string name="weather_mph">مایل‌برساعت</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">ش</string>
   <string name="weather_NE">ش‌خ</string>
   <string name="weather_E">خ</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">ج‌ب</string>
   <string name="weather_W">ب</string>
   <string name="weather_NW">ش‌ب</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">داده‌ای وجود ندارد</string>
   <string name="weather_tap_to_refresh">برای تازه‌سازی ضربه بزنید</string>
   <string name="weather_refreshing">در حال تازه‌سازی</string>
   <string name="weather_last_sync_just_now">همین الان</string>
   <string name="weather_cannot_reach_provider">در حال حاضر دسترسی به %s ممکن نیست</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">دستی</string>
   <string name="weather_refresh_30min">۳۰ دقیقه</string>
   <string name="weather_refresh_60min">۶۰ دقیقه</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">۴ ساعت</string>
   <string name="weather_refresh_6hrs">۶ ساعت</string>
   <string name="weather_refresh_8hrs">۸ ساعت</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">ساعت و هشدار</string>
   <string name="weather_category">پنل آب و هوا</string>
   <string name="calendar_category">رویدادهای تقویم</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">عمومي</string>
   <string name="display_category">نمایش</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">استفاده از ساعت دیجیتالی</string>
   <string name="use_digital_clock_summary">برای جا‌‌بجایی بین ساعت دیجیتال و آنالوگ انتخاب کنید</string>
   <string name="clock_font_title">عدد ساعت پررنگ</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">تاریخ و هشدار پررنگ</string>
   <string name="show_alarm_title">نمایش هشدار بعدی</string>
   <string name="clock_am_pm_title">نمایش نشانگر ق.ظ/ب.ظ</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">فعال</string>
   <string name="weather_enable">نمایش آب و هوا</string>
   <string name="weather_source_title">منبع آب و هوا</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">نمایش هنگام کوچک شدن</string>
   <string name="weather_show_when_minimized_summary">نمایش خلاصه اطلاعات هوا هنگام کوچک بودن ابزارک</string>
   <string name="weather_select_location">انتخاب مکان</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">نمایش رویداد بعدی</string>
   <string name="calendars_title">رویدادهای تقویم</string>
   <string name="calendars_summary">یافتن رویدادهای این تقویم‌ها</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">نمایش رنگی رویدادها</string>
   <string name="calendar_highlight_upcoming_events_summary">نمایش رنگی رویدادهای امروز و همچنین بعد از ساعت ۸ ب.ظ نمایش رویدادهای روز بعد</string>
   <string name="calendar_highlight_upcoming_events_bold">فونت درشت</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">رنگ فونت</string>
   <string name="font_color_alarm">رنگ فونت هشدار</string>
   <string name="font_color_timestamp">رنگ فونت برچسب زمان</string>
   <string name="font_color_calendar_details">رنگ فونت جزئیات</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">رنگ پس‌زمینه</string>
   <string name="background_transparency">شفافیت پس‌زمینه</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">۳ ساعت</string>
   <string name="calendar_lookahead_6hrs">۶ ساعت</string>
   <string name="calendar_lookahead_12hrs">۱۲ ساعت</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">۱ هفته</string>
   <string name="calendar_lookahead_2wks">۲ هفته</string>
   <string name="calendar_lookahead_4wks">۴ هفته</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">نمایش نده</string>
   <string name="calendar_metadata_first_line">نمایش خط اول</string>
   <string name="calendar_metadata_all">نمایش همه</string>
+  <!-- Font colors -->
   <string name="white">سفید</string>
   <string name="grey">خاکستری</string>
   <string name="black">سیاه</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">نارنجی روشن</string>
   <string name="holo_orange_dark">نارنجی تیره</string>
   <string name="holo_blue_bright">آبی روشن</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">مجموعه آیکون</string>
   <string name="weather_icons_standard">رنگی</string>
   <string name="weather_icons_monochrome">تک‌رنگ</string>

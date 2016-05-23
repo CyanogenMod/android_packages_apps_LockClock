@@ -16,7 +16,36 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">অজানা</string>
   <string name="cancel">বাতিল</string>
   <string name="menu_done">সম্পন্ন</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
+  <!-- Night -->
+  <!-- Day -->
+  <!-- Night -->
+  <!-- Day -->
+  <!-- Night -->
+  <!-- Night -->
+  <!-- Day -->
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
+  <!-- Weather - Wind directions -->
+  <!-- Weather - Error messages -->
+  <!-- Weather - Update frequency -->
+  <!-- Preferences - Categories -->
+  <!-- Preferences - Categories -->
+  <!-- Preferences - Clock -->
+  <!-- Preferences - Weather -->
+  <!-- Preferences - Calendar -->
+  <!-- Preferences - Font colors -->
+  <!-- Preferences - Background color -->
+  <!-- Calendar - Lookahead -->
+  <!-- Calendar - Event metadata -->
+  <!-- Font colors -->
+  <!-- Weather icon sets -->
 </resources>

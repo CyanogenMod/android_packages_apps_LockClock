@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Невядома</string>
   <string name="cancel">Скасаванне</string>
   <string name="loading_indicator">Загрузка віджэта\u2026</string>
   <string name="menu_done">Выканана</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Тарнада</string>
   <string name="weather_1">Шторм</string>
   <string name="weather_2">Ураган</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Ветрана</string>
   <string name="weather_25">Холадна</string>
   <string name="weather_26">Хмарна</string>
+  <!-- Night -->
   <string name="weather_27">Малавоблачна</string>
+  <!-- Day -->
   <string name="weather_28">Малавоблачна</string>
+  <!-- Night -->
   <string name="weather_29">Малавоблачна</string>
+  <!-- Day -->
   <string name="weather_30">Малавоблачна</string>
+  <!-- Night -->
   <string name="weather_31">Ясна</string>
   <string name="weather_32">Сонечна</string>
+  <!-- Night -->
   <string name="weather_33">Ясна</string>
+  <!-- Day -->
   <string name="weather_34">Ясна</string>
   <string name="weather_35">Дождж з градам</string>
   <string name="weather_36">Спякотна</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Дождж з навальніцай</string>
   <string name="weather_46">Халепа</string>
   <string name="weather_47">Месцамі навальніцы</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">км/г</string>
   <string name="weather_mph">міль/г</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">Паўночны</string>
   <string name="weather_NE">Паўночна-Усходні</string>
   <string name="weather_E">Усходні</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">Паўднёва-Заходні</string>
   <string name="weather_W">Заходні</string>
   <string name="weather_NW">Паўночна-Заходні</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Няма дадзеных</string>
   <string name="weather_tap_to_refresh">Націсніце для абнаўлення</string>
   <string name="weather_refreshing">Абнаўленне\u2026</string>
   <string name="weather_last_sync_just_now">Толькі што</string>
   <string name="weather_cannot_reach_provider">Сервер %s недаступны</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ручна</string>
   <string name="weather_refresh_30min">30 хвілін</string>
   <string name="weather_refresh_60min">60 хвілін</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 гадзіны</string>
   <string name="weather_refresh_6hrs">6 гадзін</string>
   <string name="weather_refresh_8hrs">8 гадзін</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Гадзіны і будзільнік</string>
   <string name="weather_category">Надвор\'е</string>
   <string name="calendar_category">Каляндар</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Асноўныя</string>
   <string name="display_category">Як паказаць</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Лічбавыя гадзіны</string>
   <string name="use_digital_clock_summary">Выбар паміж лічбавымі і аналагавымі гадзінамі</string>
   <string name="clock_font_title">Гадзіны паўтлустым</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Дата і будзільнік паўтлустым\"</string>
   <string name="show_alarm_title">Паказваць будзільнік\"</string>
   <string name="clock_am_pm_title">Паказваць індыкатар AM/PM</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Уключана</string>
   <string name="weather_enable">Паказваць надвор\'е</string>
   <string name="weather_source_title">Сервер надвор\'я</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Паказваць заўсёды\"</string>
   <string name="weather_show_when_minimized_summary">Адлюстроўваць надвор\'е, калі віджэт у згорнутым стане</string>
   <string name="weather_select_location">Выберыце месцазнаходжанне</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Паказваць падзеі</string>
   <string name="calendars_title">Падзеі каляндароў</string>
   <string name="calendars_summary">Паказваць падзеі з гэтых каляндароў</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">Вылучаць найбліжэйшыя падзеі</string>
   <string name="calendar_highlight_upcoming_events_summary">Вылучаць падзеі бягучага дня, а пасля 20: 00 таксама падзеі наступнага дня</string>
   <string name="calendar_highlight_upcoming_events_bold">Паўтлусты шрыфт</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Колер шрыфту</string>
   <string name="font_color_alarm">Будзільнік</string>
   <string name="font_color_timestamp">Дата</string>
   <string name="font_color_calendar_details">Каляндар</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Колер фону</string>
   <string name="background_transparency">Празрыстасць фону</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 гадзіны</string>
   <string name="calendar_lookahead_6hrs">6 гадзін</string>
   <string name="calendar_lookahead_12hrs">12 гадзін</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">1 тыдзень</string>
   <string name="calendar_lookahead_2wks">2 тыдні</string>
   <string name="calendar_lookahead_4wks">4 тыдні</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Не паказваць</string>
   <string name="calendar_metadata_first_line">Паказваць першы радок</string>
   <string name="calendar_metadata_all">Паказваць усё</string>
+  <!-- Font colors -->
   <string name="white">Белы</string>
   <string name="grey">Шэры</string>
   <string name="black">Чорны</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">Светла-памаранчавы</string>
   <string name="holo_orange_dark">Цёмна-памаранчавы</string>
   <string name="holo_blue_bright">Ярка-сіні</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Набор значкоў</string>
   <string name="weather_icons_standard">Каляровыя</string>
   <string name="weather_icons_monochrome">Манахромныя</string>

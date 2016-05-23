@@ -16,10 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General strings -->
   <string name="unknown">Nežinoma</string>
   <string name="cancel">Atšaukti</string>
   <string name="loading_indicator">Įkeliamas valdiklis\u2026</string>
   <string name="menu_done">Atlikta</string>
+  <!-- Formating strings for widget clock -->
+  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+         android.text.format.DateFormat uses k for hours in the 0-23 range.
+         We need to support both -->
+  <!-- Weather - Weather codes -->
   <string name="weather_0">Tornadas</string>
   <string name="weather_1">Tropinė audra</string>
   <string name="weather_2">Uraganas</string>
@@ -47,13 +53,20 @@
   <string name="weather_24">Vėjuota</string>
   <string name="weather_25">Šalta</string>
   <string name="weather_26">Debesuota</string>
+  <!-- Night -->
   <string name="weather_27">Daugiausiai debesuota</string>
+  <!-- Day -->
   <string name="weather_28">Daugiausiai debesuota</string>
+  <!-- Night -->
   <string name="weather_29">Debesuota su pragiedruliais</string>
+  <!-- Day -->
   <string name="weather_30">Debesuota su pragiedruliais</string>
+  <!-- Night -->
   <string name="weather_31">Giedra</string>
   <string name="weather_32">Saulėta</string>
+  <!-- Night -->
   <string name="weather_33">Gražu</string>
+  <!-- Day -->
   <string name="weather_34">Gražu</string>
   <string name="weather_35">Sniegas ir kruša</string>
   <string name="weather_36">Karšta</string>
@@ -68,8 +81,11 @@
   <string name="weather_45">Liūtys su perkūnija</string>
   <string name="weather_46">Sniego pūgos</string>
   <string name="weather_47">Izoliuotos liūtys su perkūnija</string>
+  <!-- Forecast unavailable -->
+  <!-- Weather - Speed units -->
   <string name="weather_kph">km / val.</string>
   <string name="weather_mph">ml / val.</string>
+  <!-- Weather - Wind directions -->
   <string name="weather_N">Š</string>
   <string name="weather_NE">ŠR</string>
   <string name="weather_E">R</string>
@@ -78,11 +94,13 @@
   <string name="weather_SW">PV</string>
   <string name="weather_W">V</string>
   <string name="weather_NW">ŠV</string>
+  <!-- Weather - Error messages -->
   <string name="weather_no_data">Nėra duomenų</string>
   <string name="weather_tap_to_refresh">Bakstelėkite, kad atnaujintumėte</string>
   <string name="weather_refreshing">Atnaujinama</string>
   <string name="weather_last_sync_just_now">Ką tik</string>
   <string name="weather_cannot_reach_provider">Negali pasiekti %s</string>
+  <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Rankiniu būdu</string>
   <string name="weather_refresh_30min">30 min.</string>
   <string name="weather_refresh_60min">60 min.</string>
@@ -90,11 +108,14 @@
   <string name="weather_refresh_4hrs">4 val.</string>
   <string name="weather_refresh_6hrs">6 val.</string>
   <string name="weather_refresh_8hrs">8 val.</string>
+  <!-- Preferences - Categories -->
   <string name="clock_category">Laikrodis ir signalas</string>
   <string name="weather_category">Orų skydelis</string>
   <string name="calendar_category">Kalendoriaus įvykiai</string>
+  <!-- Preferences - Categories -->
   <string name="general_category">Bendra</string>
   <string name="display_category">Rodymas</string>
+  <!-- Preferences - Clock -->
   <string name="use_digital_clock_title">Naudoti skaitmeninį laikrodį</string>
   <string name="use_digital_clock_summary">Pasirinkite, kad perjungtumėte tarp skaitmeninio ir analoginio laikrodžio</string>
   <string name="clock_font_title">Pusjuodės valandos</string>
@@ -102,6 +123,7 @@
   <string name="clock_font_date_title">Paryškinta data ir signalas</string>
   <string name="show_alarm_title">Rodyti kitą signalo laiką</string>
   <string name="clock_am_pm_title">Rodyti AM / PM indikatorių</string>
+  <!-- Preferences - Weather -->
   <string name="weather_enabled">Įgalinta</string>
   <string name="weather_enable">Rodyti orus</string>
   <string name="weather_source_title">Orų šaltinis</string>
@@ -125,6 +147,7 @@
   <string name="weather_show_when_minimized_title">Rodyti, kai sumažinta</string>
   <string name="weather_show_when_minimized_summary">Rodyti orų informacijos santrauką, kai valdiklis yra sumažintas</string>
   <string name="weather_select_location">Pasirinkti vietovę</string>
+  <!-- Preferences - Calendar -->
   <string name="calendar_title">Rodyti kitą įvykį</string>
   <string name="calendars_title">Įvykių kalendoriai</string>
   <string name="calendars_summary">Rasti įvykius iš šių kalendorių</string>
@@ -139,12 +162,15 @@
   <string name="calendar_highlight_upcoming_events_title">Paryškinti įvykius</string>
   <string name="calendar_highlight_upcoming_events_summary">Paryškinti šios dienos įvykius, po 8 valandos vakaro, taip pat kitos dienos įvykius</string>
   <string name="calendar_highlight_upcoming_events_bold">Pusjuodis šriftas</string>
+  <!-- Preferences - Font colors -->
   <string name="font_color">Šrifto spalva</string>
   <string name="font_color_alarm">Signalo šrifto spalva</string>
   <string name="font_color_timestamp">Laiko žymės šrifto spalva</string>
   <string name="font_color_calendar_details">Informacijos šrifto spalva</string>
+  <!-- Preferences - Background color -->
   <string name="background_color">Fono spalva</string>
   <string name="background_transparency">Fono skaidrumas</string>
+  <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 val.</string>
   <string name="calendar_lookahead_6hrs">6 val.</string>
   <string name="calendar_lookahead_12hrs">12 val.</string>
@@ -154,9 +180,11 @@
   <string name="calendar_lookahead_1wk">1 sav.</string>
   <string name="calendar_lookahead_2wks">2 sav.</string>
   <string name="calendar_lookahead_4wks">4 sav.</string>
+  <!-- Calendar - Event metadata -->
   <string name="calendar_metadata_none">Nerodyti</string>
   <string name="calendar_metadata_first_line">Rodyti pirmąją eilutę</string>
   <string name="calendar_metadata_all">Rodyti viską</string>
+  <!-- Font colors -->
   <string name="white">Balta</string>
   <string name="grey">Pilka</string>
   <string name="black">Juoda</string>
@@ -170,6 +198,7 @@
   <string name="holo_orange_light">Šviesi oranžinė</string>
   <string name="holo_orange_dark">Tamsi oranžinė</string>
   <string name="holo_blue_bright">Šviesiai mėlyna</string>
+  <!-- Weather icon sets -->
   <string name="weather_icon_set_title">Piktogramų rinkinys</string>
   <string name="weather_icons_standard">Spalvotas</string>
   <string name="weather_icons_monochrome">Monochromas</string>
