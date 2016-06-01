@@ -127,7 +127,7 @@
   <string name="clock_am_pm_title">Покажи индикатора AM/PM</string>
   <!-- Preferences - Weather -->
   <string name="weather_enabled">Разрешено</string>
-  <string name="weather_enable">Покажи на времето</string>
+  <string name="weather_enable">Показване на времето</string>
   <string name="weather_source_title">Източник за проверка на времето</string>
   <string name="weather_use_custom_location">Местоположение по избор</string>
   <string name="weather_geolocated">Геолокализация по мрежата</string>
