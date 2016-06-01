@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Opdaterer</string>
   <string name="weather_last_sync_just_now">Lige nu</string>
   <string name="weather_cannot_reach_provider">Kan ikke nå %s</string>
+  <string name="weather_source_not_selected">Ingen vejrkilde valgt</string>
+  <string name="weather_tap_to_select_source">Tryk for at vælge en</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Manuel</string>
   <string name="weather_refresh_30min">30 minutter</string>
