@@ -18,7 +18,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/forecast_day"
@@ -33,16 +34,13 @@
 
     <ImageView
         android:id="@+id/weather_image"
-        android:maxWidth="@dimen/forecast_icon_size"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_width="@dimen/forecast_icon_size"
+        android:layout_height="@dimen/forecast_icon_size"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
-        android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:src="@android:drawable/ic_dialog_alert"/>
+        android:padding="2dp"
+        android:scaleType="centerInside"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/weather_temps"
