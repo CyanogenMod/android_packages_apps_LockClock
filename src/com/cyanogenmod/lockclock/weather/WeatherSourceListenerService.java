@@ -32,6 +32,7 @@ public class WeatherSourceListenerService extends Service
     private static final String TAG = WeatherSourceListenerService.class.getSimpleName();
     private static final boolean D = Constants.DEBUG;
     private Context mContext;
+    private volatile boolean mRegistered;
 
     @Override
     public void onWeatherServiceProviderChanged(String providerLabel) {
@@ -65,15 +66,17 @@ public class WeatherSourceListenerService extends Service
         final CMWeatherManager weatherManager
                 = CMWeatherManager.getInstance(mContext);
         weatherManager.registerWeatherServiceProviderChangeListener(this);
+        mRegistered = true;
         if (D) Log.d(TAG, "Listener registered");
         return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        final CMWeatherManager weatherManager = CMWeatherManager.getInstance(mContext);
-        weatherManager.unregisterWeatherServiceProviderChangeListener(this);
-        if (D) Log.d(TAG, "Listener unregistered");
+        if (mRegistered) {
+            final CMWeatherManager weatherManager = CMWeatherManager.getInstance(mContext);
+            weatherManager.unregisterWeatherServiceProviderChangeListener(this);
+        }
     }
 
     @Override
