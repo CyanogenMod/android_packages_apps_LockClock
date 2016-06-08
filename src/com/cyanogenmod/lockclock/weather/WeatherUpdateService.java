@@ -303,7 +303,8 @@ public class WeatherUpdateService extends Service {
                         if (D) Log.d(TAG, "Returning cached weather data [ "
                                 + cachedInfo.toString()+ " ]");
                     } else {
-                        mHandler.obtainMessage(MSG_WEATHER_REQUEST_FAILED).sendToTarget();
+                        mHandler.obtainMessage(MSG_WEATHER_REQUEST_FAILED,
+                                CMWeatherManager.RequestStatus.FAILED, 0).sendToTarget();
                     }
                 }
             }
