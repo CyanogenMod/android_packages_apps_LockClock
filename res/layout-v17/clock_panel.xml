@@ -100,9 +100,11 @@
             android:layout_gravity="center_horizontal|top" />
 
         <!-- AM/PM -->
-         <TextView
+         <TextClock
             android:id="@+id/clock_ampm"
             style="@style/label_thin"
+            android:format12Hour="@string/widget_12_hours_format_ampm"
+            android:format24Hour="@null"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
