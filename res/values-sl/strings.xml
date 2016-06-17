@@ -19,7 +19,7 @@
   <!-- General strings -->
   <string name="unknown">Neznano</string>
   <string name="cancel">Prekliči</string>
-  <string name="loading_indicator">Nalaganje gradnika \u2026</string>
+  <string name="loading_indicator">Nalaganje pripomočka \u2026</string>
   <string name="menu_done">Končano</string>
   <!-- Formating strings for widget clock -->
   <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
@@ -146,7 +146,7 @@
   <string name="weather_alternate_icons_title">Uporabi obarvane ikone</string>
   <string name="weather_alternate_icons_summary">Izberite, da preklopite med privzeto barvo in nadomestnimi belimi ikonami</string>
   <string name="weather_show_when_minimized_title">Prikaži, ko je skrčeno</string>
-  <string name="weather_show_when_minimized_summary">Prikaži povzetek o vremenu, ko je gradnik skrčen</string>
+  <string name="weather_show_when_minimized_summary">Prikaži povzetek o vremenu, ko je pripomoček skrčen</string>
   <string name="weather_select_location">Izberite lokacijo</string>
   <!-- Preferences - Calendar -->
   <string name="calendar_title">Prikaži naslednji dogodek</string>
