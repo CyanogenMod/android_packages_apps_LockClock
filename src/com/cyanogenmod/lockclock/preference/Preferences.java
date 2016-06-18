@@ -25,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.cyanogenmod.lockclock.R;
+import com.cyanogenmod.lockclock.weather.Utils;
 
 import java.util.List;
 
@@ -36,6 +37,15 @@ public class Preferences extends PreferenceActivity {
     @Override
     public void onBuildHeaders(List<Header> target) {
         loadHeadersFromResource(R.xml.preferences_headers, target);
+
+        if (!Utils.isWeatherServiceAvailable(this)) {
+            for (Header header : target) {
+                if (header.titleRes == R.string.weather_category) {
+                    target.remove(header);
+                    break;
+                }
+            }
+        }
 
         // Check if triggered from adding a new widget
         Intent intent = getIntent();
