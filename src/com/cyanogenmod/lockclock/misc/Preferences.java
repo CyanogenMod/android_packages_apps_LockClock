@@ -19,6 +19,7 @@ package com.cyanogenmod.lockclock.misc;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import com.cyanogenmod.lockclock.weather.Utils;
 import cyanogenmod.weather.WeatherInfo;
 import cyanogenmod.weather.WeatherLocation;
 import org.json.JSONArray;
@@ -72,7 +73,8 @@ public class Preferences {
     }
 
     public static boolean showWeather(Context context) {
-        return getPrefs(context).getBoolean(Constants.SHOW_WEATHER, true);
+        return getPrefs(context).getBoolean(Constants.SHOW_WEATHER, true)
+                && Utils.isWeatherServiceAvailable(context);
     }
 
     public static boolean showCalendar(Context context) {

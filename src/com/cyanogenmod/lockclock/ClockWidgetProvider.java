@@ -27,6 +27,7 @@ import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.ForecastActivity;
+import com.cyanogenmod.lockclock.weather.Utils;
 import com.cyanogenmod.lockclock.weather.WeatherSourceListenerService;
 import com.cyanogenmod.lockclock.weather.WeatherUpdateService;
 
@@ -49,7 +50,8 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         if (D) Log.v(TAG, "Received intent " + intent);
 
         // Network connection has changed, make sure the weather update service knows about it
-        if (ConnectivityManager.CONNECTIVITY_ACTION.equals(action)) {
+        if (ConnectivityManager.CONNECTIVITY_ACTION.equals(action)
+                && Utils.isWeatherServiceAvailable(context)) {
             boolean hasConnection =
                     !intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false);
 
@@ -123,8 +125,10 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
-        context.startService(new Intent(context, WeatherSourceListenerService.class));
-        WeatherUpdateService.scheduleNextUpdate(context, true);
+        if (Utils.isWeatherServiceAvailable(context)) {
+            context.startService(new Intent(context, WeatherSourceListenerService.class));
+            WeatherUpdateService.scheduleNextUpdate(context, true);
+        }
 
         // Start the broadcast receiver (API 16 devices)
         // This will schedule a repeating alarm every minute to handle the clock refresh
@@ -138,9 +142,11 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         if (D) Log.d(TAG, "Cleaning up: Clearing all pending alarms");
-        context.stopService(new Intent(context, WeatherSourceListenerService.class));
-        ClockWidgetService.cancelUpdates(context);
-        WeatherUpdateService.cancelUpdates(context);
+        if (Utils.isWeatherServiceAvailable(context)) {
+            context.stopService(new Intent(context, WeatherSourceListenerService.class));
+            ClockWidgetService.cancelUpdates(context);
+            WeatherUpdateService.cancelUpdates(context);
+        }
 
         // Stop the clock update event (API 16 devices)
         if (!WidgetUtils.isTextClockAvailable()) {
