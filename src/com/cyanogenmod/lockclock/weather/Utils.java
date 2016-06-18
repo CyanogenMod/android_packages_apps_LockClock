@@ -19,6 +19,7 @@ package com.cyanogenmod.lockclock.weather;
 import android.content.Context;
 import android.content.res.Resources;
 import com.cyanogenmod.lockclock.R;
+import cyanogenmod.app.CMContextConstants;
 import cyanogenmod.providers.WeatherContract;
 
 import static cyanogenmod.providers.WeatherContract.WeatherColumns.WeatherCode.NOT_AVAILABLE;
@@ -41,6 +42,9 @@ public final class Utils {
     private static final double DIRECTION_SOUTH_WEST = 248d;
     private static final double DIRECTION_WEST = 293d;
     private static final double DIRECTION_NORTH_WEST = 338d;
+
+    private static boolean weatherServiceFeatureCached;
+    private static boolean weatherServiceAvailable;
 
     /**
      * Returns a localized string of the wind direction
@@ -177,5 +181,19 @@ public final class Utils {
         } else {
             return NOT_AVAILABLE;
         }
+    }
+
+    /**
+     * Checks if the CM Weather service is available in this device
+     * @param context
+     * @return true if service is available, false otherwise
+     */
+    public static boolean isWeatherServiceAvailable(Context context) {
+        if (!weatherServiceFeatureCached) {
+            weatherServiceAvailable = context.getPackageManager()
+                    .hasSystemFeature(CMContextConstants.CM_WEATHER_SERVICE);
+            weatherServiceFeatureCached = true;
+        }
+        return weatherServiceAvailable;
     }
 }
