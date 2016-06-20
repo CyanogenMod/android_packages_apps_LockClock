@@ -135,7 +135,7 @@
   <string name="weather_custom_location_title">Месцазнаходжанне</string>
   <string name="weather_show_location_title">Паказваць месцазнаходжанне</string>
   <string name="weather_show_timestamp_title">Паказваць час</string>
-  <string name="weather_refresh_interval">Часціня абновы</string>
+  <string name="weather_refresh_interval">Абнаўляць кожныя</string>
   <string name="weather_use_metric">Метрычная сістэма</string>
   <string name="weather_retrieve_location_dialog_title">Не атрымоўваецца атрымаць месцазнаходжанне!</string>
   <string name="weather_retrieve_location_dialog_message">Вызначэнне месцазнаходжання па сетцы вымкнута.\n\nУключыце вызначэнне месцазнаходжання па сетцы ці ўвядзіце месцазнаходжанне ручна</string>
@@ -144,7 +144,7 @@
   <string name="weather_progress_title">Праверка месцазнаходжання</string>
   <string name="weather_alternate_icons_title">Колеравыя абразкі</string>
   <string name="weather_alternate_icons_summary">Выбар паміж абразкамі па змаўчанні (колеравыя) ці альтэрнатыўнымі (белыя)</string>
-  <string name="weather_show_when_minimized_title">Паказваць заўсёды\"</string>
+  <string name="weather_show_when_minimized_title">Паказваць заўсёды</string>
   <string name="weather_show_when_minimized_summary">Адлюстроўваць надвор\'е, калі віджэт у згорнутым стане</string>
   <string name="weather_select_location">Выберыце месцазнаходжанне</string>
   <!-- Preferences - Calendar -->
