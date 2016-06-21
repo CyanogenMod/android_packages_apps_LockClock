@@ -191,7 +191,7 @@ public final class Utils {
     public static boolean isWeatherServiceAvailable(Context context) {
         if (!weatherServiceFeatureCached) {
             weatherServiceAvailable = context.getPackageManager()
-                    .hasSystemFeature(CMContextConstants.CM_WEATHER_SERVICE);
+                    .hasSystemFeature(CMContextConstants.Features.WEATHER_SERVICES);
             weatherServiceFeatureCached = true;
         }
         return weatherServiceAvailable;
