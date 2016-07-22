@@ -126,7 +126,7 @@
   <!-- Preferences - Weather -->
   <string name="weather_enabled">有効</string>
   <string name="weather_enable">天気を表示</string>
-  <string name="weather_source_title">天気のソース</string>
+  <string name="weather_source_title">天気の情報提供元</string>
   <string name="weather_use_custom_location">カスタムの場所を使用</string>
   <string name="weather_geolocated">ネットワークを使用して現在地を取得する</string>
   <string name="weather_custom_location_dialog_title">場所を入力</string>
