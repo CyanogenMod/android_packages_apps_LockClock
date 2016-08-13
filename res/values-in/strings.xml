@@ -168,7 +168,7 @@
   <string name="font_color">Warna fon</string>
   <string name="font_color_alarm">Warna fon alarm</string>
   <string name="font_color_timestamp">Warna fon stempel waktu</string>
-  <string name="font_color_calendar_details">Detail warna fon</string>
+  <string name="font_color_calendar_details">Warna fon detail</string>
   <!-- Preferences - Background color -->
   <string name="background_color">Warna latar belakang</string>
   <string name="background_transparency">Transparansi latar belakang</string>
