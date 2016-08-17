@@ -36,6 +36,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import com.cyanogenmod.lockclock.ClockWidgetProvider;
+import com.cyanogenmod.lockclock.ClockWidgetService;
 import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.Preferences;
@@ -214,10 +215,8 @@ public class WeatherPreferences extends PreferenceFragment implements
         }
 
         if (Preferences.showWeather(mContext) && (needWeatherUpdate || forceWeatherUpdate)) {
-            Intent updateIntent = new Intent(mContext, WeatherUpdateService.class);
-            if (forceWeatherUpdate) {
-                updateIntent.setAction(WeatherUpdateService.ACTION_FORCE_UPDATE);
-            }
+            Intent updateIntent = new Intent(mContext, ClockWidgetService.class);
+            updateIntent.setAction(WeatherUpdateService.ACTION_FORCE_UPDATE);
             mContext.startService(updateIntent);
         }
 

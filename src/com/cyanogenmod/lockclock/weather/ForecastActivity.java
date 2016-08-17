@@ -22,6 +22,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,9 +34,12 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.Toast;
+import com.cyanogenmod.lockclock.ClockWidgetService;
 import com.cyanogenmod.lockclock.R;
 import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
+import cyanogenmod.weather.CMWeatherManager;
 import cyanogenmod.weather.WeatherInfo;
 
 public class ForecastActivity extends Activity implements OnClickListener {
@@ -49,6 +54,21 @@ public class ForecastActivity extends Activity implements OnClickListener {
 
             if (!intent.getBooleanExtra(WeatherUpdateService.EXTRA_UPDATE_CANCELLED, false)) {
                 updateForecastPanel();
+            } else {
+                int failReason = intent.getIntExtra(
+                        WeatherUpdateService.EXTRA_UPDATE_FAIL_REASON,
+                                CMWeatherManager.RequestStatus.FAILED);
+                if (failReason != CMWeatherManager.RequestStatus.ALREADY_IN_PROGRESS
+                        && failReason != CMWeatherManager.RequestStatus.SUBMITTED_TOO_SOON) {
+                    final CMWeatherManager weatherManager
+                            = CMWeatherManager.getInstance(context);
+                    final String activeProviderLabel
+                            = weatherManager.getActiveWeatherServiceProviderLabel();
+                    final String noData
+                            = getString(R.string.weather_cannot_reach_provider,
+                            activeProviderLabel);
+                    Toast.makeText(context, noData, Toast.LENGTH_SHORT).show();
+                }
             }
         }
     };
@@ -67,7 +87,8 @@ public class ForecastActivity extends Activity implements OnClickListener {
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
-        registerReceiver(mUpdateReceiver, new IntentFilter(WeatherUpdateService.ACTION_UPDATE_FINISHED));
+        registerReceiver(mUpdateReceiver,
+                new IntentFilter(WeatherUpdateService.ACTION_UPDATE_FINISHED));
         updateForecastPanel();
     }
 
@@ -106,6 +127,17 @@ public class ForecastActivity extends Activity implements OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() != R.id.button) {
+
+            ConnectivityManager cm
+                    = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo info = cm.getActiveNetworkInfo();
+
+            if (info == null || !info.isConnected()) {
+                Toast.makeText(this, R.string.weather_network_not_available, Toast.LENGTH_LONG)
+                        .show();
+                return;
+            }
+
             // Setup anim with desired properties and start the animation
             ImageView view = (ImageView) findViewById(R.id.weather_refresh);
             RotateAnimation anim = new RotateAnimation(0.0f, 360.0f,
@@ -116,8 +148,8 @@ public class ForecastActivity extends Activity implements OnClickListener {
             anim.setDuration(700);
             view.startAnimation(anim); 
 
-            Intent i = new Intent(this, WeatherUpdateService.class);
-            i.setAction(WeatherUpdateService.ACTION_FORCE_UPDATE);
+            Intent i = new Intent(this, ClockWidgetService.class)
+                    .setAction(WeatherUpdateService.ACTION_FORCE_UPDATE);
             startService(i);
         } else {
             finish();
