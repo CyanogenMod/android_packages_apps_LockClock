@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+import com.cyanogenmod.lockclock.ClockWidgetProvider;
 import com.cyanogenmod.lockclock.ClockWidgetService;
 import com.cyanogenmod.lockclock.misc.Constants;
 import com.cyanogenmod.lockclock.misc.Preferences;
@@ -46,13 +47,12 @@ public class WeatherSourceListenerService extends Service
         Preferences.setCustomWeatherLocation(mContext, null);
         Preferences.setUseCustomWeatherLocation(mContext, false);
 
-        //Refresh the widget
-        mContext.startService(new Intent(mContext, ClockWidgetService.class)
-                .setAction(ClockWidgetService.ACTION_REFRESH));
+        mContext.startService(new Intent(mContext,
+                ClockWidgetService.class).setAction(ClockWidgetService.ACTION_REFRESH));
 
         if (providerLabel != null) {
-            mContext.startService(new Intent(mContext, WeatherUpdateService.class)
-                    .putExtra(WeatherUpdateService.ACTION_FORCE_UPDATE, true));
+            mContext.startService(new Intent(mContext, ClockWidgetService.class)
+                    .setAction(WeatherUpdateService.ACTION_FORCE_UPDATE));
         }
     }
 

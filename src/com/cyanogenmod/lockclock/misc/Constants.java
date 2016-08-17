@@ -19,7 +19,7 @@ package com.cyanogenmod.lockclock.misc;
 import android.text.format.DateUtils;
 
 public class Constants {
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
 
     public static final String PREF_NAME = "LockClock";
 

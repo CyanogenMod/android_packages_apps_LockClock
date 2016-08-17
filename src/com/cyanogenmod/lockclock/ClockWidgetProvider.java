@@ -16,15 +16,13 @@
 
 package com.cyanogenmod.lockclock;
 
+import android.app.job.JobScheduler;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.util.Log;
-
 import com.cyanogenmod.lockclock.misc.Constants;
-import com.cyanogenmod.lockclock.misc.Preferences;
 import com.cyanogenmod.lockclock.misc.WidgetUtils;
 import com.cyanogenmod.lockclock.weather.ForecastActivity;
 import com.cyanogenmod.lockclock.weather.Utils;
@@ -49,28 +47,8 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         String action = intent.getAction();
         if (D) Log.v(TAG, "Received intent " + intent);
 
-        // Network connection has changed, make sure the weather update service knows about it
-        if (ConnectivityManager.CONNECTIVITY_ACTION.equals(action)
-                && Utils.isWeatherServiceAvailable(context)) {
-            boolean hasConnection =
-                    !intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false);
-
-            if (D) Log.d(TAG, "Got connectivity change, has connection: " + hasConnection);
-
-            Intent i = new Intent(context, WeatherUpdateService.class);
-            if (hasConnection) {
-                context.startService(i);
-            } else {
-                context.stopService(i);
-            }
-
-        // Boot completed, schedule next weather update
-        } else if (Intent.ACTION_BOOT_COMPLETED.equals(action)) {
-            //Since we're using elapsed time since boot, we can't use the timestamp from the
-            //previous boot so we need to reset the timer
-            Preferences.setLastWeatherUpadteTimestamp(context, 0);
         // A widget has been deleted, prevent our handling and ask the super class handle it
-        } else if (AppWidgetManager.ACTION_APPWIDGET_DELETED.equals(action)
+        if (AppWidgetManager.ACTION_APPWIDGET_DELETED.equals(action)
                 || AppWidgetManager.ACTION_APPWIDGET_DISABLED.equals(action)) {
             super.onReceive(context, intent);
 
@@ -126,8 +104,11 @@ public class ClockWidgetProvider extends AppWidgetProvider {
     public void onEnabled(Context context) {
         if (D) Log.d(TAG, "Scheduling next weather update");
         if (Utils.isWeatherServiceAvailable(context)) {
+
             context.startService(new Intent(context, WeatherSourceListenerService.class));
-            WeatherUpdateService.scheduleNextUpdate(context, true);
+
+            context.startService(new Intent(context, ClockWidgetService.class)
+                    .setAction(WeatherUpdateService.ACTION_FORCE_UPDATE));
         }
 
         // Start the broadcast receiver (API 16 devices)
@@ -145,7 +126,8 @@ public class ClockWidgetProvider extends AppWidgetProvider {
         if (Utils.isWeatherServiceAvailable(context)) {
             context.stopService(new Intent(context, WeatherSourceListenerService.class));
             ClockWidgetService.cancelUpdates(context);
-            WeatherUpdateService.cancelUpdates(context);
+            context.startService(new Intent(context, ClockWidgetService.class)
+                    .setAction(ClockWidgetService.ACTION_STOP_WEATHER_UPDATES));
         }
 
         // Stop the clock update event (API 16 devices)
