@@ -229,17 +229,4 @@ public class WidgetUtils {
     public static boolean isTranslucencyAvailable() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
     }
-
-    /**
-     *  Networking available check
-     */
-    public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info = cm.getActiveNetworkInfo();
-        if (info == null || !info.isConnected() || !info.isAvailable()) {
-            if (D) Log.d(TAG, "No network connection is available for weather update");
-            return false;
-        }
-        return true;
-    }
 }

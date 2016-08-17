@@ -19,6 +19,8 @@ package com.cyanogenmod.lockclock;
 import android.app.AlarmManager;
 import android.app.IntentService;
 import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProviderInfo;
 import android.content.ComponentName;
@@ -58,6 +60,10 @@ public class ClockWidgetService extends IntentService {
     public static final String ACTION_REFRESH_CALENDAR = "com.cyanogenmod.lockclock.action.REFRESH_CALENDAR";
     public static final String ACTION_HIDE_CALENDAR = "com.cyanogenmod.lockclock.action.HIDE_CALENDAR";
 
+    public static final String ACTION_STOP_WEATHER_UPDATES
+            = "com.cyanogenmod.lockclock.action.STOP_WEATHER_UPDATES";
+    private static final int WEATHER_UPDATE_JOB_ID = 0x6c756973;
+
     // This needs to be static to persist between refreshes until explicitly changed by an intent
     private static boolean mHideCalendar = false;
 
@@ -84,8 +90,10 @@ public class ClockWidgetService extends IntentService {
         if (D) Log.d(TAG, "Got intent " + intent);
 
         if (mWidgetIds != null && mWidgetIds.length != 0) {
+            boolean refreshWidget = true;
             // Check passed in intents
             if (intent != null) {
+
                 if (ACTION_HIDE_CALENDAR.equals(intent.getAction())) {
                     if (D) Log.v(TAG, "Force hiding the calendar panel");
                     // Explicitly hide the panel since we received a broadcast indicating no events
@@ -96,9 +104,28 @@ public class ClockWidgetService extends IntentService {
                     // If there are no events, a broadcast to the service will hide the panel
                     mHideCalendar = false;
                     mAppWidgetManager.notifyAppWidgetViewDataChanged(mWidgetIds, R.id.calendar_list);
+                } else if (WeatherUpdateService.ACTION_FORCE_UPDATE.equals(intent.getAction())) {
+                    refreshWidget = false;
+                    JobScheduler jobSchedulerService = (JobScheduler)
+                            getSystemService(Context.JOB_SCHEDULER_SERVICE);
+                    final long interval = Preferences.weatherRefreshIntervalInMs(this);
+                    final ComponentName comp = new ComponentName(getPackageName(),
+                            WeatherUpdateService.class.getName());
+                    JobInfo jobInfo = new JobInfo.Builder(WEATHER_UPDATE_JOB_ID, comp)
+                            .setPeriodic(interval)
+                            .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                            .setBackoffCriteria(1000L * 30L, JobInfo.BACKOFF_POLICY_EXPONENTIAL)
+                            .build();
+                    jobSchedulerService.schedule(jobInfo);
+                } else if (ACTION_STOP_WEATHER_UPDATES.equals(intent.getAction())) {
+                    refreshWidget = false;
+                    JobScheduler jobSchedulerService = (JobScheduler)
+                            getSystemService(Context.JOB_SCHEDULER_SERVICE);
+                    jobSchedulerService.cancel(WEATHER_UPDATE_JOB_ID);
                 }
-            }
-            refreshWidget();
+
+             }
+            if (refreshWidget) refreshWidget();
         }
     }
 
@@ -554,7 +581,7 @@ public class ClockWidgetService extends IntentService {
             if (activeProviderLabel != null) {
                 setWeatherClickListener(weatherViews, true);
             } else {
-                setWeatherClickListener(weatherViews);
+                setPickWeatherProviderClickListener(weatherViews);
             }
         }
     }
@@ -563,7 +590,9 @@ public class ClockWidgetService extends IntentService {
         // Register an onClickListener on the Weather panel, default action is show forecast
         PendingIntent pi = null;
         if (forceRefresh) {
-            pi = WeatherUpdateService.getUpdateIntent(this, true);
+            Intent i = new Intent(this, ClockWidgetService.class);
+            i.setAction(WeatherUpdateService.ACTION_FORCE_UPDATE);
+            pi = PendingIntent.getBroadcast(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
         }
 
         if (pi == null) {
@@ -574,7 +603,7 @@ public class ClockWidgetService extends IntentService {
         weatherViews.setOnClickPendingIntent(R.id.weather_panel, pi);
     }
 
-    private void setWeatherClickListener(RemoteViews weatherViews) {
+    private void setPickWeatherProviderClickListener(RemoteViews weatherViews) {
         PendingIntent pi = PendingIntent.getActivity(mContext, 0,
                 new Intent("cyanogenmod.intent.action.MANAGE_WEATHER_PROVIDER_SERVICES"),
                         PendingIntent.FLAG_UPDATE_CURRENT);
