@@ -130,7 +130,7 @@
   <string name="weather_use_custom_location">Uzi propran lokon</string>
   <string name="weather_geolocated">Uzi geolokigilon</string>
   <string name="weather_custom_location_dialog_title">Entajpu lokon</string>
-  <string name="weather_custom_location_hint">Urbo, Ŝtato/Lando</string>
+  <string name="weather_custom_location_hint">Urbo, ŝtato/lando</string>
   <string name="weather_custom_location_title">Lokigo</string>
   <string name="weather_show_location_title">Montri lokon</string>
   <string name="weather_show_timestamp_title">Montri tempindikon</string>
