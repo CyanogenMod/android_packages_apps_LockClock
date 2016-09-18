@@ -151,6 +151,7 @@
   <string name="calendar_title">Amosar a vindeira cita</string>
   <string name="calendars_title">Calendarios de citas</string>
   <string name="calendars_summary">Atopar citas destes calendarios</string>
+  <string name="calendars_none_found_summary">Non encontraronse calendarios</string>
   <string name="calendar_reminders_only_title">Só recordatorios</string>
   <string name="calendar_reminders_only_summary">Amosar só citas con recordatorios</string>
   <string name="calendar_hide_allday_title">Agochar as citas de días completos</string>
