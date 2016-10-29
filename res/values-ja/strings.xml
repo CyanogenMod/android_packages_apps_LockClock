@@ -100,6 +100,8 @@
   <string name="weather_refreshing">更新中</string>
   <string name="weather_last_sync_just_now">たった今</string>
   <string name="weather_cannot_reach_provider">現在%sに接続できません</string>
+  <string name="weather_source_not_selected">天気の情報提供元が選択されていません</string>
+  <string name="weather_tap_to_select_source">タップして選択する</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">手動</string>
   <string name="weather_refresh_30min">30分</string>
