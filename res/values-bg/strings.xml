@@ -73,7 +73,7 @@
   <string name="weather_37">Изолирани гръмотевични бури</string>
   <string name="weather_38">Възможни са гръмотевични бури</string>
   <string name="weather_39">Възможни са гръмотевични бури</string>
-  <string name="weather_40">Разкъсана обрачност</string>
+  <string name="weather_40">Възможни са валежи</string>
   <string name="weather_41">Силен снеговалеж</string>
   <string name="weather_42">Възможни са превалявания от сняг</string>
   <string name="weather_43">Силен снеговалеж</string>
@@ -100,7 +100,7 @@
   <string name="weather_refreshing">Обновяване</string>
   <string name="weather_last_sync_just_now">Точно сега</string>
   <string name="weather_cannot_reach_provider">Не може да достигнете до %s в този момент</string>
-  <string name="weather_source_not_selected">Няма избран източник на време</string>
+  <string name="weather_source_not_selected">Няма избран източник на синоптични данни</string>
   <string name="weather_tap_to_select_source">Натиснете, за да изберете</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ръчно</string>
