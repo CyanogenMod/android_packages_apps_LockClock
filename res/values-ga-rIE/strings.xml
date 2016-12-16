@@ -17,8 +17,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General strings -->
-  <string name="unknown">Nekonata</string>
-  <string name="cancel">Nuligi</string>
   <!-- Formating strings for widget clock -->
   <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
          android.text.format.DateFormat uses k for hours in the 0-23 range.
@@ -36,30 +34,14 @@
   <!-- Weather - Wind directions -->
   <!-- Weather - Error messages -->
   <!-- Weather - Update frequency -->
-  <string name="weather_refresh_30min">30 minutoj</string>
-  <string name="weather_refresh_60min">60 minutoj</string>
-  <string name="weather_refresh_2hrs">2 horoj</string>
-  <string name="weather_refresh_4hrs">4 horoj</string>
-  <string name="weather_refresh_6hrs">6 horoj</string>
-  <string name="weather_refresh_8hrs">8 horoj</string>
   <!-- Preferences - Categories -->
   <!-- Preferences - Categories -->
   <!-- Preferences - Clock -->
   <!-- Preferences - Weather -->
-  <string name="weather_custom_location_title">Loko</string>
   <!-- Preferences - Calendar -->
   <!-- Preferences - Font colors -->
   <!-- Preferences - Background color -->
   <!-- Calendar - Lookahead -->
-  <string name="calendar_lookahead_3hrs">3 horoj</string>
-  <string name="calendar_lookahead_6hrs">6 horoj</string>
-  <string name="calendar_lookahead_12hrs">12 horoj</string>
-  <string name="calendar_lookahead_today">Hodiaŭ</string>
-  <string name="calendar_lookahead_1day">1 tago</string>
-  <string name="calendar_lookahead_3days">3 tagoj</string>
-  <string name="calendar_lookahead_1wk">1 semajno</string>
-  <string name="calendar_lookahead_2wks">2 semajnoj</string>
-  <string name="calendar_lookahead_4wks">4 semajnoj</string>
   <!-- Calendar - Event metadata -->
   <!-- Font colors -->
   <!-- Weather icon sets -->
