@@ -100,6 +100,8 @@
   <string name="weather_refreshing">Obnovuje sa</string>
   <string name="weather_last_sync_just_now">Práve teraz</string>
   <string name="weather_cannot_reach_provider">Nemožno získať dáta z %s</string>
+  <string name="weather_source_not_selected">Nie je vybraný žiadny zdroj počasia</string>
+  <string name="weather_tap_to_select_source">Vyberte kliknutím</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">Ručne</string>
   <string name="weather_refresh_30min">30 minút</string>
@@ -150,6 +152,7 @@
   <string name="calendar_title">Zobraziť nasledujúcu udalosť</string>
   <string name="calendars_title">Kalendár s udalosťami</string>
   <string name="calendars_summary">Nájsť udalosti z týchto kalendárov</string>
+  <string name="calendars_none_found_summary">Nenašli sa žiadne kalendáre</string>
   <string name="calendar_reminders_only_title">Iba pripomienky</string>
   <string name="calendar_reminders_only_summary">Zobrazí iba udalosti s pripomienkami</string>
   <string name="calendar_hide_allday_title">Skryť celodenné udalosti</string>
