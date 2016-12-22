@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General strings -->
-  <string name="unknown">不明</string>
+  <string name="unknown">未知</string>
   <string name="cancel">取消</string>
   <string name="loading_indicator">正在載入小工具\u2026</string>
   <string name="menu_done">完成</string>
@@ -96,10 +96,12 @@
   <string name="weather_NW">西北</string>
   <!-- Weather - Error messages -->
   <string name="weather_no_data">無資料</string>
-  <string name="weather_tap_to_refresh">輕觸以重新整理</string>
+  <string name="weather_tap_to_refresh">輕觸即可重新整理</string>
   <string name="weather_refreshing">重新整理中</string>
   <string name="weather_last_sync_just_now">剛剛</string>
   <string name="weather_cannot_reach_provider">目前無法連線至 %s</string>
+  <string name="weather_source_not_selected">找不到天氣提供者</string>
+  <string name="weather_tap_to_select_source">輕觸即可選擇</string>
   <!-- Weather - Update frequency -->
   <string name="weather_refresh_manual">手動</string>
   <string name="weather_refresh_30min">30 分鐘</string>
@@ -111,7 +113,7 @@
   <!-- Preferences - Categories -->
   <string name="clock_category">時鐘與鬧鐘</string>
   <string name="weather_category">天氣面板</string>
-  <string name="calendar_category">日曆活動</string>
+  <string name="calendar_category">日曆事件</string>
   <!-- Preferences - Categories -->
   <string name="general_category">一般</string>
   <string name="display_category">顯示</string>
@@ -142,7 +144,7 @@
   <string name="weather_invert_lowhigh">交換高/低溫度</string>
   <string name="weather_progress_title">正在確認位置</string>
   <string name="weather_alternate_icons_title">使用彩色圖示</string>
-  <string name="weather_alternate_icons_summary">選取以在預設 (彩色) 與替代 (白色) 的圖示之間切換</string>
+  <string name="weather_alternate_icons_summary">選取即可在預設 (彩色) 與替代 (白色) 的圖示之間切換</string>
   <string name="weather_show_when_minimized_title">最小化時顯示</string>
   <string name="weather_show_when_minimized_summary">小工具最小化時顯示天氣資訊摘要</string>
   <string name="weather_select_location">選取位置</string>
@@ -150,16 +152,17 @@
   <string name="calendar_title">顯示下一個活動</string>
   <string name="calendars_title">活動日曆</string>
   <string name="calendars_summary">從這些日曆中尋找活動</string>
+  <string name="calendars_none_found_summary">找不到日曆</string>
   <string name="calendar_reminders_only_title">只顯示提醒</string>
   <string name="calendar_reminders_only_summary">只顯示有提醒的活動</string>
   <string name="calendar_hide_allday_title">隱藏全天活動</string>
   <string name="calendar_icon_title">日曆圖示</string>
   <string name="calendar_lookahead_title">活動尋找範圍</string>
   <string name="calendar_show_location_title">活動地點</string>
-  <string name="calendar_show_description_title">活動說明</string>
-  <string name="calendar_upcoming_events_category">即將開始的活動</string>
-  <string name="calendar_highlight_upcoming_events_title">強調顯示活動</string>
-  <string name="calendar_highlight_upcoming_events_summary">強調顯示今日活動、晚上 8 點之後的活動以及隔天的活動</string>
+  <string name="calendar_show_description_title">事件說明</string>
+  <string name="calendar_upcoming_events_category">即將開始的事件</string>
+  <string name="calendar_highlight_upcoming_events_title">強調顯示事件</string>
+  <string name="calendar_highlight_upcoming_events_summary">強調顯示今日事件、晚上 8 點之後的活動以及隔天的事件</string>
   <string name="calendar_highlight_upcoming_events_bold">粗體</string>
   <!-- Preferences - Font colors -->
   <string name="font_color">字體顏色</string>
@@ -167,6 +170,8 @@
   <string name="font_color_timestamp">更新時間字體顏色</string>
   <string name="font_color_calendar_details">詳細資料字體顏色</string>
   <!-- Preferences - Background color -->
+  <string name="background_color">背景顏色</string>
+  <string name="background_transparency">背景透明度</string>
   <!-- Calendar - Lookahead -->
   <string name="calendar_lookahead_3hrs">3 小時</string>
   <string name="calendar_lookahead_6hrs">6 小時</string>
