@@ -153,8 +153,8 @@
   <string name="calendars_title">活動日曆</string>
   <string name="calendars_summary">從這些日曆中尋找活動</string>
   <string name="calendars_none_found_summary">找不到日曆</string>
-  <string name="calendar_reminders_only_title">只顯示提醒</string>
-  <string name="calendar_reminders_only_summary">只顯示有提醒的活動</string>
+  <string name="calendar_reminders_only_title">僅顯示提醒</string>
+  <string name="calendar_reminders_only_summary">僅顯示有提醒的事件</string>
   <string name="calendar_hide_allday_title">隱藏全天活動</string>
   <string name="calendar_icon_title">日曆圖示</string>
   <string name="calendar_lookahead_title">活動尋找範圍</string>
