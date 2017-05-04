@@ -37,8 +37,8 @@
   <string name="weather_8">Паморозь</string>
   <string name="weather_9">Дрібний дощ</string>
   <string name="weather_10">Град</string>
-  <string name="weather_11">Ливень</string>
-  <string name="weather_12">Ливень</string>
+  <string name="weather_11">Злива</string>
+  <string name="weather_12">Злива</string>
   <string name="weather_13">Сніг з дощем</string>
   <string name="weather_14">Невеличкий сніг</string>
   <string name="weather_15">Поземка</string>
@@ -69,7 +69,7 @@
   <!-- Day -->
   <string name="weather_34">Ясно</string>
   <string name="weather_35">Дощ з градом</string>
-  <string name="weather_36">Жарко</string>
+  <string name="weather_36">Спека</string>
   <string name="weather_37">Місцями грози</string>
   <string name="weather_38">Можливі грози</string>
   <string name="weather_39">Можливі грози</string>
